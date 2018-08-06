@@ -2,8 +2,29 @@ import * as React from 'react';
 import '../App.css';
 import Header from "../components/Header";
 
+class App extends React.Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            user: {
+                name: '',
+                fnr: ''
+            }
+        }
+    }
 
-class App extends React.Component {
+    componentDidMount() {
+        fetch('/user')
+            .then(res => {
+                console.log(res);
+                return res.json();
+            })
+            .then(user => {
+                console.log(user);
+                this.setState({user});
+            })
+    }
+
     render() {
         return (
             <div className="App">
