@@ -1,6 +1,7 @@
 import * as React from 'react';
 import '../App.css';
 import Header from "../components/Header";
+import ContentWrapper from "../components/ContentWrapper";
 
 class App extends React.Component<any, any> {
     constructor(props: any) {
@@ -28,10 +29,8 @@ class App extends React.Component<any, any> {
     render() {
         return (
             <div className="App">
-                <Header name="Kari" />
-                <div className="content">
-                    Innhold
-                </div>
+                <Header name={this.state.user.name} />
+                <ContentWrapper />
             </div>
         );
     }
