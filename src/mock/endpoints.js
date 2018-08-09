@@ -1,6 +1,7 @@
 const fs = require('fs');
 router = require('express').Router();
 
+router.get('/personinfo', file('mock/personinfo.json'));
 router.get('/user', file('mock/bruker.json'));
 router.get('/adresse', file('mock/adresse.json'));
 

@@ -7,29 +7,31 @@ class App extends React.Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            user: {
-                name: '',
-                fnr: ''
+            bruker: {
+                navn: {
+                    fornavn: ""
+                }
             }
         }
     }
 
     componentDidMount() {
-        fetch('/user')
+        fetch('/personinfo')
             .then(res => {
                 console.log(res);
                 return res.json();
             })
-            .then(user => {
-                console.log(user);
-                this.setState({user});
+            .then(bruker => {
+                console.log(bruker);
+                this.setState({bruker});
             })
     }
 
     render() {
+
         return (
             <div className="App">
-                <Header name={this.state.user.name} />
+                <Header name={this.state.bruker.navn.fornavn} />
                 <ContentWrapper />
             </div>
         );
