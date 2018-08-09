@@ -1,5 +1,5 @@
 import * as React from 'react';
-import '../App.css';
+import '../less/App.less';
 import Header from "../components/Header";
 import ContentWrapper from "../components/ContentWrapper";
 

@@ -2,6 +2,7 @@ const fs = require('fs');
 router = require('express').Router();
 
 router.get('/user', file('mock/bruker.json'));
+router.get('/adresse', file('mock/adresse.json'));
 
 function file(filename) {
     return (request, response) => {
