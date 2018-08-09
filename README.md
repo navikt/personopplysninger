@@ -19,9 +19,6 @@ For å kjøre tester:
 
 Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/team-personbruker
 
-* Navn på Person, navn.person@nav.no
-* Eller en annen måte for omverden å kontakte teamet på
-
 ## For NAV-ansatte
 
 Interne henvendelser kan sendes via Slack i kanalen #team-personbruker.
