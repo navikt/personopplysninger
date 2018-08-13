@@ -5,13 +5,20 @@ Dette er frontend prosjekt for applikasjon som skal gi brukerne innsikt i all in
 
 # Komme i gang
 
-### Frontend
-1. `npm install`
-2. `npm start`
+For å kjøre lokalt:
+
+1.  `npm install`
+2.  `npm run start`
 
 For å kjøre tester:
 
-`npm run test`
+1.  `npm install`
+2.  `npm run test`
+
+Bygge for prod:
+
+1.  `npm install`
+2.  `npm run build`
 
 ---
 
