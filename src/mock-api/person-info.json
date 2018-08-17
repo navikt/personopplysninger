@@ -1,4 +1,5 @@
-{"adresseinfo": {
+{
+  "adresseinfo": {
     "boadresse": {
       "adresse": "string",
       "adressetillegg": "string",
@@ -57,12 +58,19 @@
       "postboksanlegg": "string",
       "postboksnummer": "string",
       "postnummer": "string"
+    },
+    "utenlandskAdresse": {
+      "adresse1": "string",
+      "adresse2": "string",
+      "adresse3": "string",
+      "datoFraOgMed": "string",
+      "kilde": "string"
     }
   },
   "barnListe": [
     {
       "datoRegistert": "string",
-      "egenansatt": "string",
+      "egenansatt": true,
       "fnr": "string",
       "kilde": "string",
       "spesreg": "string"
@@ -94,11 +102,6 @@
     "kilde": "string",
     "type": "string"
   },
-  "giro": {
-    "datoFraOgMed": "string",
-    "kilde": "string",
-    "nummer": "string"
-  },
   "ident": "string",
   "identtype": "string",
   "innvandringUtvandring": {
@@ -111,6 +114,11 @@
   },
   "kilde": "string",
   "kjonn": "string",
+  "kontonummer": {
+    "datoFraOgMed": "string",
+    "kilde": "string",
+    "nummer": "string"
+  },
   "navn": {
     "datoFraOgMed": "string",
     "forkortetNavn": "string",
@@ -127,7 +135,7 @@
   },
   "relasjon": {
     "datoFraOgMed": "string",
-    "egenansatt": "string",
+    "egenansatt": true,
     "fnr": "string",
     "kilde": "string",
     "spesreg": "string",
@@ -153,7 +161,7 @@
     "kilde": "string",
     "kode": "string"
   },
-  "statsborgerskaps": {
+  "statsborgerskap": {
     "datoFraOgMed": "string",
     "kilde": "string",
     "kode": "string"
@@ -209,9 +217,9 @@
     "bankkode": "string",
     "banknavn": "string",
     "datoFraOgMed": "string",
-    "gironummer": "string",
     "iban": "string",
     "kilde": "string",
+    "kontonummer": "string",
     "land": "string",
     "swiftkode": "string",
     "valuta": "string"
@@ -220,7 +228,7 @@
     {
       "aaksId": "string",
       "datoFraOgMed": "string",
-      "egenansatt": "string",
+      "egenansatt": true,
       "embete": "string",
       "fnr": "string",
       "id": "string",
