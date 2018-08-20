@@ -5,8 +5,7 @@ import Box from 'js/components/Box';
 class Personalia extends Component {
   render() {
     return (
-      <Box>
-        <h3>Personalia</h3>
+      <Box header="Personalia">
         <ul className="personalia-list">
           <li>
             <span className="title">Fornavn</span>
@@ -73,6 +72,9 @@ class Personalia extends Component {
             <span className="content">x</span>
           </li>
         </ul>
+        <div className="box-footer">
+          Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
+        </div>
       </Box>
     );
   }

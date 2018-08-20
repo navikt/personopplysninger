@@ -4,7 +4,7 @@ import Box from 'js/components/Box';
 class Adresse extends Component {
   render() {
     return (
-      <Box>
+      <Box header="Adresse">
         <h3>Adresse</h3>
       </Box>
     );
