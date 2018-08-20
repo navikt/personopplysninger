@@ -20,6 +20,7 @@ class ContentWrapper extends Component {
           spraak={this.props.userInfo.spraak}
           sivilstand={this.props.userInfo.sivilstand}
           kontonummer={this.props.userInfo.kontonummer}
+          spesreg={this.props.userInfo.spesreg}
         />
         <Adresse />
         <Familierelasjoner />

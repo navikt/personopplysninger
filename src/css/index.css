@@ -14,7 +14,7 @@
   align-items: center;
 }
 .BoxWithHeader {
-  width: 50%;
+  width: 50vw;
   min-height: 200px;
 }
 .Box {

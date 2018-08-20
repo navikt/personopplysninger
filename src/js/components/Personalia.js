@@ -53,7 +53,7 @@ class Personalia extends Component {
           </li>
           <li>
             <span className="title">Spesialregistrering</span>
-            <span className="content">x</span>
+            <span className="content">{this.props.spesreg.kode}</span>
           </li>
           <li>
             <span className="title">Sivilstand</span>
@@ -91,6 +91,7 @@ Personalia.propTypes = {
   spraak: PropTypes.shape.isRequired,
   sivilstand: PropTypes.shape.isRequired,
   kontonummer: PropTypes.shape.isRequired,
+  spesreg: PropTypes.shape.isRequired,
 };
 
 export default Personalia;
