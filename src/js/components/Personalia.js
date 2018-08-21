@@ -81,17 +81,64 @@ class Personalia extends Component {
 }
 
 Personalia.propTypes = {
-  navn: PropTypes.shape.isRequired,
+  navn: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    forkortetNavn: PropTypes.string,
+    fornavn: PropTypes.string,
+    kilde: PropTypes.string,
+    mellomnavn: PropTypes.string,
+    slektsnavn: PropTypes.string,
+    slektsnavnUgift: PropTypes.string,
+  }).isRequired,
   ident: PropTypes.string.isRequired,
-  statsborgerskap: PropTypes.shape.isRequired,
-  status: PropTypes.shape.isRequired,
-  telefon: PropTypes.shape.isRequired,
-  tiltak: PropTypes.shape.isRequired,
+  statsborgerskap: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    kode: PropTypes.string,
+  }).isRequired,
+  status: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    kode: PropTypes.string,
+  }).isRequired,
+  telefon: PropTypes.shape({
+    jobb: PropTypes.string,
+    jobbDatoRegistrert: PropTypes.string,
+    jobbKilde: PropTypes.string,
+    mobil: PropTypes.string,
+    mobilDatoRegistrert: PropTypes.string,
+    mobilKilde: PropTypes.string,
+    privat: PropTypes.string,
+    privatDatoRegistrert: PropTypes.string,
+    privatKilde: PropTypes.string,
+  }).isRequired,
+  tiltak: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    datoTil: PropTypes.string,
+    kilde: PropTypes.string,
+    type: PropTypes.string,
+  }).isRequired,
   kjonn: PropTypes.string.isRequired,
-  spraak: PropTypes.shape.isRequired,
-  sivilstand: PropTypes.shape.isRequired,
-  kontonummer: PropTypes.shape.isRequired,
-  spesreg: PropTypes.shape.isRequired,
+  spraak: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    kode: PropTypes.string,
+  }).isRequired,
+  sivilstand: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    kode: PropTypes.string,
+  }).isRequired,
+  kontonummer: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    nummer: PropTypes.string,
+  }).isRequired,
+  spesreg: PropTypes.shape({
+    datoFraOgMed: PropTypes.string,
+    kilde: PropTypes.string,
+    kode: PropTypes.string,
+  }).isRequired,
 };
 
 export default Personalia;
