@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
+import { FormattedMessage } from 'react-intl';
 
 class Personalia extends Component {
   render() {
@@ -8,7 +9,11 @@ class Personalia extends Component {
       <Box header="Personalia">
         <ul className="personalia-list">
           <li>
-            <span className="title">Fornavn</span>
+            <span className="title"><FormattedMessage
+              id="personalia.first_name"
+              defaultMessage="d"
+            />
+            </span>
             <span className="content">{this.props.navn.fornavn}</span>
           </li>
           <li>
