@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Personalia from 'js/components/Personalia';
+import { IntlProvider } from 'react-intl';
 const ReactTestRenderer = require('react-test-renderer');
 
 test('render Personalia with content', () => {
@@ -64,18 +65,21 @@ test('render Personalia with content', () => {
     },
   };
 
-  const component = ReactTestRenderer.create((<Personalia
-    navn={properties.navn}
-    ident={properties.ident}
-    statsborgerskap={properties.statsborgerskap}
-    status={properties.status}
-    telefon={properties.telefon}
-    tiltak={properties.tiltak}
-    kjonn={properties.kjonn}
-    spraak={properties.spraak}
-    sivilstand={properties.sivilstand}
-    kontonummer={properties.kontonummer}
-    spesreg={properties.spesreg}
-  />));
+  const component = ReactTestRenderer.create((
+    <IntlProvider locale="en">
+      <Personalia
+        navn={properties.navn}
+        ident={properties.ident}
+        statsborgerskap={properties.statsborgerskap}
+        status={properties.status}
+        telefon={properties.telefon}
+        tiltak={properties.tiltak}
+        kjonn={properties.kjonn}
+        spraak={properties.spraak}
+        sivilstand={properties.sivilstand}
+        kontonummer={properties.kontonummer}
+        spesreg={properties.spesreg}
+      />
+    </IntlProvider>));
   expect(component.toJSON()).toMatchSnapshot();
 });

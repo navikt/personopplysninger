@@ -20,7 +20,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Fornavn
+            <span>
+              Fornavn
+            </span>
           </span>
           <span
             className="content"
@@ -32,7 +34,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Etternavn
+            <span>
+              Etternavn
+            </span>
           </span>
           <span
             className="content"
@@ -44,7 +48,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Fødselsnummer
+            <span>
+              Fødselsnummer
+            </span>
           </span>
           <span
             className="content"
@@ -56,7 +62,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Utenlandsk ID
+            <span>
+              Utenlandsk ID
+            </span>
           </span>
           <span
             className="content"
@@ -68,7 +76,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Telefon
+            <span>
+              Telefon
+            </span>
           </span>
           <span
             className="content"
@@ -80,7 +90,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Kontonummer
+            <span>
+              Kontonummer
+            </span>
           </span>
           <span
             className="content"
@@ -90,7 +102,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            e-post
+            <span>
+              e-post
+            </span>
           </span>
           <span
             className="content"
@@ -102,7 +116,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Språk
+            <span>
+              Språk
+            </span>
           </span>
           <span
             className="content"
@@ -114,7 +130,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Statsborgerskap
+            <span>
+              Statsborgerskap
+            </span>
           </span>
           <span
             className="content"
@@ -126,7 +144,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Personstatus
+            <span>
+              Personstatus
+            </span>
           </span>
           <span
             className="content"
@@ -138,7 +158,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Fødested
+            <span>
+              Fødested
+            </span>
           </span>
           <span
             className="content"
@@ -150,7 +172,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Spesialregistrering
+            <span>
+              Spesialregistrering
+            </span>
           </span>
           <span
             className="content"
@@ -162,7 +186,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Sivilstand
+            <span>
+              Sivilstand
+            </span>
           </span>
           <span
             className="content"
@@ -174,7 +200,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Sikkerhetstiltak
+            <span>
+              Sikkerhetstiltak
+            </span>
           </span>
           <span
             className="content"
@@ -186,7 +214,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Kjønn
+            <span>
+              Kjønn
+            </span>
           </span>
           <span
             className="content"
@@ -198,7 +228,9 @@ exports[`render Personalia with content 1`] = `
           <span
             className="title"
           >
-            Tilpasset kommunikasjon
+            <span>
+              Tilpasset kommunikasjon
+            </span>
           </span>
           <span
             className="content"
@@ -210,7 +242,9 @@ exports[`render Personalia with content 1`] = `
       <div
         className="box-footer"
       >
-        Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
+        <span>
+          Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
+        </span>
       </div>
     </div>
   </div>
