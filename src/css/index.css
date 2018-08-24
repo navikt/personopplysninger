@@ -37,4 +37,7 @@
 .personalia-list li .title {
   font-weight: bold;
   display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
