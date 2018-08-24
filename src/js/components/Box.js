@@ -7,6 +7,7 @@ class Box extends Component {
       <div className="BoxContainer">
         <div className="BoxWithHeader">
           <h1>{this.props.header}</h1>
+          {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : null}
           <div className="Box">
             {this.props.children}
           </div>
@@ -22,11 +23,13 @@ Box.propTypes = {
     PropTypes.node,
   ]),
   header: PropTypes.string,
+  icon: PropTypes.string,
 };
 
 Box.defaultProps = {
   children: [],
   header: '',
+  icon: '',
 };
 
 export default Box;

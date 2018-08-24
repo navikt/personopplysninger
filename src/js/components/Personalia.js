@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
+import woman from '../../assets/img/woman.png';
 
 class Personalia extends Component {
   render() {
     return (
-      <Box header="Personalia">
+      <Box header="Personalia" icon={woman}>
         <ul className="personalia-list">
           <li>
             <span className="title"><FormattedMessage
