@@ -11,6 +11,11 @@ exports[`render ContentWrapper with content 1`] = `
       <h1>
         Personalia
       </h1>
+      <img
+        alt=""
+        className="box-icon"
+        src="woman.png"
+      />
       <div
         className="Box"
       >
