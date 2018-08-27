@@ -14,7 +14,6 @@ class App extends Component {
   componentWillMount() {
     this.props.api.fetchPersonInfo()
       .then((r) => {
-        console.log(r); //eslint-disable-line
         this.setState(r);
       });
   }

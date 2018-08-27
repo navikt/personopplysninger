@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-closing-tag-location */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { IntlProvider, addLocaleData } from 'react-intl';
@@ -9,15 +10,15 @@ import 'css/index.css';
 import nbMessages from './translations/nb.json';
 import enMessages from './translations/en.json';
 
-const messages = { // eslint-disable-line
+const messages = {
   nb: nbMessages,
   en: enMessages,
 };
 
-const browserLanguage = navigator.language.split(/[-_]/)[0]; // eslint-disable-line
+const browserLanguage = navigator.language.split(/[-_]/)[0];
 
 addLocaleData([...nb, ...en]);
 
 ReactDOM.render(<IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
   <App api={api} />
-		</IntlProvider>, document.getElementById('app')); // eslint-disable-line
+</IntlProvider>, document.getElementById('app'));
