@@ -13,10 +13,46 @@
   flex-flow: column;
   align-items: center;
 }
-.Box {
+.BoxWithHeader {
   width: 50vw;
   min-height: 200px;
-  background-color: white;
+  margin-right: 15%;
+}
+.BoxWithHeader h1 {
+  margin-left: 15%;
+}
+.Box {
   padding: 2em;
+  background-color: white;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !important;
+  display: inline-block;
+  width: 85%;
+}
+.box-footer {
+  width: 40%;
+  font-style: italic;
+  margin-top: 2rem;
+}
+.box-icon {
+  display: inline-block;
+  vertical-align: top;
+}
+.icon-box-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.personalia-list {
+  list-style: none;
+  columns: 2;
+}
+.personalia-list li {
+  padding: 1rem;
+}
+.personalia-list li .title {
+  font-weight: bold;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }

@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 import ContentWrapper from 'js/ContentWrapper';
 import Header from 'js/components/Header';
 import 'less/index.less';
 
+import initialState from './initialState';
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = initialState;
+  }
   componentWillMount() {
     this.props.api.fetchPersonInfo()
       .then((r) => {
-        console.log(r); //eslint-disable-line
+        this.setState(r);
       });
   }
   render() {
     return (
       <main role="main">
         <Header />
-        <ContentWrapper />
+        <ContentWrapper
+          userInfo={this.state}
+        />
       </main>
     );
   }

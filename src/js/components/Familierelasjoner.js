@@ -4,7 +4,7 @@ import Box from 'js/components/Box';
 class Familierelasjoner extends Component {
   render() {
     return (
-      <Box>
+      <Box header="Familierelasjoner">
         <h3>Familierelasjoner</h3>
       </Box>
     );

@@ -1,0 +1,19 @@
+{
+  "personalia.first_name": "Fornavn",
+  "personalia.surname": "Etternavn",
+  "personalia.fnr": "Fødselsnummer",
+  "personalia.foreign_id": "Utenlandsk ID",
+  "personalia.telefon": "Telefon",
+  "personalia.account_no": "Kontonummer",
+  "personalia.email": "e-post",
+  "personalia.language": "Språk",
+  "personalia.citizenship": "Statsborgerskap",
+  "personalia.status": "Personstatus",
+  "personalia.birthplace": "Fødested",
+  "personalia.spesreg": "Spesialregistrering",
+  "personalia.civil_status": "Sivilstand",
+  "personalia.security_measure": "Sikkerhetstiltak",
+  "personalia.gender": "Kjønn",
+  "personalia.customized_comm": "Tilpasset kommunikasjon",
+  "personalia.source": "Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret"
+}
