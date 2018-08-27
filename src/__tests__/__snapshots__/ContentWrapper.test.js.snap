@@ -30,7 +30,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Fornavn
+                  personalia.first_name
                 </span>
               </span>
               <span
@@ -44,7 +44,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Etternavn
+                  personalia.surname
                 </span>
               </span>
               <span
@@ -58,7 +58,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Fødselsnummer
+                  personalia.fnr
                 </span>
               </span>
               <span
@@ -72,7 +72,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Utenlandsk ID
+                  personalia.foreign_id
                 </span>
               </span>
               <span
@@ -86,7 +86,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Telefon
+                  personalia.phone
                 </span>
               </span>
               <span
@@ -100,7 +100,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Kontonummer
+                  personalia.account_no
                 </span>
               </span>
               <span
@@ -114,7 +114,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  e-post
+                  personalia.email
                 </span>
               </span>
               <span
@@ -128,7 +128,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Språk
+                  personalia.language
                 </span>
               </span>
               <span
@@ -142,7 +142,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Statsborgerskap
+                  personalia.citizenship
                 </span>
               </span>
               <span
@@ -156,7 +156,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Personstatus
+                  personalia.status
                 </span>
               </span>
               <span
@@ -170,7 +170,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Fødested
+                  personalia.birthplace
                 </span>
               </span>
               <span
@@ -184,7 +184,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Spesialregistrering
+                  personalia.spesreg
                 </span>
               </span>
               <span
@@ -198,7 +198,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Sivilstand
+                  personalia.civil_status
                 </span>
               </span>
               <span
@@ -212,7 +212,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Sikkerhetstiltak
+                  personalia.security_measure
                 </span>
               </span>
               <span
@@ -226,7 +226,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Kjønn
+                  personalia.gender
                 </span>
               </span>
               <span
@@ -240,7 +240,7 @@ exports[`render ContentWrapper with content 1`] = `
                 className="title"
               >
                 <span>
-                  Tilpasset kommunikasjon
+                  personalia.customized_comm
                 </span>
               </span>
               <span
@@ -254,7 +254,7 @@ exports[`render ContentWrapper with content 1`] = `
             className="box-footer"
           >
             <span>
-              Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
+              personalia.source
             </span>
           </div>
         </div>

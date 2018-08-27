@@ -12,7 +12,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.first_name"
-              defaultMessage="Fornavn"
             />
             </span>
             <span className="content">{this.props.navn.fornavn}</span>
@@ -20,7 +19,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.surname"
-              defaultMessage="Etternavn"
             />
             </span>
             <span className="content">{this.props.navn.slektsnavn}</span>
@@ -28,7 +26,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.fnr"
-              defaultMessage="Fødselsnummer"
             />
             </span>
             <span className="content">{this.props.ident}</span>
@@ -36,7 +33,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.foreign_id"
-              defaultMessage="Utenlandsk ID"
             />
             </span>
             <span className="content">x</span>
@@ -44,7 +40,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.phone"
-              defaultMessage="Telefon"
             />
             </span>
             <span className="content">{this.props.telefon.privat}</span>
@@ -52,7 +47,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.account_no"
-              defaultMessage="Kontonummer"
             />
             </span>
             <span className="content">{this.props.kontonummer.nummer}</span>
@@ -60,7 +54,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.email"
-              defaultMessage="e-post"
             />
             </span>
             <span className="content">x</span>
@@ -68,7 +61,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.language"
-              defaultMessage="Språk"
             />
             </span>
             <span className="content">{this.props.spraak.kode}</span>
@@ -76,7 +68,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.citizenship"
-              defaultMessage="Statsborgerskap"
             />
             </span>
             <span className="content">{this.props.statsborgerskap.kode}</span>
@@ -84,7 +75,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.status"
-              defaultMessage="Personstatus"
             />
             </span>
             <span className="content">{this.props.status.kode}</span>
@@ -92,7 +82,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.birthplace"
-              defaultMessage="Fødested"
             />
             </span>
             <span className="content">x</span>
@@ -100,7 +89,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.spesreg"
-              defaultMessage="Spesialregistrering"
             />
             </span>
             <span className="content">{this.props.spesreg.kode}</span>
@@ -108,7 +96,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.civil_status"
-              defaultMessage="Sivilstand"
             />
             </span>
             <span className="content">{this.props.sivilstand.kode}</span>
@@ -116,7 +103,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.security_measure"
-              defaultMessage="Sikkerhetstiltak"
             />
             </span>
             <span className="content">{this.props.tiltak.type}</span>
@@ -124,7 +110,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.gender"
-              defaultMessage="Kjønn"
             />
             </span>
             <span className="content">{this.props.kjonn}</span>
@@ -132,7 +117,6 @@ class Personalia extends Component {
           <li>
             <span className="title"><FormattedMessage
               id="personalia.customized_comm"
-              defaultMessage="Tilpasset kommunikasjon"
             />
             </span>
             <span className="content">x</span>
@@ -141,7 +125,6 @@ class Personalia extends Component {
         <div className="box-footer">
           <FormattedMessage
             id="personalia.source"
-            defaultMessage="Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret"
           />
         </div>
       </Box>
