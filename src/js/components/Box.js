@@ -7,9 +7,11 @@ class Box extends Component {
       <div className="BoxContainer">
         <div className="BoxWithHeader">
           <h1>{this.props.header}</h1>
-          {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : null}
-          <div className="Box">
-            {this.props.children}
+          <div className="icon-box-wrapper">
+            {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : null}
+            <div className="Box">
+              {this.props.children}
+            </div>
           </div>
         </div>
       </div>

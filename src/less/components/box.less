@@ -1,3 +1,6 @@
+@boxwidth: 85%;
+@iconwidth: 15%;
+
 .BoxContainer {
   width: 100%;
   margin-bottom: 5em;
@@ -9,12 +12,19 @@
 .BoxWithHeader {
   width: 50vw;
   min-height: 200px;
+  margin-right: @iconwidth;
+
+  h1 {
+    margin-left: @iconwidth;
+  }
 }
 
 .Box {
   padding: 2em;
   background-color: white;
   box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16),0 1px 10px 0 rgba(0,0,0,0.12)!important;
+  display: inline-block;
+  width: @boxwidth;
 }
 
 .box-footer {
@@ -24,6 +34,12 @@
 }
 
 .box-icon {
-  float: left;
-  margin-left: -9vw;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.icon-box-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
 }

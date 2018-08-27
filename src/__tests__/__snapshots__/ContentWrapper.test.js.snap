@@ -11,248 +11,252 @@ exports[`render ContentWrapper with content 1`] = `
       <h1>
         Personalia
       </h1>
-      <img
-        alt=""
-        className="box-icon"
-        src="woman.png"
-      />
       <div
-        className="Box"
+        className="icon-box-wrapper"
       >
-        <ul
-          className="personalia-list"
-        >
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Fornavn
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Etternavn
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Fødselsnummer
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Utenlandsk ID
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              x
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Telefon
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Kontonummer
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                e-post
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              x
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Språk
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Statsborgerskap
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Personstatus
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Fødested
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              x
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Spesialregistrering
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Sivilstand
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Sikkerhetstiltak
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Kjønn
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              
-            </span>
-          </li>
-          <li>
-            <span
-              className="title"
-            >
-              <span>
-                Tilpasset kommunikasjon
-              </span>
-            </span>
-            <span
-              className="content"
-            >
-              x
-            </span>
-          </li>
-        </ul>
+        <img
+          alt=""
+          className="box-icon"
+          src="woman.png"
+        />
         <div
-          className="box-footer"
+          className="Box"
         >
-          <span>
-            Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
-          </span>
+          <ul
+            className="personalia-list"
+          >
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Fornavn
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Etternavn
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Fødselsnummer
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Utenlandsk ID
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                x
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Telefon
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Kontonummer
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  e-post
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                x
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Språk
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Statsborgerskap
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Personstatus
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Fødested
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                x
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Spesialregistrering
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Sivilstand
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Sikkerhetstiltak
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Kjønn
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                
+              </span>
+            </li>
+            <li>
+              <span
+                className="title"
+              >
+                <span>
+                  Tilpasset kommunikasjon
+                </span>
+              </span>
+              <span
+                className="content"
+              >
+                x
+              </span>
+            </li>
+          </ul>
+          <div
+            className="box-footer"
+          >
+            <span>
+              Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -267,11 +271,15 @@ exports[`render ContentWrapper with content 1`] = `
         Adresse
       </h1>
       <div
-        className="Box"
+        className="icon-box-wrapper"
       >
-        <h3>
-          Adresse
-        </h3>
+        <div
+          className="Box"
+        >
+          <h3>
+            Adresse
+          </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -285,11 +293,15 @@ exports[`render ContentWrapper with content 1`] = `
         Familierelasjoner
       </h1>
       <div
-        className="Box"
+        className="icon-box-wrapper"
       >
-        <h3>
-          Familierelasjoner
-        </h3>
+        <div
+          className="Box"
+        >
+          <h3>
+            Familierelasjoner
+          </h3>
+        </div>
       </div>
     </div>
   </div>
@@ -303,11 +315,15 @@ exports[`render ContentWrapper with content 1`] = `
         Arbeidsforhold
       </h1>
       <div
-        className="Box"
+        className="icon-box-wrapper"
       >
-        <h3>
-          Arbeidsforhold
-        </h3>
+        <div
+          className="Box"
+        >
+          <h3>
+            Arbeidsforhold
+          </h3>
+        </div>
       </div>
     </div>
   </div>
