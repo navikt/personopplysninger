@@ -56,3 +56,22 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+ul {
+  list-style-type: none;
+  padding: 1em 0 0 0;
+}
+ul .title {
+  font-weight: bold;
+  display: block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-bottom: 0.5em;
+}
+.address-type {
+  margin-top: 0;
+}
+.address-row {
+  display: flex;
+  justify-content: space-between;
+}

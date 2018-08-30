@@ -1,7 +1,7 @@
 {
   "adresseinfo": {
     "boadresse": {
-      "adresse": "string",
+      "adresse": "Vardeveien 7",
       "adressetillegg": "string",
       "bydel": "string",
       "datoFraOgMed": "string",
@@ -14,7 +14,7 @@
         "gaardsnummer": "string",
         "undernummer": "string"
       },
-      "postnummer": "string",
+      "postnummer": "5002",
       "veiadresse": {
         "bokstav": "string",
         "bolignummer": "string",
