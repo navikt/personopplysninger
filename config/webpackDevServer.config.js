@@ -95,12 +95,17 @@ module.exports = function(proxy, allowedHost, decoratedIndexHtml) {
       // https://github.com/facebookincubator/create-react-app/issues/2272#issuecomment-302832432
       app.use(noopServiceWorkerMiddleware());
 
+      app.get('/personopplysninger-api/local/cookie', (req, res) => {
+        res.send("This has to be a default login page");
+      });
+
       app.get('/static/js/settings.js', (req, res) => {
         res.send(createEnvSettingsFile());
       });
       app.get('/mock-api/person-info.json', (req, res) => {
+        // res.sendStatus(401);
         res.sendFile(
-            path.resolve(`${__dirname}/../src/mock-api/person-info.json`)
+          path.resolve(`${__dirname}/../src/mock-api/person-info.json`)
         );
       });
       app.get(/^\/(?!.*static).*$/, (req, res) => {

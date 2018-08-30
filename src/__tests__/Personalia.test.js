@@ -2,6 +2,7 @@ import * as React from 'react';
 import Personalia from 'js/components/Personalia';
 import { IntlProvider } from 'react-intl';
 const ReactTestRenderer = require('react-test-renderer');
+import wrapIntl from 'js/IntlTestHelper';
 
 test('render Personalia with content', () => {
   const properties = {
@@ -65,8 +66,8 @@ test('render Personalia with content', () => {
     },
   };
 
-  const component = ReactTestRenderer.create((
-    <IntlProvider locale="en">
+  const component = ReactTestRenderer.create(
+    wrapIntl(
       <Personalia
         navn={properties.navn}
         ident={properties.ident}
@@ -79,7 +80,6 @@ test('render Personalia with content', () => {
         sivilstand={properties.sivilstand}
         kontonummer={properties.kontonummer}
         spesreg={properties.spesreg}
-      />
-    </IntlProvider>));
+      />));
   expect(component.toJSON()).toMatchSnapshot();
 });
