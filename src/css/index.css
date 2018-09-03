@@ -56,11 +56,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
-ul {
+.address-box ul {
   list-style-type: none;
+  columns: 4;
   padding: 1em 0 0 0;
 }
-ul .title {
+.address-box ul .title {
   font-weight: bold;
   display: block;
   white-space: nowrap;
@@ -68,10 +69,9 @@ ul .title {
   overflow: hidden;
   padding-bottom: 0.5em;
 }
-.address-type {
-  margin-top: 0;
+.address-box li {
+  margin-bottom: 2em;
 }
-.address-row {
-  display: flex;
-  justify-content: space-between;
+.address-box .address-type {
+  margin-top: 0;
 }

@@ -1,22 +1,24 @@
-ul {
-  list-style-type: none;
-  padding: 1em 0 0 0;
+.address-box {
+  ul {
+    list-style-type: none;
+    columns: 4;
+    padding: 1em 0 0 0;
 
-  .title {
-    font-weight: bold;
-    display: block;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    padding-bottom: 0.5em;
+    .title {
+      font-weight: bold;
+      display: block;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      padding-bottom: 0.5em;
+    }
   }
-}
 
-.address-type {
-  margin-top: 0;
-}
+  li {
+    margin-bottom: 2em;
+  }
 
-.address-row {
-  display: flex;
-  justify-content: space-between;
+  .address-type {
+    margin-top: 0;
+  }
 }
