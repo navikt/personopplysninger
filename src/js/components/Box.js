@@ -8,7 +8,7 @@ class Box extends Component {
         <div className="BoxWithHeader">
           <h1>{this.props.header}</h1>
           <div className="icon-box-wrapper">
-            {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : null}
+            {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : <div className="box-icon" />}
             <div className="Box">
               {this.props.children}
             </div>
