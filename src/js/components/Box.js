@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 
 class Box extends Component {
   render() {
+    const marginClass = this.props.smallMargin ? 'box-bottom-margin-small' : 'box-bottom-margin';
+
     return (
-      <div className="BoxContainer">
+      <div className={`BoxContainer ${marginClass}`}>
         <div className="BoxWithHeader">
-          <h1>{this.props.header}</h1>
+          {this.props.header ? <h1>{this.props.header}</h1> : null}
           <div className="icon-box-wrapper">
             {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : <div className="box-icon" />}
             <div className="Box">
@@ -26,12 +28,14 @@ Box.propTypes = {
   ]),
   header: PropTypes.string,
   icon: PropTypes.string,
+  smallMargin: PropTypes.bool,
 };
 
 Box.defaultProps = {
   children: [],
   header: '',
   icon: '',
+  smallMargin: false,
 };
 
 export default Box;

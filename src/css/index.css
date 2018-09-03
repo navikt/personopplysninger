@@ -8,7 +8,6 @@
 }
 .BoxContainer {
   width: 100%;
-  margin-bottom: 5em;
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -27,6 +26,12 @@
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 1px 10px 0 rgba(0, 0, 0, 0.12) !important;
   display: inline-block;
   width: 85%;
+}
+.box-bottom-margin {
+  margin-bottom: 5em;
+}
+.box-bottom-margin-small {
+  margin-bottom: 1.5em;
 }
 .box-footer {
   width: 40%;

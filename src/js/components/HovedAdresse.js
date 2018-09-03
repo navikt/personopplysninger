@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
+import house from '../../assets/img/house.png';
 
-class Adresse extends Component {
+class HovedAdresse extends Component {
   render() {
     return (
-      <Box>
+      <Box header="Adresse" icon={house} smallMargin>
         <div className="address-box">
-          {this.props.type ? <h3 className="address-type">{this.props.type}</h3> : null}
+          <h3 className="address-type">Bostedsadresse</h3>
           <ul className="address-list">
             <li className="address-col">
               <span className="title"><FormattedMessage
@@ -41,12 +41,4 @@ class Adresse extends Component {
   }
 }
 
-Adresse.propTypes = {
-  type: PropTypes.string,
-};
-
-Adresse.defaultProps = {
-  type: '',
-};
-
-export default Adresse;
+export default HovedAdresse;
