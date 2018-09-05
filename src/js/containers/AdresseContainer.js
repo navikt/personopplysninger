@@ -1,19 +1,13 @@
-/* eslint-disable */
-
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import 'less/index.less';
 import BoAdresse from '../components/adresse/BoAdresse';
 import PostAdresse from '../components/adresse/PostAdresse';
-import UtenlandskAdresse from "../components/adresse/UtenlandskAdresse";
+import UtenlandskAdresse from '../components/adresse/UtenlandskAdresse';
 
 class AdresseContainer extends Component {
-
   render() {
-
-    console.log(this.props.adresseInfo);
-
-    const adresseInfo = this.props.adresseInfo;
+    const { adresseInfo } = this.props;
 
     return (
       <div>
@@ -28,13 +22,13 @@ class AdresseContainer extends Component {
             land={adresseInfo.postadresse.land}
             postnummer={adresseInfo.postadresse.postnummer}
           /> : null}
-          {adresseInfo.utenlandskAdresse ?
-              <UtenlandskAdresse
-                  adresse1={adresseInfo.utenlandskAdresse.adresse1}
-                  adresse2={adresseInfo.utenlandskAdresse.adresse2}
-                  adresse3={adresseInfo.utenlandskAdresse.adresse3}
-                  kilde={adresseInfo.utenlandskAdresse.kilde}
-              /> : null}
+        {adresseInfo.utenlandskAdresse ?
+          <UtenlandskAdresse
+            adresse1={adresseInfo.utenlandskAdresse.adresse1}
+            adresse2={adresseInfo.utenlandskAdresse.adresse2}
+            adresse3={adresseInfo.utenlandskAdresse.adresse3}
+            kilde={adresseInfo.utenlandskAdresse.kilde}
+          /> : null}
       </div>
     );
   }
