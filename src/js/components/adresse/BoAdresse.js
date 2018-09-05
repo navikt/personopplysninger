@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
-import house from '../../assets/img/house.png';
+import house from '../../../assets/img/house.png';
 
-class HovedAdresse extends Component {
+class BoAdresse extends Component {
   render() {
     return (
       <Box header="Adresse" icon={house} smallMargin>
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
-          <ul className="address-list">
+          <ul className="address-list-col-4">
             <li className="address-col">
               <span className="title"><FormattedMessage
                 id="adresse.gate"
@@ -41,4 +41,4 @@ class HovedAdresse extends Component {
   }
 }
 
-export default HovedAdresse;
+export default BoAdresse;

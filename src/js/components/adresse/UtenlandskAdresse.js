@@ -3,37 +3,37 @@ import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
 
-class Adresse extends Component {
+class UtenlandskAdresse extends Component {
   render() {
     return (
       <Box>
         <div className="address-box">
-          {this.props.type ? <h3 className="address-type">{this.props.type}</h3> : null}
-          <ul className="address-list">
+          <h3 className="address-type">Utenlandsk adresse</h3>
+          <ul className="address-list-col-3">
             <li className="address-col">
               <span className="title"><FormattedMessage
-                id="adresse.gate"
+                id="adresse.adresse1"
               />
               </span>
-              <span className="content">Vardeveien 7</span>
+              <span className="content">{this.props.adresse1}</span>
             </li>
             <li className="address-col">
               <span className="title"><FormattedMessage
-                id="adresse.postnummer"
+                id="adresse.adresse2"
               />
               </span>
-              <span className="content">5002</span>
+              <span className="content">{this.props.adresse2}</span>
             </li>
             <li className="address-col">
               <span className="title"><FormattedMessage
-                id="adresse.poststed"
+                id="adresse.adresse3"
               />
               </span>
-              <span className="content">Kristiansand</span>
+              <span className="content">{this.props.adresse3}</span>
             </li>
           </ul>
           <div className="box-footer">
-            Kilde: Folkeregisteret
+          Kilde: {this.props.kilde}
           </div>
         </div>
       </Box>
@@ -41,12 +41,18 @@ class Adresse extends Component {
   }
 }
 
-Adresse.propTypes = {
-  type: PropTypes.string,
+UtenlandskAdresse.propTypes = {
+  adresse1: PropTypes.string,
+  adresse2: PropTypes.string,
+  adresse3: PropTypes.string,
+  kilde: PropTypes.string,
 };
 
-Adresse.defaultProps = {
-  type: '',
+UtenlandskAdresse.defaultProps = {
+  adresse1: '',
+  adresse2: '',
+  adresse3: '',
+  kilde: '',
 };
 
-export default Adresse;
+export default UtenlandskAdresse;

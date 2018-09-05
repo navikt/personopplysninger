@@ -63,7 +63,6 @@
 }
 .address-box ul {
   list-style-type: none;
-  columns: 4;
   padding: 1em 0 0 0;
 }
 .address-box ul .title {
@@ -73,6 +72,12 @@
   text-overflow: ellipsis;
   overflow: hidden;
   padding-bottom: 0.5em;
+}
+.address-box ul.address-list-col-4 {
+  columns: 4;
+}
+.address-box ul.address-list-col-3 {
+  columns: 3;
 }
 .address-box li {
   margin-bottom: 2em;

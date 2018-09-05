@@ -20,7 +20,8 @@
   "adresse.gate": "Gate",
   "adresse.postnummer": "Postnummer",
   "adresse.poststed": "Poststed",
-  "postadresse.adresse1": "Tilleggsadresse 1",
-  "postadresse.adresse2": "Tilleggsadresse 2",
-  "postadresse.adresse3": "Tilleggsadresse 3"
+  "adresse.adresse1": "Adresselinje 1",
+  "adresse.adresse2": "Adresselinje 2",
+  "adresse.adresse3": "Adresselinje 3",
+  "adresse.land": "Land"
 }
