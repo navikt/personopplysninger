@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Personalia from './components/Personalia';
 import AdresseContainer from './containers/AdresseContainer';
+import LinksContainer from './containers/LinksContainer';
 import Familierelasjoner from './components/Familierelasjoner';
 import Arbeidsforhold from './components/Arbeidsforhold';
 
@@ -27,6 +28,7 @@ class ContentWrapper extends Component {
         />
         <Familierelasjoner />
         <Arbeidsforhold />
+        <LinksContainer />
       </div>
     );
   }

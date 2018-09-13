@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Pensjon",
+    "information": "NAV har opplysninger om din pensjon i en egen tjeneste.",
+    "link-text": "Gå til Din pensjon",
+    "url": "https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon",
+    "kilde": "Pensjonsregisteret"
+  },
+  {
+    "title": "Dine saker",
+    "information": "Oversikt over dine saker og kommunikasjon med NAV",
+    "link-text": "Gå til saksoversikt",
+    "url": "https://tjenester.nav.no/saksoversikt/app",
+    "kilde": "NAV"
+  },
+  {
+    "title": "Utbetalinger",
+    "information": "Oversikt over dine utbetalinger fra NAV",
+    "link-text": "Gå til utbetalinger",
+    "url": "https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger",
+    "kilde": "NAV"
+  },
+  {
+    "title": "Jobbsøk",
+    "information": "Jobbsøknader, CV, aktivitetsplaner og lagrede søk",
+    "link-text": "Gå til din jobbsøk/CV",
+    "url": "https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker",
+    "kilde": "Arbeidsregisteret"
+  }
+]
