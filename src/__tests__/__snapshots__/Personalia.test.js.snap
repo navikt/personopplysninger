@@ -2,7 +2,7 @@
 
 exports[`render Personalia with content 1`] = `
 <div
-  className="BoxContainer"
+  className="BoxContainer box-bottom-margin"
 >
   <div
     className="BoxWithHeader"
