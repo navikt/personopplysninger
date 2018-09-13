@@ -11,7 +11,11 @@ class AdresseContainer extends Component {
 
     return (
       <div>
-        <BoAdresse />
+        <BoAdresse
+          adresse={adresseInfo.boadresse.adresse}
+          postnummer={adresseInfo.boadresse.postnummer}
+          kilde={adresseInfo.boadresse.kilde}
+        />
         {adresseInfo.postadresse ?
           <PostAdresse
             adresse1={adresseInfo.postadresse.adresse1}

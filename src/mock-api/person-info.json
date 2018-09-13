@@ -5,7 +5,7 @@
       "adressetillegg": "string",
       "bydel": "string",
       "datoFraOgMed": "string",
-      "kilde": "string",
+      "kilde": "Folkeregisteret",
       "kommune": "string",
       "landkode": "string",
       "matrikkeladresse": {

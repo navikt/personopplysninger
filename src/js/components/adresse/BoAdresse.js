@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
 import house from '../../../assets/img/house.png';
@@ -15,14 +16,14 @@ class BoAdresse extends Component {
                 id="adresse.gate"
               />
               </span>
-              <span className="content">Vardeveien 7</span>
+              <span className="content">{this.props.adresse}</span>
             </li>
             <li className="address-col">
               <span className="title"><FormattedMessage
                 id="adresse.postnummer"
               />
               </span>
-              <span className="content">5002</span>
+              <span className="content">{this.props.postnummer}</span>
             </li>
             <li className="address-col">
               <span className="title"><FormattedMessage
@@ -33,12 +34,24 @@ class BoAdresse extends Component {
             </li>
           </ul>
           <div className="box-footer">
-            Kilde: Folkeregisteret
+            Kilde: {this.props.kilde}
           </div>
         </div>
       </Box>
     );
   }
 }
+
+BoAdresse.propTypes = {
+  adresse: PropTypes.string,
+  postnummer: PropTypes.string,
+  kilde: PropTypes.string,
+};
+
+BoAdresse.defaultProps = {
+  adresse: '',
+  postnummer: '',
+  kilde: '',
+};
 
 export default BoAdresse;
