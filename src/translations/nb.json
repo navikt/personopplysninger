@@ -15,5 +15,13 @@
   "personalia.security_measure": "Sikkerhetstiltak",
   "personalia.gender": "Kjønn",
   "personalia.customized_comm": "Tilpasset kommunikasjon",
-  "personalia.source": "Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret"
+  "personalia.source": "Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret",
+  "adresse.bostedsadresse": "Bostedsadresse",
+  "adresse.gate": "Gate",
+  "adresse.postnummer": "Postnummer",
+  "adresse.poststed": "Poststed",
+  "adresse.adresse1": "Adresselinje 1",
+  "adresse.adresse2": "Adresselinje 2",
+  "adresse.adresse3": "Adresselinje 3",
+  "adresse.land": "Land"
 }

@@ -3,7 +3,7 @@
 exports[`render ContentWrapper with content 1`] = `
 <div>
   <div
-    className="BoxContainer"
+    className="BoxContainer box-bottom-margin"
   >
     <div
       className="BoxWithHeader"
@@ -25,7 +25,9 @@ exports[`render ContentWrapper with content 1`] = `
           <ul
             className="personalia-list"
           >
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -39,7 +41,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -53,7 +57,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -67,7 +73,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -81,7 +89,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -95,7 +105,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -109,7 +121,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -123,7 +137,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -137,7 +153,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -151,7 +169,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -165,7 +185,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -179,7 +201,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -193,7 +217,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -207,7 +233,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -221,7 +249,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -235,7 +265,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -261,30 +293,305 @@ exports[`render ContentWrapper with content 1`] = `
       </div>
     </div>
   </div>
-  <div
-    className="BoxContainer"
-  >
+  <div>
     <div
-      className="BoxWithHeader"
+      className="BoxContainer box-bottom-margin-small"
     >
-      <h1>
-        Adresse
-      </h1>
       <div
-        className="icon-box-wrapper"
+        className="BoxWithHeader"
+      >
+        <h1>
+          Adresse
+        </h1>
+        <div
+          className="icon-box-wrapper"
+        >
+          <img
+            alt=""
+            className="box-icon"
+            src="house.png"
+          />
+          <div
+            className="Box"
+          >
+            <div
+              className="address-box"
+            >
+              <h3
+                className="address-type"
+              >
+                Bostedsadresse
+              </h3>
+              <ul
+                className="address-list-col-4"
+              >
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Gate
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Postnummer
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      adresse.title
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    Kristiansand
+                  </span>
+                </li>
+              </ul>
+              <div
+                className="box-footer"
+              >
+                Kilde: 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="BoxContainer box-bottom-margin-small"
+    >
+      <div
+        className="BoxWithHeader"
       >
         <div
-          className="Box"
+          className="icon-box-wrapper"
         >
-          <h3>
-            Adresse
-          </h3>
+          <div
+            className="box-icon"
+          />
+          <div
+            className="Box"
+          >
+            <div
+              className="address-box"
+            >
+              <h3
+                className="address-type"
+              >
+                Postadresse
+              </h3>
+              <ul
+                className="address-list-col-3"
+              >
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 1
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 2
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 3
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Postnummer
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Land
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+              </ul>
+              <div
+                className="box-footer"
+              >
+                Kilde: 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="BoxContainer box-bottom-margin"
+    >
+      <div
+        className="BoxWithHeader"
+      >
+        <div
+          className="icon-box-wrapper"
+        >
+          <div
+            className="box-icon"
+          />
+          <div
+            className="Box"
+          >
+            <div
+              className="address-box"
+            >
+              <h3
+                className="address-type"
+              >
+                Utenlandsk adresse
+              </h3>
+              <ul
+                className="address-list-col-3"
+              >
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 1
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 2
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+                <li
+                  className="address-col"
+                >
+                  <span
+                    className="title"
+                  >
+                    <span>
+                      Adresselinje 3
+                    </span>
+                  </span>
+                  <span
+                    className="content"
+                  >
+                    
+                  </span>
+                </li>
+              </ul>
+              <div
+                className="box-footer"
+              >
+                Kilde: 
+                
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    className="BoxContainer"
+    className="BoxContainer box-bottom-margin"
   >
     <div
       className="BoxWithHeader"
@@ -296,6 +603,9 @@ exports[`render ContentWrapper with content 1`] = `
         className="icon-box-wrapper"
       >
         <div
+          className="box-icon"
+        />
+        <div
           className="Box"
         >
           <h3>
@@ -306,7 +616,7 @@ exports[`render ContentWrapper with content 1`] = `
     </div>
   </div>
   <div
-    className="BoxContainer"
+    className="BoxContainer box-bottom-margin"
   >
     <div
       className="BoxWithHeader"
@@ -317,6 +627,9 @@ exports[`render ContentWrapper with content 1`] = `
       <div
         className="icon-box-wrapper"
       >
+        <div
+          className="box-icon"
+        />
         <div
           className="Box"
         >

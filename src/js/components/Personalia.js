@@ -3,124 +3,77 @@ import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
 import woman from '../../assets/img/woman.png';
+import ListElement from './ListElement';
 
 class Personalia extends Component {
   render() {
     return (
       <Box header="Personalia" icon={woman}>
         <ul className="personalia-list">
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.first_name"
-            />
-            </span>
-            <span className="content">{this.props.navn.fornavn}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.surname"
-            />
-            </span>
-            <span className="content">{this.props.navn.slektsnavn}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.fnr"
-            />
-            </span>
-            <span className="content">{this.props.ident}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.foreign_id"
-            />
-            </span>
-            <span className="content">x</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.phone"
-            />
-            </span>
-            <span className="content">{this.props.telefon.privat}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.account_no"
-            />
-            </span>
-            <span className="content">{this.props.kontonummer.nummer}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.email"
-            />
-            </span>
-            <span className="content">x</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.language"
-            />
-            </span>
-            <span className="content">{this.props.spraak.kode}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.citizenship"
-            />
-            </span>
-            <span className="content">{this.props.statsborgerskap.kode}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.status"
-            />
-            </span>
-            <span className="content">{this.props.status.kode}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.birthplace"
-            />
-            </span>
-            <span className="content">x</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.spesreg"
-            />
-            </span>
-            <span className="content">{this.props.spesreg.kode}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.civil_status"
-            />
-            </span>
-            <span className="content">{this.props.sivilstand.kode}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.security_measure"
-            />
-            </span>
-            <span className="content">{this.props.tiltak.type}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.gender"
-            />
-            </span>
-            <span className="content">{this.props.kjonn}</span>
-          </li>
-          <li>
-            <span className="title"><FormattedMessage
-              id="personalia.customized_comm"
-            />
-            </span>
-            <span className="content">x</span>
-          </li>
+          <ListElement
+            titleId="personalia.first_name"
+            content={this.props.navn.fornavn}
+          />
+          <ListElement
+            titleId="personalia.surname"
+            content={this.props.navn.slektsnavn}
+          />
+          <ListElement
+            titleId="personalia.fnr"
+            content={this.props.ident}
+          />
+          <ListElement
+            titleId="personalia.foreign_id"
+            content="x"
+          />
+          <ListElement
+            titleId="personalia.phone"
+            content={this.props.telefon.privat}
+          />
+          <ListElement
+            titleId="personalia.account_no"
+            content={this.props.kontonummer.nummer}
+          />
+          <ListElement
+            titleId="personalia.email"
+            content="x"
+          />
+          <ListElement
+            titleId="personalia.language"
+            content={this.props.spraak.kode}
+          />
+          <ListElement
+            titleId="personalia.citizenship"
+            content={this.props.statsborgerskap.kode}
+          />
+          <ListElement
+            titleId="personalia.status"
+            content={this.props.status.kode}
+          />
+          <ListElement
+            titleId="personalia.birthplace"
+            content="x"
+          />
+          <ListElement
+            titleId="personalia.spesreg"
+            content={this.props.spesreg.kode}
+          />
+          <ListElement
+            titleId="personalia.civil_status"
+            content={this.props.sivilstand.kode}
+          />
+          <ListElement
+            titleId="personalia.security_measure"
+            content={this.props.tiltak.type}
+          />
+          <ListElement
+            titleId="personalia.gender"
+            content={this.props.kjonn}
+          />
+          <ListElement
+            titleId="personalia.customized_comm"
+            content="x"
+          />
         </ul>
         <div className="box-footer">
           <FormattedMessage

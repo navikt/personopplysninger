@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Personalia from './components/Personalia';
-import Adresse from './components/Adresse';
+import AdresseContainer from './containers/AdresseContainer';
 import Familierelasjoner from './components/Familierelasjoner';
 import Arbeidsforhold from './components/Arbeidsforhold';
 
@@ -22,7 +22,9 @@ class ContentWrapper extends Component {
           kontonummer={this.props.userInfo.kontonummer}
           spesreg={this.props.userInfo.spesreg}
         />
-        <Adresse />
+        <AdresseContainer
+          adresseInfo={this.props.userInfo.adresseinfo}
+        />
         <Familierelasjoner />
         <Arbeidsforhold />
       </div>
