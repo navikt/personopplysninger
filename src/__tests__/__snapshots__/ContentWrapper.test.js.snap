@@ -25,7 +25,9 @@ exports[`render ContentWrapper with content 1`] = `
           <ul
             className="personalia-list"
           >
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -39,7 +41,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -53,7 +57,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -67,7 +73,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -81,7 +89,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -95,7 +105,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -109,7 +121,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -123,7 +137,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -137,7 +153,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -151,7 +169,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -165,7 +185,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -179,7 +201,9 @@ exports[`render ContentWrapper with content 1`] = `
                 x
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -193,7 +217,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -207,7 +233,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -221,7 +249,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -235,7 +265,9 @@ exports[`render ContentWrapper with content 1`] = `
                 
               </span>
             </li>
-            <li>
+            <li
+              className=""
+            >
               <span
                 className="title"
               >
@@ -332,7 +364,7 @@ exports[`render ContentWrapper with content 1`] = `
                     className="title"
                   >
                     <span>
-                      Poststed
+                      adresse.title
                     </span>
                   </span>
                   <span
@@ -604,6 +636,174 @@ exports[`render ContentWrapper with content 1`] = `
           <h3>
             Arbeidsforhold
           </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Pensjon
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <div
+          className="box-icon"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              NAV har opplysninger om din pensjon i en egen tjeneste.
+            </div>
+            <a
+              href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+            >
+              Gå til Din pensjon
+            </a>
+            <div
+              className="box-footer link-footer"
+            >
+              Kilde: 
+              Pensjonsregisteret
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Dine saker
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <div
+          className="box-icon"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Oversikt over dine saker og kommunikasjon med NAV
+            </div>
+            <a
+              href="https://tjenester.nav.no/saksoversikt/app"
+            >
+              Gå til saksoversikt
+            </a>
+            <div
+              className="box-footer link-footer"
+            >
+              Kilde: 
+              NAV
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Utbetalinger
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <div
+          className="box-icon"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Oversikt over dine utbetalinger fra NAV
+            </div>
+            <a
+              href="https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger"
+            >
+              Gå til utbetalinger
+            </a>
+            <div
+              className="box-footer link-footer"
+            >
+              Kilde: 
+              NAV
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Jobbsøk
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <div
+          className="box-icon"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Jobbsøknader, CV, aktivitetsplaner og lagrede søk
+            </div>
+            <a
+              href="https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker"
+            >
+              Gå til din jobbsøk/CV
+            </a>
+            <div
+              className="box-footer link-footer"
+            >
+              Kilde: 
+              Arbeidsregisteret
+            </div>
+          </div>
         </div>
       </div>
     </div>
