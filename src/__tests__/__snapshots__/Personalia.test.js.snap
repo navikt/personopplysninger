@@ -24,7 +24,9 @@ exports[`render Personalia with content 1`] = `
         <ul
           className="personalia-list"
         >
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -38,7 +40,9 @@ exports[`render Personalia with content 1`] = `
               Ole
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -52,7 +56,9 @@ exports[`render Personalia with content 1`] = `
               Nordmann
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -66,7 +72,9 @@ exports[`render Personalia with content 1`] = `
               08048503978
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -80,7 +88,9 @@ exports[`render Personalia with content 1`] = `
               x
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -94,7 +104,9 @@ exports[`render Personalia with content 1`] = `
               51515151
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -104,9 +116,13 @@ exports[`render Personalia with content 1`] = `
             </span>
             <span
               className="content"
-            />
+            >
+              
+            </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -120,7 +136,9 @@ exports[`render Personalia with content 1`] = `
               x
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -134,7 +152,9 @@ exports[`render Personalia with content 1`] = `
               Norsk
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -148,7 +168,9 @@ exports[`render Personalia with content 1`] = `
               Norsk
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -162,7 +184,9 @@ exports[`render Personalia with content 1`] = `
               
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -176,7 +200,9 @@ exports[`render Personalia with content 1`] = `
               x
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -190,7 +216,9 @@ exports[`render Personalia with content 1`] = `
               12345678911
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -204,7 +232,9 @@ exports[`render Personalia with content 1`] = `
               Gift
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -218,7 +248,9 @@ exports[`render Personalia with content 1`] = `
               Kun telefonkontakt
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >
@@ -232,7 +264,9 @@ exports[`render Personalia with content 1`] = `
               Mann
             </span>
           </li>
-          <li>
+          <li
+            className=""
+          >
             <span
               className="title"
             >

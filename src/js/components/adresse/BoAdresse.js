@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
-import { FormattedMessage } from 'react-intl';
 import house from '../../../assets/img/house.png';
+import ListElement from '../ListElement';
 
 class BoAdresse extends Component {
   render() {
@@ -11,27 +11,21 @@ class BoAdresse extends Component {
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
           <ul className="address-list-col-4">
-            <li className="address-col">
-              <span className="title"><FormattedMessage
-                id="adresse.gate"
-              />
-              </span>
-              <span className="content">{this.props.adresse}</span>
-            </li>
-            <li className="address-col">
-              <span className="title"><FormattedMessage
-                id="adresse.postnummer"
-              />
-              </span>
-              <span className="content">{this.props.postnummer}</span>
-            </li>
-            <li className="address-col">
-              <span className="title"><FormattedMessage
-                id="adresse.poststed"
-              />
-              </span>
-              <span className="content">Kristiansand</span>
-            </li>
+            <ListElement
+              className="address-col"
+              titleId="adresse.gate"
+              content={this.props.adresse}
+            />
+            <ListElement
+              className="address-col"
+              titleId="adresse.postnummer"
+              content={this.props.postnummer}
+            />
+            <ListElement
+              className="address-col"
+              titleId="adresse.title"
+              content="Kristiansand"
+            />
           </ul>
           <div className="box-footer">
             Kilde: {this.props.kilde}
