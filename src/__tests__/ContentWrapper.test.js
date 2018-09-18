@@ -1,6 +1,5 @@
 import * as React from 'react';
 import ContentWrapper from 'js/ContentWrapper';
-import { IntlProvider } from 'react-intl';
 import wrapIntl from 'js/IntlTestHelper';
 import initialState from '../js/initialState';
 const ReactTestRenderer = require('react-test-renderer');

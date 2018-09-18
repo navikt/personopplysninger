@@ -1,6 +1,5 @@
 import * as React from 'react';
 import Personalia from 'js/components/Personalia';
-import { IntlProvider } from 'react-intl';
 const ReactTestRenderer = require('react-test-renderer');
 import wrapIntl from 'js/IntlTestHelper';
 
