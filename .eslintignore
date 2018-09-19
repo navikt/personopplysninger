@@ -1,0 +1,7 @@
+/node_modules
+/build
+/src/__tests__
+/coverage
+/scripts
+/config
+
