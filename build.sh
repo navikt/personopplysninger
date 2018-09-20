@@ -16,7 +16,7 @@ IMAGE_NAME="personopplysninger"
 DOCKER_REGISTRY="docker.adeo.no:5000"
 DOCKER_REPOSITORY="personbruker"
 TAG="${DOCKER_REGISTRY}/${DOCKER_REPOSITORY}/${IMAGE_NAME}:${v:="unversioned"}"
-BUILDER_IMAGE="docker.adeo.no:5000/personbruker/personbruker-builder:1.0.0"
+BUILDER_IMAGE="docker.adeo.no:5000/personbruker/personbruker-builder:1.1.0"
  # Hent ut argumenter
 for arg in "$@"
 do
