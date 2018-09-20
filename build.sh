@@ -46,10 +46,10 @@ done
         "$@"
 }
  function install_packages {
-    build_command yarn
+    build_command npm install
 }
  function build_frontend {
-    build_command yarn build
+    build_command npm run build
 }
  function ci_test {
     ./ci-tests/scripts.sh test
