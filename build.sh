@@ -48,8 +48,8 @@ done
         "$@"
 }
  function install_packages {
+    build_command cd /var/workspace
     build_command ls -la
-    build_command pwd
     build_command yarn
 }
  function build_frontend {
