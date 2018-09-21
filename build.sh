@@ -36,12 +36,14 @@ case $arg in
     ;;
 esac
 done
+
  function build_command {
     docker run \
         --rm \
         --volume $(pwd):/var/workspace \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env NPM_TOKEN=${NPM_AUTH} \
+        --workdir /var/workspace \
         $BUILDER_IMAGE \
         "$@"
 }
