@@ -43,8 +43,8 @@ done
         --volume $(pwd):/workspace \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env NPM_TOKEN=${NPM_AUTH} \
-        $BUILDER_IMAGE \
         --workdir /workspace \
+        $BUILDER_IMAGE \
         "$@"
 }
  function install_packages {
