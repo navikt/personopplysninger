@@ -40,16 +40,16 @@ done
  function build_command {
     docker run \
         --rm \
-        --volume $(pwd):/var/workspace \
+        --volume $(pwd):/workspace \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env NPM_TOKEN=${NPM_AUTH} \
-        --workdir /var/workspace \
         $BUILDER_IMAGE \
+        --workdir /workspace \
         "$@"
 }
  function install_packages {
-    build_command cd /var/workspace
     build_command ls -la
+    build_command pwd
     build_command yarn
 }
  function build_frontend {
