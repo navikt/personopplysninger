@@ -43,11 +43,12 @@ done
         --volume $(pwd):/workspace \
         --volume /var/run/docker.sock:/var/run/docker.sock \
         --env NPM_TOKEN=${NPM_AUTH} \
-        --workdir /workspace \
+        --workdir var/workspace \
         $BUILDER_IMAGE \
         "$@"
 }
  function install_packages {
+    build_command git status
     build_command ls -la
     build_command pwd
     build_command yarn
