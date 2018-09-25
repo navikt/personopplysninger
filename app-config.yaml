@@ -8,11 +8,11 @@ replicas:
 port: 8080
 healthcheck:
   liveness:
-    path: internal/isAlive
+    path: health/isAlive
   readiness:
-    path: internal/isAlive
+    path: health/isAlive
 prometheus:
-  enabled: true
+  enabled: false
   path: internal/metrics
 ingress:
   enabled: true
