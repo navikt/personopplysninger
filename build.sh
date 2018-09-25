@@ -76,7 +76,7 @@ done
 }
  install_packages
 build_frontend
-ci_test
+#ci_test
 create_version_file
 build_container
 publish_container
