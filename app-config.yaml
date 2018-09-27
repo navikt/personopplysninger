@@ -1,0 +1,27 @@
+image: docker.adeo.no:5000/personbruker/personopplysninger
+team: "personbruker"
+name: personopplysninger
+replicas:
+  min: 2
+  max: 4
+  cpuThresholdPercentage: 50
+port: 8080
+healthcheck:
+  liveness:
+    path: health/isAlive
+  readiness:
+    path: health/isAlive
+prometheus:
+  enabled: false
+  path: internal/metrics
+ingress:
+  enabled: true
+resources:
+  limits:
+    cpu: 3
+fasitResources:
+  used:
+  - alias: appres.cms
+    resourceType: baseUrl
+  #- alias: loginservice
+  #  resourceType: restservice
