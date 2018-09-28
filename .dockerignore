@@ -1,6 +1,4 @@
 LICENSE.md
 CODEOWNERS
 README.md
-node_modules/*
 coverage/*
-build/*

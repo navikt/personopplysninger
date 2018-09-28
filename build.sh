@@ -56,9 +56,6 @@ done
  function build_frontend {
     yarn build
 }
- function ci_test {
-    ./ci-tests/scripts.sh test
-}
  function build_container {
     docker build \
         --tag ${TAG} \
@@ -74,9 +71,9 @@ done
         else docker push ${TAG};
     fi
 }
- install_packages
+
+install_packages
 build_frontend
-#ci_test
 create_version_file
 build_container
 publish_container
