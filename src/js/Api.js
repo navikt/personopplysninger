@@ -1,4 +1,4 @@
-import conf from 'js/Config';
+// import conf from 'js/Config';
 
 const fetchJSONAndCheckForErrors = (url) => {
   const p = new Promise((res, rej) => {
@@ -10,7 +10,7 @@ const fetchJSONAndCheckForErrors = (url) => {
       credentials: 'include',
     }).then((r) => {
       if (r.status === 401) {
-        window.location.href = `${conf.personopplysninger.LOGIN_URL}?redirect=${window.location.href}`; // eslint-disable-line no-undef
+        window.location.href = /* ${conf.personopplysninger.LOGIN_URL} */`https://loginservice-q.nav.no/login?redirect=${window.location.href}`; // eslint-disable-line no-undef
         rej(new Error('Unauthorized'));
       }
       if (!r.ok) {
@@ -25,7 +25,7 @@ const fetchJSONAndCheckForErrors = (url) => {
   return p;
 };
 
-const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://personopplysninger-api-t6.nais.oera-q.local/api/personalia/hent'/* conf.personopplysninger.API_URL */);
+const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://personopplysninger-api-t6.nais.oera-q.local/api/personalia/hent' /* conf.personopplysninger.API_URL */);
 
 export default {
   fetchPersonInfo,
