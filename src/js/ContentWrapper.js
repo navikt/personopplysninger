@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Personalia from './components/Personalia';
 import AdresseContainer from './containers/AdresseContainer';
 import LinksContainer from './containers/LinksContainer';
-import Familierelasjoner from './components/Familierelasjoner';
-import Arbeidsforhold from './components/Arbeidsforhold';
+import Alternativer from './components/Alternativer';
 
 class ContentWrapper extends Component {
   render() {
@@ -26,9 +25,8 @@ class ContentWrapper extends Component {
         <AdresseContainer
           adresseInfo={this.props.userInfo.adresseinfo}
         />
-        <Familierelasjoner />
-        <Arbeidsforhold />
         <LinksContainer />
+        <Alternativer />
       </div>
     );
   }

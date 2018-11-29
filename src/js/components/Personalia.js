@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
-import woman from '../../assets/img/woman.png';
+import person from '../../assets/img/person.png';
 import ListElement from './ListElement';
 
 class Personalia extends Component {
   render() {
     return (
-      <Box header="Personalia" icon={woman}>
+      <Box header="Personalia" icon={person}>
         <ul className="personalia-list">
           <ListElement
             titleId="personalia.first_name"

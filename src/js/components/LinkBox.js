@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import Box from '../components/Box';
 
 const LinkBox = ({
-  header, information, url, linkText, kilde,
+  header, information, url, linkText, kilde, icon,
 }) => (
-  <Box header={header}>
+  <Box header={header} icon={require(icon)}>
     <div className="link-box-content">
       <div className="link-info">
         {information}
@@ -19,6 +19,7 @@ const LinkBox = ({
 );
 
 LinkBox.propTypes = {
+  icon: PropTypes.string,
   header: PropTypes.string,
   information: PropTypes.string,
   url: PropTypes.string,
@@ -27,6 +28,7 @@ LinkBox.propTypes = {
 };
 
 LinkBox.defaultProps = {
+  icon: '',
   header: '',
   information: '',
   url: '',

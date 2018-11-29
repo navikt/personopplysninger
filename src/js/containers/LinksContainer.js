@@ -9,6 +9,7 @@ class LinksContainer extends Component {
       <React.Fragment>
         {links.map(link =>
           (<LinkBox
+            icon={link.icon}
             header={link.header}
             information={link.information}
             url={link.url}

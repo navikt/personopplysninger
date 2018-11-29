@@ -1,5 +1,12 @@
 export default [
   {
+    header: 'Arbeidsforhold',
+    information: 'NAV har opplysninger om dine arbeidsforhold i en egen tjeneste.',
+    linkText: 'Gå til dine arbeidsforhold her',
+    url: 'https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon',
+    kilde: 'Pensjonsregisteret',
+  },
+  {
     header: 'Pensjon',
     information: 'NAV har opplysninger om din pensjon i en egen tjeneste.',
     linkText: 'Gå til Din pensjon',
