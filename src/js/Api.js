@@ -3,21 +3,21 @@ import conf from 'js/Config';
 const fetchJSONAndCheckForErrors = (url) => {
   const p = new Promise((res, rej) => {
     fetch(url, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json;charset=UTF-8',
-        },
-        credentials: 'include',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+      },
+      credentials: 'include',
     }).then((r) => {
-        if (r.status === 401) {
-          window.location.href = `${conf.personopplysninger.LOGIN_URL}?redirect=${window.location.href}`; // eslint-disable-line no-undef
-          rej(new Error('Unauthorized'));
-        }
-        if (!r.ok) {
-          rej(new Error('Error happened on requesting a resource'));
-        }
-        res(r.json());
-      })
+      if (r.status === 401) {
+        window.location.href = `${conf.personopplysninger.LOGIN_URL}?redirect=${window.location.href}`; // eslint-disable-line no-undef
+        rej(new Error('Unauthorized'));
+      }
+      if (!r.ok) {
+        rej(new Error('Error happened on requesting a resource'));
+      }
+      res(r.json());
+    })
       .catch((e) => {
         rej(e);
       });
@@ -25,7 +25,7 @@ const fetchJSONAndCheckForErrors = (url) => {
   return p;
 };
 
-const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://personopplysninger-api-t6.nais.oera-q.local/api/personalia/hent'/*conf.personopplysninger.API_URL*/);
+const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://personopplysninger-api-t6.nais.oera-q.local/api/personalia/hent'/* conf.personopplysninger.API_URL */);
 
 export default {
   fetchPersonInfo,
