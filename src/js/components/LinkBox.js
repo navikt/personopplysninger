@@ -5,7 +5,7 @@ import Box from '../components/Box';
 const LinkBox = ({
   header, information, url, linkText, kilde, icon,
 }) => (
-  <Box header={header} icon={require(icon)}>
+  <Box header={header} icon={icon}>
     <div className="link-box-content">
       <div className="link-info">
         {information}

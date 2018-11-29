@@ -1,3 +1,8 @@
+import koffert from '../assets/img/koffert.png';
+import papirstabel from '../assets/img/papirstabel.png';
+import penger from '../assets/img/penger.png';
+import jobbsok from '../assets/img/jobbsok.png';
+
 export default [
   {
     header: 'Arbeidsforhold',
@@ -5,6 +10,7 @@ export default [
     linkText: 'Gå til dine arbeidsforhold her',
     url: 'https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon',
     kilde: 'Pensjonsregisteret',
+    icon: koffert,
   },
   {
     header: 'Pensjon',
@@ -19,6 +25,7 @@ export default [
     linkText: 'Gå til saksoversikt',
     url: 'https://tjenester.nav.no/saksoversikt/app',
     kilde: 'NAV',
+    icon: papirstabel,
   },
   {
     header: 'Utbetalinger',
@@ -26,6 +33,7 @@ export default [
     linkText: 'Gå til utbetalinger',
     url: 'https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger',
     kilde: 'NAV',
+    icon: penger,
   },
   {
     header: 'Jobbsøk',
@@ -33,5 +41,6 @@ export default [
     linkText: 'Gå til din jobbsøk/CV',
     url: 'https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker',
     kilde: 'Arbeidsregisteret',
+    icon: jobbsok,
   },
 ];
