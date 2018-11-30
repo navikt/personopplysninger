@@ -38,17 +38,17 @@ const startServer = (html) => {
   server.get('/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
 
   server.use(
-    '/static/css',
+    '/personopplysninger/static/css',
     express.static(path.resolve(__dirname, 'build/static/css')),
   );
 
   server.use(
-    '/static/fonts',
+    '/personopplysninger/static/fonts',
     express.static(path.resolve(__dirname, 'build/static/fonts')),
   );
 
   server.use(
-    '/static/media',
+    '/personopplysninger/static/media',
     express.static(path.resolve(__dirname, 'build/static/media')),
   );
 
