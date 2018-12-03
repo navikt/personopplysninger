@@ -35,7 +35,7 @@ const startServer = (html) => {
 
   server.use('/personopplysninger/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
   server.use('/personopplysninger/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
-  server.get('/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
+  server.get('/personopplysninger/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
 
   server.use(
     '/personopplysninger/static/css',
@@ -52,8 +52,8 @@ const startServer = (html) => {
     express.static(path.resolve(__dirname, 'build/static/media')),
   );
 
-  server.get('/health/isAlive', (req, res) => res.sendStatus(200));
-  server.get('/health/isReady', (req, res) => res.sendStatus(200));
+  server.get('/personopplysninger/health/isAlive', (req, res) => res.sendStatus(200));
+  server.get('/personopplysninger/health/isReady', (req, res) => res.sendStatus(200));
 
   server.get(/^\/(?!.*static).*$/, (req, res) => {
     res.send(html);
