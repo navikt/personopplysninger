@@ -8,9 +8,9 @@ replicas:
 port: 8080
 healthcheck:
   liveness:
-    path: health/isAlive
+    path: personopplysninger/health/isAlive
   readiness:
-    path: health/isAlive
+    path: personopplysninger/health/isAlive
 prometheus:
   enabled: false
   path: internal/metrics
