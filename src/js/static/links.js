@@ -1,7 +1,8 @@
-import koffert from '../assets/img/koffert.png';
-import papirstabel from '../assets/img/papirstabel.png';
-import penger from '../assets/img/penger.png';
-import jobbsok from '../assets/img/jobbsok.png';
+import koffert from '../../assets/img/koffert.png';
+import papirstabel from '../../assets/img/papirstabel.png';
+import penger from '../../assets/img/penger.png';
+import jobbsok from '../../assets/img/jobbsok.png';
+import pensjonist from '../../assets/img/pensjonist.png';
 
 export default [
   {
@@ -18,6 +19,7 @@ export default [
     linkText: 'Gå til Din pensjon',
     url: 'https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon',
     kilde: 'Pensjonsregisteret',
+    icon: pensjonist,
   },
   {
     header: 'Dine saker',
