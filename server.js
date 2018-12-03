@@ -33,9 +33,9 @@ const startServer = (html) => {
   // const delayAllResponses = millis => (req, res, next) => setTimeout(next, millis);
   // server.use(delayAllResponses(1000));
 
-  server.use('/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
+  server.use('/personopplysninger/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
   server.use('/personopplysninger/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
-  server.get('/personopplysninger/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
+  server.get('/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
 
   server.use(
     '/personopplysninger/static/css',
