@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import Alternativ from './Alternativ';
 import alternatives from '../static/alternatives';
 
-class Alternativer extends Component {
+class AlternativListe extends Component {
   render() {
-    console.log('alternativer');
-    console.log(alternatives);
-
     return (
       <React.Fragment>
-        {alternatives.map(alternative => <div>{alternative.description}</div>)}
+        <div className="BoxContainer">
+          <div className="AlternativesBox">
+            <h1>Andre alternativer</h1>
+            <div className="icon-box-margin">
+              {alternatives.map(alternative =>
+                (<Alternativ
+                  description={alternative.description}
+                  content={alternative.content}
+                />))}
+            </div>
+          </div>
+        </div>
       </React.Fragment>
     );
   }
 }
 
-export default Alternativer;
+export default AlternativListe;

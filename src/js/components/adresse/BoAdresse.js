@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
-import house from '../../../assets/img/house.png';
+import hus from '../../../assets/img/hus.png';
 import ListElement from '../ListElement';
 
 class BoAdresse extends Component {
   render() {
     return (
-      <Box header="Adresse" icon={house} smallMargin>
+      <Box header="Adresse" icon={hus} smallMargin>
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
           <ul className="address-list-col-4">
