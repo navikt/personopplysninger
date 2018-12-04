@@ -23,5 +23,10 @@
   "adresse.adresse1": "Adresselinje 1",
   "adresse.adresse2": "Adresselinje 2",
   "adresse.adresse3": "Adresselinje 3",
-  "adresse.land": "Land"
+  "adresse.land": "Land",
+  "footer.header": "Innsyn i saksdokumenter hos NAV",
+  "footer.content.line1": "I tjenesten Dine saker på nav.no kan du se saksdokumenter fra dine saker hos NAV.",
+  "footer.content.line2": "På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises.",
+  "footer.content.line3": "Hvis du er part i en sak hos NAV, kan du få innsyn i sakens dokumenter på Dine saker.",
+  "footer.content.line4": "Du kan også kontakte NAV Kontaktsenter, tlf. 55 55 33 33, og be om partsinnsyn."
 }

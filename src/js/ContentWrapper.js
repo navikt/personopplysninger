@@ -4,6 +4,7 @@ import Personalia from './components/Personalia';
 import AdresseContainer from './containers/AdresseContainer';
 import LinksContainer from './containers/LinksContainer';
 import AlternativListe from './components/AlternativListe';
+import FooterInfo from './components/FooterInfo';
 
 class ContentWrapper extends Component {
   render() {
@@ -27,6 +28,7 @@ class ContentWrapper extends Component {
         />
         <LinksContainer />
         <AlternativListe />
+        <FooterInfo />
       </div>
     );
   }

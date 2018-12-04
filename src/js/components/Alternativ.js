@@ -8,15 +8,13 @@ class Alternativ extends Component {
 
     return (
       <React.Fragment>
-        <div className="alternativ-box">
-          <Ekspanderbartpanel
-            className="alternativ-panel"
-            tittel={description}
-            tittelProps="element"
-          >
-            {content}
-          </Ekspanderbartpanel>
-        </div>
+        <Ekspanderbartpanel
+          className="alternativ-panel"
+          tittel={description}
+          tittelProps="element"
+        >
+          {content}
+        </Ekspanderbartpanel>
       </React.Fragment>
     );
   }

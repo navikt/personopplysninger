@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PanelBase from 'nav-frontend-paneler';
 import Alternativ from './Alternativ';
 import alternatives from '../static/alternatives';
 
@@ -7,9 +8,12 @@ class AlternativListe extends Component {
     return (
       <React.Fragment>
         <div className="BoxContainer">
-          <div className="AlternativesBox">
+          <div className="AlternativesBox box-bottom-margin">
             <h1>Andre alternativer</h1>
             <div className="icon-box-margin">
+              <PanelBase>
+                Last ned og skriv ut opplysningene
+              </PanelBase>
               {alternatives.map(alternative =>
                 (<Alternativ
                   description={alternative.description}
