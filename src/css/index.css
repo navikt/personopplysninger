@@ -27,6 +27,12 @@
   display: inline-block;
   width: 85%;
 }
+.Box .information-circle {
+  float: right;
+  padding: 0;
+  border: none;
+  background: none;
+}
 .box-bottom-margin {
   margin-bottom: 5em;
 }
