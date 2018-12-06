@@ -1,20 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const InfoBox = () => (
-  <React.Fragment>
-    <div className="BoxContainer">
-      <div className="InfoBox">
-        <hr width="32px" />
-        <h2>Informasjon om familierelasjoner</h2>
-        <div className="info-content">
-          Denne informasjonen henter Nav for å kunne beregne hvilke ytelser og hvor mye du kan ha
-          krav på. for å kunne beregne hvilke ytelser og hvor mye du kan ha for å kunne beregne hvilke ytelser og hvor mye du krav på.
 
-          Les mer om Presonvern erklæringen her
+class InfoBox extends Component {
+  render() {
+    return (
+      <React.Fragment>
+        <div className="BoxContainer">
+          <div className="InfoBox">
+            <hr width="32px" />
+            {this.props.children}
+          </div>
         </div>
-      </div>
-    </div>
-  </React.Fragment>
-);
+      </React.Fragment>
+    );
+  }
+}
+
+InfoBox.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]),
+};
+
+InfoBox.defaultProps = {
+  children: [],
+};
 
 export default InfoBox;

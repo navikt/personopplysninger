@@ -7,7 +7,12 @@ import ListElement from '../ListElement';
 class BoAdresse extends Component {
   render() {
     return (
-      <Box header="Adresse" icon={hus} smallMargin>
+      <Box
+        header="Adresse"
+        icon={hus}
+        infoType="adresse"
+        smallMargin
+      >
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
           <ul className="address-list-col-4">

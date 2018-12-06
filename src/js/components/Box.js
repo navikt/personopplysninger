@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import infoIcon from '../../assets/img/infomation-circle.png';
 import InfoBox from './InfoBox';
+import infoContent from '../static/infoContent';
 
 class Box extends Component {
   constructor(props) {
@@ -25,10 +26,17 @@ class Box extends Component {
           <div className="icon-box-wrapper">
             {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : <div className="box-icon" />}
             <div className="Box">
-              <button className="information-circle" onClick={() => toggleInfo()}>
-                <img src={infoIcon} alt="Information" />
-              </button>
-              {this.state.displayInfo ? <InfoBox /> : null}
+              {this.props.infoType ? (
+                <button className="information-circle" onClick={() => toggleInfo()}>
+                  <img src={infoIcon} alt="Information" />
+                </button>) : null}
+              {this.state.displayInfo && this.props.infoType ?
+                <InfoBox>
+                  <h2>{infoContent[this.props.infoType].header}</h2>
+                  <div className="info-content">
+                    {infoContent[this.props.infoType].content}
+                  </div>
+                </InfoBox> : null}
               {this.props.children}
             </div>
           </div>
@@ -45,6 +53,7 @@ Box.propTypes = {
   ]),
   header: PropTypes.string,
   icon: PropTypes.string,
+  infoType: PropTypes.string,
   smallMargin: PropTypes.bool,
 };
 
@@ -52,6 +61,7 @@ Box.defaultProps = {
   children: [],
   header: '',
   icon: '',
+  infoType: '',
   smallMargin: false,
 };
 

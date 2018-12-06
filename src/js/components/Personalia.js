@@ -8,7 +8,11 @@ import ListElement from './ListElement';
 class Personalia extends Component {
   render() {
     return (
-      <Box header="Personalia" icon={person}>
+      <Box
+        header="Personalia"
+        icon={person}
+        infoType="personalia"
+      >
         <ul className="personalia-list">
           <ListElement
             titleId="personalia.first_name"
