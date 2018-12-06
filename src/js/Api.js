@@ -25,7 +25,7 @@ const fetchJSONAndCheckForErrors = (url) => {
   return p;
 };
 
-const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://personopplysninger-api-q6.nais.oera-q.local/api/personalia/hent' /* conf.personopplysninger.API_URL */);
+const fetchPersonInfo = () => fetchJSONAndCheckForErrors('https://tjenester-q6.nav.no/personopplysninger-api/personalia/hent'/*'https://personopplysninger-api-q6.nais.oera-q.local/api/personalia/hent'  conf.personopplysninger.API_URL */);
 
 export default {
   fetchPersonInfo,
