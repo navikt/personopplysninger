@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import infoBox from '../../assets/img/infomation-circle.png';
+import infoIcon from '../../assets/img/infomation-circle.png';
+import InfoBox from './InfoBox';
 
 class Box extends Component {
   constructor(props) {
@@ -25,9 +26,9 @@ class Box extends Component {
             {this.props.icon ? <img src={this.props.icon} alt="" className="box-icon" /> : <div className="box-icon" />}
             <div className="Box">
               <button className="information-circle" onClick={() => toggleInfo()}>
-                <img src={infoBox} alt="Information" />
+                <img src={infoIcon} alt="Information" />
               </button>
-              {this.state.displayInfo ? <div>Info</div> : null}
+              {this.state.displayInfo ? <InfoBox /> : null}
               {this.props.children}
             </div>
           </div>

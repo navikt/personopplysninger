@@ -20,6 +20,27 @@
 .BoxWithHeader h1 {
   margin-left: 15%;
 }
+.InfoBox {
+  padding: 2em;
+  background-color: #ffe5c2;
+  display: inline-block;
+  width: 85%;
+}
+.InfoBox hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ff9100;
+  padding: 0;
+}
+.InfoBox h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.InfoBox .info-content {
+  text-align: center;
+  margin-bottom: 2rem;
+}
 .Box {
   padding: 2em;
   background-color: white;
