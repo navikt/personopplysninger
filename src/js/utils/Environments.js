@@ -15,7 +15,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf('tjenester-q0') > -1) {
     return {
-      apiUrl: 'https://personopplysninger-api-q0.nais.oera-q.local/personopplysninger-api/personalia/hent',
+      apiUrl: 'https://tjenester-q0.nav.no/personopplysninger-api/personalia/hent',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
