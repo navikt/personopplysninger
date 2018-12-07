@@ -8,7 +8,21 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf('tjenester-t6') > -1) {
     return {
-      apiUrl: 'https://personopplysninger-api-t6.nais.oera-q.local/personalia/hent',
+      apiUrl: 'https://tjenester-t6.nav.no/personopplysninger-api/personalia/hent',
+      loginUrl: 'https://loginservice-q.nav.no/login',
+      logoutUrl: 'https://loginservice-q.nav.no/slo',
+    };
+  }
+  if (window.location.hostname.indexOf('tjenester-q0') > -1) {
+    return {
+      apiUrl: 'https://tjenester-q0.nav.no/personopplysninger-api/personalia/hent',
+      loginUrl: 'https://loginservice-q.nav.no/login',
+      logoutUrl: 'https://loginservice-q.nav.no/slo',
+    };
+  }
+  if (window.location.hostname.indexOf('tjenester-q4') > -1) {
+    return {
+      apiUrl: 'https://tjenester-q4.nav.no/personopplysninger-api/personalia/hent',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
