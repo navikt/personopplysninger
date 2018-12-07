@@ -29,7 +29,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf('tjenester-q6') > -1) {
     return {
-      apiUrl: 'https://tjenester-q6.nav.no/personopplysninger-api/personalia/hent',
+      apiUrl: 'https://tjenester-t6.nav.no/personopplysninger-api/personalia/hent',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
