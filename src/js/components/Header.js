@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Snakkeboble from 'nav-frontend-snakkeboble';
 import pc from '../../assets/img/pc.png';
 
 class Header extends Component {
@@ -7,12 +6,18 @@ class Header extends Component {
     return (
       <div className="Header">
         <h1 className="header-text">Dine personopplysninger</h1>
-        <Snakkeboble
-          pilHoyre
-        >
-          Heisann sveisann
-        </Snakkeboble>
-        <img src={pc} className="header-pc-icon" alt="Pc" />
+        <div className="header-content">
+          <div className="snakkeboble-wrapper">
+            <div className="snakkeboble">
+              Hei Kari, her kan du se og laste ned informasjon NAV
+              har knyttett til deg her.  Vi har samlet  informasjonen
+              vi har tilgjengelig knyttet til deg på denne siden.
+              Les om personvern i Arbeids- og velferdsetaten her.
+            </div>
+            <div className="snakkeboble-edge" />
+          </div>
+          <img src={pc} className="header-pc-icon" alt="Pc" />
+        </div>
       </div>
     );
   }

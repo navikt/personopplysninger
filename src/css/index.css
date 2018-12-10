@@ -1,3 +1,8 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 .Header {
   background-color: #ccdee6;
   width: 100%;
@@ -5,14 +10,43 @@
   border-bottom: 5px solid #669db4;
   margin-bottom: 7rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
-.Header h1 {
-  margin-bottom: 8rem;
+.Header .header-content {
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .Header .header-pc-icon {
   margin-top: auto;
+}
+.Header .snakkeboble {
+  position: relative;
+  background: #fff;
+  border-radius: 0.4em;
+  height: 5rem;
+  width: 500px;
+  padding-right: 2em;
+  padding-left: 2em;
+  padding-top: 1em;
+  padding-bottom: 6.5em;
+  margin-bottom: 1em;
+}
+.Header .snakkeboble:after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-left-color: #fff;
+  border-right: 0;
+  margin-top: -10px;
+  margin-right: -20px;
 }
 .BoxContainer {
   width: 100%;
