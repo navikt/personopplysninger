@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import pc from '../../assets/img/pc.png';
+import group from '../../assets/img/group.png';
 
 class Header extends Component {
   render() {
@@ -11,12 +11,12 @@ class Header extends Component {
             <div className="snakkeboble">
               Hei Kari, her kan du se og laste ned informasjon NAV
               har knyttett til deg her.  Vi har samlet  informasjonen
-              vi har tilgjengelig knyttet til deg på denne siden.
-              Les om personvern i Arbeids- og velferdsetaten her.
+              vi har tilgjengelig knyttet til deg på denne siden.<br />
+              <a className="link-header" href="/">Les om personvern i Arbeids- og velferdsetaten her</a>
             </div>
             <div className="snakkeboble-edge" />
           </div>
-          <img src={pc} className="header-pc-icon" alt="Pc" />
+          <img src={group} className="header-pc-icon" alt="Pc" />
         </div>
       </div>
     );

@@ -1,8 +1,3 @@
-* {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
 .Header {
   background-color: #ccdee6;
   width: 100%;
@@ -14,8 +9,12 @@
   align-items: center;
   justify-content: space-between;
 }
+.Header h1 {
+  margin-right: 18vw;
+  font-weight: bold;
+}
 .Header .header-content {
-  width: 40vw;
+  width: 50vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -28,7 +27,7 @@
   background: #fff;
   border-radius: 0.4em;
   height: 5rem;
-  width: 500px;
+  width: 489px;
   padding-right: 2em;
   padding-left: 2em;
   padding-top: 1em;
@@ -39,7 +38,7 @@
   content: '';
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 60%;
   width: 0;
   height: 0;
   border: 20px solid transparent;
@@ -341,4 +340,7 @@ textarea {
 }
 .footer-info .folder-block-icon {
   margin-bottom: 1rem;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
 }
