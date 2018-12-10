@@ -46,6 +46,8 @@
     "nav-frontend-js-utils": "^1.0.6",
     "nav-frontend-paneler": "^1.0.10",
     "nav-frontend-paneler-style": "^0.3.11",
+    "nav-frontend-snakkeboble": "^1.0.21",
+    "nav-frontend-snakkeboble-style": "^0.2.15",
     "nav-frontend-typografi": "^2.0.6",
     "nav-frontend-typografi-style": "^1.0.10",
     "npm-run-all": "^4.1.3",
