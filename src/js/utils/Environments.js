@@ -34,6 +34,13 @@ const Environment = () => {
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
   }
+  if (window.location.hostname.indexOf('person-q') > -1) {
+    return {
+      apiUrl: 'https://person-q.nav.no/personopplysninger-api/personalia/hent',
+      loginUrl: 'https://loginservice-q.nav.no/login',
+      logoutUrl: 'https://loginservice-q.nav.no/slo',
+    };
+  }
 
   return {
     apiUrl: 'https://tjenester.nav.no/personopplysninger-api/personalia/hent',
