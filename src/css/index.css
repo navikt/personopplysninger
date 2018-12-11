@@ -283,6 +283,7 @@ textarea {
   background: none #ffffff;
   border: 0px;
   text-align: left;
+  font-weight: bold;
   width: 100%;
   display: block;
   padding: 1.5rem;
@@ -343,4 +344,8 @@ textarea {
 }
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  color: #3e3832;
+}
+body a {
+  color: #4a90e2;
 }

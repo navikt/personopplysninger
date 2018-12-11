@@ -1,8 +1,8 @@
 export default {
   personalia: {
     header: 'Informasjon om personalia',
-    content: 'Lorem ipsum blabla jepp\n' +
-    'dolor sit amet jepp.\n' +
+    content: 'Lorem ipsum blabla\n' +
+    'dolor sit amet.\n' +
     '\n' +
     'Les mer om personvernerklæringen her',
   },

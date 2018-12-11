@@ -28,7 +28,7 @@ class BoAdresse extends Component {
             />
             <ListElement
               className="address-col"
-              titleId="adresse.title"
+              titleId="adresse.poststed"
               content="Kristiansand"
             />
           </ul>

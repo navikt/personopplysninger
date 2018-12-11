@@ -12,7 +12,7 @@ class AlternativListe extends Component {
             <h1>Andre alternativer</h1>
             <div className="icon-box-margin">
               <PanelBase>
-                Last ned og skriv ut opplysningene
+                <b>Last ned og skriv ut opplysningene</b>
               </PanelBase>
               {alternatives.map(alternative =>
                 (<Alternativ
