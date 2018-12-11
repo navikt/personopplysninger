@@ -16,11 +16,20 @@ exports[`render Personalia with content 1`] = `
       <img
         alt=""
         className="box-icon"
-        src="woman.png"
+        src="person.png"
       />
       <div
         className="Box"
       >
+        <button
+          className="information-circle"
+          onClick={[Function]}
+        >
+          <img
+            alt="Information"
+            src="infomation-circle.png"
+          />
+        </button>
         <ul
           className="personalia-list"
         >

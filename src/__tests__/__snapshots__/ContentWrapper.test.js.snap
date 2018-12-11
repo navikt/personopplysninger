@@ -17,11 +17,20 @@ exports[`render ContentWrapper with content 1`] = `
         <img
           alt=""
           className="box-icon"
-          src="woman.png"
+          src="person.png"
         />
         <div
           className="Box"
         >
+          <button
+            className="information-circle"
+            onClick={[Function]}
+          >
+            <img
+              alt="Information"
+              src="infomation-circle.png"
+            />
+          </button>
           <ul
             className="personalia-list"
           >
@@ -309,11 +318,20 @@ exports[`render ContentWrapper with content 1`] = `
           <img
             alt=""
             className="box-icon"
-            src="house.png"
+            src="hus.png"
           />
           <div
             className="Box"
           >
+            <button
+              className="information-circle"
+              onClick={[Function]}
+            >
+              <img
+                alt="Information"
+                src="infomation-circle.png"
+              />
+            </button>
             <div
               className="address-box"
             >
@@ -364,7 +382,7 @@ exports[`render ContentWrapper with content 1`] = `
                     className="title"
                   >
                     <span>
-                      adresse.title
+                      Poststed
                     </span>
                   </span>
                   <span
@@ -597,45 +615,39 @@ exports[`render ContentWrapper with content 1`] = `
       className="BoxWithHeader"
     >
       <h1>
-        Familierelasjoner
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <div
-          className="box-icon"
-        />
-        <div
-          className="Box"
-        >
-          <h3>
-            Familierelasjoner
-          </h3>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
         Arbeidsforhold
       </h1>
       <div
         className="icon-box-wrapper"
       >
-        <div
+        <img
+          alt=""
           className="box-icon"
+          src="koffert.png"
         />
         <div
           className="Box"
         >
-          <h3>
-            Arbeidsforhold
-          </h3>
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              NAV har opplysninger om dine arbeidsforhold i en egen tjeneste.
+            </div>
+            <a
+              href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+            >
+              Gå til dine arbeidsforhold her
+            </a>
+            <div
+              className="box-footer link-footer"
+            >
+              Kilde: 
+              Pensjonsregisteret
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -652,8 +664,10 @@ exports[`render ContentWrapper with content 1`] = `
       <div
         className="icon-box-wrapper"
       >
-        <div
+        <img
+          alt=""
           className="box-icon"
+          src="pensjonist.png"
         />
         <div
           className="Box"
@@ -694,8 +708,10 @@ exports[`render ContentWrapper with content 1`] = `
       <div
         className="icon-box-wrapper"
       >
-        <div
+        <img
+          alt=""
           className="box-icon"
+          src="papirstabel.png"
         />
         <div
           className="Box"
@@ -736,8 +752,10 @@ exports[`render ContentWrapper with content 1`] = `
       <div
         className="icon-box-wrapper"
       >
-        <div
+        <img
+          alt=""
           className="box-icon"
+          src="penger.png"
         />
         <div
           className="Box"
@@ -778,8 +796,10 @@ exports[`render ContentWrapper with content 1`] = `
       <div
         className="icon-box-wrapper"
       >
-        <div
+        <img
+          alt=""
           className="box-icon"
+          src="jobbsok.png"
         />
         <div
           className="Box"
@@ -805,6 +825,172 @@ exports[`render ContentWrapper with content 1`] = `
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer"
+  >
+    <div
+      className="AlternativesBox box-bottom-margin"
+    >
+      <h1>
+        Andre alternativer
+      </h1>
+      <div
+        className="icon-box-margin"
+      >
+        <div
+          className="panel"
+        >
+          <b>
+            Last ned og skriv ut opplysningene
+          </b>
+        </div>
+        <div
+          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
+        >
+          <button
+            aria-controls="2582302069-13721-7781-3295-4223232630875"
+            aria-expanded={false}
+            className="ekspanderbartPanel__hode"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            type="button"
+          >
+            <div
+              className="ekspanderbartPanel__flex-wrapper"
+            >
+              <span
+                className="typo-element ekspanderbartPanel__heading"
+              >
+                Opplysninger om meg er feil – hva gjør jeg?
+              </span>
+              <span
+                className="ekspanderbartPanel__indikator"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
+        >
+          <button
+            aria-controls="94416133-25739-6569-7048-729483697163"
+            aria-expanded={false}
+            className="ekspanderbartPanel__hode"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            type="button"
+          >
+            <div
+              className="ekspanderbartPanel__flex-wrapper"
+            >
+              <span
+                className="typo-element ekspanderbartPanel__heading"
+              >
+                Savner du personopplysninger?
+              </span>
+              <span
+                className="ekspanderbartPanel__indikator"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
+        >
+          <button
+            aria-controls="167878109-2489-17810-07939-0528850202870"
+            aria-expanded={false}
+            className="ekspanderbartPanel__hode"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            type="button"
+          >
+            <div
+              className="ekspanderbartPanel__flex-wrapper"
+            >
+              <span
+                className="typo-element ekspanderbartPanel__heading"
+              >
+                Utlevere eller innhente opplysninger til/fra andre land
+              </span>
+              <span
+                className="ekspanderbartPanel__indikator"
+              />
+            </div>
+          </button>
+        </div>
+        <div
+          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
+        >
+          <button
+            aria-controls="71978358-2081-09929-03389-633741988555"
+            aria-expanded={false}
+            className="ekspanderbartPanel__hode"
+            onClick={[Function]}
+            onKeyDown={[Function]}
+            type="button"
+          >
+            <div
+              className="ekspanderbartPanel__flex-wrapper"
+            >
+              <span
+                className="typo-element ekspanderbartPanel__heading"
+              >
+                Har du spørsmål eller er uenig?
+              </span>
+              <span
+                className="ekspanderbartPanel__indikator"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="BoxContainer"
+  >
+    <div
+      className="footer-info"
+    >
+      <img
+        alt="Information"
+        className="folder-block-icon"
+        src="folder-block.png"
+      />
+      <div
+        className="footer-text-header"
+      >
+        <span>
+          Innsyn i saksdokumenter hos NAV
+        </span>
+      </div>
+      <div
+        className="footer-text-content"
+      >
+        <span>
+          <span>
+            I tjenesten Dine saker på nav.no kan du se saksdokumenter fra dine saker hos NAV.
+          </span>
+        </span>
+        <span>
+          <span>
+            På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises.
+          </span>
+        </span>
+        <span>
+          <span>
+            Hvis du er part i en sak hos NAV, kan du få innsyn i sakens dokumenter på Dine saker.
+          </span>
+        </span>
+        <span>
+          <span>
+            Du kan også kontakte NAV Kontaktsenter, tlf. 55 55 33 33, og be om partsinnsyn.
+          </span>
+        </span>
       </div>
     </div>
   </div>
