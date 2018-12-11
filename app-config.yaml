@@ -25,3 +25,5 @@ fasitResources:
     resourceType: baseUrl
   - alias: loginservice
     resourceType: restservice
+  - alias: loadbalancer:personopplysninger
+    resourceType: loadbalancerconfig
