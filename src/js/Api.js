@@ -1,18 +1,26 @@
-import conf from 'js/Config';
+// import conf from 'js/Config';
+import Environment from './utils/Environments';
+
+function sjekkAuthOgRedirect(res) {
+  if (res.status === 401) {
+    window.location.assign(`${Environment().loginUrl}?redirect=${window.location.href}`);
+    return false;
+  }
+  return true;
+}
 
 const fetchJSONAndCheckForErrors = (url) => {
   const p = new Promise((res, rej) => {
-    fetch(url) // eslint-disable-line no-undef
-      .then((r) => {
-        if (r.status === 401) {
-          window.location.href = `${conf.personopplysninger.LOGIN_URL}?redirect=${window.location.href}`; // eslint-disable-line no-undef
-          rej(new Error('Unauthorized'));
-        }
-        if (!r.ok) {
-          rej(new Error('Error happened on requesting a resource'));
-        }
-        res(r.json());
-      })
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json;charset=UTF-8',
+      },
+      credentials: 'include',
+    }).then((response) => {
+      sjekkAuthOgRedirect(response);
+      res(response.json());
+    })
       .catch((e) => {
         rej(e);
       });
@@ -20,7 +28,7 @@ const fetchJSONAndCheckForErrors = (url) => {
   return p;
 };
 
-const fetchPersonInfo = () => fetchJSONAndCheckForErrors(conf.personopplysninger.API_URL);
+const fetchPersonInfo = () => fetchJSONAndCheckForErrors(`${Environment().apiUrl}`);
 
 export default {
   fetchPersonInfo,

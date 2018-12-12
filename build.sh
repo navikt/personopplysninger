@@ -51,10 +51,11 @@ done
     git status
     ls -la
     pwd
-    yarn
+    npm i -g npm
+    npm ci
 }
  function build_frontend {
-    yarn build
+    npm run build
 }
  function build_container {
     docker build \
@@ -77,7 +78,3 @@ build_frontend
 create_version_file
 build_container
 publish_container
-
-
-
-
