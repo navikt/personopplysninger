@@ -1,5 +1,6 @@
 export default [
   {
+    id: 1,
     description: 'Opplysninger om meg er feil – hva gjør jeg?',
     content: 'Hvis opplysninger om deg er feil, kan du be om at de blir rettet. \n' +
     'Hvis opplysningene er ufullstendige, kan du be om at de blir supplert. I særlige tilfeller kan du ha rett til å få slettet opplysninger om deg, men fordi NAV har plikt til å lagre mange opplysninger, \n' +
@@ -16,16 +17,19 @@ export default [
     'NAV skal besvare krav fra deg som gjelder retting og sletting kostnadsfritt og senest innen 30 dager.',
   },
   {
+    id: 2,
     description: 'Savner du personopplysninger?',
     content: 'Denne siden er under utvikling. Derfor er det ikke sikkert du finner alle opplysninger NAV har om deg her. Det kan være både tekniske \n' +
     'og juridiske begrensninger som gjør at vi ikke kan vise informasjon. Savner du opplysninger eller lurer du på om NAV har flere opplysninger om deg, kan du kontakte NAV Kontaktsenter, \n' +
     'tlf. 55 55 33 33, eller bruke Send beskjed til NAV.',
   },
   {
+    id: 3,
     description: 'Utlevere eller innhente opplysninger til/fra andre land',
     content: 'Hvis du har bodd eller arbeidet i andre land enn Norge og har søkt om ytelser eller tjenester i Norge eller i et annet land,  må NAV noen ganger utveksle opplysninger om deg med et annet lands trygdemyndigheter. NAV vil bare levere ut opplysninger til land som er omfattet av EØS-avtalen eller land som Norge har inngått trygdeavtaler med. Se oversikt over hvilke land Norge har inngått trygdeavtale med: https://www.nav.no/rettskildene/Forside/Hovednummer/hovednummer-42-trygdeavtaler',
   },
   {
+    id: 4,
     description: 'Har du spørsmål eller er uenig?',
     content: 'Hvis du har spørsmål eller er uenig i vår behandling av dine personopplysninger, kan du kontakte NAV Kontaktsenter, \n' +
     'tlf. 55 55 33 33, eller bruke Send beskjed til NAV. ».\n' +

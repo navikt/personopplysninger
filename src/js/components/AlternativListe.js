@@ -16,6 +16,7 @@ class AlternativListe extends Component {
               </PanelBase>
               {alternatives.map(alternative =>
                 (<Alternativ
+                  key={alternative.id}
                   description={alternative.description}
                   content={alternative.content}
                 />))}

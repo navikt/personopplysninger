@@ -1,998 +1,251 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render ContentWrapper with content 1`] = `
-<div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Personalia
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="person.png"
-        />
-        <div
-          className="Box"
-        >
-          <button
-            className="information-circle"
-            onClick={[Function]}
-          >
-            <img
-              alt="Information"
-              src="infomation-circle.png"
-            />
-          </button>
-          <ul
-            className="personalia-list"
-          >
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Fornavn
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Etternavn
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Fødselsnummer
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Utenlandsk ID
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                x
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Telefon
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Kontonummer
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  e-post
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                x
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Språk
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Statsborgerskap
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Personstatus
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Fødested
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                x
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Spesialregistrering
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Sivilstand
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Sikkerhetstiltak
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Kjønn
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title"
-              >
-                <span>
-                  Tilpasset kommunikasjon
-                </span>
-              </span>
-              <span
-                className="content"
-              >
-                x
-              </span>
-            </li>
-          </ul>
-          <div
-            className="box-footer"
-          >
-            <span>
-              Kilde: NAV, Skatteetaten, Folkeregisteret, Kontakt- og reservasjonsregisteret
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div>
-    <div
-      className="BoxContainer box-bottom-margin-small"
-    >
-      <div
-        className="BoxWithHeader"
-      >
-        <h1>
-          Adresse
-        </h1>
-        <div
-          className="icon-box-wrapper"
-        >
-          <img
-            alt=""
-            className="box-icon"
-            src="hus.png"
-          />
-          <div
-            className="Box"
-          >
-            <button
-              className="information-circle"
-              onClick={[Function]}
-            >
-              <img
-                alt="Information"
-                src="infomation-circle.png"
-              />
-            </button>
-            <div
-              className="address-box"
-            >
-              <h3
-                className="address-type"
-              >
-                Bostedsadresse
-              </h3>
-              <ul
-                className="address-list-col-4"
-              >
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Gate
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Postnummer
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Poststed
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    Kristiansand
-                  </span>
-                </li>
-              </ul>
-              <div
-                className="box-footer"
-              >
-                Kilde: 
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="BoxContainer box-bottom-margin-small"
-    >
-      <div
-        className="BoxWithHeader"
-      >
-        <div
-          className="icon-box-wrapper"
-        >
-          <div
-            className="box-icon"
-          />
-          <div
-            className="Box"
-          >
-            <div
-              className="address-box"
-            >
-              <h3
-                className="address-type"
-              >
-                Postadresse
-              </h3>
-              <ul
-                className="address-list-col-3"
-              >
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 1
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 2
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 3
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Postnummer
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Land
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-              </ul>
-              <div
-                className="box-footer"
-              >
-                Kilde: 
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      className="BoxContainer box-bottom-margin"
-    >
-      <div
-        className="BoxWithHeader"
-      >
-        <div
-          className="icon-box-wrapper"
-        >
-          <div
-            className="box-icon"
-          />
-          <div
-            className="Box"
-          >
-            <div
-              className="address-box"
-            >
-              <h3
-                className="address-type"
-              >
-                Utenlandsk adresse
-              </h3>
-              <ul
-                className="address-list-col-3"
-              >
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 1
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 2
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-                <li
-                  className="address-col"
-                >
-                  <span
-                    className="title"
-                  >
-                    <span>
-                      Adresselinje 3
-                    </span>
-                  </span>
-                  <span
-                    className="content"
-                  >
-                    
-                  </span>
-                </li>
-              </ul>
-              <div
-                className="box-footer"
-              >
-                Kilde: 
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Arbeidsforhold
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="koffert.png"
-        />
-        <div
-          className="Box"
-        >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              NAV har opplysninger om dine arbeidsforhold i en egen tjeneste.
-            </div>
-            <a
-              href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
-            >
-              Gå til dine arbeidsforhold her
-            </a>
-            <div
-              className="box-footer link-footer"
-            >
-              Kilde: 
-              Pensjonsregisteret
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Pensjon
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="pensjonist.png"
-        />
-        <div
-          className="Box"
-        >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              NAV har opplysninger om din pensjon i en egen tjeneste.
-            </div>
-            <a
-              href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
-            >
-              Gå til Din pensjon
-            </a>
-            <div
-              className="box-footer link-footer"
-            >
-              Kilde: 
-              Pensjonsregisteret
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Dine saker
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="papirstabel.png"
-        />
-        <div
-          className="Box"
-        >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Oversikt over dine saker og kommunikasjon med NAV
-            </div>
-            <a
-              href="https://tjenester.nav.no/saksoversikt/app"
-            >
-              Gå til saksoversikt
-            </a>
-            <div
-              className="box-footer link-footer"
-            >
-              Kilde: 
-              NAV
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Utbetalinger
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="penger.png"
-        />
-        <div
-          className="Box"
-        >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Oversikt over dine utbetalinger fra NAV
-            </div>
-            <a
-              href="https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger"
-            >
-              Gå til utbetalinger
-            </a>
-            <div
-              className="box-footer link-footer"
-            >
-              Kilde: 
-              NAV
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer box-bottom-margin"
-  >
-    <div
-      className="BoxWithHeader"
-    >
-      <h1>
-        Jobbsøk
-      </h1>
-      <div
-        className="icon-box-wrapper"
-      >
-        <img
-          alt=""
-          className="box-icon"
-          src="jobbsok.png"
-        />
-        <div
-          className="Box"
-        >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Jobbsøknader, CV, aktivitetsplaner og lagrede søk
-            </div>
-            <a
-              href="https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker"
-            >
-              Gå til din jobbsøk/CV
-            </a>
-            <div
-              className="box-footer link-footer"
-            >
-              Kilde: 
-              Arbeidsregisteret
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer"
-  >
-    <div
-      className="AlternativesBox box-bottom-margin"
-    >
-      <h1>
-        Andre alternativer
-      </h1>
-      <div
-        className="icon-box-margin"
-      >
-        <div
-          className="panel"
-        >
-          <b>
-            Last ned og skriv ut opplysningene
-          </b>
-        </div>
-        <div
-          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
-        >
-          <button
-            aria-controls="2582302069-13721-7781-3295-4223232630875"
-            aria-expanded={false}
-            className="ekspanderbartPanel__hode"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            type="button"
-          >
-            <div
-              className="ekspanderbartPanel__flex-wrapper"
-            >
-              <span
-                className="typo-element ekspanderbartPanel__heading"
-              >
-                Opplysninger om meg er feil – hva gjør jeg?
-              </span>
-              <span
-                className="ekspanderbartPanel__indikator"
-              />
-            </div>
-          </button>
-        </div>
-        <div
-          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
-        >
-          <button
-            aria-controls="94416133-25739-6569-7048-729483697163"
-            aria-expanded={false}
-            className="ekspanderbartPanel__hode"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            type="button"
-          >
-            <div
-              className="ekspanderbartPanel__flex-wrapper"
-            >
-              <span
-                className="typo-element ekspanderbartPanel__heading"
-              >
-                Savner du personopplysninger?
-              </span>
-              <span
-                className="ekspanderbartPanel__indikator"
-              />
-            </div>
-          </button>
-        </div>
-        <div
-          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
-        >
-          <button
-            aria-controls="167878109-2489-17810-07939-0528850202870"
-            aria-expanded={false}
-            className="ekspanderbartPanel__hode"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            type="button"
-          >
-            <div
-              className="ekspanderbartPanel__flex-wrapper"
-            >
-              <span
-                className="typo-element ekspanderbartPanel__heading"
-              >
-                Utlevere eller innhente opplysninger til/fra andre land
-              </span>
-              <span
-                className="ekspanderbartPanel__indikator"
-              />
-            </div>
-          </button>
-        </div>
-        <div
-          className="ekspanderbartPanel alternativ-panel ekspanderbartPanel--lukket"
-        >
-          <button
-            aria-controls="71978358-2081-09929-03389-633741988555"
-            aria-expanded={false}
-            className="ekspanderbartPanel__hode"
-            onClick={[Function]}
-            onKeyDown={[Function]}
-            type="button"
-          >
-            <div
-              className="ekspanderbartPanel__flex-wrapper"
-            >
-              <span
-                className="typo-element ekspanderbartPanel__heading"
-              >
-                Har du spørsmål eller er uenig?
-              </span>
-              <span
-                className="ekspanderbartPanel__indikator"
-              />
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="BoxContainer"
-  >
-    <div
-      className="footer-info"
-    >
-      <img
-        alt="Information"
-        className="folder-block-icon"
-        src="folder-block.png"
-      />
-      <div
-        className="footer-text-header"
-      >
-        <span>
-          Innsyn i saksdokumenter hos NAV
-        </span>
-      </div>
-      <div
-        className="footer-text-content"
-      >
-        <span>
-          <span>
-            I tjenesten Dine saker på nav.no kan du se saksdokumenter fra dine saker hos NAV.
-          </span>
-        </span>
-        <span>
-          <span>
-            På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises.
-          </span>
-        </span>
-        <span>
-          <span>
-            Hvis du er part i en sak hos NAV, kan du få innsyn i sakens dokumenter på Dine saker.
-          </span>
-        </span>
-        <span>
-          <span>
-            Du kan også kontakte NAV Kontaktsenter, tlf. 55 55 33 33, og be om partsinnsyn.
-          </span>
-        </span>
-      </div>
-    </div>
-  </div>
-</div>
+<ContentWrapper
+  userInfo={
+    Object {
+      "adresseinfo": Object {
+        "boadresse": Object {
+          "adresse": "",
+          "adressetillegg": "",
+          "bydel": "",
+          "datoFraOgMed": "",
+          "kilde": "",
+          "kommune": "",
+          "landkode": "",
+          "matrikkeladresse": Object {
+            "bruksnummer": "",
+            "festenummer": "",
+            "gaardsnummer": "",
+            "undernummer": "",
+          },
+          "postnummer": "",
+          "veiadresse": Object {
+            "bokstav": "",
+            "bolignummer": "",
+            "gatekode": "",
+            "husnummer": "",
+          },
+        },
+        "geografiskTilknytning": Object {
+          "bydel": "",
+          "datoFraOgMed": "",
+          "kilde": "",
+          "kommune": "",
+          "land": "",
+        },
+        "postadresse": Object {
+          "adresse1": "",
+          "adresse2": "",
+          "adresse3": "",
+          "datoFraOgMed": "",
+          "kilde": "",
+          "land": "",
+          "postnummer": "",
+        },
+        "prioritertAdresse": Object {
+          "datoFraOgMed": "",
+          "kilde": "",
+          "type": "",
+        },
+        "tilleggsadresse": Object {
+          "adresse1": "",
+          "adresse2": "",
+          "adresse3": "",
+          "bolignummer": "",
+          "bydel": "",
+          "datoFraOgMed": "",
+          "gateKode": "",
+          "husbokstav": "",
+          "husnummer": "",
+          "kilde": "",
+          "kommunenummer": "",
+          "postboksanlegg": "",
+          "postboksnummer": "",
+          "postnummer": "",
+        },
+        "utenlandskAdresse": Object {
+          "adresse1": "",
+          "adresse2": "",
+          "adresse3": "",
+          "datoFraOgMed": "",
+          "kilde": "",
+        },
+      },
+      "barnListe": Array [
+        Object {
+          "datoRegistert": "",
+          "egenansatt": null,
+          "fnr": "",
+          "kilde": "",
+          "spesreg": "",
+        },
+      ],
+      "brukerbehovListe": Array [
+        Object {
+          "behov": "",
+          "datoFraOgMed": "",
+          "kilde": "",
+        },
+      ],
+      "datoFraOgMed": "",
+      "doedsdato": Object {
+        "dato": "",
+        "datoFraOgMed": "",
+        "kilde": "",
+      },
+      "egenansatt": Object {
+        "datoFraOgMed": "",
+        "erEgenansatt": null,
+        "kilde": "",
+      },
+      "foedselsdato": "",
+      "foedtIKommune": "",
+      "foedtILand": "",
+      "foreldreansvar": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "type": "",
+      },
+      "ident": "",
+      "identtype": "",
+      "innvandringUtvandring": Object {
+        "innvandretDato": "",
+        "innvandretKilde": "",
+        "innvandretLand": "",
+        "utvandretDato": "",
+        "utvandretKilde": "",
+        "utvandretLand": "",
+      },
+      "kilde": "",
+      "kjonn": "",
+      "kontonummer": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "nummer": "",
+      },
+      "navn": Object {
+        "datoFraOgMed": "",
+        "forkortetNavn": "",
+        "fornavn": "",
+        "kilde": "",
+        "mellomnavn": "",
+        "slektsnavn": "",
+        "slektsnavnUgift": "",
+      },
+      "oppholdstillatelse": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "type": "",
+      },
+      "relasjon": Object {
+        "datoFraOgMed": "",
+        "egenansatt": null,
+        "fnr": "",
+        "kilde": "",
+        "spesreg": "",
+        "type": "",
+      },
+      "samboer": Object {
+        "datoFraOgMed": "",
+        "fnr": "",
+        "kilde": "",
+      },
+      "sivilstand": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "kode": "",
+      },
+      "spesreg": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "kode": "",
+      },
+      "spraak": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "kode": "",
+      },
+      "statsborgerskap": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "kode": "",
+      },
+      "status": Object {
+        "datoFraOgMed": "",
+        "kilde": "",
+        "kode": "",
+      },
+      "telefon": Object {
+        "jobb": "",
+        "jobbDatoRegistrert": "",
+        "jobbKilde": "",
+        "mobil": "",
+        "mobilDatoRegistrert": "",
+        "mobilKilde": "",
+        "privat": "",
+        "privatDatoRegistrert": "",
+        "privatKilde": "",
+      },
+      "tiltak": Object {
+        "datoFraOgMed": "",
+        "datoTil": "",
+        "kilde": "",
+        "type": "",
+      },
+      "utenlandsinfoList": Array [
+        Object {
+          "datoFraOgMed": "",
+          "familienavnFodt": "",
+          "farsFamilenavn": "",
+          "farsFornavn": "",
+          "foedested": "",
+          "fornavnFodt": "",
+          "idOff": "",
+          "institusjon": "",
+          "institusjonNavn": "",
+          "kilde": "",
+          "kildePin": "",
+          "land": "",
+          "morsFamilenavn": "",
+          "morsFornavn": "",
+          "nasjonalId": "",
+          "nasjonalitet": "",
+          "sedRef": "",
+          "sektor": "",
+        },
+      ],
+      "utenlandskBank": Object {
+        "adresse1": "",
+        "adresse2": "",
+        "adresse3": "",
+        "bankkode": "",
+        "banknavn": "",
+        "datoFraOgMed": "",
+        "iban": "",
+        "kilde": "",
+        "kontonummer": "",
+        "land": "",
+        "swiftkode": "",
+        "valuta": "",
+      },
+      "vergemaalListe": Array [
+        Object {
+          "aaksId": "",
+          "datoFraOgMed": "",
+          "egenansatt": null,
+          "embete": "",
+          "fnr": "",
+          "id": "",
+          "kilde": "",
+          "mandattype": "",
+          "sakstype": "",
+          "spesreg": "",
+          "type": "",
+          "vedtaksdato": "",
+        },
+      ],
+    }
+  }
+/>
 `;
