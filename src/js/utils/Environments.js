@@ -1,7 +1,7 @@
 const Environment = () => {
   if (process.env.NODE_ENV === 'development') {
     return {
-      apiUrl: 'http://localhost:8080/personbruker-api/',
+      apiUrl: 'http://localhost:8080/mock-api/person-info.json',
       loginUrl: 'http://localhost:8080/personbruker-api/local/cookie',
       logoutUrl: '#',
     };
