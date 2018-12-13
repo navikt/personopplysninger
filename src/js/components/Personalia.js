@@ -36,7 +36,7 @@ class Personalia extends Component {
           />
           <ListElement
             titleId="personalia.account_no"
-            content={this.props.kontonummer  ? this.props.kontonummer.nummer : ''}
+            content={this.props.kontonummer ? this.props.kontonummer.nummer : ''}
           />
           <ListElement
             titleId="personalia.email"
