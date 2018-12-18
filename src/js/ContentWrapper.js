@@ -8,7 +8,6 @@ import FooterInfo from './components/FooterInfo';
 
 class ContentWrapper extends Component {
   render() {
-
     return (
       <div>
         <Personalia
