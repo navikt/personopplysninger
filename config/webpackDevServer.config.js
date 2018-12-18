@@ -118,6 +118,14 @@ module.exports = function(proxy, allowedHost, decoratedIndexHtml) {
           path.resolve(`${__dirname}/../src/mock-api/person-info.json`)
         );
       });
+
+      app.get('/mock-api/person-info-ny.json', (req, res) => {
+        // res.sendStatus(401);
+        res.sendFile(
+          path.resolve(`${__dirname}/../src/mock-api/person-info-ny.json`)
+        );
+      });
+
       app.get(/^\/(?!.*static).*$/, (req, res) => {
         res.render('index.html', Object.assign(decoratedIndexHtml));
       });

@@ -10,6 +10,7 @@ function sjekkAuthOgRedirect(res) {
 }
 
 const fetchJSONAndCheckForErrors = (url) => {
+
   const p = new Promise((res, rej) => {
     fetch(url, {
       method: 'GET',

@@ -34,43 +34,10 @@ exports[`render ContentWrapper with content 1`] = `
           "kommune": "",
           "land": "",
         },
-        "postadresse": Object {
-          "adresse1": "",
-          "adresse2": "",
-          "adresse3": "",
-          "datoFraOgMed": "",
-          "kilde": "",
-          "land": "",
-          "postnummer": "",
-        },
-        "prioritertAdresse": Object {
-          "datoFraOgMed": "",
-          "kilde": "",
-          "type": "",
-        },
-        "tilleggsadresse": Object {
-          "adresse1": "",
-          "adresse2": "",
-          "adresse3": "",
-          "bolignummer": "",
-          "bydel": "",
-          "datoFraOgMed": "",
-          "gateKode": "",
-          "husbokstav": "",
-          "husnummer": "",
-          "kilde": "",
-          "kommunenummer": "",
-          "postboksanlegg": "",
-          "postboksnummer": "",
-          "postnummer": "",
-        },
-        "utenlandskAdresse": Object {
-          "adresse1": "",
-          "adresse2": "",
-          "adresse3": "",
-          "datoFraOgMed": "",
-          "kilde": "",
-        },
+        "postadresse": "",
+        "prioritertAdresse": "",
+        "tilleggsadresse": "",
+        "utenlandskAdresse": "",
       },
       "barnListe": Array [
         Object {
@@ -108,14 +75,22 @@ exports[`render ContentWrapper with content 1`] = `
         "type": "",
       },
       "ident": "",
-      "identtype": "",
+      "identtype": Object {
+        "kodeverk": "",
+        "verdi": "",
+      },
       "innvandringUtvandring": Object {
         "innvandretDato": "",
         "innvandretKilde": "",
-        "innvandretLand": "",
-        "utvandretDato": "",
+        "innvandretLand": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
         "utvandretKilde": "",
-        "utvandretLand": "",
+        "utvandretLand": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "kilde": "",
       "kjonn": "",
@@ -154,27 +129,42 @@ exports[`render ContentWrapper with content 1`] = `
       "sivilstand": Object {
         "datoFraOgMed": "",
         "kilde": "",
-        "kode": "",
+        "kode": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "spesreg": Object {
         "datoFraOgMed": "",
         "kilde": "",
-        "kode": "",
+        "kode": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "spraak": Object {
         "datoFraOgMed": "",
         "kilde": "",
-        "kode": "",
+        "kode": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "statsborgerskap": Object {
         "datoFraOgMed": "",
         "kilde": "",
-        "kode": "",
+        "kode": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "status": Object {
         "datoFraOgMed": "",
         "kilde": "",
-        "kode": "",
+        "kode": Object {
+          "kodeverk": "",
+          "verdi": "",
+        },
       },
       "telefon": Object {
         "jobb": "",

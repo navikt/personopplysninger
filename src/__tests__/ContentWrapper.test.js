@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ContentWrapper from 'js/ContentWrapper';
 import wrapIntl from 'js/IntlTestHelper';
-import initialState from '../js/initialState';
+import initialState from '../js/initialStateNy';
 import ShallowRenderer from 'react-test-renderer/shallow';
 
 test('render ContentWrapper with content', () => {

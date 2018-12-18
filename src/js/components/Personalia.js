@@ -44,15 +44,15 @@ class Personalia extends Component {
           />
           <ListElement
             titleId="personalia.language"
-            content={this.props.spraak ? this.props.spraak.kode : ''}
+            content={this.props.spraak && this.props.spraak.kode ? this.props.spraak.kode.verdi : ''}
           />
           <ListElement
             titleId="personalia.citizenship"
-            content={this.props.statsborgerskap ? this.props.statsborgerskap.kode : ''}
+            content={this.props.statsborgerskap && this.props.statsborgerskap.kode ? this.props.statsborgerskap.kode.verdi : ''}
           />
           <ListElement
             titleId="personalia.status"
-            content={this.props.status ? this.props.status.kode : ''}
+            content={this.props.status && this.props.status.kode ? this.props.status.kode.verdi : ''}
           />
           <ListElement
             titleId="personalia.birthplace"
@@ -60,11 +60,11 @@ class Personalia extends Component {
           />
           <ListElement
             titleId="personalia.spesreg"
-            content={this.props.spesreg ? this.props.spesreg.kode : ''}
+            content={this.props.spesreg && this.props.spesreg.kode ? this.props.sivilstand.kode.verdi : ''}
           />
           <ListElement
             titleId="personalia.civil_status"
-            content={this.props.sivilstand ? this.props.sivilstand.kode : ''}
+            content={this.props.sivilstand && this.props.sivilstand.kode ? this.props.sivilstand.kode.verdi : ''}
           />
           <ListElement
             titleId="personalia.security_measure"
@@ -103,12 +103,18 @@ Personalia.propTypes = {
   statsborgerskap: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
-    kode: PropTypes.string,
+    kode: PropTypes.shape({
+      kodeverk: PropTypes.string,
+      verdi: PropTypes.string,
+    }),
   }).isRequired,
   status: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
-    kode: PropTypes.string,
+    kode: PropTypes.shape({
+      kodeverk: PropTypes.string,
+      verdi: PropTypes.string,
+    }),
   }).isRequired,
   telefon: PropTypes.shape({
     jobb: PropTypes.string,
@@ -120,34 +126,76 @@ Personalia.propTypes = {
     privat: PropTypes.string,
     privatDatoRegistrert: PropTypes.string,
     privatKilde: PropTypes.string,
-  }).isRequired,
+  }),
   tiltak: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     datoTil: PropTypes.string,
     kilde: PropTypes.string,
     type: PropTypes.string,
-  }).isRequired,
+  }),
   kjonn: PropTypes.string.isRequired,
   spraak: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
-    kode: PropTypes.string,
+    kode: PropTypes.shape({
+      kodeverk: PropTypes.string,
+      verdi: PropTypes.string,
+    }),
   }).isRequired,
   sivilstand: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
-    kode: PropTypes.string,
+    kode: PropTypes.shape({
+      kodeverk: PropTypes.string,
+      verdi: PropTypes.string,
+    }),
   }).isRequired,
   kontonummer: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
     nummer: PropTypes.string,
-  }).isRequired,
+  }),
   spesreg: PropTypes.shape({
     datoFraOgMed: PropTypes.string,
     kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
+    kode: PropTypes.shape({
+      kodeverk: PropTypes.string,
+      verdi: PropTypes.string,
+    }),
+  }),
+};
+
+Personalia.defaultProps = {
+  telefon: {
+    jobb: '',
+    jobbDatoRegistrert: '',
+    jobbKilde: '',
+    mobil: '',
+    mobilDatoRegistrert: '',
+    mobilKilde: '',
+    privat: '',
+    privatDatoRegistrert: '',
+    privatKilde: '',
+  },
+  tiltak: {
+    datoFraOgMed: '',
+    datoTil: '',
+    kilde: '',
+    type: '',
+  },
+  kontonummer: {
+    datoFraOgMed: '',
+    kilde: '',
+    nummer: '',
+  },
+  spesreg: {
+    datoFraOgMed: '',
+    kilde: '',
+    kode: {
+      kodeverk: '',
+      verdi: '',
+    },
+  },
 };
 
 export default Personalia;

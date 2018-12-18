@@ -4,7 +4,7 @@ import ContentWrapper from 'js/ContentWrapper';
 import Header from 'js/components/Header';
 import 'less/index.less';
 
-import initialState from './initialState';
+import initialState from './initialStateNy';
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +18,7 @@ class App extends Component {
       });
   }
   render() {
+
     return (
       <main role="main">
         <Header />

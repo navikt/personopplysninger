@@ -158,7 +158,7 @@ exports[`render Personalia with content 1`] = `
             <span
               className="content"
             >
-              Norsk
+              
             </span>
           </li>
           <li
@@ -174,7 +174,7 @@ exports[`render Personalia with content 1`] = `
             <span
               className="content"
             >
-              Norsk
+              
             </span>
           </li>
           <li
@@ -222,7 +222,7 @@ exports[`render Personalia with content 1`] = `
             <span
               className="content"
             >
-              12345678911
+              
             </span>
           </li>
           <li
@@ -238,7 +238,7 @@ exports[`render Personalia with content 1`] = `
             <span
               className="content"
             >
-              Gift
+              
             </span>
           </li>
           <li
