@@ -1,4 +1,4 @@
-FROM node:carbon
+FROM docker.adeo.no:5000/pus/nais-java-app
 
 WORKDIR /usr/src/personopplysninger
 
