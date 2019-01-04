@@ -1,0 +1,2 @@
+https://${DomainName}/personopplysninger/internal/isAlive*
+https://${DomainName}/dittnav/*

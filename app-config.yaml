@@ -9,12 +9,12 @@ replicas:
 port: 8080
 healthcheck:
   liveness:
-    path: personopplysninger/health/isAlive
+    path: personopplysninger/internal/isAlive
   readiness:
-    path: personopplysninger/health/isAlive
+    path: personopplysninger/internal/isAlive
 prometheus:
   enabled: false
-  path: internal/metrics
+  path: personopplysninger/internal/metrics
 ingress:
   enabled: true
 resources:
@@ -24,5 +24,9 @@ fasitResources:
   used:
   - alias: appres.cms
     resourceType: baseUrl
+    propertyMap:
+      url: APPRES_CMS_URL
   - alias: loginservice
     resourceType: restservice
+    propertyMap:
+      url: LOGINSERVICE

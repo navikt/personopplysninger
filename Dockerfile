@@ -1,9 +1,6 @@
-FROM docker.adeo.no:5000/pus/nais-java-app
+FROM docker.adeo.no:5000/pus/decorator
 
-WORKDIR /usr/src/personopplysninger
+ENV APPLICATION_NAME=personopplysninger
+ENV CONTEXT_PATH=personopplysninger
 
-COPY ./ ./
-
-EXPOSE 8080
-
-CMD ["npm", "run", "server"]
+COPY ./build /app
