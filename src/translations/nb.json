@@ -1,4 +1,5 @@
 {
+  "header.intro": "Hei Kari, her kan du se opplysninger som NAV har registrert om deg. Du kan også laste ned og skrive ut. Les <a href='https://www.nav.no/personvern'>om personvern</a> i Arbeids- og velferdsetaten.",
   "personalia.first_name": "Fornavn",
   "personalia.surname": "Etternavn",
   "personalia.fnr": "Fødselsnummer",
