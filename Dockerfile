@@ -1,6 +1,9 @@
-FROM docker.adeo.no:5000/pus/decorator
+FROM node:carbon
 
-ENV APPLICATION_NAME=personopplysninger
-ENV CONTEXT_PATH=personopplysninger
+WORKDIR /usr/src/personopplysninger
 
-COPY ./build /app
+COPY ./ ./
+
+EXPOSE 8080
+
+CMD ["npm", "run", "server"]
