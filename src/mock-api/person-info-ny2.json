@@ -1,0 +1,55 @@
+{
+  "personalia": {
+    "fornavn": "Donald",
+    "etternavn": "Duck",
+    "fnr": "1983-03-03",
+    "kontonr": "1234567811",
+    "tlfnr": null,
+    "spraak": null,
+    "epostadr": "TODO",
+    "personstatus": "BOSA",
+    "statsborgerskap": "NOR",
+    "foedested": "NOR",
+    "sivilstand": "UGIF",
+    "kjoenn": "M",
+    "datakilder": [
+      {}
+    ]
+  },
+  "adresser": {
+    "boadresse": {
+      "adresse": "APALVEIEN 111",
+      "adressetillegg": null,
+      "bydel": "030103",
+      "datoFraOgMed": "2018-07-25",
+      "kommune": "0301",
+      "landkode": "NOR",
+      "matrikkeladresse": {
+        "bruksnummer": null,
+        "festenummer": null,
+        "gaardsnummer": null,
+        "undernummer": null
+      },
+      "postnummer": "0449",
+      "veiadresse": {
+        "bokstav": "A",
+        "bolignummer": "H0502",
+        "gatekode": "93182",
+        "husnummer": "15"
+      }
+    },
+    "geografiskTilknytning": {
+      "bydel": "030103",
+      "datoFraOgMed": "2017-07-25",
+      "kommune": "Oslo",
+      "land": "Norge"
+    },
+    "postadresse": null,
+    "prioritertAdresse": null,
+    "tilleggsadresse": null,
+    "utenlandskAdresse": null,
+    "datakilder": [
+      {}
+    ]
+  }
+}
