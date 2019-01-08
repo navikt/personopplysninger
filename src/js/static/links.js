@@ -12,6 +12,7 @@ export default [
     url: 'https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon',
     kilde: 'Pensjonsregisteret',
     icon: koffert,
+    visible: false,
   },
   {
     header: 'Pensjon',
@@ -20,6 +21,7 @@ export default [
     url: 'https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon',
     kilde: 'Pensjonsregisteret',
     icon: pensjonist,
+    visible: true,
   },
   {
     header: 'Dine saker',
@@ -28,6 +30,7 @@ export default [
     url: 'https://tjenester.nav.no/saksoversikt/app',
     kilde: 'NAV',
     icon: papirstabel,
+    visible: true,
   },
   {
     header: 'Utbetalinger',
@@ -36,6 +39,7 @@ export default [
     url: 'https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger',
     kilde: 'NAV',
     icon: penger,
+    visible: true,
   },
   {
     header: 'Jobbsøk',
@@ -44,5 +48,6 @@ export default [
     url: 'https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker',
     kilde: 'Arbeidsregisteret',
     icon: jobbsok,
+    visible: true,
   },
 ];

@@ -8,15 +8,17 @@ class LinksContainer extends Component {
     return (
       <React.Fragment>
         {links.map((link, index) =>
-          (<LinkBox
-            key={index} // eslint-disable-line react/no-array-index-key
-            icon={link.icon}
-            header={link.header}
-            information={link.information}
-            url={link.url}
-            linkText={link.linkText}
-            kilde={link.kilde}
-          />))}
+          (link.visible ?
+            <LinkBox
+              key={index} // eslint-disable-line react/no-array-index-key
+              icon={link.icon}
+              header={link.header}
+              information={link.information}
+              url={link.url}
+              linkText={link.linkText}
+              kilde={link.kilde}
+            /> :
+            null))}
       </React.Fragment>
     );
   }
