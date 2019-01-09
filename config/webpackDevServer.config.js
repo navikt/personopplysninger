@@ -119,10 +119,10 @@ module.exports = function(proxy, allowedHost, decoratedIndexHtml) {
         );
       });
 
-      app.get('/mock-api/person-info-ny.json', (req, res) => {
+      app.get('/mock-api/person-info-ny2.json', (req, res) => {
         // res.sendStatus(401);
         res.sendFile(
-          path.resolve(`${__dirname}/../src/mock-api/person-info-ny.json`)
+          path.resolve(`${__dirname}/../src/mock-api/person-info-ny2.json`)
         );
       });
 

@@ -16,67 +16,51 @@ class Personalia extends Component {
         <ul className="personalia-list">
           <ListElement
             titleId="personalia.first_name"
-            content={this.props.navn ? this.props.navn.fornavn : ''}
-          />
-          <ListElement
-            titleId="personalia.surname"
-            content={this.props.navn ? this.props.navn.slektsnavn : ''}
+            content={this.props.fornavn}
           />
           <ListElement
             titleId="personalia.fnr"
-            content={this.props.ident}
-          />
-          <ListElement
-            titleId="personalia.foreign_id"
-            content="x"
+            content={this.props.fnr}
           />
           <ListElement
             titleId="personalia.phone"
-            content={this.props.telefon ? this.props.telefon.privat : ''}
-          />
-          <ListElement
-            titleId="personalia.account_no"
-            content={this.props.kontonummer ? this.props.kontonummer.nummer : ''}
+            content={this.props.tlfnr}
           />
           <ListElement
             titleId="personalia.email"
-            content="x"
-          />
-          <ListElement
-            titleId="personalia.language"
-            content={this.props.spraak && this.props.spraak.kode ? this.props.spraak.kode.verdi : ''}
+            content={this.props.epostadr}
           />
           <ListElement
             titleId="personalia.citizenship"
-            content={this.props.statsborgerskap && this.props.statsborgerskap.kode ? this.props.statsborgerskap.kode.verdi : ''}
-          />
-          <ListElement
-            titleId="personalia.status"
-            content={this.props.status && this.props.status.kode ? this.props.status.kode.verdi : ''}
-          />
-          <ListElement
-            titleId="personalia.birthplace"
-            content="x"
-          />
-          <ListElement
-            titleId="personalia.spesreg"
-            content={this.props.spesreg && this.props.spesreg.kode ? this.props.sivilstand.kode.verdi : ''}
+            content={this.props.statsborgerskap}
           />
           <ListElement
             titleId="personalia.civil_status"
-            content={this.props.sivilstand && this.props.sivilstand.kode ? this.props.sivilstand.kode.verdi : ''}
+            content={this.props.sivilstand}
           />
           <ListElement
-            titleId="personalia.security_measure"
-            content={this.props.tiltak ? this.props.tiltak.type : ''}
+            titleId="personalia.surname"
+            content={this.props.etternavn}
+          />
+          <ListElement
+            titleId="personalia.account_no"
+            content={this.props.kontonr}
+          />
+          <ListElement
+            titleId="personalia.language"
+            content={this.props.spraak}
+          />
+          <ListElement
+            titleId="personalia.status"
+            content={this.props.personstatus}
+          />
+          <ListElement
+            titleId="personalia.birthplace"
+            content={this.props.foedested}
           />
           <ListElement
             titleId="personalia.gender"
-            content={this.props.kjonn}
-          />
-          <ListElement
-            titleId="personalia.customized_comm"
-            content="x"
+            content={this.props.kjoenn}
           />
         </ul>
         <div className="box-footer">
@@ -90,112 +74,35 @@ class Personalia extends Component {
 }
 
 Personalia.propTypes = {
-  navn: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    forkortetNavn: PropTypes.string,
-    fornavn: PropTypes.string,
-    kilde: PropTypes.string,
-    mellomnavn: PropTypes.string,
-    slektsnavn: PropTypes.string,
-    slektsnavnUgift: PropTypes.string,
-  }).isRequired,
-  ident: PropTypes.string.isRequired,
-  statsborgerskap: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.shape({
-      kodeverk: PropTypes.string,
-      verdi: PropTypes.string,
-    }),
-  }).isRequired,
-  status: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.shape({
-      kodeverk: PropTypes.string,
-      verdi: PropTypes.string,
-    }),
-  }).isRequired,
-  telefon: PropTypes.shape({
-    jobb: PropTypes.string,
-    jobbDatoRegistrert: PropTypes.string,
-    jobbKilde: PropTypes.string,
-    mobil: PropTypes.string,
-    mobilDatoRegistrert: PropTypes.string,
-    mobilKilde: PropTypes.string,
-    privat: PropTypes.string,
-    privatDatoRegistrert: PropTypes.string,
-    privatKilde: PropTypes.string,
-  }),
-  tiltak: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    datoTil: PropTypes.string,
-    kilde: PropTypes.string,
-    type: PropTypes.string,
-  }),
-  kjonn: PropTypes.string.isRequired,
-  spraak: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.shape({
-      kodeverk: PropTypes.string,
-      verdi: PropTypes.string,
-    }),
-  }).isRequired,
-  sivilstand: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.shape({
-      kodeverk: PropTypes.string,
-      verdi: PropTypes.string,
-    }),
-  }).isRequired,
-  kontonummer: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    nummer: PropTypes.string,
-  }),
-  spesreg: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.shape({
-      kodeverk: PropTypes.string,
-      verdi: PropTypes.string,
-    }),
-  }),
+  // datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  epostadr: PropTypes.string,
+  etternavn: PropTypes.string,
+  fnr: PropTypes.string,
+  foedested: PropTypes.string,
+  fornavn: PropTypes.string,
+  kjoenn: PropTypes.string,
+  kontonr: PropTypes.string,
+  personstatus: PropTypes.string,
+  sivilstand: PropTypes.string,
+  spraak: PropTypes.string,
+  statsborgerskap: PropTypes.string,
+  tlfnr: PropTypes.string,
 };
 
 Personalia.defaultProps = {
-  telefon: {
-    jobb: '',
-    jobbDatoRegistrert: '',
-    jobbKilde: '',
-    mobil: '',
-    mobilDatoRegistrert: '',
-    mobilKilde: '',
-    privat: '',
-    privatDatoRegistrert: '',
-    privatKilde: '',
-  },
-  tiltak: {
-    datoFraOgMed: '',
-    datoTil: '',
-    kilde: '',
-    type: '',
-  },
-  kontonummer: {
-    datoFraOgMed: '',
-    kilde: '',
-    nummer: '',
-  },
-  spesreg: {
-    datoFraOgMed: '',
-    kilde: '',
-    kode: {
-      kodeverk: '',
-      verdi: '',
-    },
-  },
+  fornavn: '',
+  etternavn: '',
+  fnr: '',
+  kontonr: '',
+  tlfnr: '',
+  spraak: '',
+  epostadr: '',
+  personstatus: '',
+  statsborgerskap: '',
+  foedested: '',
+  sivilstand: '',
+  kjoenn: '',
+  // datakilder: [{}],
 };
 
 export default Personalia;

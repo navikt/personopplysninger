@@ -22,7 +22,8 @@ class App extends Component {
       <main role="main">
         <Header />
         <ContentWrapper
-          userInfo={this.state}
+          personalia={this.state.personalia}
+          adresser={this.state.adresser}
         />
       </main>
     );

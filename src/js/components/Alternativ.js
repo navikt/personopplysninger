@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+
 import React, { Component } from 'react';
 import Ekspanderbartpanel from 'nav-frontend-ekspanderbartpanel';
 import PropTypes from 'prop-types';
@@ -13,7 +15,7 @@ class Alternativ extends Component {
           tittel={description}
           tittelProps="element"
         >
-          {content}
+          <div dangerouslySetInnerHTML={content} />
         </Ekspanderbartpanel>
       </React.Fragment>
     );
@@ -22,7 +24,9 @@ class Alternativ extends Component {
 
 Alternativ.propTypes = {
   description: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  content: PropTypes.shape({
+    __html: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Alternativ;
