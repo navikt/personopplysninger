@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
-import person from '../../assets/img/person.png';
+import kvinne from '../../assets/img/kvinne.png';
+import mann from '../../assets/img/rsz_mann.png';
 import ListElement from './ListElement';
 
 class Personalia extends Component {
@@ -10,7 +11,7 @@ class Personalia extends Component {
     return (
       <Box
         header="Personalia"
-        icon={person}
+        icon={this.props.kjoenn === 'M' ? mann : kvinne}
         infoType="personalia"
       >
         <ul className="personalia-list">

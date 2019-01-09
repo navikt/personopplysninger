@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
+import PropTypes from 'prop-types';
 import group from '../../assets/img/group.png';
 
 class Header extends Component {
@@ -12,6 +13,7 @@ class Header extends Component {
             <div className="snakkeboble">
               <FormattedHTMLMessage
                 id="header.intro"
+                values={{ name: this.props.fornavn }}
               />
             </div>
             <div className="snakkeboble-edge" />
@@ -22,5 +24,13 @@ class Header extends Component {
     );
   }
 }
+
+Header.propTypes = {
+  fornavn: PropTypes.string,
+};
+
+Header.defaultProps = {
+  fornavn: '',
+};
 
 export default Header;

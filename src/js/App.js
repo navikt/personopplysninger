@@ -20,7 +20,9 @@ class App extends Component {
   render() {
     return (
       <main role="main">
-        <Header />
+        <Header
+          fornavn={this.state.personalia.fornavn}
+        />
         <ContentWrapper
           personalia={this.state.personalia}
           adresser={this.state.adresser}
