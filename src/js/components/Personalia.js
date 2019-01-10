@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
@@ -8,6 +10,19 @@ import ListElement from './ListElement';
 
 class Personalia extends Component {
   render() {
+    // TODO: Finn ut hvordan flere telefonnr skal vises
+    const phoneKeys = ['jobb', 'mobil', 'privat'];
+
+    let phoneList = '';
+
+    if (this.props.tlfnr) {
+      phoneKeys.forEach((key) => {
+        if (this.props.tlfnr[key]) {
+          phoneList += this.props.tlfnr[key] + ", ";
+        }
+      });
+    }
+
     return (
       <Box
         header="Personalia"
@@ -25,7 +40,7 @@ class Personalia extends Component {
           />
           <ListElement
             titleId="personalia.phone"
-            content={this.props.tlfnr}
+            content="TODO"
           />
           <ListElement
             titleId="personalia.email"
@@ -87,7 +102,12 @@ Personalia.propTypes = {
   sivilstand: PropTypes.string,
   spraak: PropTypes.string,
   statsborgerskap: PropTypes.string,
-  tlfnr: PropTypes.string,
+  tlfnr: PropTypes.shape({
+    jobb: PropTypes.string,
+    mobil: PropTypes.string,
+    privat: PropTypes.string,
+    datakilder: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
 };
 
 Personalia.defaultProps = {
@@ -95,7 +115,12 @@ Personalia.defaultProps = {
   etternavn: '',
   fnr: '',
   kontonr: '',
-  tlfnr: '',
+  tlfnr: {
+    jobb: '',
+    mobil: '',
+    privat: '',
+    // datakilder: [{}],
+  },
   spraak: '',
   epostadr: '',
   personstatus: '',

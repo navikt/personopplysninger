@@ -35,36 +35,35 @@ class ContentWrapper extends Component {
   }
 }
 
-
 ContentWrapper.propTypes = {
   adresser: PropTypes.shape({
     boadresse: PropTypes.shape({
-      adresse: PropTypes.string.isRequired,
+      adresse: PropTypes.string,
       adressetillegg: PropTypes.any,
-      bydel: PropTypes.string.isRequired,
-      datoFraOgMed: PropTypes.string.isRequired,
-      kommune: PropTypes.string.isRequired,
-      landkode: PropTypes.string.isRequired,
+      bydel: PropTypes.string,
+      datoFraOgMed: PropTypes.string,
+      kommune: PropTypes.string,
+      landkode: PropTypes.string,
       matrikkeladresse: PropTypes.shape({
         bruksnummer: PropTypes.any,
         festenummer: PropTypes.any,
         gaardsnummer: PropTypes.any,
         undernummer: PropTypes.any,
       }).isRequired,
-      postnummer: PropTypes.string.isRequired,
+      postnummer: PropTypes.string,
       veiadresse: PropTypes.shape({
-        bokstav: PropTypes.string.isRequired,
-        bolignummer: PropTypes.string.isRequired,
-        gatekode: PropTypes.string.isRequired,
-        husnummer: PropTypes.string.isRequired,
+        bokstav: PropTypes.string,
+        bolignummer: PropTypes.string,
+        gatekode: PropTypes.string,
+        husnummer: PropTypes.string,
       }).isRequired,
     }).isRequired,
     datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
     geografiskTilknytning: PropTypes.shape({
-      bydel: PropTypes.string.isRequired,
-      datoFraOgMed: PropTypes.string.isRequired,
-      kommune: PropTypes.string.isRequired,
-      land: PropTypes.string.isRequired,
+      bydel: PropTypes.string,
+      datoFraOgMed: PropTypes.string,
+      kommune: PropTypes.string,
+      land: PropTypes.string,
     }).isRequired,
     postadresse: PropTypes.any,
     prioritertAdresse: PropTypes.any,
@@ -84,7 +83,12 @@ ContentWrapper.propTypes = {
     sivilstand: PropTypes.string.isRequired,
     spraak: PropTypes.any,
     statsborgerskap: PropTypes.string.isRequired,
-    tlfnr: PropTypes.any,
+    tlfnr: PropTypes.shape({
+      jobb: PropTypes.string,
+      mobil: PropTypes.string,
+      privat: PropTypes.string,
+      datakilder: PropTypes.arrayOf(PropTypes.shape({})),
+    }),
   }).isRequired,
 };
 

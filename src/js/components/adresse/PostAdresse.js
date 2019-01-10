@@ -5,6 +5,7 @@ import ListElement from '../ListElement';
 
 class PostAdresse extends Component {
   render() {
+    const adresse = `a ${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
     return (
       <Box smallMargin>
         <div className="address-box">
@@ -12,18 +13,8 @@ class PostAdresse extends Component {
           <ul className="address-list-col-3">
             <ListElement
               className="address-col"
-              titleId="adresse.adresse1"
-              content={this.props.adresse1}
-            />
-            <ListElement
-              className="address-col"
-              titleId="adresse.adresse2"
-              content={this.props.adresse2}
-            />
-            <ListElement
-              className="address-col"
-              titleId="adresse.adresse3"
-              content={this.props.adresse3}
+              titleId="adresse.adresse"
+              content={adresse}
             />
             <ListElement
               className="address-col"

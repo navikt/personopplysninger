@@ -29,7 +29,7 @@ class BoAdresse extends Component {
             <ListElement
               className="address-col"
               titleId="adresse.poststed"
-              content="Kristiansand"
+              content="TODO"
             />
           </ul>
           <div className="box-footer">

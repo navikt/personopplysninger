@@ -31,7 +31,7 @@ export default [
     id: 3,
     description: 'Utlevere eller innhente opplysninger til/fra andre land',
     content: {
-      __html: 'Hvis du har bodd eller arbeidet i andre land enn Norge og har søkt om ytelser eller tjenester i Norge eller i et annet land,  må NAV noen ganger utveksle opplysninger om deg med et annet lands trygdemyndigheter. NAV vil bare levere ut opplysninger til land som er omfattet av EØS-avtalen eller land som Norge har inngått trygdeavtaler med. Se oversikt over hvilke land Norge har inngått trygdeavtale med: <a href="https://www.nav.no/rettskildene/Forside/Hovednummer/hovednummer-42-trygdeavtaler">https://www.nav.no/rettskildene/Forside/Hovednummer/hovednummer-42-trygdeavtaler</a>',
+      __html: 'Hvis du har bodd eller arbeidet i andre land enn Norge og har søkt om ytelser eller tjenester i Norge eller i et annet land,  må NAV noen ganger utveksle opplysninger om deg med et annet lands trygdemyndigheter. NAV vil bare levere ut opplysninger til land som er omfattet av EØS-avtalen eller land som Norge har inngått trygdeavtaler med. <a href="https://www.nav.no/rettskildene/Forside/Hovednummer/hovednummer-42-trygdeavtaler">Se oversikt over hvilke land Norge har inngått trygdeavtale med</a>.',
     },
   },
   {

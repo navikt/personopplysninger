@@ -1,11 +1,19 @@
 {
   "personalia": {
-    "fornavn": "Donald",
-    "etternavn": "Duck",
-    "fnr": "1983-03-03",
-    "kontonr": "1234567811",
-    "tlfnr": null,
-    "spraak": null,
+    "fornavn": "DONALD FAUNTLEROY",
+    "etternavn": "DUCK",
+    "fnr": "09063422743",
+    "kontonr": "12345678911",
+    "tlfnr": {
+      "jobb": null,
+      "mobil": "90909090",
+      "privat": "90909090",
+      "datakilder": [
+        {},
+        {}
+      ]
+    },
+    "spraak": "NB",
     "epostadr": "TODO",
     "personstatus": "BOSA",
     "statsborgerskap": "NOR",
@@ -13,6 +21,9 @@
     "sivilstand": "UGIF",
     "kjoenn": "M",
     "datakilder": [
+      {},
+      {},
+      {},
       {}
     ]
   },
@@ -20,9 +31,9 @@
     "boadresse": {
       "adresse": "APALVEIEN 111",
       "adressetillegg": null,
-      "bydel": "030103",
-      "datoFraOgMed": "2018-07-25",
-      "kommune": "0301",
+      "bydel": null,
+      "datoFraOgMed": "2017-02-21",
+      "kommune": "1239",
       "landkode": "NOR",
       "matrikkeladresse": {
         "bruksnummer": null,
@@ -30,25 +41,32 @@
         "gaardsnummer": null,
         "undernummer": null
       },
-      "postnummer": "0449",
+      "postnummer": "1239",
       "veiadresse": {
         "bokstav": "A",
-        "bolignummer": "H0502",
-        "gatekode": "93182",
-        "husnummer": "15"
+        "bolignummer": "H0102",
+        "gatekode": "01239",
+        "husnummer": "11"
       }
     },
     "geografiskTilknytning": {
-      "bydel": "030103",
-      "datoFraOgMed": "2017-07-25",
-      "kommune": "Oslo",
-      "land": "Norge"
+      "bydel": null,
+      "datoFraOgMed": "2018-03-13",
+      "kommune": "9999",
+      "land": null
     },
-    "postadresse": null,
-    "prioritertAdresse": null,
-    "tilleggsadresse": null,
+    "postadresse": {
+      "adresse1": "12345 HFJEF IQUFJ HFURHGHQBEUQ",
+      "adresse2": "BATOOM LUNCHAGRAMA,GONGRUPEA,DD",
+      "adresse3": "GGLAM,10000 HCAMGHU,THAILAND",
+      "datoFraOgMed": "2018-03-13",
+      "land": "THA",
+      "postnummer": ""
+    },
+    "prioritertAdresse": "TIAD",
     "utenlandskAdresse": null,
     "datakilder": [
+      {},
       {}
     ]
   }
