@@ -44,7 +44,7 @@ ContentWrapper.propTypes = {
       bydel: PropTypes.string,
       datoFraOgMed: PropTypes.string,
       kommune: PropTypes.string,
-      landkode: PropTypes.string,
+      land: PropTypes.string,
       matrikkeladresse: PropTypes.shape({
         bruksnummer: PropTypes.any,
         festenummer: PropTypes.any,

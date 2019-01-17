@@ -7,7 +7,7 @@ export default {
       datoFraOgMed: '',
       kilde: '',
       kommune: '',
-      landkode: '',
+      land: '',
       matrikkeladresse: {
         bruksnummer: '',
         festenummer: '',

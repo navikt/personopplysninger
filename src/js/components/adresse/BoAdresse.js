@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { FormattedMessage } from 'react-intl';
 import Box from 'js/components/Box';
 import hus from '../../../assets/img/hus.png';
 import ListElement from '../ListElement';
@@ -33,7 +34,9 @@ class BoAdresse extends Component {
             />
           </ul>
           <div className="box-footer">
-            Kilde: {this.props.kilde}
+            <FormattedMessage
+              id="adresse.source"
+            />
           </div>
         </div>
       </Box>
@@ -44,13 +47,11 @@ class BoAdresse extends Component {
 BoAdresse.propTypes = {
   adresse: PropTypes.string,
   postnummer: PropTypes.string,
-  kilde: PropTypes.string,
 };
 
 BoAdresse.defaultProps = {
   adresse: '',
   postnummer: '',
-  kilde: '',
 };
 
 export default BoAdresse;

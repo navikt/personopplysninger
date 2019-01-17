@@ -11,9 +11,11 @@ const LinkBox = ({
         {information}
       </div>
       <a href={url}>{linkText}</a>
-      <div className="box-footer link-footer">
-        Kilde: {kilde}
-      </div>
+      {kilde ?
+        <div className="box-footer link-footer">
+          Kilde: {kilde}
+        </div>
+        : null}
     </div>
   </Box>
 );

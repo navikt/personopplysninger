@@ -27,6 +27,7 @@
   "adresse.adresse2": "Adresselinje 2",
   "adresse.adresse3": "Adresselinje 3",
   "adresse.land": "Land",
+  "adresse.source": "Kilde: Folkeregisteret",
   "footer.header": "Innsyn i saksdokumenter hos NAV",
   "footer.content.line1": "I tjenesten Dine saker på nav.no kan du se saksdokumenter fra dine saker hos NAV.",
   "footer.content.line2": "På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises.",

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PanelBase from 'nav-frontend-paneler';
 import Alternativ from './Alternativ';
 import alternatives from '../static/alternatives';
 
@@ -11,12 +10,6 @@ class AlternativListe extends Component {
           <div className="AlternativesBox box-bottom-margin">
             <h1>Andre alternativer</h1>
             <div className="icon-box-margin">
-              <PanelBase
-                className="print-panel"
-                onClick={() => window.print()}
-              >
-                <b>Last ned og skriv ut opplysningene</b>
-              </PanelBase>
               {alternatives.map(alternative =>
                 (<Alternativ
                   key={alternative.id}

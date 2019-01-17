@@ -21,7 +21,7 @@ export default {
       bydel: '',
       datoFraOgMed: '',
       kommune: '',
-      landkode: '',
+      land: '',
       matrikkeladresse: {
         bruksnummer: null,
         festenummer: null,
