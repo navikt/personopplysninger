@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ContentWrapper from 'js/ContentWrapper';
 import Header from 'js/components/Header';
 import 'less/index.less';
+import { formatName } from './utils/textUtils';
 
 import initialState from './initialStateNy';
 
@@ -21,7 +22,7 @@ class App extends Component {
     return (
       <main role="main">
         <Header
-          fornavn={this.state.personalia.fornavn}
+          fornavn={formatName(this.state.personalia.fornavn)}
         />
         <ContentWrapper
           personalia={this.state.personalia}

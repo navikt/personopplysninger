@@ -352,3 +352,6 @@ body {
 body a {
   color: #4a90e2;
 }
+body .capitalize {
+  text-transform: capitalize;
+}

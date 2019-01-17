@@ -5,15 +5,16 @@ import AdresseContainer from './containers/AdresseContainer';
 import LinksContainer from './containers/LinksContainer';
 import AlternativListe from './components/AlternativListe';
 import FooterInfo from './components/FooterInfo';
+import { formatName } from './utils/textUtils';
 
 class ContentWrapper extends Component {
   render() {
     return (
       <div>
         <Personalia
-          fornavn={this.props.personalia.fornavn}
-          etternavn={this.props.personalia.etternavn}
-          fnr={this.props.personalia.fnr}
+          fornavn={formatName(this.props.personalia.fornavn)}
+          etternavn={formatName(this.props.personalia.etternavn)}
+          personident={this.props.personalia.personident}
           kontonr={this.props.personalia.kontonr}
           tlfnr={this.props.personalia.tlfnr}
           spraak={this.props.personalia.spraak}
@@ -74,7 +75,10 @@ ContentWrapper.propTypes = {
     datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
     epostadr: PropTypes.string.isRequired,
     etternavn: PropTypes.string.isRequired,
-    fnr: PropTypes.string.isRequired,
+    personident: PropTypes.shape({
+      verdi: PropTypes.string,
+      type: PropTypes.string,
+    }),
     foedested: PropTypes.string.isRequired,
     fornavn: PropTypes.string.isRequired,
     kjoenn: PropTypes.string.isRequired,
