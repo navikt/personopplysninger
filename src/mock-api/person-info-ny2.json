@@ -2,7 +2,10 @@
   "personalia": {
     "fornavn": "DONALD FAUNTLEROY",
     "etternavn": "DUCK",
-    "fnr": "09063422743",
+    "personident": {
+      "verdi": "12347832",
+      "type": "FNR"
+    },
     "kontonr": "12345678911",
     "tlfnr": {
       "jobb": null,

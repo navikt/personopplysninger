@@ -23,10 +23,12 @@ class Personalia extends Component {
       });
     }
 
+    const personidentHeader = this.props.personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
+
     return (
       <Box
         header="Personalia"
-        icon={this.props.kjoenn === 'M' ? mann : kvinne}
+        icon={this.props.kjoenn === 'Mann' ? mann : kvinne}
         infoType="personalia"
       >
         <ul className="personalia-list">
@@ -35,8 +37,8 @@ class Personalia extends Component {
             content={this.props.fornavn}
           />
           <ListElement
-            titleId="personalia.fnr"
-            content={this.props.fnr}
+            titleId={personidentHeader}
+            content={this.props.personident.verdi}
           />
           <ListElement
             titleId="personalia.phone"
@@ -55,6 +57,7 @@ class Personalia extends Component {
             content={this.props.sivilstand}
           />
           <ListElement
+            classNameContent="capitalize"
             titleId="personalia.surname"
             content={this.props.etternavn}
           />
@@ -93,7 +96,10 @@ Personalia.propTypes = {
   // datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
   epostadr: PropTypes.string,
   etternavn: PropTypes.string,
-  fnr: PropTypes.string,
+  personident: PropTypes.shape({
+    verdi: PropTypes.string,
+    type: PropTypes.string,
+  }),
   foedested: PropTypes.string,
   fornavn: PropTypes.string,
   kjoenn: PropTypes.string,
@@ -113,7 +119,10 @@ Personalia.propTypes = {
 Personalia.defaultProps = {
   fornavn: '',
   etternavn: '',
-  fnr: '',
+  personident: {
+    verdi: '',
+    type: '',
+  },
   kontonr: '',
   tlfnr: {
     jobb: '',

@@ -3,6 +3,7 @@
   "personalia.first_name": "Fornavn",
   "personalia.surname": "Etternavn",
   "personalia.fnr": "Fødselsnummer",
+  "personalia.dnr": "D-nummer",
   "personalia.foreign_id": "Utenlandsk ID",
   "personalia.phone": "Telefon",
   "personalia.account_no": "Kontonummer",
