@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import folderBlock from '../../assets/img/folder-block.png';
+import infoContent from '../static/infoContent';
 
 class FooterInfo extends Component {
   render() {
@@ -12,10 +13,7 @@ class FooterInfo extends Component {
             <FormattedMessage id="footer.header" />
           </div>
           <div className="footer-text-content">
-            <span><FormattedMessage id="footer.content.line1" /></span>
-            <span><FormattedMessage id="footer.content.line2" /></span>
-            <span><FormattedMessage id="footer.content.line3" /></span>
-            <span><FormattedMessage id="footer.content.line4" /></span>
+            <div dangerouslySetInnerHTML={infoContent.footer.content} />
           </div>
         </div>
       </div>

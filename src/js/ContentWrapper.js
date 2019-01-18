@@ -4,7 +4,6 @@ import Personalia from './components/Personalia';
 import AdresseContainer from './containers/AdresseContainer';
 import LinksContainer from './containers/LinksContainer';
 import AlternativListe from './components/AlternativListe';
-import FooterInfo from './components/FooterInfo';
 import { formatName } from './utils/textUtils';
 
 class ContentWrapper extends Component {
@@ -30,7 +29,6 @@ class ContentWrapper extends Component {
         />
         <LinksContainer />
         <AlternativListe />
-        <FooterInfo />
       </div>
     );
   }

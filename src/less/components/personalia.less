@@ -1,6 +1,13 @@
+@tablet:    ~"only screen and (max-width: 959px)";
+@mobile:    ~"only screen and (max-width: 420px)";
+
 .personalia-list {
   list-style: none;
   columns: 2;
+
+  @media @tablet {
+    columns: 1;
+  }
 
   li {
     padding: 1rem;

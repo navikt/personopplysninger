@@ -30,7 +30,7 @@ class BoAdresse extends Component {
             <ListElement
               className="address-col"
               titleId="adresse.poststed"
-              content="TODO"
+              content={this.props.poststed}
             />
           </ul>
           <div className="box-footer">
@@ -47,11 +47,13 @@ class BoAdresse extends Component {
 BoAdresse.propTypes = {
   adresse: PropTypes.string,
   postnummer: PropTypes.string,
+  poststed: PropTypes.string,
 };
 
 BoAdresse.defaultProps = {
   adresse: '',
   postnummer: '',
+  poststed: '',
 };
 
 export default BoAdresse;

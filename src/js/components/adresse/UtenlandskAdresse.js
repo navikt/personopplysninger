@@ -1,37 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import Box from 'js/components/Box';
 import ListElement from '../ListElement';
 
 class UtenlandskAdresse extends Component {
   render() {
+    const adresse = `a ${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
     return (
       <Box>
         <div className="address-box">
           <h3 className="address-type">Utenlandsk adresse</h3>
-          <ul className="address-list-col-3">
+          <ul className="address-list-col-1">
             <ListElement
               className="address-col"
-              titleId="adresse.adresse1"
-              content={this.props.adresse1}
-            />
-            <ListElement
-              className="address-col"
-              titleId="adresse.adresse2"
-              content={this.props.adresse2}
-            />
-            <ListElement
-              className="address-col"
-              titleId="adresse.adresse3"
-              content={this.props.adresse3}
+              titleId="adresse.adresse"
+              content={adresse}
             />
           </ul>
-          <div className="box-footer">
-            <FormattedMessage
-              id="adresse.source"
-            />
-          </div>
         </div>
       </Box>
     );

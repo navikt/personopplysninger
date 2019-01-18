@@ -17,6 +17,7 @@ class LinksContainer extends Component {
               url={link.url}
               linkText={link.linkText}
               kilde={link.kilde}
+              infoBoxContent={link.infoBoxContent}
             /> :
             null))}
       </React.Fragment>

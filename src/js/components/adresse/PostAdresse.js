@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 import Box from 'js/components/Box';
 import ListElement from '../ListElement';
 
@@ -28,11 +27,6 @@ class PostAdresse extends Component {
               content={this.props.land}
             />
           </ul>
-          <div className="box-footer">
-            <FormattedMessage
-              id="adresse.source"
-            />
-          </div>
         </div>
       </Box>
     );

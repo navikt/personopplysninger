@@ -41,14 +41,6 @@ class Personalia extends Component {
             content={this.props.personident.verdi}
           />
           <ListElement
-            titleId="personalia.phone"
-            content="TODO"
-          />
-          <ListElement
-            titleId="personalia.email"
-            content={this.props.epostadr}
-          />
-          <ListElement
             titleId="personalia.citizenship"
             content={this.props.statsborgerskap}
           />
@@ -65,10 +57,10 @@ class Personalia extends Component {
             titleId="personalia.account_no"
             content={this.props.kontonr}
           />
-          <ListElement
+          {this.props.spraak ? <ListElement
             titleId="personalia.language"
             content={this.props.spraak}
-          />
+          /> : null}
           <ListElement
             titleId="personalia.status"
             content={this.props.personstatus}

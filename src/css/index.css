@@ -123,6 +123,11 @@
   list-style: none;
   columns: 2;
 }
+@media only screen and (max-width: 959px) {
+  .personalia-list {
+    columns: 1;
+  }
+}
 .personalia-list li {
   padding: 1rem;
 }

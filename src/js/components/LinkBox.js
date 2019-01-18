@@ -1,24 +1,55 @@
-import React from 'react';
+/* eslint-disable react/no-danger */
+
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from '../components/Box';
+import infoIcon from '../../assets/img/infomation-circle.png';
+import InfoBox from './InfoBox';
 
-const LinkBox = ({
-  header, information, url, linkText, kilde, icon,
-}) => (
-  <Box header={header} icon={icon}>
-    <div className="link-box-content">
-      <div className="link-info">
-        {information}
-      </div>
-      <a href={url}>{linkText}</a>
-      {kilde ?
-        <div className="box-footer link-footer">
-          Kilde: {kilde}
+class LinkBox extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { displayInfo: false };
+  }
+
+  render() {
+    const {
+      header, information, url, linkText, kilde, icon, infoBoxContent,
+    } = this.props;
+
+    const toggleInfo = () => {
+      this.setState({
+        displayInfo: !this.state.displayInfo,
+      });
+    };
+
+    return (
+      <Box header={header} icon={icon}>
+        {infoBoxContent ? (
+          <button className="information-circle" onClick={() => toggleInfo()}>
+            <img src={infoIcon} alt="Information" />
+          </button>) : null}
+        {this.state.displayInfo && infoBoxContent ?
+          <InfoBox>
+            <h2>Informasjon om {header}</h2>
+            <div className="info-content">
+              <div dangerouslySetInnerHTML={infoBoxContent} />
+            </div>
+          </InfoBox> : null}
+        <div className="link-box-content">
+          <div className="link-info">
+            {information}
+          </div>
+          <a href={url}>{linkText}</a>
+          {kilde ?
+            <div className="box-footer link-footer">
+              Kilde: {kilde}
+            </div>
+            : null}
         </div>
-        : null}
-    </div>
-  </Box>
-);
+      </Box>);
+  }
+}
 
 LinkBox.propTypes = {
   icon: PropTypes.string,
@@ -27,6 +58,9 @@ LinkBox.propTypes = {
   url: PropTypes.string,
   linkText: PropTypes.string,
   kilde: PropTypes.string,
+  infoBoxContent: PropTypes.shape({
+    __html: PropTypes.string,
+  }),
 };
 
 LinkBox.defaultProps = {
@@ -36,6 +70,7 @@ LinkBox.defaultProps = {
   url: '',
   linkText: '',
   kilde: '',
+  infoBoxContent: null,
 };
 
 export default LinkBox;
