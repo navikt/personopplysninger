@@ -50,6 +50,7 @@ ContentWrapper.propTypes = {
         undernummer: PropTypes.any,
       }).isRequired,
       postnummer: PropTypes.string,
+      poststed: PropTypes.string,
       veiadresse: PropTypes.shape({
         bokstav: PropTypes.string,
         bolignummer: PropTypes.string,

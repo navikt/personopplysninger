@@ -8,13 +8,13 @@ import UtenlandskAdresse from '../components/adresse/UtenlandskAdresse';
 class AdresseContainer extends Component {
   render() {
     const { adresseInfo } = this.props;
-
     return (
       <div>
         <BoAdresse
           adresse={adresseInfo.boadresse.adresse}
           postnummer={adresseInfo.boadresse.postnummer}
           kilde={adresseInfo.boadresse.kilde}
+          poststed={adresseInfo.boadresse.poststed}
         />
         {adresseInfo.postadresse ?
           <PostAdresse

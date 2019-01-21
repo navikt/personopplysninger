@@ -29,6 +29,7 @@ export default {
         undernummer: null,
       },
       postnummer: '',
+      poststed: '',
       veiadresse: {
         bokstav: '',
         bolignummer: '',
