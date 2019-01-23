@@ -18,7 +18,6 @@ class ContentWrapper extends Component {
           tlfnr={this.props.personalia.tlfnr}
           spraak={this.props.personalia.spraak}
           epostadr={this.props.personalia.epostadr}
-          personstatus={this.props.personalia.personstatus}
           statsborgerskap={this.props.personalia.statsborgerskap}
           foedested={this.props.personalia.foedested}
           sivilstand={this.props.personalia.sivilstand}
@@ -82,7 +81,6 @@ ContentWrapper.propTypes = {
     fornavn: PropTypes.string.isRequired,
     kjoenn: PropTypes.string.isRequired,
     kontonr: PropTypes.string.isRequired,
-    personstatus: PropTypes.string.isRequired,
     sivilstand: PropTypes.string.isRequired,
     spraak: PropTypes.any,
     statsborgerskap: PropTypes.string.isRequired,

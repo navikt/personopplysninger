@@ -10,19 +10,16 @@ class PostAdresse extends Component {
       <Box smallMargin>
         <div className="address-box">
           <h3 className="address-type">Postadresse</h3>
-          <ul className="address-list-col-3">
+          <ul className="list-column-3">
             <ListElement
-              className="address-col"
               titleId="adresse.adresse"
               content={adresse}
             />
             <ListElement
-              className="address-col"
               titleId="adresse.postnummer"
               content={this.props.postnummer}
             />
             <ListElement
-              className="address-col"
               titleId="adresse.land"
               content={this.props.land}
             />

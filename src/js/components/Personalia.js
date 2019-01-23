@@ -10,19 +10,6 @@ import ListElement from './ListElement';
 
 class Personalia extends Component {
   render() {
-    // TODO: Finn ut hvordan flere telefonnr skal vises
-    const phoneKeys = ['jobb', 'mobil', 'privat'];
-
-    let phoneList = '';
-
-    if (this.props.tlfnr) {
-      phoneKeys.forEach((key) => {
-        if (this.props.tlfnr[key]) {
-          phoneList += this.props.tlfnr[key] + ", ";
-        }
-      });
-    }
-
     const personidentHeader = this.props.personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
 
     return (
@@ -31,22 +18,10 @@ class Personalia extends Component {
         icon={this.props.kjoenn === 'Mann' ? mann : kvinne}
         infoType="personalia"
       >
-        <ul className="personalia-list">
+        <ul className="list-column-2">
           <ListElement
             titleId="personalia.first_name"
             content={this.props.fornavn}
-          />
-          <ListElement
-            titleId={personidentHeader}
-            content={this.props.personident.verdi}
-          />
-          <ListElement
-            titleId="personalia.citizenship"
-            content={this.props.statsborgerskap}
-          />
-          <ListElement
-            titleId="personalia.civil_status"
-            content={this.props.sivilstand}
           />
           <ListElement
             classNameContent="capitalize"
@@ -54,20 +29,28 @@ class Personalia extends Component {
             content={this.props.etternavn}
           />
           <ListElement
+            titleId={personidentHeader}
+            content={this.props.personident.verdi}
+          />
+          {this.props.kontonr? <ListElement
             titleId="personalia.account_no"
             content={this.props.kontonr}
-          />
+          /> : null}
           {this.props.spraak ? <ListElement
             titleId="personalia.language"
             content={this.props.spraak}
           /> : null}
           <ListElement
-            titleId="personalia.status"
-            content={this.props.personstatus}
+            titleId="personalia.citizenship"
+            content={this.props.statsborgerskap}
           />
           <ListElement
             titleId="personalia.birthplace"
             content={this.props.foedested}
+          />
+          <ListElement
+            titleId="personalia.civil_status"
+            content={this.props.sivilstand}
           />
           <ListElement
             titleId="personalia.gender"
@@ -96,7 +79,6 @@ Personalia.propTypes = {
   fornavn: PropTypes.string,
   kjoenn: PropTypes.string,
   kontonr: PropTypes.string,
-  personstatus: PropTypes.string,
   sivilstand: PropTypes.string,
   spraak: PropTypes.string,
   statsborgerskap: PropTypes.string,
@@ -124,7 +106,6 @@ Personalia.defaultProps = {
   },
   spraak: '',
   epostadr: '',
-  personstatus: '',
   statsborgerskap: '',
   foedested: '',
   sivilstand: '',

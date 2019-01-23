@@ -16,22 +16,31 @@ class BoAdresse extends Component {
       >
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
-          <ul className="address-list-col-4">
+          <ul className="list-column-4">
             <ListElement
-              className="address-col"
               titleId="adresse.gate"
               content={this.props.adresse}
             />
             <ListElement
-              className="address-col"
               titleId="adresse.postnummer"
               content={this.props.postnummer}
             />
             <ListElement
-              className="address-col"
               titleId="adresse.poststed"
               content={this.props.poststed}
             />
+            <ListElement
+              titleId="adresse.dato"
+              content={this.props.datoFraOgMed}
+            />
+            <ListElement
+              titleId="adresse.kommune"
+              content={this.props.kommune}
+            />
+            {this.props.veiadresse.bolignummer ? <ListElement
+              titleId="adresse.bolignummer"
+              content={this.props.veiadresse.bolignummer}
+            /> : null}
           </ul>
           <div className="box-footer">
             <FormattedMessage
@@ -48,12 +57,22 @@ BoAdresse.propTypes = {
   adresse: PropTypes.string,
   postnummer: PropTypes.string,
   poststed: PropTypes.string,
+  datoFraOgMed: PropTypes.string,
+  kommune: PropTypes.string,
+  veiadresse: PropTypes.shape({
+    bokstav: PropTypes.string,
+    bolignummer: PropTypes.string,
+    gatekode: PropTypes.string,
+    husnummer: PropTypes.string,
+  }).isRequired,
 };
 
 BoAdresse.defaultProps = {
   adresse: '',
   postnummer: '',
   poststed: '',
+  kommune: '',
+  datoFraOgMed: '',
 };
 
 export default BoAdresse;

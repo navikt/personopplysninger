@@ -10,9 +10,8 @@ class UtenlandskAdresse extends Component {
       <Box>
         <div className="address-box">
           <h3 className="address-type">Utenlandsk adresse</h3>
-          <ul className="address-list-col-1">
+          <ul className="list-column-1">
             <ListElement
-              className="address-col"
               titleId="adresse.adresse"
               content={adresse}
             />
