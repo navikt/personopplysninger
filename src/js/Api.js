@@ -19,7 +19,11 @@ const fetchJSONAndCheckForErrors = (url) => {
       credentials: 'include',
     }).then((response) => {
       sjekkAuthOgRedirect(response);
-      res(response.json());
+      if (response.status === 200) {
+        res(response.json());
+      } else {
+        res({ status: response.status });
+      }
     })
       .catch((e) => {
         rej(e);
