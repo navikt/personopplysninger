@@ -414,3 +414,48 @@ body a {
 body .capitalize {
   text-transform: capitalize;
 }
+.alertstripe {
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  align-content: center;
+  border-radius: 0.25rem;
+  color: #3e3832;
+}
+.alertstripe--advarsel {
+  border: 1px solid #ba3a26;
+}
+.alertstripe--solid {
+  border: 0;
+}
+.alertstripe--solid.alertstripe--advarsel {
+  background-color: #e79999;
+}
+.alertstripe__ikon {
+  margin-right: 0.75rem;
+  padding-right: 0.75rem;
+  width: 2.5rem;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+.typo-normal {
+  margin: 0;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  font-weight: 400;
+}
+.typo-ingress,
+.typo-normal {
+  max-width: 640px;
+}
+.alertstripe .alertstripe__tekst {
+  margin: auto 0;
+  max-width: 37.5rem;
+  display: block;
+  flex: 1 1 0;
+}
