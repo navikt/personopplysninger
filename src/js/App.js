@@ -24,15 +24,11 @@ class App extends Component {
       });
   }
   render() {
-    if (this.state.statusCode === 200) {
+    if (this.state.statusCode === 500) {
       return (
         <main role="main">
-          <Header
-            fornavn={formatName(this.state.personalia.fornavn)}
-          />
-          <ContentWrapper
-            personalia={this.state.personalia}
-            adresser={this.state.adresser}
+          <Error
+            statusCode={this.state.statusCode}
           />
         </main>
       );
@@ -40,10 +36,15 @@ class App extends Component {
 
     return (
       <main role="main">
-        <Error
-          statusCode={this.state.statusCode}
+        <Header
+          fornavn={formatName(this.state.personalia.fornavn)}
+        />
+        <ContentWrapper
+          personalia={this.state.personalia}
+          adresser={this.state.adresser}
         />
       </main>
+
     );
   }
 }
