@@ -22,6 +22,11 @@
 .Header .header-pc-icon {
   margin-top: auto;
 }
+@media only screen and (max-width: 959px) {
+  .Header .header-pc-icon {
+    visibility: hidden;
+  }
+}
 .Header .snakkeboble {
   position: relative;
   background: #fff;
@@ -46,6 +51,11 @@
   border-right: 0;
   margin-top: -10px;
   margin-right: -20px;
+}
+@media only screen and (max-width: 959px) {
+  .Header .snakkeboble:after {
+    visibility: hidden;
+  }
 }
 .BoxContainer {
   width: 100%;
@@ -125,7 +135,7 @@
   flex-grow: 1;
   width: 50%;
 }
-@media only screen and (max-width: 420px) {
+@media only screen and (max-width: 959px) {
   .Box ul.list-column-2 li {
     width: 100%;
   }
@@ -150,11 +160,6 @@
 }
 @media only screen and (max-width: 959px) {
   .Box ul.list-column-3 li {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 420px) {
-  .Box ul.list-column-3 li {
     width: 100%;
   }
 }
@@ -177,11 +182,6 @@
   width: 25%;
 }
 @media only screen and (max-width: 959px) {
-  .Box ul.list-column-4 li {
-    width: 50%;
-  }
-}
-@media only screen and (max-width: 420px) {
   .Box ul.list-column-4 li {
     width: 100%;
   }
@@ -207,6 +207,11 @@
 .box-icon {
   display: inline-block;
   vertical-align: top;
+}
+@media only screen and (max-width: 959px) {
+  .box-icon {
+    visibility: hidden;
+  }
 }
 .icon-box-wrapper {
   display: flex;

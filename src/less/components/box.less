@@ -92,7 +92,7 @@
       flex-grow: 1;
       width: 50%;
 
-      @media @mobile {
+      @media @tablet {
         width: 100%;
       }
 
@@ -118,10 +118,6 @@
       width: 33%;
 
       @media @tablet {
-        width: 50%;
-      }
-
-      @media @mobile {
         width: 100%;
       }
 
@@ -147,10 +143,6 @@
       width: 25%;
 
       @media @tablet {
-        width: 50%;
-      }
-
-      @media @mobile {
         width: 100%;
       }
 
@@ -182,6 +174,10 @@
 .box-icon {
   display: inline-block;
   vertical-align: top;
+
+  @media @tablet {
+    visibility: hidden;
+  }
 }
 
 .icon-box-wrapper {
