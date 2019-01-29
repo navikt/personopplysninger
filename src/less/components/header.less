@@ -1,3 +1,6 @@
+@tablet:    ~"only screen and (max-width: 959px)";
+@mobile:    ~"only screen and (max-width: 420px)";
+
 .Header {
   background-color: #ccdee6;
   width: 100%;
@@ -41,6 +44,11 @@
     padding-top: 1em;
     padding-bottom: 5em;
     margin-bottom: 1em;
+
+    @media @tablet {
+      width: 320px;
+      height: 7rem;
+    }
   }
 
   .snakkeboble:after {

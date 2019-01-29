@@ -39,6 +39,12 @@
   padding-bottom: 5em;
   margin-bottom: 1em;
 }
+@media only screen and (max-width: 959px) {
+  .Header .snakkeboble {
+    width: 320px;
+    height: 7rem;
+  }
+}
 .Header .snakkeboble:after {
   content: '';
   position: absolute;
@@ -73,7 +79,7 @@
 }
 @media only screen and (max-width: 959px) {
   .BoxWithHeader {
-    width: 80vw;
+    width: 90vw;
   }
 }
 .InfoBox {
