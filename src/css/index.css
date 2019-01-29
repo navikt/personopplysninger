@@ -71,6 +71,11 @@
 .BoxWithHeader h1 {
   margin-left: 15%;
 }
+@media only screen and (max-width: 959px) {
+  .BoxWithHeader {
+    width: 80vw;
+  }
+}
 .InfoBox {
   padding: 2em;
   background-color: #ffe5c2;
