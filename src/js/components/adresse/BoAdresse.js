@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import * as moment from 'moment';
+import 'moment/min/locales';
 import { FormattedMessage } from 'react-intl';
 import Box from 'js/components/Box';
 import hus from '../../../assets/img/hus.png';
 import ListElement from '../ListElement';
 
+moment.locale('nb');
+
 class BoAdresse extends Component {
   render() {
+    const formattedDate = this.props.datoFraOgMed ? moment(this.props.datoFraOgMed).format('L') : '';
     return (
       <Box
         header="Adresse"
@@ -28,6 +33,10 @@ class BoAdresse extends Component {
             <ListElement
               titleId="adresse.poststed"
               content={this.props.poststed}
+            />
+            <ListElement
+              titleId="adresse.dato"
+              content={formattedDate}
             />
             <ListElement
               titleId="adresse.kommune"
@@ -53,6 +62,7 @@ BoAdresse.propTypes = {
   adresse: PropTypes.string,
   postnummer: PropTypes.string,
   poststed: PropTypes.string,
+  datoFraOgMed: PropTypes.string,
   kommune: PropTypes.string,
   veiadresse: PropTypes.shape({
     bokstav: PropTypes.string,
@@ -67,6 +77,7 @@ BoAdresse.defaultProps = {
   postnummer: '',
   poststed: '',
   kommune: '',
+  datoFraOgMed: '',
 };
 
 export default BoAdresse;

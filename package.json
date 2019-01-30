@@ -49,6 +49,7 @@
     "lodash": "^4.17.11",
     "lodash.throttle": "^4.1.1",
     "mini-css-extract-plugin": "0.4.3",
+    "moment": "^2.24.0",
     "mustache-express": "^1.2.8",
     "nav-frontend-alertstriper": "^1.0.29",
     "nav-frontend-alertstriper-style": "^0.2.50",
