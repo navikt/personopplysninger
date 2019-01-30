@@ -19,19 +19,19 @@ class Personalia extends Component {
         infoType="personalia"
       >
         <ul className="list-column-2">
-          <ListElement
+          {this.props.fornavn ? <ListElement
             titleId="personalia.first_name"
             content={this.props.fornavn}
-          />
-          <ListElement
+          /> : null}
+          {this.props.etternavn ? <ListElement
             classNameContent="capitalize"
             titleId="personalia.surname"
             content={this.props.etternavn}
-          />
-          <ListElement
+          /> : null}
+          {this.props.personident && this.props.personident.verdi ? <ListElement
             titleId={personidentHeader}
             content={this.props.personident.verdi}
-          />
+          /> : null}
           {this.props.kontonr? <ListElement
             titleId="personalia.account_no"
             content={this.props.kontonr}
@@ -40,22 +40,22 @@ class Personalia extends Component {
             titleId="personalia.language"
             content={this.props.spraak}
           /> : null}
-          <ListElement
+          {this.props.statsborgerskap ? <ListElement
             titleId="personalia.citizenship"
             content={this.props.statsborgerskap}
-          />
-          <ListElement
+          /> : null}
+          {this.props.foedested ? <ListElement
             titleId="personalia.birthplace"
             content={this.props.foedested}
-          />
-          <ListElement
+          /> : null}
+          {this.props.sivilstand ? <ListElement
             titleId="personalia.civil_status"
             content={this.props.sivilstand}
-          />
-          <ListElement
+          /> : null}
+          {this.props.kjoenn ? <ListElement
             titleId="personalia.gender"
             content={this.props.kjoenn}
-          />
+          /> : null}
         </ul>
         <div className="box-footer">
           <FormattedMessage

@@ -21,27 +21,27 @@ class BoAdresse extends Component {
       >
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
-          <ul className="list-column-4">
-            <ListElement
+          <ul className="list-column-3">
+            {this.props.adresse ? <ListElement
               titleId="adresse.gate"
               content={this.props.adresse}
-            />
-            <ListElement
+            /> : null}
+            {this.props.postnummer ? <ListElement
               titleId="adresse.postnummer"
               content={this.props.postnummer}
-            />
-            <ListElement
+            /> : null}
+            {this.props.poststed ? <ListElement
               titleId="adresse.poststed"
               content={this.props.poststed}
-            />
-            <ListElement
+            /> : null}
+            {formattedDate ? <ListElement
               titleId="adresse.dato"
               content={formattedDate}
-            />
-            <ListElement
+            /> : null}
+            {this.props.kommune ? <ListElement
               titleId="adresse.kommune"
               content={this.props.kommune}
-            />
+            /> : null}
             {this.props.veiadresse.bolignummer ? <ListElement
               titleId="adresse.bolignummer"
               content={this.props.veiadresse.bolignummer}
