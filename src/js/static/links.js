@@ -42,9 +42,9 @@ export default [
   },
   {
     header: 'Jobbsøk',
-    information: 'Jobbsøknader, CV, aktivitetsplaner og lagrede søk',
+    information: 'CV, aktivitetsplaner og lagrede søk',
     linkText: 'Gå til din jobbsøk/CV',
-    url: 'https://www.nav.no/no/Person/Arbeid/Arbeidsledig+og+jobbsoker',
+    url: 'https://arbeidsplassen.nav.no/',
     icon: jobbsok,
     visible: true,
   },

@@ -30,10 +30,6 @@ class BoAdresse extends Component {
               content={this.props.poststed}
             />
             <ListElement
-              titleId="adresse.dato"
-              content={this.props.datoFraOgMed}
-            />
-            <ListElement
               titleId="adresse.kommune"
               content={this.props.kommune}
             />
@@ -57,7 +53,6 @@ BoAdresse.propTypes = {
   adresse: PropTypes.string,
   postnummer: PropTypes.string,
   poststed: PropTypes.string,
-  datoFraOgMed: PropTypes.string,
   kommune: PropTypes.string,
   veiadresse: PropTypes.shape({
     bokstav: PropTypes.string,
@@ -72,7 +67,6 @@ BoAdresse.defaultProps = {
   postnummer: '',
   poststed: '',
   kommune: '',
-  datoFraOgMed: '',
 };
 
 export default BoAdresse;

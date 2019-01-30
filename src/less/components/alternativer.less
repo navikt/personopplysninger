@@ -1,5 +1,7 @@
 @boxwidth: 85%;
 @iconwidth: 15%;
+@tablet:    ~"only screen and (max-width: 959px)";
+@mobile:    ~"only screen and (max-width: 420px)";
 
 .AlternativesBox {
     width: 50vw;
@@ -9,5 +11,9 @@
     h1 {
       margin-left: @iconwidth;
         width: 50vw;
+    }
+
+    @media @tablet {
+      width: 90vw;
     }
 }

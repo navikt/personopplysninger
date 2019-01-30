@@ -16,7 +16,6 @@ class AdresseContainer extends Component {
           kilde={adresseInfo.boadresse.kilde}
           poststed={adresseInfo.boadresse.poststed}
           kommune={adresseInfo.boadresse.kommune}
-          datoFraOgMed={adresseInfo.boadresse.datoFraOgMed}
           veiadresse={adresseInfo.boadresse.veiadresse}
         />
         {adresseInfo.postadresse ?

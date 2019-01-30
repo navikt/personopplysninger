@@ -248,6 +248,11 @@
   margin-left: 15%;
   width: 50vw;
 }
+@media only screen and (max-width: 959px) {
+  .AlternativesBox {
+    width: 90vw;
+  }
+}
 * {
   box-sizing: border-box;
 }
