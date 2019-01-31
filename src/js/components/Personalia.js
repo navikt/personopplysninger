@@ -11,6 +11,7 @@ import ListElement from './ListElement';
 class Personalia extends Component {
   render() {
     const personidentHeader = this.props.personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
+    const fornavnHeader = this.props.fornavn.indexOf(' ') === -1 ? 'personalia.first_name' : 'personalia.first_and_middle_name';
 
     return (
       <Box
@@ -20,7 +21,7 @@ class Personalia extends Component {
       >
         <ul className="list-column-2">
           {this.props.fornavn ? <ListElement
-            titleId="personalia.first_name"
+            titleId={fornavnHeader}
             content={this.props.fornavn}
           /> : null}
           {this.props.etternavn ? <ListElement

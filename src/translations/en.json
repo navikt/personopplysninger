@@ -1,6 +1,7 @@
 {
   "header.intro": "Hei {name}, her kan du se opplysninger som NAV har registrert om deg. Les <a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>om personvern</a> i Arbeids- og velferdsetaten.",
   "personalia.first_name": "Fornavn",
+  "personalia.first_and_middle_name": "For- og mellomnavn",
   "personalia.surname": "Etternavn",
   "personalia.fnr": "Fødselsnummer",
   "personalia.dnr": "D-nummer",

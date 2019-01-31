@@ -34,17 +34,17 @@ class BoAdresse extends Component {
               titleId="adresse.poststed"
               content={this.props.poststed}
             /> : null}
-            {formattedDate ? <ListElement
-              titleId="adresse.dato"
-              content={formattedDate}
+            {this.props.veiadresse.bolignummer ? <ListElement
+              titleId="adresse.bolignummer"
+              content={this.props.veiadresse.bolignummer}
             /> : null}
             {this.props.kommune ? <ListElement
               titleId="adresse.kommune"
               content={this.props.kommune}
             /> : null}
-            {this.props.veiadresse.bolignummer ? <ListElement
-              titleId="adresse.bolignummer"
-              content={this.props.veiadresse.bolignummer}
+            {formattedDate ? <ListElement
+              titleId="adresse.dato"
+              content={formattedDate}
             /> : null}
           </ul>
           <div className="box-footer">

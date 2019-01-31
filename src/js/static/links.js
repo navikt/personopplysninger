@@ -41,9 +41,9 @@ export default [
     visible: true,
   },
   {
-    header: 'Jobbsøk',
+    header: 'Stillingssøk',
     information: 'CV, aktivitetsplaner og lagrede søk',
-    linkText: 'Gå til din jobbsøk/CV',
+    linkText: 'Gå til stillingssøk/CV',
     url: 'https://arbeidsplassen.nav.no/',
     icon: jobbsok,
     visible: true,
