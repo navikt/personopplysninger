@@ -12,6 +12,15 @@ moment.locale('nb');
 class BoAdresse extends Component {
   render() {
     const formattedDate = this.props.datoFraOgMed ? moment(this.props.datoFraOgMed).format('L') : '';
+    const numberOfElements = [this.props.adresse,
+      this.props.postnummer,
+      this.props.poststed,
+      this.props.veiadresse.bolignummer,
+      this.props.kommune,
+      formattedDate].filter(Boolean).length;
+
+    const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
+
     return (
       <Box
         header="Adresse"
@@ -21,7 +30,7 @@ class BoAdresse extends Component {
       >
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
-          <ul className="list-column-3">
+          <ul className={`list-column-${numberOfColumns} address-columns`}>
             {this.props.adresse ? <ListElement
               titleId="adresse.gate"
               content={this.props.adresse}
