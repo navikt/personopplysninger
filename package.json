@@ -4,7 +4,7 @@
   "private": true,
   "author": "NAV",
   "license": "MIT",
-  "homepage": "person/personopplysninger/",
+  "homepage": "/person/personopplysninger/",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@svgr/webpack": "2.4.1",
