@@ -9,12 +9,12 @@ replicas:
 port: 8080
 healthcheck:
   liveness:
-    path: personopplysninger/internal/isAlive
+    path: person/personopplysninger/internal/isAlive
   readiness:
-    path: personopplysninger/internal/isAlive
+    path: person/personopplysninger/internal/isAlive
 prometheus:
   enabled: false
-  path: personopplysninger/internal/metrics
+  path: person/personopplysninger/internal/metrics
 ingress:
   enabled: true
 resources:
