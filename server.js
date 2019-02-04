@@ -33,22 +33,22 @@ const startServer = (html) => {
   // const delayAllResponses = millis => (req, res, next) => setTimeout(next, millis);
   // server.use(delayAllResponses(1000));
 
-  server.use('/personopplysninger/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
-  server.use('/personopplysninger/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
+  server.use('person/personopplysninger/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
+  server.use('person/personopplysninger/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
   server.get('/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
 
   server.use(
-    '/personopplysninger/static/css',
+    'person/personopplysninger/static/css',
     express.static(path.resolve(__dirname, 'build/static/css')),
   );
 
   server.use(
-    '/personopplysninger/static/fonts',
+    'person/personopplysninger/static/fonts',
     express.static(path.resolve(__dirname, 'build/static/fonts')),
   );
 
   server.use(
-    '/personopplysninger/static/media',
+    'person/personopplysninger/static/media',
     express.static(path.resolve(__dirname, 'build/static/media')),
   );
 
