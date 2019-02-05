@@ -13,18 +13,31 @@
   margin-right: 18vw;
   font-weight: bold;
 }
+@media only screen and (max-width: 959px) {
+  .Header h1 {
+    margin-right: 0;
+    text-align: center;
+    font-size: 7vw;
+  }
+}
 .Header .header-content {
   width: 50vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
+@media only screen and (max-width: 959px) {
+  .Header .header-content {
+    display: flex;
+    width: 90%;
+  }
+}
 .Header .header-pc-icon {
   margin-top: auto;
 }
 @media only screen and (max-width: 959px) {
   .Header .header-pc-icon {
-    visibility: hidden;
+    display: none;
   }
 }
 .Header .snakkeboble {
@@ -41,8 +54,9 @@
 }
 @media only screen and (max-width: 959px) {
   .Header .snakkeboble {
-    width: 320px;
-    height: 7rem;
+    width: auto;
+    height: auto;
+    padding-bottom: 1em;
   }
 }
 .Header .snakkeboble:after {

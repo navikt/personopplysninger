@@ -16,6 +16,12 @@
   h1 {
     margin-right: 18vw;
     font-weight: bold;
+
+    @media @tablet {
+      margin-right: 0;
+      text-align: center;
+      font-size: 7vw;
+    }
   }
 
   .header-content {
@@ -23,13 +29,18 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    @media @tablet {
+      display: flex;
+      width: 90%;
+    }
   }
 
   .header-pc-icon {
     margin-top: auto;
 
     @media @tablet {
-      visibility: hidden;
+      display: none;
     }
   }
 
@@ -46,8 +57,9 @@
     margin-bottom: 1em;
 
     @media @tablet {
-      width: 320px;
-      height: 7rem;
+      width: auto;
+      height: auto;
+      padding-bottom: 1em;
     }
   }
 
