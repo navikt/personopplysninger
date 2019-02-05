@@ -6,28 +6,28 @@ const Environment = () => {
       logoutUrl: '#',
     };
   }
-  if (window.location.hostname.indexOf('tjenester-t6') > -1) {
+  if (window.location.hostname.indexOf('www-t6') > -1) {
     return {
       apiUrl: 'https://personopplysninger-api-t6.nais.oera-q.local/personopplysninger-api/personalia',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
   }
-  if (window.location.hostname.indexOf('tjenester-q0') > -1) {
+  if (window.location.hostname.indexOf('www-q0') > -1) {
     return {
-      apiUrl: 'https://personopplysninger-api-q0.nais.oera-q.local/personopplysninger-api/personalia',
+      apiUrl: 'https://www-q0.nav.no/person/personopplysninger-api/personalia',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
   }
-  if (window.location.hostname.indexOf('tjenester-q4') > -1) {
+  if (window.location.hostname.indexOf('www-q4') > -1) {
     return {
       apiUrl: 'https://personopplysninger-api-q4.nais.oera-q.local/personopplysninger-api/personalia',
       loginUrl: 'https://loginservice-q.nav.no/login',
       logoutUrl: 'https://loginservice-q.nav.no/slo',
     };
   }
-  if (window.location.hostname.indexOf('tjenester-q6') > -1) {
+  if (window.location.hostname.indexOf('www-q6') > -1) {
     return {
       apiUrl: 'https://personopplysninger-api-q6.nais.oera-q.local/personopplysninger-api/personalia',
       loginUrl: 'https://loginservice-q.nav.no/login',
@@ -43,7 +43,7 @@ const Environment = () => {
   }
 
   return {
-    apiUrl: 'https://tjenester.nav.no/personopplysninger-api/personalia',
+    apiUrl: 'https://www.nav.no/person/personopplysninger-api/personalia',
     loginUrl: 'https://loginservice.nav.no/login',
     logoutUrl: 'https://loginservice.nav.no/slo',
   };
