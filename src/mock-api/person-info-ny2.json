@@ -33,7 +33,7 @@
   "adresser": {
     "boadresse": {
       "adresse": "APALVEIEN 111",
-      "adressetillegg": null,
+      "adressetillegg": "",
       "bydel": null,
       "datoFraOgMed": "2017-02-21",
       "kommune": "1239",

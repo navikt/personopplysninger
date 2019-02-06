@@ -12,6 +12,7 @@ class AdresseContainer extends Component {
       <div>
         <BoAdresse
           adresse={adresseInfo.boadresse.adresse}
+          adressetillegg={adresseInfo.boadresse.adressetillegg}
           postnummer={adresseInfo.boadresse.postnummer}
           kilde={adresseInfo.boadresse.kilde}
           poststed={adresseInfo.boadresse.poststed}

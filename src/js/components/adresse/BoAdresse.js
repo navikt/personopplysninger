@@ -19,6 +19,27 @@ class BoAdresse extends Component {
       this.props.kommune,
       formattedDate].filter(Boolean).length;
 
+    const renderAdresse = () => {
+      if (this.props.adresse && !this.props.adressetillegg) {
+        return (<ListElement
+          titleId="adresse.adresse"
+          content={this.props.adresse}
+        />);
+      } else if (!this.props.adresse && this.props.adressetillegg) {
+        return (<ListElement
+          titleId="adresse.adressetillegg"
+          content={this.props.adressetillegg}
+        />);
+      } else if (this.props.adresse && this.props.adressetillegg) {
+        return (<ListElement
+          titleId="adresse.adresse"
+          content={`${this.props.adresse}, ${this.props.adressetillegg}`}
+        />);
+      }
+
+      return null;
+    };
+
     const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
 
     return (
@@ -31,10 +52,7 @@ class BoAdresse extends Component {
         <div className="address-box">
           <h3 className="address-type">Bostedsadresse</h3>
           <ul className={`list-column-${numberOfColumns} address-columns`}>
-            {this.props.adresse ? <ListElement
-              titleId="adresse.gate"
-              content={this.props.adresse}
-            /> : null}
+            {renderAdresse()}
             {this.props.postnummer ? <ListElement
               titleId="adresse.postnummer"
               content={this.props.postnummer}
@@ -69,6 +87,7 @@ class BoAdresse extends Component {
 
 BoAdresse.propTypes = {
   adresse: PropTypes.string,
+  adressetillegg: PropTypes.string,
   postnummer: PropTypes.string,
   poststed: PropTypes.string,
   datoFraOgMed: PropTypes.string,
@@ -83,6 +102,7 @@ BoAdresse.propTypes = {
 
 BoAdresse.defaultProps = {
   adresse: '',
+  adressetillegg: '',
   postnummer: '',
   poststed: '',
   kommune: '',
