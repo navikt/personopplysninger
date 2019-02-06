@@ -6,7 +6,7 @@ import Error from 'js/components/Error';
 import 'less/index.less';
 import { formatName } from './utils/textUtils';
 
-import initialState from './initialStateNy';
+import initialState from './initialState';
 
 class App extends Component {
   constructor(props) {

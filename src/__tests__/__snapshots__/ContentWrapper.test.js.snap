@@ -2,239 +2,62 @@
 
 exports[`render ContentWrapper with content 1`] = `
 <ContentWrapper
-  userInfo={
+  adresser={
     Object {
-      "adresseinfo": Object {
-        "boadresse": Object {
-          "adresse": "",
-          "adressetillegg": "",
-          "bydel": "",
-          "datoFraOgMed": "",
-          "kilde": "",
-          "kommune": "",
-          "landkode": "",
-          "matrikkeladresse": Object {
-            "bruksnummer": "",
-            "festenummer": "",
-            "gaardsnummer": "",
-            "undernummer": "",
-          },
-          "postnummer": "",
-          "veiadresse": Object {
-            "bokstav": "",
-            "bolignummer": "",
-            "gatekode": "",
-            "husnummer": "",
-          },
-        },
-        "geografiskTilknytning": Object {
-          "bydel": "",
-          "datoFraOgMed": "",
-          "kilde": "",
-          "kommune": "",
-          "land": "",
-        },
-        "postadresse": "",
-        "prioritertAdresse": "",
-        "tilleggsadresse": "",
-        "utenlandskAdresse": "",
-      },
-      "barnListe": Array [
-        Object {
-          "datoRegistert": "",
-          "egenansatt": null,
-          "fnr": "",
-          "kilde": "",
-          "spesreg": "",
-        },
-      ],
-      "brukerbehovListe": Array [
-        Object {
-          "behov": "",
-          "datoFraOgMed": "",
-          "kilde": "",
-        },
-      ],
-      "datoFraOgMed": "",
-      "doedsdato": Object {
-        "dato": "",
+      "boadresse": Object {
+        "adresse": "",
+        "adressetillegg": "",
+        "bydel": "",
         "datoFraOgMed": "",
-        "kilde": "",
-      },
-      "egenansatt": Object {
-        "datoFraOgMed": "",
-        "erEgenansatt": null,
-        "kilde": "",
-      },
-      "foedselsdato": "",
-      "foedtIKommune": "",
-      "foedtILand": "",
-      "foreldreansvar": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "type": "",
-      },
-      "ident": "",
-      "identtype": Object {
-        "kodeverk": "",
-        "verdi": "",
-      },
-      "innvandringUtvandring": Object {
-        "innvandretDato": "",
-        "innvandretKilde": "",
-        "innvandretLand": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-        "utvandretKilde": "",
-        "utvandretLand": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "kilde": "",
-      "kjonn": "",
-      "kontonummer": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "nummer": "",
-      },
-      "navn": Object {
-        "datoFraOgMed": "",
-        "forkortetNavn": "",
-        "fornavn": "",
-        "kilde": "",
-        "mellomnavn": "",
-        "slektsnavn": "",
-        "slektsnavnUgift": "",
-      },
-      "oppholdstillatelse": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "type": "",
-      },
-      "relasjon": Object {
-        "datoFraOgMed": "",
-        "egenansatt": null,
-        "fnr": "",
-        "kilde": "",
-        "spesreg": "",
-        "type": "",
-      },
-      "samboer": Object {
-        "datoFraOgMed": "",
-        "fnr": "",
-        "kilde": "",
-      },
-      "sivilstand": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "kode": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "spesreg": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "kode": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "spraak": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "kode": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "statsborgerskap": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "kode": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "status": Object {
-        "datoFraOgMed": "",
-        "kilde": "",
-        "kode": Object {
-          "kodeverk": "",
-          "verdi": "",
-        },
-      },
-      "telefon": Object {
-        "jobb": "",
-        "jobbDatoRegistrert": "",
-        "jobbKilde": "",
-        "mobil": "",
-        "mobilDatoRegistrert": "",
-        "mobilKilde": "",
-        "privat": "",
-        "privatDatoRegistrert": "",
-        "privatKilde": "",
-      },
-      "tiltak": Object {
-        "datoFraOgMed": "",
-        "datoTil": "",
-        "kilde": "",
-        "type": "",
-      },
-      "utenlandsinfoList": Array [
-        Object {
-          "datoFraOgMed": "",
-          "familienavnFodt": "",
-          "farsFamilenavn": "",
-          "farsFornavn": "",
-          "foedested": "",
-          "fornavnFodt": "",
-          "idOff": "",
-          "institusjon": "",
-          "institusjonNavn": "",
-          "kilde": "",
-          "kildePin": "",
-          "land": "",
-          "morsFamilenavn": "",
-          "morsFornavn": "",
-          "nasjonalId": "",
-          "nasjonalitet": "",
-          "sedRef": "",
-          "sektor": "",
-        },
-      ],
-      "utenlandskBank": Object {
-        "adresse1": "",
-        "adresse2": "",
-        "adresse3": "",
-        "bankkode": "",
-        "banknavn": "",
-        "datoFraOgMed": "",
-        "iban": "",
-        "kilde": "",
-        "kontonummer": "",
+        "kommune": "",
         "land": "",
-        "swiftkode": "",
-        "valuta": "",
-      },
-      "vergemaalListe": Array [
-        Object {
-          "aaksId": "",
-          "datoFraOgMed": "",
-          "egenansatt": null,
-          "embete": "",
-          "fnr": "",
-          "id": "",
-          "kilde": "",
-          "mandattype": "",
-          "sakstype": "",
-          "spesreg": "",
-          "type": "",
-          "vedtaksdato": "",
+        "matrikkeladresse": Object {
+          "bruksnummer": null,
+          "festenummer": null,
+          "gaardsnummer": null,
+          "undernummer": null,
         },
+        "postnummer": "",
+        "poststed": "",
+        "veiadresse": Object {
+          "bokstav": "",
+          "bolignummer": "",
+          "gatekode": "",
+          "husnummer": "",
+        },
+      },
+      "datakilder": Array [
+        Object {},
       ],
+      "geografiskTilknytning": Object {
+        "bydel": "",
+        "datoFraOgMed": "",
+        "kommune": "",
+        "land": "",
+      },
+      "postadresse": null,
+      "prioritertAdresse": null,
+      "tilleggsadresse": null,
+      "utenlandskAdresse": null,
+    }
+  }
+  personalia={
+    Object {
+      "datakilder": Array [
+        Object {},
+      ],
+      "epostadr": "",
+      "etternavn": "",
+      "fnr": "",
+      "foedested": "",
+      "fornavn": "",
+      "kjoenn": "",
+      "kontonr": "",
+      "personstatus": "",
+      "sivilstand": "",
+      "spraak": null,
+      "statsborgerskap": "",
+      "tlfnr": null,
     }
   }
 />
