@@ -32,8 +32,8 @@
   },
   "adresser": {
     "boadresse": {
-      "adresse": "APALVEIEN 111",
-      "adressetillegg": "",
+      "adresse": null,
+      "adressetillegg": "C/O TEST TEST",
       "bydel": null,
       "datoFraOgMed": "2017-02-21",
       "kommune": "1239",
@@ -68,6 +68,24 @@
       "postnummer": ""
     },
     "prioritertAdresse": "TIAD",
+    "tilleggsadresse": {
+      "adresse1":"JEPP 10",
+      "adresse2":"",
+      "adresse3":"",
+      "bolignummer":"",
+      "bydel":"",
+      "datoFraOgMed":"2019-01-12",
+      "datoTilOgMed":"2023-01-11",
+      "gateKode":"0270",
+      "husbokstav":"",
+      "husnummer":"0020",
+      "kommunenummer":"0131",
+      "kommune":null,
+      "postboksanlegg":"",
+      "postboksnummer":"",
+      "postnummer":"2021",
+      "poststed":"JAJAJA"
+    },
     "utenlandskAdresse": null,
     "datakilder": [
       {},

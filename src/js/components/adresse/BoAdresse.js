@@ -17,6 +17,7 @@ class BoAdresse extends Component {
       this.props.poststed,
       this.props.veiadresse.bolignummer,
       this.props.kommune,
+      this.props.adressetillegg,
       formattedDate].filter(Boolean).length;
 
     const renderAdresse = () => {
@@ -27,7 +28,7 @@ class BoAdresse extends Component {
         />);
       } else if (!this.props.adresse && this.props.adressetillegg) {
         return (<ListElement
-          titleId="adresse.adressetillegg"
+          titleId="adresse.adresse"
           content={this.props.adressetillegg}
         />);
       } else if (this.props.adresse && this.props.adressetillegg) {

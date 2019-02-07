@@ -4,6 +4,7 @@ import 'less/index.less';
 import BoAdresse from '../components/adresse/BoAdresse';
 import PostAdresse from '../components/adresse/PostAdresse';
 import UtenlandskAdresse from '../components/adresse/UtenlandskAdresse';
+import TilleggsAdresse from '../components/adresse/TilleggsAdresse';
 
 class AdresseContainer extends Component {
   render() {
@@ -29,6 +30,16 @@ class AdresseContainer extends Component {
             kilde={adresseInfo.postadresse.kilde}
             land={adresseInfo.postadresse.land}
             postnummer={adresseInfo.postadresse.postnummer}
+          /> : null}
+        {adresseInfo.tilleggsadresse ?
+          <TilleggsAdresse
+            adresse1={adresseInfo.tilleggsadresse.adresse1}
+            adresse2={adresseInfo.tilleggsadresse.adresse2}
+            adresse3={adresseInfo.tilleggsadresse.adresse3}
+            datoFraOgMed={adresseInfo.tilleggsadresse.datoFraOgMed}
+            kilde={adresseInfo.tilleggsadresse.kilde}
+            land={adresseInfo.tilleggsadresse.land}
+            postnummer={adresseInfo.tilleggsadresse.postnummer}
           /> : null}
         {adresseInfo.utenlandskAdresse ?
           <UtenlandskAdresse
