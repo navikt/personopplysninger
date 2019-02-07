@@ -38,7 +38,7 @@ class AdresseContainer extends Component {
             adresse3={adresseInfo.tilleggsadresse.adresse3}
             datoFraOgMed={adresseInfo.tilleggsadresse.datoFraOgMed}
             kilde={adresseInfo.tilleggsadresse.kilde}
-            land={adresseInfo.tilleggsadresse.land}
+            poststed={adresseInfo.tilleggsadresse.poststed}
             postnummer={adresseInfo.tilleggsadresse.postnummer}
           /> : null}
         {adresseInfo.utenlandskAdresse ?

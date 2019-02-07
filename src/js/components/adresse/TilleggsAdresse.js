@@ -5,7 +5,7 @@ import ListElement from '../ListElement';
 
 class TilleggsAdresse extends Component {
   render() {
-    const adresse = `a ${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
+    const adresse = `${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
     return (
       <Box smallMargin>
         <div className="address-box">
@@ -19,9 +19,9 @@ class TilleggsAdresse extends Component {
               titleId="adresse.postnummer"
               content={this.props.postnummer}
             /> : null}
-            {this.props.land ? <ListElement
-              titleId="adresse.land"
-              content={this.props.land}
+            {this.props.poststed ? <ListElement
+              titleId="adresse.poststed"
+              content={this.props.poststed}
             /> : null}
           </ul>
         </div>
@@ -34,7 +34,7 @@ TilleggsAdresse.propTypes = {
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
-  land: PropTypes.string,
+  poststed: PropTypes.string,
   postnummer: PropTypes.string,
 };
 
@@ -42,7 +42,7 @@ TilleggsAdresse.defaultProps = {
   adresse1: '',
   adresse2: '',
   adresse3: '',
-  land: '',
+  poststed: '',
   postnummer: '',
 };
 

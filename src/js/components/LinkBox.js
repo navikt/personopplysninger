@@ -40,7 +40,7 @@ class LinkBox extends Component {
           <div className="link-info">
             {information}
           </div>
-          <a href={url}>{linkText}</a>
+          <a href={url} target="_blank" rel="noopener noreferrer">{linkText}</a>
           {kilde ?
             <div className="box-footer link-footer">
               Kilde: {kilde}

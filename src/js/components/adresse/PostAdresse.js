@@ -5,12 +5,12 @@ import ListElement from '../ListElement';
 
 class PostAdresse extends Component {
   render() {
-    const adresse = `a ${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
+    const adresse = `${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
     return (
       <Box smallMargin>
         <div className="address-box">
           <h3 className="address-type">Postadresse</h3>
-          <ul className="list-column-3">
+          <ul className="list-column-2">
             {adresse ? <ListElement
               titleId="adresse.adresse"
               content={adresse}
