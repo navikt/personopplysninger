@@ -5,7 +5,7 @@ import ListElement from '../ListElement';
 
 class UtenlandskAdresse extends Component {
   render() {
-    const adresse = `a ${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
+    const adresse = `${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
     return (
       <Box>
         <div className="address-box">

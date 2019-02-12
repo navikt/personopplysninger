@@ -3,12 +3,9 @@ export default [
     id: 1,
     description: 'Opplysninger om meg er feil – hva gjør jeg?',
     content: {
-      __html: 'Hvis opplysninger om deg er feil, kan du be om at de blir rettet. Hvis opplysningene er ufullstendige, kan du be om at de blir supplert. I særlige tilfeller kan du ha rett til å få slettet opplysninger om deg, men NAV må som regel oppbevare mange personopplysninger som dokumentasjon på grunn av arkivplikten.<br><br> \n' +
-      'Hvis du vil be om å få rettet eller slettet opplysninger, må du henvende deg til NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.<br><br>  \n' +
-      'Hvis opplysningene er hentet fra andre instanser enn NAV, må du henvende deg til kilden som er oppgitt.<br><br> \n' +
-      '\n' +
-      'Hvis du ønsker å rette eller slette opplysninger om et arbeidsforhold, må du henvende deg til arbeidsgiveren. Hvis arbeidsgiveren ikke lenger eksisterer, kan du kontakte NAV. \n' +
-      'NAV skal besvare krav fra deg som gjelder retting og sletting kostnadsfritt og senest innen 30 dager. \n',
+      __html: 'Hvis opplysninger om deg er feil, kan du be om at de blir rettet. Hvis opplysningene er ufullstendige, kan du be om at de blir supplert. I særlige tilfeller kan du ha rett til å få slettet opplysninger om deg. <br><br> \n' +
+      'Hvis opplysningene er hentet fra andre instanser enn NAV, må du henvende deg til kilden som er oppgitt. For eksempel må du kontakte Skatteetaten hvis du finner feil i folkeregistrert bostedsadresse.<br><br> \n' +
+      'Hvis opplysningene er hentet fra NAV, må du henvende deg til NAV Kontaktsenter, tlf. <a href="tel:55553333">55 55 33 33</a>, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.<br><br>',
     },
   },
   {
