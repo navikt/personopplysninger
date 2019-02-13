@@ -4,7 +4,6 @@ const express = require('express');
 const path = require('path');
 const mustacheExpress = require('mustache-express');
 const getDecorator = require('./src/build/decorator');
-const createEnvSettingsFile = require('./src/build/env');
 
 const server = express();
 
@@ -33,27 +32,23 @@ const startServer = (html) => {
   // const delayAllResponses = millis => (req, res, next) => setTimeout(next, millis);
   // server.use(delayAllResponses(1000));
 
-  server.use('/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
-  server.use('/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
-  server.get('/static/js/settings.js', (req, res) => res.send(createEnvSettingsFile()));
+  server.use('person/personopplysninger/mock-api', express.static(path.resolve(__dirname, 'src/mock-api')));
+  server.use('person/personopplysninger/static/js', express.static(path.resolve(__dirname, 'build/static/js')));
 
   server.use(
-    '/static/css',
+    'person/personopplysninger/static/css',
     express.static(path.resolve(__dirname, 'build/static/css')),
   );
 
   server.use(
-    '/static/fonts',
+    'person/personopplysninger/static/fonts',
     express.static(path.resolve(__dirname, 'build/static/fonts')),
   );
 
   server.use(
-    '/static/media',
+    'person/personopplysninger/static/media',
     express.static(path.resolve(__dirname, 'build/static/media')),
   );
-
-  server.get('/health/isAlive', (req, res) => res.sendStatus(200));
-  server.get('/health/isReady', (req, res) => res.sendStatus(200));
 
   server.get(/^\/(?!.*static).*$/, (req, res) => {
     res.send(html);

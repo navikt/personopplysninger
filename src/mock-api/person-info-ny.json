@@ -1,0 +1,64 @@
+{
+  "personalia": {
+    "fornavn": "STEINAR FINN ",
+    "etternavn": "BÅRDSEN",
+    "fnr": "1937-07-01",
+    "kontonr": "49121018550",
+    "tlfnr": null,
+    "spraak": null,
+    "epostadr": "TODO",
+    "personstatus": "BOSA",
+    "statsborgerskap": "NOR",
+    "foedested": "NOR",
+    "sivilstand": "GIFT",
+    "kjoenn": "M",
+    "datakilder": [
+      {},
+      {}
+    ]
+  },
+  "adresser": {
+    "boadresse": {
+      "adresse": "BERGHEIMVEIEN 4",
+      "adressetillegg": null,
+      "bydel": null,
+      "datoFraOgMed": "2008-10-24",
+      "kommune": "2015",
+      "landkode": "NOR",
+      "matrikkeladresse": {
+        "bruksnummer": null,
+        "festenummer": null,
+        "gaardsnummer": null,
+        "undernummer": null
+      },
+      "postnummer": "9593",
+      "poststed": "Jepp",
+      "veiadresse": {
+        "bokstav": null,
+        "bolignummer": null,
+        "gatekode": "01300",
+        "husnummer": "4"
+      }
+    },
+    "geografiskTilknytning": {
+      "bydel": null,
+      "datoFraOgMed": "2008-10-24",
+      "kommune": "2015",
+      "land": null
+    },
+    "postadresse": {
+      "adresse1": "\"ANGKET\"425/409 CONDOM,SOI I W",
+      "adresse2": "ATBOON KUNCHANARAM,NONGPRUE,BA",
+      "adresse3": "NGLAM,20150 CHONBURI,THAILAND",
+      "datoFraOgMed": "2017-07-21",
+      "land": "THA",
+      "postnummer": ""
+    },
+    "prioritertAdresse": "PUTL",
+    "tilleggsadresse": null,
+    "utenlandskAdresse": null,
+    "datakilder": [
+      {}
+    ]
+  }
+}

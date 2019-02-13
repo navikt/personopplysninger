@@ -2,9 +2,13 @@ import * as React from 'react';
 import ContentWrapper from 'js/ContentWrapper';
 import wrapIntl from 'js/IntlTestHelper';
 import initialState from '../js/initialState';
-const ReactTestRenderer = require('react-test-renderer');
+import ShallowRenderer from 'react-test-renderer/shallow';
 
 test('render ContentWrapper with content', () => {
-  const component = ReactTestRenderer.create(wrapIntl(<ContentWrapper userInfo={initialState} />));
-  expect(component.toJSON()).toMatchSnapshot();
+  const renderer = new ShallowRenderer()
+  const result = renderer.render(wrapIntl(<ContentWrapper
+    personalia={initialState.personalia}
+    adresser={initialState.adresser}
+  />));
+  expect(result).toMatchSnapshot()
 });

@@ -5,7 +5,9 @@ class Familierelasjoner extends Component {
   render() {
     return (
       <Box header="Familierelasjoner">
-        <h3>Familierelasjoner</h3>
+        <div className="header-content">
+          <h3>Familierelasjoner</h3>
+        </div>
       </Box>
     );
   }

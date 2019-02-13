@@ -13,7 +13,6 @@ const fs = require('fs');
 const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
 const host = process.env.HOST || '0.0.0.0';
 
-const createEnvSettingsFile = require('../src/build/env');
 module.exports = function(proxy, allowedHost, decoratedIndexHtml) {
   return {
     // WebpackDevServer 2.4.3 introduced a security fix that prevents remote
@@ -108,16 +107,20 @@ module.exports = function(proxy, allowedHost, decoratedIndexHtml) {
         res.send("This has to be a default login page");
       });
 
-      app.get('/static/js/settings.js', (req, res) => {
-        res.send(createEnvSettingsFile());
-      });
-
       app.get('/mock-api/person-info.json', (req, res) => {
         // res.sendStatus(401);
         res.sendFile(
           path.resolve(`${__dirname}/../src/mock-api/person-info.json`)
         );
       });
+
+      app.get('/mock-api/person-info-ny2.json', (req, res) => {
+        // res.sendStatus(401);
+        res.sendFile(
+          path.resolve(`${__dirname}/../src/mock-api/person-info-ny2.json`)
+        );
+      });
+
       app.get(/^\/(?!.*static).*$/, (req, res) => {
         res.render('index.html', Object.assign(decoratedIndexHtml));
       });

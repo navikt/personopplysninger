@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render InfoBox with content 1`] = `
+<div
+  className="BoxContainer"
+>
+  <div
+    className="InfoBox"
+  >
+    <hr
+      width="32px"
+    />
+    <h2>
+      Header
+    </h2>
+    <div
+      className="info-content"
+    >
+      Innhold
+    </div>
+  </div>
+</div>
+`;

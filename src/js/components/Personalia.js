@@ -1,79 +1,62 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Box from 'js/components/Box';
 import { FormattedMessage } from 'react-intl';
-import woman from '../../assets/img/woman.png';
+import kvinne from '../../assets/img/kvinne.png';
+import mann from '../../assets/img/rsz_mann.png';
 import ListElement from './ListElement';
 
 class Personalia extends Component {
   render() {
+    const personidentHeader = this.props.personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
+    const fornavnHeader = this.props.fornavn.indexOf(' ') === -1 ? 'personalia.first_name' : 'personalia.first_and_middle_name';
+
     return (
-      <Box header="Personalia" icon={woman}>
-        <ul className="personalia-list">
-          <ListElement
-            titleId="personalia.first_name"
-            content={this.props.navn.fornavn}
-          />
-          <ListElement
+      <Box
+        header="Personalia"
+        icon={this.props.kjoenn === 'Mann' ? mann : kvinne}
+        infoType="personalia"
+      >
+        <ul className="list-column-2">
+          {this.props.fornavn ? <ListElement
+            titleId={fornavnHeader}
+            content={this.props.fornavn}
+          /> : null}
+          {this.props.etternavn ? <ListElement
+            classNameContent="capitalize"
             titleId="personalia.surname"
-            content={this.props.navn.slektsnavn}
-          />
-          <ListElement
-            titleId="personalia.fnr"
-            content={this.props.ident}
-          />
-          <ListElement
-            titleId="personalia.foreign_id"
-            content="x"
-          />
-          <ListElement
-            titleId="personalia.phone"
-            content={this.props.telefon.privat}
-          />
-          <ListElement
+            content={this.props.etternavn}
+          /> : null}
+          {this.props.personident && this.props.personident.verdi ? <ListElement
+            titleId={personidentHeader}
+            content={this.props.personident.verdi}
+          /> : null}
+          {this.props.kontonr? <ListElement
             titleId="personalia.account_no"
-            content={this.props.kontonummer.nummer}
-          />
-          <ListElement
-            titleId="personalia.email"
-            content="x"
-          />
-          <ListElement
+            content={this.props.kontonr}
+          /> : null}
+          {this.props.spraak ? <ListElement
             titleId="personalia.language"
-            content={this.props.spraak.kode}
-          />
-          <ListElement
+            content={this.props.spraak}
+          /> : null}
+          {this.props.statsborgerskap ? <ListElement
             titleId="personalia.citizenship"
-            content={this.props.statsborgerskap.kode}
-          />
-          <ListElement
-            titleId="personalia.status"
-            content={this.props.status.kode}
-          />
-          <ListElement
+            content={this.props.statsborgerskap}
+          /> : null}
+          {this.props.foedested ? <ListElement
             titleId="personalia.birthplace"
-            content="x"
-          />
-          <ListElement
-            titleId="personalia.spesreg"
-            content={this.props.spesreg.kode}
-          />
-          <ListElement
+            content={this.props.foedested}
+          /> : null}
+          {this.props.sivilstand ? <ListElement
             titleId="personalia.civil_status"
-            content={this.props.sivilstand.kode}
-          />
-          <ListElement
-            titleId="personalia.security_measure"
-            content={this.props.tiltak.type}
-          />
-          <ListElement
+            content={this.props.sivilstand}
+          /> : null}
+          {this.props.kjoenn ? <ListElement
             titleId="personalia.gender"
-            content={this.props.kjonn}
-          />
-          <ListElement
-            titleId="personalia.customized_comm"
-            content="x"
-          />
+            content={this.props.kjoenn}
+          /> : null}
         </ul>
         <div className="box-footer">
           <FormattedMessage
@@ -86,64 +69,49 @@ class Personalia extends Component {
 }
 
 Personalia.propTypes = {
-  navn: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    forkortetNavn: PropTypes.string,
-    fornavn: PropTypes.string,
-    kilde: PropTypes.string,
-    mellomnavn: PropTypes.string,
-    slektsnavn: PropTypes.string,
-    slektsnavnUgift: PropTypes.string,
-  }).isRequired,
-  ident: PropTypes.string.isRequired,
-  statsborgerskap: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
-  status: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
-  telefon: PropTypes.shape({
-    jobb: PropTypes.string,
-    jobbDatoRegistrert: PropTypes.string,
-    jobbKilde: PropTypes.string,
-    mobil: PropTypes.string,
-    mobilDatoRegistrert: PropTypes.string,
-    mobilKilde: PropTypes.string,
-    privat: PropTypes.string,
-    privatDatoRegistrert: PropTypes.string,
-    privatKilde: PropTypes.string,
-  }).isRequired,
-  tiltak: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    datoTil: PropTypes.string,
-    kilde: PropTypes.string,
+  // datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
+  epostadr: PropTypes.string,
+  etternavn: PropTypes.string,
+  personident: PropTypes.shape({
+    verdi: PropTypes.string,
     type: PropTypes.string,
-  }).isRequired,
-  kjonn: PropTypes.string.isRequired,
-  spraak: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
-  sivilstand: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
-  kontonummer: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    nummer: PropTypes.string,
-  }).isRequired,
-  spesreg: PropTypes.shape({
-    datoFraOgMed: PropTypes.string,
-    kilde: PropTypes.string,
-    kode: PropTypes.string,
-  }).isRequired,
+  }),
+  foedested: PropTypes.string,
+  fornavn: PropTypes.string,
+  kjoenn: PropTypes.string,
+  kontonr: PropTypes.string,
+  sivilstand: PropTypes.string,
+  spraak: PropTypes.string,
+  statsborgerskap: PropTypes.string,
+  tlfnr: PropTypes.shape({
+    jobb: PropTypes.string,
+    mobil: PropTypes.string,
+    privat: PropTypes.string,
+    datakilder: PropTypes.arrayOf(PropTypes.shape({})),
+  }),
+};
+
+Personalia.defaultProps = {
+  fornavn: '',
+  etternavn: '',
+  personident: {
+    verdi: '',
+    type: '',
+  },
+  kontonr: '',
+  tlfnr: {
+    jobb: '',
+    mobil: '',
+    privat: '',
+    // datakilder: [{}],
+  },
+  spraak: '',
+  epostadr: '',
+  statsborgerskap: '',
+  foedested: '',
+  sivilstand: '',
+  kjoenn: '',
+  // datakilder: [{}],
 };
 
 export default Personalia;

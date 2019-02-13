@@ -29,6 +29,8 @@ exports[`render LinkBox with content 1`] = `
           </div>
           <a
             href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             Gå til Din pensjon
           </a>

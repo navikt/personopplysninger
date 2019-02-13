@@ -7,6 +7,7 @@ import nb from 'react-intl/locale-data/nb';
 import en from 'react-intl/locale-data/en';
 import 'css/index.css';
 import 'react-app-polyfill/ie9';
+import 'core-js/fn/array/includes';
 import nbMessages from './translations/nb.json';
 import enMessages from './translations/en.json';
 

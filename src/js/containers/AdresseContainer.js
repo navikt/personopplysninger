@@ -4,17 +4,22 @@ import 'less/index.less';
 import BoAdresse from '../components/adresse/BoAdresse';
 import PostAdresse from '../components/adresse/PostAdresse';
 import UtenlandskAdresse from '../components/adresse/UtenlandskAdresse';
+import TilleggsAdresse from '../components/adresse/TilleggsAdresse';
 
 class AdresseContainer extends Component {
   render() {
     const { adresseInfo } = this.props;
-
     return (
       <div>
         <BoAdresse
           adresse={adresseInfo.boadresse.adresse}
+          adressetillegg={adresseInfo.boadresse.adressetillegg}
           postnummer={adresseInfo.boadresse.postnummer}
           kilde={adresseInfo.boadresse.kilde}
+          poststed={adresseInfo.boadresse.poststed}
+          kommune={adresseInfo.boadresse.kommune}
+          datoFraOgMed={adresseInfo.boadresse.datoFraOgMed}
+          veiadresse={adresseInfo.boadresse.veiadresse}
         />
         {adresseInfo.postadresse ?
           <PostAdresse
@@ -26,11 +31,22 @@ class AdresseContainer extends Component {
             land={adresseInfo.postadresse.land}
             postnummer={adresseInfo.postadresse.postnummer}
           /> : null}
+        {adresseInfo.tilleggsadresse ?
+          <TilleggsAdresse
+            adresse1={adresseInfo.tilleggsadresse.adresse1}
+            adresse2={adresseInfo.tilleggsadresse.adresse2}
+            adresse3={adresseInfo.tilleggsadresse.adresse3}
+            datoFraOgMed={adresseInfo.tilleggsadresse.datoFraOgMed}
+            kilde={adresseInfo.tilleggsadresse.kilde}
+            poststed={adresseInfo.tilleggsadresse.poststed}
+            postnummer={adresseInfo.tilleggsadresse.postnummer}
+          /> : null}
         {adresseInfo.utenlandskAdresse ?
           <UtenlandskAdresse
             adresse1={adresseInfo.utenlandskAdresse.adresse1}
             adresse2={adresseInfo.utenlandskAdresse.adresse2}
             adresse3={adresseInfo.utenlandskAdresse.adresse3}
+            land={adresseInfo.utenlandskAdresse.land}
             kilde={adresseInfo.utenlandskAdresse.kilde}
           /> : null}
       </div>

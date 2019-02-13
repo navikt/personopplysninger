@@ -1,5 +1,5 @@
 window.personopplysningerSettings = {
-  API_URL: '/mock-api/person-info.json',
+  API_URL: '/mock-api/person-info-ny2.json',
   LOGIN_URL: '/personopplysninger-api/local/cookie',
 };
 
