@@ -44,7 +44,7 @@ export default [
     header: 'CV og stillingssøk',
     information: 'Din CV og lagrede stillingssøk',
     linkText: 'Gå til CV/stillingssøk',
-    url: 'https://arbeidsplassen.nav.no/',
+    url: 'https://arbeidsplassen.nav.no/minside',
     icon: jobbsok,
     visible: true,
   },

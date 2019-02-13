@@ -46,6 +46,7 @@ class AdresseContainer extends Component {
             adresse1={adresseInfo.utenlandskAdresse.adresse1}
             adresse2={adresseInfo.utenlandskAdresse.adresse2}
             adresse3={adresseInfo.utenlandskAdresse.adresse3}
+            land={adresseInfo.utenlandskAdresse.land}
             kilde={adresseInfo.utenlandskAdresse.kilde}
           /> : null}
       </div>

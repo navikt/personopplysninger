@@ -10,10 +10,14 @@ class UtenlandskAdresse extends Component {
       <Box>
         <div className="address-box">
           <h3 className="address-type">Utenlandsk adresse</h3>
-          <ul className="list-column-1">
+          <ul className="list-column-2">
             {adresse ? <ListElement
               titleId="adresse.adresse"
               content={adresse}
+            /> : null}
+            {this.props.land ? <ListElement
+              titleId="adresse.land"
+              content={this.props.land}
             /> : null}
           </ul>
         </div>
@@ -26,12 +30,14 @@ UtenlandskAdresse.propTypes = {
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
+  land: PropTypes.string,
 };
 
 UtenlandskAdresse.defaultProps = {
   adresse1: '',
   adresse2: '',
   adresse3: '',
+  land: '',
 };
 
 export default UtenlandskAdresse;

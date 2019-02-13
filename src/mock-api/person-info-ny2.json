@@ -86,7 +86,14 @@
       "postnummer":"2021",
       "poststed":"JAJAJA"
     },
-    "utenlandskAdresse": null,
+    "utenlandskAdresse": {
+      "adresse1": "TEST TEST TEST",
+      "adresse2": "TESTESEN",
+      "adresse3": "TEST",
+      "datoFraOgMed": "2019-02-08",
+      "datoTilOgMed": "2020-02-08",
+      "land": "CUBA"
+    },
     "datakilder": [
       {},
       {}
