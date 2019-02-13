@@ -1,0 +1,175 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render LinksContainer with content 1`] = `
+Array [
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Pensjonsopptjening
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <img
+          alt=""
+          className="box-icon"
+          src="pensjonist.png"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
+            </div>
+            <a
+              href="https://tjenester.nav.no/pselv/publisering/dinepensjonspoeng.jsf"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gå til Din pensjon
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Dine saker
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <img
+          alt=""
+          className="box-icon"
+          src="papirstabel.png"
+        />
+        <div
+          className="Box"
+        >
+          <button
+            className="information-circle"
+            onClick={[Function]}
+          >
+            <img
+              alt="Information"
+              src="infomation-circle.png"
+            />
+          </button>
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Oversikt over dine saker og kommunikasjon med NAV
+            </div>
+            <a
+              href="https://tjenester.nav.no/saksoversikt/app"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gå til saksoversikt
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        Utbetalinger
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <img
+          alt=""
+          className="box-icon"
+          src="penger.png"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Oversikt over dine utbetalinger fra NAV
+            </div>
+            <a
+              href="https://tjenester.nav.no/utbetalingsoversikt/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gå til utbetalinger
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="BoxContainer box-bottom-margin"
+  >
+    <div
+      className="BoxWithHeader"
+    >
+      <h1>
+        CV og stillingssøk
+      </h1>
+      <div
+        className="icon-box-wrapper"
+      >
+        <img
+          alt=""
+          className="box-icon"
+          src="jobbsok.png"
+        />
+        <div
+          className="Box"
+        >
+          <div
+            className="link-box-content"
+          >
+            <div
+              className="link-info"
+            >
+              Din CV og lagrede stillingssøk
+            </div>
+            <a
+              href="https://arbeidsplassen.nav.no/minside"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gå til CV/stillingssøk
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
