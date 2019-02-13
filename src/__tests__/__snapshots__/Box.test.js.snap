@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Header with content 1`] = `
+<div
+  className="BoxContainer box-bottom-margin"
+>
+  <div
+    className="BoxWithHeader"
+  >
+    <h1>
+      Arbeidsforhold
+    </h1>
+    <div
+      className="icon-box-wrapper"
+    >
+      <div
+        className="box-icon"
+      />
+      <div
+        className="Box"
+      >
+        <h3>
+          Header
+        </h3>
+        <div>
+          content
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

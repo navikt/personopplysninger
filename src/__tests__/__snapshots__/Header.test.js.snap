@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Header with content 1`] = `
+<div
+  className="Header"
+>
+  <h1
+    className="header-text"
+  >
+    Dine personopplysninger
+  </h1>
+  <div
+    className="header-content"
+  >
+    <div
+      className="snakkeboble-wrapper"
+    >
+      <div
+        className="snakkeboble"
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Hei Donald, her kan du se opplysninger som NAV har registrert om deg. Les <a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>om personvern</a> i Arbeids- og velferdsetaten.",
+            }
+          }
+        />
+      </div>
+      <div
+        className="snakkeboble-edge"
+      />
+    </div>
+    <img
+      alt="Pc"
+      className="header-pc-icon"
+      src="group.png"
+    />
+  </div>
+</div>
+`;
