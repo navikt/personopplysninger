@@ -12,7 +12,7 @@ export default [
     id: 2,
     description: 'Savner du personopplysninger?',
     content: {
-      __html: 'Denne siden er under utvikling. Derfor er det ikke sikkert du finner alle personopplysninger NAV har om deg her. Det kan være både tekniske og juridiske begrensninger som gjør at vi ikke kan vise personopplysninger. Savner du personopplysninger eller lurer du på om NAV har flere personopplysninger om deg, kan du kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.',
+      __html: 'Denne siden er under utvikling. Derfor er det ikke sikkert du finner alle personopplysninger NAV har om deg her. Det kan være både tekniske og juridiske begrensninger som gjør at vi ikke kan vise personopplysninger. Savner du personopplysninger eller lurer du på om NAV har flere personopplysninger om deg, kan du kontakte NAV Kontaktsenter, tlf. <a href="tel:55553333">55 55 33 33</a>, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.',
     },
   },
   {
@@ -26,7 +26,7 @@ export default [
     id: 4,
     description: 'Har du spørsmål eller er uenig?',
     content: {
-      __html: 'Hvis du har spørsmål eller er uenig i vår behandling av dine personopplysninger, kan du kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.<br><br>\n' +
+      __html: 'Hvis du har spørsmål eller er uenig i vår behandling av dine personopplysninger, kan du kontakte NAV Kontaktsenter, tlf. <a href="tel:55553333">55 55 33 33</a>, eller bruke <a href="https://www.nav.no/beskjedtilnav" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.<br><br>\n' +
       '\n' +
       'Du kan også kontakte NAVs <a href="https://www.nav.no/personvernombudet" target="_blank" rel="noopener noreferrer">personvernombud</a>.<br><br> \n' +
       '\n' +
