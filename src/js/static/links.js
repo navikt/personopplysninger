@@ -17,7 +17,7 @@ export default [
     header: 'Pensjonsopptjening',
     information: 'NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.',
     linkText: 'Gå til Din pensjon',
-    url: 'https://tjenester.nav.no/pselv/publisering/dinepensjonspoeng.jsf',
+    url: 'https://tjenester.nav.no/pselv/publisering/dinepensjonspoeng.jsf?context=pensjon',
     icon: pensjonist,
     visible: true,
   },
