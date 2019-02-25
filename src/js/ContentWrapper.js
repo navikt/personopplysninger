@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Header from 'js/components/Header';
 import Personalia from './components/Personalia';
 import AdresseContainer from './containers/AdresseContainer';
 import LinksContainer from './containers/LinksContainer';
@@ -9,7 +10,8 @@ import { formatName } from './utils/textUtils';
 class ContentWrapper extends Component {
   render() {
     return (
-      <div>
+      <div className="Content">
+        <Header fornavn={formatName(this.props.personalia.fornavn)} />
         <Personalia
           fornavn={formatName(this.props.personalia.fornavn)}
           etternavn={formatName(this.props.personalia.etternavn)}
@@ -23,9 +25,7 @@ class ContentWrapper extends Component {
           sivilstand={this.props.personalia.sivilstand}
           kjoenn={this.props.personalia.kjoenn}
         />
-        <AdresseContainer
-          adresseInfo={this.props.adresser}
-        />
+        <AdresseContainer adresseInfo={this.props.adresser} />
         <LinksContainer />
         <AlternativListe />
       </div>

@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
 import { FormattedHTMLMessage } from 'react-intl';
 import PropTypes from 'prop-types';
+import { Undertittel } from 'nav-frontend-typografi';
 import group from '../../assets/img/group.png';
 
 class Header extends Component {
   render() {
     return (
       <div className="Header">
-        <h1 className="header-text">Dine personopplysninger</h1>
+        <h1 className="header-text">
+          <FormattedHTMLMessage
+            id="header.hello"
+            values={{ name: this.props.fornavn }}
+          />
+        </h1>
         <div className="header-content">
           <div className="snakkeboble-wrapper">
             <div className="snakkeboble">
-              <FormattedHTMLMessage
-                id="header.intro"
-                values={{ name: this.props.fornavn }}
-              />
+              <Undertittel>
+                <FormattedHTMLMessage
+                  id="header.intro"
+                  values={{ name: this.props.fornavn }}
+                />
+              </Undertittel>
             </div>
             <div className="snakkeboble-edge" />
           </div>
