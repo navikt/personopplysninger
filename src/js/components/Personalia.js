@@ -10,12 +10,23 @@ import ListElement from "./ListElement";
 
 class Personalia extends Component {
   render() {
+    const {
+      personident,
+      fornavn,
+      etternavn,
+      kontonr,
+      spraak,
+      statsborgerskap,
+      foedested,
+      sivilstand,
+      kjoenn
+    } = this.props;
+
     const personidentHeader =
-      this.props.personident.type === "DNR"
-        ? "personalia.dnr"
-        : "personalia.fnr";
+      personident.type === "DNR" ? "personalia.dnr" : "personalia.fnr";
+
     const fornavnHeader =
-      this.props.fornavn.indexOf(" ") === -1
+      fornavn.indexOf(" ") === -1
         ? "personalia.first_name"
         : "personalia.first_and_middle_name";
 
@@ -26,58 +37,44 @@ class Personalia extends Component {
         infoType="personalia"
       >
         <ul className="list-column-2">
-          {this.props.fornavn ? (
-            <ListElement titleId={fornavnHeader} content={this.props.fornavn} />
-          ) : null}
-          {this.props.etternavn ? (
+          {fornavn && <ListElement titleId={fornavnHeader} content={fornavn} />}
+          {etternavn && (
             <ListElement
               classNameContent="capitalize"
               titleId="personalia.surname"
-              content={this.props.etternavn}
+              content={etternavn}
             />
-          ) : null}
-          {this.props.personident && this.props.personident.verdi ? (
+          )}
+          {personident && personident.verdi && (
             <ListElement
               titleId={personidentHeader}
-              content={this.props.personident.verdi}
+              content={personident.verdi}
             />
-          ) : null}
-          {this.props.kontonr ? (
-            <ListElement
-              titleId="personalia.account_no"
-              content={this.props.kontonr}
-            />
-          ) : null}
-          {this.props.spraak ? (
-            <ListElement
-              titleId="personalia.language"
-              content={this.props.spraak}
-            />
-          ) : null}
-          {this.props.statsborgerskap ? (
+          )}
+          {kontonr && (
+            <ListElement titleId="personalia.account_no" content={kontonr} />
+          )}
+          {spraak && (
+            <ListElement titleId="personalia.language" content={spraak} />
+          )}
+          {statsborgerskap && (
             <ListElement
               titleId="personalia.citizenship"
-              content={this.props.statsborgerskap}
+              content={tstatsborgerskap}
             />
-          ) : null}
-          {this.props.foedested ? (
-            <ListElement
-              titleId="personalia.birthplace"
-              content={this.props.foedested}
-            />
-          ) : null}
-          {this.props.sivilstand ? (
+          )}
+          {foedested && (
+            <ListElement titleId="personalia.birthplace" content={foedested} />
+          )}
+          {sivilstand && (
             <ListElement
               titleId="personalia.civil_status"
-              content={this.props.sivilstand}
+              content={tsivilstand}
             />
-          ) : null}
-          {this.props.kjoenn ? (
-            <ListElement
-              titleId="personalia.gender"
-              content={this.props.kjoenn}
-            />
-          ) : null}
+          )}
+          {kjoenn && (
+            <ListElement titleId="personalia.gender" content={kjoenn} />
+          )}
         </ul>
         <div className="box-footer">
           <FormattedMessage id="personalia.source" />
