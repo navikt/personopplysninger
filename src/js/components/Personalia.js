@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Box from "js/components/Box";
 import { FormattedMessage } from "react-intl";
-import kvinne from "../../assets/img/kvinne.png";
+import kvinne from "../../assets/img/kvinne.svg";
 import mann from "../../assets/img/rsz_mann.png";
 import ListElement from "./ListElement";
 

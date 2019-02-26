@@ -1,65 +1,51 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import infoIcon from "../../assets/img/infomation-circle.png";
-import InfoBox from "./InfoBox";
+import { Ingress, Systemtittel } from "nav-frontend-typografi";
+import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
+import Panel from "nav-frontend-paneler";
 import infoContent from "../static/infoContent";
 
-class Box extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { displayInfo: false };
+const Box = props => {
+  const { header, icon, infoType, children } = props;
+
+  const erMobil = window.innerWidth <= 420;
+
+  if (!infoType) {
+    return null;
   }
 
-  render() {
-    const { header, icon, infoType, children, smallMargin } = this.props;
-    const { displayInfo } = this.state;
-
-    const marginClass = smallMargin
-      ? "box-bottom-margin-small"
-      : "box-bottom-margin";
-
-    const toggleInfo = () => {
-      this.setState({
-        displayInfo: !displayInfo
-      });
-    };
-
-    return (
-      <div className={`BoxContainer ${marginClass}`}>
-        <div className="BoxWithHeader">
-          {header ? <h1>{header}</h1> : null}
-          <div className="icon-box-wrapper">
-            {icon ? (
-              <img src={icon} alt="" className="box-icon" />
-            ) : (
-              <div className="box-icon" />
-            )}
-            <div className="Box">
-              {infoType ? (
-                <button
-                  type="button"
-                  className="information-circle"
-                  onClick={() => toggleInfo()}
-                >
-                  <img src={infoIcon} alt="Information" />
-                </button>
-              ) : null}
-              {displayInfo && infoType ? (
-                <InfoBox>
-                  <h2>{infoContent[infoType].header}</h2>
-                  <div className="info-content">
-                    {infoContent[infoType].content}
-                  </div>
-                </InfoBox>
-              ) : null}
-              {children}
-            </div>
-          </div>
-        </div>
+  const desktopVersjon = (
+    <Panel className="box">
+      <div className="box__header">
+        {icon ? (
+          <img src={icon} alt="" className="box__icon" />
+        ) : null}
+        <Systemtittel>{header}</Systemtittel>
+        <hr className="box__linje-smal" />
+        <Ingress>{infoContent[infoType].content}</Ingress>
+        <hr className="box__linje-bred" />
       </div>
-    );
-  }
-}
+      <div className="box__content">{children}</div>
+    </Panel>
+  );
+
+  const mobilVersjon = (
+    <div className="box">
+      <Ekspanderbartpanel
+        tittel={header}
+        tittelProps="systemtittel"
+      >
+        <div className="box">
+          <Ingress>{infoContent[infoType].content}</Ingress>
+          <hr className="box__linje-smal" />
+          <div className="box__content">{children}</div>
+        </div>
+      </Ekspanderbartpanel>
+    </div>
+  );
+
+  return <>{erMobil ? mobilVersjon : desktopVersjon}</>;
+};
 
 Box.propTypes = {
   children: PropTypes.oneOfType([
@@ -68,16 +54,14 @@ Box.propTypes = {
   ]),
   header: PropTypes.string,
   icon: PropTypes.string,
-  infoType: PropTypes.string,
-  smallMargin: PropTypes.bool
+  infoType: PropTypes.string
 };
 
 Box.defaultProps = {
   children: [],
   header: "",
   icon: "",
-  infoType: "",
-  smallMargin: false
+  infoType: ""
 };
 
 export default Box;
