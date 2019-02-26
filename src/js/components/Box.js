@@ -29,11 +29,9 @@ class Box extends Component {
         <div className="BoxWithHeader">
           {header ? <h1>{header}</h1> : null}
           <div className="icon-box-wrapper">
-            {icon ? (
-              <img src={icon} alt="" className="box-icon" />
-            ) : (
-              <div className="box-icon" />
-            )}
+            <div className="box-icon">
+              {icon && <img src={icon} alt="" className="icon" />}
+            </div>
             <div className="Box">
               {infoType ? (
                 <button
