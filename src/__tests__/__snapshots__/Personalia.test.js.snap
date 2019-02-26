@@ -13,11 +13,15 @@ exports[`render Personalia with content 1`] = `
     <div
       className="icon-box-wrapper"
     >
-      <img
-        alt=""
+      <div
         className="box-icon"
-        src="kvinne.svg"
-      />
+      >
+        <img
+          alt=""
+          className="icon"
+          src="kvinne.svg"
+        />
+      </div>
       <div
         className="Box"
       >
