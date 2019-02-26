@@ -29,8 +29,14 @@ main {
   font-weight: bold;
   margin-bottom: 0;
 }
+@media only screen and (max-width: 959px) {
+  .Header {
+    border-radius: 0.5em;
+  }
+}
 @media only screen and (min-width: 959px) {
   .Header {
+    border-radius: 8px;
     justify-content: flex-end;
     padding: 2rem 4rem 0 4rem;
     min-height: 300px;
