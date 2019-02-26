@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
-import { slaSammenAdresse } from "../../utils/adresse";
+import { mergeAddress } from "../../utils/text";
 
 class UtenlandskAdresse extends Component {
   render() {
     const { adresse1, adresse2, adresse3, land } = this.props;
-    const adresse = slaSammenAdresse(adresse1, adresse2, adresse3);
+    const adresse = mergeAddress(adresse1, adresse2, adresse3);
     return (
       <Box>
         <div className="address-box">

@@ -5,7 +5,7 @@ import Personalia from "./components/Personalia";
 import AdresseContainer from "./containers/AdresseContainer";
 import LinksContainer from "./containers/LinksContainer";
 import AlternativListe from "./components/AlternativListe";
-import { formatName } from "./utils/textUtils";
+import { formatName } from "./utils/text";
 
 class ContentWrapper extends Component {
   render() {
