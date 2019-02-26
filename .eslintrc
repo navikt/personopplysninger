@@ -4,7 +4,6 @@
   "rules": {
     "indent": 2,
     "react/jsx-indent": 2,
-    "implicit-arrow-linebreak": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
