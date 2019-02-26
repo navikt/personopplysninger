@@ -33,7 +33,17 @@ exports[`render Personalia with content 1`] = `
         </button>
         <ul
           className="list-column-2"
-        />
+        >
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </ul>
         <div
           className="box-footer"
         >
