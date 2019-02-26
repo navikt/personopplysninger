@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class InfoBox extends Component {
   render() {
+    const { children } = this.props;
     return (
       <React.Fragment>
         <div className="BoxContainer">
           <div className="InfoBox">
             <hr width="32px" />
-            {this.props.children}
+            {children}
           </div>
         </div>
       </React.Fragment>
@@ -20,12 +20,12 @@ class InfoBox extends Component {
 InfoBox.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+    PropTypes.node
+  ])
 };
 
 InfoBox.defaultProps = {
-  children: [],
+  children: []
 };
 
 export default InfoBox;

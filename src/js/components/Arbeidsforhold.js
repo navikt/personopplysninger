@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Box from 'js/components/Box';
+import React, { Component } from "react";
+import Box from "js/components/Box";
 
 class Arbeidsforhold extends Component {
   render() {

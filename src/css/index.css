@@ -27,12 +27,11 @@ main {
   justify-content: flex-start;
 }
 .Header h1 {
-  margin-right: 18vw;
   font-weight: bold;
+  margin-bottom: 0;
 }
 @media only screen and (max-width: 959px) {
   .Header h1 {
-    margin-right: 0;
     text-align: center;
     font-size: 7vw;
   }

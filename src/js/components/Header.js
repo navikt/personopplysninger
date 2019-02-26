@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
-import { FormattedHTMLMessage } from 'react-intl';
-import PropTypes from 'prop-types';
-import { Undertittel } from 'nav-frontend-typografi';
-import group from '../../assets/img/group.png';
+import React, { Component } from "react";
+import { FormattedHTMLMessage } from "react-intl";
+import PropTypes from "prop-types";
+import { Undertittel } from "nav-frontend-typografi";
+import group from "../../assets/img/group.png";
 
 class Header extends Component {
   render() {
+    const { fornavn } = this.props;
     return (
       <div className="Header">
         <h1 className="header-text">
-          <FormattedHTMLMessage
-            id="header.hello"
-            values={{ name: this.props.fornavn }}
-          />
+          <FormattedHTMLMessage id="header.hello" values={{ name: fornavn }} />
         </h1>
         <div className="header-content">
           <div className="snakkeboble-wrapper">
@@ -20,7 +18,7 @@ class Header extends Component {
               <Undertittel>
                 <FormattedHTMLMessage
                   id="header.intro"
-                  values={{ name: this.props.fornavn }}
+                  values={{ name: fornavn }}
                 />
               </Undertittel>
             </div>
@@ -34,11 +32,11 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  fornavn: PropTypes.string,
+  fornavn: PropTypes.string
 };
 
 Header.defaultProps = {
-  fornavn: '',
+  fornavn: ""
 };
 
 export default Header;

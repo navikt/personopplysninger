@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import 'less/index.less';
-import BoAdresse from '../components/adresse/BoAdresse';
-import PostAdresse from '../components/adresse/PostAdresse';
-import UtenlandskAdresse from '../components/adresse/UtenlandskAdresse';
-import TilleggsAdresse from '../components/adresse/TilleggsAdresse';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import "less/index.less";
+import BoAdresse from "../components/adresse/BoAdresse";
+import PostAdresse from "../components/adresse/PostAdresse";
+import UtenlandskAdresse from "../components/adresse/UtenlandskAdresse";
+import TilleggsAdresse from "../components/adresse/TilleggsAdresse";
 
 class AdresseContainer extends Component {
   render() {
@@ -21,7 +21,7 @@ class AdresseContainer extends Component {
           datoFraOgMed={adresseInfo.boadresse.datoFraOgMed}
           veiadresse={adresseInfo.boadresse.veiadresse}
         />
-        {adresseInfo.postadresse ?
+        {adresseInfo.postadresse ? (
           <PostAdresse
             adresse1={adresseInfo.postadresse.adresse1}
             adresse2={adresseInfo.postadresse.adresse2}
@@ -30,8 +30,9 @@ class AdresseContainer extends Component {
             kilde={adresseInfo.postadresse.kilde}
             land={adresseInfo.postadresse.land}
             postnummer={adresseInfo.postadresse.postnummer}
-          /> : null}
-        {adresseInfo.tilleggsadresse ?
+          />
+        ) : null}
+        {adresseInfo.tilleggsadresse ? (
           <TilleggsAdresse
             adresse1={adresseInfo.tilleggsadresse.adresse1}
             adresse2={adresseInfo.tilleggsadresse.adresse2}
@@ -40,22 +41,24 @@ class AdresseContainer extends Component {
             kilde={adresseInfo.tilleggsadresse.kilde}
             poststed={adresseInfo.tilleggsadresse.poststed}
             postnummer={adresseInfo.tilleggsadresse.postnummer}
-          /> : null}
-        {adresseInfo.utenlandskAdresse ?
+          />
+        ) : null}
+        {adresseInfo.utenlandskAdresse ? (
           <UtenlandskAdresse
             adresse1={adresseInfo.utenlandskAdresse.adresse1}
             adresse2={adresseInfo.utenlandskAdresse.adresse2}
             adresse3={adresseInfo.utenlandskAdresse.adresse3}
             land={adresseInfo.utenlandskAdresse.land}
             kilde={adresseInfo.utenlandskAdresse.kilde}
-          /> : null}
+          />
+        ) : null}
       </div>
     );
   }
 }
 
 AdresseContainer.propTypes = {
-  adresseInfo: PropTypes.shape({}).isRequired,
+  adresseInfo: PropTypes.shape({}).isRequired
 };
 
 export default AdresseContainer;
