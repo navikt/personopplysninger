@@ -100,8 +100,8 @@
     "server": "node ./server.js",
     "start-js": "API_URL=/mock-api/person-info.json node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
-    "watch-css": "less-watch-compiler --main-file=index.less src/less src/css",
-    "build-css": "less-watch-compiler --run-once --main-file=index.less src/less src/css",
+    "watch-css": "less-watch-compiler",
+    "build-css": "less-watch-compiler --run-once",
     "build-js": "node scripts/build.js",
     "build": "npm-run-all -p build-css build-js",
     "test": "node scripts/test.js --env=jsdom --coverage"
@@ -159,7 +159,10 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "jest-fetch-mock": "^2.1.1"
+    "jest-fetch-mock": "^2.1.1",
+    "less": "^3.9.0",
+    "less-plugin-npm-import": "^2.1.0",
+    "prettier": "^1.16.4"
   },
   "browserslist": [
     ">0.2%",

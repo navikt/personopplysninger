@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import PropTypes from "prop-types";
-import { Undertittel } from "nav-frontend-typografi";
+import { Ingress, Innholdstittel } from "nav-frontend-typografi";
 import group from "../../assets/img/group.svg";
 import veileder from "../../assets/img/veilder.svg";
 
@@ -11,22 +11,24 @@ const Header = props => {
     <div className="Header">
       <div className="header-content">
         <div className="header-content-wrapper">
-          <h1 className="header-text">
+          <Innholdstittel>
             <FormattedHTMLMessage
               id="header.hello"
               values={{ name: fornavn }}
             />
-          </h1>
+          </Innholdstittel>
           <div className="header-intro">
-            <Undertittel>
+            <Ingress>
               <FormattedHTMLMessage
                 id="header.intro"
                 values={{ name: fornavn }}
               />
-            </Undertittel>
+            </Ingress>
           </div>
           <div className="header-description">
-            <FormattedHTMLMessage id="header.description" />
+            <Ingress>
+              <FormattedHTMLMessage id="header.description" />
+            </Ingress>
           </div>
           <div className="snakkeboble-edge" />
         </div>
