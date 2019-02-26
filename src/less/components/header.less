@@ -1,21 +1,17 @@
 .Header {
+  position: relative;
   background-color: white;
-  min-height: 320px;
-  padding: 4rem 4rem 0 4rem;
+  min-height: 300px;
+  padding: 0 4rem 0 4rem;
   margin: 7rem 0 2rem 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
 
   h1 {
     font-weight: bold;
     margin-bottom: 0;
-
-    @media @tablet {
-      text-align: center;
-      font-size: 7vw;
-    }
   }
 
   .header-content {
@@ -23,51 +19,48 @@
     flex-direction: row;
     justify-content: space-between;
 
+    .header-content-wrapper {
+      padding: 2rem 0 4rem 0;
+    }
+
+    .header-intro {
+      padding: 1rem 0 1rem 0;
+    }
+
+    .header-description {
+      font-size: 1.2rem;
+      font-weight: normal;
+    }
+
     @media @tablet {
       display: flex;
       width: 90%;
     }
   }
 
-  .header-pc-icon {
-    margin-top: auto;
+  .header-icon-mobile {
+    height: 7em;
+    width: auto;
+  }
+
+  .header-icon-mobile-wrapper {
+    width: 100%;
+    position: absolute;
+    display: none;
+    top: -4em;
+    left: 0;
+
+    @media @tablet {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .header-icon-desktop {
+    margin: auto 1rem 0 1rem;
 
     @media @tablet {
       display: none;
-    }
-  }
-
-  .snakkeboble {
-    position: relative;
-    background: #fff;
-    border-radius: 0.4em;
-    height: 5rem;
-    width: 489px;
-    padding: 2rem 2rem 2rem 0;
-    margin-bottom: 1em;
-
-    @media @tablet {
-      width: auto;
-      height: auto;
-      padding-bottom: 1em;
-    }
-  }
-
-  .snakkeboble:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 60%;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    border-left-color: #fff;
-    border-right: 0;
-    margin-top: -10px;
-    margin-right: -20px;
-
-    @media @tablet {
-      visibility: hidden;
     }
   }
 }

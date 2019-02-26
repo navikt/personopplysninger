@@ -18,28 +18,33 @@ main {
   max-width: 800px;
 }
 .Header {
+  position: relative;
   background-color: white;
-  min-height: 320px;
-  padding: 4rem 4rem 0 4rem;
+  min-height: 300px;
+  padding: 0 4rem 0 4rem;
   margin: 7rem 0 2rem 0;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 .Header h1 {
   font-weight: bold;
   margin-bottom: 0;
 }
-@media only screen and (max-width: 959px) {
-  .Header h1 {
-    text-align: center;
-    font-size: 7vw;
-  }
-}
 .Header .header-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.Header .header-content .header-content-wrapper {
+  padding: 2rem 0 4rem 0;
+}
+.Header .header-content .header-intro {
+  padding: 1rem 0 1rem 0;
+}
+.Header .header-content .header-description {
+  font-size: 1.2rem;
+  font-weight: normal;
 }
 @media only screen and (max-width: 959px) {
   .Header .header-content {
@@ -47,46 +52,29 @@ main {
     width: 90%;
   }
 }
-.Header .header-pc-icon {
-  margin-top: auto;
+.Header .header-icon-mobile {
+  height: 7em;
+  width: auto;
 }
-@media only screen and (max-width: 959px) {
-  .Header .header-pc-icon {
-    display: none;
-  }
-}
-.Header .snakkeboble {
-  position: relative;
-  background: #fff;
-  border-radius: 0.4em;
-  height: 5rem;
-  width: 489px;
-  padding: 2rem 2rem 2rem 0;
-  margin-bottom: 1em;
-}
-@media only screen and (max-width: 959px) {
-  .Header .snakkeboble {
-    width: auto;
-    height: auto;
-    padding-bottom: 1em;
-  }
-}
-.Header .snakkeboble:after {
-  content: '';
+.Header .header-icon-mobile-wrapper {
+  width: 100%;
   position: absolute;
-  right: 0;
-  top: 60%;
-  width: 0;
-  height: 0;
-  border: 20px solid transparent;
-  border-left-color: #fff;
-  border-right: 0;
-  margin-top: -10px;
-  margin-right: -20px;
+  display: none;
+  top: -4em;
+  left: 0;
 }
 @media only screen and (max-width: 959px) {
-  .Header .snakkeboble:after {
-    visibility: hidden;
+  .Header .header-icon-mobile-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+.Header .header-icon-desktop {
+  margin: auto 1rem 0 1rem;
+}
+@media only screen and (max-width: 959px) {
+  .Header .header-icon-desktop {
+    display: none;
   }
 }
 .BoxContainer {

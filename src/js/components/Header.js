@@ -3,18 +3,22 @@ import { FormattedHTMLMessage } from "react-intl";
 import PropTypes from "prop-types";
 import { Undertittel } from "nav-frontend-typografi";
 import group from "../../assets/img/group.png";
+import woman from "../../assets/img/forfra.png";
 
 class Header extends Component {
   render() {
     const { fornavn } = this.props;
     return (
       <div className="Header">
-        <h1 className="header-text">
-          <FormattedHTMLMessage id="header.hello" values={{ name: fornavn }} />
-        </h1>
         <div className="header-content">
-          <div className="snakkeboble-wrapper">
-            <div className="snakkeboble">
+          <div className="header-content-wrapper">
+            <h1 className="header-text">
+              <FormattedHTMLMessage
+                id="header.hello"
+                values={{ name: fornavn }}
+              />
+            </h1>
+            <div className="header-intro">
               <Undertittel>
                 <FormattedHTMLMessage
                   id="header.intro"
@@ -22,9 +26,15 @@ class Header extends Component {
                 />
               </Undertittel>
             </div>
+            <div className="header-description">
+              <FormattedHTMLMessage id="header.description" />
+            </div>
             <div className="snakkeboble-edge" />
           </div>
-          <img src={group} className="header-pc-icon" alt="Pc" />
+          <img src={group} className="header-icon-desktop" alt="Pc" />
+          <div className="header-icon-mobile-wrapper">
+            <img src={woman} className="header-icon-mobile" alt="Pc" />
+          </div>
         </div>
       </div>
     );
