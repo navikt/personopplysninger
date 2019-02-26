@@ -119,7 +119,7 @@
   font-weight: 400;
 }
 body {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   color: #3e3832;
   background-color: #e9e7e7;
 }
@@ -132,6 +132,7 @@ body .capitalize {
 main {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .Content {
   width: 100%;
@@ -410,6 +411,34 @@ main {
 }
 .link-box-content .link-footer {
   margin-top: 4em;
+}
+.meny-wrapper,
+.meny-filler {
+  min-width: 200px;
+}
+@media only screen and (max-width: 959px) {
+  .meny-wrapper,
+  .meny-filler {
+    display: none;
+  }
+}
+.meny-wrapper {
+  margin: 10em 2em 2em 2em;
+  position: relative;
+}
+.meny {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 414px;
+  border-radius: 4px;
+  background-color: #ffffff;
+}
+.meny ul {
+  list-style: none;
+  padding: 2em 0em 1em 1em;
+}
+.meny ul li {
+  padding-top: 1.5em;
 }
 .AlternativesBox {
   width: 100%;
