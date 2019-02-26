@@ -4,7 +4,7 @@ import * as moment from "moment";
 import "moment/min/locales";
 import { FormattedMessage } from "react-intl";
 import Box from "js/components/Box";
-import hus from "../../../assets/img/hus.png";
+import hus from "../../../assets/img/hus.svg";
 import ListElement from "../ListElement";
 
 moment.locale("nb");

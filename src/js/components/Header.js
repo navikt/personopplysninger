@@ -2,7 +2,7 @@ import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import PropTypes from "prop-types";
 import { Undertittel } from "nav-frontend-typografi";
-import group from "../../assets/img/group.png";
+import group from "../../assets/img/group.svg";
 import veileder from "../../assets/img/veilder.svg";
 
 const Header = props => {

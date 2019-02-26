@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Box from "./Box";
-import infoIcon from "../../assets/img/infomation-circle.png";
+import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
 
 class LinkBox extends Component {

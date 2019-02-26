@@ -54,7 +54,7 @@ exports[`render Header with content 1`] = `
     <img
       alt="Pc"
       className="header-icon-desktop"
-      src="group.png"
+      src="group.svg"
     />
     <div
       className="header-icon-mobile-container"

@@ -16,7 +16,7 @@ exports[`render Personalia with content 1`] = `
       <img
         alt=""
         className="box-icon"
-        src="kvinne.png"
+        src="kvinne.svg"
       />
       <div
         className="Box"
@@ -28,7 +28,7 @@ exports[`render Personalia with content 1`] = `
         >
           <img
             alt="Information"
-            src="infomation-circle.png"
+            src="infomation-circle.svg"
           />
         </button>
         <ul

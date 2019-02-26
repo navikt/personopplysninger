@@ -57,7 +57,7 @@ Array [
         <img
           alt=""
           className="box-icon"
-          src="papirstabel.png"
+          src="papirstabel.svg"
         />
         <div
           className="Box"
@@ -69,7 +69,7 @@ Array [
           >
             <img
               alt="Information"
-              src="infomation-circle.png"
+              src="infomation-circle.svg"
             />
           </button>
           <div
@@ -107,7 +107,7 @@ Array [
         <img
           alt=""
           className="box-icon"
-          src="penger.png"
+          src="penger.svg"
         />
         <div
           className="Box"
@@ -147,7 +147,7 @@ Array [
         <img
           alt=""
           className="box-icon"
-          src="jobbsok.png"
+          src="jobbsok.svg"
         />
         <div
           className="Box"

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import infoIcon from "../../assets/img/infomation-circle.png";
+import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
 import infoContent from "../static/infoContent";
 
