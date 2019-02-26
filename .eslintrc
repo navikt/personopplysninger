@@ -2,11 +2,8 @@
   "parser": "babel-eslint",
   "extends": ["airbnb", "prettier"],
   "rules": {
-    "max-len": "off",
     "indent": 2,
     "react/jsx-indent": 2,
-    "react/prefer-stateless-function": 0,
-    "import/newline-after-import": 0,
     "implicit-arrow-linebreak": 0,
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
