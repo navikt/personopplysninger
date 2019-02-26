@@ -15,7 +15,9 @@ exports[`render Header with content 1`] = `
     >
       <div
         className="box-icon"
-      />
+      >
+        
+      </div>
       <div
         className="Box"
       >

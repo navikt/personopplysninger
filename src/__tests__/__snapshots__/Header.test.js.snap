@@ -11,7 +11,7 @@ exports[`render Header with content 1`] = `
       className="header-content-wrapper"
     >
       <h1
-        className="header-text"
+        className="typo-innholdstittel"
       >
         <span
           dangerouslySetInnerHTML={
@@ -24,8 +24,8 @@ exports[`render Header with content 1`] = `
       <div
         className="header-intro"
       >
-        <h2
-          className="typo-undertittel"
+        <p
+          className="typo-ingress"
         >
           <span
             dangerouslySetInnerHTML={
@@ -34,18 +34,22 @@ exports[`render Header with content 1`] = `
               }
             }
           />
-        </h2>
+        </p>
       </div>
       <div
         className="header-description"
       >
-        <span
-          dangerouslySetInnerHTML={
-            Object {
-              "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
+        <p
+          className="typo-ingress"
+        >
+          <span
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
+              }
             }
-          }
-        />
+          />
+        </p>
       </div>
       <div
         className="snakkeboble-edge"
