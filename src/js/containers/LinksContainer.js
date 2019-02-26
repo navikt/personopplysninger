@@ -9,7 +9,7 @@ class LinksContainer extends Component {
       <React.Fragment>
         {links.map(
           (link, index) =>
-            (link.visible && (
+            link.visible && (
               <LinkBox
                 key={index} // eslint-disable-line react/no-array-index-key
                 icon={link.icon}
@@ -20,7 +20,7 @@ class LinksContainer extends Component {
                 kilde={link.kilde}
                 infoBoxContent={link.infoBoxContent}
               />
-            ): null)
+            )
         )}
       </React.Fragment>
     );
