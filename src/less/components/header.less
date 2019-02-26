@@ -1,17 +1,20 @@
 .Header {
-  position: relative;
-  background-color: white;
-  min-height: 300px;
-  padding: 0 4rem 0 4rem;
-  margin: 7rem 0 2rem 0;
-
   display: flex;
+  position: relative;
   flex-direction: column;
-  justify-content: flex-end;
+  background-color: white;
+  padding: 2rem 2rem 0 2rem;
+  margin: 7rem 0 2rem 0;
 
   h1 {
     font-weight: bold;
     margin-bottom: 0;
+  }
+
+  @media @desktop {
+    justify-content: flex-end;
+    padding: 2rem 4rem 0 4rem;
+    min-height: 300px;
   }
 
   .header-content {
@@ -39,15 +42,26 @@
   }
 
   .header-icon-mobile {
-    height: 7em;
+    height: 6em;
     width: auto;
   }
 
-  .header-icon-mobile-wrapper {
+  .header-icon-mobile-circle {
+    align-items: flex-end;
+    justify-content: center;
+    background: #c6c2bf;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    height: 7em;
+    width: 7em;
+  }
+  .header-icon-mobile-container {
     width: 100%;
     position: absolute;
     display: none;
-    top: -4.5em;
+    top: -3.5em;
     left: 0;
 
     @media @tablet {
