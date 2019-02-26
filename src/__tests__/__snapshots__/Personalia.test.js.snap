@@ -24,6 +24,7 @@ exports[`render Personalia with content 1`] = `
         <button
           className="information-circle"
           onClick={[Function]}
+          type="button"
         >
           <img
             alt="Information"

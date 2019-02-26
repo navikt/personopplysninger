@@ -65,6 +65,7 @@ Array [
           <button
             className="information-circle"
             onClick={[Function]}
+            type="button"
           >
             <img
               alt="Information"
