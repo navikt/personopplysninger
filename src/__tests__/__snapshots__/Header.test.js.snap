@@ -57,13 +57,17 @@ exports[`render Header with content 1`] = `
       src="group.png"
     />
     <div
-      className="header-icon-mobile-wrapper"
+      className="header-icon-mobile-container"
     >
-      <img
-        alt="Pc"
-        className="header-icon-mobile"
-        src="forfra.png"
-      />
+      <div
+        className="header-icon-mobile-circle"
+      >
+        <img
+          alt="Pc"
+          className="header-icon-mobile"
+          src="veilder.svg"
+        />
+      </div>
     </div>
   </div>
 </div>
