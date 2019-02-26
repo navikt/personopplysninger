@@ -2,11 +2,12 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
+import { slaSammenAdresse } from "../../utils/adresse";
 
 class PostAdresse extends Component {
   render() {
     const { adresse1, adresse2, adresse3, postnummer, land } = this.props;
-    const adresse = `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
+    const adresse = slaSammenAdresse(adresse1, adresse2, adresse3);
     return (
       <Box smallMargin>
         <div className="address-box">
