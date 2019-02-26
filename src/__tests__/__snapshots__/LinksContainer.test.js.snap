@@ -31,7 +31,7 @@ Array [
               NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
             </div>
             <a
-              href="https://tjenester.nav.no/pselv/publisering/dinepensjonspoeng.jsf?context=pensjon"
+              href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
               rel="noopener noreferrer"
               target="_blank"
             >
