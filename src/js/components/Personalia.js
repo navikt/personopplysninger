@@ -60,7 +60,7 @@ class Personalia extends Component {
           {statsborgerskap && (
             <ListElement
               titleId="personalia.citizenship"
-              content={tstatsborgerskap}
+              content={statsborgerskap}
             />
           )}
           {foedested && (
@@ -69,7 +69,7 @@ class Personalia extends Component {
           {sivilstand && (
             <ListElement
               titleId="personalia.civil_status"
-              content={tsivilstand}
+              content={sivilstand}
             />
           )}
           {kjoenn && (
