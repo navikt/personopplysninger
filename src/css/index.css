@@ -54,7 +54,6 @@ main {
 @media only screen and (max-width: 959px) {
   .Header .header-content {
     display: flex;
-    width: 90%;
   }
 }
 .Header .header-icon-mobile {
