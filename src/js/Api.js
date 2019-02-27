@@ -25,7 +25,6 @@ const hentJsonOgSjekkAuth = url =>
   );
 
 const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${Environment().apiUrl}`);
-
 export default {
   fetchPersonInfo
 };
