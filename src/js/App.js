@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ContentWrapper from "js/ContentWrapper";
 import Error from "js/components/Error";
+import NavFrontendSpinner from "nav-frontend-spinner";
 import { Meny, Filler } from "js/components/Meny";
 import "less/index.less";
 
@@ -15,17 +16,27 @@ class App extends Component {
 
   componentWillMount() {
     const { api } = this.props;
-    api.fetchPersonInfo().then(r => {
-      if (r.status && r.status !== 200) {
-        this.setState({ statusCode: r.status });
-      } else {
-        this.setState({ ...r, statusCode: 200 });
-      }
-    });
+    api
+      .fetchPersonInfo()
+      .then(r =>
+        r.status && r.status !== 200
+          ? this.setState({ statusCode: r.status })
+          : this.setState({ ...r, statusCode: 200 })
+      )
+      .finally(() => this.setState({ loading: false }));
   }
 
   render() {
-    const { statusCode, personalia, adresser } = this.state;
+    const { statusCode, personalia, adresser, loading } = this.state;
+
+    if (loading) {
+      return (
+        <div className="spinner-wrapper">
+          <NavFrontendSpinner />
+        </div>
+      );
+    }
+
     if (statusCode === 500) {
       return (
         <main role="main">
