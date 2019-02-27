@@ -2,60 +2,55 @@
 
 exports[`render Personalia with content 1`] = `
 <div
-  className="BoxContainer box-bottom-margin"
+  className="panel box"
 >
   <div
-    className="BoxWithHeader"
+    className="box__header"
   >
-    <h1>
-      Personalia
-    </h1>
-    <div
-      className="icon-box-wrapper"
+    <img
+      alt=""
+      className="box__icon"
+      src="kvinne.svg"
+    />
+    <h2
+      className="typo-systemtittel"
     >
-      <div
-        className="box-icon"
-      >
-        <img
-          alt=""
-          className="icon"
-          src="kvinne.svg"
-        />
-      </div>
-      <div
-        className="Box"
-      >
-        <button
-          className="information-circle"
-          onClick={[Function]}
-          type="button"
-        >
-          <img
-            alt="Information"
-            src="infomation-circle.svg"
-          />
-        </button>
-        <ul
-          className="list-column-2"
-        >
-          
-          
-          
-          
-          
-          
-          
-          
-          
-        </ul>
-        <div
-          className="box-footer"
-        >
-          <span>
-            Kilde: NAV, Folkeregisteret
-          </span>
-        </div>
-      </div>
+      Personalia
+    </h2>
+    <hr
+      className="box__linje-smal"
+    />
+    <p
+      className="typo-ingress"
+    >
+      NAV må vite hvem du er og hvordan vi kan kontakte deg. Vi trenger også opplysninger for å kunne vurdere om du har krav på ytelser og tjenester fra NAV. For å kunne utbetale penger trenger vi kontonummeret ditt.
+    </p>
+    <hr
+      className="box__linje-bred"
+    />
+  </div>
+  <div
+    className="box__content"
+  >
+    <ul
+      className="list-column-2"
+    >
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </ul>
+    <div
+      className="box-footer"
+    >
+      <span>
+        Kilde: NAV, Folkeregisteret
+      </span>
     </div>
   </div>
 </div>

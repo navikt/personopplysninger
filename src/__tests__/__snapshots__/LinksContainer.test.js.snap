@@ -3,188 +3,164 @@
 exports[`render LinksContainer with content 1`] = `
 Array [
   <div
-    className="BoxContainer box-bottom-margin"
+    className="panel box"
   >
     <div
-      className="BoxWithHeader"
+      className="box__header"
     >
-      <h1>
+      <img
+        alt=""
+        className="box__icon"
+        src="pensjonist.png"
+      />
+      <h2
+        className="typo-systemtittel"
+      >
         Pensjonsopptjening
-      </h1>
+      </h2>
+    </div>
+    <div
+      className="box__content"
+    >
       <div
-        className="icon-box-wrapper"
+        className="link-box-content"
       >
         <div
-          className="box-icon"
+          className="link-info"
         >
-          <img
-            alt=""
-            className="icon"
-            src="pensjonist.png"
-          />
+          NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
         </div>
-        <div
-          className="Box"
+        <a
+          href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
-            </div>
-            <a
-              href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til Din pensjon
-            </a>
-          </div>
-        </div>
+          Gå til Din pensjon
+        </a>
       </div>
     </div>
   </div>,
   <div
-    className="BoxContainer box-bottom-margin"
+    className="panel box"
   >
     <div
-      className="BoxWithHeader"
+      className="box__header"
     >
-      <h1>
+      <img
+        alt=""
+        className="box__icon"
+        src="papirstabel.svg"
+      />
+      <h2
+        className="typo-systemtittel"
+      >
         Dine saker
-      </h1>
+      </h2>
+    </div>
+    <div
+      className="box__content"
+    >
+      <button
+        className="information-circle"
+        onClick={[Function]}
+        type="button"
+      >
+        <img
+          alt="Information"
+          src="infomation-circle.svg"
+        />
+      </button>
       <div
-        className="icon-box-wrapper"
+        className="link-box-content"
       >
         <div
-          className="box-icon"
+          className="link-info"
         >
-          <img
-            alt=""
-            className="icon"
-            src="papirstabel.svg"
-          />
+          Oversikt over dine saker og kommunikasjon med NAV
         </div>
-        <div
-          className="Box"
+        <a
+          href="https://tjenester.nav.no/saksoversikt/app"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <button
-            className="information-circle"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt="Information"
-              src="infomation-circle.svg"
-            />
-          </button>
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Oversikt over dine saker og kommunikasjon med NAV
-            </div>
-            <a
-              href="https://tjenester.nav.no/saksoversikt/app"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til saksoversikt
-            </a>
-          </div>
-        </div>
+          Gå til saksoversikt
+        </a>
       </div>
     </div>
   </div>,
   <div
-    className="BoxContainer box-bottom-margin"
+    className="panel box"
   >
     <div
-      className="BoxWithHeader"
+      className="box__header"
     >
-      <h1>
+      <img
+        alt=""
+        className="box__icon"
+        src="penger.svg"
+      />
+      <h2
+        className="typo-systemtittel"
+      >
         Utbetalinger
-      </h1>
+      </h2>
+    </div>
+    <div
+      className="box__content"
+    >
       <div
-        className="icon-box-wrapper"
+        className="link-box-content"
       >
         <div
-          className="box-icon"
+          className="link-info"
         >
-          <img
-            alt=""
-            className="icon"
-            src="penger.svg"
-          />
+          Oversikt over dine utbetalinger fra NAV
         </div>
-        <div
-          className="Box"
+        <a
+          href="https://tjenester.nav.no/utbetalingsoversikt/"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Oversikt over dine utbetalinger fra NAV
-            </div>
-            <a
-              href="https://tjenester.nav.no/utbetalingsoversikt/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til utbetalinger
-            </a>
-          </div>
-        </div>
+          Gå til utbetalinger
+        </a>
       </div>
     </div>
   </div>,
   <div
-    className="BoxContainer box-bottom-margin"
+    className="panel box"
   >
     <div
-      className="BoxWithHeader"
+      className="box__header"
     >
-      <h1>
+      <img
+        alt=""
+        className="box__icon"
+        src="jobbsok.svg"
+      />
+      <h2
+        className="typo-systemtittel"
+      >
         CV og stillingssøk
-      </h1>
+      </h2>
+    </div>
+    <div
+      className="box__content"
+    >
       <div
-        className="icon-box-wrapper"
+        className="link-box-content"
       >
         <div
-          className="box-icon"
+          className="link-info"
         >
-          <img
-            alt=""
-            className="icon"
-            src="jobbsok.svg"
-          />
+          Din CV og lagrede stillingssøk
         </div>
-        <div
-          className="Box"
+        <a
+          href="https://arbeidsplassen.nav.no/minside"
+          rel="noopener noreferrer"
+          target="_blank"
         >
-          <div
-            className="link-box-content"
-          >
-            <div
-              className="link-info"
-            >
-              Din CV og lagrede stillingssøk
-            </div>
-            <a
-              href="https://arbeidsplassen.nav.no/minside"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til CV/stillingssøk
-            </a>
-          </div>
-        </div>
+          Gå til CV/stillingssøk
+        </a>
       </div>
     </div>
   </div>,

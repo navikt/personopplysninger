@@ -2,84 +2,75 @@
 
 exports[`render Postadresse with content 1`] = `
 <div
-  className="BoxContainer box-bottom-margin-small"
+  className="panel box"
 >
   <div
-    className="BoxWithHeader"
+    className="box__header"
+  >
+    <h2
+      className="typo-systemtittel"
+    >
+      Postadresse
+    </h2>
+  </div>
+  <div
+    className="box__content"
   >
     <div
-      className="icon-box-wrapper"
+      className="address-box"
     >
-      <div
-        className="box-icon"
+      <ul
+        className="list-column-2"
       >
-        
-      </div>
-      <div
-        className="Box"
-      >
-        <div
-          className="address-box"
+        <li
+          className=""
         >
-          <h3
-            className="address-type"
+          <span
+            className="title "
           >
-            Postadresse
-          </h3>
-          <ul
-            className="list-column-2"
+            <span>
+              Adresse
+            </span>
+          </span>
+          <span
+            className="content "
           >
-            <li
-              className=""
-            >
-              <span
-                className="title "
-              >
-                <span>
-                  Adresse
-                </span>
-              </span>
-              <span
-                className="content "
-              >
-                12345 HFJEF IQUFJ HFURHGHQBEUQBATOOM LUNCHAGRAMA,GONGRUPEA,DDGGLAM,10000 HCAMGHU,THAILAND
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title "
-              >
-                <span>
-                  Postnummer
-                </span>
-              </span>
-              <span
-                className="content "
-              >
-                9913
-              </span>
-            </li>
-            <li
-              className=""
-            >
-              <span
-                className="title "
-              >
-                <span>
-                  Land
-                </span>
-              </span>
-              <span
-                className="content "
-              >
-                THA
-              </span>
-            </li>
-          </ul>
-        </div>
-      </div>
+            12345 HFJEF IQUFJ HFURHGHQBEUQBATOOM LUNCHAGRAMA,GONGRUPEA,DDGGLAM,10000 HCAMGHU,THAILAND
+          </span>
+        </li>
+        <li
+          className=""
+        >
+          <span
+            className="title "
+          >
+            <span>
+              Postnummer
+            </span>
+          </span>
+          <span
+            className="content "
+          >
+            9913
+          </span>
+        </li>
+        <li
+          className=""
+        >
+          <span
+            className="title "
+          >
+            <span>
+              Land
+            </span>
+          </span>
+          <span
+            className="content "
+          >
+            THA
+          </span>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
