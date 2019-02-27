@@ -6,6 +6,7 @@ import pensjonist from "../../assets/img/pensjonist.png";
 
 export default [
   {
+    id: "arbeidsforhold",
     header: "Arbeidsforhold",
     information:
       "NAV har opplysninger om dine arbeidsforhold i en egen tjeneste.",
@@ -15,6 +16,7 @@ export default [
     visible: false
   },
   {
+    id: "pensjonsopptjening",
     header: "Pensjonsopptjening",
     information:
       "NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.",
@@ -24,6 +26,7 @@ export default [
     visible: true
   },
   {
+    id: "dine-saker",
     header: "Dine saker",
     information: "Oversikt over dine saker og kommunikasjon med NAV",
     linkText: "Gå til saksoversikt",
@@ -36,6 +39,7 @@ export default [
     visible: true
   },
   {
+    id: "utbetalinger",
     header: "Utbetalinger",
     information: "Oversikt over dine utbetalinger fra NAV",
     linkText: "Gå til utbetalinger",
@@ -44,6 +48,7 @@ export default [
     visible: true
   },
   {
+    id: "cv",
     header: "CV og stillingssøk",
     information: "Din CV og lagrede stillingssøk",
     linkText: "Gå til CV/stillingssøk",

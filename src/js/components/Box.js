@@ -11,7 +11,7 @@ class Box extends Component {
   }
 
   render() {
-    const { header, icon, infoType, children, smallMargin } = this.props;
+    const { header, icon, infoType, children, smallMargin, id } = this.props;
     const { displayInfo } = this.state;
 
     const marginClass = smallMargin
@@ -25,7 +25,7 @@ class Box extends Component {
     };
 
     return (
-      <div className={`BoxContainer ${marginClass}`}>
+      <div className={`BoxContainer ${marginClass}`} id={id}>
         <div className="BoxWithHeader">
           {header ? <h1>{header}</h1> : null}
           <div className="icon-box-wrapper">
@@ -60,6 +60,7 @@ class Box extends Component {
 }
 
 Box.propTypes = {
+  id: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

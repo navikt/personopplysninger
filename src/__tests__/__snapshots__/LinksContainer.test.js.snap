@@ -4,6 +4,7 @@ exports[`render LinksContainer with content 1`] = `
 Array [
   <div
     className="BoxContainer box-bottom-margin"
+    id="pensjonsopptjening"
   >
     <div
       className="BoxWithHeader"
@@ -48,6 +49,7 @@ Array [
   </div>,
   <div
     className="BoxContainer box-bottom-margin"
+    id="dine-saker"
   >
     <div
       className="BoxWithHeader"
@@ -102,6 +104,7 @@ Array [
   </div>,
   <div
     className="BoxContainer box-bottom-margin"
+    id="utbetalinger"
   >
     <div
       className="BoxWithHeader"
@@ -146,6 +149,7 @@ Array [
   </div>,
   <div
     className="BoxContainer box-bottom-margin"
+    id="cv"
   >
     <div
       className="BoxWithHeader"

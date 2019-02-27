@@ -32,6 +32,7 @@ class Personalia extends Component {
 
     return (
       <Box
+        id="personalia"
         header="Personalia"
         icon={this.props.kjoenn === "Mann" ? mann : kvinne}
         infoType="personalia"
