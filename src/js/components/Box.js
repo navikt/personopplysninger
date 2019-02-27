@@ -6,12 +6,12 @@ import Panel from "nav-frontend-paneler";
 import infoContent from "../static/infoContent";
 
 const Box = props => {
-  const { header, icon, infoType, children } = props;
+  const { header, icon, infoType, children, id } = props;
 
   const erMobil = window.innerWidth <= 420;
 
   const desktopVersjon = (
-    <Panel className="box">
+    <Panel className="box" id={id}>
       <div className="box__header">
         {icon ? <img src={icon} alt="" className="box__icon" /> : null}
         {header ? <Systemtittel>{header}</Systemtittel> : null}
@@ -28,7 +28,7 @@ const Box = props => {
   );
 
   const mobilVersjon = (
-    <div className="box">
+    <div className="box" id={id}>
       <Ekspanderbartpanel tittel={header} tittelProps="systemtittel">
         <div className="box">
           {infoType ? (
@@ -47,6 +47,7 @@ const Box = props => {
 };
 
 Box.propTypes = {
+  id: PropTypes.string.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

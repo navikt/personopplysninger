@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import ContentWrapper from "js/ContentWrapper";
 import Error from "js/components/Error";
+import { Meny, Filler } from "js/components/Meny";
 import "less/index.less";
 
 import initialState from "./initialState";
@@ -35,7 +36,9 @@ class App extends Component {
 
     return (
       <main role="main">
+        <Meny />
         <ContentWrapper personalia={personalia} adresser={adresser} />
+        <Filler />
       </main>
     );
   }

@@ -53,7 +53,7 @@ const BoAdresse = props => {
   const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
 
   return (
-    <Box header="Bostedsadresse" icon={hus} infoType="adresse" smallMargin>
+    <Box id="adresse" header="Bostedsadresse" icon={hus} infoType="adresse" smallMargin>
       <div className="address-box">
         <ul className={`list-column-${numberOfColumns} address-columns`}>
           {renderAdresse()}

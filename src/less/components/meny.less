@@ -1,0 +1,33 @@
+.meny {
+  position: -webkit-sticky;
+  position: sticky;
+  border-radius: 4px;
+  background-color: #ffffff;
+  top: 2em;
+
+  &__wrapper,
+  &__filler {
+    min-width: 200px;
+
+    @media only screen and (max-width: 1080px) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    margin: 1rem 2em 2em 2em;
+    position: relative;
+  }
+
+  ul {
+    list-style: none;
+    padding: 2em 1em 2em 1em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    li {
+      padding: 1rem 0 1rem 0;
+    }
+  }
+}

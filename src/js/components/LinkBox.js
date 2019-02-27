@@ -14,6 +14,7 @@ class LinkBox extends Component {
 
   render() {
     const {
+      id,
       header,
       information,
       url,
@@ -32,7 +33,7 @@ class LinkBox extends Component {
     };
 
     return (
-      <Box header={header} icon={icon}>
+      <Box id={id} header={header} icon={icon}>
         {infoBoxContent ? (
           <button
             type="button"
@@ -65,6 +66,7 @@ class LinkBox extends Component {
 }
 
 LinkBox.propTypes = {
+  id: PropTypes.string.isRequired,
   icon: PropTypes.string,
   header: PropTypes.string,
   information: PropTypes.string,
