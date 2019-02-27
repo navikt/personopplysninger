@@ -18,12 +18,7 @@ class App extends Component {
     const { api } = this.props;
     api
       .fetchPersonInfo()
-      .then(r =>
-        r.status && r.status !== 200
-          ? this.setState({ statusCode: r.status })
-          : this.setState({ ...r, statusCode: 200 })
-      )
-      .finally(() => this.setState({ loading: false }));
+      .then(response => this.setState({ ...response, loading: false }));
   }
 
   render() {
