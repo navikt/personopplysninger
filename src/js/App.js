@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   render() {
-    const { statusCode, personalia, adresser, loading } = this.state;
+    const { status, personalia, adresser, loading } = this.state;
 
     if (loading) {
       return (
@@ -32,10 +32,10 @@ class App extends Component {
       );
     }
 
-    if (statusCode === 500) {
+    if (status === 500) {
       return (
         <main role="main">
-          <Error statusCode={statusCode} />
+          <Error statusCode={status} />
         </main>
       );
     }

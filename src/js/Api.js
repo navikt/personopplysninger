@@ -1,6 +1,7 @@
 // import conf from 'js/Config';
 import Environment from "./utils/Environments";
 
+const parseJson = data => data.json();
 const sjekkAuth = response =>
   response.status === 401 ||
   response.status === 403 ||
@@ -8,7 +9,7 @@ const sjekkAuth = response =>
     ? window.location.assign(
       `${Environment().loginUrl}?redirect=${window.location.href}`
     )
-    : true;
+    : response;
 
 const hentJsonOgSjekkAuth = url =>
   new Promise((resolve, reject) =>
@@ -17,8 +18,10 @@ const hentJsonOgSjekkAuth = url =>
       headers: { "Content-Type": "application/json;charset=UTF-8" },
       credentials: "include"
     })
-      .then(response => sjekkAuth(response) && resolve(response.json()))
-      .catch(error => reject(error))
+      .then(sjekkAuth)
+      .then(parseJson)
+      .then(resolve)
+      .catch(reject)
   );
 
 const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${Environment().apiUrl}`);
