@@ -1,14 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { injectIntl, intlShape } from "react-intl";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
 const PostAdresse = props => {
-  const { adresse1, adresse2, adresse3, postnummer, land } = props;
+  const { adresse1, adresse2, adresse3, postnummer, land, intl } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box header="Postadresse" id="postadresse">
+    <Box
+      header={intl.formatMessage({ id: "adresse.postadresse" })}
+      id="postadresse"
+    >
       <div className="address-box">
         <ul className="list-column-2">
           {adresse ? (
@@ -25,6 +29,7 @@ const PostAdresse = props => {
 };
 
 PostAdresse.propTypes = {
+  intl: intlShape.isRequired,
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
@@ -40,4 +45,4 @@ PostAdresse.defaultProps = {
   postnummer: ""
 };
 
-export default PostAdresse;
+export default injectIntl(PostAdresse);

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as moment from "moment";
 import "moment/min/locales";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 import Box from "js/components/Box";
 import hus from "../../../assets/img/hus.svg";
 import ListElement from "../ListElement";
@@ -17,7 +17,8 @@ const BoAdresse = props => {
     veiadresse,
     kommune,
     adressetillegg,
-    datoFraOgMed
+    datoFraOgMed,
+    intl
   } = props;
 
   const formattedDate = datoFraOgMed ? moment(datoFraOgMed).format("L") : "";
@@ -53,7 +54,13 @@ const BoAdresse = props => {
   const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
 
   return (
-    <Box id="adresse" header="Bostedsadresse" icon={hus} infoType="adresse" smallMargin>
+    <Box
+      id="adresse"
+      header={intl.formatMessage({ id: "adresse.bostedsadresse" })}
+      icon={hus}
+      infoType="adresse"
+      smallMargin
+    >
       <div className="address-box">
         <ul className={`list-column-${numberOfColumns} address-columns`}>
           {renderAdresse()}
@@ -85,6 +92,7 @@ const BoAdresse = props => {
 };
 
 BoAdresse.propTypes = {
+  intl: intlShape.isRequired,
   adresse: PropTypes.string,
   adressetillegg: PropTypes.string,
   postnummer: PropTypes.string,
@@ -108,4 +116,4 @@ BoAdresse.defaultProps = {
   datoFraOgMed: ""
 };
 
-export default BoAdresse;
+export default injectIntl(BoAdresse);
