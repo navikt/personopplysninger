@@ -2,76 +2,69 @@
 
 exports[`render Header with content 1`] = `
 <div
-  className="Header"
+  className="header"
 >
   <div
-    className="header-content"
+    className="header__content"
   >
-    <div
-      className="header-content-wrapper"
+    <h1
+      className="typo-innholdstittel"
     >
-      <h1
-        className="typo-innholdstittel"
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Hei Donald!",
+          }
+        }
+      />
+    </h1>
+    <div
+      className="header__content-intro"
+    >
+      <p
+        className="typo-ingress"
       >
         <span
           dangerouslySetInnerHTML={
             Object {
-              "__html": "Hei Donald!",
+              "__html": "Her kan du se opplysninger som NAV har registrert om deg.",
             }
           }
         />
-      </h1>
-      <div
-        className="header-intro"
-      >
-        <p
-          className="typo-ingress"
-        >
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "Her kan du se opplysninger som NAV har registrert om deg.",
-              }
-            }
-          />
-        </p>
-      </div>
-      <div
-        className="header-description"
-      >
-        <p
-          className="typo-ingress"
-        >
-          <span
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
-              }
-            }
-          />
-        </p>
-      </div>
-      <div
-        className="snakkeboble-edge"
-      />
+      </p>
     </div>
-    <img
-      alt="Pc"
-      className="header-icon-desktop"
-      src="group.svg"
-    />
     <div
-      className="header-icon-mobile-container"
+      className="header__content-description"
     >
-      <div
-        className="header-icon-mobile-circle"
+      <p
+        className="typo-ingress"
       >
-        <img
-          alt="Pc"
-          className="header-icon-mobile"
-          src="veilder.svg"
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
+            }
+          }
         />
-      </div>
+      </p>
+    </div>
+  </div>
+  <img
+    alt="Pc"
+    className="header__icon-desktop"
+    src="group.svg"
+  />
+  <div
+    className="header__icon-mobile-container"
+  >
+    <div
+      className="header__icon-mobile-circle"
+    >
+      <img
+        alt="Pc"
+        className="header__icon-mobile"
+        src="veilder.svg"
+      />
     </div>
   </div>
 </div>

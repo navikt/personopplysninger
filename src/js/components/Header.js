@@ -8,35 +8,29 @@ import veileder from "../../assets/img/veilder.svg";
 const Header = props => {
   const { fornavn } = props;
   return (
-    <div className="Header">
-      <div className="header-content">
-        <div className="header-content-wrapper">
-          <Innholdstittel>
+    <div className="header">
+      <div className="header__content">
+        <Innholdstittel>
+          <FormattedHTMLMessage id="header.hello" values={{ name: fornavn }} />
+        </Innholdstittel>
+        <div className="header__content-intro">
+          <Ingress>
             <FormattedHTMLMessage
-              id="header.hello"
+              id="header.intro"
               values={{ name: fornavn }}
             />
-          </Innholdstittel>
-          <div className="header-intro">
-            <Ingress>
-              <FormattedHTMLMessage
-                id="header.intro"
-                values={{ name: fornavn }}
-              />
-            </Ingress>
-          </div>
-          <div className="header-description">
-            <Ingress>
-              <FormattedHTMLMessage id="header.description" />
-            </Ingress>
-          </div>
-          <div className="snakkeboble-edge" />
+          </Ingress>
         </div>
-        <img src={group} className="header-icon-desktop" alt="Pc" />
-        <div className="header-icon-mobile-container">
-          <div className="header-icon-mobile-circle">
-            <img src={veileder} className="header-icon-mobile" alt="Pc" />
-          </div>
+        <div className="header__content-description">
+          <Ingress>
+            <FormattedHTMLMessage id="header.description" />
+          </Ingress>
+        </div>
+      </div>
+      <img src={group} className="header__icon-desktop" alt="Pc" />
+      <div className="header__icon-mobile-container">
+        <div className="header__icon-mobile-circle">
+          <img src={veileder} className="header__icon-mobile" alt="Pc" />
         </div>
       </div>
     </div>
