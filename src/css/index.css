@@ -520,6 +520,43 @@ main {
   font-style: italic;
   margin-top: 2rem;
 }
+.information-circle {
+  float: right;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.InfoBox {
+  padding: 2em;
+  background-color: #ffe5c2;
+  display: inline-block;
+  width: 85%;
+  margin-bottom: 2em;
+}
+.InfoBox hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ff9100;
+  padding: 0;
+}
+.InfoBox h2 {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.InfoBox .info-content {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.BoxContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+.link-box-content {
+  padding: 0 3rem 0 3rem;
+}
 .link-box-content .link-info {
   font-weight: bold;
   margin: 1em 1em 2em 0;

@@ -56,9 +56,8 @@ class BoAdresse extends Component {
     const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
 
     return (
-      <Box header="Adresse" icon={hus} infoType="adresse" smallMargin>
+      <Box header="Bostedsadresse" icon={hus} infoType="adresse" smallMargin>
         <div className="address-box">
-          <h3 className="address-type">Bostedsadresse</h3>
           <ul className={`list-column-${numberOfColumns} address-columns`}>
             {renderAdresse()}
             {postnummer ? (

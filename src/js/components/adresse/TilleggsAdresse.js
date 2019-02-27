@@ -8,9 +8,8 @@ class TilleggsAdresse extends Component {
     const { adresse1, adresse2, adresse3, postnummer, poststed } = this.props;
     const adresse = `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
     return (
-      <Box smallMargin>
+      <Box header="Tilleggsadresse">
         <div className="address-box">
-          <h3 className="address-type">Tilleggsadresse</h3>
           <ul className="list-column-3">
             {adresse ? (
               <ListElement titleId="adresse.adresse" content={adresse} />

@@ -10,20 +10,18 @@ const Box = props => {
 
   const erMobil = window.innerWidth <= 420;
 
-  if (!infoType) {
-    return null;
-  }
-
   const desktopVersjon = (
     <Panel className="box">
       <div className="box__header">
-        {icon ? (
-          <img src={icon} alt="" className="box__icon" />
+        {icon ? <img src={icon} alt="" className="box__icon" /> : null}
+        {header ? <Systemtittel>{header}</Systemtittel> : null}
+        {infoType ? (
+          <>
+            <hr className="box__linje-smal" />
+            <Ingress>{infoContent[infoType].content}</Ingress>
+            <hr className="box__linje-bred" />
+          </>
         ) : null}
-        <Systemtittel>{header}</Systemtittel>
-        <hr className="box__linje-smal" />
-        <Ingress>{infoContent[infoType].content}</Ingress>
-        <hr className="box__linje-bred" />
       </div>
       <div className="box__content">{children}</div>
     </Panel>
@@ -31,13 +29,14 @@ const Box = props => {
 
   const mobilVersjon = (
     <div className="box">
-      <Ekspanderbartpanel
-        tittel={header}
-        tittelProps="systemtittel"
-      >
+      <Ekspanderbartpanel tittel={header} tittelProps="systemtittel">
         <div className="box">
-          <Ingress>{infoContent[infoType].content}</Ingress>
-          <hr className="box__linje-smal" />
+          {infoType ? (
+            <>
+              <Ingress>{infoContent[infoType].content}</Ingress>
+              <hr className="box__linje-smal" />
+            </>
+          ) : null}
           <div className="box__content">{children}</div>
         </div>
       </Ekspanderbartpanel>

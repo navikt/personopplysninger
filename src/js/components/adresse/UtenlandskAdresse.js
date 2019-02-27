@@ -8,9 +8,8 @@ class UtenlandskAdresse extends Component {
     const { adresse1, adresse2, adresse3, land } = this.props;
     const adresse = `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
     return (
-      <Box>
+      <Box header="Utenlandsk adresse">
         <div className="address-box">
-          <h3 className="address-type">Utenlandsk adresse</h3>
           <ul className="list-column-2">
             {adresse ? (
               <ListElement titleId="adresse.adresse" content={adresse} />

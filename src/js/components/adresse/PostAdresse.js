@@ -8,9 +8,8 @@ class PostAdresse extends Component {
     const { adresse1, adresse2, adresse3, postnummer, land } = this.props;
     const adresse = `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
     return (
-      <Box smallMargin>
+      <Box header="Postadresse">
         <div className="address-box">
-          <h3 className="address-type">Postadresse</h3>
           <ul className="list-column-2">
             {adresse ? (
               <ListElement titleId="adresse.adresse" content={adresse} />
