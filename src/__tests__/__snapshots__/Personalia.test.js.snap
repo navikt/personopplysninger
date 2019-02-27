@@ -13,26 +13,41 @@ exports[`render Personalia with content 1`] = `
     <div
       className="icon-box-wrapper"
     >
-      <img
-        alt=""
+      <div
         className="box-icon"
-        src="kvinne.png"
-      />
+      >
+        <img
+          alt=""
+          className="icon"
+          src="kvinne.svg"
+        />
+      </div>
       <div
         className="Box"
       >
         <button
           className="information-circle"
           onClick={[Function]}
+          type="button"
         >
           <img
             alt="Information"
-            src="infomation-circle.png"
+            src="infomation-circle.svg"
           />
         </button>
         <ul
           className="list-column-2"
-        />
+        >
+          
+          
+          
+          
+          
+          
+          
+          
+          
+        </ul>
         <div
           className="box-footer"
         >

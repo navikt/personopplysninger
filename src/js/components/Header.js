@@ -1,35 +1,41 @@
-import React, { Component } from "react";
+import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import PropTypes from "prop-types";
-import { Undertittel } from "nav-frontend-typografi";
-import group from "../../assets/img/group.png";
+import { Ingress, Innholdstittel } from "nav-frontend-typografi";
+import group from "../../assets/img/group.svg";
+import veileder from "../../assets/img/veilder.svg";
 
-class Header extends Component {
-  render() {
-    const { fornavn } = this.props;
-    return (
-      <div className="Header">
-        <h1 className="header-text">
+const Header = props => {
+  const { fornavn } = props;
+  return (
+    <div className="header">
+      <div className="header__content">
+        <Innholdstittel>
           <FormattedHTMLMessage id="header.hello" values={{ name: fornavn }} />
-        </h1>
-        <div className="header-content">
-          <div className="snakkeboble-wrapper">
-            <div className="snakkeboble">
-              <Undertittel>
-                <FormattedHTMLMessage
-                  id="header.intro"
-                  values={{ name: fornavn }}
-                />
-              </Undertittel>
-            </div>
-            <div className="snakkeboble-edge" />
-          </div>
-          <img src={group} className="header-pc-icon" alt="Pc" />
+        </Innholdstittel>
+        <div className="header__content-intro">
+          <Ingress>
+            <FormattedHTMLMessage
+              id="header.intro"
+              values={{ name: fornavn }}
+            />
+          </Ingress>
+        </div>
+        <div className="header__content-description">
+          <Ingress>
+            <FormattedHTMLMessage id="header.description" />
+          </Ingress>
         </div>
       </div>
-    );
-  }
-}
+      <img src={group} className="header__icon-desktop" alt="Pc" />
+      <div className="header__icon-mobile-container">
+        <div className="header__icon-mobile-circle">
+          <img src={veileder} className="header__icon-mobile" alt="Pc" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
 Header.propTypes = {
   fornavn: PropTypes.string

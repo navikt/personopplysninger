@@ -1,31 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
+import { mergeAddress } from "../../utils/text";
 
-class TilleggsAdresse extends Component {
-  render() {
-    const { adresse1, adresse2, adresse3, postnummer, poststed } = this.props;
-    const adresse = `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
-    return (
-      <Box header="Tilleggsadresse">
-        <div className="address-box">
-          <ul className="list-column-3">
-            {adresse ? (
-              <ListElement titleId="adresse.adresse" content={adresse} />
-            ) : null}
-            {postnummer ? (
-              <ListElement titleId="adresse.postnummer" content={postnummer} />
-            ) : null}
-            {poststed ? (
-              <ListElement titleId="adresse.poststed" content={poststed} />
-            ) : null}
-          </ul>
-        </div>
-      </Box>
-    );
-  }
-}
+const TilleggsAdresse = props => {
+  const { adresse1, adresse2, adresse3, postnummer, poststed } = props;
+  const adresse = mergeAddress(adresse1, adresse2, adresse3);
+  return (
+    <Box header="Tilleggsadresse">
+      <div className="address-box">
+        <ul className="list-column-3">
+          {adresse ? (
+            <ListElement titleId="adresse.adresse" content={adresse} />
+          ) : null}
+          {postnummer ? (
+            <ListElement titleId="adresse.postnummer" content={postnummer} />
+          ) : null}
+          {poststed ? (
+            <ListElement titleId="adresse.poststed" content={poststed} />
+          ) : null}
+        </ul>
+      </div>
+    </Box>
+  );
+};
 
 TilleggsAdresse.propTypes = {
   adresse1: PropTypes.string,

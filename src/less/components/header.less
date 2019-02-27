@@ -1,73 +1,75 @@
-.Header {
-  background-color: white;
-  min-height: 320px;
-  padding: 4rem 4rem 0 4rem;
-  margin: 7rem 0 2rem 0;
-
+.header {
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: white;
 
   h1 {
     font-weight: bold;
     margin-bottom: 0;
-
-    @media @tablet {
-      text-align: center;
-      font-size: 7vw;
-    }
   }
 
-  .header-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+  @media @tablet {
+    padding: 3rem 2rem 0 2rem;
+    margin: 4rem 0 2rem 0;
+    border-radius: 0.5em;
+    flex-direction: column;
+  }
+
+  @media @desktop {
+    padding: 1rem 4rem 0 4rem;
+    margin: 2rem 0 2rem 0;
+    border-radius: 8px;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    padding: 2rem 0 3rem 0;
+  }
+
+  &__content-intro {
+    padding: 2rem 0 1rem 0;
+  }
+
+  &__content-description {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  &__icon-mobile {
+    height: 6em;
+    width: auto;
+  }
+
+  &__icon-mobile-container {
+    width: 100%;
+    position: absolute;
+    display: none;
+    top: -3.5em;
+    left: 0;
 
     @media @tablet {
       display: flex;
-      width: 90%;
+      justify-content: center;
     }
   }
-
-  .header-pc-icon {
-    margin-top: auto;
+  &__icon-mobile-circle {
+    align-items: flex-end;
+    justify-content: center;
+    background: #c6c2bf;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    height: 7em;
+    width: 7em;
+  }
+  &__icon-desktop {
+    margin: auto 1rem 0 1rem;
 
     @media @tablet {
       display: none;
-    }
-  }
-
-  .snakkeboble {
-    position: relative;
-    background: #fff;
-    border-radius: 0.4em;
-    height: 5rem;
-    width: 489px;
-    padding: 2rem 2rem 2rem 0;
-    margin-bottom: 1em;
-
-    @media @tablet {
-      width: auto;
-      height: auto;
-      padding-bottom: 1em;
-    }
-  }
-
-  .snakkeboble:after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 60%;
-    width: 0;
-    height: 0;
-    border: 20px solid transparent;
-    border-left-color: #fff;
-    border-right: 0;
-    margin-top: -10px;
-    margin-right: -20px;
-
-    @media @tablet {
-      visibility: hidden;
     }
   }
 }

@@ -1,16 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="92" height="92" viewBox="0 0 92 92">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="61" height="79" viewBox="0 0 61 79">
     <defs>
         <circle id="a" cx="46" cy="46" r="46"/>
         <path id="c" d="M53.554 26.618h-.046C53.508 11.918 42.97 0 29.972 0 16.974 0 6.438 11.917 6.438 26.618v.013C6.433 39.186 0 46.364 0 46.364s6.353 7.842 29.973 7.842h.046c23.621 0 29.974-7.842 29.974-7.842s-6.439-7.183-6.439-19.746"/>
         <path id="e" d="M34.478.42c5.266 2.778 12.937 9.555 12.937 15.854v12.505a9 9 0 0 1-9 9H0V16.274C0 10.227 6.948 3.739 12.11.773c.947 1.606 3.447 8.013 11.056 8.013 7.552 0 11.158-6.774 11.312-8.366z"/>
     </defs>
-    <g fill="none" fill-rule="evenodd">
+    <g fill="none" fill-rule="evenodd" transform="translate(-15 -13)">
         <mask id="b" fill="#fff">
             <use xlink:href="#a"/>
         </mask>
-        <g mask="url(#b)">
-            <path fill="#FFD7A3" d="M-7.36 92h115.39V0H-7.36z"/>
-        </g>
         <g mask="url(#b)">
             <g transform="translate(15.682 13.047)">
                 <mask id="d" fill="#fff">
