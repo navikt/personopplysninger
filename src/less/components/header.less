@@ -1,7 +1,8 @@
-.Header {
-  display: flex;
+.header {
   position: relative;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   background-color: white;
 
   h1 {
@@ -13,57 +14,35 @@
     padding: 3rem 2rem 0 2rem;
     margin: 4rem 0 2rem 0;
     border-radius: 0.5em;
+    flex-direction: column;
   }
 
   @media @desktop {
-    padding: 2rem 2rem 0 2rem;
+    padding: 1rem 4rem 0 4rem;
     margin: 2rem 0 2rem 0;
     border-radius: 8px;
     justify-content: flex-end;
-    padding: 2rem 4rem 0 4rem;
-    min-height: 260px;
   }
 
-  .header-content {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-    .header-content-wrapper {
-      padding: 2rem 0 4rem 0;
-    }
-
-    .header-intro {
-      padding: 2rem 0 1rem 0;
-    }
-
-    .header-description {
-      font-size: 1.2rem;
-      font-weight: normal;
-    }
-
-    @media @tablet {
-      display: flex;
-    }
+  &__content {
+    padding: 2rem 0 3rem 0;
   }
 
-  .header-icon-mobile {
+  &__content-intro {
+    padding: 2rem 0 1rem 0;
+  }
+
+  &__content-description {
+    font-size: 1.2rem;
+    font-weight: normal;
+  }
+
+  &__icon-mobile {
     height: 6em;
     width: auto;
   }
 
-  .header-icon-mobile-circle {
-    align-items: flex-end;
-    justify-content: center;
-    background: #c6c2bf;
-    border-radius: 50%;
-    overflow: hidden;
-    flex-shrink: 0;
-    display: flex;
-    height: 7em;
-    width: 7em;
-  }
-  .header-icon-mobile-container {
+  &__icon-mobile-container {
     width: 100%;
     position: absolute;
     display: none;
@@ -75,8 +54,18 @@
       justify-content: center;
     }
   }
-
-  .header-icon-desktop {
+  &__icon-mobile-circle {
+    align-items: flex-end;
+    justify-content: center;
+    background: #c6c2bf;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    height: 7em;
+    width: 7em;
+  }
+  &__icon-desktop {
     margin: auto 1rem 0 1rem;
 
     @media @tablet {
