@@ -38,7 +38,7 @@ export const Meny = () => (
     <div className="meny">
       <ul>
         {lenker.map(lenke => (
-          <li>
+          <li key={lenke.href}>
             <Lenke href={lenke.href}>{lenke.navn}</Lenke>
           </li>
         ))}
