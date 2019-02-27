@@ -11,12 +11,8 @@ const lenker = [
     href: "#adresse"
   },
   {
-    navn: "Arbeidsforhold",
-    href: "#arbeidsforhold"
-  },
-  {
-    navn: "Pensjonssparing",
-    href: "#pensjonssparing"
+    navn: "Pensjonsopptjening",
+    href: "#pensjonsopptjening"
   },
   {
     navn: "Dine saker",
@@ -28,13 +24,13 @@ const lenker = [
   },
   {
     navn: "Jobbsøk",
-    href: "#jobb-sok"
+    href: "#cv"
   }
 ];
 
-export const Filler = () => <div className="meny-filler" />;
+export const Filler = () => <div className="meny__filler" />;
 export const Meny = () => (
-  <div className="meny-wrapper">
+  <div className="meny__wrapper">
     <div className="meny">
       <ul>
         {lenker.map(lenke => (

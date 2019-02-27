@@ -9,6 +9,7 @@ const LinksContainer = () => (
       (link, index) =>
         link.visible && (
           <LinkBox
+            id={link.id}
             key={index} // eslint-disable-line react/no-array-index-key
             icon={link.icon}
             header={link.header}

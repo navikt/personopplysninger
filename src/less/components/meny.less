@@ -1,31 +1,33 @@
-.meny-wrapper,
-.meny-filler {
-  min-width: 200px;
-
-  @media only screen and (max-width: 1080px) {
-    display: none;
-  }
-}
-
-.meny-wrapper {
-  margin: 23em 2em 2em 2em;
-  position: relative;
-}
-
 .meny {
   position: -webkit-sticky;
   position: sticky;
-  height: 414px;
   border-radius: 4px;
   background-color: #ffffff;
   top: 3em;
 
+  &__wrapper,
+  &__filler {
+    min-width: 200px;
+
+    @media only screen and (max-width: 1080px) {
+      display: none;
+    }
+  }
+
+  &__wrapper {
+    margin: 23em 2em 2em 2em;
+    position: relative;
+  }
+
   ul {
     list-style: none;
-    padding: 3em 0em 1em 1em;
+    padding: 3em 1em 3em 1em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     li {
-      padding-top: 1.5em;
+      padding: 1rem 0 1rem 0;
     }
   }
 }
