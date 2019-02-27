@@ -39,9 +39,9 @@ exports[`render Error 1`] = `
     <span
       className="typo-normal alertstripe__tekst"
     >
-      Oisann, noe gikk galt! 
+      Oisann, noe gikk galt!
       <span>
-        500 Internal Server Error
+         500 Internal Server Error
       </span>
     </span>
   </div>

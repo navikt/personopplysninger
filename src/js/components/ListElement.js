@@ -1,14 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import React from "react";
+import PropTypes from "prop-types";
+import { FormattedMessage } from "react-intl";
 
 const ListElement = ({
-  className, title, titleId, content, classNameTitle, classNameContent,
+  className,
+  title,
+  titleId,
+  content,
+  classNameTitle,
+  classNameContent
 }) => (
   <li className={className}>
-    <span className={`title ${classNameTitle}`}>{titleId ? <FormattedMessage
-      id={titleId}
-    /> : title}
+    <span className={`title ${classNameTitle}`}>
+      {titleId ? <FormattedMessage id={titleId} /> : title}
     </span>
     <span className={`content ${classNameContent}`}>{content}</span>
   </li>
@@ -20,16 +24,16 @@ ListElement.propTypes = {
   content: PropTypes.string,
   className: PropTypes.string,
   classNameTitle: PropTypes.string,
-  classNameContent: PropTypes.string,
+  classNameContent: PropTypes.string
 };
 
 ListElement.defaultProps = {
-  title: '',
-  titleId: '',
-  content: '',
-  className: '',
-  classNameTitle: '',
-  classNameContent: '',
+  title: "",
+  titleId: "",
+  content: "",
+  className: "",
+  classNameTitle: "",
+  classNameContent: ""
 };
 
 export default ListElement;

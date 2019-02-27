@@ -1,5 +1,7 @@
 {
-  "header.intro": "Hei {name}, her kan du se opplysninger som NAV har registrert om deg. Les <a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>om personvern</a> i Arbeids- og velferdsetaten.",
+  "header.hello": "Hei {name}!",
+  "header.intro": "Her kan du se opplysninger som NAV har registrert om deg.",
+  "header.description": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
   "personalia.first_name": "Fornavn",
   "personalia.first_and_middle_name": "For- og mellomnavn",
   "personalia.surname": "Etternavn",

@@ -1,7 +1,4 @@
-@boxwidth: 85%;
 @iconwidth: 15%;
-@tablet:    ~"only screen and (max-width: 959px)";
-@mobile:    ~"only screen and (max-width: 420px)";
 
 .BoxContainer {
   width: 100%;
@@ -11,9 +8,8 @@
 }
 
 .BoxWithHeader {
-  width: 50vw;
+  width: 100%;
   min-height: 200px;
-  margin-right: @iconwidth;
 
   h1 {
     margin-left: @iconwidth;
@@ -53,9 +49,10 @@
 .Box {
   padding: 2em;
   background-color: white;
-  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.16),0 1px 10px 0 rgba(0,0,0,0.12)!important;
-  display: inline-block;
-  width: @boxwidth;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  width: 100%;
 
   .information-circle {
     float: right;
@@ -197,9 +194,14 @@
   margin-top: 2rem;
 }
 
+.icon {
+  width: 100%;
+}
+
 .box-icon {
-  display: inline-block;
   vertical-align: top;
+  width: 4rem;
+  margin-right: 1rem;
 
   @media @tablet {
     visibility: hidden;

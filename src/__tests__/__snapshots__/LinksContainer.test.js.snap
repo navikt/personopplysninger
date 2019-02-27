@@ -14,11 +14,15 @@ Array [
       <div
         className="icon-box-wrapper"
       >
-        <img
-          alt=""
+        <div
           className="box-icon"
-          src="pensjonist.png"
-        />
+        >
+          <img
+            alt=""
+            className="icon"
+            src="pensjonist.png"
+          />
+        </div>
         <div
           className="Box"
         >
@@ -54,21 +58,26 @@ Array [
       <div
         className="icon-box-wrapper"
       >
-        <img
-          alt=""
+        <div
           className="box-icon"
-          src="papirstabel.png"
-        />
+        >
+          <img
+            alt=""
+            className="icon"
+            src="papirstabel.svg"
+          />
+        </div>
         <div
           className="Box"
         >
           <button
             className="information-circle"
             onClick={[Function]}
+            type="button"
           >
             <img
               alt="Information"
-              src="infomation-circle.png"
+              src="infomation-circle.svg"
             />
           </button>
           <div
@@ -103,11 +112,15 @@ Array [
       <div
         className="icon-box-wrapper"
       >
-        <img
-          alt=""
+        <div
           className="box-icon"
-          src="penger.png"
-        />
+        >
+          <img
+            alt=""
+            className="icon"
+            src="penger.svg"
+          />
+        </div>
         <div
           className="Box"
         >
@@ -143,11 +156,15 @@ Array [
       <div
         className="icon-box-wrapper"
       >
-        <img
-          alt=""
+        <div
           className="box-icon"
-          src="jobbsok.png"
-        />
+        >
+          <img
+            alt=""
+            className="icon"
+            src="jobbsok.svg"
+          />
+        </div>
         <div
           className="Box"
         >

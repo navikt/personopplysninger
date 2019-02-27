@@ -1,49 +1,44 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Box from 'js/components/Box';
-import ListElement from '../ListElement';
+import React from "react";
+import PropTypes from "prop-types";
+import Box from "js/components/Box";
+import ListElement from "../ListElement";
+import { mergeAddress } from "../../utils/text";
 
-class PostAdresse extends Component {
-  render() {
-    const adresse = `${this.props.adresse1 ? this.props.adresse1 : ''}${this.props.adresse2 ? this.props.adresse2 : ''}${this.props.adresse3 ? this.props.adresse3 : ''}`;
-    return (
-      <Box smallMargin>
-        <div className="address-box">
-          <h3 className="address-type">Postadresse</h3>
-          <ul className="list-column-2">
-            {adresse ? <ListElement
-              titleId="adresse.adresse"
-              content={adresse}
-            /> : null}
-            {this.props.postnummer ? <ListElement
-              titleId="adresse.postnummer"
-              content={this.props.postnummer}
-            /> : null}
-            {this.props.land ? <ListElement
-              titleId="adresse.land"
-              content={this.props.land}
-            /> : null}
-          </ul>
-        </div>
-      </Box>
-    );
-  }
-}
+const PostAdresse = props => {
+  const { adresse1, adresse2, adresse3, postnummer, land } = props;
+  const adresse = mergeAddress(adresse1, adresse2, adresse3);
+  return (
+    <Box smallMargin>
+      <div className="address-box">
+        <h3 className="address-type">Postadresse</h3>
+        <ul className="list-column-2">
+          {adresse ? (
+            <ListElement titleId="adresse.adresse" content={adresse} />
+          ) : null}
+          {postnummer ? (
+            <ListElement titleId="adresse.postnummer" content={postnummer} />
+          ) : null}
+          {land ? <ListElement titleId="adresse.land" content={land} /> : null}
+        </ul>
+      </div>
+    </Box>
+  );
+};
 
 PostAdresse.propTypes = {
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
   land: PropTypes.string,
-  postnummer: PropTypes.string,
+  postnummer: PropTypes.string
 };
 
 PostAdresse.defaultProps = {
-  adresse1: '',
-  adresse2: '',
-  adresse3: '',
-  land: '',
-  postnummer: '',
+  adresse1: "",
+  adresse2: "",
+  adresse3: "",
+  land: "",
+  postnummer: ""
 };
 
 export default PostAdresse;

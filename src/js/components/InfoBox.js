@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-
-class InfoBox extends Component {
-  render() {
-    return (
-      <React.Fragment>
-        <div className="BoxContainer">
-          <div className="InfoBox">
-            <hr width="32px" />
-            {this.props.children}
-          </div>
+const InfoBox = props => {
+  const { children } = props;
+  return (
+    <React.Fragment>
+      <div className="BoxContainer">
+        <div className="InfoBox">
+          <hr width="32px" />
+          {children}
         </div>
-      </React.Fragment>
-    );
-  }
-}
+      </div>
+    </React.Fragment>
+  );
+};
 
 InfoBox.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
+    PropTypes.node
+  ])
 };
 
 InfoBox.defaultProps = {
-  children: [],
+  children: []
 };
 
 export default InfoBox;
