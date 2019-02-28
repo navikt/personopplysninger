@@ -4,7 +4,7 @@ import "less/index.less";
 import BoAdresse from "../components/adresse/BoAdresse";
 import PostAdresse from "../components/adresse/PostAdresse";
 import UtenlandskAdresse from "../components/adresse/UtenlandskAdresse";
-import TilleggsAdresse from "../components/adresse/TilleggsAdresse";
+import MidlertidigAdresse from "../components/adresse/MidlertidigAdresse";
 
 const AdresseContainer = props => {
   const { adresseInfo } = props;
@@ -29,10 +29,11 @@ const AdresseContainer = props => {
           kilde={adresseInfo.postadresse.kilde}
           land={adresseInfo.postadresse.land}
           postnummer={adresseInfo.postadresse.postnummer}
+          poststed={adresseInfo.postadresse.poststed}
         />
       ) : null}
       {adresseInfo.tilleggsadresse ? (
-        <TilleggsAdresse
+        <MidlertidigAdresse
           adresse1={adresseInfo.tilleggsadresse.adresse1}
           adresse2={adresseInfo.tilleggsadresse.adresse2}
           adresse3={adresseInfo.tilleggsadresse.adresse3}

@@ -6,7 +6,15 @@ import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
 const PostAdresse = props => {
-  const { adresse1, adresse2, adresse3, postnummer, land, intl } = props;
+  const {
+    adresse1,
+    adresse2,
+    adresse3,
+    postnummer,
+    poststed,
+    land,
+    intl
+  } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
     <Box
@@ -22,6 +30,9 @@ const PostAdresse = props => {
             <ListElement titleId="adresse.postnummer" content={postnummer} />
           ) : null}
           {land ? <ListElement titleId="adresse.land" content={land} /> : null}
+          {poststed ? (
+            <ListElement titleId="adresse.poststed" content={poststed} />
+          ) : null}
         </ul>
       </div>
     </Box>
@@ -34,7 +45,8 @@ PostAdresse.propTypes = {
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
   land: PropTypes.string,
-  postnummer: PropTypes.string
+  postnummer: PropTypes.string,
+  poststed: PropTypes.string,
 };
 
 PostAdresse.defaultProps = {
@@ -42,7 +54,8 @@ PostAdresse.defaultProps = {
   adresse2: "",
   adresse3: "",
   land: "",
-  postnummer: ""
+  postnummer: "",
+  poststed: "",
 };
 
 export default injectIntl(PostAdresse);
