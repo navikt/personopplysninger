@@ -6,7 +6,7 @@ const ReactTestRenderer = require("react-test-renderer");
 
 test("render Error", () => {
   const component = ReactTestRenderer.create(
-    wrapIntl(<Error error={{ code: 500, text: "Internal server error" }} />)
+    wrapIntl(<Error error={{ code: 500, text: "Internal Server Error" }} />)
   );
   expect(component.toJSON()).toMatchSnapshot();
 });
