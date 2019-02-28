@@ -3,7 +3,7 @@ import { FormattedHTMLMessage } from "react-intl";
 import PropTypes from "prop-types";
 import { Ingress, Innholdstittel } from "nav-frontend-typografi";
 import group from "../../assets/img/group.svg";
-import veileder from "../../assets/img/veilder.svg";
+import veileder from "../../assets/img/veileder.svg";
 
 const Header = props => {
   const { fornavn } = props;
@@ -29,9 +29,7 @@ const Header = props => {
       </div>
       <img src={group} className="header__icon-desktop" alt="Pc" />
       <div className="header__icon-mobile-container">
-        <div className="header__icon-mobile-circle">
-          <img src={veileder} className="header__icon-mobile" alt="Pc" />
-        </div>
+        <img src={veileder} className="header__icon-mobile" alt="Pc" />
       </div>
     </div>
   );

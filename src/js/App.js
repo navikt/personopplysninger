@@ -18,7 +18,9 @@ class App extends Component {
     const { api } = this.props;
     api
       .fetchPersonInfo()
-      .then(response => this.setState({ ...response, loading: false }));
+      .then(response => this.setState({ ...response }))
+      .catch(error => this.setState({ status: error }))
+      .then(this.setState({ loading: false }));
   }
 
   render() {
