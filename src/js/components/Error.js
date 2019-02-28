@@ -21,11 +21,4 @@ Error.propTypes = {
   }).isRequired
 };
 
-Error.defaultProps = {
-  error: {
-    code: 0,
-    text: ""
-  }
-};
-
 export default Error;
