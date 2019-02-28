@@ -1,39 +1,44 @@
 // import conf from 'js/Config';
-import Environment from './utils/Environments';
+import Environment from "./utils/Environments";
 
-function sjekkAuthOgRedirect(res) {
-  if (res.status === 401 || res.status === 403 || (res.status === 0 && !res.ok)) {
-    window.location.assign(`${Environment().loginUrl}?redirect=${window.location.href}`);
-    return false;
-  }
-  return true;
-}
+const { apiUrl } = Environment();
+const parseJson = data => data.json();
 
-const fetchJSONAndCheckForErrors = (url) => {
-  const p = new Promise((res, rej) => {
-    fetch(url, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8',
-      },
-      credentials: 'include',
-    }).then((response) => {
-      sjekkAuthOgRedirect(response);
-      if (response.status === 200) {
-        res(response.json());
-      } else {
-        res({ status: response.status });
+const sjekkAuth = response =>
+  response.status === 401 ||
+  response.status === 403 ||
+  (response.status === 0 && !response.ok)
+    ? window.location.assign(
+      `${Environment().loginUrl}?redirect=${window.location.href}`
+    )
+    : response;
+
+const sjekkForFeil = (response, reject) =>
+  response.ok
+    ? response
+    : reject({
+      error: {
+        code: response.status,
+        text: response.statusText
       }
-    })
-      .catch((e) => {
-        rej(e);
-      });
-  });
-  return p;
-};
+    });
 
-const fetchPersonInfo = () => fetchJSONAndCheckForErrors(`${Environment().apiUrl}`);
+const hentJsonOgSjekkAuth = url =>
+  new Promise((resolve, reject) =>
+    fetch(url, {
+      method: "GET",
+      headers: { "Content-Type": "application/json;charset=UTF-8" },
+      credentials: "include"
+    })
+      .then(sjekkAuth)
+      .then(response => sjekkForFeil(response, reject))
+      .then(parseJson)
+      .then(resolve)
+      .catch(reject)
+  );
+
+const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
 
 export default {
-  fetchPersonInfo,
+  fetchPersonInfo
 };

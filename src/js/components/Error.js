@@ -3,27 +3,22 @@ import PropTypes from "prop-types";
 import AlertStripe from "nav-frontend-alertstriper";
 
 const Error = props => {
-  const { statusCode } = props;
+  const { error } = props;
   return (
     <div className="BoxContainer">
       <AlertStripe type="advarsel" solid>
         Oisann, noe gikk galt!
-        {statusCode === 500 ? (
-          <span> 500 Internal Server Error</span>
-        ) : (
-          statusCode
-        )}
+        <span>{` ${error.code}: ${error.text}`}</span>
       </AlertStripe>
     </div>
   );
 };
 
 Error.propTypes = {
-  statusCode: PropTypes.number
-};
-
-Error.defaultProps = {
-  statusCode: null
+  error: PropTypes.shape({
+    code: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Error;
