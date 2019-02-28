@@ -1,16 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { intlShape, injectIntl } from "react-intl";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
 const UtenlandskAdresse = props => {
-  const { adresse1, adresse2, adresse3, land } = props;
+  const { adresse1, adresse2, adresse3, land, intl } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box>
+    <Box header={intl.formatMessage({ id: "adresse.utenlandskadresse"})} id="utenlandsk_adresse">
       <div className="address-box">
-        <h3 className="address-type">Utenlandsk adresse</h3>
         <ul className="list-column-2">
           {adresse ? (
             <ListElement titleId="adresse.adresse" content={adresse} />
@@ -23,6 +23,7 @@ const UtenlandskAdresse = props => {
 };
 
 UtenlandskAdresse.propTypes = {
+  intl: intlShape.isRequired,
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
   adresse3: PropTypes.string,
@@ -36,4 +37,4 @@ UtenlandskAdresse.defaultProps = {
   land: ""
 };
 
-export default UtenlandskAdresse;
+export default injectIntl(UtenlandskAdresse);
