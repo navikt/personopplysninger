@@ -21,6 +21,13 @@ const Environment = () => {
       logoutUrl: "https://loginservice-q.nav.no/slo"
     };
   }
+  if (window.location.hostname.indexOf("www-q1") > -1) {
+    return {
+      apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
+      loginUrl: "https://loginservice-q.nav.no/login",
+      logoutUrl: "https://loginservice-q.nav.no/slo"
+    };
+  }
   if (window.location.hostname.indexOf("www-q4") > -1) {
     return {
       apiUrl:
