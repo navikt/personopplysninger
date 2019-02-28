@@ -5,7 +5,7 @@ import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Panel from "nav-frontend-paneler";
 import infoContent from "../static/infoContent";
 
-function Box(props) {
+const Box = (props) => {
   const { header, icon, infoType, children, id } = props;
   const [erMobil, setErMobil] = useState(window.innerWidth <= 420);
 
@@ -52,7 +52,7 @@ function Box(props) {
   });
 
   return <>{erMobil ? mobilVersjon : desktopVersjon}</>;
-}
+};
 
 Box.propTypes = {
   id: PropTypes.string.isRequired,
