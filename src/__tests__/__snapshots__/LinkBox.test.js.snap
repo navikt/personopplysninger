@@ -3,6 +3,7 @@
 exports[`render LinkBox with content 1`] = `
 <div
   className="panel box"
+  id="pensjonsopptjening"
 >
   <div
     className="box__header"
