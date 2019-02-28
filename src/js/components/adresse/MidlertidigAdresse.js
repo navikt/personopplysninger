@@ -5,11 +5,11 @@ import Box from "js/components/Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
-const TilleggsAdresse = props => {
+const MidlertidigAdresse = props => {
   const { adresse1, adresse2, adresse3, postnummer, poststed, intl } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box header={intl.formatMessage({ id: "adresse.tilleggsadresse"})} id="tilleggsadresse">
+    <Box header={intl.formatMessage({ id: "adresse.midlertidigadresse"})} id="tilleggsadresse">
       <div className="address-box">
         <ul className="list-column-3">
           {adresse ? (
@@ -27,7 +27,7 @@ const TilleggsAdresse = props => {
   );
 };
 
-TilleggsAdresse.propTypes = {
+MidlertidigAdresse.propTypes = {
   intl: intlShape.isRequired,
   adresse1: PropTypes.string,
   adresse2: PropTypes.string,
@@ -36,7 +36,7 @@ TilleggsAdresse.propTypes = {
   postnummer: PropTypes.string
 };
 
-TilleggsAdresse.defaultProps = {
+MidlertidigAdresse.defaultProps = {
   adresse1: "",
   adresse2: "",
   adresse3: "",
@@ -44,4 +44,4 @@ TilleggsAdresse.defaultProps = {
   postnummer: ""
 };
 
-export default injectIntl(TilleggsAdresse);
+export default injectIntl(MidlertidigAdresse);
