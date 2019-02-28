@@ -1,5 +1,6 @@
 import React from "react";
 import Lenke from "nav-frontend-lenker";
+import { Normaltekst } from "nav-frontend-typografi";
 
 const lenker = [
   {
@@ -35,7 +36,7 @@ export const Meny = () => (
       <ul>
         {lenker.map(lenke => (
           <li key={lenke.href}>
-            <Lenke href={lenke.href}>{lenke.navn}</Lenke>
+            <Lenke href={lenke.href}><Normaltekst>{lenke.navn}</Normaltekst></Lenke>
           </li>
         ))}
       </ul>

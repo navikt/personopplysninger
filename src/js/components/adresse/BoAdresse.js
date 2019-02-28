@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Systemtittel, Undertekst } from "nav-frontend-typografi";
 import * as moment from "moment";
 import "moment/min/locales";
 import { FormattedMessage } from "react-intl";
@@ -61,7 +62,7 @@ const BoAdresse = props => {
       smallMargin
     >
       <div className="address-box">
-        <h3 className="address-type">Bostedsadresse</h3>
+        <Systemtittel>Bostedsadresse</Systemtittel>
         <ul className={`list-column-${numberOfColumns} address-columns`}>
           {renderAdresse()}
           {postnummer ? (
@@ -84,7 +85,9 @@ const BoAdresse = props => {
           ) : null}
         </ul>
         <div className="box-footer">
-          <FormattedMessage id="adresse.source" />
+          <Undertekst>
+            <FormattedMessage id="adresse.source" />
+          </Undertekst>
         </div>
       </div>
     </Box>

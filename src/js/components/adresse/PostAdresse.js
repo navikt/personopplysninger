@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Systemtittel } from "nav-frontend-typografi";
 import Box from "js/components/Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
@@ -10,7 +11,7 @@ const PostAdresse = props => {
   return (
     <Box smallMargin>
       <div className="address-box">
-        <h3 className="address-type">Postadresse</h3>
+        <Systemtittel>Postadresse</Systemtittel>
         <ul className="list-column-2">
           {adresse ? (
             <ListElement titleId="adresse.adresse" content={adresse} />

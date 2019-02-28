@@ -2,6 +2,7 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Undertekst, Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
 import Box from "./Box";
 import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
@@ -45,19 +46,30 @@ class LinkBox extends Component {
         ) : null}
         {displayInfo && infoBoxContent ? (
           <InfoBox>
-            <h2>Informasjon om {header}</h2>
-            <div className="info-content">
+            <Undertittel>Informasjon om {header}</Undertittel>
+            <Normaltekst className="info-content">
               <div dangerouslySetInnerHTML={infoBoxContent} />
-            </div>
+            </Normaltekst>
           </InfoBox>
         ) : null}
         <div className="link-box-content">
-          <div className="link-info">{information}</div>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {linkText}
-          </a>
+          <Ingress>
+            <div>{information}</div>
+            <a
+              className="lenke"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {linkText}
+            </a>
+          </Ingress>
           {kilde ? (
-            <div className="box-footer link-footer">Kilde: {kilde}</div>
+            <div className="box-footer link-footer">
+              <Undertekst>
+                Kilde: {kilde} {/* TODO: må gjøres om til intl */}
+              </Undertekst>
+            </div>
           ) : null}
         </div>
       </Box>

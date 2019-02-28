@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
+import { Element, Normaltekst } from "nav-frontend-typografi";
 
 const ListElement = ({
   className,
@@ -11,10 +12,10 @@ const ListElement = ({
   classNameContent
 }) => (
   <li className={className}>
-    <span className={`title ${classNameTitle}`}>
+    <Element className={`title ${classNameTitle}`}>
       {titleId ? <FormattedMessage id={titleId} /> : title}
-    </span>
-    <span className={`content ${classNameContent}`}>{content}</span>
+    </Element>
+    <Normaltekst className={`content ${classNameContent}`}>{content}</Normaltekst>
   </li>
 );
 
