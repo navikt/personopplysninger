@@ -11,10 +11,7 @@ const delay = (min, max) => {
 };
 
 export const setUpMock = async () => {
-  fetchMock.get(
-    `${apiUrl}/personalia`,
-    delay(200, 1000).then(() => personalia)
-  );
+  fetchMock.get(`${apiUrl}/personalia`, delay(50, 200).then(() => personalia));
 };
 
 export default setUpMock;
