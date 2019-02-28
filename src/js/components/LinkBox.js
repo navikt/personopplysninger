@@ -2,7 +2,12 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Undertekst, Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
+import {
+  Undertekst,
+  Ingress,
+  Undertittel,
+  Normaltekst
+} from "nav-frontend-typografi";
 import Box from "./Box";
 import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
@@ -53,8 +58,8 @@ class LinkBox extends Component {
           </InfoBox>
         ) : null}
         <div className="link-box-content">
+          <Ingress>{information}</Ingress>
           <Ingress>
-            <div>{information}</div>
             <a
               className="lenke"
               href={url}

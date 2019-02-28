@@ -9,7 +9,7 @@ const TilleggsAdresse = props => {
   const { adresse1, adresse2, adresse3, postnummer, poststed } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box smallMargin>
+    <Box id="tilleggsadresse" smallMargin>
       <div className="address-box">
         <Systemtittel>Tilleggsadresse</Systemtittel>
         <ul className="list-column-3">

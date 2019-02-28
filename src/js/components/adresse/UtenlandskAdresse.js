@@ -9,7 +9,7 @@ const UtenlandskAdresse = props => {
   const { adresse1, adresse2, adresse3, land } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box>
+    <Box id="utenlandskadresse">
       <div className="address-box">
         <Systemtittel>Utenlandsk adresse</Systemtittel>
         <ul className="list-column-2">
