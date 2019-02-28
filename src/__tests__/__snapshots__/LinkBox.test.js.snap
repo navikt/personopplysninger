@@ -24,23 +24,31 @@ exports[`render LinkBox with content 1`] = `
         <div
           className="link-box-content"
         >
-          <div
-            className="link-info"
+          <p
+            className="typo-ingress"
           >
-            NAV har opplysninger om din pensjon i en egen tjeneste.
-          </div>
-          <a
-            href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Gå til Din pensjon
-          </a>
+            <div>
+              NAV har opplysninger om din pensjon i en egen tjeneste.
+            </div>
+            <a
+              className="lenke"
+              href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Gå til Din pensjon
+            </a>
+          </p>
           <div
             className="box-footer link-footer"
           >
-            Kilde: 
-            Pensjonsregisteret
+            <p
+              className="typo-undertekst"
+            >
+              Kilde: 
+              Pensjonsregisteret
+               
+            </p>
           </div>
         </div>
       </div>

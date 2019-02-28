@@ -21,7 +21,7 @@ Array [
           <img
             alt=""
             className="icon"
-            src="pensjonist.png"
+            src="spare-pensjonsgris.svg"
           />
         </div>
         <div
@@ -30,18 +30,21 @@ Array [
           <div
             className="link-box-content"
           >
-            <div
-              className="link-info"
+            <p
+              className="typo-ingress"
             >
-              NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
-            </div>
-            <a
-              href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til Din pensjon
-            </a>
+              <div>
+                NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
+              </div>
+              <a
+                className="lenke"
+                href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gå til Din pensjon
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -85,18 +88,21 @@ Array [
           <div
             className="link-box-content"
           >
-            <div
-              className="link-info"
+            <p
+              className="typo-ingress"
             >
-              Oversikt over dine saker og kommunikasjon med NAV
-            </div>
-            <a
-              href="https://tjenester.nav.no/saksoversikt/app"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til saksoversikt
-            </a>
+              <div>
+                Oversikt over dine saker og kommunikasjon med NAV
+              </div>
+              <a
+                className="lenke"
+                href="https://tjenester.nav.no/saksoversikt/app"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gå til saksoversikt
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -130,18 +136,21 @@ Array [
           <div
             className="link-box-content"
           >
-            <div
-              className="link-info"
+            <p
+              className="typo-ingress"
             >
-              Oversikt over dine utbetalinger fra NAV
-            </div>
-            <a
-              href="https://tjenester.nav.no/utbetalingsoversikt/"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til utbetalinger
-            </a>
+              <div>
+                Oversikt over dine utbetalinger fra NAV
+              </div>
+              <a
+                className="lenke"
+                href="https://tjenester.nav.no/utbetalingsoversikt/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gå til utbetalinger
+              </a>
+            </p>
           </div>
         </div>
       </div>
@@ -175,18 +184,21 @@ Array [
           <div
             className="link-box-content"
           >
-            <div
-              className="link-info"
+            <p
+              className="typo-ingress"
             >
-              Din CV og lagrede stillingssøk
-            </div>
-            <a
-              href="https://arbeidsplassen.nav.no/minside"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              Gå til CV/stillingssøk
-            </a>
+              <div>
+                Din CV og lagrede stillingssøk
+              </div>
+              <a
+                className="lenke"
+                href="https://arbeidsplassen.nav.no/minside"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Gå til CV/stillingssøk
+              </a>
+            </p>
           </div>
         </div>
       </div>

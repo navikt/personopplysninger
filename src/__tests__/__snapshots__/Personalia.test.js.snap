@@ -52,9 +52,13 @@ exports[`render Personalia with content 1`] = `
         <div
           className="box-footer"
         >
-          <span>
-            Kilde: NAV, Folkeregisteret
-          </span>
+          <p
+            className="typo-undertekst"
+          >
+            <span>
+              Kilde: NAV, Folkeregisteret
+            </span>
+          </p>
         </div>
       </div>
     </div>

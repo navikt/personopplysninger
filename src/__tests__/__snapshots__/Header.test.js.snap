@@ -42,7 +42,7 @@ exports[`render Header with content 1`] = `
         <span
           dangerouslySetInnerHTML={
             Object {
-              "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
+              "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer' class='lenke'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
             }
           }
         />
