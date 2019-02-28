@@ -2,7 +2,7 @@ import koffert from "../../assets/img/koffert.svg";
 import papirstabel from "../../assets/img/papirstabel.svg";
 import penger from "../../assets/img/penger.svg";
 import jobbsok from "../../assets/img/jobbsok.svg";
-import pensjonist from "../../assets/img/pensjonist.png";
+import sparegris from "../../assets/img/spare-pensjonsgris.svg";
 
 export default [
   {
@@ -22,7 +22,7 @@ export default [
       "NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.",
     linkText: "Gå til Din pensjon",
     url: "https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf",
-    icon: pensjonist,
+    icon: sparegris,
     visible: true
   },
   {
@@ -34,7 +34,7 @@ export default [
     icon: papirstabel,
     infoBoxContent: {
       __html:
-        'Hvis du er part i en sak hos NAV, kan du få innsyn i sakens dokumenter i tjenesten Dine saker på nav.no. På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises. Du kan også be om partsinnsyn ved å kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a href="" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.'
+        'Hvis du er part i en sak hos NAV, kan du få innsyn i sakens dokumenter i tjenesten Dine saker på nav.no. På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises. Du kan også be om partsinnsyn ved å kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a class="lenke" href="" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.'
     },
     visible: true
   },

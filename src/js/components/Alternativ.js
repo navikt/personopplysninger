@@ -3,6 +3,7 @@
 import React from "react";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import PropTypes from "prop-types";
+import { Normaltekst } from "nav-frontend-typografi";
 
 const Alternativ = props => {
   const { description, content } = props;
@@ -13,7 +14,9 @@ const Alternativ = props => {
         tittel={description}
         tittelProps="element"
       >
-        <div dangerouslySetInnerHTML={content} />
+        <Normaltekst>
+          <div dangerouslySetInnerHTML={content} />
+        </Normaltekst>
       </Ekspanderbartpanel>
     </React.Fragment>
   );
