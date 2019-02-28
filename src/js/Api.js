@@ -1,7 +1,9 @@
 // import conf from 'js/Config';
 import Environment from "./utils/Environments";
 
+const { apiUrl } = Environment();
 const parseJson = data => data.json();
+
 const sjekkAuth = response =>
   response.status === 401 ||
   response.status === 403 ||
@@ -24,8 +26,7 @@ const hentJsonOgSjekkAuth = url =>
       .catch(reject)
   );
 
-const fetchPersonInfo = () =>
-  hentJsonOgSjekkAuth(`${Environment().apiUrl}/personalia`);
+const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
 
 export default {
   fetchPersonInfo
