@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Ingress, Systemtittel } from "nav-frontend-typografi";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Panel from "nav-frontend-paneler";
 import infoContent from "../static/infoContent";
 
-const Box = props => {
+const Box = (props) => {
   const { header, icon, infoType, children, id } = props;
-
-  const erMobil = window.innerWidth <= 420;
+  const [erMobil, setErMobil] = useState(window.innerWidth <= 420);
 
   const desktopVersjon = (
     <Panel className="box" id={id}>
@@ -42,6 +41,15 @@ const Box = props => {
       </Ekspanderbartpanel>
     </div>
   );
+
+
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setErMobil(window.innerWidth <= 420));
+    return () => {
+      window.removeEventListener("resize", () => setErMobil(window.innerWidth <= 420));
+    };
+  });
 
   return <>{erMobil ? mobilVersjon : desktopVersjon}</>;
 };
