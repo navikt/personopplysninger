@@ -29,7 +29,7 @@ class App extends Component {
     if (loading) {
       return (
         <div className="spinner-wrapper">
-          <NavFrontendSpinner />
+          <NavFrontendSpinner type="XL" />
         </div>
       );
     }
