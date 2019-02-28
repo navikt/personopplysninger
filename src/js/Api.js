@@ -24,7 +24,9 @@ const hentJsonOgSjekkAuth = url =>
       .catch(reject)
   );
 
-const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${Environment().apiUrl}`);
+const fetchPersonInfo = () =>
+  hentJsonOgSjekkAuth(`${Environment().apiUrl}/personalia`);
+
 export default {
   fetchPersonInfo
 };

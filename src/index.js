@@ -7,6 +7,7 @@ import App from "js/App";
 import api from "js/Api";
 import nb from "react-intl/locale-data/nb";
 import en from "react-intl/locale-data/en";
+import { setUpMock } from "./mock-api";
 import "css/index.css";
 
 import nbMessages from "./translations/nb.json";
@@ -18,8 +19,11 @@ const messages = {
 };
 
 const browserLanguage = navigator.language.split(/[-_]/)[0];
-
 addLocaleData([...nb, ...en]);
+
+if (process.env.NODE_ENV === "development") {
+  setUpMock();
+}
 
 ReactDOM.render(
   // eslint-disable-line function-paren-newline
