@@ -2,9 +2,19 @@ import fetchMock from "fetch-mock";
 import personalia from "./personalia.json";
 import Environment from "../js/utils/Environments";
 
-const delay = new Promise(res => setTimeout(res, 100));
+const { apiUrl } = Environment();
+
+const delay = (min, max) => {
+  return new Promise(resolve => {
+    setTimeout(resolve, Math.random() * (max - min) + min);
+  });
+};
+
 export const setUpMock = async () => {
-  fetchMock.get(`${Environment().apiUrl}/personalia`, delay.then(personalia));
+  fetchMock.get(
+    `${apiUrl}/personalia`,
+    delay(200, 1000).then(() => personalia)
+  );
 };
 
 export default setUpMock;
