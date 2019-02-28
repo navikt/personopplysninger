@@ -1,16 +1,20 @@
 // import conf from 'js/Config';
 import Environment from "./utils/Environments";
 
-const { apiUrl } = Environment();
+const { apiUrl, loginUrl } = Environment();
 const parseJson = data => data.json();
+
+const sendTilLogin = () =>
+  new Promise((resolve, reject) => {
+    window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
+    setTimeout(reject, 5000);
+  });
 
 const sjekkAuth = response =>
   response.status === 401 ||
   response.status === 403 ||
   (response.status === 0 && !response.ok)
-    ? window.location.assign(
-      `${Environment().loginUrl}?redirect=${window.location.href}`
-    )
+    ? sendTilLogin()
     : response;
 
 const sjekkForFeil = (response, reject) =>
@@ -38,7 +42,6 @@ const hentJsonOgSjekkAuth = url =>
   );
 
 const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
-
 export default {
   fetchPersonInfo
 };
