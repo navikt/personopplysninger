@@ -1,16 +1,25 @@
-import React, { Component } from "react";
+import React from "react";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { Systemtittel } from "nav-frontend-typografi";
 import Box from "js/components/Box";
 
-class Familierelasjoner extends Component {
-  render() {
-    return (
-      <Box header="Familierelasjoner">
-        <div className="header-content">
-          <h3>Familierelasjoner</h3>
-        </div>
-      </Box>
-    );
-  }
-}
+const Familierelasjoner = ({ intl }) => {
+  return (
+    <Box
+      id="familierelasjoner"
+      header={intl.formatMessage({ id: "familierelasjoner.tittel" })}
+    >
+      <div className="header-content">
+        <Systemtittel>
+          <FormattedMessage id="familierelasjoner.tittel" />
+        </Systemtittel>
+      </div>
+    </Box>
+  );
+};
 
-export default Familierelasjoner;
+Familierelasjoner.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(Familierelasjoner);

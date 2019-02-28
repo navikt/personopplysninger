@@ -2,8 +2,9 @@
 
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Box from "js/components/Box";
 import { FormattedMessage } from "react-intl";
+import { Undertekst } from "nav-frontend-typografi";
+import Box from "js/components/Box";
 import kvinne from "../../assets/img/kvinne.svg";
 import mann from "../../assets/img/mann.png";
 import ListElement from "./ListElement";
@@ -78,7 +79,9 @@ class Personalia extends Component {
           )}
         </ul>
         <div className="box-footer">
-          <FormattedMessage id="personalia.source" />
+          <Undertekst>
+            <FormattedMessage id="personalia.source" />
+          </Undertekst>
         </div>
       </Box>
     );

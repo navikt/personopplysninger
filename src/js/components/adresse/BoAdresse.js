@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Undertekst } from "nav-frontend-typografi";
 import * as moment from "moment";
 import "moment/min/locales";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
@@ -84,7 +85,9 @@ const BoAdresse = props => {
           ) : null}
         </ul>
         <div className="box-footer">
-          <FormattedMessage id="adresse.source" />
+          <Undertekst>
+            <FormattedMessage id="adresse.source" />
+          </Undertekst>
         </div>
       </div>
     </Box>
