@@ -1,19 +1,21 @@
 .box {
-  margin: 3rem 0 3rem 0;
-  @media @mobile {
+  @media @desktop {
+    margin: 3rem 0 3rem 0;
+    padding: 2rem 4rem;
+  }
+  @media @tablet {
     margin: 1rem 0 1rem 0;
   }
 
   &__header {
     display: flex;
     flex-flow: column;
-    padding: 0 1.5rem 0 1.5rem;
     align-items: center;
     text-align: center;
   }
 
   &__header > * {
-    margin: 1rem;
+    margin: 1rem 0;
   }
 
   &__icon {
@@ -36,49 +38,35 @@
   }
 
   &__content {
-    ul.list-column-1 {
+    ul {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       list-style-type: none;
+      padding-left: 0;
+    }
 
-      li {
-        padding: 1rem;
-        flex-grow: 1;
-        width: 100%;
+    li {
+      flex-grow: 1;
+      box-sizing: border-box;
+      padding: 1rem 2rem 1rem 0rem;
 
-        .title {
-          font-weight: bold;
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
+      .title {
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
 
-    ul.list-column-2 {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      list-style-type: none;
+    ul.list-column-1 li {
+      width: 100%;
+    }
 
-      li {
-        padding: 1rem;
-        flex-grow: 1;
-        width: 40%;
-
-        @media @tablet {
-          width: 100%;
-        }
-
-        .title {
-          font-weight: bold;
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
+    ul.list-column-2 li {
+      width: 50%;
+      @media @mobile {
+        width: 100%;
       }
     }
 
@@ -104,53 +92,17 @@
       }
     }
 
-    ul.list-column-3 {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      list-style-type: none;
-
-      li {
-        padding: 1rem;
-        flex-grow: 1;
-        width: 40%;
-
-        @media @tablet {
-          width: 100%;
-        }
-
-        .title {
-          font-weight: bold;
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
+    ul.list-column-3 li {
+      width: 33%;
+      @media @mobile {
+        width: 100%;
       }
     }
 
-    ul.list-column-4 {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      list-style-type: none;
-
-      li {
-        padding: 1rem;
-        flex-grow: 1;
-        width: 20%;
-
-        @media @tablet {
-          width: 100%;
-        }
-
-        .title {
-          font-weight: bold;
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
+    ul.list-column-4 li {
+      width: 25%;
+      @media @mobile {
+        width: 100%;
       }
     }
   }
