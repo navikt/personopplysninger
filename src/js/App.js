@@ -14,13 +14,13 @@ class App extends Component {
     this.state = initialState;
   }
 
-  componentWillMount() {
+  componentDidMount() {
     const { api } = this.props;
     api
       .fetchPersonInfo()
       .then(response => this.setState({ ...response }))
       .catch(error => this.setState({ ...error }))
-      .then(this.setState({ loading: false }));
+      .then(() => this.setState({ loading: false }));
   }
 
   render() {
