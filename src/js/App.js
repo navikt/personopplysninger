@@ -19,12 +19,12 @@ class App extends Component {
     api
       .fetchPersonInfo()
       .then(response => this.setState({ ...response }))
-      .catch(error => this.setState({ status: error }))
+      .catch(error => this.setState({ ...error }))
       .then(this.setState({ loading: false }));
   }
 
   render() {
-    const { status, personalia, adresser, loading } = this.state;
+    const { error, personalia, adresser, loading } = this.state;
 
     if (loading) {
       return (
@@ -34,10 +34,10 @@ class App extends Component {
       );
     }
 
-    if (status === 500) {
+    if (error) {
       return (
         <main role="main">
-          <Error statusCode={status} />
+          <Error error={error} />
         </main>
       );
     }

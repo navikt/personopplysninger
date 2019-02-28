@@ -13,6 +13,16 @@ const sjekkAuth = response =>
     )
     : response;
 
+const sjekkForFeil = (response, reject) =>
+  response.ok
+    ? response
+    : reject({
+      error: {
+        code: response.status,
+        text: response.statusText
+      }
+    });
+
 const hentJsonOgSjekkAuth = url =>
   new Promise((resolve, reject) =>
     fetch(url, {
@@ -21,6 +31,7 @@ const hentJsonOgSjekkAuth = url =>
       credentials: "include"
     })
       .then(sjekkAuth)
+      .then(response => sjekkForFeil(response, reject))
       .then(parseJson)
       .then(resolve)
       .catch(reject)

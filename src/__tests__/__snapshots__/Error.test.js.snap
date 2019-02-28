@@ -41,7 +41,7 @@ exports[`render Error 1`] = `
     >
       Oisann, noe gikk galt!
       <span>
-         500 Internal Server Error
+         0: 
       </span>
     </span>
   </div>
