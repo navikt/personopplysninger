@@ -5,10 +5,9 @@ const { apiUrl, loginUrl } = Environment();
 const parseJson = data => data.json();
 
 const sendTilLogin = () =>
-  new Promise((resolve, reject) => {
-    window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
-    setTimeout(reject, 5000);
-  });
+  new Promise(() =>
+    window.location.assign(`${loginUrl}?redirect=${window.location.href}`)
+  );
 
 const sjekkAuth = response =>
   response.status === 401 ||
