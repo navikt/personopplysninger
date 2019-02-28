@@ -46,7 +46,7 @@ const Box = (props) => {
 
   useEffect(() => {
     window.addEventListener("resize", () => setErMobil(window.innerWidth <= 420));
-    return function cleanup() {
+    return () => {
       window.removeEventListener("resize", () => setErMobil(window.innerWidth <= 420));
     };
   });
