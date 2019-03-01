@@ -4,7 +4,7 @@ import Environment from "../js/utils/Environments";
 
 const { apiUrl } = Environment();
 
-const delay = (min, max) => {
+const delay = (min: number, max: number) => {
   return new Promise(resolve => {
     setTimeout(resolve, Math.random() * (max - min) + min);
   });
@@ -13,5 +13,3 @@ const delay = (min, max) => {
 export const setUpMock = async () => {
   fetchMock.get(`${apiUrl}/personalia`, delay(50, 200).then(() => personalia));
 };
-
-export default setUpMock;

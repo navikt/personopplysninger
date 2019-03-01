@@ -1,15 +1,14 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
-import ContentWrapper from "js/ContentWrapper";
-import Error from "js/components/Error";
 import NavFrontendSpinner from "nav-frontend-spinner";
-import { Meny, Filler } from "js/components/Meny";
+import { Meny, Filler } from "./components/Meny";
+import Error from "./components/Error";
+import ContentWrapper from "./ContentWrapper";
 import "less/index.less";
 
 import initialState from "./initialState";
 
-class App extends Component {
-  constructor(props) {
+class App extends Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = initialState;
   }
@@ -18,8 +17,8 @@ class App extends Component {
     const { api } = this.props;
     api
       .fetchPersonInfo()
-      .then(response => this.setState({ ...response }))
-      .catch(error => this.setState({ ...error }))
+      .then((response: any) => this.setState({ ...response }))
+      .catch((error: any) => this.setState({ ...error }))
       .then(() => this.setState({ loading: false }));
   }
 
@@ -51,11 +50,5 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  api: PropTypes.shape({
-    fetchPersonInfo: PropTypes.func.isRequired
-  }).isRequired
-};
 
 export default App;

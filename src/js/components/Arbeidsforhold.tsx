@@ -1,9 +1,9 @@
 import React from "react";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import { Systemtittel } from "nav-frontend-typografi";
-import Box from "js/components/Box";
+import Box from "./Box";
 
-const Arbeidsforhold = ({ intl }) => {
+const Arbeidsforhold = ({ intl }: InjectedIntlProps) => {
   return (
     <Box
       id="arbeidsforhold"
@@ -16,10 +16,6 @@ const Arbeidsforhold = ({ intl }) => {
       </div>
     </Box>
   );
-};
-
-Arbeidsforhold.propTypes = {
-  intl: intlShape.isRequired
 };
 
 export default injectIntl(Arbeidsforhold);

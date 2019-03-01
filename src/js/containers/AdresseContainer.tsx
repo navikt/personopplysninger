@@ -6,7 +6,7 @@ import PostAdresse from "../components/adresse/PostAdresse";
 import UtenlandskAdresse from "../components/adresse/UtenlandskAdresse";
 import MidlertidigAdresse from "../components/adresse/MidlertidigAdresse";
 
-const AdresseContainer = props => {
+const AdresseContainer = (props: any) => {
   const { adresseInfo } = props;
   return (
     <div>

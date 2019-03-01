@@ -1,15 +1,14 @@
 /* eslint-disable */
 
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import { Undertekst } from "nav-frontend-typografi";
-import Box from "js/components/Box";
+import Box from "./Box";
 import kvinne from "../../assets/img/kvinne.svg";
 import mann from "../../assets/img/mann.png";
 import ListElement from "./ListElement";
 
-class Personalia extends Component {
+class Personalia extends Component<any, any> {
   render() {
     const {
       personident,
@@ -88,6 +87,7 @@ class Personalia extends Component {
   }
 }
 
+/*
 Personalia.propTypes = {
   // datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
   epostadr: PropTypes.string,
@@ -133,5 +133,7 @@ Personalia.defaultProps = {
   kjoenn: ""
   // datakilder: [{}],
 };
+
+*/
 
 export default Personalia;

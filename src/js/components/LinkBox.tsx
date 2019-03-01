@@ -1,7 +1,6 @@
 /* eslint-disable react/no-danger */
 
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import {
   Undertekst,
   Ingress,
@@ -12,8 +11,8 @@ import Box from "./Box";
 import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
 
-class LinkBox extends Component {
-  constructor(props) {
+class LinkBox extends Component<any, any> {
+  constructor(props: any) {
     super(props);
     this.state = { displayInfo: false };
   }
@@ -28,7 +27,7 @@ class LinkBox extends Component {
       kilde,
       icon,
       infoBoxContent
-    } = this.props;
+    }: any = this.props;
 
     const { displayInfo } = this.state;
 
@@ -82,6 +81,7 @@ class LinkBox extends Component {
   }
 }
 
+/*
 LinkBox.propTypes = {
   id: PropTypes.string.isRequired,
   icon: PropTypes.string,
@@ -104,5 +104,6 @@ LinkBox.defaultProps = {
   kilde: "",
   infoBoxContent: null
 };
+*/
 
 export default LinkBox;

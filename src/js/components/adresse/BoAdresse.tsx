@@ -1,16 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Undertekst } from "nav-frontend-typografi";
-import * as moment from "moment";
-import "moment/min/locales";
+import moment from "moment";
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
-import Box from "js/components/Box";
+import Box from "../Box";
 import hus from "../../../assets/img/hus.svg";
 import ListElement from "../ListElement";
 
 moment.locale("nb");
 
-const BoAdresse = props => {
+const BoAdresse = (props: any) => {
   const {
     adresse,
     postnummer,

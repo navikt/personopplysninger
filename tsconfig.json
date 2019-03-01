@@ -14,5 +14,7 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve"
-  }
+  },
+  "include": ["src"],
+  "exclude": ["src/build", "src/assets"]
 }

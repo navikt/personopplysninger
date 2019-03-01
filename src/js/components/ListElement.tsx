@@ -10,12 +10,14 @@ const ListElement = ({
   content,
   classNameTitle,
   classNameContent
-}) => (
+}: any) => (
   <li className={className}>
     <Element className={`title ${classNameTitle}`}>
       {titleId ? <FormattedMessage id={titleId} /> : title}
     </Element>
-    <Normaltekst className={`content ${classNameContent}`}>{content}</Normaltekst>
+    <Normaltekst className={`content ${classNameContent}`}>
+      {content}
+    </Normaltekst>
   </li>
 );
 

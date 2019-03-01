@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const InfoBox = props => {
+const InfoBox = (props: any) => {
   const { children } = props;
   return (
     <React.Fragment>
       <div className="BoxContainer">
         <div className="InfoBox">
-          <hr width="32px" />
+          <hr style={{ width: "32px" }} />
           {children}
         </div>
       </div>

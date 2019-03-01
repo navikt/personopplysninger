@@ -1,11 +1,10 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
-import PropTypes from "prop-types";
 import { Ingress, Innholdstittel } from "nav-frontend-typografi";
 import group from "../../assets/img/group.svg";
 import veileder from "../../assets/img/veileder.svg";
 
-const Header = props => {
+const Header = (props: any) => {
   const { fornavn } = props;
   return (
     <div className="header">
@@ -33,14 +32,6 @@ const Header = props => {
       </div>
     </div>
   );
-};
-
-Header.propTypes = {
-  fornavn: PropTypes.string
-};
-
-Header.defaultProps = {
-  fornavn: ""
 };
 
 export default Header;

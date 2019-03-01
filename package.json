@@ -5,6 +5,23 @@
   "author": "NAV",
   "license": "MIT",
   "homepage": "/person/personopplysninger/",
+  "scripts": {
+    "docker-build": "docker build . -t personopplysninger",
+    "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
+    "docker-kill": "npm run docker-stop && npm run docker-rm",
+    "docker-rm": "docker rm personopplysninger",
+    "docker-stop": "docker stop personopplysninger",
+    "clean": "rimraf ./build",
+    "lint": "./node_modules/.bin/eslint ./",
+    "server": "node ./server.js",
+    "start-js": "API_URL=/mock-api/person-info.json node scripts/start.js",
+    "start": "npm-run-all -p watch-css start-js",
+    "watch-css": "less-watch-compiler",
+    "build-css": "less-watch-compiler --run-once",
+    "build-js": "node scripts/build.js",
+    "build": "npm-run-all -p build-css build-js",
+    "test": "node scripts/test.js --env=jsdom --coverage"
+  },
   "dependencies": {
     "@babel/core": "7.3.4",
     "@svgr/webpack": "4.1.0",
@@ -87,6 +104,7 @@
     "sass-loader": "7.1.0",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "1.2.3",
+    "typescript": "^3.3.3333",
     "url-loader": "1.1.2",
     "webpack": "4.29.5",
     "webpack-dev-server": "^3.2.1",
@@ -94,22 +112,25 @@
     "whatwg-fetch": "3.0.0",
     "workbox-webpack-plugin": "3.6.3"
   },
-  "scripts": {
-    "docker-build": "docker build . -t personopplysninger",
-    "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
-    "docker-kill": "npm run docker-stop && npm run docker-rm",
-    "docker-rm": "docker rm personopplysninger",
-    "docker-stop": "docker stop personopplysninger",
-    "clean": "rimraf ./build",
-    "lint": "./node_modules/.bin/eslint ./",
-    "server": "node ./server.js",
-    "start-js": "API_URL=/mock-api/person-info.json node scripts/start.js",
-    "start": "npm-run-all -p watch-css start-js",
-    "watch-css": "less-watch-compiler",
-    "build-css": "less-watch-compiler --run-once",
-    "build-js": "node scripts/build.js",
-    "build": "npm-run-all -p build-css build-js",
-    "test": "node scripts/test.js --env=jsdom --coverage"
+  "devDependencies": {
+    "@types/fetch-mock": "^7.2.3",
+    "@types/moment": "^2.13.0",
+    "@types/react": "^16.8.5",
+    "@types/react-dom": "^16.8.2",
+    "@types/react-intl": "^2.3.17",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-config-react-app": "^3.0.5",
+    "eslint-loader": "2.1.2",
+    "eslint-plugin-flowtype": "3.4.2",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
+    "jest-fetch-mock": "^2.1.1",
+    "less": "^3.9.0",
+    "less-plugin-npm-import": "^2.1.0",
+    "prettier": "^1.16.4"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -153,21 +174,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "devDependencies": {
-    "eslint": "^5.3.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.0.0",
-    "eslint-config-react-app": "^3.0.5",
-    "eslint-loader": "2.1.2",
-    "eslint-plugin-flowtype": "3.4.2",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.12.4",
-    "jest-fetch-mock": "^2.1.1",
-    "less": "^3.9.0",
-    "less-plugin-npm-import": "^2.1.0",
-    "prettier": "^1.16.4"
   },
   "browserslist": [
     ">0.2%",

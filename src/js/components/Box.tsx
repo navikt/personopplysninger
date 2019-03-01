@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import { Ingress, Systemtittel } from "nav-frontend-typografi";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Panel from "nav-frontend-paneler";
 import infoContent from "../static/infoContent";
 
-const Box = (props) => {
+const Box = (props: any) => {
   const { header, icon, infoType, children, id } = props;
   const [erMobil, setErMobil] = useState(window.innerWidth <= 420);
 
   const desktopVersjon = (
-    <Panel className="box" id={id}>
-      <div className="box__header">
+    <Panel className="box">
+      <div className="box__header" id={id}>
         {icon ? <img src={icon} alt="" className="box__icon" /> : null}
         {header ? <Systemtittel>{header}</Systemtittel> : null}
         {infoType ? (
@@ -42,34 +41,18 @@ const Box = (props) => {
     </div>
   );
 
-
-
   useEffect(() => {
-    window.addEventListener("resize", () => setErMobil(window.innerWidth <= 420));
+    window.addEventListener("resize", () =>
+      setErMobil(window.innerWidth <= 420)
+    );
     return () => {
-      window.removeEventListener("resize", () => setErMobil(window.innerWidth <= 420));
+      window.removeEventListener("resize", () =>
+        setErMobil(window.innerWidth <= 420)
+      );
     };
   });
 
   return <>{erMobil ? mobilVersjon : desktopVersjon}</>;
-};
-
-Box.propTypes = {
-  id: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node
-  ]),
-  header: PropTypes.string,
-  icon: PropTypes.string,
-  infoType: PropTypes.string
-};
-
-Box.defaultProps = {
-  children: [],
-  header: "",
-  icon: "",
-  infoType: ""
 };
 
 export default Box;

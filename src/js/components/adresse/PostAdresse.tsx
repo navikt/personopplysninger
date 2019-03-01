@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
-import Box from "js/components/Box";
+import Box from "../Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
-const PostAdresse = props => {
+const PostAdresse = (props: any) => {
   const {
     adresse1,
     adresse2,
@@ -46,7 +46,7 @@ PostAdresse.propTypes = {
   adresse3: PropTypes.string,
   land: PropTypes.string,
   postnummer: PropTypes.string,
-  poststed: PropTypes.string,
+  poststed: PropTypes.string
 };
 
 PostAdresse.defaultProps = {
@@ -55,7 +55,7 @@ PostAdresse.defaultProps = {
   adresse3: "",
   land: "",
   postnummer: "",
-  poststed: "",
+  poststed: ""
 };
 
 export default injectIntl(PostAdresse);

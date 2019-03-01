@@ -1,9 +1,9 @@
 import React from "react";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import { Systemtittel } from "nav-frontend-typografi";
-import Box from "js/components/Box";
+import Box from "./Box";
 
-const Familierelasjoner = ({ intl }) => {
+const Familierelasjoner = ({ intl }: InjectedIntlProps) => {
   return (
     <Box
       id="familierelasjoner"
@@ -16,10 +16,6 @@ const Familierelasjoner = ({ intl }) => {
       </div>
     </Box>
   );
-};
-
-Familierelasjoner.propTypes = {
-  intl: intlShape.isRequired
 };
 
 export default injectIntl(Familierelasjoner);

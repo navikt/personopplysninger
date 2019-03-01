@@ -5,15 +5,11 @@ import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import PropTypes from "prop-types";
 import { Normaltekst } from "nav-frontend-typografi";
 
-const Alternativ = props => {
+const Alternativ = (props: any) => {
   const { description, content } = props;
   return (
     <React.Fragment>
-      <Ekspanderbartpanel
-        className="alternativ-panel"
-        tittel={description}
-        tittelProps="element"
-      >
+      <Ekspanderbartpanel tittel={description} tittelProps="element">
         <Normaltekst>
           <div dangerouslySetInnerHTML={content} />
         </Normaltekst>

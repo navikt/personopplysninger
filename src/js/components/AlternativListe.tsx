@@ -8,7 +8,9 @@ const AlternativListe = () => (
   <React.Fragment>
     <div className="BoxContainer">
       <div className="AlternativesBox box-bottom-margin">
-        <Innholdstittel><FormattedMessage id="alternativer.tittel" /></Innholdstittel>
+        <Innholdstittel>
+          <FormattedMessage id="alternativer.tittel" />
+        </Innholdstittel>
         <div className="icon-box-margin">
           {alternatives.map(alternative => (
             <Alternativ

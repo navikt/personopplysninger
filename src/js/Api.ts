@@ -1,22 +1,21 @@
-// import conf from 'js/Config';
 import Environment from "./utils/Environments";
 
 const { apiUrl, loginUrl } = Environment();
-const parseJson = data => data.json();
+const parseJson = (data: any) => data.json();
 
 const sendTilLogin = () =>
   new Promise(() =>
     window.location.assign(`${loginUrl}?redirect=${window.location.href}`)
   );
 
-const sjekkAuth = response =>
+const sjekkAuth = (response: any) =>
   response.status === 401 ||
   response.status === 403 ||
   (response.status === 0 && !response.ok)
     ? sendTilLogin()
     : response;
 
-const sjekkForFeil = (response, reject) =>
+const sjekkForFeil = (response: any, reject: any) =>
   response.ok
     ? response
     : reject({
@@ -26,7 +25,7 @@ const sjekkForFeil = (response, reject) =>
       }
     });
 
-const hentJsonOgSjekkAuth = url =>
+const hentJsonOgSjekkAuth = (url: any) =>
   new Promise((resolve, reject) =>
     fetch(url, {
       method: "GET",

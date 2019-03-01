@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import AlertStripe from "nav-frontend-alertstriper";
 
-const Error = props => {
+const Error = (props: any) => {
   const { error } = props;
   return (
     <div className="BoxContainer">

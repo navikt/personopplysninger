@@ -1,15 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { intlShape, injectIntl } from "react-intl";
-import Box from "js/components/Box";
+import Box from "../Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
-const UtenlandskAdresse = props => {
+const UtenlandskAdresse = (props: any) => {
   const { adresse1, adresse2, adresse3, land, intl } = props;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box header={intl.formatMessage({ id: "adresse.utenlandskadresse"})} id="utenlandsk_adresse">
+    <Box
+      header={intl.formatMessage({ id: "adresse.utenlandskadresse" })}
+      id="utenlandsk_adresse"
+    >
       <div className="address-box">
         <ul className="list-column-2">
           {adresse ? (

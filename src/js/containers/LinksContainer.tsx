@@ -6,7 +6,7 @@ import LinkBox from "../components/LinkBox";
 const LinksContainer = () => (
   <React.Fragment>
     {links.map(
-      (link, index) =>
+      (link: any, index) =>
         link.visible && (
           <LinkBox
             id={link.id}

@@ -3,17 +3,17 @@ import "core-js/fn/array/includes";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
-import App from "js/App";
-import api from "js/Api";
 import nb from "react-intl/locale-data/nb";
 import en from "react-intl/locale-data/en";
 import { setUpMock } from "./mock-api";
+import api from "./js/Api";
+import App from "./js/App";
 import "css/index.css";
 
 import nbMessages from "./translations/nb.json";
 import enMessages from "./translations/en.json";
 
-const messages = {
+const messages: any = {
   nb: nbMessages,
   en: enMessages
 };
