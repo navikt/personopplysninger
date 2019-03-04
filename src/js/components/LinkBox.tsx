@@ -1,5 +1,4 @@
 /* eslint-disable react/no-danger */
-
 import React, { Component } from "react";
 import {
   Undertekst,
@@ -11,11 +10,23 @@ import Box from "./Box";
 import infoIcon from "../../assets/img/infomation-circle.svg";
 import InfoBox from "./InfoBox";
 
-class LinkBox extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = { displayInfo: false };
-  }
+interface Props {
+  id: string;
+  header: string;
+  information: string;
+  linkText: string;
+  url: string;
+  kilde?: string;
+  icon?: string;
+  infoBoxContent: { __html: string };
+}
+
+interface State {
+  displayInfo: boolean;
+}
+
+class LinkBox extends Component<Props, State> {
+  state = { displayInfo: false };
 
   render() {
     const {
@@ -27,7 +38,7 @@ class LinkBox extends Component<any, any> {
       kilde,
       icon,
       infoBoxContent
-    }: any = this.props;
+    } = this.props;
 
     const { displayInfo } = this.state;
 
@@ -39,23 +50,25 @@ class LinkBox extends Component<any, any> {
 
     return (
       <Box id={id} header={header} icon={icon}>
-        {infoBoxContent ? (
-          <button
-            type="button"
-            className="information-circle"
-            onClick={() => toggleInfo()}
-          >
-            <img src={infoIcon} alt="Information" />
-          </button>
-        ) : null}
-        {displayInfo && infoBoxContent ? (
-          <InfoBox>
-            <Undertittel>Informasjon om {header}</Undertittel>
-            <Normaltekst className="info-content">
-              <div dangerouslySetInnerHTML={infoBoxContent} />
-            </Normaltekst>
-          </InfoBox>
-        ) : null}
+        {infoBoxContent && (
+          <>
+            <button
+              type="button"
+              className="information-circle"
+              onClick={() => toggleInfo()}
+            >
+              <img src={infoIcon} alt="Information" />
+            </button>
+            {displayInfo && (
+              <InfoBox>
+                <Undertittel>Informasjon om {header}</Undertittel>
+                <Normaltekst className="info-content">
+                  <div dangerouslySetInnerHTML={infoBoxContent} />
+                </Normaltekst>
+              </InfoBox>
+            )}
+          </>
+        )}
         <div className="link-box-content">
           <Ingress>{information}</Ingress>
           <Ingress>
@@ -68,42 +81,17 @@ class LinkBox extends Component<any, any> {
               {linkText}
             </a>
           </Ingress>
-          {kilde ? (
+          {kilde && (
             <div className="box-footer link-footer">
               <Undertekst>
                 Kilde: {kilde} {/* TODO: må gjøres om til intl */}
               </Undertekst>
             </div>
-          ) : null}
+          )}
         </div>
       </Box>
     );
   }
 }
-
-/*
-LinkBox.propTypes = {
-  id: PropTypes.string.isRequired,
-  icon: PropTypes.string,
-  header: PropTypes.string,
-  information: PropTypes.string,
-  url: PropTypes.string,
-  linkText: PropTypes.string,
-  kilde: PropTypes.string,
-  infoBoxContent: PropTypes.shape({
-    __html: PropTypes.string
-  })
-};
-
-LinkBox.defaultProps = {
-  icon: "",
-  header: "",
-  information: "",
-  url: "",
-  linkText: "",
-  kilde: "",
-  infoBoxContent: null
-};
-*/
 
 export default LinkBox;

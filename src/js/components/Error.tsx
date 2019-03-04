@@ -1,8 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
 import AlertStripe from "nav-frontend-alertstriper";
 
-const Error = (props: any) => {
+export interface HTTPError {
+  code: string;
+  text: string;
+}
+
+interface props {
+  error: HTTPError;
+}
+
+const Error = (props: props) => {
   const { error } = props;
   return (
     <div className="BoxContainer">
@@ -12,13 +20,6 @@ const Error = (props: any) => {
       </AlertStripe>
     </div>
   );
-};
-
-Error.propTypes = {
-  error: PropTypes.shape({
-    code: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired
-  }).isRequired
 };
 
 export default Error;

@@ -2,10 +2,15 @@
 
 import React from "react";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import PropTypes from "prop-types";
 import { Normaltekst } from "nav-frontend-typografi";
 
-const Alternativ = (props: any) => {
+interface Props {
+  description: string;
+  content: {
+    __html: string;
+  };
+}
+const Alternativ = (props: Props) => {
   const { description, content } = props;
   return (
     <React.Fragment>
@@ -16,13 +21,6 @@ const Alternativ = (props: any) => {
       </Ekspanderbartpanel>
     </React.Fragment>
   );
-};
-
-Alternativ.propTypes = {
-  description: PropTypes.string.isRequired,
-  content: PropTypes.shape({
-    __html: PropTypes.string.isRequired
-  }).isRequired
 };
 
 export default Alternativ;

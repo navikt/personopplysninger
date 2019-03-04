@@ -3,51 +3,61 @@ import NavFrontendSpinner from "nav-frontend-spinner";
 import { Meny, Filler } from "./components/Meny";
 import Error from "./components/Error";
 import ContentWrapper from "./ContentWrapper";
+import { PersonInfo } from "../types/personInfo";
+import { HTTPError } from "./components/Error";
+import api from "./Api";
 import "less/index.less";
 
-import initialState from "./initialState";
+type State =
+  | { status: "LOADING" }
+  | { status: "RESULT"; personInfo: PersonInfo }
+  | { status: "ERROR"; error: HTTPError };
 
-class App extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    this.state = initialState;
-  }
+class App extends Component<{}, State> {
+  state: State = {
+    status: "LOADING"
+  };
 
   componentDidMount() {
-    const { api } = this.props;
     api
       .fetchPersonInfo()
-      .then((response: any) => this.setState({ ...response }))
-      .catch((error: any) => this.setState({ ...error }))
-      .then(() => this.setState({ loading: false }));
+      .then((personInfo: PersonInfo) =>
+        this.setState({
+          status: "RESULT",
+          personInfo
+        })
+      )
+      .catch((error: HTTPError) =>
+        this.setState({
+          status: "ERROR",
+          error
+        })
+      );
   }
 
   render() {
-    const { error, personalia, adresser, loading } = this.state;
-
-    if (loading) {
-      return (
-        <div className="spinner-wrapper">
-          <NavFrontendSpinner type="XL" />
-        </div>
-      );
+    switch (this.state.status) {
+      case "LOADING":
+        return (
+          <div className="spinner-wrapper">
+            <NavFrontendSpinner type="XL" />
+          </div>
+        );
+      case "RESULT":
+        return (
+          <main role="main">
+            <Meny />
+            <ContentWrapper personInfo={this.state.personInfo} />
+            <Filler />
+          </main>
+        );
+      case "ERROR":
+        return (
+          <main role="main">
+            <Error error={this.state.error} />
+          </main>
+        );
     }
-
-    if (error) {
-      return (
-        <main role="main">
-          <Error error={error} />
-        </main>
-      );
-    }
-
-    return (
-      <main role="main">
-        <Meny />
-        <ContentWrapper personalia={personalia} adresser={adresser} />
-        <Filler />
-      </main>
-    );
   }
 }
 

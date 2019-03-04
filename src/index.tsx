@@ -6,14 +6,17 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import nb from "react-intl/locale-data/nb";
 import en from "react-intl/locale-data/en";
 import { setUpMock } from "./mock-api";
-import api from "./js/Api";
 import App from "./js/App";
 import "css/index.css";
 
 import nbMessages from "./translations/nb.json";
 import enMessages from "./translations/en.json";
 
-const messages: any = {
+interface Messages {
+  [key: string]: { [key: string]: string };
+}
+
+const messages: Messages = {
   nb: nbMessages,
   en: enMessages
 };
@@ -28,7 +31,7 @@ if (process.env.NODE_ENV === "development") {
 ReactDOM.render(
   // eslint-disable-line function-paren-newline
   <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
-    <App api={api} />
+    <App />
   </IntlProvider>,
   document.getElementById("app")
 );

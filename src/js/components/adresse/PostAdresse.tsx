@@ -1,20 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { injectIntl, intlShape } from "react-intl";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 import Box from "../Box";
 import ListElement from "../ListElement";
+import { Postadresse } from "../../../types/adresser/postadresse";
 import { mergeAddress } from "../../utils/text";
 
-const PostAdresse = (props: any) => {
+type Props = { postadresse: Postadresse } & InjectedIntlProps;
+const PostAdresse = (props: Props) => {
+  const { intl } = props;
   const {
     adresse1,
     adresse2,
     adresse3,
     postnummer,
     poststed,
-    land,
-    intl
-  } = props;
+    land
+  } = props.postadresse;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
     <Box
@@ -23,39 +24,20 @@ const PostAdresse = (props: any) => {
     >
       <div className="address-box">
         <ul className="list-column-2">
-          {adresse ? (
+          {adresse && (
             <ListElement titleId="adresse.adresse" content={adresse} />
-          ) : null}
-          {postnummer ? (
+          )}
+          {postnummer && (
             <ListElement titleId="adresse.postnummer" content={postnummer} />
-          ) : null}
-          {land ? <ListElement titleId="adresse.land" content={land} /> : null}
-          {poststed ? (
+          )}
+          {land && <ListElement titleId="adresse.land" content={land} />}
+          {poststed && (
             <ListElement titleId="adresse.poststed" content={poststed} />
-          ) : null}
+          )}
         </ul>
       </div>
     </Box>
   );
-};
-
-PostAdresse.propTypes = {
-  intl: intlShape.isRequired,
-  adresse1: PropTypes.string,
-  adresse2: PropTypes.string,
-  adresse3: PropTypes.string,
-  land: PropTypes.string,
-  postnummer: PropTypes.string,
-  poststed: PropTypes.string
-};
-
-PostAdresse.defaultProps = {
-  adresse1: "",
-  adresse2: "",
-  adresse3: "",
-  land: "",
-  postnummer: "",
-  poststed: ""
 };
 
 export default injectIntl(PostAdresse);

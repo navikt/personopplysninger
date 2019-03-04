@@ -7,8 +7,9 @@ import Box from "./Box";
 import kvinne from "../../assets/img/kvinne.svg";
 import mann from "../../assets/img/mann.png";
 import ListElement from "./ListElement";
+import { Personalia as PersonaliaType } from "../../types/personalia";
 
-class Personalia extends Component<any, any> {
+class Personalia extends Component<PersonaliaType> {
   render() {
     const {
       personident,
@@ -23,10 +24,12 @@ class Personalia extends Component<any, any> {
     } = this.props;
 
     const personidentHeader =
-      personident.type === "DNR" ? "personalia.dnr" : "personalia.fnr";
+      personident && personident.type === "DNR"
+        ? "personalia.dnr"
+        : "personalia.fnr";
 
     const fornavnHeader =
-      fornavn.indexOf(" ") === -1
+      fornavn && fornavn.indexOf(" ") === -1
         ? "personalia.first_name"
         : "personalia.first_and_middle_name";
 
@@ -34,7 +37,7 @@ class Personalia extends Component<any, any> {
       <Box
         id="personalia"
         header="Personalia"
-        icon={this.props.kjoenn === "Mann" ? mann : kvinne}
+        icon={kjoenn === "Mann" ? mann : kvinne}
         infoType="personalia"
       >
         <ul className="list-column-2">
@@ -86,54 +89,5 @@ class Personalia extends Component<any, any> {
     );
   }
 }
-
-/*
-Personalia.propTypes = {
-  // datakilder: PropTypes.arrayOf(PropTypes.shape({}).isRequired).isRequired,
-  epostadr: PropTypes.string,
-  etternavn: PropTypes.string,
-  personident: PropTypes.shape({
-    verdi: PropTypes.string,
-    type: PropTypes.string
-  }),
-  foedested: PropTypes.string,
-  fornavn: PropTypes.string,
-  kjoenn: PropTypes.string,
-  kontonr: PropTypes.string,
-  sivilstand: PropTypes.string,
-  spraak: PropTypes.string,
-  statsborgerskap: PropTypes.string,
-  tlfnr: PropTypes.shape({
-    jobb: PropTypes.string,
-    mobil: PropTypes.string,
-    privat: PropTypes.string,
-    datakilder: PropTypes.arrayOf(PropTypes.shape({}))
-  })
-};
-
-Personalia.defaultProps = {
-  fornavn: "",
-  etternavn: "",
-  personident: {
-    verdi: "",
-    type: ""
-  },
-  kontonr: "",
-  tlfnr: {
-    jobb: "",
-    mobil: "",
-    privat: ""
-    // datakilder: [{}],
-  },
-  spraak: "",
-  epostadr: "",
-  statsborgerskap: "",
-  foedested: "",
-  sivilstand: "",
-  kjoenn: ""
-  // datakilder: [{}],
-};
-
-*/
 
 export default Personalia;

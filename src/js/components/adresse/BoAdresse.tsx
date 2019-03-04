@@ -1,15 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { Undertekst } from "nav-frontend-typografi";
 import moment from "moment";
-import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Box from "../Box";
 import hus from "../../../assets/img/hus.svg";
 import ListElement from "../ListElement";
+import { Boadresse } from "../../../types/adresser/boadresse";
 
 moment.locale("nb");
 
-const BoAdresse = (props: any) => {
+type Props = { boadresse: Boadresse } & InjectedIntlProps;
+const BoAdresse = (props: Props) => {
+  const { intl } = props;
   const {
     adresse,
     postnummer,
@@ -17,16 +19,15 @@ const BoAdresse = (props: any) => {
     veiadresse,
     kommune,
     adressetillegg,
-    datoFraOgMed,
-    intl
-  } = props;
+    datoFraOgMed
+  } = props.boadresse;
 
   const formattedDate = datoFraOgMed ? moment(datoFraOgMed).format("L") : "";
   const numberOfElements = [
     adresse,
     postnummer,
     poststed,
-    veiadresse.bolignummer,
+    veiadresse && veiadresse.bolignummer,
     kommune,
     adressetillegg,
     formattedDate
@@ -59,7 +60,6 @@ const BoAdresse = (props: any) => {
       header={intl.formatMessage({ id: "adresse.bostedsadresse" })}
       icon={hus}
       infoType="adresse"
-      smallMargin
     >
       <div className="address-box">
         <ul className={`list-column-${numberOfColumns} address-columns`}>
@@ -70,12 +70,12 @@ const BoAdresse = (props: any) => {
           {poststed ? (
             <ListElement titleId="adresse.poststed" content={poststed} />
           ) : null}
-          {veiadresse.bolignummer ? (
+          {veiadresse && veiadresse.bolignummer && (
             <ListElement
               titleId="adresse.bolignummer"
               content={veiadresse.bolignummer}
             />
-          ) : null}
+          )}
           {kommune ? (
             <ListElement titleId="adresse.kommune" content={kommune} />
           ) : null}
@@ -91,31 +91,6 @@ const BoAdresse = (props: any) => {
       </div>
     </Box>
   );
-};
-
-BoAdresse.propTypes = {
-  intl: intlShape.isRequired,
-  adresse: PropTypes.string,
-  adressetillegg: PropTypes.string,
-  postnummer: PropTypes.string,
-  poststed: PropTypes.string,
-  datoFraOgMed: PropTypes.string,
-  kommune: PropTypes.string,
-  veiadresse: PropTypes.shape({
-    bokstav: PropTypes.string,
-    bolignummer: PropTypes.string,
-    gatekode: PropTypes.string,
-    husnummer: PropTypes.string
-  }).isRequired
-};
-
-BoAdresse.defaultProps = {
-  adresse: "",
-  adressetillegg: "",
-  postnummer: "",
-  poststed: "",
-  kommune: "",
-  datoFraOgMed: ""
 };
 
 export default injectIntl(BoAdresse);

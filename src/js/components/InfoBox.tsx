@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const InfoBox = (props: any) => {
+interface Props {
+  children?: Element | JSX.Element | JSX.Element[];
+}
+const InfoBox = (props: Props) => {
   const { children } = props;
   return (
     <React.Fragment>

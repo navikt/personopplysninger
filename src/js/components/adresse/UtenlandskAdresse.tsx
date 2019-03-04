@@ -1,12 +1,14 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { intlShape, injectIntl } from "react-intl";
+import { injectIntl, InjectedIntlProps } from "react-intl";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../types/adresser/utenlandskadresse";
 import Box from "../Box";
 import ListElement from "../ListElement";
 import { mergeAddress } from "../../utils/text";
 
-const UtenlandskAdresse = (props: any) => {
-  const { adresse1, adresse2, adresse3, land, intl } = props;
+type Props = { utenlandskadresse: UtenlandskAdresseType } & InjectedIntlProps;
+const UtenlandskAdresse = (props: Props) => {
+  const { intl } = props;
+  const { adresse1, adresse2, adresse3, land } = props.utenlandskadresse;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
     <Box
@@ -15,29 +17,14 @@ const UtenlandskAdresse = (props: any) => {
     >
       <div className="address-box">
         <ul className="list-column-2">
-          {adresse ? (
+          {adresse && (
             <ListElement titleId="adresse.adresse" content={adresse} />
-          ) : null}
-          {land ? <ListElement titleId="adresse.land" content={land} /> : null}
+          )}
+          {land && <ListElement titleId="adresse.land" content={land} />}
         </ul>
       </div>
     </Box>
   );
-};
-
-UtenlandskAdresse.propTypes = {
-  intl: intlShape.isRequired,
-  adresse1: PropTypes.string,
-  adresse2: PropTypes.string,
-  adresse3: PropTypes.string,
-  land: PropTypes.string
-};
-
-UtenlandskAdresse.defaultProps = {
-  adresse1: "",
-  adresse2: "",
-  adresse3: "",
-  land: ""
 };
 
 export default injectIntl(UtenlandskAdresse);

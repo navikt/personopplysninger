@@ -6,11 +6,11 @@ import LinkBox from "../components/LinkBox";
 const LinksContainer = () => (
   <React.Fragment>
     {links.map(
-      (link: any, index) =>
+      (link: any) =>
         link.visible && (
           <LinkBox
             id={link.id}
-            key={index} // eslint-disable-line react/no-array-index-key
+            key={link.id}
             icon={link.icon}
             header={link.header}
             information={link.information}

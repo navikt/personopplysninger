@@ -1,8 +1,15 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FormattedMessage } from "react-intl";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 
+interface Props {
+  title?: string;
+  titleId?: string;
+  content: string;
+  className?: string;
+  classNameTitle?: string;
+  classNameContent?: string;
+}
 const ListElement = ({
   className,
   title,
@@ -10,7 +17,7 @@ const ListElement = ({
   content,
   classNameTitle,
   classNameContent
-}: any) => (
+}: Props) => (
   <li className={className}>
     <Element className={`title ${classNameTitle}`}>
       {titleId ? <FormattedMessage id={titleId} /> : title}
@@ -20,23 +27,5 @@ const ListElement = ({
     </Normaltekst>
   </li>
 );
-
-ListElement.propTypes = {
-  title: PropTypes.string,
-  titleId: PropTypes.string,
-  content: PropTypes.string,
-  className: PropTypes.string,
-  classNameTitle: PropTypes.string,
-  classNameContent: PropTypes.string
-};
-
-ListElement.defaultProps = {
-  title: "",
-  titleId: "",
-  content: "",
-  className: "",
-  classNameTitle: "",
-  classNameContent: ""
-};
 
 export default ListElement;

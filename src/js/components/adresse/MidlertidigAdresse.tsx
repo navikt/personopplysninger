@@ -1,12 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { intlShape, injectIntl } from "react-intl";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 import Box from "../Box";
 import ListElement from "../ListElement";
+import { Tilleggsadresse } from "../../../types/adresser/tilleggsadresse";
 import { mergeAddress } from "../../utils/text";
 
-const MidlertidigAdresse = (props: any) => {
-  const { adresse1, adresse2, adresse3, postnummer, poststed, intl } = props;
+type Props = { tilleggsadresse: Tilleggsadresse } & InjectedIntlProps;
+const MidlertidigAdresse = (props: Props) => {
+  const { intl } = props;
+  const {
+    adresse1,
+    adresse2,
+    adresse3,
+    postnummer,
+    poststed
+  } = props.tilleggsadresse;
   const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
     <Box
@@ -15,36 +23,19 @@ const MidlertidigAdresse = (props: any) => {
     >
       <div className="address-box">
         <ul className="list-column-3">
-          {adresse ? (
+          {adresse && (
             <ListElement titleId="adresse.adresse" content={adresse} />
-          ) : null}
-          {postnummer ? (
+          )}
+          {postnummer && (
             <ListElement titleId="adresse.postnummer" content={postnummer} />
-          ) : null}
-          {poststed ? (
+          )}
+          {poststed && (
             <ListElement titleId="adresse.poststed" content={poststed} />
-          ) : null}
+          )}
         </ul>
       </div>
     </Box>
   );
-};
-
-MidlertidigAdresse.propTypes = {
-  intl: intlShape.isRequired,
-  adresse1: PropTypes.string,
-  adresse2: PropTypes.string,
-  adresse3: PropTypes.string,
-  poststed: PropTypes.string,
-  postnummer: PropTypes.string
-};
-
-MidlertidigAdresse.defaultProps = {
-  adresse1: "",
-  adresse2: "",
-  adresse3: "",
-  poststed: "",
-  postnummer: ""
 };
 
 export default injectIntl(MidlertidigAdresse);

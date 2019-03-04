@@ -8,14 +8,14 @@ const sendTilLogin = () =>
     window.location.assign(`${loginUrl}?redirect=${window.location.href}`)
   );
 
-const sjekkAuth = (response: any) =>
+const sjekkAuth = (response: Response): Response | Promise<any> =>
   response.status === 401 ||
   response.status === 403 ||
   (response.status === 0 && !response.ok)
     ? sendTilLogin()
     : response;
 
-const sjekkForFeil = (response: any, reject: any) =>
+const sjekkForFeil = (response: Response, reject: (reason?: any) => void) =>
   response.ok
     ? response
     : reject({
@@ -25,7 +25,7 @@ const sjekkForFeil = (response: any, reject: any) =>
       }
     });
 
-const hentJsonOgSjekkAuth = (url: any) =>
+const hentJsonOgSjekkAuth = (url: string) =>
   new Promise((resolve, reject) =>
     fetch(url, {
       method: "GET",
