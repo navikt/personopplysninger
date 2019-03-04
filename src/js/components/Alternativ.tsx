@@ -14,11 +14,13 @@ const Alternativ = (props: Props) => {
   const { description, content } = props;
   return (
     <React.Fragment>
-      <Ekspanderbartpanel tittel={description} tittelProps="element">
-        <Normaltekst>
-          <div dangerouslySetInnerHTML={content} />
-        </Normaltekst>
-      </Ekspanderbartpanel>
+      <div className="alternativ-panel">
+        <Ekspanderbartpanel tittel={description} tittelProps="element">
+          <Normaltekst>
+            <div dangerouslySetInnerHTML={content} />
+          </Normaltekst>
+        </Ekspanderbartpanel>
+      </div>
     </React.Fragment>
   );
 };
