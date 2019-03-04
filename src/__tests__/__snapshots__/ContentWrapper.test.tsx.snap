@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render ContentWrapper with content 1`] = `
+<ContentWrapper
+  personInfo={
+    Object {
+      "adresser": Object {
+        "boadresse": Object {
+          "adressetillegg": "C/O TEST TEST",
+          "datoFraOgMed": "2017-02-21",
+          "kommune": "1239",
+          "land": "Norge",
+          "matrikkeladresse": Object {},
+          "postnummer": "1239",
+          "poststed": "Jepp",
+          "veiadresse": Object {
+            "bokstav": "A",
+            "bolignummer": "H0102",
+            "gatekode": "01239",
+            "husnummer": "11",
+          },
+        },
+        "datakilder": Array [
+          Object {},
+          Object {},
+        ],
+        "geografiskTilknytning": Object {
+          "datoFraOgMed": "2018-03-13",
+          "kommune": "9999",
+        },
+        "postadresse": Object {
+          "adresse1": "12345 HFJEF IQUFJ HFURHGHQBEUQ",
+          "adresse2": "BATOOM LUNCHAGRAMA,GONGRUPEA,DD",
+          "adresse3": "GGLAM,10000 HCAMGHU,THAILAND",
+          "datoFraOgMed": "2018-03-13",
+          "land": "THA",
+          "postnummer": "",
+          "poststed": "Nittedal",
+        },
+        "prioritertAdresse": "TIAD",
+        "tilleggsadresse": Object {
+          "adresse1": "JEPP 10jfioew JIO LPFL ",
+          "adresse2": "LOOOL FKEOWIF JEWIOF WECOOOO FJEI",
+          "adresse3": "",
+          "bolignummer": "",
+          "bydel": "",
+          "datoFraOgMed": "2019-01-12",
+          "datoTilOgMed": "2023-01-11",
+          "gateKode": "0270",
+          "husbokstav": "",
+          "husnummer": "0020",
+          "kommunenummer": "0131",
+          "postboksanlegg": "",
+          "postboksnummer": "",
+          "postnummer": "2021",
+          "poststed": "JAJAJA",
+        },
+        "utenlandskAdresse": Object {
+          "adresse1": "TEST TEST TEST",
+          "adresse2": "TESTESEN",
+          "adresse3": "TEST",
+          "datoFraOgMed": "2019-02-08",
+          "datoTilOgMed": "2020-02-08",
+          "land": "CUBA",
+        },
+      },
+      "personalia": Object {
+        "datakilder": Array [
+          Object {},
+          Object {},
+          Object {},
+          Object {},
+        ],
+        "epostadr": "TODO",
+        "etternavn": "DUCK",
+        "foedested": "NOR",
+        "fornavn": "DONALD FAUNTLEROY",
+        "kjoenn": "M",
+        "kontonr": "12345678911",
+        "personident": Object {
+          "type": "FNR",
+          "verdi": "12347832",
+        },
+        "personstatus": "BOSA",
+        "sivilstand": "UGIF",
+        "spraak": "NB",
+        "statsborgerskap": "NOR",
+        "tlfnr": Object {
+          "datakilder": Array [
+            Object {},
+            Object {},
+          ],
+          "jobb": "90909090",
+          "mobil": "90909090",
+          "privat": "90909090",
+        },
+      },
+    }
+  }
+/>
+`;

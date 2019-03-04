@@ -1,8 +1,7 @@
 import * as React from "react";
-import wrapIntl from "js/IntlTestHelper";
-import InfoBox from "js/components/InfoBox";
-
-const ReactTestRenderer = require("react-test-renderer");
+import ReactTestRenderer from "react-test-renderer";
+import wrapIntl from "../js/IntlTestHelper";
+import InfoBox from "../js/components/InfoBox";
 
 test("render InfoBox with content", () => {
   const component = ReactTestRenderer.create(

@@ -52,7 +52,7 @@ exports[`render Header with content 1`] = `
   <img
     alt="Pc"
     className="header__icon-desktop"
-    src="group.svg"
+    src={[Function]}
   />
   <div
     className="header__icon-mobile-container"
@@ -60,7 +60,7 @@ exports[`render Header with content 1`] = `
     <img
       alt="Pc"
       className="header__icon-mobile"
-      src="veileder.svg"
+      src={[Function]}
     />
   </div>
 </div>

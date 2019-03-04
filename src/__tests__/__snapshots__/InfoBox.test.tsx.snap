@@ -8,7 +8,11 @@ exports[`render InfoBox with content 1`] = `
     className="InfoBox"
   >
     <hr
-      width="32px"
+      style={
+        Object {
+          "width": "32px",
+        }
+      }
     />
     <h2>
       Header

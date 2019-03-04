@@ -18,7 +18,9 @@ interface Props {
   url: string;
   kilde?: string;
   icon?: string;
-  infoBoxContent: { __html: string };
+  infoBoxContent: {
+    __html: string;
+  };
 }
 
 interface State {

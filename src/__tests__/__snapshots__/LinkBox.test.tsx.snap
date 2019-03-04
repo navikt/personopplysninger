@@ -3,10 +3,10 @@
 exports[`render LinkBox with content 1`] = `
 <div
   className="panel box"
-  id="pensjonsopptjening"
 >
   <div
     className="box__header"
+    id="pensjonsopptjening"
   >
     <h2
       className="typo-systemtittel"
@@ -17,6 +17,16 @@ exports[`render LinkBox with content 1`] = `
   <div
     className="box__content"
   >
+    <button
+      className="information-circle"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Information"
+        src={[Function]}
+      />
+    </button>
     <div
       className="link-box-content"
     >

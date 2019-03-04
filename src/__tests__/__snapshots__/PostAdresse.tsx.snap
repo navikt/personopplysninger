@@ -3,10 +3,10 @@
 exports[`render Postadresse with content 1`] = `
 <div
   className="panel box"
-  id="postadresse"
 >
   <div
     className="box__header"
+    id="postadresse"
   >
     <h2
       className="typo-systemtittel"
@@ -23,50 +23,44 @@ exports[`render Postadresse with content 1`] = `
       <ul
         className="list-column-2"
       >
-        <li
-          className=""
-        >
+        <li>
           <p
-            className="typo-element title "
+            className="typo-element title undefined"
           >
             <span>
               Adresse
             </span>
           </p>
           <p
-            className="typo-normal content "
+            className="typo-normal content undefined"
           >
             12345 HFJEF IQUFJ HFURHGHQBEUQBATOOM LUNCHAGRAMA,GONGRUPEA,DDGGLAM,10000 HCAMGHU,THAILAND
           </p>
         </li>
-        <li
-          className=""
-        >
+        <li>
           <p
-            className="typo-element title "
+            className="typo-element title undefined"
           >
             <span>
               Postnummer
             </span>
           </p>
           <p
-            className="typo-normal content "
+            className="typo-normal content undefined"
           >
             9913
           </p>
         </li>
-        <li
-          className=""
-        >
+        <li>
           <p
-            className="typo-element title "
+            className="typo-element title undefined"
           >
             <span>
               Land
             </span>
           </p>
           <p
-            className="typo-normal content "
+            className="typo-normal content undefined"
           >
             THA
           </p>
