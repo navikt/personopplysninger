@@ -25,42 +25,42 @@ exports[`render Postadresse with content 1`] = `
       >
         <li>
           <p
-            className="typo-element title undefined"
+            className="typo-element title "
           >
             <span>
               Adresse
             </span>
           </p>
           <p
-            className="typo-normal content undefined"
+            className="typo-normal content "
           >
             12345 HFJEF IQUFJ HFURHGHQBEUQBATOOM LUNCHAGRAMA,GONGRUPEA,DDGGLAM,10000 HCAMGHU,THAILAND
           </p>
         </li>
         <li>
           <p
-            className="typo-element title undefined"
+            className="typo-element title "
           >
             <span>
               Postnummer
             </span>
           </p>
           <p
-            className="typo-normal content undefined"
+            className="typo-normal content "
           >
             9913
           </p>
         </li>
         <li>
           <p
-            className="typo-element title undefined"
+            className="typo-element title "
           >
             <span>
               Land
             </span>
           </p>
           <p
-            className="typo-normal content undefined"
+            className="typo-normal content "
           >
             THA
           </p>

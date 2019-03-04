@@ -19,10 +19,10 @@ const ListElement = ({
   classNameContent
 }: Props) => (
   <li className={className}>
-    <Element className={`title ${classNameTitle}`}>
+    <Element className={`title ${classNameTitle || ""}`}>
       {titleId ? <FormattedMessage id={titleId} /> : title}
     </Element>
-    <Normaltekst className={`content ${classNameContent}`}>
+    <Normaltekst className={`content ${classNameContent || ""}`}>
       {content}
     </Normaltekst>
   </li>
