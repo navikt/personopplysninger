@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Header with content 1`] = `
+<div
+  className="header"
+>
+  <div
+    className="header__content"
+  >
+    <h1
+      className="typo-innholdstittel"
+    >
+      <span
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "Hei Donald!",
+          }
+        }
+      />
+    </h1>
+    <div
+      className="header__content-intro"
+    >
+      <p
+        className="typo-ingress"
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Her kan du se opplysninger som NAV har registrert om deg.",
+            }
+          }
+        />
+      </p>
+    </div>
+    <div
+      className="header__content-description"
+    >
+      <p
+        className="typo-ingress"
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer' class='lenke'>Les om personvern i Arbeids- og velferdsetaten her.</a>",
+            }
+          }
+        />
+      </p>
+    </div>
+  </div>
+  <img
+    alt="Pc"
+    className="header__icon-desktop"
+    src={[Function]}
+  />
+  <div
+    className="header__icon-mobile-container"
+  >
+    <img
+      alt="Pc"
+      className="header__icon-mobile"
+      src={[Function]}
+    />
+  </div>
+</div>
+`;

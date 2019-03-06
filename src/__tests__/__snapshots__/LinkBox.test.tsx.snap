@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render LinkBox with content 1`] = `
+<div
+  className="panel box"
+>
+  <div
+    className="box__header"
+    id="pensjonsopptjening"
+  >
+    <h2
+      className="typo-systemtittel"
+    >
+      Pensjon
+    </h2>
+  </div>
+  <div
+    className="box__content"
+  >
+    <button
+      className="information-circle"
+      onClick={[Function]}
+      type="button"
+    >
+      <img
+        alt="Information"
+        src={[Function]}
+      />
+    </button>
+    <div
+      className="link-box-content"
+    >
+      <p
+        className="typo-ingress"
+      >
+        NAV har opplysninger om din pensjon i en egen tjeneste.
+      </p>
+      <p
+        className="typo-ingress"
+      >
+        <a
+          className="lenke"
+          href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Gå til Din pensjon
+        </a>
+      </p>
+      <div
+        className="box-footer link-footer"
+      >
+        <p
+          className="typo-undertekst"
+        >
+          Kilde: 
+          Pensjonsregisteret
+           
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;
