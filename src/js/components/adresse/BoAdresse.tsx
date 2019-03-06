@@ -6,6 +6,7 @@ import Box from "../Box";
 import hus from "../../../assets/img/hus.svg";
 import ListElement from "../ListElement";
 import { Boadresse } from "../../../types/adresser/boadresse";
+import "moment/locale/nb";
 
 moment.locale("nb");
 
@@ -64,24 +65,24 @@ const BoAdresse = (props: Props) => {
       <div className="address-box">
         <ul className={`list-column-${numberOfColumns} address-columns`}>
           {renderAdresse()}
-          {postnummer ? (
+          {postnummer && (
             <ListElement titleId="adresse.postnummer" content={postnummer} />
-          ) : null}
-          {poststed ? (
+          )}
+          {poststed && (
             <ListElement titleId="adresse.poststed" content={poststed} />
-          ) : null}
+          )}
           {veiadresse && veiadresse.bolignummer && (
             <ListElement
               titleId="adresse.bolignummer"
               content={veiadresse.bolignummer}
             />
           )}
-          {kommune ? (
+          {kommune && (
             <ListElement titleId="adresse.kommune" content={kommune} />
-          ) : null}
-          {formattedDate ? (
+          )}
+          {formattedDate && (
             <ListElement titleId="adresse.dato" content={formattedDate} />
-          ) : null}
+          )}
         </ul>
         <div className="box-footer">
           <Undertekst>
