@@ -23,7 +23,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q1") > -1) {
     return {
-      apiUrl: "https://www-q0.nav.no/person/personopplysninger-api",
+      apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
       loginUrl: "https://loginservice-q.nav.no/login",
       logoutUrl: "https://loginservice-q.nav.no/slo"
     };
