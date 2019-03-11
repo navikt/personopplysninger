@@ -1,7 +1,7 @@
 import * as React from "react";
 import Lenke from "nav-frontend-lenker";
-import { Element } from "nav-frontend-typografi";
-import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
+import { FormattedMessage } from "react-intl";
+import { getTjenesteUrl } from "../../config";
 import account from "../../assets/img/account-circle.svg";
 
 interface Props {
@@ -17,7 +17,7 @@ const Brodsmulesti = () => (
       <img className="brodsmulesti__account" src={account} />
     </Brodsmule>
     <Brodsmule>
-      <Lenke href="https://tjenester.nav.no/dittnav/">
+      <Lenke href={`${getTjenesteUrl()}/dittnav/`}>
         <FormattedMessage id="brodsmulesti.dittnav" />
       </Lenke>
     </Brodsmule>
