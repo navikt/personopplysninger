@@ -30,11 +30,10 @@ if (process.env.NODE_ENV === "development") {
   setUpMock();
 }
 
-const init = async () => {
+export const init = async () => {
   const config = await fetchConfig();
   setConfig(config);
   ReactDOM.render(
-    // eslint-disable-line function-paren-newline
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
       <App />
     </IntlProvider>,
