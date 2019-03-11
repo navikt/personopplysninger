@@ -1,6 +1,7 @@
 import * as React from "react";
 import Lenke from "nav-frontend-lenker";
 import { Element } from "nav-frontend-typografi";
+import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import account from "../../assets/img/account-circle.svg";
 
 interface Props {
@@ -16,11 +17,13 @@ const Brodsmulesti = () => (
       <img className="brodsmulesti__account" src={account} />
     </Brodsmule>
     <Brodsmule>
-      <Lenke href="https://tjenester.nav.no/dittnav/">Ditt NAV</Lenke>
+      <Lenke href="https://tjenester.nav.no/dittnav/">
+        <FormattedMessage id="brodsmulesti.dittnav" />
+      </Lenke>
     </Brodsmule>
     /
     <Brodsmule>
-      <span>Dine personopplysninger</span>
+      <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
     </Brodsmule>
   </div>
 );
