@@ -18,12 +18,12 @@ addLocaleData([...nb, ...en]);
 
 jest.mock("react-dom", () => ({ render: jest.fn() }));
 
-it("index renders without crashing", () => {
-  require("../index"); // eslint-disable-line
+it("index renders without crashing", async () => {
+  await import("../index").then(({ init }) => init());
   expect(ReactDOM.render).toHaveBeenCalledWith(
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
       <App />
     </IntlProvider>,
     null
-  ); // eslint-disable-line
+  );
 });

@@ -4,6 +4,7 @@ import Personalia from "./components/Personalia";
 import AdresseContainer from "./containers/AdresseContainer";
 import LinksContainer from "./containers/LinksContainer";
 import AlternativListe from "./components/AlternativListe";
+import Brodsmulesti from "./components/Brodsmulesti";
 import { PersonInfo } from "../types/personInfo";
 import { formatName } from "./utils/text";
 
@@ -17,6 +18,7 @@ const ContentWrapper = ({ personInfo }: Props) => {
     <div className="Content">
       {personalia && (
         <>
+          <Brodsmulesti />
           <Header fornavn={formatName(personalia.fornavn)} />
           <Personalia
             fornavn={formatName(personalia.fornavn)}

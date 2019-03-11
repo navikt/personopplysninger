@@ -1,4 +1,5 @@
 import Environment from "./utils/Environments";
+import { Config } from "../config";
 
 const { apiUrl, loginUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -38,6 +39,11 @@ const hentJsonOgSjekkAuth = (url: string) =>
       .then(resolve)
       .catch(reject)
   );
+
+export const fetchConfig = (): Promise<Config> =>
+  fetch("/person/personopplysninger/config")
+    .then(parseJson)
+    .catch(console.error);
 
 const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
 export default {
