@@ -1,14 +1,16 @@
 import React from "react";
-import { Undertekst } from "nav-frontend-typografi";
 import moment from "moment";
-import { FormattedMessage } from "react-intl";
+import AdressePanel from "./AdressePanel";
 import ListElement from "../ListElement";
 import { Boadresse } from "../../../types/adresser/boadresse";
 import "moment/locale/nb";
 
 moment.locale("nb");
 
-type Props = { boadresse: Boadresse };
+interface Props {
+  boadresse: Boadresse;
+}
+
 const BoAdresse = (props: Props) => {
   const {
     adresse,
@@ -53,8 +55,8 @@ const BoAdresse = (props: Props) => {
   const numberOfColumns = [4, 5].includes(numberOfElements) ? 2 : 3;
 
   return (
-    <div className="address-box">
-      <ul className={`list-column-${numberOfColumns} address-columns`}>
+    <AdressePanel tittel="adresse.bostedsadresse">
+      <ul className="list-column-2 address-columns">
         {renderAdresse()}
         {postnummer && (
           <ListElement titleId="adresse.postnummer" content={postnummer} />
@@ -73,12 +75,7 @@ const BoAdresse = (props: Props) => {
           <ListElement titleId="adresse.dato" content={formattedDate} />
         )}
       </ul>
-      <div className="box-footer">
-        <Undertekst>
-          <FormattedMessage id="adresse.source" />
-        </Undertekst>
-      </div>
-    </div>
+    </AdressePanel>
   );
 };
 

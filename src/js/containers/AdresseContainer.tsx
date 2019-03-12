@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { InjectedIntlProps, injectIntl, FormattedMessage } from "react-intl";
+import { Undertekst } from "nav-frontend-typografi";
 import BoAdresse from "../components/adresse/BoAdresse";
 import PostAdresse from "../components/adresse/PostAdresse";
 import UtenlandskAdresse from "../components/adresse/UtenlandskAdresse";
@@ -19,7 +20,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
   return (
     <Box
       id="adresse"
-      header={intl.formatMessage({ id: "adresse.bostedsadresse" })}
+      header={intl.formatMessage({ id: "adresse.adresser" })}
       icon={hus}
       infoType="adresse"
     >
@@ -34,6 +35,11 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {adresser.utenlandskAdresse && (
           <UtenlandskAdresse utenlandskadresse={adresser.utenlandskAdresse} />
         )}
+      </div>
+      <div className="box-footer">
+        <Undertekst>
+          <FormattedMessage id="adresse.source" />
+        </Undertekst>
       </div>
     </Box>
   );
