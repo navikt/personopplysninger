@@ -9,7 +9,7 @@ const InfoBox = (props: Props) => {
   return (
     <React.Fragment>
       <div className="BoxContainer">
-        <div className="InfoBox">
+        <div className="infobox">
           <hr style={{ width: "32px" }} />
           {children}
         </div>
