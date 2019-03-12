@@ -56,7 +56,7 @@ const startServer = html => {
     express.static(path.resolve(__dirname, "build/static/media"))
   );
 
-  server.get("person/personopplysninger/config", (req, res) =>
+  server.get("/person/personopplysninger/config", (req, res) =>
     res.send({ tjenesteUrl: process.env.TJENESTER_URL })
   );
 
