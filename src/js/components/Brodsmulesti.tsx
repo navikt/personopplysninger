@@ -19,7 +19,7 @@ const Brodsmulesti = () => (
       <img className="brodsmulesti__account" src={account} />
     </Brodsmule>
     <Brodsmule>
-      <Lenke href={`${tjenesteUrl}/dittnav/`}>
+      <Lenke href={`${tjenesteUrl}/dittnav`}>
         <FormattedMessage id="brodsmulesti.dittnav" />
       </Lenke>
     </Brodsmule>
