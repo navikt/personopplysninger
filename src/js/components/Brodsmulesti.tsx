@@ -1,8 +1,10 @@
 import * as React from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import { getTjenesteUrl } from "../../config";
+import Environment from "../utils/Environments";
 import account from "../../assets/img/account-circle.svg";
+
+const { tjenesteUrl } = Environment();
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -17,7 +19,7 @@ const Brodsmulesti = () => (
       <img className="brodsmulesti__account" src={account} />
     </Brodsmule>
     <Brodsmule>
-      <Lenke href={`${getTjenesteUrl()}/dittnav/`}>
+      <Lenke href={`${tjenesteUrl}/dittnav/`}>
         <FormattedMessage id="brodsmulesti.dittnav" />
       </Lenke>
     </Brodsmule>
