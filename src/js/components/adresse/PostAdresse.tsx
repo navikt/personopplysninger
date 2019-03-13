@@ -1,13 +1,15 @@
 import React from "react";
-import { injectIntl, InjectedIntlProps } from "react-intl";
-import Box from "../Box";
 import ListElement from "../ListElement";
+import AdressePanel from "./AdressePanel";
+import GateAdresse from "./GateAdresse";
 import { Postadresse } from "../../../types/adresser/postadresse";
 import { mergeAddress } from "../../utils/text";
 
-type Props = { postadresse: Postadresse } & InjectedIntlProps;
+interface Props {
+  postadresse: Postadresse;
+}
+
 const PostAdresse = (props: Props) => {
-  const { intl } = props;
   const {
     adresse1,
     adresse2,
@@ -16,28 +18,24 @@ const PostAdresse = (props: Props) => {
     poststed,
     land
   } = props.postadresse;
-  const adresse = mergeAddress(adresse1, adresse2, adresse3);
   return (
-    <Box
-      header={intl.formatMessage({ id: "adresse.postadresse" })}
-      id="postadresse"
-    >
-      <div className="address-box">
-        <ul className="list-column-2">
-          {adresse && (
-            <ListElement titleId="adresse.adresse" content={adresse} />
-          )}
-          {postnummer && (
-            <ListElement titleId="adresse.postnummer" content={postnummer} />
-          )}
-          {land && <ListElement titleId="adresse.land" content={land} />}
-          {poststed && (
-            <ListElement titleId="adresse.poststed" content={poststed} />
-          )}
-        </ul>
-      </div>
-    </Box>
+    <AdressePanel tittel="adresse.postadresse">
+      <ul className="list-column-2">
+        <GateAdresse
+          adresse1={adresse1}
+          adresse2={adresse2}
+          adresse3={adresse3}
+        />
+        {postnummer && (
+          <ListElement titleId="adresse.postnummer" content={postnummer} />
+        )}
+        {land && <ListElement titleId="adresse.land" content={land} />}
+        {poststed && (
+          <ListElement titleId="adresse.poststed" content={poststed} />
+        )}
+      </ul>
+    </AdressePanel>
   );
 };
 
-export default injectIntl(PostAdresse);
+export default PostAdresse;

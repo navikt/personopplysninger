@@ -2,71 +2,70 @@
 
 exports[`render Postadresse with content 1`] = `
 <div
-  className="panel box"
+  className="addresse__box"
 >
-  <div
-    className="box__header"
-    id="postadresse"
+  <h2
+    className="typo-undertittel"
   >
-    <h2
-      className="typo-systemtittel"
-    >
+    <span>
       Postadresse
-    </h2>
-  </div>
-  <div
-    className="box__content"
+    </span>
+  </h2>
+  <ul
+    className="list-column-2"
   >
-    <div
-      className="address-box"
-    >
-      <ul
-        className="list-column-2"
+    <li>
+      <p
+        className="typo-element"
       >
-        <li>
-          <p
-            className="typo-element title "
-          >
-            <span>
-              Adresse
-            </span>
-          </p>
-          <p
-            className="typo-normal content "
-          >
-            12345 HFJEF IQUFJ HFURHGHQBEUQBATOOM LUNCHAGRAMA,GONGRUPEA,DDGGLAM,10000 HCAMGHU,THAILAND
-          </p>
-        </li>
-        <li>
-          <p
-            className="typo-element title "
-          >
-            <span>
-              Postnummer
-            </span>
-          </p>
-          <p
-            className="typo-normal content "
-          >
-            9913
-          </p>
-        </li>
-        <li>
-          <p
-            className="typo-element title "
-          >
-            <span>
-              Land
-            </span>
-          </p>
-          <p
-            className="typo-normal content "
-          >
-            THA
-          </p>
-        </li>
-      </ul>
-    </div>
-  </div>
+        <span>
+          Adresse
+        </span>
+      </p>
+      <p
+        className="typo-normal"
+      >
+        12345 HFJEF IQUFJ HFURHGHQBEUQ
+      </p>
+      <p
+        className="typo-normal"
+      >
+        BATOOM LUNCHAGRAMA,GONGRUPEA,DD
+      </p>
+      <p
+        className="typo-normal"
+      >
+        GGLAM,10000 HCAMGHU,THAILAND
+      </p>
+    </li>
+    <li>
+      <p
+        className="typo-element"
+      >
+        <span>
+          Postnummer
+        </span>
+      </p>
+      <p
+        className="typo-normal content "
+      >
+        9913
+      </p>
+    </li>
+    <li>
+      <p
+        className="typo-element"
+      >
+        <span>
+          Land
+        </span>
+      </p>
+      <p
+        className="typo-normal content "
+      >
+        THA
+      </p>
+    </li>
+  </ul>
 </div>
 `;
