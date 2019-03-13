@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  Undertekst,
-  Ingress,
-  Undertittel,
-  Normaltekst
-} from "nav-frontend-typografi";
+import { Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
 import infoIcon from "../../../../assets/img/infomation-circle.svg";
 import InfoBox from "../../InfoBox";
 
@@ -14,7 +9,6 @@ interface Props {
   information: string;
   linkText: string;
   url: string;
-  kilde?: string;
   icon?: string;
   infoBoxContent: {
     __html: string;
@@ -59,13 +53,6 @@ const Desktop = (props: Props) => {
             {props.linkText}
           </a>
         </Ingress>
-        {props.kilde && (
-          <div className="box-footer link-footer">
-            <Undertekst>
-              Kilde: {props.kilde} {/* TODO: må gjøres om til intl */}
-            </Undertekst>
-          </div>
-        )}
       </div>
     </div>
   );

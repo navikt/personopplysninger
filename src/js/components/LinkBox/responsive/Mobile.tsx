@@ -1,6 +1,6 @@
 import React from "react";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import { Undertekst, Ingress } from "nav-frontend-typografi";
+import { Ingress } from "nav-frontend-typografi";
 
 interface Props {
   id: string;
@@ -8,7 +8,6 @@ interface Props {
   information: string;
   linkText: string;
   url: string;
-  kilde?: string;
   icon?: string;
   infoBoxContent: {
     __html: string;
@@ -31,13 +30,6 @@ const Mobile = (props: Props) => (
               {props.linkText}
             </a>
           </Ingress>
-          {props.kilde && (
-            <div className="box-footer link-footer">
-              <Undertekst>
-                Kilde: {props.kilde} {/* TODO: må gjøres om til intl */}
-              </Undertekst>
-            </div>
-          )}
         </div>
       </div>
     </Ekspanderbartpanel>

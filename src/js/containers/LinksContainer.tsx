@@ -16,7 +16,6 @@ const LinksContainer = () => (
             information={link.information}
             url={link.url}
             linkText={link.linkText}
-            kilde={link.kilde}
             infoBoxContent={link.infoBoxContent}
           />
         )
