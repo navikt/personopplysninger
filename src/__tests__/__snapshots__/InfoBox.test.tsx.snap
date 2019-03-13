@@ -5,7 +5,7 @@ exports[`render InfoBox with content 1`] = `
   className="BoxContainer"
 >
   <div
-    className="InfoBox"
+    className="infobox"
   >
     <hr
       style={
