@@ -13,7 +13,6 @@ const AdressePanel = (props: Props) => (
       <FormattedMessage id={props.tittel} />
     </Undertittel>
     {props.children}
-    <hr className="box__linje-bred" />
   </div>
 );
 export default AdressePanel;

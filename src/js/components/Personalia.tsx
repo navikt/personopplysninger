@@ -44,7 +44,7 @@ class Personalia extends Component<PersonaliaType> {
           {fornavn && <ListElement titleId={fornavnHeader} content={fornavn} />}
           {etternavn && (
             <ListElement
-              classNameContent="capitalize"
+              className="capitalize"
               titleId="personalia.surname"
               content={etternavn}
             />

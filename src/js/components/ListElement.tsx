@@ -7,22 +7,11 @@ interface Props {
   titleId?: string;
   content: string;
   className?: string;
-  classNameTitle?: string;
-  classNameContent?: string;
 }
-const ListElement = ({
-  className,
-  title,
-  titleId,
-  content,
-  classNameTitle,
-  classNameContent
-}: Props) => (
-  <li className={className}>
-    <Element className={`title ${classNameTitle || ""}`}>
-      {titleId ? <FormattedMessage id={titleId} /> : title}
-    </Element>
-    <Normaltekst className={`content ${classNameContent || ""}`}>
+const ListElement = ({ title, titleId, content, className }: Props) => (
+  <li>
+    <Element>{titleId ? <FormattedMessage id={titleId} /> : title}</Element>
+    <Normaltekst className={`content ${className || ""}`}>
       {content}
     </Normaltekst>
   </li>
