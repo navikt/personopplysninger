@@ -79,7 +79,7 @@ exports[`render ContentWrapper with content 1`] = `
         "kontonr": "12345678911",
         "personident": Object {
           "type": "FNR",
-          "verdi": "12347832",
+          "verdi": "12345678911",
         },
         "personstatus": "BOSA",
         "sivilstand": "UGIF",
