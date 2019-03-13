@@ -41,17 +41,6 @@ exports[`render LinkBox with content 1`] = `
         Gå til Din pensjon
       </a>
     </p>
-    <div
-      className="box-footer link-footer"
-    >
-      <p
-        className="typo-undertekst"
-      >
-        Kilde: 
-        Pensjonsregisteret
-         
-      </p>
-    </div>
   </div>
 </div>
 `;

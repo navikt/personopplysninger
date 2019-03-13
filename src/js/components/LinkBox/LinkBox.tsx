@@ -8,7 +8,6 @@ interface Props {
   information: string;
   linkText: string;
   url: string;
-  kilde?: string;
   icon?: string;
   infoBoxContent: {
     __html: string;

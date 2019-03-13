@@ -33,6 +33,19 @@ class Personalia extends Component<PersonaliaType> {
         ? "personalia.first_name"
         : "personalia.first_and_middle_name";
 
+    const formattertKontonr =
+      kontonr && kontonr.length === 11
+        ? kontonr.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3")
+        : kontonr;
+
+    const formattertPersonident =
+      personident && personident.verdi.length === 11
+        ? {
+            ...personident,
+            verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2")
+          }
+        : personident;
+
     return (
       <Box
         id="personalia"
@@ -49,14 +62,17 @@ class Personalia extends Component<PersonaliaType> {
               content={etternavn}
             />
           )}
-          {personident && personident.verdi && (
+          {formattertPersonident && formattertPersonident.verdi && (
             <ListElement
               titleId={personidentHeader}
-              content={personident.verdi}
+              content={formattertPersonident.verdi}
             />
           )}
-          {kontonr && (
-            <ListElement titleId="personalia.account_no" content={kontonr} />
+          {formattertKontonr && (
+            <ListElement
+              titleId="personalia.account_no"
+              content={formattertKontonr}
+            />
           )}
           {spraak && (
             <ListElement titleId="personalia.language" content={spraak} />
