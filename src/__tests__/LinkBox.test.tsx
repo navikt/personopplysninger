@@ -10,7 +10,6 @@ test("render LinkBox with content", () => {
     information: "NAV har opplysninger om din pensjon i en egen tjeneste.",
     linkText: "Gå til Din pensjon",
     url: "https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon",
-    kilde: "Pensjonsregisteret",
     infoBoxContent: {
       __html:
         'På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises. Du kan også be om partsinnsyn ved å kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a class="lenke" href="" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.'
@@ -25,7 +24,6 @@ test("render LinkBox with content", () => {
         information={link.information}
         url={link.url}
         linkText={link.linkText}
-        kilde={link.kilde}
         infoBoxContent={link.infoBoxContent}
       />
     )

@@ -22,11 +22,11 @@ const Box = (props: Props) => {
         {icon && <img src={icon} alt="" className="box__icon" />}
         {header && <Systemtittel>{header}</Systemtittel>}
         {infoType && (
-          <>
+          <div className="box__ingress">
             <hr className="box__linje-smal" />
             <Ingress>{infoContent[infoType].content}</Ingress>
             <hr className="box__linje-bred" />
-          </>
+          </div>
         )}
       </div>
       <div className="box__content">{children}</div>
@@ -38,10 +38,10 @@ const Box = (props: Props) => {
       <Ekspanderbartpanel tittel={header} tittelProps="systemtittel">
         <div className="box">
           {infoType && (
-            <>
+            <div className="box__ingress">
               <Ingress>{infoContent[infoType].content}</Ingress>
               <hr className="box__linje-smal" />
-            </>
+            </div>
           )}
           <div className="box__content">{children}</div>
         </div>
