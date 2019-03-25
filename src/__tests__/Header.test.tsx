@@ -1,7 +1,7 @@
 import React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import Header from "../js/components/Header";
-import wrapIntl from "../js/IntlTestHelper";
+import Header from "../sections/03-header/Header";
+import wrapIntl from "./__utils__/IntlTestHelper";
 
 test("render Header with content", () => {
   const component = ReactTestRenderer.create(

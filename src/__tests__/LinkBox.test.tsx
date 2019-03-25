@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import LinkBox from "../js/components/LinkBox/LinkBox";
-import wrapIntl from "../js/IntlTestHelper";
+import LinkBox from "../components/linkbox/LinkBox";
+import wrapIntl from "./__utils__/IntlTestHelper";
 
 test("render LinkBox with content", () => {
   const link = {

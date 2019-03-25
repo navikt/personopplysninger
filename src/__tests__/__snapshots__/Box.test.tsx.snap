@@ -5,23 +5,31 @@ exports[`render Header with content 1`] = `
   className="panel box"
 >
   <div
-    className="box__header"
+    className="icon__container"
     id="arbeidsforhold"
-  >
-    <h2
-      className="typo-systemtittel"
-    >
-      Arbeidsforhold
-    </h2>
-  </div>
+  />
   <div
-    className="box__content"
+    className="box__content-container"
   >
-    <h3>
-      Header
-    </h3>
-    <div>
-      content
+    <div
+      className="box__header"
+      id="arbeidsforhold"
+    >
+      <h2
+        className="typo-systemtittel"
+      >
+        Arbeidsforhold
+      </h2>
+    </div>
+    <div
+      className="box__content"
+    >
+      <h3>
+        Header
+      </h3>
+      <div>
+        content
+      </div>
     </div>
   </div>
 </div>

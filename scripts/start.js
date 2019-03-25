@@ -31,7 +31,7 @@ const paths = require('../config/paths');
 const config = require('../config/webpack.config.dev');
 const createDevServerConfig = require('../config/webpackDevServer.config');
 
-const getDecorator = require('../src/build/decorator');
+const getDecorator = require('../decorator');
 
 const useYarn = fs.existsSync(paths.yarnLockFile);
 const isInteractive = process.stdout.isTTY;

@@ -16,5 +16,5 @@
     "jsx": "react"
   },
   "include": ["src"],
-  "exclude": ["src/build", "src/assets"]
+  "exclude": ["src/build", "src/assets", "src/utils/decorator"]
 }

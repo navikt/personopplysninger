@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import wrapIntl from "../js/IntlTestHelper";
-import Box from "../js/components/Box";
+import wrapIntl from "./__utils__/IntlTestHelper";
+import Box from "../components/box/Box";
 
 test("render Header with content", () => {
   const component = ReactTestRenderer.create(

@@ -5,8 +5,8 @@ import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
 import nb from "react-intl/locale-data/nb";
 import en from "react-intl/locale-data/en";
-import { setUpMock } from "./mock-api";
-import App from "./js/App";
+import { setUpMock } from "./clients/apiMock";
+import App from "./App";
 import "css/index.css";
 
 import nbMessages from "./translations/nb.json";

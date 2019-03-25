@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import Error from "../js/components/Error";
-import wrapIntl from "../js/IntlTestHelper";
+import Error from "../components/error/Error";
+import wrapIntl from "./__utils__/IntlTestHelper";
 
 test("render Error", () => {
   const component = ReactTestRenderer.create(
