@@ -3,7 +3,6 @@ import ListElement from "../listelement/ListElement";
 import AdressePanel from "./AdressePanel";
 import GateAdresse from "./GateAdresse";
 import { Tilleggsadresse } from "../../types/adresser/tilleggsadresse";
-import { mergeAddress } from "../../utils/text";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
