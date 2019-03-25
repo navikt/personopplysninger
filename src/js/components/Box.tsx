@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Ingress, Systemtittel } from "nav-frontend-typografi";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import Panel from "nav-frontend-paneler";
+import Icon from "./Icon/Icon";
 import infoContent from "../static/infoContent";
 
 interface Props {
@@ -18,18 +19,21 @@ const Box = (props: Props) => {
 
   const desktopVersjon = (
     <Panel className="box">
-      <div className="box__header" id={id}>
-        {icon && <img src={icon} alt="" className="box__icon" />}
-        {header && <Systemtittel>{header}</Systemtittel>}
-        {infoType && (
-          <div className="box__ingress">
-            <hr className="box__linje-smal" />
-            <Ingress>{infoContent[infoType].content}</Ingress>
-            <hr className="box__linje-bred" />
-          </div>
-        )}
+      <div className="icon__container" id={id}>
+        {icon && <Icon src={icon} />}
       </div>
-      <div className="box__content">{children}</div>
+      <div className="box__content-container">
+        <div className="box__header" id={id}>
+          {header && <Systemtittel>{header}</Systemtittel>}
+          {infoType && (
+            <div className="box__ingress">
+              <Ingress>{infoContent[infoType].content}</Ingress>
+              <hr className="box__linje-bred" />
+            </div>
+          )}
+        </div>
+        <div className="box__content">{children}</div>
+      </div>
     </Panel>
   );
 

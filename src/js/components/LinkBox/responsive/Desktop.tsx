@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
 import infoIcon from "../../../../assets/img/infomation-circle.svg";
 import InfoBox from "../../InfoBox";
+import Icon from "../../Icon/Icon";
 
 interface Props {
   id: string;
@@ -19,8 +20,8 @@ const Desktop = (props: Props) => {
   const [visInfo, setVisInfo] = useState(false);
   return (
     <div className="linkbox__container">
-      <div className="linkbox__icon-container">
-        <img className="linkbox__icon" src={props.icon} />
+      <div className="icon__container">
+        <Icon src={props.icon} />
       </div>
       <div className="linkbox__content">
         {props.infoBoxContent && (

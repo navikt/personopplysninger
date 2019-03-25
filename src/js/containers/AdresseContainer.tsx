@@ -9,7 +9,6 @@ import MidlertidigAdresse from "../components/adresse/MidlertidigAdresse";
 import { Adresser } from "../../types/adresser";
 import Box from "../components/Box";
 import hus from "../../assets/img/hus.svg";
-import "less/index.less";
 
 interface Props {
   adresser: Adresser;

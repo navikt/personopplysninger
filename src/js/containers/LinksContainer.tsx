@@ -1,5 +1,4 @@
 import React from "react";
-import "less/index.less";
 import links from "../static/links";
 import LinkBox from "../components/LinkBox/LinkBox";
 

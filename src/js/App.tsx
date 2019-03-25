@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import NavFrontendSpinner from "nav-frontend-spinner";
-import { Meny, Filler } from "./components/Meny";
+import Sidetittel from "./components/Sidetittel";
 import Error from "./components/Error";
 import ContentWrapper from "./ContentWrapper";
 import { PersonInfo } from "../types/personInfo";
 import { HTTPError } from "./components/Error";
 import api from "./Api";
-import "less/index.less";
+import "../index.less";
 
 type State =
   | { status: "LOADING" }
@@ -46,9 +46,8 @@ class App extends Component<{}, State> {
       case "RESULT":
         return (
           <main role="main">
-            <Meny />
+            <Sidetittel />
             <ContentWrapper personInfo={this.state.personInfo} />
-            <Filler />
           </main>
         );
       case "ERROR":
