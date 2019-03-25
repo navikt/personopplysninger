@@ -1,6 +1,6 @@
 import React from "react";
 import { UtenlandskAdresse as UtenlandskAdresseType } from "../../types/adresser/utenlandskadresse";
-import ListElement from "../ListElement";
+import ListElement from "../listelement/ListElement";
 import AdressePanel from "./AdressePanel";
 import GateAdresse from "./GateAdresse";
 import { mergeAddress } from "../../utils/text";

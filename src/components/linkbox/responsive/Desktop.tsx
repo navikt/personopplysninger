@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
 import infoIcon from "../../../assets/img/infomation-circle.svg";
-import InfoBox from "../../InfoBox";
+import InfoBox from "../../infobox/InfoBox";
 import Icon from "../../icon/Icon";
 
 interface Props {

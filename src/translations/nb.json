@@ -25,6 +25,7 @@
   "personalia.gender": "Kjønn",
   "personalia.customized_comm": "Tilpasset kommunikasjon",
   "personalia.source": "Kilde: NAV, Folkeregisteret",
+  "personalia.link.folkeregisteret": "Gå til Folkeregisteret for å endre informasjonen",
   "adresse.adresser": "Adresser",
   "adresse.bostedsadresse": "Bostedsadresse",
   "adresse.midlertidigadresse": "Midlertidig adresse",

@@ -1,12 +1,11 @@
 /* eslint-disable */
 
 import React, { Component } from "react";
-import { FormattedMessage } from "react-intl";
-import { Undertekst } from "nav-frontend-typografi";
 import Box from "../../../components/box/Box";
+import Kilde from "../../../components/kilde/Kilde";
 import kvinne from "../../../assets/img/kvinne.svg";
 import mann from "../../../assets/img/mann.png";
-import ListElement from "../../../components/ListElement";
+import ListElement from "../../../components/listelement/ListElement";
 import { Personalia as PersonaliaType } from "../../../types/personalia";
 
 interface Props {
@@ -58,56 +57,38 @@ class Personalia extends Component<Props> {
         infoType="personalia"
       >
         <ul className="list-column-2">
-          {fornavn && <ListElement titleId={fornavnHeader} content={fornavn} />}
-          {etternavn && (
-            <ListElement
-              className="capitalize"
-              titleId="personalia.surname"
-              content={etternavn}
-            />
-          )}
-          {formattertPersonident && formattertPersonident.verdi && (
+          <ListElement titleId={fornavnHeader} content={fornavn} />
+          <ListElement
+            className="capitalize"
+            titleId="personalia.surname"
+            content={etternavn}
+          />
+          {formattertPersonident && (
             <ListElement
               titleId={personidentHeader}
               content={formattertPersonident.verdi}
             />
           )}
-
-          {spraak && (
-            <ListElement titleId="personalia.language" content={spraak} />
-          )}
-          {statsborgerskap && (
-            <ListElement
-              titleId="personalia.citizenship"
-              content={statsborgerskap}
-            />
-          )}
-          {foedested && (
-            <ListElement titleId="personalia.birthplace" content={foedested} />
-          )}
-          {sivilstand && (
-            <ListElement
-              titleId="personalia.civil_status"
-              content={sivilstand}
-            />
-          )}
-          {kjoenn && (
-            <ListElement titleId="personalia.gender" content={kjoenn} />
-          )}
+          <ListElement titleId="personalia.language" content={spraak} />
+          <ListElement
+            titleId="personalia.citizenship"
+            content={statsborgerskap}
+          />
+          <ListElement titleId="personalia.birthplace" content={foedested} />
+          <ListElement titleId="personalia.civil_status" content={sivilstand} />
+          <ListElement titleId="personalia.gender" content={kjoenn} />
         </ul>
-        <div className="box-footer">
-          <Undertekst>
-            <FormattedMessage id="personalia.source" />
-          </Undertekst>
-        </div>
+        <Kilde
+          tekst="personalia.source"
+          lenkeTekst="personalia.link.folkeregisteret"
+          href="https://www.skatteetaten.no/person/folkeregister/"
+        />
         <hr className="box__linje-bred" />
         <ul className="list-column-2">
-          {formattertKontonr && (
-            <ListElement
-              titleId="personalia.account_no"
-              content={formattertKontonr}
-            />
-          )}
+          <ListElement
+            titleId="personalia.account_no"
+            content={formattertKontonr}
+          />
         </ul>
       </Box>
     );

@@ -1,7 +1,7 @@
 import React from "react";
 import moment from "moment";
 import AdressePanel from "./AdressePanel";
-import ListElement from "../ListElement";
+import ListElement from "../listelement/ListElement";
 import { Boadresse } from "../../types/adresser/boadresse";
 import "moment/locale/nb";
 

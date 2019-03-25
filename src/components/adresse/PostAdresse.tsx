@@ -1,5 +1,5 @@
 import React from "react";
-import ListElement from "../ListElement";
+import ListElement from "../listelement/ListElement";
 import AdressePanel from "./AdressePanel";
 import GateAdresse from "./GateAdresse";
 import { Postadresse } from "../../types/adresser/postadresse";
