@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Error, { HTTPError } from "../../components/error/Error";
-import Header from "../03-header/Header";
+import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
 import Adresser from "./adresser/Adresser";
 import Spinner from "../../components/spinner/Spinner";
