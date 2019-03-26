@@ -20,7 +20,7 @@ const Kontonummer = ({ kontonummer }: Props) => {
     <>
       <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
-        <Undertittel>Kontonummer</Undertittel>
+        <Undertittel>Opplysninger knyttet til utbetaling</Undertittel>
       </div>
       <ul className="list-column-2">
         <ListElement
