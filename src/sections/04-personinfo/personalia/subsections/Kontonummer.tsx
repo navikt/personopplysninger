@@ -1,4 +1,5 @@
 import React from "react";
+import { Undertittel } from "nav-frontend-typografi";
 import Kilde from "../../../../components/kilde/Kilde";
 import ListElement from "../../../../components/listelement/ListElement";
 import Environment from "../../../../utils/Environments";
@@ -18,6 +19,9 @@ const Kontonummer = ({ kontonummer }: Props) => {
   return kontonummer ? (
     <>
       <hr className="box__linje-bred" />
+      <div className="underseksjon__overskrift">
+        <Undertittel>Kontonummer</Undertittel>
+      </div>
       <ul className="list-column-2">
         <ListElement
           titleId="personalia.account_no"

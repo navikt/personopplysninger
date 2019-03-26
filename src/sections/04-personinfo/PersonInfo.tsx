@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import NavFrontendSpinner from "nav-frontend-spinner";
 import Error, { HTTPError } from "../../components/error/Error";
 import Header from "../03-header/Header";
 import Personalia from "./personalia/Personalia";
 import Adresser from "./adresser/Adresser";
+import Spinner from "../../components/spinner/Spinner";
 import { formatName } from "../../utils/text";
 import { PersonInfo } from "../../types/personInfo";
-import api from "../../clients/apiClient";
+import { fetchPersonInfo } from "../../clients/apiClient";
 
 type State =
   | { status: "LOADING" }
@@ -18,9 +18,8 @@ class App extends Component<{}, State> {
     status: "LOADING"
   };
 
-  componentDidMount() {
-    api
-      .fetchPersonInfo()
+  componentDidMount = () =>
+    fetchPersonInfo()
       .then((personInfo: PersonInfo) =>
         this.setState({
           status: "RESULT",
@@ -33,16 +32,11 @@ class App extends Component<{}, State> {
           error
         })
       );
-  }
 
-  render() {
+  render = () => {
     switch (this.state.status) {
       case "LOADING":
-        return (
-          <div className="spinner-wrapper">
-            <NavFrontendSpinner type="XL" />
-          </div>
-        );
+        return <Spinner />;
       case "RESULT":
         const { personalia, adresser } = this.state.personInfo;
         return (
@@ -57,13 +51,9 @@ class App extends Component<{}, State> {
           </>
         );
       case "ERROR":
-        return (
-          <main role="main">
-            <Error error={this.state.error} />
-          </main>
-        );
+        return <Error error={this.state.error} />;
     }
-  }
+  };
 }
 
 export default App;

@@ -1,5 +1,6 @@
 import fetchMock from "fetch-mock";
-import personInfo from "./personInfo.json";
+import personInformasjon from "./personInfo.json";
+import kontaktInformasjon from "./kontaktInfo.json";
 import Environment from "../../utils/Environments";
 
 const { apiUrl } = Environment();
@@ -11,5 +12,12 @@ const delay = (min: number, max: number) => {
 };
 
 export const setUpMock = async () => {
-  fetchMock.get(`${apiUrl}/personalia`, delay(50, 200).then(() => personInfo));
+  fetchMock.get(
+    `${apiUrl}/kontaktinformasjon`,
+    delay(200, 500).then(() => kontaktInformasjon)
+  );
+  fetchMock.get(
+    `${apiUrl}/personalia`,
+    delay(200, 300).then(() => personInformasjon)
+  );
 };

@@ -39,7 +39,7 @@ const hentJsonOgSjekkAuth = (url: string) =>
       .catch(reject)
   );
 
-const fetchPersonInfo = () => hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
-export default {
-  fetchPersonInfo
-};
+export const fetchPersonInfo = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
+export const fetchKontaktInfo = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
