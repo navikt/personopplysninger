@@ -13,7 +13,7 @@ type State =
   | { status: "RESULT"; personInfo: PersonInfo }
   | { status: "ERROR"; error: HTTPError };
 
-class App extends Component<{}, State> {
+class VisPersonInfo extends Component<{}, State> {
   state: State = {
     status: "LOADING"
   };
@@ -56,4 +56,4 @@ class App extends Component<{}, State> {
   };
 }
 
-export default App;
+export default VisPersonInfo;
