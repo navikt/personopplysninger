@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 import { Normaltekst } from "nav-frontend-typografi";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
 import AdressePanel from "../../../../components/adresse/AdressePanel";
@@ -14,7 +15,7 @@ interface Props {
   boadresse: Boadresse;
 }
 
-const BoAdresse = (props: Props) => {
+const BoAdresse = (props: Props & InjectedIntlProps) => {
   const {
     adresse,
     postnummer,
@@ -36,7 +37,15 @@ const BoAdresse = (props: Props) => {
             {postnummer && postnummer} {poststed && poststed}
           </Normaltekst>
         )}
-        <Lesmerpanel className="addresse__lesmer">
+        <Lesmerpanel
+          className="addresse__lesmer"
+          apneTekst={props.intl.formatMessage({
+            id: "adresse.bostedsadresse.apneTekst"
+          })}
+          lukkTekst={props.intl.formatMessage({
+            id: "adresse.bostedsadresse.lukkTekst"
+          })}
+        >
           <ul className="list-column-2 address-columns">
             {veiadresse && veiadresse.bolignummer && (
               <ListElement
@@ -62,4 +71,4 @@ const BoAdresse = (props: Props) => {
   );
 };
 
-export default BoAdresse;
+export default injectIntl(BoAdresse);

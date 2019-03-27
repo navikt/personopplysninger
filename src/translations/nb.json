@@ -36,6 +36,8 @@
   "personalia.dkif.kanIkkeVarsles": "Du har reservert deg mot elektronisk kommunikasjon.",
   "adresse.adresser": "Adresser",
   "adresse.bostedsadresse": "Bostedsadresse",
+  "adresse.bostedsadresse.apneTekst": "Vis detaljer",
+  "adresse.bostedsadresse.lukkTekst": "Skjul detaljer",
   "adresse.midlertidigadresse": "Midlertidig adresse",
   "adresse.utenlandskadresse": "Utenlandsk adresse",
   "adresse.postadresse": "Postadresse",
