@@ -5,6 +5,7 @@ import Lesmerpanel from "nav-frontend-lesmerpanel";
 import AdressePanel from "../../../../components/adresse/AdressePanel";
 import ListElement from "../../../../components/listelement/ListElement";
 import { Boadresse } from "../../../../types/adresser/boadresse";
+import Kilde from "../../../../components/kilde/Kilde";
 import "moment/locale/nb";
 
 moment.locale("nb");
@@ -51,6 +52,11 @@ const BoAdresse = (props: Props) => {
             )}
           </ul>
         </Lesmerpanel>
+        <Kilde
+          tekst="personalia.source.folkeregisteret"
+          lenkeTekst="personalia.link.folkeregisteret"
+          href="https://www.skatteetaten.no/person/folkeregister/"
+        />
       </>
     </AdressePanel>
   );
