@@ -31,7 +31,7 @@ const MidlertidigAdresse = (props: Props) => {
         <Postnummer postnummer={postnummer} poststed={poststed} />
         <Kilde
           tekst="personalia.source.nav"
-          lenkeTekst="personalia.link.brukerprofil"
+          lenkeTekst="personalia.link.brukerprofil.endre"
           href={`${tjenesteUrl}/brukerprofil/`}
         />
       </>
