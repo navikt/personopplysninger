@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { InjectedIntlProps, injectIntl, FormattedMessage } from "react-intl";
-import { Undertekst } from "nav-frontend-typografi";
-import BoAdresse from "../../../components/adresse/BoAdresse";
-import PostAdresse from "../../../components/adresse/PostAdresse";
-import UtenlandskAdresse from "../../../components/adresse/UtenlandskAdresse";
-import MidlertidigAdresse from "../../../components/adresse/MidlertidigAdresse";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+import BoAdresse from "./varianter/BoAdresse";
+import PostAdresse from "./varianter/PostAdresse";
+import UtenlandskAdresse from "./varianter/UtenlandskAdresse";
+import MidlertidigAdresse from "./varianter/MidlertidigAdresse";
 import { Adresser } from "../../../types/adresser";
 import Box from "../../../components/box/Box";
 import hus from "../../../assets/img/hus.svg";
@@ -34,11 +33,6 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {adresser.utenlandskAdresse && (
           <UtenlandskAdresse utenlandskadresse={adresser.utenlandskAdresse} />
         )}
-      </div>
-      <div className="box-footer">
-        <Undertekst>
-          <FormattedMessage id="adresse.source" />
-        </Undertekst>
       </div>
     </Box>
   );

@@ -22,6 +22,7 @@ class Personalia extends Component<Props> {
         icon={kjoenn === "Mann" ? mann : kvinne}
         infoType="personalia"
       >
+        <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
         <Kontonummer kontonummer={kontonr} />
         <DKIF />

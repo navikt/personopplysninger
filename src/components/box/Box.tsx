@@ -28,7 +28,6 @@ const Box = (props: Props) => {
           {infoType && (
             <div className="box__ingress">
               <Ingress>{infoContent[infoType].content}</Ingress>
-              <hr className="box__linje-bred" />
             </div>
           )}
         </div>
