@@ -26,29 +26,7 @@ const Desktop = (props: Props) => {
       <div className="linkbox__content">
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
-            <Systemtittel>
-              {props.header}
-
-              {props.infoBoxContent && (
-                <>
-                  <button
-                    type="button"
-                    className="information-circle"
-                    onClick={() => setVisInfo(!visInfo)}
-                  >
-                    <img src={infoIcon} alt="Information" />
-                  </button>
-                  {visInfo && (
-                    <InfoBox>
-                      <Undertittel>Informasjon om {props.header}</Undertittel>
-                      <Normaltekst className="info-content">
-                        <div dangerouslySetInnerHTML={props.infoBoxContent} />
-                      </Normaltekst>
-                    </InfoBox>
-                  )}
-                </>
-              )}
-            </Systemtittel>
+            <Systemtittel>{props.header}</Systemtittel>
           </div>
           <Normaltekst>{props.information}</Normaltekst>
         </div>

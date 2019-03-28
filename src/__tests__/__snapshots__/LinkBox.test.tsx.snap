@@ -33,16 +33,6 @@ exports[`render LinkBox with content 1`] = `
           className="typo-systemtittel"
         >
           Pensjon
-          <button
-            className="information-circle"
-            onClick={[Function]}
-            type="button"
-          >
-            <img
-              alt="Information"
-              src={[Function]}
-            />
-          </button>
         </h2>
       </div>
       <p
