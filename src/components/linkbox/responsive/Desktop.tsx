@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Ingress, Undertittel, Normaltekst } from "nav-frontend-typografi";
+import { Undertittel, Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import infoIcon from "../../../assets/img/infomation-circle.svg";
 import InfoBox from "../../infobox/InfoBox";
 import Icon from "../../icon/Icon";
@@ -24,36 +24,46 @@ const Desktop = (props: Props) => {
         <Icon src={props.icon} />
       </div>
       <div className="linkbox__content">
-        {props.infoBoxContent && (
-          <>
-            <button
-              type="button"
-              className="information-circle"
-              onClick={() => setVisInfo(!visInfo)}
+        <div className="linkbox__seksjon">
+          <div className="linkbox__tittel">
+            <Systemtittel>
+              {props.header}
+
+              {props.infoBoxContent && (
+                <>
+                  <button
+                    type="button"
+                    className="information-circle"
+                    onClick={() => setVisInfo(!visInfo)}
+                  >
+                    <img src={infoIcon} alt="Information" />
+                  </button>
+                  {visInfo && (
+                    <InfoBox>
+                      <Undertittel>Informasjon om {props.header}</Undertittel>
+                      <Normaltekst className="info-content">
+                        <div dangerouslySetInnerHTML={props.infoBoxContent} />
+                      </Normaltekst>
+                    </InfoBox>
+                  )}
+                </>
+              )}
+            </Systemtittel>
+          </div>
+          <Normaltekst>{props.information}</Normaltekst>
+        </div>
+        <div className="linkbox__seksjon linkbox__lenke-container">
+          <Normaltekst>
+            <a
+              className="lenke"
+              href={props.url}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <img src={infoIcon} alt="Information" />
-            </button>
-            {visInfo && (
-              <InfoBox>
-                <Undertittel>Informasjon om {props.header}</Undertittel>
-                <Normaltekst className="info-content">
-                  <div dangerouslySetInnerHTML={props.infoBoxContent} />
-                </Normaltekst>
-              </InfoBox>
-            )}
-          </>
-        )}
-        <Ingress>{props.information}</Ingress>
-        <Ingress>
-          <a
-            className="lenke"
-            href={props.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {props.linkText}
-          </a>
-        </Ingress>
+              {props.linkText}
+            </a>
+          </Normaltekst>
+        </div>
       </div>
     </div>
   );

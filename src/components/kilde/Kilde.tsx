@@ -11,18 +11,22 @@ interface Props {
 
 const Kilde = (props: Props) => (
   <div className="kilde__container">
-    {props.kilde && (
-      <Undertekst>
-        <FormattedMessage id={props.kilde} />
-      </Undertekst>
-    )}
-    {props.lenke && props.lenkeTekst && (
-      <Lenke href={props.lenke}>
-        <Normaltekst>
-          <FormattedMessage id={props.lenkeTekst} />
-        </Normaltekst>
-      </Lenke>
-    )}
+    <div className="kilde__seksjon">
+      {props.kilde && (
+        <Undertekst>
+          <FormattedMessage id={props.kilde} />
+        </Undertekst>
+      )}
+    </div>
+    <div className="kilde__seksjon">
+      {props.lenke && props.lenkeTekst && (
+        <Lenke href={props.lenke}>
+          <Normaltekst>
+            <FormattedMessage id={props.lenkeTekst} />
+          </Normaltekst>
+        </Lenke>
+      )}
+    </div>
   </div>
 );
 
