@@ -56,11 +56,6 @@ class DKIF extends PureComponent<{}, State> {
             return <Error error={this.state.error} />;
         }
       })()}
-      <Kilde
-        tekst="personalia.source.dkif"
-        lenkeTekst="personalia.link.dkif"
-        href="https://brukerprofil.difi.no/minprofil"
-      />
     </>
   );
 }

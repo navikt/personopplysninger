@@ -8,6 +8,7 @@ import MidlertidigAdresse from "./varianter/MidlertidigAdresse";
 import { Adresser } from "../../../types/adresser";
 import Box from "../../../components/box/Box";
 import hus from "../../../assets/img/hus.svg";
+import LeggTilAdresse from "./LeggTilAdresse";
 
 interface Props {
   adresser: Adresser;
@@ -22,7 +23,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
       icon={hus}
       infoType="adresse"
     >
-      <div>
+      <>
         {adresser.boadresse && <BoAdresse boadresse={adresser.boadresse} />}
         {adresser.postadresse && (
           <PostAdresse postadresse={adresser.postadresse} />
@@ -33,7 +34,10 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {adresser.utenlandskAdresse && (
           <UtenlandskAdresse utenlandskadresse={adresser.utenlandskAdresse} />
         )}
-      </div>
+        {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
+          <LeggTilAdresse />
+        )}
+      </>
     </Box>
   );
 };

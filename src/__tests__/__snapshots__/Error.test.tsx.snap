@@ -2,7 +2,7 @@
 
 exports[`render Error 1`] = `
 <div
-  className="BoxContainer"
+  className="error__container"
 >
   <div
     aria-live="assertive"
@@ -39,7 +39,8 @@ exports[`render Error 1`] = `
     <span
       className="typo-normal alertstripe__tekst"
     >
-      Oisann, noe gikk galt!
+      Oisann, noe gikk galt ved henting av data!
+      <br />
       <span>
          500: Internal Server Error
       </span>

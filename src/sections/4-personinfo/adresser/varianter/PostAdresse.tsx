@@ -34,9 +34,9 @@ const PostAdresse = (props: Props) => {
           </div>
         )}
         <Kilde
-          tekst="personalia.source.folkeregisteret"
+          kilde="personalia.source.folkeregisteret"
+          lenke="https://www.skatteetaten.no/person/folkeregister/"
           lenkeTekst="personalia.link.folkeregisteret"
-          href="https://www.skatteetaten.no/person/folkeregister/"
         />
       </>
     </AdressePanel>

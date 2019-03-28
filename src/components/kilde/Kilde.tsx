@@ -4,18 +4,20 @@ import { Undertekst, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 
 interface Props {
-  tekst: string;
+  kilde?: string;
+  lenke: string;
   lenkeTekst: string;
-  href: string;
 }
 
 const Kilde = (props: Props) => (
   <div className="kilde__container">
-    <Undertekst>
-      <FormattedMessage id={props.tekst} />
-    </Undertekst>
-    {props.href && props.lenkeTekst && (
-      <Lenke href={props.href}>
+    {props.kilde && (
+      <Undertekst>
+        <FormattedMessage id={props.kilde} />
+      </Undertekst>
+    )}
+    {props.lenke && props.lenkeTekst && (
+      <Lenke href={props.lenke}>
         <Normaltekst>
           <FormattedMessage id={props.lenkeTekst} />
         </Normaltekst>

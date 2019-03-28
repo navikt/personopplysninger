@@ -63,9 +63,9 @@ class Folkeregisteret extends Component<Props> {
           <ListElement titleId="personalia.gender" content={kjoenn} />
         </ul>
         <Kilde
-          tekst="personalia.source.folkeregisteret"
+          kilde="personalia.source.folkeregisteret"
+          lenke="https://www.skatteetaten.no/person/folkeregister/"
           lenkeTekst="personalia.link.folkeregisteret"
-          href="https://www.skatteetaten.no/person/folkeregister/"
         />
       </>
     );

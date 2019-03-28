@@ -29,9 +29,9 @@ const UtenlandskAdresse = (props: Props) => {
         )}
       </>
       <Kilde
-        tekst="personalia.source.nav"
-        lenkeTekst="personalia.link.brukerprofil"
-        href={`${tjenesteUrl}/brukerprofil/`}
+        kilde="personalia.source.nav"
+        lenke={`${tjenesteUrl}/brukerprofil/`}
+        lenkeTekst="personalia.link.brukerprofil.endre"
       />
     </AdressePanel>
   );
