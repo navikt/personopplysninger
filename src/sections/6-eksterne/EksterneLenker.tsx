@@ -1,0 +1,25 @@
+import React from "react";
+import links from "../../static/links";
+import LinkBox from "../../components/linkbox/LinkBox";
+
+const LinksContainer = () => (
+  <React.Fragment>
+    {links.map(
+      (link: any) =>
+        link.visible && (
+          <LinkBox
+            id={link.id}
+            key={link.id}
+            icon={link.icon}
+            header={link.header}
+            information={link.information}
+            url={link.url}
+            linkText={link.linkText}
+            infoBoxContent={link.infoBoxContent}
+          />
+        )
+    )}
+  </React.Fragment>
+);
+
+export default LinksContainer;

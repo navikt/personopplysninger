@@ -5,11 +5,20 @@ exports[`render LinkBox with content 1`] = `
   className="linkbox__container"
 >
   <div
-    className="linkbox__icon-container"
+    className="icon__container"
   >
-    <img
-      className="linkbox__icon"
-    />
+    <div
+      className="icon__circle"
+      style={
+        Object {
+          "backgroundColor": "#c6c2bf",
+        }
+      }
+    >
+      <img
+        className="icon"
+      />
+    </div>
   </div>
   <div
     className="linkbox__content"

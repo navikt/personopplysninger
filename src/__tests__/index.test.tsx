@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
 import nb from "react-intl/locale-data/nb";
 import en from "react-intl/locale-data/en";
-import App from "../js/App";
+import App from "../App";
 import nbMessages from "../translations/nb.json";
 import enMessages from "../translations/en.json";
 
