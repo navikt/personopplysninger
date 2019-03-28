@@ -33,9 +33,9 @@ const Kontonummer = ({ kontonummer }: Props) => {
             />
           </ul>
           <Kilde
-            tekst="personalia.source.nav"
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
-            href={`${tjenesteUrl}/brukerprofil/`}
           />
         </>
       ) : (
@@ -46,9 +46,9 @@ const Kontonummer = ({ kontonummer }: Props) => {
             </Normaltekst>
           </div>
           <Kilde
-            tekst="personalia.source.nav"
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
-            href={`${tjenesteUrl}/brukerprofil/`}
           />
         </>
       )}

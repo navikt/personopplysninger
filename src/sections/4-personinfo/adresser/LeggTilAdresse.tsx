@@ -16,9 +16,9 @@ const LeggTilAdresse = () => (
         </Normaltekst>
       </div>
       <Kilde
-        tekst="personalia.source.nav"
+        kilde="personalia.source.nav"
+        lenke={`${tjenesteUrl}/brukerprofil/`}
         lenkeTekst="personalia.link.brukerprofil.leggtil"
-        href={`${tjenesteUrl}/brukerprofil/`}
       />
     </>
   </AdressePanel>

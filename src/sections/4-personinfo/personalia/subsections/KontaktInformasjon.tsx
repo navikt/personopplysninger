@@ -4,6 +4,7 @@ import { FormattedHTMLMessage } from "react-intl";
 import ListElement from "../../../../components/listelement/ListElement";
 import Message from "../../../../components/message/Message";
 import { KontaktInfo } from "../../../../types/kontaktInfo";
+import Kilde from "../../../../components/kilde/Kilde";
 
 interface Props {
   info: KontaktInfo;
@@ -26,9 +27,21 @@ const KontaktInformasjon = (props: Props) => {
         <ListElement titleId="personalia.phone" content={mobiltelefonnummer} />
         <ListElement titleId="personalia.email" content={epostadresse} />
       </ul>
+      <Kilde
+        kilde="personalia.source.dkif"
+        lenke="https://brukerprofil.difi.no/minprofil"
+        lenkeTekst="personalia.link.dkif.endre"
+      />
     </>
   ) : (
-    <Message messageId="personalia.dkif.ingenData" />
+    <>
+      <Message messageId="personalia.dkif.ingenData" />
+      <Kilde
+        kilde="personalia.source.dkif"
+        lenke="https://brukerprofil.difi.no/minprofil"
+        lenkeTekst="personalia.link.dkif.leggtil"
+      />
+    </>
   );
 };
 
