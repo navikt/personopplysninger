@@ -11,9 +11,10 @@ interface props {
 }
 
 const Error = (props: props) => {
-  const { error } = props;
+  const { error } = JSON.parse(JSON.stringify(props));
+
   return (
-    <div className="BoxContainer">
+    <div className="error__container">
       <AlertStripe type="advarsel" solid>
         Oisann, noe gikk galt!
         <span>{` ${error.code}: ${error.text}`}</span>

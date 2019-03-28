@@ -19,10 +19,8 @@ const sjekkForFeil = (response: Response, reject: (reason?: any) => void) =>
   response.ok
     ? response
     : reject({
-      error: {
-        code: response.status,
-        text: response.statusText
-      }
+      code: response.status,
+      text: response.statusText
     });
 
 const hentJsonOgSjekkAuth = (url: string) =>
