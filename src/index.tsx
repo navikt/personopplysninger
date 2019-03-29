@@ -15,7 +15,7 @@ interface Messages {
 }
 
 const browserLanguage = "nb";
-const messages: Messages = {
+const messages = {
   nb: nbMessages
 };
 

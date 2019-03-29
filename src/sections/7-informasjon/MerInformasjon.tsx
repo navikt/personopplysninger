@@ -1,8 +1,8 @@
 import React from "react";
 import { Innholdstittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Alternativ from "./Alternativ";
-import merInformasjon from "./AlternativerData";
+import MerInformasjonPanel from "./MerInformasjonPanel";
+import merInformasjon from "./MerInformasjonData";
 
 const AlternativListe = () => (
   <React.Fragment>
@@ -14,7 +14,7 @@ const AlternativListe = () => (
       </div>
       <div className="icon-box-margin">
         {merInformasjon.map(info => (
-          <Alternativ
+          <MerInformasjonPanel
             key={info.id}
             tittel={info.tittel}
             melding={info.melding}
