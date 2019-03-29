@@ -1,6 +1,7 @@
 import React from "react";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { Systemtittel, Normaltekst } from "nav-frontend-typografi";
+import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
+import { LenkepanelBase } from "nav-frontend-lenkepanel";
 import Icon from "../icon/Icon";
 
 export interface Props {
@@ -12,40 +13,26 @@ export interface Props {
   icon?: string;
 }
 
-const LinkBox = (props: Props) => {
+const LinkBox = (props: Props & InjectedIntlProps) => {
   return (
-    <div className="box__container">
+    <LenkepanelBase href={props.url} className="box__container">
       <div className="icon__container">
         <Icon backgroundImage={props.icon} />
       </div>
       <div className="linkbox__content">
-        <div className="linkbox__tittel">
-          <Systemtittel>
-            <FormattedMessage id={props.tittel} />
-          </Systemtittel>
-        </div>
-        <div className="linkbox__rad">
-          <div className="linkbox__seksjon">
-            <Normaltekst>
-              <FormattedMessage id={props.beskrivelse} />
-            </Normaltekst>
+        <div className="linkbox__seksjon">
+          <div className="linkbox__tittel">
+            <Systemtittel>
+              <FormattedMessage id={props.tittel} />
+            </Systemtittel>
           </div>
-          <div className="linkbox__seksjon linkbox__lenke-container">
-            <Normaltekst>
-              <a
-                className="lenke"
-                href={props.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FormattedMessage id={props.lenkeTekst} />
-              </a>
-            </Normaltekst>
-          </div>
+          <Normaltekst>
+            <FormattedMessage id={props.beskrivelse} />
+          </Normaltekst>
         </div>
       </div>
-    </div>
+    </LenkepanelBase>
   );
 };
 
-export default LinkBox;
+export default injectIntl(LinkBox);

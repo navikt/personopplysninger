@@ -1,11 +1,11 @@
+.lenkepanel {
+  margin-bottom: 0.3rem;
+}
+
 .linkbox {
   &__rad {
     display: flex;
     display: flex-end;
-
-    @media @mobile {
-      flex-direction: column;
-    }
   }
 
   &__tittel {
@@ -23,11 +23,18 @@
     flex-direction: column;
   }
   &__seksjon {
-    width: 50%;
     margin: 0 1rem 0 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: flex-start;
+
+    @media @mobile {
+      width: 100%;
+    }
+
+    @media @tablet {
+      width: 50%;
+    }
   }
 }

@@ -15,7 +15,7 @@ const Box = (props: Props & InjectedIntlProps) => {
   const { tittel, beskrivelse, icon, children, id } = props;
 
   return (
-    <div className="box__container">
+    <div className="box__container seksjon">
       <div className="icon__container" id={id}>
         {icon && <Icon backgroundImage={icon} />}
       </div>

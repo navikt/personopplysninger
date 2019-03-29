@@ -66,7 +66,7 @@ export default {
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
   "eksternelenker.pensjon.tittel": `Pensjonsopptjening`,
-  "eksternelenker.pensjon.beskrivelse": `NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.`,
+  "eksternelenker.pensjon.beskrivelse": `NAV har opplysninger om din pensjonsopptjening i en egen tjeneste`,
   "eksternelenker.pensjon.lenkeTekst": `Gå til Din pensjon`,
   "eksternelenker.dinesaker.tittel": `Dine saker`,
   "eksternelenker.dinesaker.beskrivelse": `Oversikt over dine saker og kommunikasjon med NAV`,

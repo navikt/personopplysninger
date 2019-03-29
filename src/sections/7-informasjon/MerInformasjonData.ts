@@ -11,8 +11,8 @@ export default [
   },
   {
     id: 3,
-    tittel: "alternativer.savneropplysninger.tittel",
-    melding: "alternativer.savneropplysninger.melding"
+    tittel: "alternativer.utlevere.tittel",
+    melding: "alternativer.utlevere.melding"
   },
   {
     id: 4,
