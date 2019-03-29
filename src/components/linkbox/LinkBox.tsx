@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Mobile from "./responsive/Mobile";
-import Desktop from "./responsive/Desktop";
+import React from "react";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { FormattedMessage } from "react-intl";
+import Icon from "../icon/Icon";
 
 export interface Props {
   id: string;
@@ -12,20 +13,39 @@ export interface Props {
 }
 
 const LinkBox = (props: Props) => {
-  const [erMobil, setErMobil] = useState(window.innerWidth <= 420);
-
-  useEffect(() => {
-    window.addEventListener("resize", () =>
-      setErMobil(window.innerWidth <= 420)
-    );
-    return () => {
-      window.removeEventListener("resize", () =>
-        setErMobil(window.innerWidth <= 420)
-      );
-    };
-  });
-
-  return erMobil ? <Mobile {...props} /> : <Desktop {...props} />;
+  return (
+    <div className="box__container">
+      <div className="icon__container">
+        <Icon backgroundImage={props.icon} />
+      </div>
+      <div className="linkbox__content">
+        <div className="linkbox__tittel">
+          <Systemtittel>
+            <FormattedMessage id={props.tittel} />
+          </Systemtittel>
+        </div>
+        <div className="linkbox__rad">
+          <div className="linkbox__seksjon">
+            <Normaltekst>
+              <FormattedMessage id={props.beskrivelse} />
+            </Normaltekst>
+          </div>
+          <div className="linkbox__seksjon linkbox__lenke-container">
+            <Normaltekst>
+              <a
+                className="lenke"
+                href={props.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FormattedMessage id={props.lenkeTekst} />
+              </a>
+            </Normaltekst>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default LinkBox;
