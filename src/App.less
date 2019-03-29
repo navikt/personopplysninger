@@ -27,7 +27,14 @@ main {
 }
 
 .seksjon {
-  margin: 3rem 0;
+  position: relative;
+  @media @tablet {
+    margin: 4rem 0;
+    flex-direction: column !important;
+  }
+  @media @desktop {
+    margin: 3rem 0;
+  }
 }
 
 .Content {
