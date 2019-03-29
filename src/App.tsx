@@ -9,8 +9,8 @@ import "./index.less";
 const App = () => (
   <main role="main">
     <div className="Content">
-      <Sidetittel />
       <Brodsmulesti />
+      <Sidetittel />
       <PersonInfo />
       <EksterneLenker />
       <Alternativer />

@@ -1,7 +1,6 @@
 import React, { PureComponent } from "react";
 import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Kilde from "../../../../components/kilde/Kilde";
 import Error, { HTTPError } from "../../../../components/error/Error";
 import Spinner from "../../../../components/spinner/Spinner";
 import { fetchKontaktInfo } from "../../../../clients/apiClient";

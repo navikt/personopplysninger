@@ -23,33 +23,40 @@ exports[`render LinkBox with content 1`] = `
   <div
     className="linkbox__content"
   >
-    <button
-      className="information-circle"
-      onClick={[Function]}
-      type="button"
+    <div
+      className="linkbox__seksjon"
     >
-      <img
-        alt="Information"
-        src={[Function]}
-      />
-    </button>
-    <p
-      className="typo-ingress"
-    >
-      NAV har opplysninger om din pensjon i en egen tjeneste.
-    </p>
-    <p
-      className="typo-ingress"
-    >
-      <a
-        className="lenke"
-        href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
-        rel="noopener noreferrer"
-        target="_blank"
+      <div
+        className="linkbox__tittel"
       >
-        Gå til Din pensjon
-      </a>
-    </p>
+        <h2
+          className="typo-systemtittel"
+        >
+          Pensjon
+        </h2>
+      </div>
+      <p
+        className="typo-normal"
+      >
+        NAV har opplysninger om din pensjon i en egen tjeneste.
+      </p>
+    </div>
+    <div
+      className="linkbox__seksjon linkbox__lenke-container"
+    >
+      <p
+        className="typo-normal"
+      >
+        <a
+          className="lenke"
+          href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Gå til Din pensjon
+        </a>
+      </p>
+    </div>
   </div>
 </div>
 `;

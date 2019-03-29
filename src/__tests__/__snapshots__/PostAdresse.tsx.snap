@@ -67,25 +67,33 @@ exports[`render Postadresse with content 1`] = `
   <div
     className="kilde__container"
   >
-    <p
-      className="typo-undertekst"
-    >
-      <span>
-        Kilde: Folkeregisteret
-      </span>
-    </p>
-    <a
-      className="lenke"
-      href="https://www.skatteetaten.no/person/folkeregister/"
+    <div
+      className="kilde__seksjon"
     >
       <p
-        className="typo-normal"
+        className="typo-undertekst"
       >
         <span>
-          Endre hos Folkeregisteret
+          Kilde: Folkeregisteret
         </span>
       </p>
-    </a>
+    </div>
+    <div
+      className="kilde__seksjon"
+    >
+      <a
+        className="lenke"
+        href="https://www.skatteetaten.no/person/folkeregister/"
+      >
+        <p
+          className="typo-normal"
+        >
+          <span>
+            Endre hos Folkeregisteret
+          </span>
+        </p>
+      </a>
+    </div>
   </div>
 </div>
 `;
