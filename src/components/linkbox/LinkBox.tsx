@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Mobile from "./responsive/Mobile";
-import Desktop from "./responsive/Desktop";
+import React from "react";
+import { Systemtittel, Normaltekst } from "nav-frontend-typografi";
+import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
+import { LenkepanelBase } from "nav-frontend-lenkepanel";
+import Icon from "../icon/Icon";
 
 export interface Props {
   id: string;
@@ -11,21 +13,26 @@ export interface Props {
   icon?: string;
 }
 
-const LinkBox = (props: Props) => {
-  const [erMobil, setErMobil] = useState(window.innerWidth <= 420);
-
-  useEffect(() => {
-    window.addEventListener("resize", () =>
-      setErMobil(window.innerWidth <= 420)
-    );
-    return () => {
-      window.removeEventListener("resize", () =>
-        setErMobil(window.innerWidth <= 420)
-      );
-    };
-  });
-
-  return erMobil ? <Mobile {...props} /> : <Desktop {...props} />;
+const LinkBox = (props: Props & InjectedIntlProps) => {
+  return (
+    <LenkepanelBase href={props.url} className="box__container">
+      <div className="icon__container">
+        <Icon backgroundImage={props.icon} />
+      </div>
+      <div className="linkbox__content">
+        <div className="linkbox__seksjon">
+          <div className="linkbox__tittel">
+            <Systemtittel>
+              <FormattedMessage id={props.tittel} />
+            </Systemtittel>
+          </div>
+          <Normaltekst>
+            <FormattedMessage id={props.beskrivelse} />
+          </Normaltekst>
+        </div>
+      </div>
+    </LenkepanelBase>
+  );
 };
 
-export default LinkBox;
+export default injectIntl(LinkBox);

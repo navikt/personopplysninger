@@ -1,8 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`render LinkBox with content 1`] = `
-<div
-  className="linkbox__container"
+<a
+  className="lenkepanel box__container"
+  href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
 >
   <div
     className="icon__container"
@@ -43,28 +44,13 @@ exports[`render LinkBox with content 1`] = `
         className="typo-normal"
       >
         <span>
-          NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
+          NAV har opplysninger om din pensjonsopptjening i en egen tjeneste
         </span>
       </p>
     </div>
-    <div
-      className="linkbox__seksjon linkbox__lenke-container"
-    >
-      <p
-        className="typo-normal"
-      >
-        <a
-          className="lenke"
-          href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          <span>
-            Gå til Din pensjon
-          </span>
-        </a>
-      </p>
-    </div>
   </div>
-</div>
+  <span
+    className="lenkepanel__indikator"
+  />
+</a>
 `;

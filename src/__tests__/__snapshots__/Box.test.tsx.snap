@@ -2,7 +2,7 @@
 
 exports[`render Header with content 1`] = `
 <div
-  className="panel box"
+  className="box__container seksjon"
 >
   <div
     className="icon__container"

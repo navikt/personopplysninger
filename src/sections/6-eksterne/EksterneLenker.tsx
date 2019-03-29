@@ -3,7 +3,7 @@ import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "../../components/linkbox/LinkBox";
 
 const LinksContainer = () => (
-  <React.Fragment>
+  <div className="seksjon box-bottom-margin">
     {eksterneLenker.map(
       (link: any) =>
         link.visible && (
@@ -18,7 +18,7 @@ const LinksContainer = () => (
           />
         )
     )}
-  </React.Fragment>
+  </div>
 );
 
 export default LinksContainer;

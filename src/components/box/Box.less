@@ -1,16 +1,20 @@
 .box {
-  @media @desktop {
-    margin: 3rem 0 3rem 0;
-    padding: 2rem 3rem 3rem 3rem;
+  &__container {
     display: flex;
-  }
+    flex-flow: row;
+    background: white;
+    padding: 1.5rem 2rem;
 
-  @media @tablet {
-    margin: 1rem 0 1rem 0;
+    @media @tablet {
+      padding: 1.5rem 2rem;
+    }
+
+    @media @desktop {
+      padding: 1.75rem 3rem;
+    }
   }
 
   &__content-container {
-    padding: 0 1.5rem;
     width: 100%;
   }
 
@@ -148,11 +152,4 @@
     text-align: center;
     margin-bottom: 2rem;
   }
-}
-
-.BoxContainer {
-  width: 100%;
-  display: flex;
-  flex-flow: column;
-  align-items: center;
 }

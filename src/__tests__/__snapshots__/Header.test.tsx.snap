@@ -19,7 +19,7 @@ exports[`render Header with content 1`] = `
       />
     </h1>
     <div
-      className="header__content-intro"
+      className="header__content-seksjon"
     >
       <p
         className="typo-ingress"
@@ -34,7 +34,22 @@ exports[`render Header with content 1`] = `
       </p>
     </div>
     <div
-      className="header__content-description"
+      className="header__content-seksjon"
+    >
+      <p
+        className="typo-normal"
+      >
+        <span
+          dangerouslySetInnerHTML={
+            Object {
+              "__html": "Du har rett til innsyn i personopplysninger NAV har registrert om deg, men det er ikke sikkert du finner alle personopplysninger her. Det kan skyldes både tekniske og juridiske begrensninger.",
+            }
+          }
+        />
+      </p>
+    </div>
+    <div
+      className="header__content-seksjon"
     >
       <p
         className="typo-ingress"
