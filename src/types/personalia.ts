@@ -1,3 +1,9 @@
+export interface Tlfnr {
+  jobb?: string;
+  mobil?: string;
+  privat?: string;
+}
+
 export interface Personalia {
   fornavn?: string;
   etternavn?: string;
@@ -6,11 +12,7 @@ export interface Personalia {
     type: string;
   };
   kontonr?: string;
-  tlfnr?: {
-    jobb?: string;
-    mobil?: string;
-    privat?: string;
-  };
+  tlfnr?: Tlfnr;
   spraak?: string;
   epostadr?: string;
   personstatus?: string;

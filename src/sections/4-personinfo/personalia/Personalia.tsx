@@ -4,6 +4,7 @@ import kvinne from "../../../assets/img/kvinne.svg";
 import mann from "../../../assets/img/mann.png";
 import Kontonummer from "./subsections/Kontonummer";
 import Folkeregisteret from "./subsections/Folkeregisteret";
+import Telefonnummer from "./subsections/Telefonnummer";
 import DKIF from "./subsections/DKIF";
 import { Personalia as PersonaliaType } from "../../../types/personalia";
 
@@ -25,6 +26,7 @@ class Personalia extends Component<Props> {
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
         <Kontonummer kontonummer={kontonr} />
+        <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
       </Box>
     );

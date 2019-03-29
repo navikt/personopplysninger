@@ -6,11 +6,7 @@
       "verdi": "12345678911",
       "type": "FNR"
     },
-    "kontonr": "12345678911",
     "tlfnr": {
-      "jobb": "90909090",
-      "mobil": "90909090",
-      "privat": "90909090",
       "datakilder": [{}, {}]
     },
     "spraak": "NB",
