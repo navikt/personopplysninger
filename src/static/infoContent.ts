@@ -23,8 +23,7 @@ const infoContent: IntoContent = {
   },
   adresse: {
     header: "Adresse",
-    content:
-      "NAV må vite hvilken adresse vi kan kontakte deg på. Adressen din forteller også hvilket NAV-kontor du hører til."
+    content: "NAV må vite hvilken adresse vi kan kontakte deg på."
   },
   dine_saker: {
     content: {
