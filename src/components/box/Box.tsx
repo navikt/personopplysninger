@@ -20,7 +20,7 @@ const Box = (props: Props) => {
   const desktopVersjon = (
     <Panel className="box">
       <div className="icon__container" id={id}>
-        {icon && <Icon src={icon} />}
+        {icon && <Icon backgroundImage={icon} />}
       </div>
       <div className="box__content-container">
         <div className="box__header" id={id}>
