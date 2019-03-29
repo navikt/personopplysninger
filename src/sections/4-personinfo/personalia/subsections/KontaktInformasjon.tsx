@@ -2,7 +2,7 @@ import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
 import ListElement from "../../../../components/listelement/ListElement";
-import Message from "../../../../components/message/Message";
+import Melding from "../../../../components/melding/Melding";
 import { KontaktInfo } from "../../../../types/kontaktInfo";
 import Kilde from "../../../../components/kilde/Kilde";
 
@@ -24,7 +24,7 @@ const KontaktInformasjon = (props: Props) => {
         </Normaltekst>
       </div>
       <ul className="list-column-2">
-        <ListElement titleId="personalia.phone" content={mobiltelefonnummer} />
+        <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
         <ListElement titleId="personalia.email" content={epostadresse} />
       </ul>
       <Kilde
@@ -35,7 +35,7 @@ const KontaktInformasjon = (props: Props) => {
     </>
   ) : (
     <>
-      <Message messageId="personalia.dkif.ingenData" />
+      <Melding bold meldingId="personalia.dkif.ingenData" />
       <Kilde
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"

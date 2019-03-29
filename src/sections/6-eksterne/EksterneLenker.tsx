@@ -1,21 +1,20 @@
 import React from "react";
-import links from "../../static/links";
+import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "../../components/linkbox/LinkBox";
 
 const LinksContainer = () => (
   <React.Fragment>
-    {links.map(
+    {eksterneLenker.map(
       (link: any) =>
         link.visible && (
           <LinkBox
             id={link.id}
             key={link.id}
             icon={link.icon}
-            header={link.header}
-            information={link.information}
+            tittel={link.tittel}
+            beskrivelse={link.beskrivelse}
+            lenkeTekst={link.lenkeTekst}
             url={link.url}
-            linkText={link.linkText}
-            infoBoxContent={link.infoBoxContent}
           />
         )
     )}

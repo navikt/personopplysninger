@@ -2,20 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
 import nb from "react-intl/locale-data/nb";
-import en from "react-intl/locale-data/en";
 import App from "../App";
-import nbMessages from "../translations/nb.json";
-import enMessages from "../translations/en.json";
+import nbMessages from "../translations/nb";
 
+const browserLanguage = "nb";
 const messages = {
-  nb: nbMessages,
-  en: enMessages
+  nb: nbMessages
 };
 
-const browserLanguage = "en";
-
-addLocaleData([...nb, ...en]);
-
+addLocaleData([...nb]);
 jest.mock("react-dom", () => ({ render: jest.fn() }));
 
 it("index renders without crashing", () => {

@@ -19,9 +19,9 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
   return (
     <Box
       id="adresse"
-      header={intl.formatMessage({ id: "adresse.adresser" })}
+      tittel="adresse.tittel"
+      beskrivelse="adresse.beskrivelse"
       icon={hus}
-      infoType="adresse"
     >
       <>
         {adresser.boadresse && <BoAdresse boadresse={adresser.boadresse} />}

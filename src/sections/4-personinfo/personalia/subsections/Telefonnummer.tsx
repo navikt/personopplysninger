@@ -1,37 +1,39 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
 import { Undertittel } from "nav-frontend-typografi";
-import Kilde from "../../../../components/kilde/Kilde";
-import Melding from "../../../../components/melding/Melding";
+import { FormattedMessage } from "react-intl";
 import ListElement from "../../../../components/listelement/ListElement";
+import Melding from "../../../../components/melding/Melding";
+import { Tlfnr } from "../../../../types/personalia";
+import Kilde from "../../../../components/kilde/Kilde";
 import Environment from "../../../../utils/Environments";
 
 const { tjenesteUrl } = Environment();
 
 interface Props {
-  kontonummer?: string;
+  tlfnr?: Tlfnr;
 }
 
-const Kontonummer = ({ kontonummer }: Props) => {
-  const formattertKontonr =
-    kontonummer && kontonummer.length === 11
-      ? kontonummer.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3")
-      : kontonummer;
-
+const Telefonnummer = (props: Props) => {
+  const { tlfnr } = props;
   return (
     <>
       <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
         <Undertittel>
-          <FormattedMessage id="personalia.kontonr.oveskrift" />
+          <FormattedMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
-      {kontonummer ? (
+      {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
         <>
           <ul className="list-column-2">
+            <ListElement titleId="personalia.tlfnr.jobb" content={tlfnr.jobb} />
             <ListElement
-              titleId="personalia.kontonr"
-              content={formattertKontonr}
+              titleId="personalia.tlfnr.mobil"
+              content={tlfnr.mobil}
+            />
+            <ListElement
+              titleId="personalia.tlfnr.privat"
+              content={tlfnr.privat}
             />
           </ul>
           <Kilde
@@ -42,7 +44,7 @@ const Kontonummer = ({ kontonummer }: Props) => {
         </>
       ) : (
         <>
-          <Melding meldingId="personalia.kontonr.ingenData" />
+          <Melding meldingId="personalia.tlfnr.ingenData" />
           <Kilde
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
@@ -54,4 +56,4 @@ const Kontonummer = ({ kontonummer }: Props) => {
   );
 };
 
-export default Kontonummer;
+export default Telefonnummer;

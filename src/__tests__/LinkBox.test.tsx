@@ -2,29 +2,28 @@ import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
 import LinkBox from "../components/linkbox/LinkBox";
 import wrapIntl from "./__utils__/IntlTestHelper";
+import sparegris from "../assets/img/spare-pensjonsgris.svg";
 
 test("render LinkBox with content", () => {
   const link = {
     id: "pensjonsopptjening",
-    header: "Pensjon",
-    information: "NAV har opplysninger om din pensjon i en egen tjeneste.",
-    linkText: "Gå til Din pensjon",
-    url: "https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon",
-    infoBoxContent: {
-      __html:
-        'På grunn av tekniske og juridiske begrensninger vil ikke alle dokumenter vises. Du kan også be om partsinnsyn ved å kontakte NAV Kontaktsenter, tlf. 55 55 33 33, eller bruke <a class="lenke" href="" target="_blank" rel="noopener noreferrer">Send beskjed til NAV</a>.'
-    }
+    tittel: "eksternelenker.pensjon.tittel",
+    beskrivelse: "eksternelenker.pensjon.beskrivelse",
+    lenkeTekst: "eksternelenker.pensjon.lenkeTekst",
+    url: "https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf",
+    icon: sparegris,
+    visible: true
   };
 
   const component = ReactTestRenderer.create(
     wrapIntl(
       <LinkBox
         id={link.id}
-        header={link.header}
-        information={link.information}
+        tittel={link.tittel}
+        beskrivelse={link.beskrivelse}
+        lenkeTekst={link.lenkeTekst}
         url={link.url}
-        linkText={link.linkText}
-        infoBoxContent={link.infoBoxContent}
+        icon={link.icon}
       />
     )
   );

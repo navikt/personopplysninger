@@ -12,13 +12,15 @@ exports[`render LinkBox with content 1`] = `
       style={
         Object {
           "backgroundColor": "#c6c2bf",
+          "backgroundImage": "url(function SvgSparePensjonsgris(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgSparePensjonsgris.name})
+  );
+})",
         }
       }
-    >
-      <img
-        className="icon"
-      />
-    </div>
+    />
   </div>
   <div
     className="linkbox__content"
@@ -32,13 +34,17 @@ exports[`render LinkBox with content 1`] = `
         <h2
           className="typo-systemtittel"
         >
-          Pensjon
+          <span>
+            Pensjonsopptjening
+          </span>
         </h2>
       </div>
       <p
         className="typo-normal"
       >
-        NAV har opplysninger om din pensjon i en egen tjeneste.
+        <span>
+          NAV har opplysninger om din pensjonsopptjening i en egen tjeneste.
+        </span>
       </p>
     </div>
     <div
@@ -49,11 +55,13 @@ exports[`render LinkBox with content 1`] = `
       >
         <a
           className="lenke"
-          href="https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"
+          href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
           rel="noopener noreferrer"
           target="_blank"
         >
-          Gå til Din pensjon
+          <span>
+            Gå til Din pensjon
+          </span>
         </a>
       </p>
     </div>
