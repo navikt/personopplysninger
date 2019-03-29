@@ -5,7 +5,7 @@ exports[`render Header with content 1`] = `
   className="box__container seksjon"
 >
   <div
-    className="icon__container"
+    className="box__icon-container icon__container"
     id="adresse"
   >
     <div
