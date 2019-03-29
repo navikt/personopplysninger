@@ -19,9 +19,9 @@ class Personalia extends Component<Props> {
     return (
       <Box
         id="personalia"
-        header="Personalia"
+        tittel="personalia.tittel"
+        beskrivelse="personalia.beskrivelse"
         icon={kjoenn === "Mann" ? mann : kvinne}
-        infoType="personalia"
       >
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />

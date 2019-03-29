@@ -3,21 +3,27 @@
 import React from "react";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { Normaltekst } from "nav-frontend-typografi";
+import {
+  FormattedHTMLMessage,
+  injectIntl,
+  InjectedIntlProps
+} from "react-intl";
 
 interface Props {
-  description: string;
-  content: {
-    __html: string;
-  };
+  tittel: string;
+  melding: string;
 }
-const Alternativ = (props: Props) => {
-  const { description, content } = props;
+const Alternativ = (props: Props & InjectedIntlProps) => {
+  const { tittel, melding, intl } = props;
   return (
     <React.Fragment>
       <div className="alternativ-panel">
-        <Ekspanderbartpanel tittel={description} tittelProps="element">
+        <Ekspanderbartpanel
+          tittel={intl.formatMessage({ id: tittel })}
+          tittelProps="element"
+        >
           <Normaltekst>
-            <div dangerouslySetInnerHTML={content} />
+            <FormattedHTMLMessage id={melding} />
           </Normaltekst>
         </Ekspanderbartpanel>
       </div>
@@ -25,4 +31,4 @@ const Alternativ = (props: Props) => {
   );
 };
 
-export default Alternativ;
+export default injectIntl(Alternativ);

@@ -1,25 +1,14 @@
 import React from "react";
 import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { Ingress } from "nav-frontend-typografi";
-
-interface Props {
-  id: string;
-  header: string;
-  information: string;
-  linkText: string;
-  url: string;
-  icon?: string;
-  infoBoxContent: {
-    __html: string;
-  };
-}
+import { Props } from "../LinkBox";
 
 const Mobile = (props: Props) => (
   <div className="box" id={props.id}>
-    <Ekspanderbartpanel tittel={props.header} tittelProps="systemtittel">
+    <Ekspanderbartpanel tittel={props.tittel} tittelProps="systemtittel">
       <div className="box">
         <div className="box__content">
-          <Ingress>{props.information}</Ingress>
+          <Ingress>{props.beskrivelse}</Ingress>
           <Ingress>
             <a
               className="lenke"
@@ -27,7 +16,7 @@ const Mobile = (props: Props) => (
               target="_blank"
               rel="noopener noreferrer"
             >
-              {props.linkText}
+              {props.lenkeTekst}
             </a>
           </Ingress>
         </div>

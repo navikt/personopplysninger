@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import Mobile from "./responsive/Mobile";
 import Desktop from "./responsive/Desktop";
 
-interface Props {
+export interface Props {
   id: string;
-  header: string;
-  information: string;
-  linkText: string;
+  tittel: string;
+  beskrivelse: string;
+  lenkeTekst: string;
   url: string;
   icon?: string;
-  infoBoxContent: {
-    __html: string;
-  };
 }
 
 const LinkBox = (props: Props) => {

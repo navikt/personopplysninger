@@ -1,18 +1,8 @@
 import React from "react";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { FormattedMessage } from "react-intl";
 import Icon from "../../icon/Icon";
-
-interface Props {
-  id: string;
-  header: string;
-  information: string;
-  linkText: string;
-  url: string;
-  icon?: string;
-  infoBoxContent: {
-    __html: string;
-  };
-}
+import { Props } from "../LinkBox";
 
 const Desktop = (props: Props) => (
   <div className="linkbox__container">
@@ -22,9 +12,13 @@ const Desktop = (props: Props) => (
     <div className="linkbox__content">
       <div className="linkbox__seksjon">
         <div className="linkbox__tittel">
-          <Systemtittel>{props.header}</Systemtittel>
+          <Systemtittel>
+            <FormattedMessage id={props.tittel} />
+          </Systemtittel>
         </div>
-        <Normaltekst>{props.information}</Normaltekst>
+        <Normaltekst>
+          <FormattedMessage id={props.beskrivelse} />
+        </Normaltekst>
       </div>
       <div className="linkbox__seksjon linkbox__lenke-container">
         <Normaltekst>
@@ -34,7 +28,7 @@ const Desktop = (props: Props) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            {props.linkText}
+            <FormattedMessage id={props.lenkeTekst} />
           </a>
         </Normaltekst>
       </div>
