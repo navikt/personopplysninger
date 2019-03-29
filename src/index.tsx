@@ -7,12 +7,7 @@ import nb from "react-intl/locale-data/nb";
 import { setUpMock } from "./clients/apiMock";
 import App from "./App";
 import "css/index.css";
-
 import nbMessages from "./translations/nb";
-
-interface Messages {
-  [key: string]: { [key: string]: string };
-}
 
 const browserLanguage = "nb";
 const messages = {
