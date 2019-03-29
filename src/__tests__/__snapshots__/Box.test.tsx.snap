@@ -6,20 +6,48 @@ exports[`render Header with content 1`] = `
 >
   <div
     className="icon__container"
-    id="arbeidsforhold"
-  />
+    id="adresse"
+  >
+    <div
+      className="icon__circle"
+      style={
+        Object {
+          "backgroundColor": "#c6c2bf",
+          "backgroundImage": "url(function SvgHus(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgHus.name})
+  );
+})",
+        }
+      }
+    />
+  </div>
   <div
     className="box__content-container"
   >
     <div
       className="box__header"
-      id="arbeidsforhold"
+      id="adresse"
     >
       <h2
         className="typo-systemtittel"
       >
-        Arbeidsforhold
+        <span>
+          Adresser
+        </span>
       </h2>
+      <div
+        className="box__ingress"
+      >
+        <p
+          className="typo-ingress"
+        >
+          <span>
+            NAV må vite hvilken adresse vi kan kontakte deg på.
+          </span>
+        </p>
+      </div>
     </div>
     <div
       className="box__content"
