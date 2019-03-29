@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
-import { Ingress, Innholdstittel } from "nav-frontend-typografi";
+import { Ingress, Innholdstittel, Normaltekst } from "nav-frontend-typografi";
 import group from "../../assets/img/group.svg";
 import veileder from "../../assets/img/veileder.svg";
 
@@ -17,7 +17,7 @@ const Header = ({ fornavn }: Props) => (
           values={{ name: fornavn || "" }}
         />
       </Innholdstittel>
-      <div className="header__content-intro">
+      <div className="header__content-seksjon">
         <Ingress>
           <FormattedHTMLMessage
             id="header.intro"
@@ -25,7 +25,12 @@ const Header = ({ fornavn }: Props) => (
           />
         </Ingress>
       </div>
-      <div className="header__content-description">
+      <div className="header__content-seksjon">
+        <Normaltekst>
+          <FormattedHTMLMessage id="header.obs" />
+        </Normaltekst>
+      </div>
+      <div className="header__content-seksjon">
         <Ingress>
           <FormattedHTMLMessage id="header.description" />
         </Ingress>
