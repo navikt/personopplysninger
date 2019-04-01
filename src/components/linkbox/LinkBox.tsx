@@ -16,7 +16,7 @@ export interface Props {
 const LinkBox = (props: Props & InjectedIntlProps) => {
   return (
     <LenkepanelBase href={props.url} className="box__container">
-      <div className="icon__container">
+      <div className="linkbox__icon-container icon__container">
         <Icon backgroundImage={props.icon} />
       </div>
       <div className="linkbox__content">
