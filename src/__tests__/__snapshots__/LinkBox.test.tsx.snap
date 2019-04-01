@@ -6,7 +6,7 @@ exports[`render LinkBox with content 1`] = `
   href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
 >
   <div
-    className="icon__container"
+    className="linkbox__icon-container icon__container"
   >
     <div
       className="icon__circle"
