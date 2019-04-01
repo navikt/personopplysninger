@@ -12,11 +12,10 @@ exports[`render LinkBox with content 1`] = `
       className="icon__circle"
       style={
         Object {
-          "backgroundColor": "#c6c2bf",
-          "backgroundImage": "url(function SvgSparePensjonsgris(props) {
+          "backgroundImage": "url(function SvgPensjon(props) {
   return React.createElement(
     'svg', 
-    Object.assign({}, props, {'data-file-name': SvgSparePensjonsgris.name})
+    Object.assign({}, props, {'data-file-name': SvgPensjon.name})
   );
 })",
         }
