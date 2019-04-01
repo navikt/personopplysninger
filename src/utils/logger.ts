@@ -7,10 +7,10 @@ export const logApiError = (url: string, response: Response) => {
 
   if (frontendlogger) {
     frontendlogger.error(error),
-    frontendlogger.event(
-      "personopplysninger.apikall",
-      { melding: error },
-      { status: response.status, statusText: response.statusText, url }
-    );
+    frontendlogger.event("personopplysninger.apikall", {
+      status: response.status,
+      statusText: response.statusText,
+      url
+    });
   }
 };

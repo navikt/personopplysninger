@@ -7,7 +7,7 @@ import PersonInfo from "./sections/4-personinfo/PersonInfo";
 import "./index.less";
 
 const App = () => (
-  <div className="content">
+  <div className="pagecontent">
     <Brodsmulesti />
     <Sidetittel />
     <PersonInfo />
