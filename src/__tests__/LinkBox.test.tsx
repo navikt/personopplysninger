@@ -2,7 +2,7 @@ import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
 import LinkBox from "../components/linkbox/LinkBox";
 import wrapIntl from "./__utils__/IntlTestHelper";
-import sparegris from "../assets/img/spare-pensjonsgris.svg";
+import pensjon from "../assets/img/pensjon.svg";
 
 test("render LinkBox with content", () => {
   const link = {
@@ -11,7 +11,7 @@ test("render LinkBox with content", () => {
     beskrivelse: "eksternelenker.pensjon.beskrivelse",
     lenkeTekst: "eksternelenker.pensjon.lenkeTekst",
     url: "https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf",
-    icon: sparegris,
+    icon: pensjon,
     visible: true
   };
 

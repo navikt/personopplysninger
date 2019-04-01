@@ -1,8 +1,8 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import { Ingress, Innholdstittel, Normaltekst } from "nav-frontend-typografi";
-import group from "../../assets/img/group.svg";
-import veileder from "../../assets/img/veileder.svg";
+import veilederDesktop from "../../assets/img/veileder-desktop.svg";
+import veilederMobil from "../../assets/img/veileder-mobile.svg";
 
 interface Props {
   fornavn?: string;
@@ -36,9 +36,9 @@ const Header = ({ fornavn }: Props) => (
         </Ingress>
       </div>
     </div>
-    <img src={group} className="header__icon-desktop" alt="PC" />
+    <img src={veilederDesktop} className="header__icon-desktop" alt="PC" />
     <div className="header__icon-mobile-container">
-      <img src={veileder} className="header__icon-mobile" alt="PC" />
+      <img src={veilederMobil} className="header__icon-mobile" alt="PC" />
     </div>
   </div>
 );

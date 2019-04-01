@@ -81,18 +81,18 @@ exports[`render Postadresse with content 1`] = `
     <div
       className="kilde__seksjon"
     >
-      <a
-        className="lenke"
-        href="https://www.skatteetaten.no/person/folkeregister/"
+      <p
+        className="typo-normal"
       >
-        <p
-          className="typo-normal"
+        <a
+          className="lenke"
+          href="https://www.skatteetaten.no/person/folkeregister/"
         >
           <span>
             Endre i Folkeregisteret
           </span>
-        </p>
-      </a>
+        </a>
+      </p>
     </div>
   </div>
 </div>

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Box from "../../../components/box/Box";
-import kvinne from "../../../assets/img/kvinne.svg";
-import mann from "../../../assets/img/mann.png";
+import personalia from "../../../assets/img/personalia.svg";
 import Kontonummer from "./subsections/Kontonummer";
 import Folkeregisteret from "./subsections/Folkeregisteret";
 import Telefonnummer from "./subsections/Telefonnummer";
@@ -14,14 +13,14 @@ interface Props {
 
 class Personalia extends Component<Props> {
   render() {
-    const { kontonr, kjoenn } = this.props.personalia;
+    const { kontonr } = this.props.personalia;
 
     return (
       <Box
         id="personalia"
         tittel="personalia.tittel"
         beskrivelse="personalia.beskrivelse"
-        icon={kjoenn === "Mann" ? mann : kvinne}
+        icon={personalia}
       >
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
