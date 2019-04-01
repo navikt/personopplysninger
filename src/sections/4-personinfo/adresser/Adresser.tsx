@@ -7,7 +7,7 @@ import UtenlandskAdresse from "./varianter/UtenlandskAdresse";
 import MidlertidigAdresse from "./varianter/MidlertidigAdresse";
 import { Adresser } from "../../../types/adresser";
 import Box from "../../../components/box/Box";
-import hus from "../../../assets/img/hus.svg";
+import adresseIkon from "../../../assets/img/adresser.svg";
 import LeggTilAdresse from "./LeggTilAdresse";
 
 interface Props {
@@ -15,13 +15,13 @@ interface Props {
 }
 
 const AdresseContainer = (props: Props & InjectedIntlProps) => {
-  const { adresser, intl } = props;
+  const { adresser } = props;
   return (
     <Box
       id="adresse"
       tittel="adresse.tittel"
       beskrivelse="adresse.beskrivelse"
-      icon={hus}
+      icon={adresseIkon}
     >
       <>
         {adresser.boadresse && <BoAdresse boadresse={adresser.boadresse} />}

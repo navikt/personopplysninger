@@ -1,7 +1,8 @@
-import papirstabel from "../../assets/img/papirstabel.svg";
-import penger from "../../assets/img/penger.svg";
 import jobbsok from "../../assets/img/jobbsok.svg";
-import sparegris from "../../assets/img/spare-pensjonsgris.svg";
+import pensjon from "../../assets/img/pensjon.svg";
+import utbetalinger from "../../assets/img/utbetalinger.svg";
+import sykefravaer from "../../assets/img/sykefravaer.svg";
+import dineSaker from "../../assets/img/dine-saker.svg";
 import Environment from "../../utils/Environments";
 
 const { tjenesteUrl } = Environment();
@@ -13,7 +14,7 @@ export default [
     beskrivelse: "eksternelenker.dinesaker.beskrivelse",
     lenkeTekst: "eksternelenker.dinesaker.lenkeTekst",
     url: `${tjenesteUrl}/saksoversikt/app`,
-    icon: papirstabel
+    icon: dineSaker
   },
   {
     id: "utbetalinger",
@@ -21,7 +22,7 @@ export default [
     beskrivelse: "eksternelenker.utbetalinger.beskrivelse",
     lenkeTekst: "eksternelenker.utbetalinger.lenkeTekst",
     url: `${tjenesteUrl}/utbetalingsoversikt`,
-    icon: penger
+    icon: utbetalinger
   },
   {
     id: "sykefravaer",
@@ -29,7 +30,7 @@ export default [
     beskrivelse: "eksternelenker.sykefravaer.beskrivelse",
     lenkeTekst: "eksternelenker.sykefravaer.lenkeTekst",
     url: `${tjenesteUrl}/sykefravaer`,
-    icon: jobbsok
+    icon: sykefravaer
   },
   {
     id: "cv",
@@ -45,6 +46,6 @@ export default [
     beskrivelse: "eksternelenker.pensjon.beskrivelse",
     lenkeTekst: "eksternelenker.pensjon.lenkeTekst",
     url: `${tjenesteUrl}/pselv/publisering/dinpensjon.jsf`,
-    icon: sparegris
+    icon: pensjon
   }
 ];
