@@ -1,5 +1,5 @@
 import Environment from "../utils/Environments";
-import { logError } from "../utils/logger";
+import { logApiError } from "../utils/logger";
 
 const { apiUrl, loginUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -23,10 +23,7 @@ const sjekkForFeil = (
 ) =>
   response.ok
     ? response
-    : (logError(
-      `Feil ved henting av data: ` +
-          `${url} - ${response.status} ${response.statusText}`
-    ),
+    : (logApiError(url, response),
     reject({
       code: response.status,
       text: response.statusText
