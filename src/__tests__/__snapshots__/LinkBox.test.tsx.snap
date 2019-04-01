@@ -43,7 +43,7 @@ exports[`render LinkBox with content 1`] = `
         className="typo-normal"
       >
         <span>
-          NAV har opplysninger om din pensjonsopptjening i en egen tjeneste
+          Oversikt over din pensjonsopptjening
         </span>
       </p>
     </div>
