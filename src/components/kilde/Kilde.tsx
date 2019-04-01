@@ -20,11 +20,11 @@ const Kilde = (props: Props) => (
     </div>
     <div className="kilde__seksjon">
       {props.lenke && props.lenkeTekst && (
-        <Lenke href={props.lenke}>
-          <Normaltekst>
+        <Normaltekst>
+          <Lenke href={props.lenke}>
             <FormattedMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </Lenke>
+          </Lenke>
+        </Normaltekst>
       )}
     </div>
   </div>
