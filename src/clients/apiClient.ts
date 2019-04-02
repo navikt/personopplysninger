@@ -1,4 +1,5 @@
 import Environment from "../utils/Environments";
+import { logApiError } from "../utils/logger";
 
 const { apiUrl, loginUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -15,13 +16,18 @@ const sjekkAuth = (response: Response): Response | Promise<any> =>
     ? sendTilLogin()
     : response;
 
-const sjekkForFeil = (response: Response, reject: (reason?: any) => void) =>
+const sjekkForFeil = (
+  url: string,
+  response: Response,
+  reject: (reason?: any) => void
+) =>
   response.ok
     ? response
-    : reject({
+    : (logApiError(url, response),
+    reject({
       code: response.status,
       text: response.statusText
-    });
+    }));
 
 const hentJsonOgSjekkAuth = (url: string) =>
   new Promise((resolve, reject) =>
@@ -31,7 +37,7 @@ const hentJsonOgSjekkAuth = (url: string) =>
       credentials: "include"
     })
       .then(sjekkAuth)
-      .then(response => sjekkForFeil(response, reject))
+      .then(response => sjekkForFeil(url, response, reject))
       .then(parseJson)
       .then(resolve)
       .catch(reject)
