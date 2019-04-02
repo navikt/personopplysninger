@@ -5,12 +5,16 @@ export const logApiError = (url: string, response: Response) => {
     `Feil ved henting av data: ` +
     `${url} - ${response.status} ${response.statusText}`;
 
+  const title = "personopplysninger.apiclient.error";
+  const tags = {};
+  const fields = {
+    status: response.status,
+    statusText: response.statusText,
+    url
+  };
+
   if (frontendlogger) {
     frontendlogger.error(error);
-    frontendlogger.event("personopplysninger.apikall", {
-      status: response.status,
-      statusText: response.statusText,
-      url
-    });
+    frontendlogger.event(title, fields, tags);
   }
 };
