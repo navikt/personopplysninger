@@ -9,6 +9,9 @@ import App from "./App";
 import "css/index.css";
 import nbMessages from "./translations/nb";
 
+// Intl polyfill
+global.Intl = require("intl");
+
 const browserLanguage = "nb";
 const messages = {
   nb: nbMessages
