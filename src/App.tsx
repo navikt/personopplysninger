@@ -7,15 +7,13 @@ import PersonInfo from "./sections/4-personinfo/PersonInfo";
 import "./index.less";
 
 const App = () => (
-  <main role="main">
-    <div className="Content">
-      <Brodsmulesti />
-      <Sidetittel />
-      <PersonInfo />
-      <EksterneLenker />
-      <MerInformasjon />
-    </div>
-  </main>
+  <div className="pagecontent">
+    <Brodsmulesti />
+    <Sidetittel />
+    <PersonInfo />
+    <EksterneLenker />
+    <MerInformasjon />
+  </div>
 );
 
 export default App;
