@@ -43,7 +43,7 @@ exports[`render Header with content 1`] = `
           className="typo-ingress"
         >
           <span>
-            NAV må vite hvilken adresse vi kan kontakte deg på.
+            Her finner du bostedsadresse og eventuelt din midlertidige adresse.
           </span>
         </p>
       </div>
