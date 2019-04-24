@@ -1,0 +1,46 @@
+.error {
+  &__container {
+    padding: 1rem 0;
+  }
+}
+
+.alertstripe {
+  background-color: rgb(255, 255, 255);
+  padding: 1rem;
+  display: flex;
+  align-content: center;
+  border-radius: 0.25rem;
+  color: rgb(62, 56, 50);
+}
+
+.alertstripe--advarsel {
+  border: 1px solid rgb(186, 58, 38);
+}
+
+.alertstripe--solid {
+  border: 0;
+}
+
+.alertstripe--solid.alertstripe--advarsel {
+  background-color: rgb(231, 153, 153);
+}
+
+.alertstripe__ikon {
+  margin-right: 0.75rem;
+  padding-right: 0.75rem;
+  width: 2.5rem;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.alertstripe .alertstripe__tekst {
+  margin: auto 0;
+  max-width: 37.5rem;
+  display: block;
+  flex: 1 1 0;
+}

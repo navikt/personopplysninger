@@ -1,3 +1,4 @@
+# jeg vil ikke ha hjelp fra pus
 image: docker.adeo.no:5000/personbruker/personopplysninger
 team: "personbruker"
 name: personopplysninger
@@ -8,12 +9,12 @@ replicas:
 port: 8080
 healthcheck:
   liveness:
-    path: health/isAlive
+    path: person/personopplysninger/internal/isAlive
   readiness:
-    path: health/isAlive
+    path: person/personopplysninger/internal/isAlive
 prometheus:
   enabled: false
-  path: internal/metrics
+  path: person/personopplysninger/internal/metrics
 ingress:
   enabled: true
 resources:
@@ -21,8 +22,16 @@ resources:
     cpu: 3
 fasitResources:
   used:
-  - alias: appres.cms
-    resourceType: baseUrl
+    - alias: appres.cms
+      resourceType: baseUrl
+      propertyMap:
+        url: APPRES_CMS_URL
+    - alias: loginservice
+      resourceType: restservice
+      propertyMap:
+        url: LOGINSERVICE
+    - alias: tjenester
+      resourceType: baseUrl
   - alias: appdynamics
     resourceType: applicationproperties
   #- alias: loginservice

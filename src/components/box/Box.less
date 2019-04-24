@@ -1,0 +1,125 @@
+.box {
+  &__container {
+    display: flex;
+    flex-flow: row;
+    background: white;
+
+    @media @tablet {
+      padding: 1.5rem 2rem;
+    }
+
+    @media @desktop {
+      padding: 1.75rem 3rem;
+    }
+  }
+
+  &__icon-container {
+    @media @desktop {
+      padding: 0 1.5rem 0 0;
+    }
+  }
+
+  &__content-container {
+    width: 100%;
+
+    @media @tablet {
+      padding: 1.75rem 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-flow: column;
+  }
+
+  &__header > * {
+    margin: 0.4rem 0;
+  }
+
+  &__ingress {
+    max-width: 100%;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    @media @mobile {
+      visibility: hidden;
+    }
+  }
+
+  &__linje-smal {
+    border: 1px solid black;
+    width: 15%;
+  }
+
+  &__linje-bred {
+    border: 0.5px solid black;
+    width: 90%;
+    opacity: 0.5;
+    margin: 1.4rem auto;
+  }
+
+  &__content {
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      flex-grow: 1;
+      box-sizing: border-box;
+      padding: 0rem 2rem 1rem 0rem;
+
+      .title {
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+
+    ul.list-column-2 li {
+      width: 50%;
+      @media @mobile {
+        width: 100%;
+      }
+    }
+  }
+}
+
+//midlertidig inntil avklaring
+.information-circle {
+  margin: 0 0.5rem;
+  border: none;
+  background: none;
+}
+
+.infobox {
+  padding: 2em;
+  background-color: #ffe5c2;
+  display: inline-block;
+  border-radius: 4px;
+  margin-bottom: 2em;
+
+  hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ff9100;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .info-content {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}

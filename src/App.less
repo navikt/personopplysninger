@@ -1,0 +1,55 @@
+@link-color: #4a90e2;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: @navLysGra;
+  margin: 0;
+
+  .capitalize {
+    text-transform: capitalize;
+  }
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidetittel__container {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.seksjon {
+  position: relative;
+  @media @tablet {
+    margin: 4rem 0;
+    flex-direction: column !important;
+  }
+  @media @desktop {
+    margin: 3rem 0;
+  }
+}
+
+.pagewrapper {
+  width: 100%;
+}
+
+.pagecontent {
+  width: 100%;
+  max-width: 800px;
+  padding: 0 0.2em;
+}
+
+.spinner-wrapper {
+  width: 100%;
+  margin: 4em 0;
+  display: flex;
+  justify-content: center;
+}

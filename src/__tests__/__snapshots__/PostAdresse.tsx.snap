@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render Postadresse with content 1`] = `
+<div
+  className="addresse__box"
+>
+  <hr
+    className="box__linje-bred"
+  />
+  <div
+    className="addresse__tittel"
+  >
+    <h2
+      className="typo-undertittel"
+    >
+      <span>
+        Postadresse
+      </span>
+    </h2>
+  </div>
+  <div
+    className="adresse__linje"
+  >
+    <p
+      className="typo-normal"
+    >
+      12345 HFJEF IQUFJ HFURHGHQBEUQ
+    </p>
+  </div>
+  <div
+    className="adresse__linje"
+  >
+    <p
+      className="typo-normal"
+    >
+      BATOOM LUNCHAGRAMA,GONGRUPEA,DD
+    </p>
+  </div>
+  <div
+    className="adresse__linje"
+  >
+    <p
+      className="typo-normal"
+    >
+      GGLAM,10000 HCAMGHU,THAILAND
+    </p>
+  </div>
+  <div
+    className="adresse__linje"
+  >
+    <p
+      className="typo-normal"
+    >
+      9913
+       
+    </p>
+  </div>
+  <div
+    className="adresse__linje"
+  >
+    <p
+      className="typo-normal"
+    >
+      THA
+    </p>
+  </div>
+  <div
+    className="kilde__container"
+  >
+    <div
+      className="kilde__seksjon"
+    >
+      <p
+        className="typo-undertekst"
+      >
+        <span>
+          Kilde: Folkeregisteret
+        </span>
+      </p>
+    </div>
+    <div
+      className="kilde__seksjon"
+    >
+      <p
+        className="typo-normal"
+      >
+        <a
+          className="lenke"
+          href="https://www.skatteetaten.no/person/folkeregister/"
+        >
+          <span>
+            Endre i Folkeregisteret
+          </span>
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
+`;

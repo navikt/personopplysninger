@@ -1,9 +1,7 @@
-FROM node:carbon
+FROM docker.adeo.no:5000/pus/decorator
 
-WORKDIR /usr/src/personopplysninger
+ENV FOOTER_TYPE=WITH_ALPHABET
+ENV APPLICATION_NAME=personopplysninger
+ENV CONTEXT_PATH=person/personopplysninger
 
-COPY ./ ./
-
-EXPOSE 8080
-
-CMD ["npm", "run", "server"]
+COPY ./build /app

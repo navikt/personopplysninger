@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render LinkBox with content 1`] = `
+<a
+  className="lenkepanel box__container"
+  href="https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf"
+>
+  <div
+    className="linkbox__icon-container icon__container"
+  >
+    <div
+      className="icon__circle"
+      style={
+        Object {
+          "backgroundImage": "url(function SvgPensjon(props) {
+  return React.createElement(
+    'svg', 
+    Object.assign({}, props, {'data-file-name': SvgPensjon.name})
+  );
+})",
+        }
+      }
+    />
+  </div>
+  <div
+    className="linkbox__content"
+  >
+    <div
+      className="linkbox__seksjon"
+    >
+      <div
+        className="linkbox__tittel"
+      >
+        <h2
+          className="typo-systemtittel"
+        >
+          <span>
+            Pensjonsopptjening
+          </span>
+        </h2>
+      </div>
+      <p
+        className="typo-normal"
+      >
+        <span>
+          Oversikt over din pensjonsopptjening
+        </span>
+      </p>
+    </div>
+  </div>
+  <span
+    className="lenkepanel__indikator"
+  />
+</a>
+`;
