@@ -32,7 +32,7 @@ fasitResources:
         url: LOGINSERVICE
     - alias: tjenester
       resourceType: baseUrl
-  - alias: appdynamics
-    resourceType: applicationproperties
+    - alias: appdynamics
+      resourceType: applicationproperties
   #- alias: loginservice
   #  resourceType: restservice
