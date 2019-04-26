@@ -31,6 +31,10 @@ Bygge/kjøre med docker:
 3.  `npm run docker-stop`
 4.  For å bygge på nytt: `npm run docker-rm && npm run docker-build`
 
+# Jenkins-bygg
+
+https://ci.adeo.no/job/team_personbruker/job/personopplysninger
+
 # Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/personbruker
