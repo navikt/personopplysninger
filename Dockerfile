@@ -4,5 +4,6 @@ ENV FOOTER_TYPE=WITH_ALPHABET
 ENV APPLICATION_NAME=personopplysninger
 ENV CONTEXT_PATH=person/personopplysninger
 ENV APPD_ENABLED=true
+COPY appdynamics.sh /init-scripts/
 
 COPY ./build /app
