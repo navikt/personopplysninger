@@ -6,7 +6,18 @@
       "verdi": "12345678911",
       "type": "FNR"
     },
-    "kontonr": "12345678911",
+    "utenlandskbank": {
+      "adresse1":"BANKENS",
+      "adresse2":"ADRESSE",
+      "adresse3":"UTLANDET",
+      "bankkode":"90081210188",
+      "banknavn":"TEST TESTESEN",
+      "iban":"",
+      "kontonummer":"US90081210188",
+      "land":"USA",
+      "swiftkode":"HELGSE21",
+      "valuta":"Tugriks Mongolia"
+    },
     "tlfnr": {
       "jobb": "12121212",
       "mobil": "24242424",
