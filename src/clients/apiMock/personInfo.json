@@ -7,14 +7,14 @@
       "type": "FNR"
     },
     "utenlandskbank": {
-      "adresse1":"BANKENS",
-      "adresse2":"ADRESSE",
-      "adresse3":"UTLANDET",
+      "adresse1":"Gävlegatan 22",
+      "adresse2":"113 30 Stockholm",
+      "adresse3":"",
       "bankkode":"90081210188",
-      "banknavn":"TEST TESTESEN",
+      "banknavn":"Nordax Bank AB",
       "iban":"",
       "kontonummer":"US90081210188",
-      "land":"USA",
+      "land":"Sverige",
       "swiftkode":"HELGSE21",
       "valuta":"Tugriks Mongolia"
     },
