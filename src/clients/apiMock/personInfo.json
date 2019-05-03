@@ -6,7 +6,18 @@
       "verdi": "12345678911",
       "type": "FNR"
     },
-    "kontonr": "12345678911",
+    "utenlandskbank": {
+      "adresse1":"Gävlegatan 22",
+      "adresse2":"113 30 Stockholm",
+      "adresse3":"",
+      "bankkode":"90081210188",
+      "banknavn":"Nordax Bank AB",
+      "iban":"",
+      "kontonummer":"US90081210188",
+      "land":"Sverige",
+      "swiftkode":"HELGSE21",
+      "valuta":"Tugriks Mongolia"
+    },
     "tlfnr": {
       "jobb": "12121212",
       "mobil": "24242424",

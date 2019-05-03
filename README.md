@@ -2,27 +2,23 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/1a17b576c58daeb8bbc0/maintainability)](https://codeclimate.com/github/navikt/personopplysninger/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/1a17b576c58daeb8bbc0/test_coverage)](https://codeclimate.com/github/navikt/personopplysninger/test_coverage)
 
-
 # Personopplysninger
 
-Dette er frontend prosjekt for applikasjon som skal gi brukerne innsikt i all informasjon NAV har om den.
+Applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret om personen.
 
-# Komme i gang
+## Komme i gang
+
+Installer nødvendige pakker:
+
+- `npm install`
 
 For å kjøre opp app-en i dev:
 
-1.  `npm install`
-2.  `npm run start`
+- `npm run start`
 
 For å kjøre tester:
 
-1.  `npm install`
-2.  `npm run test`
-
-Bygge for prod:
-
-1.  `npm install`
-2.  `npm run build`
+- `npm run test`
 
 Bygge/kjøre med docker:
 
@@ -31,7 +27,15 @@ Bygge/kjøre med docker:
 3.  `npm run docker-stop`
 4.  For å bygge på nytt: `npm run docker-rm && npm run docker-build`
 
-# Henvendelser
+## Bygg / CI
+
+https://ci.adeo.no/job/team_personbruker/job/personopplysninger
+
+1. Jenkins vil automatisk bygge prosjektet til Q6. <br>
+2. Klikk på "-promotering-q0-" for å deployere fra Q6 ⇨ Q0
+3. Klikk på "-release-" for å deployere fra Q0 ⇨ Produksjon
+
+## Henvendelser
 
 Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/personbruker
 

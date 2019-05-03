@@ -13,7 +13,7 @@ interface Props {
 
 class Personalia extends Component<Props> {
   render() {
-    const { kontonr } = this.props.personalia;
+    const { kontonr, utenlandskbank } = this.props.personalia;
 
     return (
       <Box
@@ -24,7 +24,7 @@ class Personalia extends Component<Props> {
       >
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
-        <Kontonummer kontonummer={kontonr} />
+        <Kontonummer kontonummer={kontonr} utenlandskBankkonto={utenlandskbank} />
         <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
       </Box>

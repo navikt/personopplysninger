@@ -7,7 +7,7 @@ import nb from "react-intl/locale-data/nb";
 import { setUpMock } from "./clients/apiMock";
 import App from "./App";
 import "css/index.css";
-import nbMessages from "./translations/nb";
+import nbMessages from "./text/nb";
 
 // Intl polyfill
 global.Intl = require("intl");
