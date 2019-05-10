@@ -71,6 +71,8 @@ export default {
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
+  "arbeidsforhold.tittel": `Arbeidsforhold`,
+  "arbeidsforhold.beskrivelse": `En oversikt over dine arbeidsforhold`,
   "eksternelenker.pensjon.tittel": `Pensjonsopptjening`,
   "eksternelenker.pensjon.beskrivelse": `Oversikt over din pensjonsopptjening`,
   "eksternelenker.pensjon.lenkeTekst": `Gå til Din pensjon`,

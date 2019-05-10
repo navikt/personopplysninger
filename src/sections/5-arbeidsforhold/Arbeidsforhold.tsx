@@ -1,15 +1,16 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
-import { Systemtittel } from "nav-frontend-typografi";
 import Box from "../../components/box/Box";
+import NavArbeidsforhold from "@navikt/arbeidsforhold";
+import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
 
 const Arbeidsforhold = () => (
-  <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel">
-    <div className="header-content">
-      <Systemtittel>
-        <FormattedMessage id="arbeidsforhold.tittel" />
-      </Systemtittel>
-    </div>
+  <Box
+    id="adresse"
+    tittel="arbeidsforhold.tittel"
+    beskrivelse="arbeidsforhold.beskrivelse"
+    icon={arbeidsforholdIkon}
+  >
+    <NavArbeidsforhold />
   </Box>
 );
 export default Arbeidsforhold;
