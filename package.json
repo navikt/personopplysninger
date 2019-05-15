@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/core": "7.3.4",
-    "@navikt/arbeidsforhold": "^1.0.0",
+    "@navikt/arbeidsforhold": "^1.0.3",
     "@svgr/webpack": "^4.2.0",
     "autoprefixer": "9.4.9",
     "babel-core": "7.0.0-bridge.0",
@@ -70,6 +70,8 @@
     "nav-frontend-core": "^4.0.8",
     "nav-frontend-ekspanderbartpanel": "^1.0.17",
     "nav-frontend-ekspanderbartpanel-style": "^0.3.15",
+    "nav-frontend-etiketter": "^1.0.23",
+    "nav-frontend-etiketter-style": "^0.3.17",
     "nav-frontend-ikoner-assets": "^0.2.32",
     "nav-frontend-js-utils": "^1.0.6",
     "nav-frontend-lenkepanel": "^1.0.27",
