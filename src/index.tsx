@@ -1,5 +1,5 @@
-import "react-app-polyfill/ie9";
-import "core-js/fn/array/includes";
+import "@babel/polyfill";
+import "core-js";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";

@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@babel/core": "7.3.4",
+    "@babel/polyfill": "^7.4.4",
     "@navikt/arbeidsforhold": "^1.0.9",
     "@svgr/webpack": "^4.2.0",
     "autoprefixer": "9.4.9",
