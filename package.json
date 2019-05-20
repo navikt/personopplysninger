@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/core": "7.4.4",
-    "@navikt/arbeidsforhold": "^1.0.9",
+    "@navikt/arbeidsforhold": "^1.0.10",
     "@svgr/webpack": "^4.2.0",
     "autoprefixer": "9.5.1",
     "babel-core": "7.0.0-bridge.0",
