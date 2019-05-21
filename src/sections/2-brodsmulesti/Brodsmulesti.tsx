@@ -16,7 +16,7 @@ const Brodsmule = (props: Props) => (
 const Brodsmulesti = () => (
   <div className="brodsmulesti">
     <Brodsmule>
-      <img className="brodsmulesti__account" src={account} />
+      <img alt="Brodsmulesti" className="brodsmulesti__account" src={account} />
     </Brodsmule>
     <Brodsmule>
       <Lenke href={`${tjenesteUrl}/dittnav`}>
