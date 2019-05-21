@@ -1,20 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import Forside from "./pages/forside/Forside";
+import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import "./index.less";
 
-const App = () => (
-  <div className="pagecontent">
-    <Router>
-      <Route exact path="/" component={Forside} />
-      <Route
-        path="/arbeidsforhold/:id"
-        exact
-        component={DetaljertArbeidsforhold}
-      />
-    </Router>
-  </div>
-);
+const App = () => {
+  const baseUrl = "/person/personopplysninger";
+  return (
+    <div className="pagecontent">
+      <Router>
+        <Route exact path={`(/|${baseUrl}/)`} component={Forside} />
+        <Route
+          path={`${baseUrl}/arbeidsforhold/:id`}
+          exact
+          component={DetaljertArbeidsforhold}
+        />
+      </Router>
+    </div>
+  );
+};
 
 export default App;
