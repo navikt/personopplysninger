@@ -13,24 +13,28 @@ type State =
   | { status: "ERROR"; error: HTTPError };
 
 class DKIF extends PureComponent<{}, State> {
-  state: State = {
+  static state: State = {
     status: "LOADING"
   };
 
-  componentDidMount = () =>
-    fetchKontaktInfo()
-      .then((kontaktInfo: KontaktInfo) =>
-        this.setState({
-          status: "RESULT",
-          kontaktInfo
+  componentDidMount = () => {
+    if (DKIF.state.status !== "RESULT") {
+      fetchKontaktInfo()
+        .then((kontaktInfo: KontaktInfo) => {
+          DKIF.state = {
+            status: "RESULT",
+            kontaktInfo
+          };
         })
-      )
-      .catch((error: HTTPError) =>
-        this.setState({
-          status: "ERROR",
-          error
+        .catch((error: HTTPError) => {
+          DKIF.state = {
+            status: "ERROR",
+            error
+          };
         })
-      );
+        .then(() => this.forceUpdate());
+    }
+  };
 
   render = () => (
     <>
@@ -46,13 +50,13 @@ class DKIF extends PureComponent<{}, State> {
         </Normaltekst>
       </div>
       {(() => {
-        switch (this.state.status) {
+        switch (DKIF.state.status) {
           case "LOADING":
             return <Spinner />;
           case "RESULT":
-            return <KontaktInformasjon info={this.state.kontaktInfo} />;
+            return <KontaktInformasjon info={DKIF.state.kontaktInfo} />;
           case "ERROR":
-            return <Error error={this.state.error} />;
+            return <Error error={DKIF.state.error} />;
         }
       })()}
     </>
