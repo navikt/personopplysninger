@@ -14,44 +14,39 @@ type State =
   | { status: "ERROR"; error: HTTPError };
 
 class VisPersonInfo extends Component<{}, State> {
-  state: State = {
+  static state: State = {
     status: "LOADING"
   };
 
-  componentDidMount = () =>
-    fetchPersonInfo()
-      .then((personInfo: PersonInfo) =>
-        this.setState({
-          status: "RESULT",
-          personInfo
+  componentDidMount = () => {
+    if (VisPersonInfo.state.status !== "RESULT") {
+      fetchPersonInfo()
+        .then((personInfo: PersonInfo) => {
+          VisPersonInfo.state = { status: "RESULT", personInfo };
         })
-      )
-      .catch((error: HTTPError) =>
-        this.setState({
-          status: "ERROR",
-          error
+        .catch((error: HTTPError) => {
+          VisPersonInfo.state = { status: "ERROR", error };
         })
-      );
+        .then(() => this.forceUpdate());
+    }
+  };
 
   render = () => {
-    switch (this.state.status) {
+    switch (VisPersonInfo.state.status) {
+      default:
       case "LOADING":
         return <Spinner />;
       case "RESULT":
-        const { personalia, adresser } = this.state.personInfo;
+        const { personalia, adresser } = VisPersonInfo.state.personInfo;
         return (
           <>
-            {personalia && (
-              <>
-                <Header fornavn={formatName(personalia.fornavn)} />
-                <Personalia personalia={personalia} />
-              </>
-            )}
+            {personalia && <Header fornavn={formatName(personalia.fornavn)} />}
+            {personalia && <Personalia personalia={personalia} />}
             {adresser && <Adresser adresser={adresser} />}
           </>
         );
       case "ERROR":
-        return <Error error={this.state.error} />;
+        return <Error error={VisPersonInfo.state.error} />;
     }
   };
 }

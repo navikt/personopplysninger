@@ -14,10 +14,10 @@ const delay = (min: number, max: number) => {
 export const setUpMock = async () => {
   fetchMock.get(
     `${apiUrl}/kontaktinformasjon`,
-    delay(200, 500).then(() => kontaktInformasjon)
+    delay(500, 750).then(() => kontaktInformasjon)
   );
   fetchMock.get(
     `${apiUrl}/personalia`,
-    delay(200, 300).then(() => personInformasjon)
+    delay(500, 750).then(() => personInformasjon)
   );
 };
