@@ -17,22 +17,24 @@ const Arbeidsforhold = (props: RouteComponentProps) => {
   };
 
   return (
-    <Box
-      id="adresse"
-      tittel="arbeidsforhold.tittel"
-      beskrivelse="arbeidsforhold.beskrivelse"
-      icon={arbeidsforholdIkon}
-    >
-      <div className="arbeidsforhold" id="arbeidsforhold">
-        <ListeMedArbeidsforhold miljo={miljo} onClick={onClick} />
-      </div>
-      <div className="arbeidsforhold__disclaimer">
-        <Undertekst>
-          <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
-        </Undertekst>
-      </div>
-      <Kilde kilde="arbeidsforhold.kilde" />
-    </Box>
+    <div id="arbeidsforhold">
+      <Box
+        id="adresse"
+        tittel="arbeidsforhold.tittel"
+        beskrivelse="arbeidsforhold.beskrivelse"
+        icon={arbeidsforholdIkon}
+      >
+        <div className="arbeidsforhold">
+          <ListeMedArbeidsforhold miljo={miljo} onClick={onClick} />
+        </div>
+        <div className="arbeidsforhold__disclaimer">
+          <Undertekst>
+            <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
+          </Undertekst>
+        </div>
+        <Kilde kilde="arbeidsforhold.kilde" />
+      </Box>
+    </div>
   );
 };
 export default withRouter(Arbeidsforhold);

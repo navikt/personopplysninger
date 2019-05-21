@@ -7,7 +7,7 @@ import "./index.less";
 const App = () => (
   <div className="pagecontent">
     <Router>
-      <Route path="/" exact component={Forside} />
+      <Route exact path="/" component={Forside} />
       <Route
         path="/arbeidsforhold/:id"
         exact

@@ -3,7 +3,7 @@ import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
 import Environment from "../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { VenstreChevron } from "nav-frontend-chevron";
-import { Link } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -17,7 +17,7 @@ const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
   return (
     <div className="da__container">
       <div className="da__back">
-        <Link to={{ pathname: "/#arbeidsforhold", state: id }}>
+        <Link to={"/#arbeidsforhold"}>
           <VenstreChevron />
           Tilbake
         </Link>
