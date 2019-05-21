@@ -4,8 +4,8 @@ import Forside from "./pages/forside/Forside";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import "./index.less";
 
+export const baseUrl = "/person/personopplysninger";
 const App = () => {
-  const baseUrl = "/person/personopplysninger";
   return (
     <div className="pagecontent">
       <Router>

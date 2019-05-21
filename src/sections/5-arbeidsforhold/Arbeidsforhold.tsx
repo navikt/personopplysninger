@@ -7,13 +7,14 @@ import { Undertekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
 import Environment from "../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
+import { baseUrl } from "../../App";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
 
 const Arbeidsforhold = (props: RouteComponentProps) => {
   const onClick = (arbeidsforholdId: string) => {
-    props.history.push(`/arbeidsforhold/${arbeidsforholdId}`);
+    props.history.push(`${baseUrl}/arbeidsforhold/${arbeidsforholdId}`);
   };
 
   return (

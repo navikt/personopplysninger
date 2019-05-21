@@ -4,6 +4,7 @@ import Environment from "../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
+import { baseUrl } from "../../App";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -17,7 +18,7 @@ const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
   return (
     <div className="da__container">
       <div className="da__back">
-        <Link to={"/#arbeidsforhold"}>
+        <Link to={`${baseUrl}/#arbeidsforhold`}>
           <VenstreChevron />
           Tilbake
         </Link>
