@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useReducer, useEffect } from "react";
 import Error, { HTTPError } from "../../components/error/Error";
 import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
@@ -13,42 +13,57 @@ type State =
   | { status: "RESULT"; personInfo: PersonInfo }
   | { status: "ERROR"; error: HTTPError };
 
-class VisPersonInfo extends Component<{}, State> {
-  static state: State = {
-    status: "LOADING"
-  };
+const initialState: State = {
+  status: "LOADING"
+};
 
-  componentDidMount = () => {
-    if (VisPersonInfo.state.status !== "RESULT") {
+type Action = {
+  type: string;
+  payload: any;
+};
+
+const reducer = (state: State, action: Action): State => {
+  switch (action.type) {
+    case "RESULT":
+      return { status: "RESULT", personInfo: action.payload };
+    case "ERROR":
+      return { status: "ERROR", error: action.payload };
+    default:
+      return state;
+  }
+};
+
+const VisPersonInfo = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    if (state.status !== "RESULT") {
       fetchPersonInfo()
-        .then((personInfo: PersonInfo) => {
-          VisPersonInfo.state = { status: "RESULT", personInfo };
-        })
-        .catch((error: HTTPError) => {
-          VisPersonInfo.state = { status: "ERROR", error };
-        })
-        .then(() => this.forceUpdate());
-    }
-  };
-
-  render = () => {
-    switch (VisPersonInfo.state.status) {
-      default:
-      case "LOADING":
-        return <Spinner />;
-      case "RESULT":
-        const { personalia, adresser } = VisPersonInfo.state.personInfo;
-        return (
-          <>
-            {personalia && <Header fornavn={formatName(personalia.fornavn)} />}
-            {personalia && <Personalia personalia={personalia} />}
-            {adresser && <Adresser adresser={adresser} />}
-          </>
+        .then((personInfo: PersonInfo) =>
+          dispatch({ type: "RESULT", payload: personInfo })
+        )
+        .catch((error: HTTPError) =>
+          dispatch({ type: "RESULT", payload: error })
         );
-      case "ERROR":
-        return <Error error={VisPersonInfo.state.error} />;
     }
-  };
-}
+  });
+
+  switch (state.status) {
+    default:
+    case "LOADING":
+      return <Spinner />;
+    case "RESULT":
+      const { personalia, adresser } = state.personInfo;
+      return (
+        <>
+          {personalia && <Header fornavn={formatName(personalia.fornavn)} />}
+          {personalia && <Personalia personalia={personalia} />}
+          {adresser && <Adresser adresser={adresser} />}
+        </>
+      );
+    case "ERROR":
+      return <Error error={state.error} />;
+  }
+};
 
 export default VisPersonInfo;
