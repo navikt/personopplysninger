@@ -22,15 +22,15 @@ const DKIF = () => {
   useEffect(() => {
     if (state.status !== "RESULT") {
       fetchKontaktInfo()
-        .then((kontaktInfo: KontaktInfo) => {
+        .then((kontaktInfo: KontaktInfo) =>
           setState({
             status: "RESULT",
             kontaktInfo
-          });
-        })
-        .catch((error: HTTPError) => {
-          setState({ status: "ERROR", error });
-        });
+          })
+        )
+        .catch((error: HTTPError) =>
+          setState({ status: "ERROR", error: error })
+        );
     }
     return () => {
       persistState = state;

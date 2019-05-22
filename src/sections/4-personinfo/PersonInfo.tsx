@@ -23,12 +23,12 @@ const VisPersonInfo = () => {
   useEffect(() => {
     if (state.status !== "RESULT") {
       fetchPersonInfo()
-        .then((personInfo: PersonInfo) => {
-          setState({ status: "RESULT", personInfo });
-        })
-        .catch((error: HTTPError) => {
-          setState({ status: "ERROR", error });
-        });
+        .then((personInfo: PersonInfo) =>
+          setState({ status: "RESULT", personInfo })
+        )
+        .catch((error: HTTPError) =>
+          setState({ status: "ERROR", error: error })
+        );
     }
     return () => {
       persistState = state;
