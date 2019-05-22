@@ -19,11 +19,13 @@ const initialState: State = {
 
 type Action = {
   type: string;
-  payload: any;
+  payload?: any;
 };
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
+    case "LOADING":
+      return { status: "LOADING" };
     case "RESULT":
       return { status: "RESULT", personInfo: action.payload };
     case "ERROR":
@@ -38,6 +40,7 @@ const VisPersonInfo = () => {
 
   useEffect(() => {
     if (state.status !== "RESULT") {
+      dispatch({ type: "LOADING" });
       fetchPersonInfo()
         .then((personInfo: PersonInfo) =>
           dispatch({ type: "RESULT", payload: personInfo })
