@@ -6,11 +6,11 @@ export interface HTTPError {
   text: string;
 }
 
-interface props {
+interface Props {
   error: HTTPError;
 }
 
-const Error = (props: props) => {
+const Error = (props: Props) => {
   const { error } = props;
   return (
     <div className="error__container">

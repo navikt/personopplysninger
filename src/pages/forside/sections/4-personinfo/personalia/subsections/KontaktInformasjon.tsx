@@ -35,7 +35,7 @@ const KontaktInformasjon = (props: Props) => {
     </>
   ) : (
     <>
-      <Melding bold meldingId="personalia.dkif.ingenData" />
+      <Melding bold={true} meldingId="personalia.dkif.ingenData" />
       <Kilde
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"
