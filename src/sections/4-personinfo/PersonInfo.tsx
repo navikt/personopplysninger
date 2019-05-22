@@ -13,6 +13,8 @@ type State =
   | { status: "RESULT"; personInfo: PersonInfo }
   | { status: "ERROR"; error: HTTPError };
 
+let initState: State = { status: "LOADING" };
+
 type Action = {
   type: "SETT_LOADING" | "SETT_RESULT" | "SETT_ERROR";
   payload?: PersonInfo | HTTPError;
@@ -29,9 +31,7 @@ const reducer = (state: State, action: Action): State => {
 };
 
 const VisPersonInfo = () => {
-  const [state, dispatch] = useReducer(reducer, {
-    status: "LOADING"
-  });
+  const [state, dispatch] = useReducer(reducer, initState);
 
   useEffect(() => {
     if (state.status !== "RESULT") {
@@ -43,7 +43,10 @@ const VisPersonInfo = () => {
           dispatch({ type: "SETT_ERROR", payload: error })
         );
     }
-  });
+    return () => {
+      initState = state;
+    };
+  }, [state]);
 
   switch (state.status) {
     default:
