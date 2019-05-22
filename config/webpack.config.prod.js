@@ -255,7 +255,6 @@ module.exports = {
         use: [
           {
             options: {
-              formatter: require.resolve("react-dev-utils/eslintFormatter"),
               tslintPath: require.resolve("tslint")
             },
             loader: require.resolve("tslint-loader")
