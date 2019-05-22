@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent, useEffect, useState } from "react";
 import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../components/error/Error";
@@ -12,31 +12,32 @@ type State =
   | { status: "RESULT"; kontaktInfo: KontaktInfo }
   | { status: "ERROR"; error: HTTPError };
 
-class DKIF extends PureComponent<{}, State> {
-  static state: State = {
-    status: "LOADING"
-  };
+// Lagre i minne og ikke i
+// sessionStorage pga sensitive data
+let persistState: State = { status: "LOADING" };
 
-  componentDidMount = () => {
-    if (DKIF.state.status !== "RESULT") {
+const DKIF = () => {
+  const [state, setState] = useState(persistState);
+
+  useEffect(() => {
+    if (state.status !== "RESULT") {
       fetchKontaktInfo()
         .then((kontaktInfo: KontaktInfo) => {
-          DKIF.state = {
+          setState({
             status: "RESULT",
             kontaktInfo
-          };
+          });
         })
         .catch((error: HTTPError) => {
-          DKIF.state = {
-            status: "ERROR",
-            error
-          };
-        })
-        .then(() => this.forceUpdate());
+          setState({ status: "ERROR", error });
+        });
     }
-  };
+    return () => {
+      persistState = state;
+    };
+  }, [state]);
 
-  render = () => (
+  return (
     <>
       <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
@@ -50,17 +51,17 @@ class DKIF extends PureComponent<{}, State> {
         </Normaltekst>
       </div>
       {(() => {
-        switch (DKIF.state.status) {
+        switch (state.status) {
           case "LOADING":
             return <Spinner />;
           case "RESULT":
-            return <KontaktInformasjon info={DKIF.state.kontaktInfo} />;
+            return <KontaktInformasjon info={state.kontaktInfo} />;
           case "ERROR":
-            return <Error error={DKIF.state.error} />;
+            return <Error error={state.error} />;
         }
       })()}
     </>
   );
-}
+};
 
 export default DKIF;
