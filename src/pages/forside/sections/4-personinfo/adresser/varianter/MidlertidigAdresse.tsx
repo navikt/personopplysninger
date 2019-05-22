@@ -1,10 +1,10 @@
 import React from "react";
-import AdressePanel from "../../../../components/adresse/AdressePanel";
-import GateAdresse from "../../../../components/adresse/GateAdresse";
-import Postnummer from "../../../../components/adresse/Postnummer";
-import { Tilleggsadresse } from "../../../../types/adresser/tilleggsadresse";
-import Kilde from "../../../../components/kilde/Kilde";
-import Environment from "../../../../utils/Environments";
+import AdressePanel from "../../../../../../components/adresse/AdressePanel";
+import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import Postnummer from "../../../../../../components/adresse/Postnummer";
+import { Tilleggsadresse } from "../../../../../../types/adresser/tilleggsadresse";
+import Kilde from "../../../../../../components/kilde/Kilde";
+import Environment from "../../../../../../utils/Environments";
 
 const { tjenesteUrl } = Environment();
 

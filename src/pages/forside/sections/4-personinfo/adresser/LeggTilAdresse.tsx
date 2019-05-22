@@ -1,8 +1,8 @@
 import React from "react";
-import Kilde from "../../../components/kilde/Kilde";
-import AdressePanel from "../../../components/adresse/AdressePanel";
-import Environment from "../../../utils/Environments";
-import Melding from "../../../components/melding/Melding";
+import Kilde from "../../../../../components/kilde/Kilde";
+import AdressePanel from "../../../../../components/adresse/AdressePanel";
+import Environment from "../../../../../utils/Environments";
+import Melding from "../../../../../components/melding/Melding";
 
 const { tjenesteUrl } = Environment();
 

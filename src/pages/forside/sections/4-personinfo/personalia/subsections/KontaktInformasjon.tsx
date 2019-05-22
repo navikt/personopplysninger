@@ -1,10 +1,10 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
-import ListElement from "../../../../components/listelement/ListElement";
-import Melding from "../../../../components/melding/Melding";
-import { KontaktInfo } from "../../../../types/kontaktInfo";
-import Kilde from "../../../../components/kilde/Kilde";
+import ListElement from "../../../../../../components/listelement/ListElement";
+import Melding from "../../../../../../components/melding/Melding";
+import { KontaktInfo } from "../../../../../../types/kontaktInfo";
+import Kilde from "../../../../../../components/kilde/Kilde";
 
 interface Props {
   info: KontaktInfo;

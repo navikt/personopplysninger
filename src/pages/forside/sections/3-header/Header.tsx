@@ -1,8 +1,8 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import { Ingress, Innholdstittel, Normaltekst } from "nav-frontend-typografi";
-import veilederDesktop from "../../assets/img/veileder-desktop.svg";
-import veilederMobil from "../../assets/img/veileder-mobile.svg";
+import veilederDesktop from "../../../../assets/img/veileder-desktop.svg";
+import veilederMobil from "../../../../assets/img/veileder-mobile.svg";
 
 interface Props {
   fornavn?: string;

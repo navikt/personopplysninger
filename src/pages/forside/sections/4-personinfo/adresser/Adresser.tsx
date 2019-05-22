@@ -5,9 +5,9 @@ import BoAdresse from "./varianter/BoAdresse";
 import PostAdresse from "./varianter/PostAdresse";
 import UtenlandskAdresse from "./varianter/UtenlandskAdresse";
 import MidlertidigAdresse from "./varianter/MidlertidigAdresse";
-import { Adresser } from "../../../types/adresser";
-import Box from "../../../components/box/Box";
-import adresseIkon from "../../../assets/img/adresser.svg";
+import { Adresser } from "../../../../../types/adresser";
+import Box from "../../../../../components/box/Box";
+import adresseIkon from "../../../../../assets/img/adresser.svg";
 import LeggTilAdresse from "./LeggTilAdresse";
 
 interface Props {

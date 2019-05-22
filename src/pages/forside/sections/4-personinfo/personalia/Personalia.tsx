@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import Box from "../../../components/box/Box";
-import personalia from "../../../assets/img/personalia.svg";
+import Box from "../../../../../components/box/Box";
+import personalia from "../../../../../assets/img/personalia.svg";
 import Kontonummer from "./subsections/Kontonummer";
 import Folkeregisteret from "./subsections/Folkeregisteret";
 import Telefonnummer from "./subsections/Telefonnummer";
 import DKIF from "./subsections/DKIF";
-import { Personalia as PersonaliaType } from "../../../types/personalia";
+import { Personalia as PersonaliaType } from "../../../../../types/personalia";
 
 interface Props {
   personalia: PersonaliaType;

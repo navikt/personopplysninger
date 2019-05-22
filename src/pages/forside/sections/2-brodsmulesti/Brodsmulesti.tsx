@@ -1,8 +1,8 @@
 import * as React from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import Environment from "../../utils/Environments";
-import account from "../../assets/img/account-circle.svg";
+import Environment from "../../../../utils/Environments";
+import account from "../../../../assets/img/account-circle.svg";
 
 const { tjenesteUrl } = Environment();
 

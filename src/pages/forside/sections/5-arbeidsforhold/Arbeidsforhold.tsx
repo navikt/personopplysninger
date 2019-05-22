@@ -1,13 +1,13 @@
 import React, { createRef, Ref, useEffect } from "react";
-import Box from "../../components/box/Box";
+import Box from "../../../../components/box/Box";
 import { ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
-import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
-import Kilde from "../../components/kilde/Kilde";
+import arbeidsforholdIkon from "../../../../assets/img/arbeidsforhold.svg";
+import Kilde from "../../../../components/kilde/Kilde";
 import { Undertekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
-import Environment from "../../utils/Environments";
+import Environment from "../../../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
-import { baseUrl } from "../../App";
+import { baseUrl } from "../../../../App";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";

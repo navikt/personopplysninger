@@ -1,10 +1,10 @@
 import React, { PureComponent, useEffect, useState } from "react";
 import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Error, { HTTPError } from "../../../../components/error/Error";
-import Spinner from "../../../../components/spinner/Spinner";
-import { fetchKontaktInfo } from "../../../../clients/apiClient";
-import { KontaktInfo } from "../../../../types/kontaktInfo";
+import Error, { HTTPError } from "../../../../../../components/error/Error";
+import Spinner from "../../../../../../components/spinner/Spinner";
+import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
+import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 
 type State =

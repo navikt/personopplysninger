@@ -1,10 +1,10 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import AdressePanel from "../../../../components/adresse/AdressePanel";
-import GateAdresse from "../../../../components/adresse/GateAdresse";
-import Postnummer from "../../../../components/adresse/Postnummer";
-import { Postadresse } from "../../../../types/adresser/postadresse";
-import Kilde from "../../../../components/kilde/Kilde";
+import AdressePanel from "../../../../../../components/adresse/AdressePanel";
+import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import Postnummer from "../../../../../../components/adresse/Postnummer";
+import { Postadresse } from "../../../../../../types/adresser/postadresse";
+import Kilde from "../../../../../../components/kilde/Kilde";
 
 interface Props {
   postadresse: Postadresse;

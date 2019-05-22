@@ -1,6 +1,6 @@
 import React from "react";
 import eksterneLenker from "./EksterneLenkerData";
-import LinkBox from "../../components/linkbox/LinkBox";
+import LinkBox from "../../../../components/linkbox/LinkBox";
 
 const LinksContainer = () => (
   <div className="seksjon box-bottom-margin">

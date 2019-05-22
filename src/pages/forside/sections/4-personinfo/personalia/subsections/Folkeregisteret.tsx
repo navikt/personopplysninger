@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Kilde from "../../../../components/kilde/Kilde";
-import ListElement from "../../../../components/listelement/ListElement";
-import { Personalia as PersonaliaType } from "../../../../types/personalia";
+import Kilde from "../../../../../../components/kilde/Kilde";
+import ListElement from "../../../../../../components/listelement/ListElement";
+import { Personalia as PersonaliaType } from "../../../../../../types/personalia";
 
 interface Props {
   personalia: PersonaliaType;

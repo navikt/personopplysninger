@@ -15,10 +15,10 @@ jest.mock("react-dom", () => ({ render: jest.fn() }));
 
 it("index renders without crashing", () => {
   require("../index");
-  expect(ReactDOM.render).toHaveBeenCalledWith(
+  const content = (
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
       <App />
-    </IntlProvider>,
-    null
+    </IntlProvider>
   );
+  expect(ReactDOM.render).toHaveBeenCalledWith(content, null);
 });

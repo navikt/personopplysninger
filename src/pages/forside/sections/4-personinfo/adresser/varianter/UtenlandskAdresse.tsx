@@ -1,10 +1,10 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../types/adresser/utenlandskadresse";
-import AdressePanel from "../../../../components/adresse/AdressePanel";
-import GateAdresse from "../../../../components/adresse/GateAdresse";
-import Kilde from "../../../../components/kilde/Kilde";
-import Environment from "../../../../utils/Environments";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../types/adresser/utenlandskadresse";
+import AdressePanel from "../../../../../../components/adresse/AdressePanel";
+import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import Kilde from "../../../../../../components/kilde/Kilde";
+import Environment from "../../../../../../utils/Environments";
 
 const { tjenesteUrl } = Environment();
 

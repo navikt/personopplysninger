@@ -1,12 +1,12 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Element, Normaltekst, Undertittel } from "nav-frontend-typografi";
-import Kilde from "../../../../components/kilde/Kilde";
-import Melding from "../../../../components/melding/Melding";
-import ListElement from "../../../../components/listelement/ListElement";
-import Environment from "../../../../utils/Environments";
-import { UtenlandskBankkonto } from "../../../../types/personalia";
-import GateAdresse from "../../../../components/adresse/GateAdresse";
+import Kilde from "../../../../../../components/kilde/Kilde";
+import Melding from "../../../../../../components/melding/Melding";
+import ListElement from "../../../../../../components/listelement/ListElement";
+import Environment from "../../../../../../utils/Environments";
+import { UtenlandskBankkonto } from "../../../../../../types/personalia";
+import GateAdresse from "../../../../../../components/adresse/GateAdresse";
 
 const { tjenesteUrl } = Environment();
 

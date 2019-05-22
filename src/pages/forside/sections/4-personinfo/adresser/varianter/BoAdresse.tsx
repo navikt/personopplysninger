@@ -3,10 +3,10 @@ import moment from "moment";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import { Normaltekst } from "nav-frontend-typografi";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
-import AdressePanel from "../../../../components/adresse/AdressePanel";
-import ListElement from "../../../../components/listelement/ListElement";
-import { Boadresse } from "../../../../types/adresser/boadresse";
-import Kilde from "../../../../components/kilde/Kilde";
+import AdressePanel from "../../../../../../components/adresse/AdressePanel";
+import ListElement from "../../../../../../components/listelement/ListElement";
+import { Boadresse } from "../../../../../../types/adresser/boadresse";
+import Kilde from "../../../../../../components/kilde/Kilde";
 import "moment/locale/nb";
 
 moment.locale("nb");
