@@ -12,7 +12,7 @@
     "docker-rm": "docker rm personopplysninger",
     "docker-stop": "docker stop personopplysninger",
     "clean": "rimraf ./build",
-    "lint": "./node_modules/.bin/eslint ./",
+    "lint": "tslint ./src/**/*.ts*",
     "server": "node ./server.js",
     "start-js": "API_URL=/mock-api/person-info.json node scripts/start.js",
     "start": "npm-run-all -p watch-css start-js",
@@ -29,7 +29,6 @@
     "@types/react-router-hash-link": "^1.2.1",
     "autoprefixer": "9.5.1",
     "babel-core": "7.0.0-bridge.0",
-    "babel-eslint": "10.0.1",
     "babel-jest": "^24.8.0",
     "babel-loader": "8.0.6",
     "babel-plugin-named-asset-import": "^0.3.2",
@@ -138,15 +137,6 @@
     "@types/react-intl": "^2.3.17",
     "@types/react-router-dom": "^4.3.3",
     "@types/react-test-renderer": "^16.8.1",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-config-react-app": "^4.0.1",
-    "eslint-loader": "2.1.2",
-    "eslint-plugin-flowtype": "3.9.0",
-    "eslint-plugin-import": "^2.17.2",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
     "jest-fetch-mock": "^2.1.2",
     "jest-svg-transformer": "^1.0.0",
@@ -154,15 +144,15 @@
     "less-plugin-npm-import": "^2.1.0",
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
+    "tslint": "^5.16.0",
+    "tslint-loader": "^3.5.4",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.4.5"
   },
   "babel": {
     "presets": [
       "react-app"
     ]
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": [
     ">0.2%",

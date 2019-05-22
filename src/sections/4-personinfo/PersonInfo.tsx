@@ -13,40 +13,34 @@ type State =
   | { status: "RESULT"; personInfo: PersonInfo }
   | { status: "ERROR"; error: HTTPError };
 
-const initialState: State = {
-  status: "LOADING"
-};
-
 type Action = {
-  type: string;
-  payload?: any;
+  type: "SETT_LOADING" | "SETT_RESULT" | "SETT_ERROR";
+  payload?: PersonInfo | HTTPError;
 };
 
 const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "LOADING":
-      return { status: "LOADING" };
-    case "RESULT":
-      return { status: "RESULT", personInfo: action.payload };
-    case "ERROR":
-      return { status: "ERROR", error: action.payload };
-    default:
-      return state;
-  }
+  const newState = ({
+    SETT_LOADING: { status: "LOADING" },
+    SETT_RESULT: { status: "RESULT", personInfo: action.payload },
+    SETT_ERROR: { status: "ERROR", error: action.payload },
+    default: state
+  } as { [key in Action["type"]]: State })[action.type];
+  return newState;
 };
 
 const VisPersonInfo = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, {
+    status: "LOADING"
+  });
 
   useEffect(() => {
     if (state.status !== "RESULT") {
-      dispatch({ type: "LOADING" });
       fetchPersonInfo()
         .then((personInfo: PersonInfo) =>
-          dispatch({ type: "RESULT", payload: personInfo })
+          dispatch({ type: "SETT_RESULT", payload: personInfo })
         )
         .catch((error: HTTPError) =>
-          dispatch({ type: "RESULT", payload: error })
+          dispatch({ type: "SETT_ERROR", payload: error })
         );
     }
   });
@@ -56,14 +50,20 @@ const VisPersonInfo = () => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
+      const elements = [];
       const { personalia, adresser } = state.personInfo;
-      return (
-        <>
-          {personalia && <Header fornavn={formatName(personalia.fornavn)} />}
-          {personalia && <Personalia personalia={personalia} />}
-          {adresser && <Adresser adresser={adresser} />}
-        </>
-      );
+
+      if (personalia) {
+        const fornavn = formatName(personalia.fornavn);
+        elements.push(<Header key="h" fornavn={fornavn} />);
+        elements.push(<Personalia key="p" personalia={personalia} />);
+      }
+
+      if (adresser) {
+        elements.push(<Adresser key="a" adresser={adresser} />);
+      }
+
+      return <>{elements}</>;
     case "ERROR":
       return <Error error={state.error} />;
   }
