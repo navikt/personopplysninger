@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Sidetittel from "./sections/1-sidetittel/Sidetittel";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
 import Arbeidsforhold from "./sections/5-arbeidsforhold/Arbeidsforhold";
@@ -13,14 +13,16 @@ import { FeatureToggles } from "./providers/Store";
 const App = () => {
   const [{ featureToggles }, dispatch] = useStore();
 
-  fetchFeatureToggles(featureToggles)
-    .then(res =>
-      dispatch({
-        type: "SETT_FEATURE_TOGGLES",
-        payload: res as FeatureToggles
-      })
-    )
-    .catch(error => console.error("Failed to fetch feature toggles"));
+  useEffect(() => {
+    fetchFeatureToggles(featureToggles)
+      .then(res =>
+        dispatch({
+          type: "SETT_FEATURE_TOGGLES",
+          payload: res as FeatureToggles
+        })
+      )
+      .catch(error => console.error("Failed to fetch feature toggles"));
+  }, []);
 
   return (
     <div className="pagecontent">
