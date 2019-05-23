@@ -4,6 +4,8 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import nb from "react-intl/locale-data/nb";
 import App from "../App";
 import nbMessages from "../text/nb";
+import { StateProvider } from "../providers/Provider";
+import { initialState, reducer } from "../providers/Store";
 
 const browserLanguage = "nb";
 const messages = {
@@ -17,7 +19,9 @@ it("index renders without crashing", () => {
   require("../index");
   expect(ReactDOM.render).toHaveBeenCalledWith(
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
-      <App />
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <App />
+      </StateProvider>
     </IntlProvider>,
     null
   );
