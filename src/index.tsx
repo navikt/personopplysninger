@@ -8,6 +8,8 @@ import { setUpMock } from "./clients/apiMock";
 import App from "./App";
 import "css/index.css";
 import nbMessages from "./text/nb";
+import { StateProvider } from "./providers/Provider";
+import { initialState, reducer } from "./providers/Store";
 
 // Intl polyfill
 global.Intl = require("intl");
@@ -25,7 +27,9 @@ if (process.env.NODE_ENV === "development") {
 
 ReactDOM.render(
   <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
-    <App />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <App />
+    </StateProvider>
   </IntlProvider>,
   document.getElementById("app")
 );
