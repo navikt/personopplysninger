@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const StoreContext = createContext({} as [Store, Dispatch<Action>]);
-export const StateProvider = ({ reducer, initialState, children }: Props) => (
+export const StoreProvider = ({ reducer, initialState, children }: Props) => (
   <StoreContext.Provider value={useReducer(reducer, initialState)}>
     {children}
   </StoreContext.Provider>
