@@ -24,10 +24,10 @@ const sjekkForFeil = (
   response.ok
     ? response
     : (logApiError(url, response),
-    reject({
-      code: response.status,
-      text: response.statusText
-    }));
+      reject({
+        code: response.status,
+        text: response.statusText
+      }));
 
 const hentJsonOgSjekkAuth = (url: string) =>
   new Promise((resolve, reject) =>
