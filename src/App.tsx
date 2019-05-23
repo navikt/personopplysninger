@@ -21,7 +21,9 @@ const App = () => {
           payload: res as FeatureToggles
         })
       )
-      .catch(error => console.error("Failed to fetch feature toggles"));
+      .catch(error =>
+        console.error(`Failed to fetch feature toggles - ${error}`)
+      );
   }, []);
 
   return (
