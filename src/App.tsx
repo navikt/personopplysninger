@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import Sidetittel from "./sections/1-sidetittel/Sidetittel";
-import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
-import Arbeidsforhold from "./sections/5-arbeidsforhold/Arbeidsforhold";
-import EksterneLenker from "./sections/6-eksterne/EksterneLenker";
-import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
-import PersonInfo from "./sections/4-personinfo/PersonInfo";
-import "./index.less";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import { fetchFeatureToggles } from "./clients/apiClient";
 import { FeatureToggles } from "./providers/Store";
+import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
+import Forside from "./pages/forside/Forside";
+import "./index.less";
 
-const App = () => {
+
+export const baseUrl = "/person/personopplysninger";
+const App = () => {(
   const [{ featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
@@ -28,14 +27,14 @@ const App = () => {
 
   return (
     <div className="pagecontent">
-      <Brodsmulesti />
-      <Sidetittel />
-      <PersonInfo />
-      {featureToggles["personopplysninger.arbeidsforhold.liste"] && (
-        <Arbeidsforhold />
-      )}
-      <EksterneLenker />
-      <MerInformasjon />
+      <Router>
+        <Route exact={true} path={`(/|${baseUrl}/)`} component={Forside} />
+        <Route
+          exact={true}
+          path={`${baseUrl}/arbeidsforhold/:id`}
+          component={DetaljertArbeidsforhold}
+        />
+      </Router>
     </div>
   );
 };

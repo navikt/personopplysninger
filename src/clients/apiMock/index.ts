@@ -14,17 +14,17 @@ export const setUpMock = async () => {
   mockKontaktinfo &&
     fetchMock.get(
       `${apiUrl}/kontaktinformasjon`,
-      delay(200, 500).then(() => kontaktInformasjon)
+      delay(200, 750).then(() => kontaktInformasjon)
     );
   mockPersonalia &&
     fetchMock.get(
       `${apiUrl}/personalia`,
-      delay(200, 300).then(() => personInformasjon)
+      delay(200, 750).then(() => personInformasjon)
     );
   mockFeatureToggles &&
     fetchMock.get(
       `begin:${baseUrl}/api/feature`,
-      delay(200, 300).then(() => featureToggles)
+      delay(200, 750).then(() => featureToggles)
     );
 };
 

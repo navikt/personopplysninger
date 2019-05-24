@@ -1,6 +1,7 @@
 const Environment = () => {
   if (process.env.NODE_ENV === "development") {
     return {
+      miljo: "LOCAL",
       baseUrl: "http://localhost:8080/person/personopplysninger",
       apiUrl: "http://localhost:8080/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q0.nav.no",
@@ -10,6 +11,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q0") > -1) {
     return {
+      miljo: "DEV",
       baseUrl: "https://www-q0.nav.no/person/personopplysninger",
       apiUrl: "https://www-q0.nav.no/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q0.nav.no",
@@ -19,6 +21,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q1") > -1) {
     return {
+      miljo: "DEV",
       baseUrl: "https://www-q1.nav.no/person/personopplysninger",
       apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q1.nav.no",
@@ -27,6 +30,7 @@ const Environment = () => {
     };
   }
   return {
+    miljo: "PROD",
     baseUrl: "https://www.nav.no/person/personopplysninger",
     apiUrl: "https://www.nav.no/person/personopplysninger-api",
     tjenesteUrl: "https://tjenester.nav.no",
