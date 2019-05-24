@@ -7,9 +7,8 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import "./index.less";
 
-
 export const baseUrl = "/person/personopplysninger";
-const App = () => {(
+const App = () => {
   const [{ featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
