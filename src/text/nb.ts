@@ -1,5 +1,5 @@
 import merInfo from "./nb/informasjon";
-
+/* tslint:disable */
 export default {
   "side.tittel": `Personopplysninger`,
   "brodsmulesti.dittnav": `Ditt NAV`,
@@ -71,6 +71,10 @@ export default {
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
+  "arbeidsforhold.tittel": `Arbeidsforhold`,
+  "arbeidsforhold.beskrivelse": `NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV. Også andre offentlige instanser kan hente opplysninger fra dette registeret, som Arbeids- og velferdsetaten har ansvar for. `,
+  "arbeidsforhold.kilde": `AA-registeret`,
+  "arbeidsforhold.disclaimer": `Hvis noe er feil med et arbeidsforhold må du kontakte arbeidsgiveren det gjelder,<br>slik at de kan rette det opp.`,
   "eksternelenker.pensjon.tittel": `Pensjonsopptjening`,
   "eksternelenker.pensjon.beskrivelse": `Oversikt over din pensjonsopptjening`,
   "eksternelenker.pensjon.lenkeTekst": `Gå til Din pensjon`,

@@ -6,15 +6,15 @@ export interface HTTPError {
   text: string;
 }
 
-interface props {
+interface Props {
   error: HTTPError;
 }
 
-const Error = (props: props) => {
+const Error = (props: Props) => {
   const { error } = props;
   return (
     <div className="error__container">
-      <AlertStripe type="advarsel" solid>
+      <AlertStripe type="advarsel">
         Oisann, noe gikk galt ved henting av data!
         <br />
         <span>{` ${error.code}: ${error.text}`}</span>

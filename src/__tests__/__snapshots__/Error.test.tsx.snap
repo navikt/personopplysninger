@@ -5,8 +5,7 @@ exports[`render Error 1`] = `
   className="error__container"
 >
   <div
-    aria-live="assertive"
-    className="alertstripe alertstripe--solid alertstripe--advarsel"
+    className="alertstripe alertstripe--advarsel"
   >
     <span
       aria-label="advarsel"
@@ -15,7 +14,7 @@ exports[`render Error 1`] = `
       <svg
         focusable="false"
         height="1.5em"
-        kind="feil-sirkel-fyll"
+        kind="advarsel-sirkel-fyll"
         viewBox="0 0 24 24"
         width="1.5em"
       >
@@ -24,19 +23,23 @@ exports[`render Error 1`] = `
           fillRule="evenodd"
         >
           <path
-            d="M11.999 0C5.395 0 .013 5.372 0 11.976a11.923 11.923 0 0 0 3.498 8.493A11.925 11.925 0 0 0 11.977 24H12c6.603 0 11.986-5.373 12-11.978C24.013 5.406 18.64.012 11.999 0z"
-            fill="#A13A28"
+            d="M12.205-.004l-.214.002a12.225 12.225 0 0 0-8.517 3.659C1.179 5.977-.053 9.013.002 12.208c.115 6.613 5.296 11.793 11.795 11.793l.212-.002c6.726-.116 12.105-5.595 11.99-12.21C23.883 5.178 18.702-.003 12.204-.003z"
+            fill="#FFA733"
             fillRule="nonzero"
           />
           <path
-            d="M12 10.651l3.372-3.372a.954.954 0 1 1 1.349 1.35L13.349 12l3.372 3.372a.954.954 0 1 1-1.35 1.349L12 13.349 8.628 16.72a.954.954 0 1 1-1.349-1.35L10.651 12 7.28 8.628A.954.954 0 1 1 8.63 7.28L12 10.651z"
-            fill="#FFF"
+            d="M12.027 19H12A1.499 1.499 0 0 1 11.973 16L12 16a1.501 1.501 0 0 1 .027 3z"
+            fill="#3E3832"
+          />
+          <path
+            d="M12 5a1 1 0 0 1 1 1v7a1 1 0 0 1-2 0V6a1 1 0 0 1 1-1z"
+            fill="#3E3832"
             fillRule="nonzero"
           />
         </g>
       </svg>
     </span>
-    <span
+    <div
       className="typo-normal alertstripe__tekst"
     >
       Oisann, noe gikk galt ved henting av data!
@@ -44,7 +47,7 @@ exports[`render Error 1`] = `
       <span>
          500: Internal Server Error
       </span>
-    </span>
+    </div>
   </div>
 </div>
 `;

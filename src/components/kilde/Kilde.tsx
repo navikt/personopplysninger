@@ -5,8 +5,8 @@ import Lenke from "nav-frontend-lenker";
 
 interface Props {
   kilde?: string;
-  lenke: string;
-  lenkeTekst: string;
+  lenke?: string;
+  lenkeTekst?: string;
 }
 
 const Kilde = (props: Props) => (

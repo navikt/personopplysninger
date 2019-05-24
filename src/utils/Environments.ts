@@ -1,6 +1,7 @@
 const Environment = () => {
   if (process.env.NODE_ENV === "development") {
     return {
+      miljo: "LOCAL",
       apiUrl: "http://localhost:8080/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q0.nav.no",
       loginUrl: "http://localhost:8080/personbruker-api/local/cookie",
@@ -9,6 +10,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-t6") > -1) {
     return {
+      miljo: "DEV",
       apiUrl: `https://personopplysninger-api-t6.nais.oera-q.local/personopplysninger-api`,
       tjenesteUrl: "https://tjenester-t6.nav.no",
       loginUrl: "https://loginservice-q.nav.no/login",
@@ -17,6 +19,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q0") > -1) {
     return {
+      miljo: "DEV",
       apiUrl: "https://www-q0.nav.no/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q0.nav.no",
       loginUrl: "https://loginservice-q.nav.no/login",
@@ -25,6 +28,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q1") > -1) {
     return {
+      miljo: "DEV",
       apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q1.nav.no",
       loginUrl: "https://loginservice-q.nav.no/login",
@@ -33,6 +37,7 @@ const Environment = () => {
   }
 
   return {
+    miljo: "PROD",
     apiUrl: "https://www.nav.no/person/personopplysninger-api",
     tjenesteUrl: "https://tjenester.nav.no",
     loginUrl: "https://loginservice.nav.no/login",

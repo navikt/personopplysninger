@@ -23,9 +23,10 @@ if (process.env.NODE_ENV === "development") {
   setUpMock();
 }
 
-ReactDOM.render(
+const content = (
   <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
     <App />
-  </IntlProvider>,
-  document.getElementById("app")
+  </IntlProvider>
 );
+
+ReactDOM.render(content, document.getElementById("app"));
