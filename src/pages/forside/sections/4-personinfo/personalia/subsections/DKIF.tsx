@@ -3,38 +3,29 @@ import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
 import Spinner from "../../../../../../components/spinner/Spinner";
-import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
+import { fetchPersonInfo } from "../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
+import { useStore } from "../../../../../../providers/Provider";
 
-type State =
+export type FetchKontaktInfo =
   | { status: "LOADING" }
-  | { status: "RESULT"; kontaktInfo: KontaktInfo }
+  | { status: "RESULT"; data: KontaktInfo }
   | { status: "ERROR"; error: HTTPError };
 
-// Lagre i minne og ikke i
-// sessionStorage pga sensitive data
-let persistState: State = { status: "LOADING" };
-
 const DKIF = () => {
-  const [state, setState] = useState(persistState);
+  const [{ kontaktInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (state.status === "RESULT") {
-      fetchKontaktInfo()
+    if (kontaktInfo.status === "LOADING") {
+      fetchPersonInfo()
         .then((kontaktInfo: KontaktInfo) =>
-          setState({
-            status: "RESULT",
-            kontaktInfo
-          })
+          dispatch({ type: "SETT_KONTAKT_INFO_RESULT", payload: kontaktInfo })
         )
         .catch((error: HTTPError) =>
-          setState({ status: "ERROR", error: error })
+          dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
         );
     }
-    return () => {
-      persistState = state;
-    };
   }, []);
 
   return (
@@ -51,13 +42,13 @@ const DKIF = () => {
         </Normaltekst>
       </div>
       {(() => {
-        switch (state.status) {
+        switch (kontaktInfo.status) {
           case "LOADING":
             return <Spinner />;
           case "RESULT":
-            return <KontaktInformasjon info={state.kontaktInfo} />;
+            return <KontaktInformasjon info={kontaktInfo.data} />;
           case "ERROR":
-            return <Error error={state.error} />;
+            return <Error error={kontaktInfo.error} />;
         }
       })()}
     </>
