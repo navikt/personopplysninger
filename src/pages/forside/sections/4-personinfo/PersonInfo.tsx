@@ -21,7 +21,7 @@ const VisPersonInfo = () => {
   const [state, setState] = useState(persistState);
 
   useEffect(() => {
-    if (state.status !== "RESULT") {
+    if (state.status === "LOADING") {
       fetchPersonInfo()
         .then((personInfo: PersonInfo) =>
           setState({ status: "RESULT", personInfo })
@@ -33,7 +33,7 @@ const VisPersonInfo = () => {
     return () => {
       persistState = state;
     };
-  }, [state]);
+  }, []);
 
   switch (state.status) {
     default:
