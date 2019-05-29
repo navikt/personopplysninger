@@ -8,6 +8,14 @@ export interface FeatureToggles {
   [key: string]: boolean;
 }
 
+export const initialState = {
+  featureToggles: {
+    "personopplysninger.arbeidsforhold.liste": false
+  },
+  personInfo: { status: "LOADING" } as FetchPersonInfo,
+  kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
+};
+
 export interface Store {
   featureToggles: FeatureToggles;
   personInfo: FetchPersonInfo;
@@ -35,12 +43,6 @@ export type Action =
       type: "SETT_KONTAKT_INFO_ERROR";
       payload: HTTPError;
     };
-
-export const initialState = {
-  featureToggles: { "personopplysninger.arbeidsforhold.liste": false },
-  personInfo: { status: "LOADING" } as FetchPersonInfo,
-  kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
-};
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
