@@ -24,7 +24,7 @@ const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
         </Link>
       </div>
       <div className="da__innhold">
-        <DetaljertArbeidsforhold miljo={miljo} arbeidsforholdId={id} />
+        <DetaljertArbeidsforhold miljo={miljo} navArbeidsforholdId={id} />
       </div>
     </div>
   );
