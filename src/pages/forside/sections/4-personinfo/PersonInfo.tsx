@@ -7,41 +7,35 @@ import Spinner from "../../../../components/spinner/Spinner";
 import { formatName } from "../../../../utils/text";
 import { PersonInfo } from "../../../../types/personInfo";
 import { fetchPersonInfo } from "../../../../clients/apiClient";
+import { useStore } from "../../../../providers/Provider";
 
-type State =
+export type FetchPersonInfo =
   | { status: "LOADING" }
-  | { status: "RESULT"; personInfo: PersonInfo }
+  | { status: "RESULT"; data: PersonInfo }
   | { status: "ERROR"; error: HTTPError };
 
-// Lagre i minne og ikke i
-// sessionStorage pga sensitive data
-let persistState: State = { status: "LOADING" };
-
 const VisPersonInfo = () => {
-  const [state, setState] = useState(persistState);
+  const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (state.status === "LOADING") {
+    if (personInfo.status === "LOADING") {
       fetchPersonInfo()
         .then((personInfo: PersonInfo) =>
-          setState({ status: "RESULT", personInfo })
+          dispatch({ type: "SETT_PERSON_INFO_RESULT", payload: personInfo })
         )
         .catch((error: HTTPError) =>
-          setState({ status: "ERROR", error: error })
+          dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-    return () => {
-      persistState = state;
-    };
   }, []);
 
-  switch (state.status) {
+  switch (personInfo.status) {
     default:
     case "LOADING":
       return <Spinner />;
     case "RESULT":
       const elements = [];
-      const { personalia, adresser } = state.personInfo;
+      const { personalia, adresser } = personInfo.data;
 
       if (personalia) {
         const fornavn = formatName(personalia.fornavn);
@@ -55,7 +49,7 @@ const VisPersonInfo = () => {
 
       return <>{elements}</>;
     case "ERROR":
-      return <Error error={state.error} />;
+      return <Error error={personInfo.error} />;
   }
 };
 
