@@ -13,8 +13,9 @@ interface Routes {
   id: string;
 }
 
+const radix = 10;
 const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
-  const id = match.params.id;
+  const id: number = parseInt(match.params.id, radix);
   return (
     <div className="da__container">
       <div className="da__back">
@@ -24,7 +25,7 @@ const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
         </Link>
       </div>
       <div className="da__innhold">
-        <DetaljertArbeidsforhold miljo={miljo} arbeidsforholdId={id} />
+        <DetaljertArbeidsforhold miljo={miljo} navArbeidsforholdId={id} />
       </div>
     </div>
   );

@@ -20,7 +20,7 @@ const DKIF = () => {
   const [state, setState] = useState(persistState);
 
   useEffect(() => {
-    if (state.status !== "RESULT") {
+    if (state.status === "RESULT") {
       fetchKontaktInfo()
         .then((kontaktInfo: KontaktInfo) =>
           setState({
@@ -35,7 +35,7 @@ const DKIF = () => {
     return () => {
       persistState = state;
     };
-  }, [state]);
+  }, []);
 
   return (
     <>
