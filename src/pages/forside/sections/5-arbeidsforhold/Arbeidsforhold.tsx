@@ -13,8 +13,8 @@ const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
 
 const Arbeidsforhold = (props: RouteComponentProps) => {
-  const onClick = (arbeidsforholdId: string) => {
-    props.history.push(`${baseUrl}/arbeidsforhold/${arbeidsforholdId}`);
+  const onClick = (navArbeidsforholdId: number) => {
+    props.history.push(`${baseUrl}/arbeidsforhold/${navArbeidsforholdId}`);
   };
 
   return (

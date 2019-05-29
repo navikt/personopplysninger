@@ -14,7 +14,7 @@ interface Routes {
 }
 
 const Arbeidsforhold = ({ match }: RouteComponentProps<Routes>) => {
-  const id = match.params.id;
+  const id: number = parseInt(match.params.id);
   return (
     <div className="da__container">
       <div className="da__back">
