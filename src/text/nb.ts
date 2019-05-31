@@ -4,6 +4,7 @@ export default {
   "side.tittel": `Personopplysninger`,
   "brodsmulesti.dittnav": `Ditt NAV`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
+  "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
   "header.hello": `Hei {name}!`,
   "header.intro": `Her kan du se opplysninger som NAV har registrert om deg.`,
   "header.description": `<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer' class='lenke'>Les om personvern i Arbeids- og velferdsetaten her.</a>`,
