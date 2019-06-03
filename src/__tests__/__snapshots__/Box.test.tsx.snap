@@ -12,6 +12,7 @@ exports[`render Header with content 1`] = `
       className="icon__circle"
       style={
         Object {
+          "backgroundColor": undefined,
           "backgroundImage": "url(function SvgAdresser(props) {
   return React.createElement(
     'svg', 

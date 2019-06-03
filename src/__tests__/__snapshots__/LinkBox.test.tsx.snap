@@ -12,6 +12,7 @@ exports[`render LinkBox with content 1`] = `
       className="icon__circle"
       style={
         Object {
+          "backgroundColor": undefined,
           "backgroundImage": "url(function SvgPensjon(props) {
   return React.createElement(
     'svg', 
