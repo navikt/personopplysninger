@@ -33,11 +33,6 @@ const Arbeidsforhold = ({ match, history }: RouteComponentProps<Routes>) => {
       <div className="da__icon">
         <Icon backgroundImage={arbeidsforholdIkon} backgroundColor="#99C1E9" />
       </div>
-      <div className="da__back">
-        <Link to={`${baseUrl}/`} onClick={goBack} className="lenke">
-          <VenstreChevron />
-          Tilbake
-        </Link>
       <div className="da__rad">
         <div className="da__back">
           <Link to={`${baseUrl}/`} onClick={goBack}>
