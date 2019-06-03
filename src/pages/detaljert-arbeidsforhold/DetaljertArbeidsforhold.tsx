@@ -6,6 +6,8 @@ import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
 import { baseUrl } from "../../App";
 import Brodsmulesti from "../forside/sections/2-brodsmulesti/Brodsmulesti";
+import Icon from "../../components/icon/Icon";
+import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -26,8 +28,11 @@ const Arbeidsforhold = ({ match, history }: RouteComponentProps<Routes>) => {
   return (
     <div className="da__container">
       <Brodsmulesti />
+      <div className="da__icon">
+        <Icon backgroundImage={arbeidsforholdIkon} backgroundColor="#99C1E9" />
+      </div>
       <div className="da__back">
-        <Link to={`${baseUrl}/`} onClick={goBack}>
+        <Link to={`${baseUrl}/`} onClick={goBack} className="lenke">
           <VenstreChevron />
           Tilbake
         </Link>
