@@ -6,6 +6,8 @@ import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
 import { baseUrl } from "../../App";
 import Brodsmulesti from "../forside/sections/2-brodsmulesti/Brodsmulesti";
+import { Systemtittel } from "nav-frontend-typografi";
+import { FormattedMessage } from "react-intl";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -26,11 +28,19 @@ const Arbeidsforhold = ({ match, history }: RouteComponentProps<Routes>) => {
   return (
     <div className="da__container">
       <Brodsmulesti />
-      <div className="da__back">
-        <Link to={`${baseUrl}/`} onClick={goBack}>
-          <VenstreChevron />
-          Tilbake
-        </Link>
+      <div className="da__rad">
+        <div className="da__back">
+          <Link to={`${baseUrl}/`} onClick={goBack}>
+            <VenstreChevron />
+            Tilbake
+          </Link>
+        </div>
+        <div className="da__overskrift">
+          <Systemtittel>
+            <FormattedMessage id="arbeidsforhold.tittel" />
+          </Systemtittel>
+        </div>
+        <div className="da__filler" />
       </div>
       <div className="da__innhold">
         <DetaljertArbeidsforhold miljo={miljo} navArbeidsforholdId={id} />
