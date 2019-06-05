@@ -4,7 +4,6 @@
   "private": true,
   "author": "NAV",
   "license": "MIT",
-  "homepage": "/person/personopplysninger/",
   "scripts": {
     "docker-build": "docker build . -t personopplysninger",
     "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
@@ -24,7 +23,7 @@
   },
   "dependencies": {
     "@babel/core": "7.4.4",
-    "@navikt/arbeidsforhold": "^1.0.47",
+    "@navikt/arbeidsforhold": "^1.0.48",
     "@svgr/webpack": "^4.2.0",
     "@types/react-router-hash-link": "^1.2.1",
     "autoprefixer": "9.5.1",
