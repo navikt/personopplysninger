@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@babel/core": "7.4.4",
-    "@navikt/arbeidsforhold": "^1.0.48",
+    "@navikt/arbeidsforhold": "^1.0.49",
     "@svgr/webpack": "^4.2.0",
     "@types/react-router-hash-link": "^1.2.1",
     "autoprefixer": "9.5.1",
