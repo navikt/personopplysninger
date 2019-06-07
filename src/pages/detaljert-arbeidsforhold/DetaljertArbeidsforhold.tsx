@@ -10,6 +10,8 @@ import Icon from "../../components/icon/Icon";
 import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
+import injectIntl = ReactIntl.injectIntl;
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -19,7 +21,9 @@ interface Routes {
 }
 
 const radix = 10;
-const Arbeidsforhold = ({ match, history }: RouteComponentProps<Routes>) => {
+type MergedProps = RouteComponentProps<Routes> & InjectedIntlProps;
+const Arbeidsforhold = (props: MergedProps) => {
+  const { match, history, intl } = props;
   const id: number = parseInt(match.params.id, radix);
 
   const goBack = (event: MouseEvent): void => {
@@ -48,10 +52,14 @@ const Arbeidsforhold = ({ match, history }: RouteComponentProps<Routes>) => {
         <div className="da__filler" />
       </div>
       <div className="da__innhold">
-        <DetaljertArbeidsforhold miljo={miljo} navArbeidsforholdId={id} />
+        <DetaljertArbeidsforhold
+          locale={intl.locale as "nb" | "en"}
+          miljo={miljo}
+          navArbeidsforholdId={id}
+        />
       </div>
     </div>
   );
 };
 
-export default withRouter(Arbeidsforhold);
+export default injectIntl(withRouter(Arbeidsforhold));

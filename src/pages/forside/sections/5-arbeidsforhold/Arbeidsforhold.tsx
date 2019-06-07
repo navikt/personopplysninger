@@ -8,13 +8,17 @@ import { FormattedHTMLMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { baseUrl } from "../../../../App";
+import injectIntl = ReactIntl.injectIntl;
+import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
 
-const Arbeidsforhold = (props: RouteComponentProps) => {
+const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
+  const { intl, history } = props;
+
   const onClick = (navArbeidsforholdId: number) => {
-    props.history.push(`${baseUrl}/arbeidsforhold/${navArbeidsforholdId}`);
+    history.push(`${baseUrl}/arbeidsforhold/${navArbeidsforholdId}`);
   };
 
   return (
@@ -26,7 +30,11 @@ const Arbeidsforhold = (props: RouteComponentProps) => {
         icon={arbeidsforholdIkon}
       >
         <div className="arbeidsforhold">
-          <ListeMedArbeidsforhold miljo={miljo} onClick={onClick} />
+          <ListeMedArbeidsforhold
+            locale={intl.locale as "nb" | "en"}
+            miljo={miljo}
+            onClick={onClick}
+          />
         </div>
         <div className="arbeidsforhold__disclaimer">
           <Undertekst>
@@ -38,4 +46,4 @@ const Arbeidsforhold = (props: RouteComponentProps) => {
     </div>
   );
 };
-export default withRouter(Arbeidsforhold);
+export default injectIntl(withRouter(Arbeidsforhold));
