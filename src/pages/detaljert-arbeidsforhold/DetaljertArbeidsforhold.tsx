@@ -2,6 +2,7 @@ import React, { MouseEvent } from "react";
 import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
 import Environment from "../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
 import { baseUrl } from "../../App";
@@ -10,8 +11,6 @@ import Icon from "../../components/icon/Icon";
 import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import injectIntl = ReactIntl.injectIntl;
-import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";

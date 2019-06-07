@@ -7,9 +7,8 @@ import { Undertekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
+import { injectIntl, InjectedIntlProps } from "react-intl";
 import { baseUrl } from "../../../../App";
-import injectIntl = ReactIntl.injectIntl;
-import InjectedIntlProps = ReactIntl.InjectedIntlProps;
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
