@@ -12,6 +12,7 @@ import { baseUrl } from "../../../../App";
 const { tjenesteUrl } = Environment();
 
 interface Props {
+  className?: string;
   children: "" | JSX.Element | JSX.Element[];
 }
 
@@ -20,14 +21,14 @@ interface Routes {
 }
 
 const Brodsmule = (props: Props) => (
-  <div className="brodsmule">{props.children}</div>
+  <div className={`brodsmule ${props.className || ""}`}>{props.children}</div>
 );
 
 const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
   const { id } = props.match.params;
   return (
     <div className="brodsmulesti">
-      <Brodsmule>
+      <Brodsmule className="brodsmulesti__icon">
         <img
           alt="Brodsmulesti"
           className="brodsmulesti__account"
