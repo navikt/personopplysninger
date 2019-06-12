@@ -19,8 +19,11 @@ const DKIF = () => {
   useEffect(() => {
     if (kontaktInfo.status === "LOADING") {
       fetchPersonInfo()
-        .then((kontaktInfo: KontaktInfo) =>
-          dispatch({ type: "SETT_KONTAKT_INFO_RESULT", payload: kontaktInfo })
+        .then(kontaktInfo =>
+          dispatch({
+            type: "SETT_KONTAKT_INFO_RESULT",
+            payload: kontaktInfo as KontaktInfo
+          })
         )
         .catch((error: HTTPError) =>
           dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })

@@ -20,8 +20,11 @@ const VisPersonInfo = () => {
   useEffect(() => {
     if (personInfo.status === "LOADING") {
       fetchPersonInfo()
-        .then((personInfo: PersonInfo) =>
-          dispatch({ type: "SETT_PERSON_INFO_RESULT", payload: personInfo })
+        .then(personInfo =>
+          dispatch({
+            type: "SETT_PERSON_INFO_RESULT",
+            payload: personInfo as PersonInfo
+          })
         )
         .catch((error: HTTPError) =>
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
