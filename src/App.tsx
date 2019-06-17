@@ -28,11 +28,13 @@ const App = () => {
     <div className="pagecontent">
       <Router>
         <Route exact={true} path={`(/|${baseUrl}/)`} component={Forside} />
-        <Route
-          exact={true}
-          path={`${baseUrl}/arbeidsforhold/:id`}
-          component={DetaljertArbeidsforhold}
-        />
+        {featureToggles["personopplysninger.arbeidsforhold.detaljert"] && (
+          <Route
+            exact={true}
+            path={`${baseUrl}/arbeidsforhold/:id`}
+            component={DetaljertArbeidsforhold}
+          />
+        )}
       </Router>
     </div>
   );
