@@ -52,7 +52,7 @@ export const fetchKontaktInfo = () =>
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   hentJsonOgSjekkAuth(
-    `${baseUrl}/api/feature?${Object.keys(featureToggles).map(
+    `${apiUrl}/feature-toggles?${Object.keys(featureToggles).map(
       (feature: string) => `feature=${feature}&`
     )}`
   );
