@@ -4,7 +4,7 @@ import kontaktInformasjon from "./data/kontaktInfo.json";
 import featureToggles from "./data/featureToggles.json";
 import Environment from "../../utils/Environments";
 
-const { apiUrl, baseUrl } = Environment();
+const { apiUrl } = Environment();
 
 const mockKontaktinfo = true;
 const mockPersonalia = true;
@@ -23,7 +23,7 @@ export const setUpMock = async () => {
     );
   mockFeatureToggles &&
     fetchMock.get(
-      `begin:${baseUrl}/api/feature`,
+      `begin:${apiUrl}/feature-toggles`,
       delay(200, 750).then(() => featureToggles)
     );
 };
