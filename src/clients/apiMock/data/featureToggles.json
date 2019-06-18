@@ -1,1 +1,4 @@
-{ "personopplysninger.arbeidsforhold.liste": true }
+{
+  "personopplysninger.arbeidsforhold.liste": true,
+  "personopplysninger.arbeidsforhold.detaljert": true
+}
