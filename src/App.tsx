@@ -26,7 +26,7 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <Route exact={true} path={`(/|${baseUrl}/)`} component={Forside} />
+        <Route exact={true} path={`(/|${baseUrl})`} component={Forside} />
         {featureToggles["personopplysninger.arbeidsforhold.detaljert"] && (
           <Route
             exact={true}
