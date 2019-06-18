@@ -119,6 +119,13 @@ workflows:
             branches:
               only:
                 - master
+      - deploy-til-dev:
+        requires:
+          - deploy-til-dev-manuelt
+      - deploy-til-dev-manuelt:
+          type: approval
+          requires:
+            - build
       - godkjenn-til-prod:
           type: approval
           requires:
