@@ -56,7 +56,7 @@ const startServer = html => {
     res.sendStatus(200)
   );
 
-  server.get("/person/personopplysninger", (req, res) => {
+  server.use("/person/personopplysninger", (req, res) => {
     res.send(html);
   });
 
