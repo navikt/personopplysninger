@@ -18,7 +18,6 @@ const VisPersonInfo = () => {
   const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    console.log(personInfo);
     if (personInfo.status === "LOADING") {
       fetchPersonInfo()
         .then(personInfo =>
@@ -31,7 +30,6 @@ const VisPersonInfo = () => {
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [personInfo, dispatch]);
 
   switch (personInfo.status) {
