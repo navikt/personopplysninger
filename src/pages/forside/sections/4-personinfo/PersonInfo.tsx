@@ -18,19 +18,17 @@ const VisPersonInfo = () => {
   const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (personInfo.status === "LOADING") {
-      fetchPersonInfo()
-        .then(personInfo =>
-          dispatch({
-            type: "SETT_PERSON_INFO_RESULT",
-            payload: personInfo as PersonInfo
-          })
-        )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
-        );
-    }
-  });
+    fetchPersonInfo()
+      .then(personInfo =>
+        dispatch({
+          type: "SETT_PERSON_INFO_RESULT",
+          payload: personInfo as PersonInfo
+        })
+      )
+      .catch((error: HTTPError) =>
+        dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
+      );
+  }, []);
 
   switch (personInfo.status) {
     default:

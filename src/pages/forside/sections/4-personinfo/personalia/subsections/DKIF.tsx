@@ -17,19 +17,17 @@ const DKIF = () => {
   const [{ kontaktInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (kontaktInfo.status === "LOADING") {
-      fetchPersonInfo()
-        .then(kontaktInfo =>
-          dispatch({
-            type: "SETT_KONTAKT_INFO_RESULT",
-            payload: kontaktInfo as KontaktInfo
-          })
-        )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
-        );
-    }
-  });
+    fetchPersonInfo()
+      .then(kontaktInfo =>
+        dispatch({
+          type: "SETT_KONTAKT_INFO_RESULT",
+          payload: kontaktInfo as KontaktInfo
+        })
+      )
+      .catch((error: HTTPError) =>
+        dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
+      );
+  }, []);
 
   return (
     <>
