@@ -10,7 +10,8 @@ export interface FeatureToggles {
 
 export const initialState = {
   featureToggles: {
-    "personopplysninger.arbeidsforhold.liste": false
+    "personopplysninger.arbeidsforhold.liste": false,
+    "personopplysninger.arbeidsforhold.detaljert": false
   },
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
