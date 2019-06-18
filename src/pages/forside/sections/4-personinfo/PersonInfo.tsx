@@ -32,7 +32,7 @@ const VisPersonInfo = () => {
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [personInfo]);
+  }, [personInfo, dispatch]);
 
   switch (personInfo.status) {
     default:
