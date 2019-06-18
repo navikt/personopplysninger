@@ -29,7 +29,8 @@ const App = () => {
           console.error(`Failed to fetch feature toggles - ${error}`)
         );
     }
-  }, [featureToggles, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [featureToggles]); //tslint.
 
   return (
     <div className="pagecontent">

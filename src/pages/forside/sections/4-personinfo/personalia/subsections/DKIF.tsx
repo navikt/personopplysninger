@@ -3,7 +3,7 @@ import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
 import Spinner from "../../../../../../components/spinner/Spinner";
-import { fetchPersonInfo } from "../../../../../../clients/apiClient";
+import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 import { useStore } from "../../../../../../providers/Provider";
@@ -18,7 +18,7 @@ const DKIF = () => {
 
   useEffect(() => {
     if (kontaktInfo.status === "LOADING") {
-      fetchPersonInfo()
+      fetchKontaktInfo()
         .then(kontaktInfo =>
           dispatch({
             type: "SETT_KONTAKT_INFO_RESULT",
@@ -29,7 +29,8 @@ const DKIF = () => {
           dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
         );
     }
-  }, [kontaktInfo, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [kontaktInfo]);
 
   return (
     <>

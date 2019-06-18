@@ -30,7 +30,8 @@ const VisPersonInfo = () => {
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-  }, [personInfo, dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [personInfo]);
 
   switch (personInfo.status) {
     default:
