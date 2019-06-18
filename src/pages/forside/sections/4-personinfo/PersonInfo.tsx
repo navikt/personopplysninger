@@ -30,7 +30,7 @@ const VisPersonInfo = () => {
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-  }, []);
+  }, [personInfo, dispatch]);
 
   switch (personInfo.status) {
     default:

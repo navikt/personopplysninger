@@ -29,7 +29,7 @@ const DKIF = () => {
           dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
         );
     }
-  }, []);
+  }, [kontaktInfo, dispatch]);
 
   return (
     <>
