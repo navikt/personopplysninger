@@ -4,8 +4,6 @@ const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
-const { getSecrets, getMockSecrets } = require("./getSecrets");
-
 const server = express();
 
 server.set("views", `${__dirname}/../build`);
@@ -29,10 +27,6 @@ const renderApp = decoratorFragments =>
   );
 
 const startServer = html => {
-  server.use("/person/personopplysninger", (req, res) => {
-    res.send(html);
-  });
-
   server.use(
     "/person/personopplysninger/static/js",
     express.static(path.resolve(`${__dirname}/..`, "build/static/js"))
@@ -61,6 +55,10 @@ const startServer = html => {
   server.get("/person/personopplysninger/internal/alive|ready", (req, res) =>
     res.sendStatus(200)
   );
+
+  server.use("/person/personopplysninger", (req, res) => {
+    res.send(html);
+  });
 
   const port = process.env.PORT || 8080;
   server.listen(port, () => console.log(`App listening on port: ${port}`));
