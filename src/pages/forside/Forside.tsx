@@ -14,7 +14,7 @@ const Forside = () => {
       <Brodsmulesti />
       <Sidetittel />
       <PersonInfo />
-      {featureToggles["personopplysninger.arbeidsforhold.liste"] && (
+      {featureToggles.data["personopplysninger.arbeidsforhold.liste"] && (
         <Arbeidsforhold />
       )}
       <EksterneLenker />

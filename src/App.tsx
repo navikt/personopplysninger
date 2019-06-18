@@ -5,29 +5,37 @@ import { fetchFeatureToggles } from "./clients/apiClient";
 import { FeatureToggles } from "./providers/Store";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
+import { HTTPError } from "./components/error/Error";
+
+export type FetchFeatureToggles = { data: FeatureToggles } & (
+  | { status: "LOADING" }
+  | { status: "RESULT" }
+  | { status: "ERROR"; error: HTTPError });
 
 export const baseUrl = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
-    fetchFeatureToggles(featureToggles)
-      .then(res =>
-        dispatch({
-          type: "SETT_FEATURE_TOGGLES",
-          payload: res as FeatureToggles
-        })
-      )
-      .catch(error =>
-        console.error(`Failed to fetch feature toggles - ${error}`)
-      );
+    if (featureToggles.status === "LOADING") {
+      fetchFeatureToggles(featureToggles.data)
+        .then(res =>
+          dispatch({
+            type: "SETT_FEATURE_TOGGLES",
+            payload: res as FeatureToggles
+          })
+        )
+        .catch(error =>
+          console.error(`Failed to fetch feature toggles - ${error}`)
+        );
+    }
   });
 
   return (
     <div className="pagecontent">
       <Router>
         <Route exact={true} path={`(/|${baseUrl})`} component={Forside} />
-        {featureToggles["personopplysninger.arbeidsforhold.detaljert"] && (
+        {featureToggles.data["personopplysninger.arbeidsforhold.detaljert"] && (
           <Route
             exact={true}
             path={`${baseUrl}/arbeidsforhold/:id`}
