@@ -25,6 +25,7 @@
     "@navikt/arbeidsforhold": "^1.0.74",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
+    "express": "^4.17.1",
     "fetch-mock": "^7.3.3",
     "intl": "^1.2.5",
     "less-plugin-npm-import": "^2.1.0",
