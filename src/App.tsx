@@ -17,16 +17,18 @@ const App = () => {
   const [{ featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
-    fetchFeatureToggles(featureToggles.data)
-      .then(res =>
-        dispatch({
-          type: "SETT_FEATURE_TOGGLES",
-          payload: res as FeatureToggles
-        })
-      )
-      .catch(error =>
-        console.error(`Failed to fetch feature toggles - ${error}`)
-      );
+    if (featureToggles.status === "LOADING") {
+      fetchFeatureToggles(featureToggles.data)
+        .then(res =>
+          dispatch({
+            type: "SETT_FEATURE_TOGGLES",
+            payload: res as FeatureToggles
+          })
+        )
+        .catch(error =>
+          console.error(`Failed to fetch feature toggles - ${error}`)
+        );
+    }
   }, []);
 
   return (
