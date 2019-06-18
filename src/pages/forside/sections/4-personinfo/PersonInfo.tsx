@@ -18,6 +18,7 @@ const VisPersonInfo = () => {
   const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
+    console.log(personInfo);
     if (personInfo.status === "LOADING") {
       fetchPersonInfo()
         .then(personInfo =>
