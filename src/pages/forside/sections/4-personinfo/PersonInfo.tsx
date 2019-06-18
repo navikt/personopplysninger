@@ -15,7 +15,8 @@ export type FetchPersonInfo =
   | { status: "ERROR"; error: HTTPError };
 
 const VisPersonInfo = () => {
-  const [{ personInfo }, dispatch] = useStore();
+  const { state, dispatch } = useStore();
+  const { personInfo } = state;
 
   useEffect(() => {
     if (personInfo.status === "LOADING") {

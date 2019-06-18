@@ -14,7 +14,8 @@ export type FetchKontaktInfo =
   | { status: "ERROR"; error: HTTPError };
 
 const DKIF = () => {
-  const [{ kontaktInfo }, dispatch] = useStore();
+  const { state, dispatch } = useStore();
+  const { kontaktInfo } = state;
 
   useEffect(() => {
     if (kontaktInfo.status === "LOADING") {

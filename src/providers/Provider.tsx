@@ -5,11 +5,16 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-export const StoreContext = createContext({} as [Store, Dispatch<Action>]);
+export const StoreContext = createContext({} as {
+  state: Store;
+  dispatch: Dispatch<Action>;
+});
+
 export const StoreProvider = ({ children }: Props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
-    <StoreContext.Provider value={[state, dispatch]}>
+    <StoreContext.Provider value={{ state, dispatch }}>
       {children}
     </StoreContext.Provider>
   );

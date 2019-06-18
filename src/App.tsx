@@ -14,7 +14,8 @@ export type FetchFeatureToggles = { data: FeatureToggles } & (
 
 export const baseUrl = "/person/personopplysninger";
 const App = () => {
-  const [{ featureToggles }, dispatch] = useStore();
+  const { state, dispatch } = useStore();
+  const { featureToggles } = state;
 
   useEffect(() => {
     if (featureToggles.status === "LOADING") {

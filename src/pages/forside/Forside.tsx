@@ -8,7 +8,9 @@ import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import { useStore } from "../../providers/Provider";
 
 const Forside = () => {
-  const [{ featureToggles }] = useStore();
+  const { state } = useStore();
+  const { featureToggles } = state;
+
   return (
     <>
       <Brodsmulesti />
