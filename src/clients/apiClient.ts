@@ -2,7 +2,7 @@ import Environment from "../utils/Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 
-const { apiUrl, loginUrl, baseUrl } = Environment();
+const { apiUrl, loginUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 const sendTilLogin = () =>

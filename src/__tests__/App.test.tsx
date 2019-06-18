@@ -6,10 +6,10 @@ import { StoreProvider } from "../providers/Provider";
 import { initialState, reducer } from "../providers/Store";
 
 it("renders without crashing", () => {
-  ReactDOM.render(
+  const Dom = (
     <StoreProvider initialState={initialState} reducer={reducer}>
       {wrapIntl(<App />)}
-    </StoreProvider>,
-    document.createElement("div")
+    </StoreProvider>
   );
+  ReactDOM.render(Dom, document.createElement("div"));
 });

@@ -9,7 +9,6 @@ import { initialState, reducer } from "./providers/Store";
 import nb from "react-intl/locale-data/nb";
 import nbMessages from "./text/nb";
 import App from "./App";
-import "css/index.css";
 
 // Intl polyfill
 global.Intl = require("intl");

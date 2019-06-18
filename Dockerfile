@@ -1,4 +1,4 @@
-FROM docker.adeo.no:5000/pus/decorator
+FROM node:11.7.0
 
 ENV FOOTER_TYPE=WITH_ALPHABET
 ENV APPLICATION_NAME=personopplysninger

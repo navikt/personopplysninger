@@ -1,4 +1,4 @@
-import React, { createRef, Ref, useEffect } from "react";
+import React from "react";
 import Box from "../../../../components/box/Box";
 import { ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "../../../../assets/img/arbeidsforhold.svg";

@@ -5,7 +5,6 @@ import { fetchFeatureToggles } from "./clients/apiClient";
 import { FeatureToggles } from "./providers/Store";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import "./index.less";
 
 export const baseUrl = "/person/personopplysninger";
 const App = () => {
@@ -22,7 +21,7 @@ const App = () => {
       .catch(error =>
         console.error(`Failed to fetch feature toggles - ${error}`)
       );
-  }, []);
+  }, [featureToggles, dispatch]);
 
   return (
     <div className="pagecontent">

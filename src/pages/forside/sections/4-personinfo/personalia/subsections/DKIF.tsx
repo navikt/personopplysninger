@@ -1,4 +1,4 @@
-import React, { PureComponent, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
@@ -29,7 +29,7 @@ const DKIF = () => {
           dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
         );
     }
-  }, []);
+  }, [kontaktInfo, dispatch]);
 
   return (
     <>
