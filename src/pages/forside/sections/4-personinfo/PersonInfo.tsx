@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Error, { HTTPError } from "../../../../components/error/Error";
 import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
@@ -30,7 +30,7 @@ const VisPersonInfo = () => {
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-  }, []);
+  }, [personInfo, dispatch]);
 
   switch (personInfo.status) {
     default:

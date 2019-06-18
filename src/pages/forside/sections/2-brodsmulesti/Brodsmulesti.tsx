@@ -7,8 +7,6 @@ import { withRouter, RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
 import { baseUrl } from "../../../../App";
 
-"react-router";
-
 const { tjenesteUrl } = Environment();
 
 interface Props {

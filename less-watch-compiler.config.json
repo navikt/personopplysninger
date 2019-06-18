@@ -1,6 +1,6 @@
 {
   "watchFolder": "src",
-  "outputFolder": "src/css",
+  "outputFolder": "public",
   "mainFile": "index.less",
   "plugins": "npm-import=\"prefix=~\""
 }

@@ -1,0 +1,36 @@
+---
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: personopplysninger
+  namespace: default
+  labels:
+    team: personbruker
+spec:
+  image: navikt/personopplysninger:LATEST
+  team: personbruker
+  port: 8080
+  ingresses:
+    - https://personopplysninger.nais.oera-q.local/person/personopplysninger
+    - https://www-q0.nav.no/person/personopplysninger
+  liveness:
+    path: "/person/personopplysninger/internal/alive"
+    initialDelay: 10
+  readiness:
+    path: "/person/personopplysninger/internal/ready"
+    initialDelay: 10
+  vault:
+    enabeled: true
+  replicas:
+    min: 2
+    max: 4
+  webproxy: true
+  env:
+    - name: NODE_EXTRA_CA_CERTS
+      value: "/etc/ssl/ca-bundle.pem"
+  resources:
+    limits:
+      cpu: '3'
+      memory: 768Mi
+    requests:
+      memory: 512Mi
