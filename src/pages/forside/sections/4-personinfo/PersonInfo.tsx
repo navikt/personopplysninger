@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import Error, { HTTPError } from "../../../../components/error/Error";
 import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
@@ -18,20 +18,22 @@ const VisPersonInfo = () => {
   const { state, dispatch } = useStore();
   const { personInfo } = state;
 
+  const fetchData = useCallback(() => {
+    fetchPersonInfo()
+      .then(personInfo =>
+        dispatch({
+          type: "SETT_PERSON_INFO_RESULT",
+          payload: personInfo as PersonInfo
+        })
+      )
+      .catch((error: HTTPError) =>
+        dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
+      );
+  }, [dispatch]);
+
   useEffect(() => {
-    if (personInfo.status === "LOADING") {
-      fetchPersonInfo()
-        .then(personInfo =>
-          dispatch({
-            type: "SETT_PERSON_INFO_RESULT",
-            payload: personInfo as PersonInfo
-          })
-        )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
-        );
-    }
-  }, [personInfo, dispatch]);
+    fetchData();
+  }, [fetchData]);
 
   switch (personInfo.status) {
     default:

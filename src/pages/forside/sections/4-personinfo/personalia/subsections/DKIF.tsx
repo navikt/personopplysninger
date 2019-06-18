@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Undertittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
@@ -17,20 +17,22 @@ const DKIF = () => {
   const { state, dispatch } = useStore();
   const { kontaktInfo } = state;
 
+  const fetchData = useCallback(() => {
+    fetchKontaktInfo()
+      .then(kontaktInfo =>
+        dispatch({
+          type: "SETT_KONTAKT_INFO_RESULT",
+          payload: kontaktInfo as KontaktInfo
+        })
+      )
+      .catch((error: HTTPError) =>
+        dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
+      );
+  }, [dispatch]);
+
   useEffect(() => {
-    if (kontaktInfo.status === "LOADING") {
-      fetchKontaktInfo()
-        .then(kontaktInfo =>
-          dispatch({
-            type: "SETT_KONTAKT_INFO_RESULT",
-            payload: kontaktInfo as KontaktInfo
-          })
-        )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
-        );
-    }
-  }, [kontaktInfo, dispatch]);
+    fetchData();
+  }, [fetchData]);
 
   return (
     <>

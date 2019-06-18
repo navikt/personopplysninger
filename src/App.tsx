@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import { fetchFeatureToggles } from "./clients/apiClient";
@@ -17,20 +17,22 @@ const App = () => {
   const { state, dispatch } = useStore();
   const { featureToggles } = state;
 
-  useEffect(() => {
-    if (featureToggles.status === "LOADING") {
-      fetchFeatureToggles(featureToggles.data)
-        .then(res =>
-          dispatch({
-            type: "SETT_FEATURE_TOGGLES",
-            payload: res as FeatureToggles
-          })
-        )
-        .catch(error =>
-          console.error(`Failed to fetch feature toggles - ${error}`)
-        );
-    }
+  const fetchData = useCallback(() => {
+    fetchFeatureToggles(featureToggles.data)
+      .then(res =>
+        dispatch({
+          type: "SETT_FEATURE_TOGGLES",
+          payload: res as FeatureToggles
+        })
+      )
+      .catch(error =>
+        console.error(`Failed to fetch feature toggles - ${error}`)
+      );
   }, [featureToggles, dispatch]);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   return (
     <div className="pagecontent">
