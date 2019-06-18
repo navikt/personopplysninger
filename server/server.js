@@ -29,11 +29,11 @@ const renderApp = decoratorFragments =>
   );
 
 const startServer = html => {
-  server.use("/soknader", (req, res) => {
+  server.use("/person/personopplysninger", (req, res) => {
     res.send(html);
   });
 
-  server.get("/soknader/internal/alive|ready", (req, res) =>
+  server.get("/person/personopplysninger/internal/alive|ready", (req, res) =>
     res.sendStatus(200)
   );
 
