@@ -21,7 +21,7 @@ const App = () => {
       .catch(error =>
         console.error(`Failed to fetch feature toggles - ${error}`)
       );
-  }, [featureToggles, dispatch]);
+  });
 
   return (
     <div className="pagecontent">
