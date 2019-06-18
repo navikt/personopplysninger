@@ -4,7 +4,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
 import { StoreProvider } from "./providers/Provider";
-import * as serviceWorker from "./service-worker";
 import nb from "react-intl/locale-data/nb";
 import nbMessages from "./text/nb";
 
@@ -64,6 +63,5 @@ const init = async () => {
     </IntlProvider>,
     document.getElementById("app")
   );
-  serviceWorker.unregister();
 };
 init();
