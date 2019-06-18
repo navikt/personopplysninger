@@ -12,6 +12,7 @@ import megamenu from "./clients/apiMock/decorator/decorator-megamenu";
 import footer from "./clients/apiMock/decorator/decorator-footer";
 import scripts from "./clients/apiMock/decorator/decorator-scripts";
 import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
+import * as serviceWorker from "./service-worker";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 
 import App from "./App";
@@ -63,5 +64,6 @@ const init = async () => {
     </IntlProvider>,
     document.getElementById("app")
   );
+  serviceWorker.unregister();
 };
 init();
