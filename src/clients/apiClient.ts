@@ -50,9 +50,12 @@ export const fetchPersonInfo = () =>
 export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
 
+export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
+  Object.keys(featureToggles)
+    .map((feature: string, i: number) => `${!i ? `?` : ``}feature=${feature}`)
+    .join("&");
+
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   hentJsonOgSjekkAuth(
-    `${apiUrl}/feature-toggles?${Object.keys(featureToggles).map(
-      (feature: string) => `feature=${feature}&`
-    )}`
+    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
   );
