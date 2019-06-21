@@ -1,6 +1,6 @@
 import React from "react";
 import Box from "../../../../components/box/Box";
-import { ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
+import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "../../../../assets/img/arbeidsforhold.svg";
 import Kilde from "../../../../components/kilde/Kilde";
 import { Undertekst } from "nav-frontend-typografi";
@@ -8,17 +8,20 @@ import { FormattedHTMLMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { injectIntl, InjectedIntlProps } from "react-intl";
+import { Link } from "react-router-dom";
 import { baseUrl } from "../../../../App";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
 
 const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
-  const { intl, history } = props;
+  const { intl } = props;
 
-  const onClick = (navArbeidsforholdId: number) => {
-    history.push(`${baseUrl}/arbeidsforhold/${navArbeidsforholdId}`);
-  };
+  const onClick = {
+    type: "REACT_ROUTER_LENKE",
+    Component: Link,
+    to: `${baseUrl}/arbeidsforhold/{id}`
+  } as AFListeOnClick;
 
   return (
     <div id="arbeidsforhold">
