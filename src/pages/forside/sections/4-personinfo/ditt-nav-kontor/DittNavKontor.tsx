@@ -18,7 +18,9 @@ interface Props {
 const DittNavKontor = (props: Props & InjectedIntlProps) => {
   const { enhetKontaktInfo, geografiskTilknytning, intl } = props;
   const publikumsmottak = enhetKontaktInfo.enhet.publikumsmottak;
-  const [valgtMottakId, settValgtMottakId] = useState(-1);
+  const [valgtMottakId, settValgtMottakId] = useState(
+    publikumsmottak.length > 1 ? -1 : 0
+  );
 
   return (
     <Box id="dittnavkontor" tittel="dittnavkontor.tittel" icon={adresseIkon}>
@@ -29,24 +31,37 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           </Normaltekst>
           <Element>{geografiskTilknytning.enhet}</Element>
         </div>
-        <Select
-          label=""
-          onChange={(event: ChangeEvent<HTMLSelectElement>) => {
-            settValgtMottakId(parseInt(event.currentTarget.value));
-          }}
-        >
-          <option value="-1">
-            {`${intl.formatMessage({ id: "dittnavkontor.publikumsmottak" })} ${
-              geografiskTilknytning.enhet
-            }`}
-          </option>
-          {publikumsmottak.map((mottak, id) => (
-            <option key={id} value={id}>
-              {mottak.poststed} - {mottak.gateadresse} {mottak.postnummer}
-              {mottak.poststed}
+        {publikumsmottak.length > 1 ? (
+          <Select
+            label=""
+            onChange={(event: ChangeEvent<HTMLSelectElement>) => {
+              settValgtMottakId(parseInt(event.currentTarget.value));
+            }}
+          >
+            <option value="-1">
+              {`${intl.formatMessage({
+                id: "dittnavkontor.publikumsmottakfor"
+              })} ${geografiskTilknytning.enhet}`}
             </option>
-          ))}
-        </Select>
+            {publikumsmottak.map((mottak, id) => (
+              <option key={id} value={id}>
+                {`${mottak.poststed}  -  ${mottak.gateadresse} ${mottak.husnummer}${mottak.husbokstav} ${mottak.postnummer} ${mottak.poststed}`}
+              </option>
+            ))}
+          </Select>
+        ) : (
+          <div>
+            <Element>
+              <FormattedMessage id="dittnavkontor.publikumsmottak" />
+            </Element>
+            <Normaltekst>
+              {`${publikumsmottak[0].gateadresse} ${publikumsmottak[0].husnummer}${publikumsmottak[0].husbokstav}`}
+            </Normaltekst>
+            <Normaltekst>
+              {`${publikumsmottak[0].postnummer} ${publikumsmottak[0].poststed}`}
+            </Normaltekst>
+          </div>
+        )}
       </div>
       <div>
         {valgtMottakId !== -1 ? (
@@ -78,8 +93,8 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
                 </Element>
                 <div className="apningstid__container">
                   {publikumsmottak[valgtMottakId].aapningAndre!.map(
-                    apningstid => (
-                      <Apningstid apningstid={apningstid} />
+                    (apningstid, id) => (
+                      <Apningstid key={id} apningstid={apningstid} />
                     )
                   )}
                 </div>
@@ -92,17 +107,17 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
       </div>
       <ul className="dittnavkontor__footer list-column-2">
         <ListElement
-          titleId="dittnavkontor.kontaktinfo.kontaktsenteret.tittel"
+          titleId="dittnavkontor.kontaktinfo.kontaktsenter.tittel"
           content={intl.formatMessage({
-            id: "dittnavkontor.kontaktinfo.kontaktsenteret.tlfnr"
+            id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
           })}
-        />
-        <ListElement
-          titleId="dittnavkontor.kontaktinfo.pensjon.tittel"
-          content={intl.formatMessage({
-            id: "dittnavkontor.kontaktinfo.pensjon.tlfnr"
-          })}
-        />
+        >
+          <>
+            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" /> (
+            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
+          </>
+        </ListElement>
+
         <ListElement
           titleId="dittnavkontor.kontaktinfo.apningstider.tittel"
           content={intl.formatMessage({
