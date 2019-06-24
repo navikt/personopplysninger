@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "^1.0.82",
+    "@navikt/arbeidsforhold": "^1.0.83",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
     "express": "^4.17.1",
