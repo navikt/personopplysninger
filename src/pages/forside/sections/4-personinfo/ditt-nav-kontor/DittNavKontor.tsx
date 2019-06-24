@@ -46,11 +46,11 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
             </option>
             {publikumsmottak.map((mottak, id) => (
               <option key={id} value={id}>
-                {`${print(mottak.poststed)} - ${print(
+                {`${print(mottak.poststed).toUpperCase()} - ${print(
                   mottak.gateadresse
                 )} ${print(mottak.husnummer)}${print(
                   mottak.husbokstav
-                )} ${print(mottak.postnummer)} ${print(mottak.poststed)}`}
+                )}, ${print(mottak.postnummer)} ${print(mottak.poststed)}`}
               </option>
             ))}
           </Select>
