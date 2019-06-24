@@ -1,5 +1,5 @@
 import React from "react";
-import { Aapningstid } from "../../types/adresser/enhetKontaktInfo";
+import { Aapningstid } from "../../types/enhetKontaktInfo";
 
 interface Props {
   apningstid?: Aapningstid;

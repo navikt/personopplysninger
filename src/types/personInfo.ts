@@ -1,6 +1,6 @@
 import { Personalia } from "./personalia";
 import { Adresser } from "./adresser";
-import { EnhetKontaktInfo } from "./adresser/enhetKontaktInfo";
+import { EnhetKontaktInfo } from "./enhetKontaktInfo";
 
 export interface PersonInfo {
   personalia?: Personalia;

@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/adresser.svg";
-import { EnhetKontaktInfo } from "../../../../../types/adresser/enhetKontaktInfo";
+import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
