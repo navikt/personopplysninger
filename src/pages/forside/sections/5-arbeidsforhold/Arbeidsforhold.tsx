@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "../../../../components/box/Box";
 import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
-import arbeidsforholdIkon from "../../../../assets/img/arbeidsforhold.svg";
+import arbeidsforholdIkon from "../../../../assets/img/Arbeidsforhold.svg";
 import Kilde from "../../../../components/kilde/Kilde";
 import { Undertekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>Group 11@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="64" height="64"></rect>
+        <circle id="path-3" cx="32" cy="32" r="32"></circle>
+        <rect id="path-5" x="0" y="0" width="30.4" height="30.4"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GDPR-Personopplysning" transform="translate(-597.000000, -1727.000000)">
+            <g id="Group-11" transform="translate(597.000000, 1727.000000)">
+                <g id="spotlight/-gjenstand-">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Background"></g>
+                    <g id="spotlight/-element" mask="url(#mask-2)" fill-rule="evenodd" stroke-width="1">
+                        <g id="🌈-60">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="Mask"></g>
+                            <g id="NAV-Brand/farge/-Dyp-blå/-60" mask="url(#mask-4)" fill="#99C2E8">
+                                <polygon id="Fill-22" points="0 64 64 64 64 0 0 0"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Color/26-places/home-1" transform="translate(17.000000, 17.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Background"></g>
+                    <path d="M24.2825674,8.67444976 C24.3927977,8.78354067 24.5397715,8.84210526 24.6890417,8.84210526 C25.0048056,8.84210526 25.2631579,8.58488038 25.2631579,8.26794258 L25.2631579,3.10047847 C25.2631579,2.78354067 25.0059538,2.52631579 24.6890417,2.52631579 L19.5219958,2.52631579 C19.2900528,2.52631579 19.0799263,2.66641148 18.9915124,2.88114833 C18.9019503,3.09473684 18.9513243,3.34162679 19.1155215,3.50583732 L24.2825674,8.67444976 Z" id="Fill/home-1" fill="#59514B" mask="url(#mask-6)"></path>
+                    <polygon id="Path" fill="#337C9B" mask="url(#mask-6)" points="2.52631579 11.7148458 2.52631579 30.3157895 11.3684211 30.3157895 11.3684211 18.9473684 18.9473684 18.9473684 18.9473684 30.3157895 27.7894737 30.3157895 27.7894737 11.7148458 15.1578947 -5.32907052e-14"></polygon>
+                    <path d="M30.1422091,12.9658902 C30.1371568,12.9625542 30.1346306,12.9536583 30.1295784,12.9480983 L15.6042561,0.160127632 C15.3630095,-0.0533758775 14.9525112,-0.0533758775 14.7112646,0.160127632 L0.185942377,12.9480983 C-0.0426735638,13.1493698 -0.0755134227,13.4807451 0.172048591,13.7164885 C0.45876582,13.9689119 0.844002627,13.932216 1.07009242,13.7376165 C1.07261857,13.7365045 1.07640778,13.7353925 1.07893393,13.7342805 L15.1583919,1.33995692 L29.2365868,13.7353925 C29.2391129,13.7365045 29.2416391,13.7376165 29.2441652,13.7387285 C29.4841488,13.944448 29.8820163,13.944448 30.1207369,13.7387285 C30.123263,13.7376165 30.1270522,13.7365045 30.1295784,13.7353925 C30.3594574,13.5330089 30.3910342,13.1971857 30.1422091,12.9658902 Z" id="Path" fill="#3E3832" mask="url(#mask-6)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

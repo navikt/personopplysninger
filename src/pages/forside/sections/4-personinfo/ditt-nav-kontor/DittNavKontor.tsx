@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import Box from "../../../../../components/box/Box";
-import adresseIkon from "../../../../../assets/img/adresser.svg";
+import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
@@ -24,7 +24,11 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
   );
 
   return (
-    <Box id="dittnavkontor" tittel="dittnavkontor.tittel" icon={adresseIkon}>
+    <Box
+      id="dittnavkontor"
+      tittel="dittnavkontor.tittel"
+      icon={dittNavKontorIkon}
+    >
       <div className="dittnavkontor__header">
         <div className="dittnavkontor__ingress">
           <Normaltekst>

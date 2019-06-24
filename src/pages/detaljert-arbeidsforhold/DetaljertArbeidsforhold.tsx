@@ -8,7 +8,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { baseUrl } from "../../App";
 import Brodsmulesti from "../forside/sections/2-brodsmulesti/Brodsmulesti";
 import Icon from "../../components/icon/Icon";
-import arbeidsforholdIkon from "../../assets/img/arbeidsforhold.svg";
+import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 

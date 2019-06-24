@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Box from "../../../../../components/box/Box";
-import personalia from "../../../../../assets/img/personalia.svg";
+import personaliaIkon from "../../../../../assets/img/Personalia.svg";
 import Kontonummer from "./subsections/Kontonummer";
 import Folkeregisteret from "./subsections/Folkeregisteret";
 import Telefonnummer from "./subsections/Telefonnummer";
@@ -20,11 +20,14 @@ class Personalia extends Component<Props> {
         id="personalia"
         tittel="personalia.tittel"
         beskrivelse="personalia.beskrivelse"
-        icon={personalia}
+        icon={personaliaIkon}
       >
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
-        <Kontonummer kontonummer={kontonr} utenlandskBankkonto={utenlandskbank} />
+        <Kontonummer
+          kontonummer={kontonr}
+          utenlandskBankkonto={utenlandskbank}
+        />
         <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
       </Box>
