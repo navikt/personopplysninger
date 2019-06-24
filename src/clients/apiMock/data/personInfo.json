@@ -40,7 +40,7 @@
           "gateadresse": "Peder Falcks veg",
           "poststed": "Trondheim",
           "husnummer": "31",
-          "husbokstav": "A",
+          "husbokstav": null,
           "postnummer": "7044",
           "stedsbeskrivelse": null,
           "aapningMandag": {

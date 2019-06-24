@@ -9,6 +9,7 @@ import { Select } from "nav-frontend-skjema";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import ListElement from "../../../../../components/listelement/ListElement";
 import Apningstid from "../../../../../components/apningstid/Apningstid";
+import { print } from "../../../../../utils/text";
 
 interface Props {
   enhetKontaktInfo: EnhetKontaktInfo;
@@ -45,7 +46,11 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
             </option>
             {publikumsmottak.map((mottak, id) => (
               <option key={id} value={id}>
-                {`${mottak.poststed}  -  ${mottak.gateadresse} ${mottak.husnummer}${mottak.husbokstav} ${mottak.postnummer} ${mottak.poststed}`}
+                {`${print(mottak.poststed)} - ${print(
+                  mottak.gateadresse
+                )} ${print(mottak.husnummer)}${print(
+                  mottak.husbokstav
+                )} ${print(mottak.postnummer)} ${print(mottak.poststed)}`}
               </option>
             ))}
           </Select>
@@ -55,10 +60,14 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
               <FormattedMessage id="dittnavkontor.publikumsmottak" />
             </Element>
             <Normaltekst>
-              {`${publikumsmottak[0].gateadresse} ${publikumsmottak[0].husnummer}${publikumsmottak[0].husbokstav}`}
+              {`${print(publikumsmottak[0].gateadresse)} ${print(
+                publikumsmottak[0].husnummer
+              )}${print(publikumsmottak[0].husbokstav)}`}
             </Normaltekst>
             <Normaltekst>
-              {`${publikumsmottak[0].postnummer} ${publikumsmottak[0].poststed}`}
+              {`${print(publikumsmottak[0].postnummer)} ${print(
+                publikumsmottak[0].poststed
+              )}`}
             </Normaltekst>
           </div>
         )}
@@ -117,7 +126,6 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
             <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
           </>
         </ListElement>
-
         <ListElement
           titleId="dittnavkontor.kontaktinfo.apningstider.tittel"
           content={intl.formatMessage({
