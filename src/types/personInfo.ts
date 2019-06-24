@@ -5,5 +5,5 @@ import { EnhetKontaktInfo } from "./adresser/enhetKontaktInfo";
 export interface PersonInfo {
   personalia?: Personalia;
   adresser?: Adresser;
-  enhetKontaktInfo?: EnhetKontaktInfo;
+  enhetKontaktInformasjon?: EnhetKontaktInfo;
 }

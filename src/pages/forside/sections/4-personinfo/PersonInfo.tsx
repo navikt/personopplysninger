@@ -40,7 +40,7 @@ const VisPersonInfo = () => {
       return <Spinner />;
     case "RESULT":
       const elements = [];
-      const { personalia, adresser, enhetKontaktInfo } = personInfo.data;
+      const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;
 
       if (personalia) {
         const fornavn = formatName(personalia.fornavn);
@@ -51,11 +51,11 @@ const VisPersonInfo = () => {
       if (adresser) {
         elements.push(<Adresser key="a" adresser={adresser} />);
 
-        if (adresser.geografiskTilknytning && enhetKontaktInfo) {
+        if (adresser.geografiskTilknytning && enhetKontaktInformasjon) {
           elements.push(
             <DittNavKontor
               key="d"
-              enhetKontaktInfo={enhetKontaktInfo}
+              enhetKontaktInfo={enhetKontaktInformasjon}
               geografiskTilknytning={adresser.geografiskTilknytning}
             />
           );

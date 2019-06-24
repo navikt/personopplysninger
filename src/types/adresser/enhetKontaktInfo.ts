@@ -1,18 +1,18 @@
-export interface Aapning {
+export interface Aapningstid {
   dag: string;
   fra: string;
   kommentar?: string;
-  stengt: boolean;
+  stengt: string;
   til: string;
 }
 
 export interface Publikumsmottak {
-  aapningMandag?: Aapning;
-  aapningTirsdag?: Aapning;
-  aapningOnsdag?: Aapning;
-  aapningTorsdag?: Aapning;
-  aapningFredag?: Aapning;
-  aapningAndre?: Aapning[];
+  aapningMandag?: Aapningstid;
+  aapningTirsdag?: Aapningstid;
+  aapningOnsdag?: Aapningstid;
+  aapningTorsdag?: Aapningstid;
+  aapningFredag?: Aapningstid;
+  aapningAndre?: Aapningstid[];
   gateadresse?: string;
   husbokstav?: string;
   husnummer?: string;
@@ -23,7 +23,7 @@ export interface Publikumsmottak {
 
 export interface EnhetKontaktInfo {
   enhet: {
-    publikumsmottak?: Publikumsmottak;
+    publikumsmottak: Publikumsmottak[];
     spesielleopplysninger?: string;
     tlfperson?: string;
   };

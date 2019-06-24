@@ -1,0 +1,23 @@
+.apningstid {
+  &__container {
+    margin: 0.75rem 0;
+  }
+
+  &__row {
+    display: flex;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #3e3832;
+
+    @media @mobile {
+      flex-direction: column;
+    }
+
+    &:first-child {
+      border-top: 1px solid black;
+    }
+  }
+
+  &__column {
+    flex-basis: 100%;
+  }
+}
