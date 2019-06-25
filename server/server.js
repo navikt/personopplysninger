@@ -29,27 +29,27 @@ const renderApp = decoratorFragments =>
 const startServer = html => {
   server.use(
     "/person/personopplysninger/static/js",
-    express.static(path.join(__dirname, "../build/static/js"))
+    express.static(__dirname + "/../build/static/js"))
   );
 
   server.use(
     "/person/personopplysninger/static/media",
-    express.static(path.join(__dirname, "../build/static/media"))
+    express.static(__dirname + "/../build/static/media"))
   );
 
   server.use(
     "/person/personopplysninger/index.css",
-    express.static(path.join(__dirname, "../build/index.css"))
+    express.static(__dirname + "/../build/index.css"))
   );
 
   server.use(
     "/person/personopplysninger/manifest.json",
-    express.static(path.join(__dirname, "../build/manifest.json"))
+    express.static(__dirname + "/../build/manifest.json"))
   );
 
   server.use(
     "/person/personopplysninger/favicon.ico",
-    express.static(path.join(__dirname, "../build/favicon.ico"))
+    express.static(__dirname + "/../build/favicon.ico"))
   );
 
   server.get("/person/personopplysninger/internal/alive|ready", (req, res) =>
