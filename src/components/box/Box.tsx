@@ -38,7 +38,7 @@ const Box = (props: Props & InjectedIntlProps) => {
                 src={Informasjon}
                 className="box__title-i-icon"
                 alt="Vis mer informasjon"
-                onClick={() => settVisBeskrivelse(!visBeskrivelse)}
+                onClick={() => settVisBeskrivelse(true)}
               />
             )}
           </div>
