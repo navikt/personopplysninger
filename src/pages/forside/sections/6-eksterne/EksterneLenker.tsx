@@ -3,15 +3,17 @@ import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "../../../../components/linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { FormattedMessage } from "react-intl";
 
 const LinksContainer = () => (
   <PanelBase border={true} className="el__panel">
     <div className="el__content">
-      <Systemtittel>Flere opplysninger på Ditt NAV</Systemtittel>
+      <Systemtittel>
+        <FormattedMessage id="eksternelenker.tittel" />
+      </Systemtittel>
       <div className="el__info">
         <Normaltekst>
-          Vi har også opplysninger om deg som ikke vises på denne siden. De
-          opplysningene kan du finne ved å gå til de ulike tjenestene under.
+          <FormattedMessage id="eksternelenker.beskrivelse" />
         </Normaltekst>
       </div>
       {eksterneLenker.map(link => (

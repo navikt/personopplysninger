@@ -91,6 +91,8 @@ export default {
   "dittnavkontor.kontaktinfo.apningstider.tittel": `Åpningstider på telefon`,
   "dittnavkontor.kontaktinfo.apningstider.innhold": `08.00 til 15.30 på hverdager.`,
   "dittnavkontor.kilde": `Folkeregisteret`,
+  "eksternelenker.tittel": `Flere opplysninger på Ditt NAV`,
+  "eksternelenker.beskrivelse": `Vi har også opplysninger om deg som ikke vises på denne siden. De opplysningene kan du finne ved å gå til de ulike tjenestene under.`,
   "eksternelenker.pensjon.tittel": `Pensjonsopptjening`,
   "eksternelenker.pensjon.beskrivelse": `Oversikt over din pensjonsopptjening`,
   "eksternelenker.pensjon.lenkeTekst": `Gå til Din pensjon`,
