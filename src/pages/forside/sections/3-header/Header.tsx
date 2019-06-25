@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
-import { Ingress, Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "../../../../assets/img/Veileder.svg";
 import Veilederpanel from "nav-frontend-veilederpanel";
 
