@@ -29,6 +29,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
       tittel="dittnavkontor.tittel"
       icon={dittNavKontorIkon}
     >
+      <hr className="box__linje-bred" />
       <div className="dittnavkontor__header">
         <div className="dittnavkontor__ingress">
           <Normaltekst>
