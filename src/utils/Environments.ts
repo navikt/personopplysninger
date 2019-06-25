@@ -2,7 +2,7 @@ const Environment = () => {
   if (process.env.NODE_ENV === "development") {
     return {
       miljo: "LOCAL",
-      baseUrl: "http://localhost:8080/",
+      baseUrl: "http://localhost:8080",
       appUrl: "http://localhost:8080/person/personopplysninger",
       apiUrl: "http://localhost:8080/person/personopplysninger-api",
       tjenesteUrl: "https://tjenester-q0.nav.no",
