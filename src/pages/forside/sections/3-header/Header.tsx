@@ -48,21 +48,23 @@ const Header = () => {
           type={"plakat"}
           kompakt
         >
-          <Systemtittel>
-            <FormattedHTMLMessage
-              id="header.hello"
-              values={{ name: formatName(fornavn) || "" }}
-            />
-          </Systemtittel>
-          <div className="header__seksjon">
-            <Normaltekst>
-              <FormattedHTMLMessage id="header.obs" />
-            </Normaltekst>
-          </div>
-          <div className="header__seksjon">
-            <Normaltekst>
-              <FormattedHTMLMessage id="header.description" />
-            </Normaltekst>
+          <div className="box__container">
+            <Systemtittel>
+              <FormattedHTMLMessage
+                id="header.hello"
+                values={{ name: formatName(fornavn) || "" }}
+              />
+            </Systemtittel>
+            <div className="header__seksjon">
+              <Normaltekst>
+                <FormattedHTMLMessage id="header.obs" />
+              </Normaltekst>
+            </div>
+            <div className="header__seksjon">
+              <Normaltekst>
+                <FormattedHTMLMessage id="header.description" />
+              </Normaltekst>
+            </div>
           </div>
         </Veilederpanel>
       );

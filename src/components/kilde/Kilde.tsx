@@ -18,7 +18,7 @@ const Kilde = (props: Props) => (
         </Undertekst>
       )}
     </div>
-    <div className="kilde__seksjon">
+    <div className="kilde__seksjon kilde__lenke">
       {props.lenke && props.lenkeTekst && (
         <Normaltekst>
           <Lenke href={props.lenke}>
