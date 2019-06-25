@@ -1,17 +1,18 @@
 import React from "react";
-import { Innholdstittel } from "nav-frontend-typografi";
+import { Innholdstittel, Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import MerInformasjonPanel from "./MerInformasjonPanel";
 import merInformasjon from "./MerInformasjonData";
+import PanelBase from "nav-frontend-paneler";
 
 const AlternativListe = () => (
-  <div className="alternativer__box box-bottom-margin">
-    <div className="alternativer__tittel-container">
-      <Innholdstittel>
-        <FormattedMessage id="alternativer.tittel" />
-      </Innholdstittel>
-    </div>
-    <div className="icon-box-margin">
+  <PanelBase border={true} className="el__panel">
+    <div className="el__content">
+      <div className="mi__overskrift">
+        <Systemtittel>
+          <FormattedMessage id="alternativer.tittel" />
+        </Systemtittel>
+      </div>
       {merInformasjon.map(info => (
         <MerInformasjonPanel
           key={info.id}
@@ -20,7 +21,7 @@ const AlternativListe = () => (
         />
       ))}
     </div>
-  </div>
+  </PanelBase>
 );
 
 export default AlternativListe;

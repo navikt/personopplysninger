@@ -1,10 +1,8 @@
-/* eslint-disable react/no-danger */
-
-import React from "react";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
+import React, { useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import {
   FormattedHTMLMessage,
+  FormattedMessage,
   injectIntl,
   InjectedIntlProps
 } from "react-intl";
@@ -14,20 +12,24 @@ interface Props {
   melding: string;
 }
 const Alternativ = (props: Props & InjectedIntlProps) => {
-  const { tittel, melding, intl } = props;
+  const { tittel, melding } = props;
+  const [visBeskrivelse, settVisBeskrivelse] = useState(false);
   return (
-    <React.Fragment>
-      <div className="alternativ-panel">
-        <Ekspanderbartpanel
-          tittel={intl.formatMessage({ id: tittel })}
-          tittelProps="element"
-        >
-          <Normaltekst>
-            <FormattedHTMLMessage id={melding} />
-          </Normaltekst>
-        </Ekspanderbartpanel>
-      </div>
-    </React.Fragment>
+    <div
+      className="mi__rad"
+      onClick={() => settVisBeskrivelse(!visBeskrivelse)}
+    >
+      <Normaltekst>
+        <div className="lenke">
+          <FormattedMessage id={tittel} />
+        </div>
+      </Normaltekst>
+      {visBeskrivelse && (
+        <Normaltekst>
+          <FormattedHTMLMessage id={melding} />
+        </Normaltekst>
+      )}
+    </div>
   );
 };
 
