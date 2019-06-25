@@ -3,6 +3,7 @@ import Error, { HTTPError } from "../../../../components/error/Error";
 import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
 import Adresser from "./adresser/Adresser";
+import DittNavKontor from "./ditt-nav-kontor/DittNavKontor";
 import Spinner from "../../../../components/spinner/Spinner";
 import { formatName } from "../../../../utils/text";
 import { PersonInfo } from "../../../../types/personInfo";
@@ -39,7 +40,7 @@ const VisPersonInfo = () => {
       return <Spinner />;
     case "RESULT":
       const elements = [];
-      const { personalia, adresser } = personInfo.data;
+      const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;
 
       if (personalia) {
         const fornavn = formatName(personalia.fornavn);
@@ -49,6 +50,16 @@ const VisPersonInfo = () => {
 
       if (adresser) {
         elements.push(<Adresser key="a" adresser={adresser} />);
+
+        if (adresser.geografiskTilknytning && enhetKontaktInformasjon) {
+          elements.push(
+            <DittNavKontor
+              key="d"
+              enhetKontaktInfo={enhetKontaktInformasjon}
+              geografiskTilknytning={adresser.geografiskTilknytning}
+            />
+          );
+        }
       }
 
       return <>{elements}</>;

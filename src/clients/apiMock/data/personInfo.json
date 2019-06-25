@@ -7,16 +7,16 @@
       "type": "FNR"
     },
     "utenlandskbank": {
-      "adresse1":"Gävlegatan 22",
-      "adresse2":"113 30 Stockholm",
-      "adresse3":"",
-      "bankkode":"90081210188",
-      "banknavn":"Nordax Bank AB",
-      "iban":"",
-      "kontonummer":"US90081210188",
-      "land":"Sverige",
-      "swiftkode":"HELGSE21",
-      "valuta":"Tugriks Mongolia"
+      "adresse1": "Gävlegatan 22",
+      "adresse2": "113 30 Stockholm",
+      "adresse3": "",
+      "bankkode": "90081210188",
+      "banknavn": "Nordax Bank AB",
+      "iban": "",
+      "kontonummer": "US90081210188",
+      "land": "Sverige",
+      "swiftkode": "HELGSE21",
+      "valuta": "Tugriks Mongolia"
     },
     "tlfnr": {
       "jobb": "12121212",
@@ -32,6 +32,79 @@
     "sivilstand": "UGIF",
     "kjoenn": "M",
     "datakilder": [{}, {}, {}, {}]
+  },
+  "enhetKontaktInformasjon": {
+    "enhet": {
+      "publikumsmottak": [
+        {
+          "gateadresse": "Peder Falcks veg",
+          "poststed": "Trondheim",
+          "husnummer": "31",
+          "husbokstav": null,
+          "postnummer": "7044",
+          "stedsbeskrivelse": null,
+          "aapningMandag": {
+            "dag": "Mandag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": "Timeavtaler også utenom åpningstiden"
+          },
+          "aapningTirsdag": {
+            "dag": "Tirsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningOnsdag": {
+            "dag": "Onsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningTorsdag": {
+            "dag": "Torsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningFredag": {
+            "dag": "Fredag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningAndre": [
+            {
+              "dag": "15.05.2019",
+              "fra": "09:00",
+              "til": "12:00",
+              "stengt": "false",
+              "kommentar": "Her kan det også være en merknad "
+            },
+            {
+              "dag": "17.05.2019",
+              "fra": null,
+              "til": null,
+              "stengt": "true"
+            },
+            {
+              "dag": "29.05.2019",
+              "fra": "09:00",
+              "til": "13:30",
+              "stengt": "false",
+              "kommentar": "Onsdag før Kristi himmelfartsdag"
+            }
+          ]
+        }
+      ],
+      "tlfperson": "55553333",
+      "spesielleopplysninger": "Timeavtale 8-15, man - fre."
+    }
   },
   "adresser": {
     "boadresse": {
@@ -50,8 +123,11 @@
       }
     },
     "geografiskTilknytning": {
-      "datoFraOgMed": "2018-03-13",
-      "kommune": "9999"
+      "bydel": "500102",
+      "datoFraOgMed": "2012-10-01",
+      "kommune": null,
+      "land": null,
+      "enhet": "NAV Falkenborg"
     },
     "postadresse": {
       "adresse1": "12345 HFJEF IQUFJ HFURHGHQBEUQ",

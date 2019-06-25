@@ -6,15 +6,17 @@ interface Props {
   title?: string;
   titleId?: string;
   content?: string;
+  children?: JSX.Element | JSX.Element[];
   className?: string;
 }
-const ListElement = ({ title, titleId, content, className }: Props) =>
+const ListElement = ({ title, titleId, content, className, children }: Props) =>
   content ? (
     <li>
       <Element>{titleId ? <FormattedMessage id={titleId} /> : title}</Element>
       <Normaltekst className={`content ${className || ""}`}>
         {content}
       </Normaltekst>
+      {children}
     </li>
   ) : null;
 

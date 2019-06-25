@@ -7,6 +7,7 @@ export interface GeografiskTilknytning {
   bydel?: string;
   datoFraOgMed?: string;
   kommune?: string;
+  enhet?: string;
   land?: string;
 }
 
