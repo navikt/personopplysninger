@@ -19,6 +19,7 @@ const Kontonummer = (props: Props) => {
   return (
     <>
       <Kontoinformasjon {...props} />
+      <hr className="box__linje-bred" />
       <Kilde
         kilde="personalia.source.nav"
         lenke={`${tjenesteUrl}/brukerprofil/`}

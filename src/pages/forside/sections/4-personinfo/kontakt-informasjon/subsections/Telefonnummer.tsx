@@ -17,6 +17,7 @@ const Telefonnummer = (props: Props) => {
   const { tlfnr } = props;
   return (
     <>
+      <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
         <Undertittel>
           <FormattedMessage id="personalia.tlfnr.oveskrift" />

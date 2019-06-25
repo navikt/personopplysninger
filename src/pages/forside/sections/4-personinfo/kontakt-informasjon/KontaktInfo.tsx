@@ -13,7 +13,6 @@ class KontaktInfo extends Component<Props> {
   render() {
     return (
       <Box id="kontaktinfo" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
-        <hr className="box__linje-bred" />
         <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
       </Box>

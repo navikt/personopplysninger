@@ -17,7 +17,6 @@ class Personalia extends Component<Props> {
         beskrivelse="personalia.beskrivelse"
         icon={personaliaIkon}
       >
-        <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
       </Box>
     );
