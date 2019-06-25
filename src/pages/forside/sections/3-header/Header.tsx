@@ -26,9 +26,9 @@ const Header = ({ fornavn }: Props) => (
       </Normaltekst>
     </div>
     <div className="header__seksjon">
-      <Ingress>
+      <Normaltekst>
         <FormattedHTMLMessage id="header.description" />
-      </Ingress>
+      </Normaltekst>
     </div>
   </Veilederpanel>
 );
