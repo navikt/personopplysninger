@@ -9,6 +9,8 @@ import { formatName } from "../../../../utils/text";
 import { PersonInfo } from "../../../../types/personInfo";
 import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
+import KontaktInfo from "./kontakt-informasjon/KontaktInfo";
+import Utbetalinger from "./utbetalinger/Utbetalinger";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -46,6 +48,7 @@ const VisPersonInfo = () => {
         const fornavn = formatName(personalia.fornavn);
         elements.push(<Header key="h" fornavn={fornavn} />);
         elements.push(<Personalia key="p" personalia={personalia} />);
+        elements.push(<KontaktInfo key="k" personalia={personalia} />);
       }
 
       if (adresser) {
@@ -60,6 +63,10 @@ const VisPersonInfo = () => {
             />
           );
         }
+      }
+
+      if (personalia) {
+        elements.push(<Utbetalinger key="u" personalia={personalia} />);
       }
 
       return <>{elements}</>;

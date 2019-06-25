@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Element, Normaltekst, Undertittel } from "nav-frontend-typografi";
+import { Element, Normaltekst } from "nav-frontend-typografi";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Melding from "../../../../../../components/melding/Melding";
 import ListElement from "../../../../../../components/listelement/ListElement";
@@ -18,20 +18,12 @@ interface Props {
 const Kontonummer = (props: Props) => {
   return (
     <>
-      <hr className="box__linje-bred" />
-      <div className="underseksjon__overskrift">
-        <Undertittel>
-          <FormattedMessage id="personalia.kontonr.oveskrift" />
-        </Undertittel>
-      </div>
-      <>
-        <Kontoinformasjon {...props} />
-        <Kilde
-          kilde="personalia.source.nav"
-          lenke={`${tjenesteUrl}/brukerprofil/`}
-          lenkeTekst="personalia.link.brukerprofil.endre"
-        />
-      </>
+      <Kontoinformasjon {...props} />
+      <Kilde
+        kilde="personalia.source.nav"
+        lenke={`${tjenesteUrl}/brukerprofil/`}
+        lenkeTekst="personalia.link.brukerprofil.endre"
+      />
     </>
   );
 };

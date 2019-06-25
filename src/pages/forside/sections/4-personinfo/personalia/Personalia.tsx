@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import Box from "../../../../../components/box/Box";
 import personaliaIkon from "../../../../../assets/img/Personalia.svg";
-import Kontonummer from "./subsections/Kontonummer";
 import Folkeregisteret from "./subsections/Folkeregisteret";
-import Telefonnummer from "./subsections/Telefonnummer";
-import DKIF from "./subsections/DKIF";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
 
 interface Props {
@@ -13,8 +10,6 @@ interface Props {
 
 class Personalia extends Component<Props> {
   render() {
-    const { kontonr, utenlandskbank } = this.props.personalia;
-
     return (
       <Box
         id="personalia"
@@ -24,12 +19,6 @@ class Personalia extends Component<Props> {
       >
         <hr className="box__linje-bred" />
         <Folkeregisteret personalia={this.props.personalia} />
-        <Kontonummer
-          kontonummer={kontonr}
-          utenlandskBankkonto={utenlandskbank}
-        />
-        <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
-        <DKIF />
       </Box>
     );
   }

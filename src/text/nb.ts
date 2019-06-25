@@ -75,6 +75,8 @@ export default {
   "arbeidsforhold.beskrivelse": `NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV. Også andre offentlige instanser kan hente opplysninger fra dette registeret, som Arbeids- og velferdsetaten har ansvar for. `,
   "arbeidsforhold.kilde": `AA-registeret`,
   "arbeidsforhold.disclaimer": `Hvis noe er feil med et arbeidsforhold må du kontakte arbeidsgiveren det gjelder,<br>slik at de kan rette det opp.`,
+  "utbetalinger.tittel": "Kontonummer for utbetaling",
+  "kontaktinfo.tittel": "Kontaktinformasjon",
   "dittnavkontor.tittel": `Finn ditt NAV-kontor`,
   "dittnavkontor.ingress": `Ditt NAV-kontor er `,
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
