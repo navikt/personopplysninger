@@ -2,7 +2,6 @@ import React from "react";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
 import Icon from "../icon/Icon";
-import Lenke from "nav-frontend-lenker";
 import { HoyreChevron } from "nav-frontend-chevron";
 
 export interface Props {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Innholdstittel, Systemtittel } from "nav-frontend-typografi";
+import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import MerInformasjonPanel from "./MerInformasjonPanel";
 import merInformasjon from "./MerInformasjonData";
