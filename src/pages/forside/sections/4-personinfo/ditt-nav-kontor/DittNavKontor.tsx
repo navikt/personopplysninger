@@ -27,6 +27,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
     <Box
       id="dittnavkontor"
       tittel="dittnavkontor.tittel"
+      beskrivelse="dittnavkontor.beskrivelse"
       icon={dittNavKontorIkon}
     >
       <hr className="box__linje-bred" />

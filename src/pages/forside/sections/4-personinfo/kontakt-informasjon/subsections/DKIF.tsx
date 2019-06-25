@@ -7,7 +7,7 @@ import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 import { useStore } from "../../../../../../providers/Provider";
-import iIcon from "../../../../../../assets/img/Informasjon.svg";
+import iIcon from "../../../../../../assets/img/Hjelpetekst.svg";
 import Modal from "nav-frontend-modal";
 
 export type FetchKontaktInfo =

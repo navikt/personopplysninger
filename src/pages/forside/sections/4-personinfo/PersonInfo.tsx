@@ -39,7 +39,12 @@ const VisPersonInfo = () => {
   switch (personInfo.status) {
     default:
     case "LOADING":
-      return <Spinner />;
+      return (
+        <>
+          <Header />
+          <Spinner />
+        </>
+      );
     case "RESULT":
       const elements = [];
       const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;

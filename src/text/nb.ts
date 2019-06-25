@@ -78,6 +78,7 @@ export default {
   "utbetalinger.tittel": "Kontonummer for utbetaling",
   "kontaktinfo.tittel": "Kontaktinformasjon",
   "dittnavkontor.tittel": `Finn ditt NAV-kontor`,
+  "dittnavkontor.beskrivelse": `Hvis du allerede er under oppfølging ved et NAV-kontor, så kan du fortsette å bruke dette kontoret. Hvis ikke, så kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Ditt NAV-kontor er `,
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
   "dittnavkontor.publikumsmottakfor": `Publikumsmottak for`,

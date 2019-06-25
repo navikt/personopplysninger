@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Ingress, Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
-import Informasjon from "../../assets/img/Informasjon.svg";
+import hjelpetekstIkon from "../../assets/img/Hjelpetekst.svg";
 import Modal from "nav-frontend-modal";
 
 interface Props {
@@ -21,7 +21,7 @@ const Box = (props: Props & InjectedIntlProps) => {
   return (
     <div className="box__container">
       <Veilederpanel
-        svg={<img src={icon} className="header__ikon" alt="Veileder" />}
+        svg={<img src={icon} className="box__ikon" alt="Veileder" />}
         type={"plakat"}
         kompakt
       >
@@ -35,7 +35,7 @@ const Box = (props: Props & InjectedIntlProps) => {
             )}
             {beskrivelse && (
               <img
-                src={Informasjon}
+                src={hjelpetekstIkon}
                 className="box__title-i-icon"
                 alt="Vis mer informasjon"
                 onClick={() => settVisBeskrivelse(true)}
