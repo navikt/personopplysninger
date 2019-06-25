@@ -5,7 +5,7 @@ import Environment from "../../../../utils/Environments";
 import konto from "../../../../assets/img/Konto.svg";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../../../../App";
+import { basePath } from "../../../../App";
 
 const { tjenesteUrl } = Environment();
 
@@ -37,7 +37,7 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
       /
       <Brodsmule>
         {id ? (
-          <Link to={`${baseUrl}/`} className="lenke">
+          <Link to={`${basePath}/`} className="lenke">
             <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
           </Link>
         ) : (

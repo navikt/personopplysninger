@@ -5,7 +5,7 @@ import featureToggles from "./data/featureToggles.json";
 import authInfo from "./data/authInfo.json";
 import Environment from "../../utils/Environments";
 
-const { apiUrl, tjenesteUrl } = Environment();
+const { apiUrl, baseUrl } = Environment();
 
 const mockKontaktinfo = true;
 const mockPersonalia = true;
@@ -30,7 +30,7 @@ export const setUpMock = async () => {
     );
   mockAuthInfo &&
     fetchMock.get(
-      `${tjenesteUrl}/innloggingslinje-api/auth`,
+      `${baseUrl}/innloggingslinje-api/auth`,
       delay(10, 50).then(() => authInfo)
     );
 };

@@ -5,7 +5,7 @@ import { withRouter, RouteComponentProps } from "react-router";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
-import { baseUrl } from "../../App";
+import { basePath } from "../../App";
 import Brodsmulesti from "../forside/sections/2-brodsmulesti/Brodsmulesti";
 import Icon from "../../components/icon/Icon";
 import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
@@ -38,7 +38,7 @@ const Arbeidsforhold = (props: MergedProps) => {
       </div>
       <div className="da__rad">
         <div className="da__back">
-          <Link to={`${baseUrl}/`} onClick={goBack}>
+          <Link to={`${basePath}/`} onClick={goBack}>
             <VenstreChevron />
             Tilbake
           </Link>

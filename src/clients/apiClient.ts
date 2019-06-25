@@ -2,7 +2,7 @@ import Environment from "../utils/Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 
-const { apiUrl, loginUrl, tjenesteUrl } = Environment();
+const { apiUrl, loginUrl, baseUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 const sendTilLogin = () =>
@@ -51,7 +51,7 @@ export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
 
 export const fetchAuthInfo = () =>
-  hentJsonOgSjekkAuth(`${tjenesteUrl}/innloggingslinje-api/auth`);
+  hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
 
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
   Object.keys(featureToggles)
