@@ -19,11 +19,11 @@ const Alternativ = (props: Props & InjectedIntlProps) => {
       className="mi__rad"
       onClick={() => settVisBeskrivelse(!visBeskrivelse)}
     >
-      <Normaltekst>
-        <div className="lenke">
+      <div className="lenke">
+        <Normaltekst>
           <FormattedMessage id={tittel} />
-        </div>
-      </Normaltekst>
+        </Normaltekst>
+      </div>
       {visBeskrivelse && (
         <Normaltekst>
           <FormattedHTMLMessage id={melding} />

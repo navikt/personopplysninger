@@ -23,11 +23,11 @@ const LinkBox = (props: Props & InjectedIntlProps) => {
       <div className="linkbox__content">
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
-            <Lenke href={props.url}>
+            <div className="lenke">
               <Element>
                 <FormattedMessage id={props.tittel} />
               </Element>
-            </Lenke>
+            </div>
           </div>
           <Normaltekst>
             <FormattedMessage id={props.beskrivelse} />
