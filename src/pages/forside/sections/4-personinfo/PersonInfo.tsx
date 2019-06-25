@@ -1,11 +1,9 @@
 import React, { useEffect } from "react";
 import Error, { HTTPError } from "../../../../components/error/Error";
-import Header from "../3-header/Header";
 import Personalia from "./personalia/Personalia";
 import Adresser from "./adresser/Adresser";
 import DittNavKontor from "./ditt-nav-kontor/DittNavKontor";
 import Spinner from "../../../../components/spinner/Spinner";
-import { formatName } from "../../../../utils/text";
 import { PersonInfo } from "../../../../types/personInfo";
 import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
@@ -39,19 +37,12 @@ const VisPersonInfo = () => {
   switch (personInfo.status) {
     default:
     case "LOADING":
-      return (
-        <>
-          <Header />
-          <Spinner />
-        </>
-      );
+      return <Spinner />;
     case "RESULT":
       const elements = [];
       const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;
 
       if (personalia) {
-        const fornavn = formatName(personalia.fornavn);
-        elements.push(<Header key="h" fornavn={fornavn} />);
         elements.push(<Personalia key="p" personalia={personalia} />);
         elements.push(<KontaktInfo key="k" personalia={personalia} />);
       }

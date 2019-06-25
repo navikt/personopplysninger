@@ -6,6 +6,7 @@ import Arbeidsforhold from "./sections/5-arbeidsforhold/Arbeidsforhold";
 import EksterneLenker from "./sections/6-eksterne/EksterneLenker";
 import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import { useStore } from "../../providers/Provider";
+import Header from "./sections/3-header/Header";
 
 const Forside = () => {
   const [{ featureToggles }] = useStore();
@@ -13,6 +14,7 @@ const Forside = () => {
     <>
       <Brodsmulesti />
       <Sidetittel />
+      <Header />
       <PersonInfo />
       {featureToggles.data["personopplysninger.arbeidsforhold.liste"] && (
         <Arbeidsforhold />
