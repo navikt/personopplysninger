@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Ingress, Systemtittel } from "nav-frontend-typografi";
+import { Systemtittel, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import hjelpetekstIkon from "../../assets/img/Hjelpetekst.svg";
@@ -54,9 +54,9 @@ const Box = (props: Props & InjectedIntlProps) => {
           >
             <div style={{ padding: "2rem 2.5rem" }}>
               <div className="box__ingress">
-                <Ingress>
+                <Normaltekst>
                   <FormattedMessage id={beskrivelse} />
-                </Ingress>
+                </Normaltekst>
               </div>
             </div>
           </Modal>
