@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>Group 8@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="64" height="64"></rect>
+        <circle id="path-3" cx="32" cy="32" r="32"></circle>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GDPR-Personopplysning" transform="translate(-595.000000, -568.000000)">
+            <g id="Group-8" transform="translate(595.000000, 568.000000)">
+                <g id="spotlight/-gjenstand-">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Background"></g>
+                    <g id="spotlight/-element" mask="url(#mask-2)" fill-rule="evenodd" stroke-width="1">
+                        <g id="🌈-60">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="Mask"></g>
+                            <g id="NAV-Brand/farge/-Blå/-60" mask="url(#mask-4)" fill="#99C2E8">
+                                <polygon id="blå-60" points="0 64 64 64 64 0 0 0"></polygon>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Group-30" transform="translate(12.800000, 19.200000)">
+                    <path d="M37.6,0 L0.8,0 C0.3584,0 0,0.3584 0,0.8 L0,26.4 C0,26.8416 0.3584,27.2 0.8,27.2 L7.2,27.2 C7.6416,27.2 8,26.8416 8,26.4 L8,25.2 C8,24.0976 8.8976,23.2 10,23.2 C11.1024,23.2 12,24.0976 12,25.2 L12,26.4 C12,26.8416 12.3584,27.2 12.8,27.2 L25.6,27.2 C26.0416,27.2 26.4,26.8416 26.4,26.4 L26.4,25.2 C26.4,24.0976 27.2976,23.2 28.4,23.2 C29.5024,23.2 30.4,24.0976 30.4,25.2 L30.4,26.4 C30.4,26.8416 30.7584,27.2 31.2,27.2 L37.6,27.2 C38.0416,27.2 38.4,26.8416 38.4,26.4 L38.4,0.8 C38.4,0.3584 38.0416,0 37.6,0 Z" id="line/id-card-1" fill="#FFFFFF" fill-rule="nonzero"></path>
+                    <ellipse id="Oval" fill="#337C9B" cx="9.63529412" cy="8" rx="3.23529412" ry="3.2"></ellipse>
+                    <path d="M16.1411765,19.2 C16.1411765,15.6653776 13.2441954,12.8 9.67058824,12.8 C6.09698103,12.8 3.2,15.6653776 3.2,19.2 C3.2,19.2 15.7098039,19.2 16.1411765,19.2 Z" id="Oval" fill="#337C9B"></path>
+                    <path d="M19.8545455,17.6 L32.9454545,17.6 C33.30695,17.6 33.6,17.9581722 33.6,18.4 C33.6,18.8418278 33.30695,19.2 32.9454545,19.2 L19.8545455,19.2 C19.49305,19.2 19.2,18.8418278 19.2,18.4 C19.2,17.9581722 19.49305,17.6 19.8545455,17.6 Z" id="Rectangle" fill="#3E3832"></path>
+                    <path d="M19.8545455,14.4 L32.9454545,14.4 C33.30695,14.4 33.6,14.7581722 33.6,15.2 C33.6,15.6418278 33.30695,16 32.9454545,16 L19.8545455,16 C19.49305,16 19.2,15.6418278 19.2,15.2 C19.2,14.7581722 19.49305,14.4 19.8545455,14.4 Z" id="Rectangle" fill="#3E3832"></path>
+                    <path d="M19.8545455,11.2 L32.9454545,11.2 C33.30695,11.2 33.6,11.5581722 33.6,12 C33.6,12.4418278 33.30695,12.8 32.9454545,12.8 L19.8545455,12.8 C19.49305,12.8 19.2,12.4418278 19.2,12 C19.2,11.5581722 19.49305,11.2 19.8545455,11.2 Z" id="Rectangle" fill="#3E3832"></path>
+                    <path d="M19.84,6.4 L24.96,6.4 C25.3134622,6.4 25.6,6.7581722 25.6,7.2 C25.6,7.6418278 25.3134622,8 24.96,8 L19.84,8 C19.4865378,8 19.2,7.6418278 19.2,7.2 C19.2,6.7581722 19.4865378,6.4 19.84,6.4 Z" id="Rectangle" fill="#3E3832"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

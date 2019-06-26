@@ -1,4 +1,4 @@
-import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/personalia/subsections/DKIF";
+import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/kontakt-informasjon/subsections/DKIF";
 import { FetchPersonInfo } from "../pages/forside/sections/4-personinfo/PersonInfo";
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";

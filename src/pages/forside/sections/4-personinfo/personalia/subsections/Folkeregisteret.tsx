@@ -33,13 +33,14 @@ class Folkeregisteret extends Component<Props> {
     const formattertPersonident =
       personident && personident.verdi.length === 11
         ? {
-          ...personident,
-          verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2")
-        }
+            ...personident,
+            verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2")
+          }
         : personident;
 
     return (
       <>
+        <hr className="box__linje-bred" />
         <ul className="list-column-2">
           <ListElement titleId={fornavnHeader} content={fornavn} />
           <ListElement
@@ -62,6 +63,7 @@ class Folkeregisteret extends Component<Props> {
           <ListElement titleId="personalia.civil_status" content={sivilstand} />
           <ListElement titleId="personalia.gender" content={kjoenn} />
         </ul>
+        <hr className="box__linje-bred" />
         <Kilde
           kilde="personalia.source.folkeregisteret"
           lenke="https://www.skatteetaten.no/person/folkeregister/"

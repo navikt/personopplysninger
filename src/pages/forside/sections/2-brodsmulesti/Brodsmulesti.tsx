@@ -2,10 +2,10 @@ import * as React from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
-import account from "../../../../assets/img/account-circle.svg";
+import konto from "../../../../assets/img/Konto.svg";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../../../../App";
+import { basePath } from "../../../../App";
 
 const { tjenesteUrl } = Environment();
 
@@ -27,11 +27,7 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
   return (
     <div className="brodsmulesti">
       <Brodsmule className="brodsmulesti__icon">
-        <img
-          alt="Brodsmulesti"
-          className="brodsmulesti__account"
-          src={account}
-        />
+        <img alt="Brodsmulesti" className="brodsmulesti__account" src={konto} />
       </Brodsmule>
       <Brodsmule>
         <Lenke href={`${tjenesteUrl}/dittnav`}>
@@ -41,7 +37,7 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
       /
       <Brodsmule>
         {id ? (
-          <Link to={`${baseUrl}/`} className="lenke">
+          <Link to={`${basePath}/`} className="lenke">
             <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
           </Link>
         ) : (
