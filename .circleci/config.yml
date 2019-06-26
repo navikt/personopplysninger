@@ -113,6 +113,7 @@ workflows:
     jobs:
       - build
       - deploy-til-dev:
+          name: deploy-til-dev
           requires:
             - build
           filters:
@@ -120,6 +121,7 @@ workflows:
               only:
                 - master
       - deploy-til-dev:
+          name: deploy-til-dev
           requires:
             - deploy-til-dev-manuelt
       - deploy-til-dev-manuelt:
@@ -131,6 +133,8 @@ workflows:
           requires:
             - build
           filters:
+            tags:
+              only: /^v.*/
             branches:
               only:
                 - master
@@ -138,6 +142,8 @@ workflows:
           requires:
             - godkjenn-til-prod
           filters:
+            tags:
+              only: /^v.*/
             branches:
               only:
                 - master
