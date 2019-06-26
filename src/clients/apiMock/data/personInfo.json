@@ -35,6 +35,14 @@
   },
   "enhetKontaktInformasjon": {
     "enhet": {
+      "postadresse": {
+        "type": "postboksadresse",
+        "postnummer": "0614",
+        "poststed": "Oslo",
+        "gatenavn": null,
+        "husnummer": null,
+        "husbokstav": null
+      },
       "publikumsmottak": [
         {
           "gateadresse": "Peder Falcks veg",
