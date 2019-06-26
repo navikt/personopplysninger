@@ -11,6 +11,7 @@ import Icon from "../../components/icon/Icon";
 import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
+import PanelBase from "nav-frontend-paneler";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
@@ -50,13 +51,13 @@ const Arbeidsforhold = (props: MergedProps) => {
         </div>
         <div className="da__filler" />
       </div>
-      <div className="da__innhold">
+      <PanelBase border={true} className="da__innhold">
         <DetaljertArbeidsforhold
           locale={intl.locale as "nb" | "en"}
           miljo={miljo}
           navArbeidsforholdId={id}
         />
-      </div>
+      </PanelBase>
     </div>
   );
 };
