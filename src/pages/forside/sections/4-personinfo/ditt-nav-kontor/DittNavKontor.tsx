@@ -45,7 +45,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           </Normaltekst>
           <Element>{geografiskTilknytning.enhet}</Element>
         </div>
-        {publikumsmottak.length > 1 ? (
+        {publikumsmottak.length > 1 && (
           <Select
             label=""
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
@@ -67,22 +67,23 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
               </option>
             ))}
           </Select>
-        ) : (
-          <div>
+        )}
+        {valgtMottakId !== -1 && (
+          <>
             <Element>
               <FormattedMessage id="dittnavkontor.publikumsmottak" />
             </Element>
             <Normaltekst>
-              {`${print(publikumsmottak[0].gateadresse)} ${print(
-                publikumsmottak[0].husnummer
-              )}${print(publikumsmottak[0].husbokstav)}`}
+              {`${print(publikumsmottak[valgtMottakId].gateadresse)} ${print(
+                publikumsmottak[valgtMottakId].husnummer
+              )}${print(publikumsmottak[valgtMottakId].husbokstav)}`}
             </Normaltekst>
             <Normaltekst>
-              {`${print(publikumsmottak[0].postnummer)} ${print(
-                publikumsmottak[0].poststed
+              {`${print(publikumsmottak[valgtMottakId].postnummer)} ${print(
+                publikumsmottak[valgtMottakId].poststed
               )}`}
             </Normaltekst>
-          </div>
+          </>
         )}
       </div>
       <div>
