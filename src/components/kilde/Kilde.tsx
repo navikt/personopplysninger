@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Undertekst, Normaltekst } from "nav-frontend-typografi";
+import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 
 interface Props {
@@ -13,9 +13,9 @@ const Kilde = (props: Props) => (
   <div className="kilde__container">
     <div className="kilde__seksjon">
       {props.kilde && (
-        <Undertekst>
+        <EtikettLiten>
           <FormattedMessage id={props.kilde} />
-        </Undertekst>
+        </EtikettLiten>
       )}
     </div>
     <div className="kilde__seksjon kilde__lenke">

@@ -10,6 +10,7 @@ import { injectIntl, InjectedIntlProps } from "react-intl";
 import ListElement from "../../../../../components/listelement/ListElement";
 import Apningstid from "../../../../../components/apningstid/Apningstid";
 import { print } from "../../../../../utils/text";
+import Kilde from "../../../../../components/kilde/Kilde";
 
 interface Props {
   enhetKontaktInfo: EnhetKontaktInfo;
@@ -145,6 +146,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           })}
         />
       </ul>
+      <Kilde kilde="personalia.source.nav" />
     </Box>
   );
 };
