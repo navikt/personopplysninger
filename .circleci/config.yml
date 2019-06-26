@@ -119,18 +119,24 @@ workflows:
             branches:
               only:
                 - master
-      - deploy-til-dev:
-          requires:
-            - deploy-til-dev-manuelt
       - deploy-til-dev-manuelt:
           type: approval
           requires:
             - build
+          filters:
+            branches:
+              ignore:
+                - master
+      - deploy-til-dev:
+          requires:
+            - deploy-til-dev-manuelt
       - godkjenn-til-prod:
           type: approval
           requires:
             - build
           filters:
+            tags:
+              only: /^v.*/
             branches:
               only:
                 - master
@@ -138,6 +144,8 @@ workflows:
           requires:
             - godkjenn-til-prod
           filters:
+            tags:
+              only: /^v.*/
             branches:
               only:
                 - master

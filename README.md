@@ -4,36 +4,53 @@
 
 # Personopplysninger
 
-Applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret om personen.
+React applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret.
 
 ## Komme i gang
 
+Hent repoet fra github
+
+```
+git clone https://github.com/navikt/personopplysninger.git
+```
+
 Installer nødvendige pakker:
 
-- `npm install`
+```
+npm install
+```
 
-For å kjøre opp app-en i dev:
+Start applikasjonen lokalt:
 
-- `npm run start`
+```
+npm start
+```
 
-For å kjøre tester:
+## Feature toggles
 
-- `npm run test`
+Personopplysninger benytter Unleash til å skru av og på funksjonalitet som er under utvikling.<br>
+https://unleash.nais.adeo.no/#/features<br>
+Obs: Unleash er kun tilgjengelig i fagsystemsonen.
 
-Bygge/kjøre med docker:
+## Deployering
 
-1.  `npm run docker-build`
-2.  `npm run docker-start`
-3.  `npm run docker-stop`
-4.  For å bygge på nytt: `npm run docker-rm && npm run docker-build`
+Applikasjonen bygges automatisk til dev / https://www-q0.nav.no/person/personopplysninger ved merge til master eller ved manuell godkjenning i [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger). <br><br>
+For å lansere applikasjonen til produksjon / https://www.nav.no/person/personopplysninger, benytt [npm version](https://docs.npmjs.com/cli/version) til å oppdatere package.json og lage samsvarende git-tag. Eks:
 
-## Bygg / CI
+```
+npm version patch -m "Din melding"
+```
 
-https://ci.adeo.no/job/team_personbruker/job/personopplysninger
+Push deretter den nye versjonen til Github, som vil plukkes opp av [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger).
 
-1. Jenkins vil automatisk bygge prosjektet til Q6. <br>
-2. Klikk på "-promotering-q0-" for å deployere fra Q6 ⇨ Q0
-3. Klikk på "-release-" for å deployere fra Q0 ⇨ Produksjon
+```
+git push && git push --tags
+```
+
+## Logging
+
+Feil ved API-kall blir logget via frontendlogger og vises i Kibana<br>
+[https://logs.adeo.no](https://logs.adeo.no/app/kibana#/discover/ad01c200-4af4-11e9-a5a6-7fddb220bd0c)
 
 ## Henvendelser
 
