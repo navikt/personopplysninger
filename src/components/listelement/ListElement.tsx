@@ -5,7 +5,7 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 interface Props {
   title?: string;
   titleId?: string;
-  content?: string;
+  content?: string | JSX.Element;
   children?: JSX.Element | JSX.Element[];
   className?: string;
 }

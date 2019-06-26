@@ -4,7 +4,7 @@ import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import ListElement from "../../../../../components/listelement/ListElement";
@@ -21,6 +21,12 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
   const publikumsmottak = enhetKontaktInfo.enhet.publikumsmottak;
   const [valgtMottakId, settValgtMottakId] = useState(
     publikumsmottak.length > 1 ? -1 : 0
+  );
+
+  console.log(
+    intl.formatHTMLMessage({
+      id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
+    })
   );
 
   return (
@@ -123,13 +129,13 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
       <ul className="dittnavkontor__footer list-column-2">
         <ListElement
           titleId="dittnavkontor.kontaktinfo.kontaktsenter.tittel"
-          content={intl.formatMessage({
-            id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
-          })}
+          content={
+            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.kontaktsenter.tlfnr" />
+          }
         >
           <>
-            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" /> (
-            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
+            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" />
+            (<FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
           </>
         </ListElement>
         <ListElement
