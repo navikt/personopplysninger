@@ -35,17 +35,19 @@ Obs: Unleash er kun tilgjengelig i fagsystemsonen.
 ## Deployering
 
 Applikasjonen bygges automatisk til dev / https://www-q0.nav.no/person/personopplysninger ved merge til master eller ved manuell godkjenning i [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger). <br><br>
-For å lansere applikasjonen til produksjon / https://www.nav.no/person/personopplysninger, benytt [npm version](https://docs.npmjs.com/cli/version) til å oppdatere package.json og lage samsvarende git-tag. Eks:
+For å lansere applikasjonen til produksjon / https://www.nav.no/person/personopplysninger, benytt [npm version](https://docs.npmjs.com/cli/version) til å oppdatere package.json og lage samsvarende Git-tag. Eks:
 
 ```
 npm version patch -m "Din melding"
 ```
 
-Push deretter den nye versjonen til Github, som vil plukkes opp av [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger).
+Push deretter den nye versjonen til GitHub og merge til master.
 
 ```
 git push && git push --tags
 ```
+
+Godkjenn produksjonssettingen i [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger).
 
 ## Logging
 
