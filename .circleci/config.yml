@@ -68,7 +68,7 @@ workflows:
             - deploy-til-dev
           filters:
             branches:
-              ignore: /.*/
+              only:
             tags:
               only: /^v.*/
             
