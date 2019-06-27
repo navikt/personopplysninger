@@ -31,6 +31,12 @@ jobs:
     working_directory: ~/build
     steps:
       - run:
+          name: List files
+          command: ls
+      - run: 
+          name: Working dir
+          command: pwd
+      - run:
           name: Install awscli
           command: sudo pip install awscli
       - run:
