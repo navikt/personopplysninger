@@ -57,12 +57,17 @@ workflows:
   bygg_og_deploy:
     jobs:
       - build
+          filters:
+            tags:
+              only: /.*/
       - deploy-til-dev:
           requires:
             - build
           filters:
             branches:
               only: aws
+            tags:
+              only: /.*/
       - deploy-til-prod:
           requires:
             - deploy-til-dev
