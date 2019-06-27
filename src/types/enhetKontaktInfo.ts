@@ -24,7 +24,7 @@ export interface Publikumsmottak {
 export interface EnhetKontaktInfo {
   enhet: {
     postadresse: {
-      type: "postboksadresse";
+      type: "postboksadresse" | "stedsadresse";
       postnummer?: string;
       poststed?: string;
       gatenavn?: string;

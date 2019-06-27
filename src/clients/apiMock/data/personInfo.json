@@ -39,9 +39,9 @@
         "type": "postboksadresse",
         "postnummer": "0614",
         "poststed": "Oslo",
-        "gatenavn": null,
-        "husnummer": null,
-        "husbokstav": null
+        "gatenavn": "Slottsveien",
+        "husnummer": "22",
+        "husbokstav": "A"
       },
       "publikumsmottak": [
         {

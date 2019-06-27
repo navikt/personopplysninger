@@ -19,15 +19,9 @@ interface Props {
 
 const DittNavKontor = (props: Props & InjectedIntlProps) => {
   const { enhetKontaktInfo, geografiskTilknytning, intl } = props;
-  const publikumsmottak = enhetKontaktInfo.enhet.publikumsmottak;
+  const { publikumsmottak, postadresse } = enhetKontaktInfo.enhet;
   const [valgtMottakId, settValgtMottakId] = useState(
     publikumsmottak.length > 1 ? -1 : 0
-  );
-
-  console.log(
-    intl.formatHTMLMessage({
-      id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
-    })
   );
 
   return (
@@ -68,23 +62,39 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
             ))}
           </Select>
         )}
-        {valgtMottakId !== -1 && (
-          <>
-            <Element>
-              <FormattedMessage id="dittnavkontor.publikumsmottak" />
-            </Element>
-            <Normaltekst>
-              {`${print(publikumsmottak[valgtMottakId].gateadresse)} ${print(
-                publikumsmottak[valgtMottakId].husnummer
-              )}${print(publikumsmottak[valgtMottakId].husbokstav)}`}
-            </Normaltekst>
-            <Normaltekst>
-              {`${print(publikumsmottak[valgtMottakId].postnummer)} ${print(
-                publikumsmottak[valgtMottakId].poststed
-              )}`}
-            </Normaltekst>
-          </>
-        )}
+        <div className="dittnavkontor__adresser">
+          {postadresse && (
+            <div className="dittnavkontor__postadresse">
+              <Element>
+                <FormattedMessage id="dittnavkontor.postadresse" />
+              </Element>
+              <Normaltekst>
+                {print(postadresse.gatenavn)} {print(postadresse.husnummer)}
+                {print(postadresse.husbokstav)}
+              </Normaltekst>
+              <Normaltekst>
+                {print(postadresse.postnummer)} {print(postadresse.poststed)}
+              </Normaltekst>
+            </div>
+          )}
+          {valgtMottakId !== -1 && (
+            <div className="dittnavkontor__publikumsmottak">
+              <Element>
+                <FormattedMessage id="dittnavkontor.publikumsmottak" />
+              </Element>
+              <Normaltekst>
+                {`${print(publikumsmottak[valgtMottakId].gateadresse)} ${print(
+                  publikumsmottak[valgtMottakId].husnummer
+                )}${print(publikumsmottak[valgtMottakId].husbokstav)}`}
+              </Normaltekst>
+              <Normaltekst>
+                {`${print(publikumsmottak[valgtMottakId].postnummer)} ${print(
+                  publikumsmottak[valgtMottakId].poststed
+                )}`}
+              </Normaltekst>
+            </div>
+          )}
+        </div>
       </div>
       <div>
         {valgtMottakId !== -1 ? (
