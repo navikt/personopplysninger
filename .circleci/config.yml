@@ -29,8 +29,8 @@ jobs:
 
   deploy-til-prod:
 
-  workflows:
-    bygg_og_deploy:
-      jobs:
-        - run: echo "Nå bygger vi."
-        - build
+workflows:
+  bygg_og_deploy:
+    jobs:
+      - run: echo "Nå bygger vi."
+      - build
