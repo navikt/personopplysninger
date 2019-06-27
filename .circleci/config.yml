@@ -26,6 +26,17 @@ jobs:
           command: npm run test
       
   deploy-til-dev:
+    docker:
+      - image: circleci/python:3.7-stretch
+    working_directory: ~/build
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+          name: Deploy to S3 dev bucket
+          command: aws s3 sync . s3//personopplysningerdev --delete
+
 
   deploy-til-prod:
 
@@ -33,3 +44,9 @@ workflows:
   bygg_og_deploy:
     jobs:
       - build
+      - deploy-til-dev:
+          requires:
+            - build:
+          filters:
+            branches:
+              only: aws
