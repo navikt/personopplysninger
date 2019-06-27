@@ -52,6 +52,7 @@ jobs:
           name: Deploy to S3 prod bucket.
           command: aws s3 sync s3://personopplysningerdev s3://personopplysningerprod --delete
 
+
 workflows:
   bygg_og_deploy:
     jobs:
