@@ -56,7 +56,7 @@ jobs:
 workflows:
   bygg_og_deploy:
     jobs:
-      - build
+      - build:
           filters:
             tags:
               only: /.*/
