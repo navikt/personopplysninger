@@ -64,7 +64,6 @@ workflows:
             branches:
               only: aws
       - godkjenn-til-prod:
-          type: approval
           requires:
             - build
           filters:
