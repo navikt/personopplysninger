@@ -32,5 +32,4 @@ jobs:
 workflows:
   bygg_og_deploy:
     jobs:
-      - run: echo "Naa bygger vi."
       - build
