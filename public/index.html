@@ -12,7 +12,10 @@
     />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta name="theme-color" content="#000000" />
-    {{{NAV_SCRIPTS}}} {{{NAV_STYLES}}} {{{MEGAMENU_RESOURCES}}}
+       <!--{{fragment.styles}}-->
+    <!--style data-merge-styles="true" type="text/css"></style-->
+    <!--{{fragment.scripts}}-->
+    <!--{{fragment.megamenu-resources}}-->
     <!--
     manifest.json provides metadata used when your web app is added to the
     homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
@@ -48,10 +51,11 @@
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div class="pagewrapper">
-      {{{NAV_SKIPLINKS}}} {{{NAV_HEADING}}}
+      <!--{{fragment.skiplinks}}-->
+      <!--{{fragment.header-withmenu}}-->
       <div class="app" id="app"></div>
     </div>
-    <div class="hodefot-footer">{{{NAV_FOOTER}}}</div>
+    <div class="hodefot-footer"><!--{{fragment.footer-withmenu}}--></div>
     <!--
   This HTML file is a template.
   If you open it directly in the browser, you will see an empty page.
