@@ -46,7 +46,7 @@ workflows:
       - build
       - deploy-til-dev:
           requires:
-            - build:
+            - build
           filters:
             branches:
               only: aws
