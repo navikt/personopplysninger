@@ -2,13 +2,15 @@ import fetchMock from "fetch-mock";
 import personInformasjon from "./data/personInfo.json";
 import kontaktInformasjon from "./data/kontaktInfo.json";
 import featureToggles from "./data/featureToggles.json";
+import authInfo from "./data/authInfo.json";
 import Environment from "../../utils/Environments";
 
-const { apiUrl } = Environment();
+const { apiUrl, baseUrl } = Environment();
 
 const mockKontaktinfo = true;
 const mockPersonalia = true;
 const mockFeatureToggles = true;
+const mockAuthInfo = true;
 
 export const setUpMock = async () => {
   mockKontaktinfo &&
@@ -25,6 +27,11 @@ export const setUpMock = async () => {
     fetchMock.get(
       `begin:${apiUrl}/feature-toggles`,
       delay(200, 750).then(() => featureToggles)
+    );
+  mockAuthInfo &&
+    fetchMock.get(
+      `${baseUrl}/innloggingslinje-api/auth`,
+      delay(10, 50).then(() => authInfo)
     );
 };
 

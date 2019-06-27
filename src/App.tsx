@@ -12,7 +12,7 @@ export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "RESULT" }
   | { status: "ERROR"; error: HTTPError });
 
-export const baseUrl = "/person/personopplysninger";
+export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }, dispatch] = useStore();
 
@@ -35,11 +35,11 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <Route exact={true} path={`(/|${baseUrl})`} component={Forside} />
+        <Route exact={true} path={`(/|${basePath})`} component={Forside} />
         {featureToggles.data["personopplysninger.arbeidsforhold.detaljert"] && (
           <Route
             exact={true}
-            path={`${baseUrl}/arbeidsforhold/:id`}
+            path={`${basePath}/arbeidsforhold/:id`}
             component={DetaljertArbeidsforhold}
           />
         )}

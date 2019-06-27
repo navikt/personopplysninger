@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64px" height="64px" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55 (78076) - https://sketchapp.com -->
+    <title>Group 14@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="64" height="64"></rect>
+        <circle id="path-3" cx="32" cy="32" r="32"></circle>
+        <rect id="path-5" x="0" y="0" width="38.88" height="38.88"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GDPR-Personopplysning" transform="translate(-596.000000, -2838.000000)">
+            <g id="Group-14" transform="translate(596.000000, 2838.000000)">
+                <g id="Group-5-Copy-2">
+                    <g id="spotlight/-gjenstand-">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Background"></g>
+                        <g id="spotlight/-element" mask="url(#mask-2)" fill-rule="evenodd" stroke-width="1">
+                            <g id="🌈-60">
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="Mask"></g>
+                                <g id="NAV-Brand/farge/-Dyp-blå/-60" mask="url(#mask-4)" fill="#99C2E8">
+                                    <polygon id="Fill-22" points="0 64 64 64 64 0 0 0"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Color/21-settings/toolbox" transform="translate(13.000000, 8.000000)">
+                    <mask id="mask-6" fill="white">
+                        <use xlink:href="#path-5"></use>
+                    </mask>
+                    <g id="Background"></g>
+                    <g id="Group" mask="url(#mask-6)">
+                        <g transform="translate(0.000000, 7.290000)">
+                            <path d="M19.44,14.58 C15.4138442,14.58 12.15,11.3161558 12.15,7.29 C12.15,3.26384417 15.4138442,0 19.44,0 C23.4661558,0 26.73,3.26384417 26.73,7.29 C26.73,11.3161558 23.4661558,14.58 19.44,14.58 Z M19.44,12.96 C22.5714545,12.96 25.11,10.4214545 25.11,7.29 C25.11,4.15854547 22.5714545,1.62 19.44,1.62 C16.3085455,1.62 13.77,4.15854547 13.77,7.29 C13.77,10.4214545 16.3085455,12.96 19.44,12.96 Z" id="Oval" fill="#3E3832" fill-rule="nonzero"></path>
+                            <path d="M0,17.01 L0,30.7800001 C0,31.2271201 0.395869091,31.5900001 0.883636364,31.5900001 L37.9963636,31.5900001 C38.4841309,31.5900001 38.88,31.2271201 38.88,30.7800001 L38.88,17.01 L0,17.01 Z" id="Path" fill="#59514B" fill-rule="evenodd"></path>
+                            <path d="M0,7.29 L0,16.2 C0,16.64712 0.395869091,17.01 0.883636364,17.01 L37.9963636,17.01 C38.4841309,17.01 38.88,16.64712 38.88,16.2 L38.88,7.29 L0,7.29 Z" id="Path-Copy" fill="#78706A" fill-rule="evenodd" transform="translate(19.440000, 12.150000) scale(1, -1) translate(-19.440000, -12.150000) "></path>
+                            <rect id="Rectangle" fill="#99C2E8" fill-rule="evenodd" x="16.2" y="15.39" width="6.48" height="4.86" rx="1.62"></rect>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

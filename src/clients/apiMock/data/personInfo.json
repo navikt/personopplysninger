@@ -100,6 +100,71 @@
               "kommentar": "Onsdag før Kristi himmelfartsdag"
             }
           ]
+        },
+        {
+          "gateadresse": "Kirkegata",
+          "poststed": "Trondheim",
+          "husnummer": "25",
+          "husbokstav": null,
+          "postnummer": "7014",
+          "stedsbeskrivelse": null,
+          "aapningMandag": {
+            "dag": "Mandag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": "Timeavtaler også utenom åpningstiden"
+          },
+          "aapningTirsdag": {
+            "dag": "Tirsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningOnsdag": {
+            "dag": "Onsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningTorsdag": {
+            "dag": "Torsdag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningFredag": {
+            "dag": "Fredag",
+            "fra": "10:00",
+            "til": "14:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningAndre": [
+            {
+              "dag": "15.05.2019",
+              "fra": "09:00",
+              "til": "12:00",
+              "stengt": "false",
+              "kommentar": "Her kan det også være en merknad "
+            },
+            {
+              "dag": "17.05.2019",
+              "fra": null,
+              "til": null,
+              "stengt": "true"
+            },
+            {
+              "dag": "29.05.2019",
+              "fra": "09:00",
+              "til": "13:30",
+              "stengt": "false",
+              "kommentar": "Onsdag før Kristi himmelfartsdag"
+            }
+          ]
         }
       ],
       "tlfperson": "55553333",

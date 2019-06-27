@@ -1,16 +1,43 @@
+.nav-veileder__frame {
+  background: transparent !important;
+}
+
 .box {
+  &__wrapper {
+    padding-top: 1rem;
+  }
+
   &__container {
-    display: flex;
-    flex-flow: row;
-    background: white;
-
-    @media @tablet {
-      padding: 1.5rem 2rem;
-    }
-
     @media @desktop {
-      padding: 1.75rem 3rem;
+      padding: 0 3rem 1rem 3rem;
     }
+  }
+
+  &__title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title-i-icon,
+  &__title-filler {
+    min-width: 1.5rem;
+    max-width: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  &__ikon {
+    width: 72.5% !important;
+  }
+
+  &__modal {
+    @media @desktop {
+      max-width: 50%;
+    }
+  }
+
+  &__title-i-icon {
+    cursor: pointer;
   }
 
   &__icon-container {
@@ -33,19 +60,11 @@
   }
 
   &__header > * {
-    margin: 0.4rem 0;
+    margin-bottom: 0.4rem;
   }
 
   &__ingress {
     max-width: 100%;
-  }
-
-  &__icon {
-    width: 4rem;
-    height: 4rem;
-    @media @mobile {
-      visibility: hidden;
-    }
   }
 
   &__linje-smal {

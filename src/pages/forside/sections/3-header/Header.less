@@ -1,59 +1,9 @@
 .header {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color: white;
-
-  h1 {
-    font-weight: bold;
-    margin-bottom: 0;
+  &__seksjon {
+    padding: 1rem 0 0 0;
   }
-
-  @media @tablet {
-    padding: 2rem 2rem 0 2rem;
-    margin: 3.5rem 0 2rem 0;
-    border-radius: 0.5em;
-    flex-direction: column;
-  }
-
-  @media @desktop {
-    padding: 1rem 4rem 0 4rem;
-    border-radius: 8px;
-    justify-content: flex-end;
-  }
-
-  &__content {
-    padding: 2rem 0 3rem 0;
-  }
-
-  &__content-seksjon {
-    padding: 1.25rem 0 0 0;
-  }
-
-  &__icon-mobile {
-    height: 6em;
-    width: auto;
-  }
-
-  &__icon-mobile-container {
-    width: 100%;
-    position: absolute;
-    display: none;
-    top: -3.5em;
-    left: 0;
-
-    @media @tablet {
-      display: flex;
-      justify-content: center;
-    }
-  }
-
-  &__icon-desktop {
-    margin: auto 1rem 0 1rem;
-
-    @media @tablet {
-      display: none;
-    }
+  &__ikon {
+    width: 100% !important;
+    height: 100% !important;
   }
 }

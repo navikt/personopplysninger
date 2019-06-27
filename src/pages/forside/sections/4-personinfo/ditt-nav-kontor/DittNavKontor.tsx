@@ -1,15 +1,16 @@
 import React, { ChangeEvent, useState } from "react";
 import Box from "../../../../../components/box/Box";
-import adresseIkon from "../../../../../assets/img/adresser.svg";
+import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import ListElement from "../../../../../components/listelement/ListElement";
 import Apningstid from "../../../../../components/apningstid/Apningstid";
 import { print } from "../../../../../utils/text";
+import Kilde from "../../../../../components/kilde/Kilde";
 
 interface Props {
   enhetKontaktInfo: EnhetKontaktInfo;
@@ -23,8 +24,20 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
     publikumsmottak.length > 1 ? -1 : 0
   );
 
+  console.log(
+    intl.formatHTMLMessage({
+      id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
+    })
+  );
+
   return (
-    <Box id="dittnavkontor" tittel="dittnavkontor.tittel" icon={adresseIkon}>
+    <Box
+      id="dittnavkontor"
+      tittel="dittnavkontor.tittel"
+      beskrivelse="dittnavkontor.beskrivelse"
+      icon={dittNavKontorIkon}
+    >
+      <hr className="box__linje-bred" />
       <div className="dittnavkontor__header">
         <div className="dittnavkontor__ingress">
           <Normaltekst>
@@ -32,7 +45,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           </Normaltekst>
           <Element>{geografiskTilknytning.enhet}</Element>
         </div>
-        {publikumsmottak.length > 1 ? (
+        {publikumsmottak.length > 1 && (
           <Select
             label=""
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
@@ -54,22 +67,23 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
               </option>
             ))}
           </Select>
-        ) : (
-          <div>
+        )}
+        {valgtMottakId !== -1 && (
+          <>
             <Element>
               <FormattedMessage id="dittnavkontor.publikumsmottak" />
             </Element>
             <Normaltekst>
-              {`${print(publikumsmottak[0].gateadresse)} ${print(
-                publikumsmottak[0].husnummer
-              )}${print(publikumsmottak[0].husbokstav)}`}
+              {`${print(publikumsmottak[valgtMottakId].gateadresse)} ${print(
+                publikumsmottak[valgtMottakId].husnummer
+              )}${print(publikumsmottak[valgtMottakId].husbokstav)}`}
             </Normaltekst>
             <Normaltekst>
-              {`${print(publikumsmottak[0].postnummer)} ${print(
-                publikumsmottak[0].poststed
+              {`${print(publikumsmottak[valgtMottakId].postnummer)} ${print(
+                publikumsmottak[valgtMottakId].poststed
               )}`}
             </Normaltekst>
-          </div>
+          </>
         )}
       </div>
       <div>
@@ -117,13 +131,13 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
       <ul className="dittnavkontor__footer list-column-2">
         <ListElement
           titleId="dittnavkontor.kontaktinfo.kontaktsenter.tittel"
-          content={intl.formatMessage({
-            id: "dittnavkontor.kontaktinfo.kontaktsenter.tlfnr"
-          })}
+          content={
+            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.kontaktsenter.tlfnr" />
+          }
         >
           <>
-            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" /> (
-            <FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
+            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" />
+            (<FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
           </>
         </ListElement>
         <ListElement
@@ -133,6 +147,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           })}
         />
       </ul>
+      <Kilde kilde="personalia.source.nav" />
     </Box>
   );
 };
