@@ -36,7 +36,7 @@
   "enhetKontaktInformasjon": {
     "enhet": {
       "postadresse": {
-        "type": "postboksadresse",
+        "type": "stedsadresse",
         "postnummer": "0614",
         "poststed": "Oslo",
         "gatenavn": "Slottsveien",
