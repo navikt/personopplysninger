@@ -66,11 +66,6 @@ workflows:
       - deploy-til-prod:
           requires:
             - deploy-til-dev
-                filters:
-                  tags:
-                    only: /^v.*/
-                  branches:
-                    ignore: /.*/
           filters:
             tags:
               only: /^v.*/
