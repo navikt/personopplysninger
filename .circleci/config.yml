@@ -4,7 +4,7 @@ jobs:
   
   build:
     docker:
-      - image: circleci/node:10 # the primary container, where your job's commands are run
+      - image: circleci/node:10
     steps:
       - checkout
       - restore_cache:
@@ -28,7 +28,6 @@ jobs:
           root: build
           paths: ./*
 
-      
   deploy-til-dev:
     docker:
       - image: circleci/python:3.7-stretch
@@ -42,8 +41,17 @@ jobs:
           name: Deploy to S3 dev bucket
           command: aws s3 sync ./build s3://personopplysningerdev --delete
 
-
   deploy-til-prod:
+    docker:
+      - image: circleci/python:3.7-stretch
+    steps:
+      - run:
+          name: Install awscli
+          command: sudo pip install awscli
+      - run:
+        name: Deploy to S3 prod bucket.
+        command: aws s3 sync s3://personopplysningerdev s3://personopplysningerprod --delete
+
 
 workflows:
   bygg_og_deploy:
@@ -55,3 +63,11 @@ workflows:
           filters:
             branches:
               only: aws
+      - deploy-til-prod:
+          requires:
+            - deploy-til-dev
+          filters:
+            tags:
+              only: /^v.*/
+            
+          
