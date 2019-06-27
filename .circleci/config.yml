@@ -26,7 +26,7 @@ jobs:
           command: npm run test
       - persist-to-workspace:
           root: build
-          paths: *
+          paths: ./*
 
       
   deploy-til-dev:
