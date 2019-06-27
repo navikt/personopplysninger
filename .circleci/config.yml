@@ -63,23 +63,13 @@ workflows:
           filters:
             branches:
               only: aws
-      - godkjenn-til-prod:
-          requires:
-            - build
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              only: 
-                - aws
       - deploy-til-prod:
           requires:
-            - godkjenn-til-prod
+            - deploy-til-dev
           filters:
             tags:
               only: /^v.*/
             branches:
-              only:
-                - aws
+              ignore: /.*/
             
           
