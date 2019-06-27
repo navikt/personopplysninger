@@ -69,8 +69,16 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
                 <FormattedMessage id="dittnavkontor.postadresse" />
               </Element>
               <Normaltekst>
-                {print(postadresse.gatenavn)} {print(postadresse.husnummer)}
-                {print(postadresse.husbokstav)}
+                {postadresse.type === "stedsadresse" &&
+                  `${print(postadresse.gatenavn)} ${print(
+                    postadresse.husnummer
+                  )} ${print(postadresse.husbokstav)}`}
+                {postadresse.type === "postboksadresse" &&
+                  `${props.intl.formatMessage({
+                    id: "dittnavkontor.postboks"
+                  })} ${print(postadresse.postboksnummer)} ${print(
+                    postadresse.postboksanlegg
+                  )}`}
               </Normaltekst>
               <Normaltekst>
                 {print(postadresse.postnummer)} {print(postadresse.poststed)}

@@ -81,6 +81,7 @@ export default {
   "dittnavkontor.beskrivelse": `Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Ditt kontor er `,
   "dittnavkontor.postadresse": `Postadresse`,
+  "dittnavkontor.postboks": `Postboks`,
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
   "dittnavkontor.publikumsmottakfor": `Publikumsmottak for`,
   "dittnavkontor.apningstider": `Åpningstider`,
