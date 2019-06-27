@@ -46,7 +46,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Deploy to S3 dev bucket
-          command: aws s3 sync . s3://personopplysningerdev --delete
+          command: aws s3 sync ./build s3://personopplysningerdev --delete
 
 
   deploy-til-prod:
