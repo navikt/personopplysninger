@@ -67,8 +67,6 @@ workflows:
           requires:
             - deploy-til-dev
           filters:
-            branches:
-              only:
             tags:
               only: /^v.*/
             
