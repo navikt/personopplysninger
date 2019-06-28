@@ -60,6 +60,7 @@ workflows:
           filters:
             tags:
               only: /.*/
+      # Legg til deploy-til-dev-manuelt
       - deploy-til-dev:
           requires:
             - build
