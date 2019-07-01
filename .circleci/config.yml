@@ -37,7 +37,9 @@ jobs:
            - "68:53:8d:58:a1:13:1e:b2:57:88:cc:65:d6:43:76:d3"
       - run:
           name: Clone gcp-serverless
-          command: git clone git@github.com:navikt/gcp-serverless.git && cd gcp-serverless
+          command: |
+            ssh -o StrictHostKeyChecking=no github.com exit
+            git clone git@github.com:navikt/gcp-serverless.git && cd gcp-serverless
       - run:
           name: Deploy to Firebase
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
