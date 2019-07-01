@@ -27,60 +27,28 @@ jobs:
       - persist_to_workspace:
           root: build
           paths: ./*
-
-  deploy-til-dev:
+  
+  deploy-to-dev:
     docker:
-      - image: circleci/python:3.7-stretch
+      - image: circleci/node:10
     steps:
-      - attach_workspace:
-          at: build/
+      - add_ssh_keys:
+          fingerprints:
+           - "68:53:8d:58:a1:13:1e:b2:57:88:cc:65:d6:43:76:d3"
       - run:
-          name: Install awscli
-          command: sudo pip install awscli
+          name: Clone gcp-serverless
+          command: git clone git@github.com:navikt/gcp-serverless.git && cd gcp-serverless
       - run:
-          name: Deploy to S3 dev bucket
-          command: aws s3 sync ./build s3://personopplysningerdev --delete
-
-  deploy-til-prod:
-    docker:
-      - image: circleci/python:3.7-stretch
-    steps:
-      - run:
-          name: Install awscli
-          command: sudo pip install awscli
-      - run:
-          name: Deploy to S3 prod bucket.
-          command: aws s3 sync s3://personopplysningerdev s3://personopplysningerprod --delete
+          name: Deploy to Firebase
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+  
 
 
 workflows:
   bygg_og_deploy:
     jobs:
       - build:
-          filters:
-            tags:
-              only: /.*/
       # Legg til deploy-til-dev-manuelt
       - deploy-til-dev:
           requires:
             - build
-          filters:
-            tags:
-              only: /.*/
-      - godkjenn-til-prod:
-          type: approval
-          requires:
-            - deploy-til-dev
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/
-      - deploy-til-prod:
-          requires:
-            - godkjenn-til-prod
-          filters:
-            tags:
-              only: /^v.*/
-            branches:
-              ignore: /.*/

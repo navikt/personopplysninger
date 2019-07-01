@@ -91,6 +91,7 @@
     "@types/react-intl": "^2.3.18",
     "@types/react-router-dom": "^4.3.4",
     "@types/react-router-hash-link": "^1.2.1",
+    "firebase-tools": "^7.0.2",
     "less": "^3.9.0",
     "prettier": "^1.18.2",
     "tslint": "^5.17.0",
