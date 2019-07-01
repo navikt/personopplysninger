@@ -28,7 +28,7 @@ jobs:
           root: build
           paths: ./*
   
-  deploy-to-dev:
+  deploy-til-dev:
     docker:
       - image: circleci/node:10
     steps:
