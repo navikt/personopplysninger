@@ -47,7 +47,7 @@ jobs:
 workflows:
   bygg_og_deploy:
     jobs:
-      - build:
+      - build
       # Legg til deploy-til-dev-manuelt
       - deploy-til-dev:
           requires:
