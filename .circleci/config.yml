@@ -34,7 +34,7 @@ jobs:
     steps:
       - add_ssh_keys:
           fingerprints:
-           - "68:53:8d:58:a1:13:1e:b2:57:88:cc:65:d6:43:76:d3"
+           - "85:8f:78:82:e3:3f:ef:42:19:76:8d:28:07:b3:c6:cf"
       - run:
           name: Clone gcp-serverless
           command: |
