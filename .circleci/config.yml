@@ -54,7 +54,9 @@ jobs:
       - run:
           name: Deploy to Firebase
           command: |
-            cd gcp-serverless
+            cd gcp-serverless/functions
+            npm install
+            cd ..
             ../node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
   
 
