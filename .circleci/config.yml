@@ -47,8 +47,14 @@ jobs:
           command: |
             git clone git@github.com:navikt/gcp-serverless.git
       - run:
+          name: Move build-contents into gcp-serverless/public
+          command: | 
+            rm -r gcp-serverless/public
+            mv build/* gcp-serverless/public
+            cd gcp-serverless
+      - run:
           name: Deploy to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: ../node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
   
 
 
