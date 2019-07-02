@@ -40,10 +40,7 @@ jobs:
       - run:
           name: Create package.json
           command: |
-            mkdir bygg
-            cd bygg
-            npm init
-            npm i firebsase-tools
+            npm i firebase-tools
       - run:
           name: Clone gcp-serverless
           command: |
