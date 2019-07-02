@@ -32,17 +32,24 @@ jobs:
     docker:
       - image: circleci/node:10
     steps:
-      - checkout
+      - attach_workspace:
+          at: build/
       - add_ssh_keys:
           fingerprints:
            - "17:aa:6e:76:27:f5:bf:4a:81:f3:cb:7a:27:63:c1:19"
       - run:
+          name: Create package.json
+          command: |
+            npm init bygg
+            cd bygg
+            npm i firebase
+      - run:
           name: Clone gcp-serverless
           command: |
-            git clone git@github.com:navikt/gcp-serverless.git && cd gcp-serverless
+            git clone git@github.com:navikt/gcp-serverless.git
       - run:
           name: Deploy to Firebase
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          command: firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
   
 
 
