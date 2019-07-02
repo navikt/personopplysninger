@@ -49,7 +49,7 @@ jobs:
       - run:
           name: Move build-contents into gcp-serverless/public
           command: | 
-            rm -r gcp-serverless/public
+            rm -r gcp-serverless/public/*
             mv build/* gcp-serverless/public
             cd gcp-serverless
       - run:
