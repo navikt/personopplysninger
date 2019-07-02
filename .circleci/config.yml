@@ -38,7 +38,6 @@ jobs:
       - run:
           name: Clone gcp-serverless
           command: |
-            ssh git@github.com
             ssh -o StrictHostKeyChecking=no github.com exit
             git clone https://github.com/navikt/gcp-serverless.git && cd gcp-serverless
       - run:
