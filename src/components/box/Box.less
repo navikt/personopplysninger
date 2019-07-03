@@ -21,9 +21,15 @@
 
   &__title-i-icon,
   &__title-filler {
-    min-width: 1.5rem;
-    max-width: 1.5rem;
-    margin: 0 1rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border: 0;
+    background: transparent;
+    &:focus {
+      background: @fokusFarge;
+    }
   }
 
   &__ikon {
@@ -110,35 +116,13 @@
   }
 }
 
-//midlertidig inntil avklaring
-.information-circle {
-  margin: 0 0.5rem;
+#hjelpetekstknapp {
   border: none;
   background: none;
-}
-
-.infobox {
-  padding: 2em;
-  background-color: #ffe5c2;
-  display: inline-block;
-  border-radius: 4px;
-  margin-bottom: 2em;
-
-  hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ff9100;
-    padding: 0;
-  }
-
-  h2 {
-    text-align: center;
-    margin-bottom: 4rem;
-  }
-
-  .info-content {
-    text-align: center;
-    margin-bottom: 2rem;
+  cursor: pointer;
+  height: 80px;
+  width: 80px;
+  &:focus {
+    outline: 2px dashed
   }
 }
