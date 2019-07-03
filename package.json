@@ -4,6 +4,7 @@
   "private": true,
   "author": "NAV",
   "license": "MIT",
+  "homepage": "/personopplysninger/",
   "scripts": {
     "docker-build": "docker build . -t personopplysninger",
     "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
