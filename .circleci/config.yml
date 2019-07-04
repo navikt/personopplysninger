@@ -38,10 +38,20 @@ jobs:
       - add_ssh_keys:
           fingerprints:
            - "c1:0a:7f:22:13:8c:5b:47:54:c3:10:85:cb:59:8d:ee"
+      - restore_cache:
+          keys:
+            # when lock file changes, use increasingly general patterns to restore cache
+            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            - node-v1-{{ .Branch }}-
+            - node-v1-
       - run:
           name: Create package.json
           command: |
             npm i firebase-tools
+      - save_cache:
+          paths:
+            - ~/usr/local/lib/node_modules # location depends on npm version
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
           name: Clone firebase-hosting
           command: |
