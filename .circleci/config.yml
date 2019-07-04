@@ -37,29 +37,25 @@ jobs:
           at: build/
       - add_ssh_keys:
           fingerprints:
-           - "17:aa:6e:76:27:f5:bf:4a:81:f3:cb:7a:27:63:c1:19"
+           - "c1:0a:7f:22:13:8c:5b:47:54:c3:10:85:cb:59:8d:ee"
       - run:
           name: Create package.json
           command: |
             npm i firebase-tools
       - run:
-          name: Clone gcp-serverless
+          name: Clone firebase-hosting
           command: |
-            git clone git@github.com:navikt/gcp-serverless.git
+            git clone git@github.com:navikt/firebase-hosting.git
       - run:
-          name: Move build-contents into gcp-serverless/public
+          name: Move build-contents into firebase-hosting/public
           command: | 
-            rm -r gcp-serverless/public/*
-            mv build/* gcp-serverless/public
+            rm -r firebase-hosting/public/*
+            mv build/* firebase-hosting/public
       - run:
           name: Deploy to Firebase
           command: |
-            cd gcp-serverless/functions
-            npm install
-            cd ..
             ../node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
   
-
 
 workflows:
   bygg_og_deploy:
