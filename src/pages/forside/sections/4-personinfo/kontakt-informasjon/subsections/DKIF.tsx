@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Undertittel, Normaltekst } from "nav-frontend-typografi";
+import React, { useEffect } from "react";
+import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
 import Spinner from "../../../../../../components/spinner/Spinner";
@@ -7,17 +7,16 @@ import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 import { useStore } from "../../../../../../providers/Provider";
-import iIcon from "../../../../../../assets/img/Hjelpetekst.svg";
-import Modal from "nav-frontend-modal";
+import Infotekst from "../../../../../../components/infotekst/Infotekst";
+import { injectIntl, InjectedIntlProps } from 'react-intl';
 
 export type FetchKontaktInfo =
   | { status: "LOADING" }
   | { status: "RESULT"; data: KontaktInfo }
   | { status: "ERROR"; error: HTTPError };
 
-const DKIF = () => {
+const DKIF = (props: InjectedIntlProps) => {
   const [{ kontaktInfo }, dispatch] = useStore();
-  const [visBeskrivelse, settVisBeskrivelse] = useState(false);
 
   useEffect(() => {
     if (kontaktInfo.status === "LOADING") {
@@ -43,11 +42,10 @@ const DKIF = () => {
           <Undertittel>
             <FormattedMessage id="personalia.dkif.overskrift" />
           </Undertittel>
-          <img
-            src={iIcon}
-            className="dkif__overskrift-i-icon"
-            alt="Les mer om kontakt og reservasjonsregisteret"
-            onClick={() => settVisBeskrivelse(true)}
+          <Infotekst
+            beskrivelse={props.intl.formatMessage({
+              id: "personalia.dkif.beskrivelse"
+            })}
           />
         </div>
       </div>
@@ -61,23 +59,8 @@ const DKIF = () => {
             return <Error error={kontaktInfo.error} />;
         }
       })()}
-      <Modal
-        isOpen={visBeskrivelse}
-        onRequestClose={() => settVisBeskrivelse(false)}
-        closeButton={true}
-        contentLabel="Min modalrute"
-        className="box__modal"
-      >
-        <div style={{ padding: "2rem 2.5rem" }}>
-          <div className="box__ingress">
-            <Normaltekst>
-              <FormattedMessage id="personalia.dkif.beskrivelse" />
-            </Normaltekst>
-          </div>
-        </div>
-      </Modal>
     </>
   );
 };
 
-export default DKIF;
+export default injectIntl(DKIF);
