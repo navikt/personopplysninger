@@ -19,27 +19,8 @@
     align-items: center;
   }
 
-  &__title-i-icon,
-  &__title-filler {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    border: 0;
-    background: transparent;
-    &:focus {
-      background: @fokusFarge;
-    }
-  }
-
   &__ikon {
     width: 72.5% !important;
-  }
-
-  &__modal {
-    @media @desktop {
-      max-width: 50%;
-    }
   }
 
   &__title-i-icon {
@@ -67,10 +48,6 @@
 
   &__header > * {
     margin-bottom: 0.4rem;
-  }
-
-  &__ingress {
-    max-width: 100%;
   }
 
   &__linje-smal {
@@ -113,16 +90,5 @@
         width: 100%;
       }
     }
-  }
-}
-
-#hjelpetekstknapp {
-  border: none;
-  background: none;
-  cursor: pointer;
-  height: 80px;
-  width: 80px;
-  &:focus {
-    outline: 2px dashed
   }
 }

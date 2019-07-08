@@ -3,7 +3,7 @@ import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
-import Hjelpetekst from "../Hjelpetekst";
+import Infotekst from "../infotekst/Infotekst";
 
 interface Props {
   id: string;
@@ -27,14 +27,13 @@ const Box = (props: Props & InjectedIntlProps) => {
         <div className="box__container">
           <div className="box__header" id={id}>
             <div className="box__title-container">
-              {beskrivelse && <div className="box__title-filler" />}
               {tittel && (
                 <Systemtittel>
                   <FormattedMessage id={tittel} />
                 </Systemtittel>
               )}
               {beskrivelse && (
-                <Hjelpetekst beskrivelse={intl.formatMessage({id: beskrivelse})} />
+                <Infotekst beskrivelse={intl.formatMessage({id: beskrivelse})} />
               )}
             </div>
           </div>
