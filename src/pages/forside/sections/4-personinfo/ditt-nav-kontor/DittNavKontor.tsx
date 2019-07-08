@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
-import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
+import { Enhet } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
@@ -13,13 +13,13 @@ import { print } from "../../../../../utils/text";
 import Kilde from "../../../../../components/kilde/Kilde";
 
 interface Props {
-  enhetKontaktInfo: EnhetKontaktInfo;
+  enhetKontaktInfo: Enhet;
   geografiskTilknytning: GeografiskTilknytning;
 }
 
 const DittNavKontor = (props: Props & InjectedIntlProps) => {
   const { enhetKontaktInfo, geografiskTilknytning, intl } = props;
-  const { publikumsmottak, postadresse } = enhetKontaktInfo.enhet;
+  const { publikumsmottak, postadresse } = enhetKontaktInfo;
   const [valgtMottakId, settValgtMottakId] = useState(
     publikumsmottak.length > 1 ? -1 : 0
   );

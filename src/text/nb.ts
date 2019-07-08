@@ -71,6 +71,7 @@ export default {
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
+  "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret.`,
   "arbeidsforhold.tittel": `Arbeidsforhold`,
   "arbeidsforhold.beskrivelse": `NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV. Også andre offentlige instanser kan hente opplysninger fra dette registeret, som Arbeids- og velferdsetaten har ansvar for. `,
   "arbeidsforhold.kilde": `Kilde: AA-registeret`,
