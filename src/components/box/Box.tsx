@@ -33,7 +33,9 @@ const Box = (props: Props & InjectedIntlProps) => {
                 </Systemtittel>
               )}
               {beskrivelse && (
-                <Infotekst beskrivelse={intl.formatMessage({id: beskrivelse})} />
+                <Infotekst
+                  beskrivelse={intl.formatMessage({ id: beskrivelse })}
+                />
               )}
             </div>
           </div>
