@@ -8,6 +8,7 @@ import Forside from "./pages/forside/Forside";
 import { HTTPError } from "./components/error/Error";
 import Spinner from "./components/spinner/Spinner";
 import { AuthInfo } from "./types/authInfo";
+import Error from "./components/error/Error";
 
 export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "LOADING" }
@@ -52,10 +53,9 @@ const App = () => {
 
   switch (auth.status) {
     case "LOADING":
-    case "ERROR":
       return <Spinner />;
     case "RESULT":
-      return (
+      return auth.data.authenticated ? (
         <div className="pagecontent">
           <Router>
             <Route exact={true} path={`(/|${basePath})`} component={Forside} />
@@ -71,7 +71,11 @@ const App = () => {
           </Router>
           )}
         </div>
+      ) : (
+        <Spinner />
       );
+    case "ERROR":
+      return <Error error={auth.error} />;
   }
 };
 
