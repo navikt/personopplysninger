@@ -23,7 +23,11 @@ function Infotekst(props: HjelpetekstProps) {
         aria-label={"Informasjonstekst"}
         aria-pressed={erSynlig}
       >
-        <img src={hover ? infoIkonFylt : infoIkon} className="infotekst__title-i-icon" alt="Vis mer informasjon" />
+        <img
+          src={hover ? infoIkonFylt : infoIkon}
+          className="infotekst__title-i-icon"
+          alt="Vis mer informasjon"
+        />
       </button>
       <Modal
         isOpen={erSynlig}
