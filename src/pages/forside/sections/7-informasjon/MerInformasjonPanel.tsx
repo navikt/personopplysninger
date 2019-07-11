@@ -15,21 +15,22 @@ const Alternativ = (props: Props & InjectedIntlProps) => {
   const { tittel, melding } = props;
   const [visBeskrivelse, settVisBeskrivelse] = useState(false);
   return (
-    <div
-      className="mi__rad"
-      onClick={() => settVisBeskrivelse(!visBeskrivelse)}
-    >
-      <div className="lenke">
-        <Normaltekst>
+    <>
+      <button
+        className="mi__button"
+        onClick={() => settVisBeskrivelse(!visBeskrivelse)}
+        aria-expanded={visBeskrivelse}
+      >
+        <Normaltekst className="lenke mi__lenke">
           <FormattedMessage id={tittel} />
         </Normaltekst>
-      </div>
+      </button>
       {visBeskrivelse && (
         <Normaltekst>
           <FormattedHTMLMessage id={melding} />
         </Normaltekst>
       )}
-    </div>
+    </>
   );
 };
 
