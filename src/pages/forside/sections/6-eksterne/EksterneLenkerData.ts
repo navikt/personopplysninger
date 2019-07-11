@@ -45,7 +45,7 @@ export default [
     tittel: "eksternelenker.pensjon.tittel",
     beskrivelse: "eksternelenker.pensjon.beskrivelse",
     lenkeTekst: "eksternelenker.pensjon.lenkeTekst",
-    url: `${tjenesteUrl}/pselv/publisering/dinpensjon.jsf`,
+    url: `${tjenesteUrl}/pselv/publisering/dinepensjonspoeng.jsf?context=pensjon`,
     icon: pensjon
   }
 ];
