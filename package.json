@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "^1.0.85",
+    "@navikt/arbeidsforhold": "^1.0.88",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
     "express": "^4.17.1",
@@ -42,6 +42,8 @@
     "nav-frontend-ekspanderbartpanel-style": "^0.3.20",
     "nav-frontend-etiketter": "^1.0.23",
     "nav-frontend-etiketter-style": "^0.3.17",
+    "nav-frontend-hjelpetekst": "^1.0.39",
+    "nav-frontend-hjelpetekst-style": "^0.3.29",
     "nav-frontend-ikoner-assets": "^1.0.1",
     "nav-frontend-js-utils": "^1.0.7",
     "nav-frontend-lenkepanel": "^1.0.29",
