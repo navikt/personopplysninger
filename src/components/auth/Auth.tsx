@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { FeatureToggles } from "../../providers/Store";
 import { HTTPError } from "../error/Error";
 import { useStore } from "../../providers/Provider";
 import { fetchAuthInfo } from "../../clients/apiClient";
@@ -7,10 +6,10 @@ import { AuthInfo } from "../../types/authInfo";
 import Spinner from "../spinner/Spinner";
 import Error from "../error/Error";
 
-export type FetchFeatureToggles = { data: FeatureToggles } & (
+export type FetchAuthInfo =
   | { status: "LOADING" }
-  | { status: "RESULT" }
-  | { status: "ERROR"; error: HTTPError });
+  | { status: "RESULT"; data: AuthInfo }
+  | { status: "ERROR"; error: HTTPError };
 
 interface Props {
   children: any;

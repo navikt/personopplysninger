@@ -4,8 +4,8 @@ import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
 import { FetchFeatureToggles } from "../App";
-import { FetchAuthInfo } from "../pages/forside/sections/3-header/Header";
 import { AuthInfo } from "../types/authInfo";
+import { FetchAuthInfo } from "../components/auth/Auth";
 
 export interface FeatureToggles {
   [key: string]: boolean;

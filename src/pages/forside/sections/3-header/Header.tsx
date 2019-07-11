@@ -3,16 +3,10 @@ import { FormattedHTMLMessage } from "react-intl";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "../../../../assets/img/Veileder.svg";
 import Veilederpanel from "nav-frontend-veilederpanel";
-import { AuthInfo } from "../../../../types/authInfo";
-import Error, { HTTPError } from "../../../../components/error/Error";
+import Error from "../../../../components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "../../../../utils/text";
 import { useStore } from "../../../../providers/Provider";
-
-export type FetchAuthInfo =
-  | { status: "LOADING" }
-  | { status: "RESULT"; data: AuthInfo }
-  | { status: "ERROR"; error: HTTPError };
 
 const Header = () => {
   const [{ auth }] = useStore();
