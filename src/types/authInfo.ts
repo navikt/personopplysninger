@@ -1,5 +1,9 @@
-export interface AuthInfo {
-  authenticated: boolean;
-  name: string;
-  securityLevel?: string;
-}
+export type AuthInfo =
+  | {
+      authenticated: false;
+    }
+  | {
+      authenticated: true;
+      name: string;
+      securityLevel: string;
+    };

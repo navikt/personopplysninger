@@ -5,7 +5,7 @@ import Adresser from "./adresser/Adresser";
 import DittNavKontor from "./ditt-nav-kontor/DittNavKontor";
 import Spinner from "../../../../components/spinner/Spinner";
 import { PersonInfo } from "../../../../types/personInfo";
-import { fetchPersonInfo, sendTilLogin } from "../../../../clients/apiClient";
+import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
 import KontaktInfo from "./kontakt-informasjon/KontaktInfo";
 import Utbetalinger from "./utbetalinger/Utbetalinger";
@@ -28,9 +28,7 @@ const VisPersonInfo = () => {
           })
         )
         .catch((error: HTTPError) =>
-          error.code === 401 || error.code === 403
-            ? sendTilLogin()
-            : dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
+          dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
