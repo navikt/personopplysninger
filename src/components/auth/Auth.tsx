@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { ReactChild, useEffect } from "react";
 import { FeatureToggles } from "../../providers/Store";
 import { HTTPError } from "../error/Error";
 import { useStore } from "../../providers/Provider";
@@ -12,11 +12,10 @@ export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "RESULT" }
   | { status: "ERROR"; error: HTTPError });
 
-export const basePath = "/person/personopplysninger";
-
 interface Props {
-  children: JSX.Element | JSX.Element[];
+  children: any;
 }
+
 const Auth = (props: Props) => {
   const [{ auth }, dispatch] = useStore();
 

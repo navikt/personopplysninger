@@ -41,18 +41,16 @@ const App = () => {
       <Router>
         <Brodsmulesti />
         <WithAuth>
-          <div>
-            <Route exact={true} path={`(/|${basePath})`} component={Forside} />
-            {featureToggles.data[
-              "personopplysninger.arbeidsforhold.detaljert"
-            ] && (
-              <Route
-                exact={true}
-                path={`${basePath}/arbeidsforhold/:id`}
-                component={DetaljertArbeidsforhold}
-              />
-            )}
-          </div>
+          <Route exact={true} path={`(/|${basePath})`} component={Forside} />
+          {featureToggles.data[
+            "personopplysninger.arbeidsforhold.detaljert"
+          ] && (
+            <Route
+              exact={true}
+              path={`${basePath}/arbeidsforhold/:id`}
+              component={DetaljertArbeidsforhold}
+            />
+          )}
         </WithAuth>
       </Router>
     </div>
