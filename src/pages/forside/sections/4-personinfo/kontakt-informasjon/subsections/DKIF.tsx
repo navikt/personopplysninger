@@ -8,7 +8,7 @@ import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 import { useStore } from "../../../../../../providers/Provider";
 import Infotekst from "../../../../../../components/infotekst/Infotekst";
-import { injectIntl, InjectedIntlProps } from 'react-intl';
+import { injectIntl, InjectedIntlProps } from "react-intl";
 
 export type FetchKontaktInfo =
   | { status: "LOADING" }
@@ -27,9 +27,11 @@ const DKIF = (props: InjectedIntlProps) => {
             payload: kontaktInfo as KontaktInfo
           })
         )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
-        );
+        .catch((error: HTTPError) => {
+          if (error.code !== 401 && error.code !== 403) {
+            dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error });
+          }
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -27,9 +27,11 @@ const VisPersonInfo = () => {
             payload: personInfo as PersonInfo
           })
         )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
-        );
+        .catch((error: HTTPError) => {
+          if (error.code !== 401 && error.code !== 403) {
+            dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error });
+          }
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -50,7 +52,11 @@ const VisPersonInfo = () => {
       if (adresser) {
         elements.push(<Adresser key="a" adresser={adresser} />);
 
-        if (adresser.geografiskTilknytning && enhetKontaktInformasjon && enhetKontaktInformasjon.enhet) {
+        if (
+          adresser.geografiskTilknytning &&
+          enhetKontaktInformasjon &&
+          enhetKontaktInformasjon.enhet
+        ) {
           elements.push(
             <DittNavKontor
               key="d"
