@@ -1,4 +1,4 @@
-import React, {gi useEffect } from "react";
+import React, { useEffect } from "react";
 import { FeatureToggles } from "../../providers/Store";
 import { HTTPError } from "../error/Error";
 import { useStore } from "../../providers/Provider";
