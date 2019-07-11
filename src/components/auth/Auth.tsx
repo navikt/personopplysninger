@@ -4,7 +4,6 @@ import { useStore } from "../../providers/Provider";
 import { fetchAuthInfo } from "../../clients/apiClient";
 import { AuthInfo } from "../../types/authInfo";
 import Spinner from "../spinner/Spinner";
-import Error from "../error/Error";
 
 export type FetchAuthInfo =
   | { status: "LOADING" }
