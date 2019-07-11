@@ -6,16 +6,16 @@ const { apiUrl, loginUrl, baseUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 const sendTilLogin = () =>
-  new Promise(() =>
-    window.location.assign(`${loginUrl}?redirect=${window.location.href}`)
-  );
+  window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
 
-const sjekkAuth = (response: Response): Response | Promise<any> =>
-  response.status === 401 ||
-  response.status === 403 ||
-  (response.status === 0 && !response.ok)
-    ? sendTilLogin()
-    : response;
+const sjekkAuth = (response: Response): Promise<any> =>
+  new Promise(resolve =>
+    response.status === 401 ||
+    response.status === 403 ||
+    (response.status === 0 && !response.ok)
+      ? sendTilLogin()
+      : resolve(response)
+  );
 
 const sjekkForFeil = (
   url: string,
