@@ -9,6 +9,7 @@ import { HTTPError } from "./components/error/Error";
 import Spinner from "./components/spinner/Spinner";
 import { AuthInfo } from "./types/authInfo";
 import Error from "./components/error/Error";
+import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "LOADING" }
@@ -39,7 +40,6 @@ const App = () => {
 
   useEffect(() => {
     if (auth.status === "LOADING") {
-      console.log("Fetch");
       fetchAuthInfo()
         .then((authInfo: AuthInfo) =>
           dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
@@ -58,6 +58,7 @@ const App = () => {
       return auth.data.authenticated ? (
         <div className="pagecontent">
           <Router>
+            <Brodsmulesti />
             <Route exact={true} path={`(/|${basePath})`} component={Forside} />
             {featureToggles.data[
               "personopplysninger.arbeidsforhold.detaljert"
@@ -69,7 +70,6 @@ const App = () => {
               />
             )}
           </Router>
-          )}
         </div>
       ) : (
         <Spinner />
