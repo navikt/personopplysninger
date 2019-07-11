@@ -6,15 +6,8 @@ import { HTTPError } from "../components/error/Error";
 const { apiUrl, loginUrl, baseUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
-const sendTilLogin = () => {
+export const sendTilLogin = () => {
   window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
-};
-
-const sjekkAuth = (response: Response): any => {
-  if (response.status === 401 || response.status === 403) {
-    sendTilLogin();
-  }
-  return response;
 };
 
 const sjekkForFeil = (url: string, response: Response) => {
@@ -36,7 +29,6 @@ const hentJsonOgSjekkAuth = (url: string) =>
     headers: { "Content-Type": "application/json;charset=UTF-8" },
     credentials: "include"
   })
-    .then(sjekkAuth)
     .then(response => sjekkForFeil(url, response))
     .then(parseJson)
     .catch((err: string & HTTPError) => {

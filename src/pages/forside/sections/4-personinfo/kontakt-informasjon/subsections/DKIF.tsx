@@ -3,7 +3,10 @@ import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "../../../../../../components/error/Error";
 import Spinner from "../../../../../../components/spinner/Spinner";
-import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
+import {
+  fetchKontaktInfo,
+  sendTilLogin
+} from "../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import KontaktInformasjon from "./KontaktInformasjon";
 import { useStore } from "../../../../../../providers/Provider";
@@ -27,11 +30,11 @@ const DKIF = (props: InjectedIntlProps) => {
             payload: kontaktInfo as KontaktInfo
           })
         )
-        .catch((error: HTTPError) => {
-          if (error.code !== 401 && error.code !== 403) {
-            dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error });
-          }
-        });
+        .catch((error: HTTPError) =>
+          error.code === 401 || error.code === 403
+            ? sendTilLogin()
+            : dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
+        );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
