@@ -32,7 +32,7 @@ jobs:
           paths:
             - build/*
 
-  build-docker-image:
+  build-docker-image: &build-docker-image
     docker:
       - image: circleci/node:11.7.0
     steps:
@@ -50,6 +50,7 @@ jobs:
             docker push "$DOCKER_IMAGE_VERSIONED"
 
   deploy-til-dev:
+    <<: *build-docker-image
     docker:
       - image: circleci/node:11.7.0
     steps:
