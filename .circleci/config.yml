@@ -35,6 +35,9 @@ jobs:
             - server/*
 
   deploy-til-dev:
+    docker:
+      - image: circleci/node:11.7.0
+
     steps:
       - setup_remote_docker
       - sett-miljovariabler
@@ -71,6 +74,9 @@ jobs:
                 https://api.github.com/repos/navikt/personopplysninger/deployments
 
   deploy-til-prod:
+    docker:
+      - image: circleci/node:11.7.0
+
     steps:
       - sett-miljovariabler
       - run:
