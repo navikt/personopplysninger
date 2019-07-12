@@ -20,7 +20,7 @@ export default {
     melding:
       `<p>Hvis du har bodd eller arbeidet i andre land enn Norge, og har søkt om ytelser eller tjenester i Norge eller i et annet land,  må NAV noen ganger utveksle opplysninger om deg med et annet lands trygdemyndigheter. ` +
       `NAV vil bare levere ut opplysninger til land som er omfattet av EØS-avtalen eller land som Norge har inngått trygdeavtaler med. ` +
-      `<p><a class="lenke" href="https://www.nav.no/rettskildene/Forside/Hovednummer/hovednummer-42-trygdeavtaler" target="blank" rel="noopener noreferrer">Se oversikt over hvilke land Norge har inngått trygdeavtale med</a>.</p>`
+      `<p><a class="lenke" href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler" target="blank" rel="noopener noreferrer">Se oversikt over hvilke land Norge har inngått trygdeavtale med</a>.</p>`
   },
   klage: {
     tittel: `Har du spørsmål eller ønsker du å klage?`,

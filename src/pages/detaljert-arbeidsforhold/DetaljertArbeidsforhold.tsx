@@ -6,7 +6,6 @@ import { injectIntl, InjectedIntlProps } from "react-intl";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { HashLink as Link } from "react-router-hash-link";
 import { basePath } from "../../App";
-import Brodsmulesti from "../forside/sections/2-brodsmulesti/Brodsmulesti";
 import Icon from "../../components/icon/Icon";
 import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
 import { Systemtittel } from "nav-frontend-typografi";
@@ -33,7 +32,6 @@ const Arbeidsforhold = (props: MergedProps) => {
 
   return (
     <div className="da__container">
-      <Brodsmulesti />
       <div className="da__icon">
         <Icon backgroundImage={arbeidsforholdIkon} backgroundColor="#99C1E9" />
       </div>

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Systemtittel, Normaltekst } from "nav-frontend-typografi";
+import React from "react";
+import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
-import hjelpetekstIkon from "../../assets/img/Hjelpetekst.svg";
 import Modal from "nav-frontend-modal";
+import Infotekst from "../infotekst/Infotekst";
 
 interface Props {
   id: string;
@@ -15,8 +15,7 @@ interface Props {
 
 Modal.setAppElement("#app");
 const Box = (props: Props & InjectedIntlProps) => {
-  const { tittel, beskrivelse, icon, children, id } = props;
-  const [visBeskrivelse, settVisBeskrivelse] = useState(false);
+  const { tittel, beskrivelse, icon, children, id, intl } = props;
 
   return (
     <div className="box__wrapper">
@@ -28,40 +27,19 @@ const Box = (props: Props & InjectedIntlProps) => {
         <div className="box__container">
           <div className="box__header" id={id}>
             <div className="box__title-container">
-              {beskrivelse && <div className="box__title-filler" />}
               {tittel && (
                 <Systemtittel>
                   <FormattedMessage id={tittel} />
                 </Systemtittel>
               )}
               {beskrivelse && (
-                <img
-                  src={hjelpetekstIkon}
-                  className="box__title-i-icon"
-                  alt="Vis mer informasjon"
-                  onClick={() => settVisBeskrivelse(true)}
+                <Infotekst
+                  beskrivelse={intl.formatMessage({ id: beskrivelse })}
                 />
               )}
             </div>
           </div>
           <div className="box__content">{children}</div>
-          {beskrivelse && (
-            <Modal
-              isOpen={visBeskrivelse}
-              onRequestClose={() => settVisBeskrivelse(false)}
-              closeButton={true}
-              contentLabel="Min modalrute"
-              className="box__modal"
-            >
-              <div style={{ padding: "2rem 2.5rem" }}>
-                <div className="box__ingress">
-                  <Normaltekst>
-                    <FormattedMessage id={beskrivelse} />
-                  </Normaltekst>
-                </div>
-              </div>
-            </Modal>
-          )}
         </div>
       </Veilederpanel>
     </div>

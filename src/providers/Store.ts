@@ -4,12 +4,15 @@ import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
 import { FetchFeatureToggles } from "../App";
+import { AuthInfo } from "../types/authInfo";
+import { FetchAuthInfo } from "../components/auth/Auth";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
 export const initialState = {
+  auth: { status: "LOADING" } as FetchAuthInfo,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -22,12 +25,21 @@ export const initialState = {
 };
 
 export interface Store {
+  auth: FetchAuthInfo;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   kontaktInfo: FetchKontaktInfo;
 }
 
 export type Action =
+  | {
+      type: "SETT_AUTH_RESULT";
+      payload: AuthInfo;
+    }
+  | {
+      type: "SETT_AUTH_ERROR";
+      payload: HTTPError;
+    }
   | {
       type: "SETT_FEATURE_TOGGLES";
       payload: FeatureToggles;
@@ -51,6 +63,22 @@ export type Action =
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
+    case "SETT_AUTH_RESULT":
+      return {
+        ...state,
+        auth: {
+          status: "RESULT",
+          data: action.payload
+        } as FetchAuthInfo
+      };
+    case "SETT_AUTH_ERROR":
+      return {
+        ...state,
+        auth: {
+          status: "ERROR",
+          error: action.payload
+        } as FetchAuthInfo
+      };
     case "SETT_FEATURE_TOGGLES":
       return {
         ...state,

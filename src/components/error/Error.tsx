@@ -2,7 +2,7 @@ import React from "react";
 import AlertStripe from "nav-frontend-alertstriper";
 
 export interface HTTPError {
-  code: string;
+  code: number;
   text: string;
 }
 

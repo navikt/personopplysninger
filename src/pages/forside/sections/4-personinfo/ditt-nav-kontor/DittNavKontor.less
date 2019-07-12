@@ -14,4 +14,16 @@
   &__footer {
     margin-top: 2rem;
   }
+  &__adresser {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__publikumsmottak,
+  &__postadresse {
+    width: 50%;
+    @media @mobile {
+      padding-bottom: 1rem;
+      width: 100%;
+    }
+  }
 }

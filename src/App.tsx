@@ -6,6 +6,8 @@ import { FeatureToggles } from "./providers/Store";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
 import { HTTPError } from "./components/error/Error";
+import WithAuth from "./components/auth/Auth";
+import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "LOADING" }
@@ -25,8 +27,10 @@ const App = () => {
             payload: res as FeatureToggles
           })
         )
-        .catch(error =>
-          console.error(`Failed to fetch feature toggles - ${error}`)
+        .catch((error: HTTPError) =>
+          console.error(
+            `Failed to fetch feature toggles - ${error.code} ${error.text}`
+          )
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -35,14 +39,19 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <Route exact={true} path={`(/|${basePath})`} component={Forside} />
-        {featureToggles.data["personopplysninger.arbeidsforhold.detaljert"] && (
-          <Route
-            exact={true}
-            path={`${basePath}/arbeidsforhold/:id`}
-            component={DetaljertArbeidsforhold}
-          />
-        )}
+        <Brodsmulesti />
+        <WithAuth>
+          <Route exact={true} path={`(/|${basePath})`} component={Forside} />
+          {featureToggles.data[
+            "personopplysninger.arbeidsforhold.detaljert"
+          ] && (
+            <Route
+              exact={true}
+              path={`${basePath}/arbeidsforhold/:id`}
+              component={DetaljertArbeidsforhold}
+            />
+          )}
+        </WithAuth>
       </Router>
     </div>
   );
