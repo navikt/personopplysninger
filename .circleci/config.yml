@@ -108,7 +108,7 @@ commands:
 workflows:
   bygg-og-deploy:
     jobs:
-      - build-react-app
+      - build-react-app:
           filters:
             tags:
               only: /.*/
@@ -118,8 +118,7 @@ workflows:
             - build-react-app
           filters:
             branches:
-              ignore:
-                - master
+              ignore: master
       - deploy-til-dev:
           name: automatisk-deploy-til-dev
           requires:
@@ -128,8 +127,7 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              only:
-                - master
+              only: master
       - deploy-til-dev:
           name: manuell-deploy-til-dev
           requires:
@@ -140,8 +138,7 @@ workflows:
             - automatisk-deploy-til-dev
           filters:
             branches:
-              only:
-                - master
+              only: master
       - deploy-til-prod:
           requires:
             - bekreft-deploy-til-prod
