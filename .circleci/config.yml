@@ -140,7 +140,7 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              only: master
+              ignore: /.*/
       - deploy-til-prod:
           requires:
             - bekreft-deploy-til-prod
@@ -148,5 +148,5 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              only: master
+              ignore: /.*/
 
