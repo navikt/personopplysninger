@@ -55,7 +55,6 @@ jobs:
       - image: circleci/node:11.7.0
     steps:
       - sett-miljovariabler
-      - build-docker-image
       - run:
           name: Deployer til dev
           command: |
