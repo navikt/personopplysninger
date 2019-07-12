@@ -6,7 +6,7 @@ COPY build build/
 
 ENV NODE_ENV production
 
-WORKDIR usr/src/app/server
+WORKDIR server
 RUN npm install
 RUN npm start
 
