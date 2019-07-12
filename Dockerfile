@@ -6,6 +6,8 @@ COPY build build/
 
 ENV NODE_ENV production
 
-EXPOSE 8080
+WORKDIR usr/src/app/server
+RUN npm install
+RUN npm start
 
-CMD ["node", "./server/server.js"]
+EXPOSE 8080
