@@ -120,7 +120,6 @@ workflows:
   bygg-og-deploy:
     jobs:
       - build-react-app
-
       - bekreft-deploy-til-dev:
           type: approval
           requires:
@@ -129,7 +128,6 @@ workflows:
             branches:
               ignore:
                 - master
-
       - deploy-til-dev:
           requires:
             - build-react-app
@@ -137,11 +135,9 @@ workflows:
             branches:
               only:
                 - master
-
       - deploy-til-dev:
           requires:
             - bekreft-deploy-til-dev
-
       - bekreft-deploy-til-prod:
           type: approval
           requires:
@@ -152,7 +148,6 @@ workflows:
             branches:
               only:
                 - master
-                -
       - deploy-til-prod:
           requires:
             - bekreft-deploy-til-prod
