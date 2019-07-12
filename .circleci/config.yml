@@ -124,6 +124,8 @@ workflows:
           requires:
             - build-react-app
           filters:
+            tags:
+              only: /^v.*/
             branches:
               only: master
       - deploy-til-dev:
@@ -142,3 +144,4 @@ workflows:
       - deploy-til-prod:
           requires:
             - bekreft-deploy-til-prod
+
