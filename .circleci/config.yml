@@ -11,13 +11,17 @@ jobs:
             - node-v1-{{ .Branch }}-
             - node-v1-
       - run:
+          name: Installer npm pakker
+          command: |
+            npm install
+      - save_cache:
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+          paths:
+            - ./node_modules
+      - run:
           name: Bygg React app
           command: |
-            npm ci && npm run build
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            npm run build
       - run:
           name: Tester
           command: |
