@@ -7,7 +7,6 @@ jobs:
   build:
     docker:
       - image: circleci/node:11.7.0
-
     steps:
       - checkout
       - restore_cache:
@@ -33,24 +32,29 @@ jobs:
           paths:
             - build/*
 
+  build-docker-image:
+    docker:
+      - image: circleci/node:11.7.0
+      steps:
+        - checkout
+        - setup_remote_docker
+        - attach_workspace:
+            at: build/
+        - run:
+            name: Bygger Docker image
+            command: docker build -t "$DOCKER_IMAGE_VERSIONED" .
+        - run:
+            name: Pusher Docker image
+            command: |
+              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+              docker push "$DOCKER_IMAGE_VERSIONED"
+
   deploy-til-dev:
     docker:
       - image: circleci/node:11.7.0
-
     steps:
-      - checkout
-      - setup_remote_docker
       - sett-miljovariabler
-      - attach_workspace:
-          at: build/
-      - run:
-          name: Bygger Docker image
-          command: docker build -t "$DOCKER_IMAGE_VERSIONED" .
-      - run:
-          name: Pusher Docker image
-          command: |
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push "$DOCKER_IMAGE_VERSIONED"
+      - build-docker-image
       - run:
           name: Deployer til dev
           command: |
@@ -76,7 +80,6 @@ jobs:
   deploy-til-prod:
     docker:
       - image: circleci/node:11.7.0
-
     steps:
       - sett-miljovariabler
       - run:
@@ -114,40 +117,45 @@ commands:
             echo 'export DOCKER_IMAGE_VERSIONED="$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$BRANCH_PREFIX$RELEASE_VERSION"' >> $BASH_ENV
 
 workflows:
-  bygg_og_deploy:
+  bygg-og-deploy:
     jobs:
-      - build
-      - deploy-til-dev:
-          requires:
-            - build
-          filters:
-            branches:
-              only:
-                - master
-      - deploy-til-dev-manuelt:
+      - build-react-app
+
+      - bekreft-deploy-til-dev:
           type: approval
           requires:
-            - build
+            - build-react-app
           filters:
             branches:
               ignore:
                 - master
+
       - deploy-til-dev:
           requires:
-            - deploy-til-dev-manuelt
-      - godkjenn-til-prod:
+            - build-react-app
+          filters:
+            branches:
+              only:
+                - master
+
+      - deploy-til-dev:
+          requires:
+            - bekreft-deploy-til-dev
+
+      - bekreft-deploy-til-prod:
           type: approval
           requires:
-            - build
+            - deploy-til-dev
           filters:
             tags:
               only: /^v.*/
             branches:
               only:
                 - master
+                -
       - deploy-til-prod:
           requires:
-            - godkjenn-til-prod
+            - bekreft-deploy-til-prod
           filters:
             tags:
               only: /^v.*/
