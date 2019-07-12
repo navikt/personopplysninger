@@ -143,7 +143,7 @@ workflows:
       - bekreft-deploy-til-prod:
           type: approval
           requires:
-            - deploy-til-dev
+            - automatisk-deploy-til-dev
           filters:
             tags:
               only: /^v.*/
