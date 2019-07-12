@@ -33,6 +33,7 @@ jobs:
           paths:
             - build/*
             - server/*
+            - ./Dockerfile
 
   deploy-til-dev:
     docker:
