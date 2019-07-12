@@ -129,6 +129,7 @@ workflows:
               ignore:
                 - master
       - deploy-til-dev:
+          name: automatisk-deploy-til-dev
           requires:
             - build-react-app
           filters:
@@ -136,6 +137,7 @@ workflows:
               only:
                 - master
       - deploy-til-dev:
+          name: manuell-deploy-til-dev
           requires:
             - bekreft-deploy-til-dev
       - bekreft-deploy-til-prod:
