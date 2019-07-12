@@ -1,48 +1,51 @@
 import Environment from "../utils/Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
+import { HTTPError } from "../components/error/Error";
 
 const { apiUrl, loginUrl, baseUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
-const sendTilLogin = () =>
-  new Promise(() =>
-    window.location.assign(`${loginUrl}?redirect=${window.location.href}`)
-  );
+export const sendTilLogin = () => {
+  window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
+};
 
-const sjekkAuth = (response: Response): Response | Promise<any> =>
-  response.status === 401 ||
-  response.status === 403 ||
-  (response.status === 0 && !response.ok)
-    ? sendTilLogin()
-    : response;
+const sjekkAuth = (response: Response): any => {
+  if (response.status === 401 || response.status === 403) {
+    sendTilLogin();
+  }
+  return response;
+};
 
-const sjekkForFeil = (
-  url: string,
-  response: Response,
-  reject: (reason?: any) => void
-) =>
-  response.ok
-    ? response
-    : (logApiError(url, response),
-      reject({
-        code: response.status,
-        text: response.statusText
-      }));
+const sjekkForFeil = (url: string, response: Response) => {
+  if (response.ok) {
+    return response;
+  } else {
+    const error = {
+      code: response.status,
+      text: response.statusText
+    };
+    throw error;
+  }
+};
 
 const hentJsonOgSjekkAuth = (url: string) =>
-  new Promise((resolve, reject) =>
-    fetch(url, {
-      method: "GET",
-      headers: { "Content-Type": "application/json;charset=UTF-8" },
-      credentials: "include"
-    })
-      .then(sjekkAuth)
-      .then(response => sjekkForFeil(url, response, reject))
-      .then(parseJson)
-      .then(resolve)
-      .catch(reject)
-  );
+  fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include"
+  })
+    .then(sjekkAuth)
+    .then(response => sjekkForFeil(url, response))
+    .then(parseJson)
+    .catch((err: string & HTTPError) => {
+      const error = {
+        code: err.code || 404,
+        text: err.text || err
+      };
+      logApiError(url, error);
+      throw error;
+    });
 
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
