@@ -32,11 +32,12 @@ jobs:
           paths:
             - build/*
 
-  build-docker-image: &build-docker-image
+  deploy-til-dev:
     docker:
       - image: circleci/node:11.7.0
     steps:
       - checkout
+      - sett-miljovariabler
       - setup_remote_docker
       - attach_workspace:
           at: build/
@@ -48,13 +49,6 @@ jobs:
           command: |
             echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
             docker push "$DOCKER_IMAGE_VERSIONED"
-
-  deploy-til-dev:
-    <<: *build-docker-image
-    docker:
-      - image: circleci/node:11.7.0
-    steps:
-      - sett-miljovariabler
       - run:
           name: Deployer til dev
           command: |
