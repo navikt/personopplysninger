@@ -8,6 +8,7 @@ ENV NODE_ENV production
 
 WORKDIR server
 RUN npm install
-RUN npm start
+
+CMD ["node", "./server.js"]
 
 EXPOSE 8080
