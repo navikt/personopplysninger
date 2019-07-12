@@ -120,6 +120,10 @@ workflows:
             branches:
               ignore: master
       - deploy-til-dev:
+          name: manuell-deploy-til-dev
+          requires:
+            - bekreft-deploy-til-dev
+      - deploy-til-dev:
           name: automatisk-deploy-til-dev
           requires:
             - build-react-app
@@ -128,10 +132,6 @@ workflows:
               only: /^v.*/
             branches:
               only: master
-      - deploy-til-dev:
-          name: manuell-deploy-til-dev
-          requires:
-            - bekreft-deploy-til-dev
       - bekreft-deploy-til-prod:
           type: approval
           requires:
@@ -140,8 +140,13 @@ workflows:
             tags:
               only: /^v.*/
             branches:
-              ignore: /.*/
+              only: master
       - deploy-til-prod:
           requires:
             - bekreft-deploy-til-prod
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              only: master
 
