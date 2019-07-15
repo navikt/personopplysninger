@@ -21,7 +21,7 @@ const Auth = (props: Props) => {
     if (auth.status === "LOADING") {
       fetchAuthInfo()
         .then((authInfo: AuthInfo) =>
-          authInfo.authenticated
+          authInfo.authenticated && authInfo.securityLevel === "4"
             ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
             : sendTilLogin()
         )
