@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { HTTPError } from "../error/Error";
 import { useStore } from "../../providers/Provider";
-import { fetchAuthInfo } from "../../clients/apiClient";
+import { fetchAuthInfo, sendTilLogin } from "../../clients/apiClient";
 import { AuthInfo } from "../../types/authInfo";
 import Spinner from "../spinner/Spinner";
 
@@ -20,9 +20,12 @@ const Auth = (props: Props) => {
   useEffect(() => {
     if (auth.status === "LOADING") {
       fetchAuthInfo()
-        .then((authInfo: AuthInfo) =>
-          dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
-        )
+        .then((authInfo: AuthInfo) => {
+          dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo });
+          if (!authInfo.authenticated) {
+            sendTilLogin();
+          }
+        })
         .catch((error: HTTPError) =>
           dispatch({ type: "SETT_AUTH_ERROR", payload: error })
         );
