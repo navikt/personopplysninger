@@ -3,9 +3,9 @@ import { FetchPersonInfo } from "../pages/forside/sections/4-personinfo/PersonIn
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { FetchFeatureToggles } from "../App";
 import { AuthInfo } from "../types/authInfo";
 import { FetchAuthInfo } from "../components/auth/Auth";
+import { FetchFeatureToggles } from "../components/featuretoggles/FeatureToggles";
 
 export interface FeatureToggles {
   [key: string]: boolean;
