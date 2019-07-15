@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HTTPError } from "../error/Error";
+import Error, { HTTPError } from "../error/Error";
 import { useStore } from "../../providers/Provider";
 import { fetchAuthInfo, sendTilLogin } from "../../clients/apiClient";
 import { AuthInfo } from "../../types/authInfo";
@@ -20,12 +20,11 @@ const Auth = (props: Props) => {
   useEffect(() => {
     if (auth.status === "LOADING") {
       fetchAuthInfo()
-        .then((authInfo: AuthInfo) => {
-          dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo });
-          if (!authInfo.authenticated) {
-            sendTilLogin();
-          }
-        })
+        .then((authInfo: AuthInfo) =>
+          authInfo.authenticated
+            ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
+            : sendTilLogin()
+        )
         .catch((error: HTTPError) =>
           dispatch({ type: "SETT_AUTH_ERROR", payload: error })
         );
@@ -35,10 +34,11 @@ const Auth = (props: Props) => {
 
   switch (auth.status) {
     case "LOADING":
-    case "ERROR":
       return <Spinner />;
     case "RESULT":
-      return auth.data.authenticated ? <>{props.children}</> : <Spinner />;
+      return <>{props.children}</>;
+    case "ERROR":
+      return <Error error={auth.error} />;
   }
 };
 
