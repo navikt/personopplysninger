@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "^1.0.89",
+    "@navikt/arbeidsforhold": "^1.0.95",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
     "fetch-mock": "^7.3.3",
@@ -81,7 +81,7 @@
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.1"
+    "typescript": "^3.5.1"
   },
   "devDependencies": {
     "@types/fetch-mock": "^7.3.1",
