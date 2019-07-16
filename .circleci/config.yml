@@ -46,7 +46,7 @@ jobs:
               az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_TAG --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
-          command: az storage blob upload -c sc-personopplysninger -f build/index.html -n index.html
+          command: az storage blob upload -c sc-personopplysninger -f build/index.html -n index.html --account-name sapersonopplysninger
   
 
 workflows:
