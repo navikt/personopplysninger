@@ -45,13 +45,8 @@ jobs:
           command: |
               az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_TAG --account-name sapersonopplysninger -s build/
       - run:
-          name: Purge CDN
-          command: | 
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /*
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /*
-      - run:
           name: Upload index.html
-          command: az storage blob upload -d sc-personopplysninger --account-name sapersonopplysninger -s build/index.html
+          command: az storage blob upload -c sc-personopplysninger -f build/index.html -n /
   
 
 workflows:
@@ -62,7 +57,7 @@ workflows:
             tags:
               only: /.*/
       - deploy-til-dev:
-          name: automatisk-deploy-til-dev
+          name: deploy-til-dev
           requires:
             - build
           filters:
