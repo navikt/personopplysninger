@@ -38,7 +38,7 @@ jobs:
       - run: 
           name: Install and authenticate az cli
           command: |
-              curl -L https://aka.ms/InstallAzureCli | bash
+              curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
               az login --service-pricipal -u https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/v2.0/authorize -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
   
 
