@@ -35,27 +35,11 @@ jobs:
       - checkout
       - attach_workspace:
           at: build/
-      - add_ssh_keys:
-          fingerprints:
-           - "c1:0a:7f:22:13:8c:5b:47:54:c3:10:85:cb:59:8d:ee"
-      - run:
-          name: Create package.json
+      - run: 
+          name: Install and authenticate az cli
           command: |
-            npm i firebase-tools
-      - run:
-          name: Clone firebase-hosting
-          command: |
-            git clone git@github.com:navikt/firebase-hosting.git
-      - run:
-          name: Move build-contents into firebase-hosting/public
-          command: | 
-            rm -r firebase-hosting/public/*
-            mv build/* firebase-hosting/public
-      - run:
-          name: Deploy to Firebase
-          command: |
-            cd firebase-hosting
-            ../node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+              curl -L https://aka.ms/InstallAzureCli | bash
+              az login --service-pricipal -u https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/v2.0/authorize -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
   
 
 workflows:
