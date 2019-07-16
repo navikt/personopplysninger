@@ -43,8 +43,7 @@ jobs:
       - run:
           name: deploy to Azure container
           command: |
-              mkdir "$CIRCLE_TAG" 
-              cd build
+              mkdir "$CIRCLE_TAG"
               mv build/* $CIRCLE_TAG/
               az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s $CIRCLE_TAG
   
