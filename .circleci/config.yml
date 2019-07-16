@@ -47,7 +47,7 @@ jobs:
               mv build/* $CIRCLE_TAG/
               mkdir src_folder
               mv $CIRCLE_TAG src_folder/
-              az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_TAG --account-name sapersonopplysninger -s src_folder
+              az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_TAG --account-name sapersonopplysninger -s src_folder/
   
 
 workflows:
