@@ -52,8 +52,15 @@ jobs:
 workflows:
   bygg_og_deploy:
     jobs:
-      - build
-      # Legg til deploy-til-dev-manuelt
+      - build:
+          filters:
+            tags:
+              only: /.*/
       - deploy-til-dev:
           requires:
             - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
