@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Bygg react app
           command: |
-            npm ci && npm run build
+            npm ci && PUBLIC_URL=$CIRCLE_TAG npm run build
       - save_cache:
           paths:
             - ~/usr/local/lib/node_modules # location depends on npm version
@@ -40,6 +40,13 @@ jobs:
           command: |
               curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
               az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
+      - run:
+          name: deploy to Azure container
+          command: |
+              mkdir $CIRLCE_TAG 
+              cd build
+              mv build/* $CIRCLE_TAG/
+              az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s $CIRCLE_TAG
   
 
 workflows:
