@@ -1,6 +1,6 @@
 {
   "name": "personopplysninger",
-  "version": "0.0.9",
+  "version": "1.0.24",
   "private": true,
   "author": "NAV",
   "license": "MIT",
@@ -22,17 +22,15 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "^1.0.85",
+    "@navikt/arbeidsforhold": "^1.0.95",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
-    "express": "^4.17.1",
     "fetch-mock": "^7.3.3",
     "intl": "^1.2.5",
     "less-plugin-npm-import": "^2.1.0",
     "less-watch-compiler": "^1.13.0",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.24.0",
-    "mustache-express": "^1.2.8",
     "nav-frontend-alertstriper": "^3.0.3",
     "nav-frontend-alertstriper-style": "^2.0.2",
     "nav-frontend-chevron": "^1.0.9",
@@ -42,6 +40,8 @@
     "nav-frontend-ekspanderbartpanel-style": "^0.3.20",
     "nav-frontend-etiketter": "^1.0.23",
     "nav-frontend-etiketter-style": "^0.3.17",
+    "nav-frontend-hjelpetekst": "^1.0.39",
+    "nav-frontend-hjelpetekst-style": "^0.3.29",
     "nav-frontend-ikoner-assets": "^1.0.1",
     "nav-frontend-js-utils": "^1.0.7",
     "nav-frontend-lenkepanel": "^1.0.29",
@@ -81,7 +81,7 @@
     "react-router-dom": "^5.0.1",
     "react-router-hash-link": "^1.2.1",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.1"
+    "typescript": "^3.5.1"
   },
   "devDependencies": {
     "@types/fetch-mock": "^7.3.1",

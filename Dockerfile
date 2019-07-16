@@ -1,14 +1,14 @@
-FROM node:11.7.0
+FROM node:11-alpine
+# RUN apk add --no-cache bash
+ENV NODE_ENV production
 
 WORKDIR usr/src/app
 COPY server server/
-COPY src src/
-COPY public public/
-COPY *.json ./
+COPY build build/
 
-RUN npm install && npm run build
-ENV NODE_ENV production
+WORKDIR server
+RUN npm install
+
+CMD ["node", "./server.js"]
 
 EXPOSE 8080
-
-CMD ["node", "./server/server.js"]

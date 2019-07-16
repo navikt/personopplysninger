@@ -50,13 +50,14 @@ jobs:
   
 
 workflows:
-  bygg_og_deploy:
+  bygg-og-deploy:
     jobs:
       - build:
           filters:
             tags:
               only: /.*/
       - deploy-til-dev:
+          name: automatisk-deploy-til-dev
           requires:
             - build
           filters:

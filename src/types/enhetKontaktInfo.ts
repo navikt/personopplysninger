@@ -22,9 +22,27 @@ export interface Publikumsmottak {
 }
 
 export interface EnhetKontaktInfo {
-  enhet: {
-    publikumsmottak: Publikumsmottak[];
-    spesielleopplysninger?: string;
-    tlfperson?: string;
-  };
+  enhet?: Enhet;
+}
+
+export interface Enhet {
+  postadresse:
+    | {
+        type: "stedsadresse";
+        postnummer?: string;
+        poststed?: string;
+        gatenavn?: string;
+        husnummer?: string;
+        husbokstav?: string;
+      }
+    | {
+        type: "postboksadresse";
+        postnummer?: string;
+        poststed?: string;
+        postboksnummer?: string;
+        postboksanlegg?: string;
+      };
+  publikumsmottak: Publikumsmottak[];
+  spesielleopplysninger?: string;
+  tlfperson?: string;
 }

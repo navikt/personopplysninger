@@ -50,11 +50,15 @@ const VisPersonInfo = () => {
       if (adresser) {
         elements.push(<Adresser key="a" adresser={adresser} />);
 
-        if (adresser.geografiskTilknytning && enhetKontaktInformasjon) {
+        if (
+          adresser.geografiskTilknytning &&
+          enhetKontaktInformasjon &&
+          enhetKontaktInformasjon.enhet
+        ) {
           elements.push(
             <DittNavKontor
               key="d"
-              enhetKontaktInfo={enhetKontaktInformasjon}
+              enhetKontaktInfo={enhetKontaktInformasjon.enhet}
               geografiskTilknytning={adresser.geografiskTilknytning}
             />
           );

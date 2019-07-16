@@ -5,6 +5,7 @@
 /public/index.css
 
 # dependencies
+/server/node_modules
 /node_modules
 
 # testing
