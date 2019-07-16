@@ -30,7 +30,7 @@ jobs:
   
   deploy-til-dev:
     docker:
-      - image: circleci/node:10
+      - image: circleci/python:3.7.3
     steps:
       - checkout
       - attach_workspace:
