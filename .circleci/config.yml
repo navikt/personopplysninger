@@ -44,7 +44,7 @@ jobs:
           name: deploy to Azure container
           command: |
               az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_BUILD_NUM --account-name sapersonopplysninger -s build/
-              az storage blob upload-batch -d $$web --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d $web --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
           command: | 
