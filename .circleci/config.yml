@@ -73,7 +73,7 @@ jobs:
 workflows:
   bygg-og-deploy:
     jobs:
-      - build:
+      - build
       - bekreft-deploy:
           type: approval
           requires:
