@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Bygg react app
           command: |
-            npm ci && PUBLIC_URL=$CIRCLE_TAG npm run build
+            npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
       - save_cache:
           paths:
             - ~/usr/local/lib/node_modules # location depends on npm version
@@ -43,10 +43,12 @@ jobs:
       - run:
           name: deploy to Azure container
           command: |
-              az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_TAG --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_ --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d $$web --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
-          command: az storage blob upload -c sc-personopplysninger -f build/index.html -n index.html --account-name sapersonopplysninger
+          command: | 
+              az storage blob upload -c sc-personopplysninger -f build/index.html -n index.html --account-name sapersonopplysninger
 
   purge-cdn:
     docker:
@@ -72,18 +74,17 @@ workflows:
   bygg-og-deploy:
     jobs:
       - build:
-          filters:
-            tags:
-              only: /.*/
-      - deploy-til-dev:
-          name: deploy-til-dev
+      - bekreft-deploy:
+          type: approval
           requires:
             - build
           filters:
-            tags:
-              only: /^v.*/
             branches:
-              ignore: /.*/
+                only: azure
+      - deploy-til-dev:
+          name: deploy-til-dev
+          requires:
+            - bekreft-deploy
       - purge-cdn:
           requires:
             - deploy-til-dev

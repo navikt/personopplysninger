@@ -10,7 +10,7 @@ const Environment = () => {
       logoutUrl: "#"
     };
   }
-  if (window.location.hostname.indexOf("www-q0") > -1) {
+  if (window.location.hostname.indexOf("www-q0") > -1 || window.location.hostname.indexOf("personopplysninger-q") > -1) {
     return {
       miljo: "DEV",
       baseUrl: "https://www-q0.nav.no",

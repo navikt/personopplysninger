@@ -15,20 +15,18 @@ const App = () => {
     <div className="pagecontent">
       <Router>
         <Brodsmulesti />
-        <WithAuth>
-          <WithFeatureToggles>
-            <Route exact={true} path={`(/|${basePath})`} component={Forside} />
-            {featureToggles.data[
-              "personopplysninger.arbeidsforhold.detaljert"
-            ] && (
-              <Route
-                exact={true}
-                path={`${basePath}/arbeidsforhold/:id`}
-                component={DetaljertArbeidsforhold}
-              />
-            )}
-          </WithFeatureToggles>
-        </WithAuth>
+        <WithFeatureToggles>
+          <Route exact={true} path={`(/|${basePath})`} component={Forside} />
+          {featureToggles.data[
+            "personopplysninger.arbeidsforhold.detaljert"
+          ] && (
+            <Route
+              exact={true}
+              path={`${basePath}/arbeidsforhold/:id`}
+              component={DetaljertArbeidsforhold}
+            />
+          )}
+        </WithFeatureToggles>
       </Router>
     </div>
   );
