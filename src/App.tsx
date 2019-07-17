@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
 import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
