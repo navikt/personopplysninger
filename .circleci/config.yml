@@ -79,8 +79,6 @@ jobs:
               az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
               az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
 
-  
-
 workflows:
   bygg-og-deploy:
     jobs:
@@ -96,6 +94,6 @@ workflows:
           name: deploy-til-dev
           requires:
             - bekreft-deploy
-      - purge-cdn:
-          requires:
-            - deploy-til-dev
+      # - purge-cdn:
+      #     requires:
+      #       - deploy-til-dev
