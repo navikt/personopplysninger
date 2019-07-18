@@ -51,7 +51,7 @@ jobs:
           name: deploy to Azure container
           command: |
               az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
-              az storage blob upload-batch -d \$web --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d #{'$'}{web} --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
           command: | 
