@@ -17,6 +17,10 @@ jobs:
           name: Bygg react app
           command: |
             npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
+            mkdir $CIRCLE_BUILD_NUM
+            mv build/* $CIRLCE_BUILD_NUM/
+            mv $CIRCLE_BUILD_NUM build/
+            
       - save_cache:
           paths:
             - ~/usr/local/lib/node_modules # location depends on npm version
@@ -43,8 +47,8 @@ jobs:
       - run:
           name: deploy to Azure container
           command: |
-              az storage blob upload-batch -d sc-personopplysninger/$CIRCLE_BUILD_NUM --account-name sapersonopplysninger -s build/
-              az storage blob upload-batch -d %24web --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s build/
+              #az storage blob upload-batch -d %24web --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
           command: | 
