@@ -72,8 +72,8 @@ jobs:
       - run:
           name: purge cdn
           command: |
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /*
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /*
+              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
+              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
 
   
 
