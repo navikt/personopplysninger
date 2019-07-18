@@ -26,7 +26,7 @@ jobs:
             
       - save_cache:
           paths:
-            - ~/usr/local/lib/node_modules # location depends on npm version
+            - ~/usr/local/lib/node_modules
           key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
           name: Tester
