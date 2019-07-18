@@ -17,17 +17,19 @@ jobs:
           name: Bygg react app
           command: |
             npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
+      - save_cache:
+          paths:
+            - ~/usr/local/lib/node_modules
+          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+      - run:
+          name: Lag mappestruktur for deploy
+          command: |
             mkdir folder_to_persist
             cp build/index.html folder_to_persist/
             mkdir $CIRCLE_BUILD_NUM
             mv build/* $CIRCLE_BUILD_NUM/
             mv $CIRCLE_BUILD_NUM build/
             mv build folder_to_persist/
-            
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
           name: Tester
           command: npm run test
@@ -43,20 +45,21 @@ jobs:
       - attach_workspace:
           at: folder_to_persist/
       - run: 
-          name: Install and authenticate az cli
+          name: Installer og autentiser az cli
           command: |
               curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
               az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
+      - run: 
+          name: deploy til '$web'-container
+          command: |
+              az storage blob delete-batch -s '$web' --account-name sapersonopplysninger
+              az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
+              az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
       - run:
-          name: deploy to Azure container
+          name: deploy til cdn-container
           command: |
               az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
-              az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
-      - run:
-          name: Upload index.html
-          command: | 
               az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
-              az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
 
   purge-cdn:
     docker:
@@ -66,7 +69,7 @@ jobs:
       - attach_workspace:
           at: build/
       - run: 
-          name: Install and authenticate az cli
+          name: Installer og autentiser az cli
           command: |
               curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
               az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
