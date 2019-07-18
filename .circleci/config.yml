@@ -18,7 +18,7 @@ jobs:
           command: |
             npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
             mkdir $CIRCLE_BUILD_NUM
-            mv build/* $CIRLCE_BUILD_NUM/
+            mv build/* $CIRCLE_BUILD_NUM/
             mv $CIRCLE_BUILD_NUM build/
             
       - save_cache:
