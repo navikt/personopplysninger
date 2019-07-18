@@ -17,9 +17,12 @@ jobs:
           name: Bygg react app
           command: |
             npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
+            mkdir folder_to_persist
+            cp build/index.html folder_to_persist/
             mkdir $CIRCLE_BUILD_NUM
             mv build/* $CIRCLE_BUILD_NUM/
             mv $CIRCLE_BUILD_NUM build/
+            mv build folder_to_persist/
             
       - save_cache:
           paths:
@@ -29,7 +32,7 @@ jobs:
           name: Tester
           command: npm run test
       - persist_to_workspace:
-          root: build
+          root: folder_to_persist
           paths: ./*
   
   deploy-til-dev:
@@ -38,7 +41,7 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: build/
+          at: folder_to_persist/
       - run: 
           name: Install and authenticate az cli
           command: |
@@ -47,12 +50,12 @@ jobs:
       - run:
           name: deploy to Azure container
           command: |
-              az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s build/
+              az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
               #az storage blob upload-batch -d %24web --account-name sapersonopplysninger -s build/
       - run:
           name: Upload index.html
           command: | 
-              az storage blob upload -c sc-personopplysninger -f build/index.html -n index.html --account-name sapersonopplysninger
+              az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
 
   purge-cdn:
     docker:
