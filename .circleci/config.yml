@@ -89,13 +89,10 @@ commands:
   sett-miljovariabler:
     steps:
       - run:
-          name: Setter miljøvariable
+          name: Setter miljøvariabler
           command: |
-            echo 'export COMMIT_SHORT="$(git rev-parse --short HEAD)"' >> $BASH_ENV
-            echo 'export RELEASE_VERSION="$(git rev-list --count $CIRCLE_SHA1)"' >> $BASH_ENV
-            echo 'export BRANCH_NAME="$(git rev-parse --abbrev-ref HEAD)"' >> $BASH_ENV
-            echo 'export BRANCH_PREFIX=`[ $BRANCH_NAME == "master" ] && echo "" || echo $BRANCH_NAME\_`' >> $BASH_ENV
-            echo 'export DOCKER_IMAGE_VERSIONED="$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$BRANCH_PREFIX$RELEASE_VERSION"' >> $BASH_ENV
+            echo "export COMMIT_SHORT='$(git rev-parse --short HEAD)'" >> $BASH_ENV
+            echo "export DOCKER_IMAGE_VERSIONED='$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$CIRCLE_BUILD_NUM-${CIRCLE_BRANCH////-}'" >> $BASH_ENV
 
 workflows:
   bygg-og-deploy:
