@@ -7,20 +7,14 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            # when lock file changes, use increasingly general patterns to restore cache.
-            - node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
-            - node-v1-{{ .Branch }}-
-            - node-v1
       - run:
-          name: Bygg react app
+          name: Installer npm pakker
           command: |
-            npm install && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
-      - save_cache:
-          paths:
-            - ~/usr/local/lib/node_modules
-          key: node-v1-{{ .Branch }}-{{ checksum "package-lock.json" }}
+            npm ci
+      - run:
+          name: Bygg React App
+          command: |
+            PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
       - run:
           name: Lag mappestruktur for deploy
           command: |
