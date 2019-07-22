@@ -93,7 +93,12 @@ commands:
           command: |
             echo "export COMMIT_SHORT='$(git rev-parse --short HEAD)'" >> $BASH_ENV
             echo "export DOCKER_IMAGE_VERSION='echo $CIRCLE_BUILD_NUM-${CIRCLE_BRANCH////-}$CIRCLE_TAG'" >> $BASH_ENV
-            echo "export DOCKER_IMAGE_NAME='$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$DOCKER_IMAGE_VERSION'" >> $BASH_ENV
+      - run:
+          name: Definerer docker-image
+          command: echo "export DOCKER_IMAGE_NAME='$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME:$DOCKER_IMAGE_VERSION'" >> $BASH_ENV
+      - run:
+          name: Hva er navnet på docker imaget?
+          command: echo $DOCKER_IMAGE_NAME
 
 workflows:
   bygg-og-deploy:
