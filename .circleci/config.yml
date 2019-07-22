@@ -16,7 +16,7 @@ jobs:
       - run:
           name: Bygg react app
           command: |
-            npm ci && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
+            npm install && PUBLIC_URL=$CIRCLE_BUILD_NUM npm run build
       - save_cache:
           paths:
             - ~/usr/local/lib/node_modules
