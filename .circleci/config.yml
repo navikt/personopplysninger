@@ -31,7 +31,7 @@ jobs:
           root: folder_to_persist
           paths: ./*
   
-  deploy-til-dev:
+  deploy-til-web:
     docker:
       - image: circleci/node:10
     steps:
@@ -53,6 +53,21 @@ jobs:
       #     command: |
       #         az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
       #         az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
+
+  deploy-til-dev:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - attach_workspace:
+          at: folder_to_persist/
+      - run: 
+          name: deploy til '$web'-container
+          command: |
+              cd folder_to_persist/build
+              find . -type f -exec curl -I -X PUT -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://testblobfortest.blob.core.windows.net/testblob/{}?sv=$AZURE_STORAGE_SAS" \;
+              cd ..
+              curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://testblobfortest.blob.core.windows.net/testblob/index.html?sv=$AZURE_STORAGE_SAS"
 
   purge-cdn:
     docker:
@@ -83,6 +98,10 @@ workflows:
       #     filters:
       #       branches:
       #           only: azure
+      - deploy-til-web:
+          name: deploy-til-web
+          requires:
+            - build
       - deploy-til-dev:
           name: deploy-til-dev
           requires:
