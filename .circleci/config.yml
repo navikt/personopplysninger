@@ -41,7 +41,8 @@ jobs:
       - run: 
           name: deploy til '$web'-container
           command: |
-              find ./folder_to_persist/build/ -type f -exec curl -I -X PUT -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://testblobfortest.blob.core.windows.net/test/{}?sv=$AZURE_STORAGE_SAS" \;
+              cd folder_to_persist/build
+              find . -type f -exec curl -I -X PUT -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://testblobfortest.blob.core.windows.net/test/{}?sv=$AZURE_STORAGE_SAS" \;
               # az storage blob delete-batch -s '$web' --account-name sapersonopplysninger
               # az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
               # az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
