@@ -39,21 +39,17 @@ jobs:
       - attach_workspace:
           at: folder_to_persist/
       - run: 
-          name: Installer og autentiser az cli
-          command: |
-              curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-              az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
-      - run: 
           name: deploy til '$web'-container
           command: |
-              az storage blob delete-batch -s '$web' --account-name sapersonopplysninger
-              az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
-              az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
-      - run:
-          name: deploy til cdn-container
-          command: |
-              az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
-              az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
+              find ./build/ -type f -exec curl -I -X PUT -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://testblobfortest.blob.core.windows.net/test/{}?sv=$AZURE_STORAGE_SAS" \;
+              # az storage blob delete-batch -s '$web' --account-name sapersonopplysninger
+              # az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
+              # az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
+      # - run:
+      #     name: deploy til cdn-container
+      #     command: |
+      #         az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
+      #         az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
 
   purge-cdn:
     docker:
@@ -88,6 +84,6 @@ workflows:
           name: deploy-til-dev
           requires:
             - bekreft-deploy
-      - purge-cdn:
-          requires:
-            - deploy-til-dev
+      # - purge-cdn:
+      #     requires:
+      #       - deploy-til-dev
