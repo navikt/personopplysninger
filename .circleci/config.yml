@@ -93,11 +93,11 @@ workflows:
       - deploy-til-web:
           name: deploy-til-web
           requires:
-            - build
+            - bekreft-deploy
       - deploy-til-dev:
           name: deploy-til-dev
           requires:
-            - build
+            - bekreft-deploy
       - purge-cdn:
           requires:
             - deploy-til-dev
