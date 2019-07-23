@@ -42,18 +42,9 @@ jobs:
           name: deploy til '$web'-container
           command: |
               cd folder_to_persist/build
-              find . -type f -exec curl -I -X DELETE -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/{}$AZURE_STORAGE_SAS" \;
               find . -type f -exec curl -I -X PUT -T {}  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/{}$AZURE_STORAGE_SAS" \;
               cd ..
               curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/index.html$AZURE_STORAGE_SAS"
-              # az storage blob delete-batch -s '$web' --account-name sapersonopplysninger
-              # az storage blob upload-batch -d '$web' --account-name sapersonopplysninger -s folder_to_persist/build/
-              # az storage blob upload -c '$web' -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
-      # - run:
-      #     name: deploy til cdn-container
-      #     command: |
-      #         az storage blob upload-batch -d sc-personopplysninger --account-name sapersonopplysninger -s folder_to_persist/build/
-      #         az storage blob upload -c sc-personopplysninger -f folder_to_persist/index.html -n index.html --account-name sapersonopplysninger
 
   deploy-til-dev:
     docker:
@@ -92,13 +83,13 @@ workflows:
   bygg-og-deploy:
     jobs:
       - build
-      # - bekreft-deploy:
-      #     type: approval
-      #     requires:
-      #       - build
-      #     filters:
-      #       branches:
-      #           only: azure
+      - bekreft-deploy:
+          type: approval
+          requires:
+            - build
+          filters:
+            branches:
+                only: azure
       - deploy-til-web:
           name: deploy-til-web
           requires:
@@ -107,6 +98,6 @@ workflows:
           name: deploy-til-dev
           requires:
             - build
-      # - purge-cdn:
-      #     requires:
-      #       - deploy-til-dev
+      - purge-cdn:
+          requires:
+            - deploy-til-dev
