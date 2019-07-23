@@ -82,8 +82,8 @@ workflows:
       #           only: azure
       - deploy-til-dev:
           name: deploy-til-dev
-          # requires:
-          #   - bekreft-deploy
+          requires:
+            - build
       # - purge-cdn:
       #     requires:
       #       - deploy-til-dev
