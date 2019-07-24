@@ -46,7 +46,6 @@ jobs:
               find . -type f -exec ../../putBlob.sh {} sapersonopplysninger \$web $AZURE_STORAGE_SAS \;
               cd ..
               ../putBlob.sh ./index.html sapersonopplysninger \$web $AZURE_STORAGE_SAS
-              #curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/index.html$AZURE_STORAGE_SAS"
 
   deploy-til-dev:
     docker:
@@ -63,7 +62,8 @@ jobs:
               find . -type f -exec ../../putBlob.sh {} sapersonopplysninger sc-personopplysninger $AZURE_STORAGE_SAS \;
               cd ..
               ../putBlob.sh ./index.html sapersonopplysninger sc-personopplysninger $AZURE_STORAGE_SAS
-  purge-cdn:
+
+  purge-index-cdn:
     docker:
       - image: circleci/node:10
     steps:
@@ -71,16 +71,17 @@ jobs:
       - run:
           name: purge function endpoint
           command: |
-              #response = $(curl -X POST https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -s)
-              
-              response = $(curl https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/token \
-              -F "grant_type= client_credentials" \
-              -F "resource=https://management.azure.com/"
-              -F "client_id=bb1f59d6-e80f-4e18-96cf-6813b13ed22c" \
-              -F "client_secret=$AZURE_CLIENT_SECRET")
-              curl -i -d {"contentPaths": ["/api-dekorator"]} -H "content-type: application/json" -X POST https://management.azure.com/subscriptions/b6973fea-af6a-499c-9502-66bb7b11892f/resourceGroups/rg-personopplysninger/providers/Microsoft.Cdn/profiles/cdn-personopplysninger/endpoints/personopplysninger-function/purge?api-version=2017-10-12
-              # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
-              # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
+              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
+  
+  purge-function-cdn:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run:
+          name: purge function endpoint
+          command: |
+              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
 
 workflows:
   bygg-og-deploy:
@@ -101,6 +102,9 @@ workflows:
           name: deploy-til-dev
           requires:
             - bekreft-deploy
-      - purge-cdn:
+      - purge-index-cdn:
+          requires:
+            - deploy-til-dev
+      - purge-function-cdn:
           requires:
             - deploy-til-dev
