@@ -45,6 +45,7 @@ jobs:
               cd folder_to_persist/build
               find . -type f -exec ../../putBlob.sh {} sapersonopplysninger \$web $AZURE_STORAGE_SAS  \;
               cd ..
+              ../putBlob.sh ./index.html sapersonopplysninger \$web $AZURE_STORAGE_SAS
               #curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/index.html$AZURE_STORAGE_SAS"
 
   deploy-til-dev:
