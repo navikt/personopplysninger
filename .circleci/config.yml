@@ -68,6 +68,11 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - run: 
+          name: Installer og autentiser az cli
+          command: |
+              curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+              az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
       - run:
           name: purge function endpoint
           command: |
@@ -78,6 +83,11 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - run: 
+          name: Installer og autentiser az cli
+          command: |
+              curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+              az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
       - run:
           name: purge function endpoint
           command: |
