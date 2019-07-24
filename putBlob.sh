@@ -66,7 +66,7 @@ putFile () {
     echo "To storage account: $STORAGE_ACCOUNT"
     echo "To container: $CONTAINER"
 
-    curl -i -X PUT -T "$FILENAME" -H "content-type: $CONTENT_TYPE" -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://$STORAGE_ACCOUNT.blob.core.windows.net/$CONTAINER/$FILENAME?$AZURE_STORAGE_SAS"
+    curl -i -X PUT -T "$FILENAME" -H "content-type: $CONTENT_TYPE" -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://$STORAGE_ACCOUNT.blob.core.windows.net/$CONTAINER/$FILENAME$AZURE_STORAGE_SAS"
 
 }
 

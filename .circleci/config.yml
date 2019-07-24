@@ -43,7 +43,7 @@ jobs:
           command: |
               chmod +x ./putBlob.sh
               cd folder_to_persist/build
-              find . -type f -exec ../../putBlob.sh {} sapersonopplysninger \$web $AZURE_STORAGE_SAS  \;
+              find . -type f -exec ../../putBlob.sh {} sapersonopplysninger \$web $AZURE_STORAGE_SAS \;
               cd ..
               ../putBlob.sh ./index.html sapersonopplysninger \$web $AZURE_STORAGE_SAS
               #curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/index.html$AZURE_STORAGE_SAS"
@@ -60,9 +60,9 @@ jobs:
           command: |
               chmod +x ./putBlob.sh
               cd folder_to_persist/build
-              find . -type f -exec ../../putBlob.sh {} sapersonopplysninger sc-opplysninger $AZURE_STORAGE_SAS  \;
+              find . -type f -exec ../../putBlob.sh {} sapersonopplysninger sc-personopplysninger $AZURE_STORAGE_SAS \;
               cd ..
-              ../putBlob.sh ./index.html sapersonopplysninger sc-opplysninger $AZURE_STORAGE_SAS
+              ../putBlob.sh ./index.html sapersonopplysninger sc-personopplysninger $AZURE_STORAGE_SAS
   purge-cdn:
     docker:
       - image: circleci/python:3.7.3
