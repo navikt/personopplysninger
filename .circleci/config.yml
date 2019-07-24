@@ -41,9 +41,9 @@ jobs:
       - run: 
           name: deploy til '$web'-container
           command: |
-              cd folder_to_persist/build
               chmod +x ./putBlob.sh
-              find . -type f -exec ./putBlob.sh {} sapersonopplysninger \$web  \;
+              cd folder_to_persist/build
+              find . -type f -exec ../../putBlob.sh {} sapersonopplysninger \$web  \;
               cd ..
               #curl -I -X PUT -T ./index.html  -H "x-ms-date: $(date -u)" -H "x-ms-blob-type: BlockBlob" "https://sapersonopplysninger.blob.core.windows.net/\$web/index.html$AZURE_STORAGE_SAS"
 
