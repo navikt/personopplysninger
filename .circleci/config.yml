@@ -65,21 +65,15 @@ jobs:
               ../putBlob.sh ./index.html sapersonopplysninger sc-personopplysninger $AZURE_STORAGE_SAS
   purge-cdn:
     docker:
-      - image: circleci/python:3.7.3
+      - image: circleci/node:10
     steps:
       - checkout
-      - attach_workspace:
-          at: build/
-      - run: 
-          name: Installer og autentiser az cli
-          command: |
-              curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
-              az login --service-principal -u bb1f59d6-e80f-4e18-96cf-6813b13ed22c -p $AZURE_CLIENT_SECRET --tenant 966ac572-f5b7-4bbe-aa88-c76419c0f851
       - run:
-          name: purge cdn
+          name: purge function endpoint
           command: |
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
-              az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
+              curl -i -d {"contentPaths": ["/api-dekorator"]} -H "content-type: application/json" -X POST https://management.azure.com/subscriptions/b6973fea-af6a-499c-9502-66bb7b11892f/resourceGroups/rg-personopplysninger/providers/Microsoft.Cdn/profiles/cdn-personopplysninger/endpoints/personopplysninger-function/purge?api-version=2017-10-12
+              # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
+              # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
 
 workflows:
   bygg-og-deploy:
