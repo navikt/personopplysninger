@@ -71,8 +71,14 @@ jobs:
       - run:
           name: purge function endpoint
           command: |
-              TOKEN: "${curl -X POST https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/token}"
-              curl -i -d {"contentPaths": ["/api-dekorator"]} -H "content-type: application/json" -H "Authorization: Bearer $TOKEN.access_token" -X POST https://management.azure.com/subscriptions/b6973fea-af6a-499c-9502-66bb7b11892f/resourceGroups/rg-personopplysninger/providers/Microsoft.Cdn/profiles/cdn-personopplysninger/endpoints/personopplysninger-function/purge?api-version=2017-10-12
+              #response = $(curl -X POST https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F -s)
+              
+              response = $(curl https://login.microsoftonline.com/966ac572-f5b7-4bbe-aa88-c76419c0f851/oauth2/token \
+              -F "grant_type= client_credentials" \
+              -F "resource=https://management.azure.com/"
+              -F "client_id=bb1f59d6-e80f-4e18-96cf-6813b13ed22c" \
+              -F "client_secret=$AZURE_CLIENT_SECRET")
+              curl -i -d {"contentPaths": ["/api-dekorator"]} -H "content-type: application/json" -X POST https://management.azure.com/subscriptions/b6973fea-af6a-499c-9502-66bb7b11892f/resourceGroups/rg-personopplysninger/providers/Microsoft.Cdn/profiles/cdn-personopplysninger/endpoints/personopplysninger-function/purge?api-version=2017-10-12
               # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-q --profile-name cdn-personopplysninger --content-paths /index.html
               # az cdn endpoint purge -g rg-personopplysninger -n personopplysninger-function --profile-name cdn-personopplysninger --content-paths /api/dekorator
 
