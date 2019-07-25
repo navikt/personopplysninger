@@ -43,10 +43,10 @@ RESPONSE_DEV=$(curl --write-out %{http_code} -s -X PUT "https://$AZURE_STORAGE_A
 if [[ $RESPONSE_PROD = "202" ]]; then
     echo "$AZURE_STORAGE_CONTAINER_PROD ble rullet tilbake til versjon $VERSJON"
 else
-    echo -e "Noe gikk galt ved utrulling til $AZURE_STORAGE_CONTAINER_PROD. Kanskje du skrev en ugyldig verjson? Her er feilmeldingen: \n\n$RESPONSE_PROD\n"
+    echo -e "Noe gikk galt ved utrulling til $AZURE_STORAGE_CONTAINER_PROD. Kanskje du skrev en ugyldig versjon? Her er feilmeldingen: \n\n$RESPONSE_PROD\n"
 fi
 if [[ $RESPONSE_DEV = "202" ]]; then
     echo "$AZURE_STORAGE_CONTAINER_DEV ble rullet tilbake til versjon $VERSJON"
 else
-    echo -e "Noe gikk galt ved utrulling til $AZURE_STORAGE_CONTAINER_DEV. Kanskje du skrev en ugyldig verjson? Her er feilmeldingen: \n\n$RESPONSE_DEV\n"
+    echo -e "Noe gikk galt ved utrulling til $AZURE_STORAGE_CONTAINER_DEV. Kanskje du skrev en ugyldig versjon? Her er feilmeldingen: \n\n$RESPONSE_DEV\n"
 fi
