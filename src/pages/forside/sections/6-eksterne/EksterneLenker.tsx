@@ -6,7 +6,6 @@ import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import dineSaker from "../../../../assets/img/DineSaker.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "../../../../providers/Provider";
-import WithFeatureToggles from "../../../../App";
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
