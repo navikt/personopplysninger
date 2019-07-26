@@ -3,7 +3,7 @@ import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";
 
-const { apiUrl, loginUrl, baseUrl } = Environment();
+const { apiUrl, loginUrl, baseUrl, dsopUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 export const sendTilLogin = () => {
@@ -55,6 +55,8 @@ export const fetchKontaktInfo = () =>
 
 export const fetchAuthInfo = () =>
   hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
+
+export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
 
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
   Object.keys(featureToggles)

@@ -1,4 +1,5 @@
 {
   "personopplysninger.arbeidsforhold.liste": true,
-  "personopplysninger.arbeidsforhold.detaljert": true
+  "personopplysninger.arbeidsforhold.detaljert": true,
+  "personopplysninger.dsop": true
 }
