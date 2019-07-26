@@ -10,7 +10,7 @@ interface Props {
   tittel: string;
   beskrivelse?: string;
   icon?: string;
-  children: React.ReactChild;
+  children: JSX.Element | JSX.Element[];
 }
 
 Modal.setAppElement("#app");
