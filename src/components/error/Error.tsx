@@ -1,5 +1,5 @@
 import React from "react";
-import AlertStripe from "nav-frontend-alertstriper";
+import { AlertStripeFeil } from "nav-frontend-alertstriper";
 
 export interface HTTPError {
   code: number;
@@ -14,11 +14,11 @@ const Error = (props: Props) => {
   const { error } = props;
   return (
     <div className="error__container">
-      <AlertStripe type="advarsel">
+      <AlertStripeFeil>
         Oisann, noe gikk galt ved henting av data!
         <br />
         <span>{` ${error.code}: ${error.text}`}</span>
-      </AlertStripe>
+      </AlertStripeFeil>
     </div>
   );
 };
