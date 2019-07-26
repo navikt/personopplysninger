@@ -27,3 +27,9 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# infrastructure/terraform
+*.tfvars
+**/.tfvars
+.terraform
+*.tfstate.backup
