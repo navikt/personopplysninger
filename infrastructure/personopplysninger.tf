@@ -1,13 +1,18 @@
 variable "client_secret" {}
 variable "app_name" {}
+variable "dekorator_hostname" {}
+variable "subscription_id" {}
+variable "tenant_id" {}
+variable "client_id" {}
+
 
 
 
 provider "azurerm" {
   version = "1.31.0"
-  subscription_id = "b6973fea-af6a-499c-9502-66bb7b11892f"
-  tenant_id = "966ac572-f5b7-4bbe-aa88-c76419c0f851"
-  client_id = "bb1f59d6-e80f-4e18-96cf-6813b13ed22c"
+  subscription_id = "${var.subscription_id}"
+  tenant_id = "${var.tenant_id}"
+  client_id = "${var.client_id}"
   client_secret = "${var.client_secret}"
 }
 
@@ -24,6 +29,17 @@ resource "azurerm_storage_account" "storageaccount" {
   account_replication_type = "RAGRS"
   account_kind             = "StorageV2"
   access_tier              = "Hot"
+
+  provisioner "local-exec" {
+    command = <<EOF
+    az storage blob service-properties update \
+      --subscription "${var.subscription_id}" \
+      --account-name "${azurerm_storage_account.storageaccount.name}" \
+      --static-website \
+      --index-document index.html
+    EOF
+  }
+
 }
 
 resource "azurerm_storage_container" "storagecontainer" {
@@ -48,13 +64,14 @@ resource "azurerm_cdn_endpoint" "blobendpoint" {
   resource_group_name = "${azurerm_resource_group.resourcegroup.name}"
 
   origin {
-    name              = "${var.app_name}-prepod"
+    name              = "origin-${var.app_name}"
     host_name         = "${azurerm_storage_account.storageaccount.name}.blob.core.windows.net"
   }
 
   origin_path         = "/${azurerm_storage_container.storagecontainer.name}"
   origin_host_header  = "${azurerm_storage_account.storageaccount.name}.blob.core.windows.net"
   querystring_caching_behaviour = "NotSet"
+
 }
 
 resource "azurerm_cdn_endpoint" "functionendpoint" {
@@ -64,11 +81,10 @@ resource "azurerm_cdn_endpoint" "functionendpoint" {
   resource_group_name = "${azurerm_resource_group.resourcegroup.name}"
 
   origin {
-    name              = "${var.app_name}-function"
-    host_name         = "${azurerm_function_app.functionapp.default_hostname}"
+    name              = "function-${var.app_name}"
+    host_name         = "${var.dekorator_hostname}.azurewebsites.net"
   }
 
-  origin_path         = "/api/dekorator"
-  origin_host_header  = "${azurerm_function_app.functionapp.name}.azurewebsites.net"
+  origin_host_header  = "${var.dekorator_hostname}.azurewebsites.net"
   querystring_caching_behaviour = "NotSet"
 }
