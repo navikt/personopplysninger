@@ -3,19 +3,21 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
 import Icon from "../icon/Icon";
 import { HoyreChevron } from "nav-frontend-chevron";
+import { Link } from "react-router-dom";
 
 export interface Props {
   id: string;
   tittel: string;
   beskrivelse: string;
   lenkeTekst: string;
-  url: string;
   icon?: string;
+  to: string;
+  component: "a" | "Link";
 }
 
-const LinkBox = (props: Props & InjectedIntlProps) => {
+const Box = (props: Props & InjectedIntlProps) => {
   return (
-    <a className="linkbox__rad" href={props.url}>
+    <>
       <div className="linkbox__icon-container icon__container">
         <Icon backgroundImage={props.icon} />
       </div>
@@ -34,8 +36,27 @@ const LinkBox = (props: Props & InjectedIntlProps) => {
         </div>
       </div>
       <HoyreChevron />
-    </a>
+    </>
   );
+};
+
+const LinkBox = (props: Props & InjectedIntlProps) => {
+  switch (props.component) {
+    case "Link":
+      return (
+        <Link className="linkbox__rad" to={props.to}>
+          <Box {...props} />
+        </Link>
+      );
+    case "a":
+      return (
+        <a className="linkbox__rad" href={props.to}>
+          <Box {...props} />
+        </a>
+      );
+    default:
+      return <Box {...props} />;
+  }
 };
 
 export default injectIntl(LinkBox);

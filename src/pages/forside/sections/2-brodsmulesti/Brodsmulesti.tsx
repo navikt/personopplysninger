@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Fragment } from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
@@ -23,7 +23,8 @@ const Brodsmule = (props: Props) => (
 );
 
 const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
-  const { id } = props.match.params;
+  const allPaths = props.location.pathname.split("/");
+  const relevantPaths = allPaths.splice(3, allPaths.length);
   return (
     <div className="brodsmulesti">
       <Brodsmule className="brodsmulesti__icon">
@@ -36,7 +37,7 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
       </Brodsmule>
       /
       <Brodsmule>
-        {id ? (
+        {relevantPaths.length > 0 ? (
           <Link to={`${basePath}/`} className="lenke">
             <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
           </Link>
@@ -44,14 +45,14 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
           <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
         )}
       </Brodsmule>
-      {id && (
-        <>
+      {relevantPaths.map((path, key) => (
+        <Fragment key={key}>
           /
           <Brodsmule>
-            <FormattedMessage id="brodsmulesti.arbeidsforhold" />
+            <>{path}</>
           </Brodsmule>
-        </>
-      )}
+        </Fragment>
+      ))}
     </div>
   );
 };

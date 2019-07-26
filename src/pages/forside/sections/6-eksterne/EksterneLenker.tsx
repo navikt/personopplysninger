@@ -3,6 +3,7 @@ import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "../../../../components/linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
+import dineSaker from "../../../../assets/img/DineSaker.svg";
 import { FormattedMessage } from "react-intl";
 
 const LinksContainer = () => (
@@ -24,9 +25,19 @@ const LinksContainer = () => (
           tittel={link.tittel}
           beskrivelse={link.beskrivelse}
           lenkeTekst={link.lenkeTekst}
-          url={link.url}
+          to={link.url}
+          component={"a"}
         />
       ))}
+      <LinkBox
+        id={"dsop"}
+        icon={dineSaker}
+        tittel={"eksternelenker.dsop.tittel"}
+        beskrivelse={"eksternelenker.dsop.beskrivelse"}
+        lenkeTekst={"eksternelenker.dsop.lenkeTekst"}
+        to={"/person/personopplysninger/dsop/historikk"}
+        component={"Link"}
+      />
     </div>
   </PanelBase>
 );
