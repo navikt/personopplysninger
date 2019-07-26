@@ -13,6 +13,7 @@ import Icon from "../../components/icon/Icon";
 import Moment from "react-moment";
 import PanelBase from "nav-frontend-paneler";
 import { RouteComponentProps, withRouter } from "react-router";
+import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Spinner from "../../components/spinner/Spinner";
 
 export type FetchDsopInfo =
@@ -74,26 +75,34 @@ const DsopHistorikk = (props: RouteComponentProps) => {
           </div>
           <PanelBase border={true} className="da__innhold">
             <div className="historikk__tabs-innhold historikk__flex-table">
-              <div className="historikk__flex-rad historikk__head">
-                <div className="historikk__flex-kolonne">
-                  <Element>Uthentingstidspunkt</Element>
-                </div>
-                <div className="historikk__flex-kolonne">
-                  <Element>Mottaker</Element>
-                </div>
-              </div>
-              {dsopInfo.data.map((dsopInnslag, i) => (
-                <div className="historikk__flex-rad" key={i}>
-                  <div className="historikk__flex-kolonne historikk__heading">
-                    <Moment format="DD.MM.YYYY hh:mm:ss">
-                      {dsopInnslag.uthentingsTidspunkt}
-                    </Moment>
+              {dsopInfo.data.length > 0 ? (
+                <>
+                  <div className="historikk__flex-rad historikk__head">
+                    <div className="historikk__flex-kolonne">
+                      <Element>Uthentingstidspunkt</Element>
+                    </div>
+                    <div className="historikk__flex-kolonne">
+                      <Element>Mottaker</Element>
+                    </div>
                   </div>
-                  <div className="historikk__flex-kolonne">
-                    {dsopInnslag.mottaker}
-                  </div>
+                  {dsopInfo.data.map((dsopInnslag, i) => (
+                    <div className="historikk__flex-rad" key={i}>
+                      <div className="historikk__flex-kolonne historikk__heading">
+                        <Moment format="DD.MM.YYYY hh:mm:ss">
+                          {dsopInnslag.uthentingsTidspunkt}
+                        </Moment>
+                      </div>
+                      <div className="historikk__flex-kolonne">
+                        {dsopInnslag.mottaker}
+                      </div>
+                    </div>
+                  ))}
+                </>
+              ) : (
+                <div className="historikk__ingen-data">
+                  <AlertStripeInfo>Ingen data</AlertStripeInfo>
                 </div>
-              ))}
+              )}
             </div>
           </PanelBase>
         </div>
