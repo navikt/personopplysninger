@@ -9,6 +9,8 @@ import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
 import KontaktInfo from "./kontakt-informasjon/KontaktInfo";
 import Utbetalinger from "./utbetalinger/Utbetalinger";
+import personaliaIkon from "../../../../assets/img/Personalia.svg";
+import Box from "../../../../components/box/Box";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -37,7 +39,16 @@ const VisPersonInfo = () => {
   switch (personInfo.status) {
     default:
     case "LOADING":
-      return <Spinner />;
+      return (
+        <Box
+          id="personalia"
+          tittel="personalia.tittel"
+          beskrivelse="personalia.beskrivelse"
+          icon={personaliaIkon}
+        >
+          <Spinner />
+        </Box>
+      );
     case "RESULT":
       const elements = [];
       const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;
@@ -71,7 +82,16 @@ const VisPersonInfo = () => {
 
       return <>{elements}</>;
     case "ERROR":
-      return <Error error={personInfo.error} />;
+      return (
+        <Box
+          id="personalia"
+          tittel="personalia.tittel"
+          beskrivelse="personalia.beskrivelse"
+          icon={personaliaIkon}
+        >
+          <Error error={personInfo.error} />
+        </Box>
+      );
   }
 };
 
