@@ -78,6 +78,8 @@ export default {
   "arbeidsforhold.disclaimer": `Hvis noe er feil med et arbeidsforhold må du kontakte arbeidsgiveren det gjelder,<br>slik at de kan rette det opp.`,
   "utbetalinger.tittel": "Kontonummer for utbetaling",
   "kontaktinfo.tittel": "Kontaktinformasjon",
+  "dsop.tittel": `Utlevering av persondata`,
+  "dsop.kilde": `Kilde: Digital Sammhandling Offentlig og Privat`,
   "dittnavkontor.tittel": `Ditt NAV-kontor`,
   "dittnavkontor.beskrivelse": `Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Ditt kontor er `,

@@ -1,4 +1,4 @@
-export interface DsopInfo {
+export interface DsopInnslag {
   person: string;
   mottaker: string;
   tema: string;
@@ -7,3 +7,5 @@ export interface DsopInfo {
   leverteData: string;
   samtykkeToken: string;
 }
+
+export type DsopInfo = DsopInnslag[];
