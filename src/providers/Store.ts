@@ -6,6 +6,8 @@ import { HTTPError } from "../components/error/Error";
 import { AuthInfo } from "../types/authInfo";
 import { FetchAuthInfo } from "../components/auth/Auth";
 import { FetchFeatureToggles } from "../components/featuretoggles/FeatureToggles";
+import { FetchDsopInfo } from "../pages/dsop/Historikk";
+import { DsopInfo } from "../types/dsop";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -17,9 +19,11 @@ export const initialState = {
     status: "LOADING",
     data: {
       "personopplysninger.arbeidsforhold.liste": false,
-      "personopplysninger.arbeidsforhold.detaljert": false
+      "personopplysninger.arbeidsforhold.detaljert": false,
+      "personopplysninger.dsop": false
     }
   } as FetchFeatureToggles,
+  dsopInfo: { status: "LOADING" } as FetchDsopInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
 };
@@ -28,6 +32,7 @@ export interface Store {
   auth: FetchAuthInfo;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
+  dsopInfo: FetchDsopInfo;
   kontaktInfo: FetchKontaktInfo;
 }
 
@@ -58,6 +63,14 @@ export type Action =
     }
   | {
       type: "SETT_KONTAKT_INFO_ERROR";
+      payload: HTTPError;
+    }
+  | {
+      type: "SETT_DSOP_INFO_RESULT";
+      payload: DsopInfo;
+    }
+  | {
+      type: "SETT_DSOP_INFO_ERROR";
       payload: HTTPError;
     };
 
@@ -118,6 +131,22 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload
         } as FetchKontaktInfo
+      };
+    case "SETT_DSOP_INFO_RESULT":
+      return {
+        ...state,
+        dsopInfo: {
+          status: "RESULT",
+          data: action.payload
+        } as FetchDsopInfo
+      };
+    case "SETT_DSOP_INFO_ERROR":
+      return {
+        ...state,
+        dsopInfo: {
+          status: "ERROR",
+          error: action.payload
+        } as FetchDsopInfo
       };
     default:
       return state;
