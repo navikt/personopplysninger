@@ -13,7 +13,7 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-const Container = (props: Props & RouteComponentProps) => {
+const PageContainer = (props: Props & RouteComponentProps) => {
   const { history } = props;
 
   const goBack = (event: MouseEvent): void => {
@@ -47,4 +47,4 @@ const Container = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(Container);
+export default withRouter(PageContainer);
