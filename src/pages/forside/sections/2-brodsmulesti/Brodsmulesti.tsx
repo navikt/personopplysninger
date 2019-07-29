@@ -38,21 +38,39 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
       /
       <Brodsmule>
         {relevantPaths.length > 0 ? (
-          <Link to={`${basePath}/`} className="lenke">
+          <Link to={`${basePath}`} className="lenke">
             <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
           </Link>
         ) : (
           <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
         )}
       </Brodsmule>
-      {relevantPaths.map((path, key) => (
-        <Fragment key={key}>
-          /
-          <Brodsmule>
-            <>{path}</>
-          </Brodsmule>
-        </Fragment>
-      ))}
+      {relevantPaths.map((path, key) =>
+        key !== relevantPaths.length - 1 ? (
+          <>
+            /
+            <Link
+              to={`${basePath}${relevantPaths
+                .filter((p, i) => i <= key)
+                .map(p => `/${p}`)
+                .join("")}`}
+              className="lenke brodsmulesti__lenke"
+              key={key}
+            >
+              <Brodsmule>
+                <>{path}</>
+              </Brodsmule>
+            </Link>
+          </>
+        ) : (
+          <Fragment key={key}>
+            /
+            <Brodsmule>
+              <>{path}</>
+            </Brodsmule>
+          </Fragment>
+        )
+      )}
     </div>
   );
 };

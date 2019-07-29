@@ -32,7 +32,7 @@ const App = () => {
             {featureToggles.data["personopplysninger.dsop"] && (
               <Route
                 exact={true}
-                path={`${basePath}/dsop/historikk/:id?`}
+                path={`${basePath}/dsop/:id?`}
                 render={() => (
                   <PageContainer>
                     <WithDSOP />
