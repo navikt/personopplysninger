@@ -47,7 +47,7 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
       </Brodsmule>
       {relevantPaths.map((path, key) =>
         key !== relevantPaths.length - 1 ? (
-          <>
+          <Fragment key={key}>
             /
             <Link
               to={`${basePath}${relevantPaths
@@ -55,13 +55,12 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
                 .map(p => `/${p}`)
                 .join("")}`}
               className="lenke brodsmulesti__lenke"
-              key={key}
             >
               <Brodsmule>
                 <>{path}</>
               </Brodsmule>
             </Link>
-          </>
+          </Fragment>
         ) : (
           <Fragment key={key}>
             /
