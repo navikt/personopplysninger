@@ -28,7 +28,9 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
 
       return (
         <div>
-          <Undertittel>Mottaker</Undertittel>
+          <div className="detaljer__tittel">
+            <Undertittel>Mottaker</Undertittel>
+          </div>
           <Normaltekst>{dsopInnslag.mottaker}</Normaltekst>
           <hr className="box__linje-bred" />
           <div className="box">
