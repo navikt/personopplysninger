@@ -71,7 +71,3 @@ putFile () {
 }
 
 putFile $1 $2 $3 $4
-# export -f putFile
-
-
-#find ./public -type f -exec bash -c putFile {} \;
