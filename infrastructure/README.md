@@ -1,1 +1,1 @@
-[Informasjon om oppsett](github.com/navikt/azure-serverless)
+[Informasjon om oppsett](https://github.com/navikt/azure-serverless)
