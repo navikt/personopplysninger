@@ -76,6 +76,7 @@ export default {
   "arbeidsforhold.beskrivelse": `NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV. Også andre offentlige instanser kan hente opplysninger fra dette registeret, som Arbeids- og velferdsetaten har ansvar for. `,
   "arbeidsforhold.kilde": `Kilde: Arbeidsgiver- og arbeidstakerregisteret`,
   "arbeidsforhold.disclaimer": `Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.<br/>Dersom det avdekkes feil, må dette rettes i a-meldingen av arbeidsgiver.`,
+  "arbeidsforhold.submitted.by": `Dataene er rapportert av arbeidsgiver`,
   "utbetalinger.tittel": "Kontonummer for utbetaling",
   "kontaktinfo.tittel": "Kontaktinformasjon",
   "dsop.tittel": `Utlevering av persondata`,

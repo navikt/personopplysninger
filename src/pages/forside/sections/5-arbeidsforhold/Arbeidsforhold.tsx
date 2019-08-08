@@ -54,7 +54,7 @@ const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
         </div>
         <EtikettLiten>
           <span className="arbeidsforhold__arbeidsgiver">
-            Dataene er rapportert av arbeidsgiver
+            <FormattedMessage id="arbeidsforhold.submitted.by" />
           </span>
         </EtikettLiten>
       </Box>
