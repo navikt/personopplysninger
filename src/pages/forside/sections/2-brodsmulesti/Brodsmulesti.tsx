@@ -9,20 +9,29 @@ import { basePath } from "../../../../App";
 
 const { tjenesteUrl } = Environment();
 
-interface Props {
+interface BrodsmuleProps {
   className?: string;
   children: "" | JSX.Element | JSX.Element[];
+}
+
+interface BrodsmulestiProps {
+  hierarchy?: {
+    title: string;
+    path?: string;
+  }[];
 }
 
 interface Routes {
   id: string;
 }
 
-const Brodsmule = (props: Props) => (
+const Brodsmule = (props: BrodsmuleProps) => (
   <div className={`brodsmule ${props.className || ""}`}>{props.children}</div>
 );
 
-const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
+const Brodsmulesti = (
+  props: BrodsmulestiProps & RouteComponentProps<Routes>
+) => {
   const allPaths = props.location.pathname.split("/");
   const relevantPaths = allPaths.splice(3, allPaths.length);
   return (
@@ -45,31 +54,23 @@ const Brodsmulesti = (props: RouteComponentProps<Routes>) => {
           <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
         )}
       </Brodsmule>
-      {relevantPaths.map((path, key) =>
-        key !== relevantPaths.length - 1 ? (
-          <Fragment key={key}>
-            /
-            <Link
-              to={`${basePath}${relevantPaths
-                .filter((p, i) => i <= key)
-                .map(p => `/${p}`)
-                .join("")}`}
-              className="lenke brodsmulesti__lenke"
-            >
-              <Brodsmule>
-                <>{path}</>
-              </Brodsmule>
-            </Link>
-          </Fragment>
-        ) : (
-          <Fragment key={key}>
+      {props.hierarchy &&
+        props.hierarchy.map((link, i) => (
+          <Fragment key={i}>
             /
             <Brodsmule>
-              <>{path}</>
+              {link.path ? (
+                <Link to={`${basePath}${link.path}`} className="lenke">
+                  <FormattedMessage id={link.title} />
+                </Link>
+              ) : (
+                <span>
+                  <FormattedMessage id={link.title} />
+                </span>
+              )}
             </Brodsmule>
           </Fragment>
-        )
-      )}
+        ))}
     </div>
   );
 };

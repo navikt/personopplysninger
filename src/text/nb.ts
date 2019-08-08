@@ -80,6 +80,7 @@ export default {
   "utbetalinger.tittel": "Kontonummer for utbetaling",
   "kontaktinfo.tittel": "Kontaktinformasjon",
   "dsop.tittel": `Utlevering av persondata`,
+  "dsop.levertedata": `Leverte data`,
   "dsop.kilde": `Kilde: Digital Sammhandling Offentlig og Privat`,
   "dsop.uthentingstidspunkt": "Uthentingstidspunkt",
   "dsop.personnummer": "Personnummer",

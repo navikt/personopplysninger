@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import React, { useState, Fragment, useEffect } from "react";
 import { DsopInfo } from "../../types/dsop";
 import { Element } from "nav-frontend-typografi";
 import moment from "moment";
@@ -13,6 +13,10 @@ interface Props {
 
 const DsopHistorikk = (props: Props & RouteComponentProps) => {
   const { dsopInfo } = props;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const initState: {
     [key: string]: {

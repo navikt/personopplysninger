@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DsopInfo } from "../../types/dsop";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
@@ -17,6 +17,10 @@ interface Routes {
 const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
   const { dsopInfo } = props;
   const { id } = props.match.params;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const dsopInnslag = dsopInfo
     .filter(d => d.uthentingsTidspunkt === id)

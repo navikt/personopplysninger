@@ -5,9 +5,9 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
-import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 import PageContainer from "./components/pagecontainer/PageContainer";
 import WithDSOP from "./pages/dsop/DSOP";
+import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -16,7 +16,6 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <Brodsmulesti />
         <WithAuth>
           <WithFeatureToggles>
             <Route exact={true} path={`(/|${basePath})`} component={Forside} />
@@ -30,15 +29,37 @@ const App = () => {
               />
             )}
             {featureToggles.data["personopplysninger.dsop"] && (
-              <Route
-                exact={true}
-                path={`${basePath}/dsop/:id?`}
-                render={() => (
-                  <PageContainer>
-                    <WithDSOP />
-                  </PageContainer>
-                )}
-              />
+              <>
+                <Route
+                  exact={true}
+                  path={`${basePath}/dsop`}
+                  render={() => (
+                    <>
+                      <Brodsmulesti hierarchy={[{ title: "dsop.tittel" }]} />
+                      <PageContainer>
+                        <WithDSOP />
+                      </PageContainer>
+                    </>
+                  )}
+                />
+                <Route
+                  exact={true}
+                  path={`${basePath}/dsop/:id`}
+                  render={() => (
+                    <>
+                      <Brodsmulesti
+                        hierarchy={[
+                          { title: "dsop.tittel", path: "/dsop" },
+                          { title: "dsop.levertedata" }
+                        ]}
+                      />
+                      <PageContainer>
+                        <WithDSOP />
+                      </PageContainer>
+                    </>
+                  )}
+                />
+              </>
             )}
           </WithFeatureToggles>
         </WithAuth>

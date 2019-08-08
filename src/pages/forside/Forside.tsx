@@ -6,11 +6,13 @@ import EksterneLenker from "./sections/6-eksterne/EksterneLenker";
 import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import { useStore } from "../../providers/Provider";
 import Header from "./sections/3-header/Header";
+import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
 
 const Forside = () => {
   const [{ featureToggles }] = useStore();
   return (
     <>
+      <Brodsmulesti />
       <Sidetittel />
       <Header />
       <PersonInfo />
