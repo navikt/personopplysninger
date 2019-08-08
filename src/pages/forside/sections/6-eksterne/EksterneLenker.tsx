@@ -3,7 +3,7 @@ import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "../../../../components/linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import dineSaker from "../../../../assets/img/DineSaker.svg";
+import DSOPIkon from "../../../../assets/img/DSOP.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "../../../../providers/Provider";
 
@@ -35,7 +35,7 @@ const LinksContainer = () => {
         {featureToggles.data["personopplysninger.dsop"] && (
           <LinkBox
             id={"dsop"}
-            icon={dineSaker}
+            icon={DSOPIkon}
             tittel={"eksternelenker.dsop.tittel"}
             beskrivelse={"eksternelenker.dsop.beskrivelse"}
             lenkeTekst={"eksternelenker.dsop.lenkeTekst"}

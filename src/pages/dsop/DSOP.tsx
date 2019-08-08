@@ -1,5 +1,5 @@
 import React, { MouseEvent } from "react";
-import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
+import DSOPIkon from "../../assets/img/DSOP.svg";
 import { HashLink as Link } from "react-router-hash-link";
 import { basePath } from "../../App";
 import { VenstreChevron } from "nav-frontend-chevron";
@@ -24,7 +24,7 @@ const DSOP = (props: Props & RouteComponentProps) => {
   return (
     <div className="da__container">
       <div className="da__icon">
-        <Icon backgroundImage={arbeidsforholdIkon} backgroundColor="#99C1E9" />
+        <Icon backgroundImage={DSOPIkon} backgroundColor="#99C1E9" />
       </div>
       <div className="da__rad">
         <div className="da__back">
