@@ -5,9 +5,10 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
-import PageContainer from "./components/pagecontainer/PageContainer";
-import WithDSOP from "./pages/dsop/DSOP";
-import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
+import {
+  DsopDetaljerMedBrodsmule,
+  DsopHistorikkMedBrodsmule
+} from "./pages/dsop/Wrapper";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -33,31 +34,12 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/dsop`}
-                  render={() => (
-                    <>
-                      <Brodsmulesti hierarchy={[{ title: "dsop.tittel" }]} />
-                      <PageContainer>
-                        <WithDSOP />
-                      </PageContainer>
-                    </>
-                  )}
+                  component={DsopHistorikkMedBrodsmule}
                 />
                 <Route
                   exact={true}
                   path={`${basePath}/dsop/:id`}
-                  render={() => (
-                    <>
-                      <Brodsmulesti
-                        hierarchy={[
-                          { title: "dsop.tittel", path: "/dsop" },
-                          { title: "dsop.levertedata" }
-                        ]}
-                      />
-                      <PageContainer>
-                        <WithDSOP />
-                      </PageContainer>
-                    </>
-                  )}
+                  component={DsopDetaljerMedBrodsmule}
                 />
               </>
             )}
