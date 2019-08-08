@@ -2,7 +2,7 @@ import React from "react";
 import Box from "../../../../components/box/Box";
 import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "../../../../assets/img/Arbeidsforhold.svg";
-import { Undertekst, EtikettLiten } from "nav-frontend-typografi";
+import { EtikettLiten } from "nav-frontend-typografi";
 import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import Environment from "../../../../utils/Environments";
 import { withRouter, RouteComponentProps } from "react-router";
@@ -40,9 +40,7 @@ const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
         </div>
         <div className="arbeidsforhold__disclaimer">
           <AlertStripeInfo>
-            <Undertekst>
-              <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
-            </Undertekst>
+            <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
           </AlertStripeInfo>
         </div>
         <div className="kilde__container">
