@@ -15,7 +15,7 @@ interface Props {
 
 Modal.setAppElement("#app");
 const Box = (props: Props & InjectedIntlProps) => {
-  const { tittel, beskrivelse, icon, children, id, intl } = props;
+  const { tittel, beskrivelse, icon, children, id } = props;
 
   return (
     <div className="box__wrapper">
@@ -32,11 +32,7 @@ const Box = (props: Props & InjectedIntlProps) => {
                   <FormattedMessage id={tittel} />
                 </Systemtittel>
               )}
-              {beskrivelse && (
-                <Infotekst
-                  beskrivelse={intl.formatMessage({ id: beskrivelse })}
-                />
-              )}
+              {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
             </div>
           </div>
           <div className="box__content">{children}</div>
