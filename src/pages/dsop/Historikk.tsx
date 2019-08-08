@@ -1,77 +1,107 @@
-import React, { useEffect } from "react";
-import { fetchDsopInfo } from "../../clients/apiClient";
-import Error, { HTTPError } from "../../components/error/Error";
-import { useStore } from "../../providers/Provider";
+import React, { useState, Fragment } from "react";
 import { DsopInfo } from "../../types/dsop";
 import { Element } from "nav-frontend-typografi";
-import Moment from "react-moment";
+import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import Spinner from "../../components/spinner/Spinner";
+import Moment from "react-moment";
+import { NedChevron, OppChevron } from "nav-frontend-chevron";
+import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 
-export type FetchDsopInfo =
-  | { status: "LOADING" }
-  | { status: "RESULT"; data: DsopInfo }
-  | { status: "ERROR"; error: HTTPError };
+interface Props {
+  dsopInfo: DsopInfo;
+}
 
-const DsopHistorikk = () => {
-  const [{ dsopInfo }, dispatch] = useStore();
+const DsopHistorikk = (props: Props & RouteComponentProps) => {
+  const { dsopInfo } = props;
 
-  useEffect(() => {
-    if (dsopInfo.status === "LOADING") {
-      fetchDsopInfo()
-        .then(dsopInfo =>
-          dispatch({
-            type: "SETT_DSOP_INFO_RESULT",
-            payload: dsopInfo as DsopInfo
-          })
-        )
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_DSOP_INFO_ERROR", payload: error })
-        );
+  const initState: {
+    [key: string]: {
+      dsopInnslag: DsopInfo;
+      ekspandert: boolean;
+    };
+  } = {};
+
+  dsopInfo.forEach((dsopInnslag, i) => {
+    const year = moment(dsopInnslag.uthentingsTidspunkt).year();
+
+    if (!initState[year]) {
+      initState[year] = {
+        dsopInnslag: [dsopInnslag],
+        ekspandert: !i ? true : false
+      };
+    } else {
+      initState[year].dsopInnslag.push(dsopInnslag);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  });
 
-  switch (dsopInfo.status) {
-    case "LOADING":
-      return <Spinner />;
+  const [data, setData] = useState(initState);
 
-    case "RESULT":
-      return (
-        <div className="historikk__tabs-innhold historikk__flex-table">
-          {dsopInfo.data.length > 0 ? (
-            <>
-              <div className="historikk__flex-rad historikk__head">
-                <div className="historikk__flex-kolonne">
-                  <Element>Uthentingstidspunkt</Element>
-                </div>
-                <div className="historikk__flex-kolonne">
-                  <Element>Mottaker</Element>
-                </div>
-              </div>
-              {dsopInfo.data.map((dsopInnslag, i) => (
-                <div className="historikk__flex-rad" key={i}>
-                  <div className="historikk__flex-kolonne historikk__heading">
-                    <Moment format="DD.MM.YYYY hh:mm:ss">
-                      {dsopInnslag.uthentingsTidspunkt}
-                    </Moment>
-                  </div>
-                  <div className="historikk__flex-kolonne">
-                    {dsopInnslag.mottaker}
-                  </div>
-                </div>
-              ))}
-            </>
-          ) : (
-            <div className="historikk__ingen-data">
-              <AlertStripeInfo>Ingen data</AlertStripeInfo>
+  return (
+    <div className="historikk__tabs-innhold historikk__flex-table">
+      {Object.keys(data).length > 0 ? (
+        <>
+          <div className="historikk__flex-rad historikk__head">
+            <div className="historikk__flex-kolonne">
+              <Element>Uthentingstidspunkt</Element>
             </div>
-          )}
+            <div className="historikk__flex-kolonne">
+              <Element>Mottaker</Element>
+            </div>
+          </div>
+          {Object.keys(data)
+            .reverse()
+            .map(year => {
+              const value = data[year];
+              const onClick = () =>
+                setData({
+                  ...data,
+                  [year]: {
+                    ...data[year],
+                    ekspandert: !data[year].ekspandert
+                  }
+                });
+
+              return (
+                <Fragment key={year}>
+                  <div className="historikk__flex-rad" key={year}>
+                    <div
+                      className="historikk__flex-kolonne af-liste__ekspander"
+                      onClick={onClick}
+                    >
+                      {year}{" "}
+                      {value.ekspandert ? <OppChevron /> : <NedChevron />}
+                    </div>
+                    <div />
+                  </div>
+                  {value.ekspandert &&
+                    value.dsopInnslag.map((dsopInnslag, i) => (
+                      <div className="historikk__flex-rad" key={i}>
+                        <div className="historikk__flex-kolonne historikk__heading">
+                          <Moment format="DD.MM - hh:mm">
+                            {dsopInnslag.uthentingsTidspunkt}
+                          </Moment>
+                        </div>
+                        <div className="historikk__flex-kolonne">
+                          <Link
+                            to={`${props.location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
+                            className="lenke"
+                          >
+                            {dsopInnslag.mottaker}
+                          </Link>
+                        </div>
+                      </div>
+                    ))}
+                </Fragment>
+              );
+            })}
+        </>
+      ) : (
+        <div className="historikk__ingen-data">
+          <AlertStripeInfo>Ingen data</AlertStripeInfo>
         </div>
-      );
-    case "ERROR":
-      return <Error error={dsopInfo.error} />;
-  }
+      )}
+    </div>
+  );
 };
 
-export default DsopHistorikk;
+export default withRouter(DsopHistorikk);

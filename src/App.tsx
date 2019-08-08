@@ -6,8 +6,8 @@ import Forside from "./pages/forside/Forside";
 import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
 import Brodsmulesti from "./pages/forside/sections/2-brodsmulesti/Brodsmulesti";
-import DSOP from "./pages/dsop/DSOP";
-import DsopHistorikk from "./pages/dsop/Historikk";
+import PageContainer from "./components/pagecontainer/PageContainer";
+import WithDSOP from "./pages/dsop/DSOP";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -32,11 +32,11 @@ const App = () => {
             {featureToggles.data["personopplysninger.dsop"] && (
               <Route
                 exact={true}
-                path={`${basePath}/dsop/historikk`}
+                path={`${basePath}/dsop/:id?`}
                 render={() => (
-                  <DSOP>
-                    <DsopHistorikk />
-                  </DSOP>
+                  <PageContainer>
+                    <WithDSOP />
+                  </PageContainer>
                 )}
               />
             )}

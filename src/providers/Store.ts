@@ -6,7 +6,7 @@ import { HTTPError } from "../components/error/Error";
 import { AuthInfo } from "../types/authInfo";
 import { FetchAuthInfo } from "../components/auth/Auth";
 import { FetchFeatureToggles } from "../components/featuretoggles/FeatureToggles";
-import { FetchDsopInfo } from "../pages/dsop/Historikk";
+import { FetchDsopInfo } from "../pages/dsop/DSOP";
 import { DsopInfo } from "../types/dsop";
 
 export interface FeatureToggles {

@@ -39,7 +39,7 @@ const LinksContainer = () => {
             tittel={"eksternelenker.dsop.tittel"}
             beskrivelse={"eksternelenker.dsop.beskrivelse"}
             lenkeTekst={"eksternelenker.dsop.lenkeTekst"}
-            to={"/person/personopplysninger/dsop/historikk"}
+            to={"/person/personopplysninger/dsop"}
             component={"Link"}
           />
         )}

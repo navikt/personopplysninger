@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "^1.0.95",
+    "@navikt/arbeidsforhold": "^1.0.96",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
@@ -75,6 +75,7 @@
     "react-collapse": "^4.0.3",
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
+    "react-json-view": "^1.19.1",
     "react-modal": "^3.8.1",
     "react-moment": "^0.9.2",
     "react-motion": "^0.5.2",
