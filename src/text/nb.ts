@@ -86,6 +86,7 @@ export default {
   "dsop.personnummer": "Personnummer",
   "dsop.tema": "Tema",
   "dsop.behanglingsGrunnlag": "Behandlingsgrunnlag",
+  "dsop.ingendata": "Ingen persondata har blitt utlevert",
   "dittnavkontor.tittel": `Ditt NAV-kontor`,
   "dittnavkontor.beskrivelse": `Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Ditt kontor er `,

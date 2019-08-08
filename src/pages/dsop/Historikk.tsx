@@ -5,6 +5,7 @@ import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
+import { FormattedMessage } from "react-intl";
 import { Link, RouteComponentProps, withRouter } from "react-router-dom";
 
 interface Props {
@@ -101,7 +102,9 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
         </>
       ) : (
         <div className="historikk__ingen-data">
-          <AlertStripeInfo>Ingen data</AlertStripeInfo>
+          <AlertStripeInfo>
+            <FormattedMessage id="dsop.ingendata" />
+          </AlertStripeInfo>
         </div>
       )}
     </div>
