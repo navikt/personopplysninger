@@ -1,0 +1,36 @@
+---
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: {{project}}
+  namespace: default
+  labels:
+    team: {{team}}
+spec:
+  image: navikt/{{project}}:{{version}}
+  team: {{team}}
+  port: 8080
+  ingresses:
+    - https://{{project}}.nais.oera.no{{baseurl}}
+    - https://www.nav.no{{baseurl}}
+  liveness:
+    path: {{baseurl}}/internal/alive
+    initialDelay: 10
+  readiness:
+    path: {{baseurl}}/internal/ready
+    initialDelay: 10
+  vault:
+    enabeled: true
+  replicas:
+    min: 2
+    max: 4
+  webproxy: true
+  env:
+    - name: NODE_EXTRA_CA_CERTS
+      value: "/etc/ssl/ca-bundle.pem"
+  resources:
+    limits:
+      cpu: '3'
+      memory: 768Mi
+    requests:
+      memory: 512Mi
