@@ -19,8 +19,6 @@ spec:
   readiness:
     path: {{baseurl}}/internal/isReady
     initialDelay: 10
-  vault:
-    enabeled: true
   replicas:
     min: 2
     max: 4
