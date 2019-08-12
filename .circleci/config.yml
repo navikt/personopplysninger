@@ -38,7 +38,10 @@ jobs:
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
             docker push $IMAGE_NAME
       - deploy:
-          til: "dev"
+          til: dev-sbs
+          ingress1: https://$CIRCLE_PROJECT_REPONAME.nais.oera-q.local/person/$CIRCLE_PROJECT_REPONAME
+          ingress2: https://www-q0.nav.no/person/$CIRCLE_PROJECT_REPONAME
+
 
   deploy-til-prod:
     docker:
@@ -47,12 +50,18 @@ jobs:
       - checkout
       - sett-miljovariabler
       - deploy:
-          til: "prod"
+          til: prod-sbs
+          ingress1: https://$CIRCLE_PROJECT_REPONAME.nais.oera.no/person/$CIRCLE_PROJECT_REPONAME
+          ingress2: https://www.nav.no/person/$CIRCLE_PROJECT_REPONAME
 
 commands:
   deploy:
     parameters:
       til:
+        type: string
+      ingress1:
+        type: string
+      ingress2:
         type: string
     steps:
       - run:
@@ -60,11 +69,13 @@ commands:
           command: |
             echo $GH_DEPLOY_KEY | base64 -d | dos2unix > gh_deploy_key.pem
             deployment-cli deploy create \
-                --cluster=<< parameters.til >>-sbs \
                 --team=personbruker \
-                --resource=nais-<< parameters.til >>.yaml \
+                --resource=nais.yaml \
+                --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
                 --var baseurl=/person/$CIRCLE_PROJECT_REPONAME \
+                --var ingress1=<< parameters.ingress1 >> \
+                --var ingress2=<< parameters.ingress2 >> \
                 --var project=$CIRCLE_PROJECT_REPONAME \
                 --var version=$IMAGE_VERSION \
                 --key=gh_deploy_key.pem \

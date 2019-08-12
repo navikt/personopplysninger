@@ -11,13 +11,13 @@ spec:
   team: {{team}}
   port: 8080
   ingresses:
-    - https://{{project}}.nais.oera-q.local{{baseurl}}
-    - https://www-q0.nav.no{{baseurl}}
+    - {{ingress1}}
+    - {{ingress2}}
   liveness:
-    path: {{baseurl}}/internal/alive
+    path: {{baseurl}}/internal/isAlive
     initialDelay: 10
   readiness:
-    path: {{baseurl}}/internal/ready
+    path: {{baseurl}}/internal/isReady
     initialDelay: 10
   vault:
     enabeled: true
