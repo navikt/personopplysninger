@@ -2,12 +2,12 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: {{project}}
+  name: {{reponame}}
   namespace: default
   labels:
     team: {{team}}
 spec:
-  image: navikt/{{project}}:{{version}}
+  image: navikt/{{reponame}}:{{version}}
   team: {{team}}
   port: 8080
   ingresses:
