@@ -1,0 +1,33 @@
+---
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: {{reponame}}
+  namespace: default
+  labels:
+    team: {{team}}
+spec:
+  image: navikt/{{reponame}}:{{version}}
+  team: {{team}}
+  port: 8080
+  ingresses:
+    - {{ingress1}}
+    - {{ingress2}}
+  liveness:
+    path: {{baseurl}}/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: {{baseurl}}/internal/isReady
+    initialDelay: 10
+  vault:
+    enabeled: true
+  replicas:
+    min: 2
+    max: 4
+  webproxy: true
+  resources:
+    limits:
+      cpu: '3'
+      memory: 768Mi
+    requests:
+      memory: 512Mi

@@ -52,7 +52,7 @@ const startServer = html => {
     express.static(path.resolve(`${__dirname}/..`, "build/favicon.ico"))
   );
 
-  server.get("/person/personopplysninger/internal/alive|ready", (req, res) =>
+  server.get("/person/personopplysninger/internal/isAlive|isReady", (req, res) =>
     res.sendStatus(200)
   );
 
