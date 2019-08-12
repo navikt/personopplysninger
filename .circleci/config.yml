@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  build-react-app:
+  build:
     docker:
       - image: circleci/node:11.7.0
     steps:
@@ -97,14 +97,14 @@ commands:
 workflows:
   bygg-og-deploy:
     jobs:
-      - build-react-app:
+      - build:
           filters:
             tags:
               only: /.*/
       - bekreft-deploy-til-dev:
           type: approval
           requires:
-            - build-react-app
+            - build
           filters:
             branches:
               ignore: master
@@ -115,7 +115,7 @@ workflows:
       - deploy-til-dev:
           name: automatisk-deploy-til-dev
           requires:
-            - build-react-app
+            - build
           filters:
             tags:
               only: /^v.*/
