@@ -44,7 +44,7 @@ jobs:
 
   deploy-til-prod:
     docker:
-      - image: circleci/node:11.7.0
+      - image: navikt/deployment-cli:latest
     steps:
       - checkout
       - sett-miljovariabler
