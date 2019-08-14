@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@navikt/arbeidsforhold": "latest",
+    "@navikt/arbeidsforhold": "^1.1.2",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "core-js": "^2.5.7",
