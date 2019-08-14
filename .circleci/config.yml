@@ -9,9 +9,6 @@ jobs:
           name: Installer npm pakker
           command: |
             npm ci
-      - run:
-          name: Installer @navikt/arbeidsforhold
-          command: |
             npm i @navikt/arbeidsforhold
       - run:
           name: Bygg React app
