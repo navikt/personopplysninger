@@ -57,13 +57,19 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
           <LeggTilAdresse />
         )}
-        {(adresser.boadresse || adresser.postadresse) && (
+        {adresser.tilleggsadresse || adresser.utenlandskAdresse ? (
           <Kilde
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
             eksternLenke={true}
             ikon={endreIkon}
+          />
+        ) : (
+          <Kilde
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenkeTekst="personalia.link.brukerprofil.leggtil"
           />
         )}
       </div>
