@@ -3,7 +3,6 @@ import { FormattedHTMLMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import { Link } from "react-router-dom";
-import Melding from "../melding/Melding";
 
 interface Props {
   kilde?: string;
