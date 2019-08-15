@@ -1,41 +1,37 @@
-import React, { MouseEvent } from "react";
-import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
-import { HashLink as Link } from "react-router-hash-link";
-import { basePath } from "../../App";
-import { VenstreChevron } from "nav-frontend-chevron";
+import React from "react";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "../../components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
-import { RouteComponentProps, withRouter } from "react-router";
+import Tilbake from "../tilbake/Tilbake";
+import Brodsmulesti, {
+  BrodsmuleLenke
+} from "../../pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
+  tittelId: string;
+  backTo: string;
+  icon?: string;
+  brodsmulesti: BrodsmuleLenke[];
 }
 
-const PageContainer = (props: Props & RouteComponentProps) => {
-  const { history } = props;
-
-  const goBack = (event: MouseEvent): void => {
-    event.preventDefault();
-    history.goBack();
-  };
-
+const PageContainer = (props: Props) => {
   return (
     <div className="da__container">
-      <div className="da__icon">
-        <Icon backgroundImage={arbeidsforholdIkon} backgroundColor="#99C1E9" />
-      </div>
+      <Brodsmulesti hierarki={props.brodsmulesti} />
+      {props.icon && (
+        <div className="da__icon">
+          <Icon backgroundImage={props.icon} backgroundColor="#99C1E9" />
+        </div>
+      )}
       <div className="da__rad">
         <div className="da__back">
-          <Link to={`${basePath}/`} onClick={goBack}>
-            <VenstreChevron />
-            Tilbake
-          </Link>
+          <Tilbake to={props.backTo} />
         </div>
         <div className="da__overskrift">
           <Systemtittel>
-            <FormattedMessage id="dsop.tittel" />
+            <FormattedMessage id={props.tittelId} />
           </Systemtittel>
         </div>
         <div className="da__filler" />
@@ -47,4 +43,4 @@ const PageContainer = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(PageContainer);
+export default PageContainer;

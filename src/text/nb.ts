@@ -2,6 +2,7 @@ import merInfo from "./nb/informasjon";
 /* tslint:disable */
 export default {
   "side.tittel": `Personopplysninger`,
+  "side.tilbake": "Tilbake",
   "brodsmulesti.dittnav": `Ditt NAV`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
