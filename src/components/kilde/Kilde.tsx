@@ -28,7 +28,7 @@ const Kilde = (props: Props) => {
           <>
             {eksternLenke ? (
               <Lenke href={lenke}>
-                <Normaltekst>
+                <Normaltekst className="kilde__lenke">
                   <FormattedHTMLMessage id={lenkeTekst} />
                   {ikon && (
                     <span className="kilde__icon">
@@ -39,7 +39,7 @@ const Kilde = (props: Props) => {
               </Lenke>
             ) : (
               <Link to={lenke}>
-                <Normaltekst className="lenke">
+                <Normaltekst className="kilde__lenke lenke">
                   <FormattedHTMLMessage id={lenkeTekst} />
                   {ikon && (
                     <span className="kilde__icon">

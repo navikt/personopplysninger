@@ -31,8 +31,8 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
       <>
         {adresse || postnummer || poststed ? (
           <>
-            {adresse && <Normaltekst>{adresse}</Normaltekst>}
             {adressetillegg && <Normaltekst>{adressetillegg}</Normaltekst>}
+            {adresse && <Normaltekst>{adresse}</Normaltekst>}
             {(postnummer || postnummer) && (
               <Normaltekst>
                 {postnummer && postnummer} {poststed && poststed}
