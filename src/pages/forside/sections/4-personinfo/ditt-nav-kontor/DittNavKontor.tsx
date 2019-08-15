@@ -165,7 +165,6 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           })}
         />
       </ul>
-      <hr className="box__linje-bred" />
       <Kilde kilde="personalia.source.nav" />
     </Box>
   );

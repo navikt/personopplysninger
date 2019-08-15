@@ -38,16 +38,13 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
           <PostAdresse postadresse={adresser.postadresse} />
         )}
         {(adresser.boadresse || adresser.postadresse) && (
-          <>
-            <hr className="box__linje-bred" />
-            <Kilde
-              kilde="personalia.source.folkeregisteret"
-              lenke="https://www.skatteetaten.no/person/folkeregister/"
-              lenkeTekst="personalia.link.folkeregisteret"
-              eksternLenke={true}
-              ikon={eksternLenkeIkon}
-            />
-          </>
+          <Kilde
+            kilde="personalia.source.folkeregisteret"
+            lenke="https://www.skatteetaten.no/person/folkeregister/"
+            lenkeTekst="personalia.link.folkeregisteret"
+            eksternLenke={true}
+            ikon={eksternLenkeIkon}
+          />
         )}
       </div>
       <div className="addresse__midlertidig-adresse">
@@ -61,16 +58,13 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
           <LeggTilAdresse />
         )}
         {(adresser.boadresse || adresser.postadresse) && (
-          <>
-            <hr className="box__linje-bred" />
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${tjenesteUrl}/brukerprofil/`}
-              lenkeTekst="personalia.link.brukerprofil.endre"
-              eksternLenke={true}
-              ikon={endreIkon}
-            />
-          </>
+          <Kilde
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenkeTekst="personalia.link.brukerprofil.endre"
+            eksternLenke={true}
+            ikon={endreIkon}
+          />
         )}
       </div>
     </Box>

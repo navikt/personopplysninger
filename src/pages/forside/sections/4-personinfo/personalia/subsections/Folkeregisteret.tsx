@@ -64,7 +64,6 @@ class Folkeregisteret extends Component<Props> {
           <ListElement titleId="personalia.civil_status" content={sivilstand} />
           <ListElement titleId="personalia.gender" content={kjoenn} />
         </ul>
-        <hr className="box__linje-bred" />
         <Kilde
           kilde="personalia.source.folkeregisteret"
           lenke="https://www.skatteetaten.no/person/folkeregister/"

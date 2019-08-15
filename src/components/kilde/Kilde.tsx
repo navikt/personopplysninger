@@ -3,6 +3,7 @@ import { FormattedHTMLMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import { Link } from "react-router-dom";
+import Melding from "../melding/Melding";
 
 interface Props {
   kilde?: string;
@@ -15,44 +16,47 @@ interface Props {
 const Kilde = (props: Props) => {
   const { lenke, lenkeTekst, eksternLenke, ikon } = props;
   return (
-    <div className="kilde__container">
-      <div className="kilde__seksjon">
-        {props.kilde && (
-          <EtikettLiten>
-            <FormattedHTMLMessage id={props.kilde} />
-          </EtikettLiten>
-        )}
+    <>
+      <hr className="kilde__linje" />
+      <div className="kilde__container">
+        <div className="kilde__seksjon">
+          {props.kilde && (
+            <EtikettLiten>
+              <FormattedHTMLMessage id={props.kilde} />
+            </EtikettLiten>
+          )}
+        </div>
+        <div className="kilde__seksjon kilde__lenke-container">
+          {lenke && lenkeTekst && (
+            <>
+              {eksternLenke ? (
+                <Lenke href={lenke}>
+                  <Normaltekst className="kilde__lenke">
+                    <FormattedHTMLMessage id={lenkeTekst} />
+                    {ikon && (
+                      <span className="kilde__icon">
+                        <img src={ikon} alt="Ekstern lenke" />
+                      </span>
+                    )}
+                  </Normaltekst>
+                </Lenke>
+              ) : (
+                <Link to={lenke}>
+                  <Normaltekst className="kilde__lenke lenke">
+                    <FormattedHTMLMessage id={lenkeTekst} />
+                    {ikon && (
+                      <span className="kilde__icon">
+                        <img src={ikon} alt="Ekstern lenke" />
+                      </span>
+                    )}
+                  </Normaltekst>
+                </Link>
+              )}
+            </>
+          )}
+        </div>
       </div>
-      <div className="kilde__seksjon kilde__lenke-container">
-        {lenke && lenkeTekst && (
-          <>
-            {eksternLenke ? (
-              <Lenke href={lenke}>
-                <Normaltekst className="kilde__lenke">
-                  <FormattedHTMLMessage id={lenkeTekst} />
-                  {ikon && (
-                    <span className="kilde__icon">
-                      <img src={ikon} alt="Ekstern lenke" />
-                    </span>
-                  )}
-                </Normaltekst>
-              </Lenke>
-            ) : (
-              <Link to={lenke}>
-                <Normaltekst className="kilde__lenke lenke">
-                  <FormattedHTMLMessage id={lenkeTekst} />
-                  {ikon && (
-                    <span className="kilde__icon">
-                      <img src={ikon} alt="Ekstern lenke" />
-                    </span>
-                  )}
-                </Normaltekst>
-              </Link>
-            )}
-          </>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 
