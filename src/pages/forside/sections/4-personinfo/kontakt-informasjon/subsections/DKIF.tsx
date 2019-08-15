@@ -36,7 +36,6 @@ const DKIF = (props: InjectedIntlProps) => {
 
   return (
     <>
-      <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
         <div className="dkif__overskrift-container">
           <Undertittel>

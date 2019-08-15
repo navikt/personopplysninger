@@ -7,6 +7,9 @@
     @media @mobile {
       flex-direction: column;
     }
+    > :first-child {
+      padding-right: 2rem;
+    }
   }
   &__seksjon {
     width: 50%;
@@ -17,10 +20,16 @@
       width: 100%;
     }
   }
-  &__lenke {
+  &__lenke-container {
     @media @desktop {
       display: flex;
       justify-content: flex-end;
     }
+  }
+  &__lenke {
+    display: flex;
+  }
+  &__icon {
+    margin-left: 0.5rem;
   }
 }

@@ -68,6 +68,7 @@ class Folkeregisteret extends Component<Props> {
           kilde="personalia.source.folkeregisteret"
           lenke="https://www.skatteetaten.no/person/folkeregister/"
           lenkeTekst="personalia.link.folkeregisteret"
+          eksternLenke={true}
         />
       </>
     );

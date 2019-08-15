@@ -27,19 +27,23 @@ const KontaktInformasjon = (props: Props) => {
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
         <ListElement titleId="personalia.email" content={epostadresse} />
       </ul>
+      <hr className="box__linje-bred" />
       <Kilde
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.endre"
+        eksternLenke={true}
       />
     </>
   ) : (
     <>
       <Melding bold={true} meldingId="personalia.dkif.ingenData" />
+      <hr className="box__linje-bred" />
       <Kilde
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.leggtil"
+        eksternLenke={true}
       />
     </>
   );

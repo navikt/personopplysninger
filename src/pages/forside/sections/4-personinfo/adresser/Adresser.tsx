@@ -9,7 +9,10 @@ import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
 import LeggTilAdresse from "./LeggTilAdresse";
+import Kilde from "../../../../../components/kilde/Kilde";
+import Environment from "../../../../../utils/Environments";
 
+const { tjenesteUrl } = Environment();
 interface Props {
   adresser: Adresser;
 }
@@ -23,11 +26,20 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
       beskrivelse="adresse.beskrivelse"
       icon={adresseIkon}
     >
-      <>
+      <hr className="box__linje-bred" />
+      <div>
         {adresser.boadresse && <BoAdresse boadresse={adresser.boadresse} />}
         {adresser.postadresse && (
           <PostAdresse postadresse={adresser.postadresse} />
         )}
+        <hr className="box__linje-bred" />
+        <Kilde
+          kilde="personalia.source.folkeregisteret"
+          lenke="https://www.skatteetaten.no/person/folkeregister/"
+          lenkeTekst="personalia.link.folkeregisteret"
+        />
+      </div>
+      <div className="addresse__seksjon">
         {adresser.tilleggsadresse && (
           <MidlertidigAdresse tilleggsadresse={adresser.tilleggsadresse} />
         )}
@@ -37,7 +49,13 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
           <LeggTilAdresse />
         )}
-      </>
+        <hr className="box__linje-bred" />
+        <Kilde
+          kilde="personalia.source.nav"
+          lenke={`${tjenesteUrl}/brukerprofil/`}
+          lenkeTekst="personalia.link.brukerprofil.endre"
+        />
+      </div>
     </Box>
   );
 };

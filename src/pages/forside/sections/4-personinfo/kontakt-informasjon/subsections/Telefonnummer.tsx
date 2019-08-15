@@ -17,7 +17,6 @@ const Telefonnummer = (props: Props) => {
   const { tlfnr } = props;
   return (
     <>
-      <hr className="box__linje-bred" />
       <div className="underseksjon__overskrift">
         <Undertittel>
           <FormattedMessage id="personalia.tlfnr.oveskrift" />
@@ -36,6 +35,7 @@ const Telefonnummer = (props: Props) => {
               content={tlfnr.privat}
             />
           </ul>
+          <hr className="box__linje-bred" />
           <Kilde
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
@@ -45,6 +45,7 @@ const Telefonnummer = (props: Props) => {
       ) : (
         <>
           <Melding meldingId="personalia.tlfnr.ingenData" />
+          <hr className="box__linje-bred" />
           <Kilde
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
