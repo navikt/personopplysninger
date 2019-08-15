@@ -3,7 +3,7 @@ import PageContainer from "../../components/pagecontainer/PageContainer";
 import DSOPIkon from "../../assets/img/DSOP.svg";
 import WithDSOP from "./DSOP";
 
-export const DsopHistorikkMedBrodsmule = () => (
+export const DsopHistorik = () => (
   <PageContainer
     tittelId={"dsop.tittel"}
     icon={DSOPIkon}
@@ -14,7 +14,7 @@ export const DsopHistorikkMedBrodsmule = () => (
   </PageContainer>
 );
 
-export const DsopDetaljerMedBrodsmule = () => (
+export const DsopDetaljer = () => (
   <PageContainer
     tittelId={"dsop.tittel"}
     icon={DSOPIkon}

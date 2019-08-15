@@ -6,10 +6,7 @@ import Forside from "./pages/forside/Forside";
 import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
 import Telefonnummer from "./pages/telefonnummer/Telefonnummer";
-import {
-  DsopDetaljerMedBrodsmule,
-  DsopHistorikkMedBrodsmule
-} from "./pages/dsop/Wrapper";
+import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 
 export const basePath = "/person/personopplysninger";
@@ -36,14 +33,14 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/dsop`}
-                  component={DsopHistorikkMedBrodsmule}
+                  component={DsopHistorik}
                 />
               )}
               {featureToggles.data["personopplysninger.dsop"] && (
                 <Route
                   exact={true}
                   path={`${basePath}/dsop/:id`}
-                  component={DsopDetaljerMedBrodsmule}
+                  component={DsopDetaljer}
                 />
               )}
               {featureToggles.data["personopplysninger.pdl"] && (
