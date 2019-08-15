@@ -18,9 +18,8 @@ export const initialState = {
   featureToggles: {
     status: "LOADING",
     data: {
-      "personopplysninger.arbeidsforhold.liste": false,
-      "personopplysninger.arbeidsforhold.detaljert": false,
-      "personopplysninger.dsop": false
+      "personopplysninger.dsop": false,
+      "personopplysninger.pdl": false
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,

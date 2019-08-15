@@ -68,4 +68,3 @@ const init = async () => {
   serviceWorker.unregister();
 };
 init();
-
