@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import { Personalia as PersonaliaType } from "../../../../../../types/personalia";
+import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 
 interface Props {
   personalia: PersonaliaType;
@@ -69,6 +70,7 @@ class Folkeregisteret extends Component<Props> {
           lenke="https://www.skatteetaten.no/person/folkeregister/"
           lenkeTekst="personalia.link.folkeregisteret"
           eksternLenke={true}
+          ikon={eksternLenkeIkon}
         />
       </>
     );

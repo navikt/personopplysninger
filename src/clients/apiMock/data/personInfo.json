@@ -181,7 +181,8 @@
   },
   "adresser": {
     "boadresse": {
-      "adressetillegg": "C/O TEST TEST",
+      "adressetillegg": "C/O Rune Aremark",
+      "adresse": "Bjørvika 4D",
       "datoFraOgMed": "2017-02-21",
       "kommune": "1239",
       "land": "Norge",
@@ -228,14 +229,6 @@
       "postboksnummer": "",
       "postnummer": "2021",
       "poststed": "JAJAJA"
-    },
-    "utenlandskAdresse": {
-      "adresse1": "TEST TEST TEST",
-      "adresse2": "TESTESEN",
-      "adresse3": "TEST",
-      "datoFraOgMed": "2019-02-08",
-      "datoTilOgMed": "2020-02-08",
-      "land": "CUBA"
     },
     "datakilder": [{}, {}]
   }

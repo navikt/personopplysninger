@@ -6,6 +6,7 @@ import Melding from "../../../../../../components/melding/Melding";
 import { Tlfnr } from "../../../../../../types/personalia";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Environment from "../../../../../../utils/Environments";
+import endreIkon from "../../../../../../assets/img/Pencil.svg";
 
 const { tjenesteUrl } = Environment();
 
@@ -40,6 +41,8 @@ const Telefonnummer = (props: Props) => {
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
+            eksternLenke={true}
+            ikon={endreIkon}
           />
         </>
       ) : (
@@ -50,6 +53,8 @@ const Telefonnummer = (props: Props) => {
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
+            eksternLenke={true}
+            ikon={endreIkon}
           />
         </>
       )}

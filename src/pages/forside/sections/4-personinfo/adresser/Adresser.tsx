@@ -11,6 +11,8 @@ import adresseIkon from "../../../../../assets/img/Adresse.svg";
 import LeggTilAdresse from "./LeggTilAdresse";
 import Kilde from "../../../../../components/kilde/Kilde";
 import Environment from "../../../../../utils/Environments";
+import endreIkon from "../../../../../assets/img/Pencil.svg";
+import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
 
 const { tjenesteUrl } = Environment();
 interface Props {
@@ -29,17 +31,26 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
       <hr className="box__linje-bred" />
       <div>
         {adresser.boadresse && <BoAdresse boadresse={adresser.boadresse} />}
+        {adresser.boadresse && adresser.postadresse && (
+          <div className="addresse__divider" />
+        )}
         {adresser.postadresse && (
           <PostAdresse postadresse={adresser.postadresse} />
         )}
-        <hr className="box__linje-bred" />
-        <Kilde
-          kilde="personalia.source.folkeregisteret"
-          lenke="https://www.skatteetaten.no/person/folkeregister/"
-          lenkeTekst="personalia.link.folkeregisteret"
-        />
+        {(adresser.boadresse || adresser.postadresse) && (
+          <>
+            <hr className="box__linje-bred" />
+            <Kilde
+              kilde="personalia.source.folkeregisteret"
+              lenke="https://www.skatteetaten.no/person/folkeregister/"
+              lenkeTekst="personalia.link.folkeregisteret"
+              eksternLenke={true}
+              ikon={eksternLenkeIkon}
+            />
+          </>
+        )}
       </div>
-      <div className="addresse__seksjon">
+      <div className="addresse__midlertidig-adresse">
         {adresser.tilleggsadresse && (
           <MidlertidigAdresse tilleggsadresse={adresser.tilleggsadresse} />
         )}
@@ -49,12 +60,18 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
         {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
           <LeggTilAdresse />
         )}
-        <hr className="box__linje-bred" />
-        <Kilde
-          kilde="personalia.source.nav"
-          lenke={`${tjenesteUrl}/brukerprofil/`}
-          lenkeTekst="personalia.link.brukerprofil.endre"
-        />
+        {(adresser.boadresse || adresser.postadresse) && (
+          <>
+            <hr className="box__linje-bred" />
+            <Kilde
+              kilde="personalia.source.nav"
+              lenke={`${tjenesteUrl}/brukerprofil/`}
+              lenkeTekst="personalia.link.brukerprofil.endre"
+              eksternLenke={true}
+              ikon={endreIkon}
+            />
+          </>
+        )}
       </div>
     </Box>
   );

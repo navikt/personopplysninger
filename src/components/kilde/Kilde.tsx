@@ -2,8 +2,6 @@ import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
-import pencilIcon from "../../assets/img/Pencil.svg";
-import externalLinkIcon from "../../assets/img/Link.svg";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -11,10 +9,11 @@ interface Props {
   lenke?: string;
   lenkeTekst?: string;
   eksternLenke?: boolean;
+  ikon?: string;
 }
 
 const Kilde = (props: Props) => {
-  const { lenke, lenkeTekst, eksternLenke } = props;
+  const { lenke, lenkeTekst, eksternLenke, ikon } = props;
   return (
     <div className="kilde__container">
       <div className="kilde__seksjon">
@@ -31,18 +30,22 @@ const Kilde = (props: Props) => {
               <Lenke href={lenke}>
                 <Normaltekst>
                   <FormattedHTMLMessage id={lenkeTekst} />
-                  <span className="kilde__icon">
-                    <img src={externalLinkIcon} alt="Ekstern lenke" />
-                  </span>
+                  {ikon && (
+                    <span className="kilde__icon">
+                      <img src={ikon} alt="Ekstern lenke" />
+                    </span>
+                  )}
                 </Normaltekst>
               </Lenke>
             ) : (
               <Link to={lenke}>
                 <Normaltekst className="lenke">
                   <FormattedHTMLMessage id={lenkeTekst} />
-                  <span className="kilde__icon">
-                    <img src={pencilIcon} alt="Endre" />
-                  </span>
+                  {ikon && (
+                    <span className="kilde__icon">
+                      <img src={ikon} alt="Ekstern lenke" />
+                    </span>
+                  )}
                 </Normaltekst>
               </Link>
             )}

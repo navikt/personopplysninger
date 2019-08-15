@@ -5,6 +5,7 @@ import ListElement from "../../../../../../components/listelement/ListElement";
 import Melding from "../../../../../../components/melding/Melding";
 import { KontaktInfo } from "../../../../../../types/kontaktInfo";
 import Kilde from "../../../../../../components/kilde/Kilde";
+import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 
 interface Props {
   info: KontaktInfo;
@@ -33,6 +34,7 @@ const KontaktInformasjon = (props: Props) => {
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.endre"
         eksternLenke={true}
+        ikon={eksternLenkeIkon}
       />
     </>
   ) : (
@@ -44,6 +46,7 @@ const KontaktInformasjon = (props: Props) => {
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.leggtil"
         eksternLenke={true}
+        ikon={eksternLenkeIkon}
       />
     </>
   );
