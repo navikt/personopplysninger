@@ -165,7 +165,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
           })}
         />
       </ul>
-      <Kilde kilde="personalia.source.nav" />
+      <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
     </Box>
   );
 };

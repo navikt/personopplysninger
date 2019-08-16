@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import ListElement from "../../../../../../components/listelement/ListElement";
@@ -9,6 +9,7 @@ import Environment from "../../../../../../utils/Environments";
 import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import { useStore } from "../../../../../../providers/Provider";
+import { FormValidation, FormContext } from "calidation";
 import { basePath } from "../../../../../../App";
 
 const { tjenesteUrl } = Environment();
@@ -19,66 +20,101 @@ interface Props {
 
 const Telefonnummer = (props: Props) => {
   const [{ featureToggles }] = useStore();
+  const [loading, settLoading] = useState(false);
+  const [error, settError] = useState();
+  const [edit, settEdit] = useState(false);
   const { tlfnr } = props;
+
+  const formConfig = {
+    jobb: {
+      isRequired: "Username is required!"
+    },
+    mobil: {
+      isRequired: "Username is required!"
+    },
+    privat: {
+      isRequired: "Username is required!"
+    }
+  };
+
+  const send = (e: FormContext) => {
+    const { isValid, fields } = e;
+
+    if (isValid) {
+      console.log("valid! yay");
+      settLoading(true);
+      settLoading(false);
+    }
+  };
+
   return (
-    <>
-      <div className="underseksjon__header">
-        <Undertittel>
-          <FormattedMessage id="personalia.tlfnr.oveskrift" />
-        </Undertittel>
-      </div>
-      {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+    <FormValidation onSubmit={send} config={formConfig}>
+      {({ errors, fields, submitted }) => (
         <>
-          <ul className="list-column-2">
-            <ListElement titleId="personalia.tlfnr.jobb" content={tlfnr.jobb} />
-            <ListElement
-              titleId="personalia.tlfnr.mobil"
-              content={tlfnr.mobil}
-            />
-            <ListElement
-              titleId="personalia.tlfnr.privat"
-              content={tlfnr.privat}
-            />
-          </ul>
-          {featureToggles.data["personopplysninger.pdl"] ? (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${basePath}/endre/kontaktinformasjon/`}
-              lenkeTekst="side.endre"
-              ikon={endreIkon}
-            />
+          <div className="underseksjon__header">
+            <Undertittel>
+              <FormattedMessage id="personalia.tlfnr.oveskrift" />
+            </Undertittel>
+          </div>
+          {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+            <>
+              <ul className="list-column-2">
+                <ListElement
+                  titleId="personalia.tlfnr.jobb"
+                  content={tlfnr.jobb}
+                />
+                <ListElement
+                  titleId="personalia.tlfnr.mobil"
+                  content={tlfnr.mobil}
+                />
+                <ListElement
+                  titleId="personalia.tlfnr.privat"
+                  content={tlfnr.privat}
+                />
+              </ul>
+              {featureToggles.data["personopplysninger.pdl"] ? (
+                <Kilde
+                  kilde="personalia.source.nav"
+                  lenke={`${basePath}/endre/kontaktinformasjon/`}
+                  lenkeTekst="side.endre"
+                  lenkeType={"INTERN"}
+                  ikon={endreIkon}
+                />
+              ) : (
+                <Kilde
+                  kilde="personalia.source.nav"
+                  lenke={`${tjenesteUrl}/brukerprofil/`}
+                  lenkeTekst="personalia.link.brukerprofil.endre"
+                  lenkeType={"EKSTERN"}
+                  ikon={endreIkon}
+                />
+              )}
+            </>
           ) : (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${tjenesteUrl}/brukerprofil/`}
-              lenkeTekst="personalia.link.brukerprofil.endre"
-              eksternLenke={true}
-              ikon={endreIkon}
-            />
-          )}
-        </>
-      ) : (
-        <>
-          <Melding meldingId="personalia.tlfnr.ingenData" />
-          {featureToggles.data["personopplysninger.pdl"] ? (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${basePath}/endre/kontaktinformasjon/`}
-              lenkeTekst="side.leggtil"
-              ikon={leggTilIkon}
-            />
-          ) : (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${tjenesteUrl}/brukerprofil/`}
-              lenkeTekst="personalia.link.brukerprofil.leggtil"
-              eksternLenke={true}
-              ikon={leggTilIkon}
-            />
+            <>
+              <Melding meldingId="personalia.tlfnr.ingenData" />
+              {featureToggles.data["personopplysninger.pdl"] ? (
+                <Kilde
+                  kilde="personalia.source.nav"
+                  lenke={`${basePath}/endre/kontaktinformasjon/`}
+                  lenkeTekst="side.leggtil"
+                  lenkeType={"INTERN"}
+                  ikon={leggTilIkon}
+                />
+              ) : (
+                <Kilde
+                  kilde="personalia.source.nav"
+                  lenke={`${tjenesteUrl}/brukerprofil/`}
+                  lenkeTekst="personalia.link.brukerprofil.leggtil"
+                  lenkeType={"EKSTERN"}
+                  ikon={leggTilIkon}
+                />
+              )}
+            </>
           )}
         </>
       )}
-    </>
+    </FormValidation>
   );
 };
 
