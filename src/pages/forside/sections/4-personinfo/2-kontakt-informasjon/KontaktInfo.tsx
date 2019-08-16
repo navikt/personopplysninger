@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Box from "../../../../../components/box/Box";
 import kontaktIkon from "../../../../../assets/img/Kontakt.svg";
-import Telefonnummer from "./subsections/Telefonnummer";
-import DKIF from "./subsections/DKIF";
+import TelefonnummerHosNav from "./subsections/TelefonnummerHosNav";
+import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/KontaktInfoFetch";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
 
 interface Props {
@@ -14,7 +14,7 @@ class KontaktInfo extends Component<Props> {
     return (
       <Box id="kontaktinfo" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
         <hr className="box__linje-bred" />
-        <Telefonnummer tlfnr={this.props.personalia.tlfnr} />
+        <TelefonnummerHosNav tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
       </Box>
     );

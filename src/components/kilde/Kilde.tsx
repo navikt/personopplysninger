@@ -16,7 +16,6 @@ const Kilde = (props: Props) => {
   const { lenke, lenkeTekst, eksternLenke, ikon } = props;
   return (
     <>
-      <hr className="kilde__linje" />
       <div className="kilde__container">
         <div className="kilde__seksjon">
           {props.kilde && (
@@ -55,6 +54,7 @@ const Kilde = (props: Props) => {
           )}
         </div>
       </div>
+      <hr className="kilde__linje" />
     </>
   );
 };

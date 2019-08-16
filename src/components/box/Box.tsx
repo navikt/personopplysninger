@@ -22,7 +22,7 @@ const Box = (props: Props & InjectedIntlProps) => {
       <Veilederpanel
         svg={<img src={icon} className="box__ikon" alt="Veileder" />}
         type={"plakat"}
-        kompakt
+        kompakt={true}
       >
         <div className="box__container">
           <div className="box__header" id={id}>

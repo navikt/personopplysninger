@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import Kilde from "../../../../../../components/kilde/Kilde";
-import ListElement from "../../../../../../components/listelement/ListElement";
-import { Personalia as PersonaliaType } from "../../../../../../types/personalia";
-import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
+import Box from "../../../../../components/box/Box";
+import personaliaIkon from "../../../../../assets/img/Personalia.svg";
+import { Personalia as PersonaliaType } from "../../../../../types/personalia";
+import ListElement from "../../../../../components/listelement/ListElement";
+import Kilde from "../../../../../components/kilde/Kilde";
+import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
 
 interface Props {
   personalia: PersonaliaType;
 }
 
-class Folkeregisteret extends Component<Props> {
+class Personalia extends Component<Props> {
   render() {
     const {
       personident,
@@ -40,7 +42,12 @@ class Folkeregisteret extends Component<Props> {
         : personident;
 
     return (
-      <>
+      <Box
+        id="personalia"
+        tittel="personalia.tittel"
+        beskrivelse="personalia.beskrivelse"
+        icon={personaliaIkon}
+      >
         <hr className="box__linje-bred" />
         <ul className="list-column-2">
           <ListElement titleId={fornavnHeader} content={fornavn} />
@@ -71,9 +78,9 @@ class Folkeregisteret extends Component<Props> {
           eksternLenke={true}
           ikon={eksternLenkeIkon}
         />
-      </>
+      </Box>
     );
   }
 }
 
-export default Folkeregisteret;
+export default Personalia;

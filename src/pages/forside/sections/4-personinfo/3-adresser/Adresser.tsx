@@ -47,7 +47,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
           />
         )}
       </div>
-      <div className="addresse__midlertidig-adresse">
+      <div className="underseksjon__divider">
         {adresser.tilleggsadresse && (
           <MidlertidigAdresse tilleggsadresse={adresser.tilleggsadresse} />
         )}
