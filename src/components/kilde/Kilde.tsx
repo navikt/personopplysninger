@@ -14,14 +14,14 @@ type Props =
       lenke: string;
       lenkeTekst: string;
       lenkeType: "INTERN" | "EKSTERN";
-      ikon: string;
+      ikon?: string;
     }
   | {
       kilde: string;
       lenkeTekst: string;
       lenkeType?: "KNAPP";
       onClick: () => void;
-      ikon: string;
+      ikon?: string;
     };
 
 const Knapp = (props: Props) => {

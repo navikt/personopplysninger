@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Undertittel } from "nav-frontend-typografi";
+import { Element, Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import Melding from "../../../../../../components/melding/Melding";
@@ -10,6 +10,8 @@ import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import { useStore } from "../../../../../../providers/Provider";
 import { FormValidation, FormContext } from "calidation";
+import { Input } from "nav-frontend-skjema";
+import { Hovedknapp } from "nav-frontend-knapper";
 
 const { tjenesteUrl } = Environment();
 
@@ -23,15 +25,9 @@ const Telefonnummer = (props: Props) => {
   const { tlfnr } = props;
 
   const formConfig = {
-    jobb: {
-      isRequired: "Username is required!"
-    },
-    mobil: {
-      isRequired: "Username is required!"
-    },
-    privat: {
-      isRequired: "Username is required!"
-    }
+    jobb: {},
+    mobil: {},
+    privat: {}
   };
 
   const send = (e: FormContext) => {
@@ -55,17 +51,57 @@ const Telefonnummer = (props: Props) => {
                 <FormattedMessage id="personalia.tlfnr.oveskrift" />
               </Undertittel>
             </div>
-            {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+            {edit ? (
               <>
                 <ul className="list-column-2">
-                  {edit ? (
-                    <div />
-                  ) : (
-                    <ListElement
-                      titleId="personalia.tlfnr.jobb"
-                      content={tlfnr.jobb}
+                  <li>
+                    <Element>
+                      <FormattedMessage id={"personalia.tlfnr.jobb"} />
+                    </Element>
+                    <Input
+                      label={""}
+                      defaultValue={(tlfnr && tlfnr.jobb) || ""}
                     />
-                  )}
+                  </li>
+                  <li>
+                    <Element>
+                      <FormattedMessage id={"personalia.tlfnr.mobil"} />
+                    </Element>
+                    <Input
+                      label={""}
+                      defaultValue={(tlfnr && tlfnr.mobil) || ""}
+                    />
+                  </li>
+                  <li>
+                    <Element>
+                      <FormattedMessage id={"personalia.tlfnr.privat"} />
+                    </Element>
+                    <Input
+                      label={""}
+                      defaultValue={(tlfnr && tlfnr.privat) || ""}
+                    />
+                  </li>
+                  <li />
+                </ul>
+                <div className="knapp__lagre">
+                  <Hovedknapp>
+                    <FormattedMessage id="side.lagre" />
+                  </Hovedknapp>
+                </div>
+                <Kilde
+                  kilde="personalia.source.nav"
+                  onClick={() => settEdit(false)}
+                  lenkeTekst="side.avbryt"
+                  lenkeType={"KNAPP"}
+                />
+              </>
+            ) : tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+              <>
+                <ul className="list-column-2">
+                  <ListElement
+                    titleId="personalia.tlfnr.jobb"
+                    content={tlfnr.jobb}
+                  />
                   <ListElement
                     titleId="personalia.tlfnr.mobil"
                     content={tlfnr.mobil}
