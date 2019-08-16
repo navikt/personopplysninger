@@ -13,6 +13,7 @@ import Kilde from "../../../../../components/kilde/Kilde";
 import Environment from "../../../../../utils/Environments";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
+import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
 
 const { tjenesteUrl } = Environment();
 interface Props {
@@ -70,6 +71,8 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
+            eksternLenke={true}
+            ikon={leggTilIkon}
           />
         )}
       </div>

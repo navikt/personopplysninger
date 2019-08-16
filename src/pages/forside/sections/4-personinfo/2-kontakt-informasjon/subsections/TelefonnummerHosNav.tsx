@@ -7,6 +7,7 @@ import { Tlfnr } from "../../../../../../types/personalia";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Environment from "../../../../../../utils/Environments";
 import endreIkon from "../../../../../../assets/img/Pencil.svg";
+import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 
 const { tjenesteUrl } = Environment();
 
@@ -52,7 +53,7 @@ const Telefonnummer = (props: Props) => {
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
             eksternLenke={true}
-            ikon={endreIkon}
+            ikon={leggTilIkon}
           />
         </>
       )}
