@@ -1,4 +1,4 @@
-import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/kontakt-informasjon/subsections/DKIF";
+import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/KontaktInfoFetch";
 import { FetchPersonInfo } from "../pages/forside/sections/4-personinfo/PersonInfo";
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
@@ -18,9 +18,8 @@ export const initialState = {
   featureToggles: {
     status: "LOADING",
     data: {
-      "personopplysninger.arbeidsforhold.liste": false,
-      "personopplysninger.arbeidsforhold.detaljert": false,
-      "personopplysninger.dsop": false
+      "personopplysninger.dsop": false,
+      "personopplysninger.pdl": false
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,

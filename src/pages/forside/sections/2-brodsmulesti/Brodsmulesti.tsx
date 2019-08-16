@@ -9,16 +9,18 @@ import { basePath } from "../../../../App";
 
 const { tjenesteUrl } = Environment();
 
+export interface BrodsmuleLenke {
+  title: string;
+  path?: string;
+}
+
 interface BrodsmuleProps {
   className?: string;
   children: "" | JSX.Element | JSX.Element[];
 }
 
 interface BrodsmulestiProps {
-  hierarchy?: {
-    title: string;
-    path?: string;
-  }[];
+  hierarki?: BrodsmuleLenke[];
 }
 
 interface Routes {
@@ -54,8 +56,8 @@ const Brodsmulesti = (
           <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
         )}
       </Brodsmule>
-      {props.hierarchy &&
-        props.hierarchy.map((link, i) => (
+      {props.hierarki &&
+        props.hierarki.map((link, i) => (
           <Fragment key={i}>
             /
             <Brodsmule>

@@ -48,13 +48,13 @@ const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
             <EtikettLiten>
               <FormattedMessage id="arbeidsforhold.kilde" />
             </EtikettLiten>
+            <EtikettLiten>
+              <span className="arbeidsforhold__arbeidsgiver">
+                <FormattedMessage id="arbeidsforhold.submitted.by" />
+              </span>
+            </EtikettLiten>
           </div>
         </div>
-        <EtikettLiten>
-          <span className="arbeidsforhold__arbeidsgiver">
-            <FormattedMessage id="arbeidsforhold.submitted.by" />
-          </span>
-        </EtikettLiten>
       </Box>
     </div>
   );

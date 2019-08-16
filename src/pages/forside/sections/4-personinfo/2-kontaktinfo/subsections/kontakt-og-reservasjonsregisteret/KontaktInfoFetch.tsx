@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Error, { HTTPError } from "../../../../../../components/error/Error";
-import Spinner from "../../../../../../components/spinner/Spinner";
-import { fetchKontaktInfo } from "../../../../../../clients/apiClient";
-import { KontaktInfo } from "../../../../../../types/kontaktInfo";
-import KontaktInformasjon from "./KontaktInformasjon";
-import { useStore } from "../../../../../../providers/Provider";
-import Infotekst from "../../../../../../components/infotekst/Infotekst";
+import Error, { HTTPError } from "../../../../../../../components/error/Error";
+import Spinner from "../../../../../../../components/spinner/Spinner";
+import { fetchKontaktInfo } from "../../../../../../../clients/apiClient";
+import { KontaktInfo } from "../../../../../../../types/kontaktInfo";
+import KontaktInformasjon from "./KontaktInfo";
+import { useStore } from "../../../../../../../providers/Provider";
+import Infotekst from "../../../../../../../components/infotekst/Infotekst";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 
 export type FetchKontaktInfo =
@@ -36,18 +36,15 @@ const DKIF = (props: InjectedIntlProps) => {
 
   return (
     <>
-      <hr className="box__linje-bred" />
-      <div className="underseksjon__overskrift">
-        <div className="dkif__overskrift-container">
-          <Undertittel>
-            <FormattedMessage id="personalia.dkif.overskrift" />
-          </Undertittel>
-          <Infotekst
-            beskrivelse={props.intl.formatMessage({
-              id: "personalia.dkif.beskrivelse"
-            })}
-          />
-        </div>
+      <div className="underseksjon__header underseksjon__divider dkif__overskrift-container">
+        <Undertittel>
+          <FormattedMessage id="personalia.dkif.overskrift" />
+        </Undertittel>
+        <Infotekst
+          beskrivelse={props.intl.formatMessage({
+            id: "personalia.dkif.beskrivelse"
+          })}
+        />
       </div>
       {(() => {
         switch (kontaktInfo.status) {

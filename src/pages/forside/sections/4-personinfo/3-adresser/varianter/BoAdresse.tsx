@@ -6,7 +6,6 @@ import Lesmerpanel from "nav-frontend-lesmerpanel";
 import AdressePanel from "../../../../../../components/adresse/AdressePanel";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import { Boadresse } from "../../../../../../types/adresser/boadresse";
-import Kilde from "../../../../../../components/kilde/Kilde";
 import "moment/locale/nb";
 
 moment.locale("nb");
@@ -32,8 +31,8 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
       <>
         {adresse || postnummer || poststed ? (
           <>
-            {adresse && <Normaltekst>{adresse}</Normaltekst>}
             {adressetillegg && <Normaltekst>{adressetillegg}</Normaltekst>}
+            {adresse && <Normaltekst>{adresse}</Normaltekst>}
             {(postnummer || postnummer) && (
               <Normaltekst>
                 {postnummer && postnummer} {poststed && poststed}
@@ -76,11 +75,6 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
             <FormattedMessage id="adresse.ikke.registrert" />
           </Normaltekst>
         )}
-        <Kilde
-          kilde="personalia.source.folkeregisteret"
-          lenke="https://www.skatteetaten.no/person/folkeregister/"
-          lenkeTekst="personalia.link.folkeregisteret"
-        />
       </>
     </AdressePanel>
   );

@@ -7,6 +7,7 @@ import ListElement from "../../../../../../components/listelement/ListElement";
 import Environment from "../../../../../../utils/Environments";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
 import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import endreIkon from "../../../../../../assets/img/Pencil.svg";
 
 const { tjenesteUrl } = Environment();
 
@@ -19,11 +20,12 @@ const Kontonummer = (props: Props) => {
   return (
     <>
       <Kontoinformasjon {...props} />
-      <hr className="box__linje-bred" />
       <Kilde
         kilde="personalia.source.nav"
         lenke={`${tjenesteUrl}/brukerprofil/`}
         lenkeTekst="personalia.link.brukerprofil.endre"
+        eksternLenke={true}
+        ikon={endreIkon}
       />
     </>
   );

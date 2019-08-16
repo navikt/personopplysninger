@@ -1,33 +1,62 @@
 import React from "react";
-import { FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
+import { Link } from "react-router-dom";
 
 interface Props {
   kilde?: string;
   lenke?: string;
   lenkeTekst?: string;
+  eksternLenke?: boolean;
+  ikon?: string;
 }
 
-const Kilde = (props: Props) => (
-  <div className="kilde__container">
-    <div className="kilde__seksjon">
-      {props.kilde && (
-        <EtikettLiten>
-          <FormattedMessage id={props.kilde} />
-        </EtikettLiten>
-      )}
-    </div>
-    <div className="kilde__seksjon kilde__lenke">
-      {props.lenke && props.lenkeTekst && (
-        <Normaltekst>
-          <Lenke href={props.lenke}>
-            <FormattedMessage id={props.lenkeTekst} />
-          </Lenke>
-        </Normaltekst>
-      )}
-    </div>
-  </div>
-);
+const Kilde = (props: Props) => {
+  const { lenke, lenkeTekst, eksternLenke, ikon } = props;
+  return (
+    <>
+      <div className="kilde__container">
+        <div className="kilde__seksjon">
+          {props.kilde && (
+            <EtikettLiten>
+              <FormattedHTMLMessage id={props.kilde} />
+            </EtikettLiten>
+          )}
+        </div>
+        <div className="kilde__seksjon kilde__lenke-container">
+          {lenke && lenkeTekst && (
+            <>
+              {eksternLenke ? (
+                <Lenke href={lenke}>
+                  <Normaltekst className="kilde__lenke">
+                    <FormattedHTMLMessage id={lenkeTekst} />
+                    {ikon && (
+                      <span className="kilde__icon">
+                        <img src={ikon} alt="Ekstern lenke" />
+                      </span>
+                    )}
+                  </Normaltekst>
+                </Lenke>
+              ) : (
+                <Link to={lenke}>
+                  <Normaltekst className="kilde__lenke lenke">
+                    <FormattedHTMLMessage id={lenkeTekst} />
+                    {ikon && (
+                      <span className="kilde__icon">
+                        <img src={ikon} alt="Ekstern lenke" />
+                      </span>
+                    )}
+                  </Normaltekst>
+                </Link>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+      <hr className="kilde__linje" />
+    </>
+  );
+};
 
 export default Kilde;

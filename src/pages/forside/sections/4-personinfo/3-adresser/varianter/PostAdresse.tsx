@@ -4,7 +4,6 @@ import AdressePanel from "../../../../../../components/adresse/AdressePanel";
 import GateAdresse from "../../../../../../components/adresse/GateAdresse";
 import Postnummer from "../../../../../../components/adresse/Postnummer";
 import { Postadresse } from "../../../../../../types/adresser/postadresse";
-import Kilde from "../../../../../../components/kilde/Kilde";
 
 interface Props {
   postadresse: Postadresse;
@@ -33,11 +32,6 @@ const PostAdresse = (props: Props) => {
             <Normaltekst>{land}</Normaltekst>
           </div>
         )}
-        <Kilde
-          kilde="personalia.source.folkeregisteret"
-          lenke="https://www.skatteetaten.no/person/folkeregister/"
-          lenkeTekst="personalia.link.folkeregisteret"
-        />
       </>
     </AdressePanel>
   );

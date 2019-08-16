@@ -1,11 +1,14 @@
 .kilde {
   &__container {
     width: 100%;
-    margin-top: 1rem;
     display: flex;
     align-items: baseline;
+    margin: 1rem 0;
     @media @mobile {
       flex-direction: column;
+    }
+    > :first-child {
+      padding-right: 2rem;
     }
   }
   &__seksjon {
@@ -15,12 +18,26 @@
     color: #78706a;
     @media @mobile {
       width: 100%;
+      padding-bottom: 0.25rem;
     }
   }
-  &__lenke {
+  &__lenke-container {
     @media @desktop {
       display: flex;
       justify-content: flex-end;
     }
+  }
+  &__lenke {
+    display: flex;
+    align-items: center;
+  }
+  &__icon {
+    margin-left: 0.5rem;
+  }
+  &__linje {
+    border: 0.5px solid black;
+    width: 100%;
+    opacity: 0.5;
+    margin: 1rem 0;
   }
 }
