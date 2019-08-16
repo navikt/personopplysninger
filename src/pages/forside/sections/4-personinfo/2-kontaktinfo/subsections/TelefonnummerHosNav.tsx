@@ -10,7 +10,6 @@ import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import { useStore } from "../../../../../../providers/Provider";
 import { FormValidation, FormContext } from "calidation";
-import { basePath } from "../../../../../../App";
 
 const { tjenesteUrl } = Environment();
 
@@ -75,9 +74,9 @@ const Telefonnummer = (props: Props) => {
               {featureToggles.data["personopplysninger.pdl"] ? (
                 <Kilde
                   kilde="personalia.source.nav"
-                  lenke={`${basePath}/endre/kontaktinformasjon/`}
+                  onClick={() => settEdit(true)}
                   lenkeTekst="side.endre"
-                  lenkeType={"INTERN"}
+                  lenkeType={"KNAPP"}
                   ikon={endreIkon}
                 />
               ) : (
@@ -96,9 +95,9 @@ const Telefonnummer = (props: Props) => {
               {featureToggles.data["personopplysninger.pdl"] ? (
                 <Kilde
                   kilde="personalia.source.nav"
-                  lenke={`${basePath}/endre/kontaktinformasjon/`}
+                  onClick={() => settEdit(true)}
                   lenkeTekst="side.leggtil"
-                  lenkeType={"INTERN"}
+                  lenkeType={"KNAPP"}
                   ikon={leggTilIkon}
                 />
               ) : (

@@ -53,6 +53,18 @@ const Knapp = (props: Props) => {
         </Lenke>
       );
     case "KNAPP":
+      return (
+        <div onClick={props.onClick}>
+          <Normaltekst className="kilde__lenke lenke">
+            <FormattedHTMLMessage id={props.lenkeTekst} />
+            {props.ikon && (
+              <span className="kilde__icon">
+                <img src={props.ikon} alt="Ekstern lenke" />
+              </span>
+            )}
+          </Normaltekst>
+        </div>
+      );
     case "INGEN":
     default:
       return <></>;
