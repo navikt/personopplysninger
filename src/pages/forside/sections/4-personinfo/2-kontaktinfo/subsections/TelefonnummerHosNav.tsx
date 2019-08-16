@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Element, Normaltekst, Undertittel } from "nav-frontend-typografi";
+import { Element, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import Melding from "../../../../../../components/melding/Melding";
@@ -57,6 +57,7 @@ const Telefonnummer = (props: Props) => {
                   <li>
                     <Element>
                       <FormattedMessage id={"personalia.tlfnr.jobb"} />
+                      <FormattedMessage id={"side.valgfritt"} />
                     </Element>
                     <Input
                       label={""}
@@ -66,6 +67,7 @@ const Telefonnummer = (props: Props) => {
                   <li>
                     <Element>
                       <FormattedMessage id={"personalia.tlfnr.mobil"} />
+                      <FormattedMessage id={"side.valgfritt"} />
                     </Element>
                     <Input
                       label={""}
@@ -75,6 +77,7 @@ const Telefonnummer = (props: Props) => {
                   <li>
                     <Element>
                       <FormattedMessage id={"personalia.tlfnr.privat"} />
+                      <FormattedMessage id={"side.valgfritt"} />
                     </Element>
                     <Input
                       label={""}

@@ -8,6 +8,7 @@ export default {
   "side.lagre": "Lagre",
   "side.avbryt": "Avbryt",
   "side.leggtil": "Legg til",
+  "side.valgfritt": " (valgfritt)",
   "brodsmulesti.dittnav": `Ditt NAV`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
