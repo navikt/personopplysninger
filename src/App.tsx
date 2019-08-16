@@ -5,7 +5,7 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./components/auth/Auth";
 import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
-import Telefonnummer from "./pages/telefonnummer/Telefonnummer";
+import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 
@@ -46,8 +46,8 @@ const App = () => {
               {featureToggles.data["personopplysninger.pdl"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/telefonnummer`}
-                  component={Telefonnummer}
+                  path={`${basePath}/endre/kontaktinformasjon`}
+                  component={KontaktInfo}
                 />
               )}
               {featureToggles.status === "RESULT" && (

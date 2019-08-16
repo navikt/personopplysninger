@@ -1,4 +1,4 @@
-import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontakt-informasjon/subsections/kontakt-og-reservasjonsregisteret/KontaktInfoFetch";
+import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/KontaktInfoFetch";
 import { FetchPersonInfo } from "../pages/forside/sections/4-personinfo/PersonInfo";
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";

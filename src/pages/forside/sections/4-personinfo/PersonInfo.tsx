@@ -7,7 +7,7 @@ import Spinner from "../../../../components/spinner/Spinner";
 import { PersonInfo } from "../../../../types/personInfo";
 import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
-import KontaktInfo from "./2-kontakt-informasjon/KontaktInfo";
+import KontaktInfo from "./2-kontaktinfo/KontaktInfo";
 import Utbetalinger from "./5-utbetalinger/Utbetalinger";
 import personaliaIkon from "../../../../assets/img/Personalia.svg";
 import Box from "../../../../components/box/Box";

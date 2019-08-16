@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import PageContainer from "../../components/pagecontainer/PageContainer";
-import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
-import { useStore } from "../../providers/Provider";
-import { fetchPersonInfo } from "../../clients/apiClient";
-import { PersonInfo } from "../../types/personInfo";
-import Error, { HTTPError } from "../../components/error/Error";
-import Spinner from "../../components/spinner/Spinner";
+import PageContainer from "../../../components/pagecontainer/PageContainer";
+import arbeidsforholdIkon from "../../../assets/img/Arbeidsforhold.svg";
+import { useStore } from "../../../providers/Provider";
+import { fetchPersonInfo } from "../../../clients/apiClient";
+import { PersonInfo } from "../../../types/personInfo";
+import Error, { HTTPError } from "../../../components/error/Error";
+import Spinner from "../../../components/spinner/Spinner";
 
-const Telefonnummer = () => {
+const KontaktInfo = () => {
   const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
@@ -64,4 +64,4 @@ const Telefonnummer = () => {
   }
 };
 
-export default Telefonnummer;
+export default KontaktInfo;

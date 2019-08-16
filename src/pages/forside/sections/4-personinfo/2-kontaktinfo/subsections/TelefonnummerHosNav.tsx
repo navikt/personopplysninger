@@ -43,7 +43,7 @@ const Telefonnummer = (props: Props) => {
           {featureToggles.data["personopplysninger.pdl"] ? (
             <Kilde
               kilde="personalia.source.nav"
-              lenke={`${basePath}/telefonnummer/`}
+              lenke={`${basePath}/endre/kontaktinformasjon/`}
               lenkeTekst="side.endre"
               ikon={endreIkon}
             />
@@ -63,7 +63,7 @@ const Telefonnummer = (props: Props) => {
           {featureToggles.data["personopplysninger.pdl"] ? (
             <Kilde
               kilde="personalia.source.nav"
-              lenke={`${basePath}/telefonnummer/`}
+              lenke={`${basePath}/endre/kontaktinformasjon/`}
               lenkeTekst="side.leggtil"
               ikon={leggTilIkon}
             />
