@@ -3,6 +3,8 @@ import merInfo from "./nb/informasjon";
 export default {
   "side.tittel": `Personopplysninger`,
   "side.tilbake": "Tilbake",
+  "side.endre": "Endre",
+  "side.leggtil": "Legg til",
   "brodsmulesti.dittnav": `Ditt NAV`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,

@@ -8,6 +8,8 @@ import Kilde from "../../../../../../components/kilde/Kilde";
 import Environment from "../../../../../../utils/Environments";
 import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
+import { useStore } from "../../../../../../providers/Provider";
+import { basePath } from "../../../../../../App";
 
 const { tjenesteUrl } = Environment();
 
@@ -16,6 +18,7 @@ interface Props {
 }
 
 const Telefonnummer = (props: Props) => {
+  const [{ featureToggles }] = useStore();
   const { tlfnr } = props;
   return (
     <>
@@ -37,24 +40,42 @@ const Telefonnummer = (props: Props) => {
               content={tlfnr.privat}
             />
           </ul>
-          <Kilde
-            kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
-            lenkeTekst="personalia.link.brukerprofil.endre"
-            eksternLenke={true}
-            ikon={endreIkon}
-          />
+          {featureToggles.data["personopplysninger.pdl"] ? (
+            <Kilde
+              kilde="personalia.source.nav"
+              lenke={`${basePath}/telefonnummer/`}
+              lenkeTekst="side.endre"
+              ikon={endreIkon}
+            />
+          ) : (
+            <Kilde
+              kilde="personalia.source.nav"
+              lenke={`${tjenesteUrl}/brukerprofil/`}
+              lenkeTekst="personalia.link.brukerprofil.endre"
+              eksternLenke={true}
+              ikon={endreIkon}
+            />
+          )}
         </>
       ) : (
         <>
           <Melding meldingId="personalia.tlfnr.ingenData" />
-          <Kilde
-            kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
-            lenkeTekst="personalia.link.brukerprofil.leggtil"
-            eksternLenke={true}
-            ikon={leggTilIkon}
-          />
+          {featureToggles.data["personopplysninger.pdl"] ? (
+            <Kilde
+              kilde="personalia.source.nav"
+              lenke={`${basePath}/telefonnummer/`}
+              lenkeTekst="side.leggtil"
+              ikon={leggTilIkon}
+            />
+          ) : (
+            <Kilde
+              kilde="personalia.source.nav"
+              lenke={`${tjenesteUrl}/brukerprofil/`}
+              lenkeTekst="personalia.link.brukerprofil.leggtil"
+              eksternLenke={true}
+              ikon={leggTilIkon}
+            />
+          )}
         </>
       )}
     </>
