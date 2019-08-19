@@ -30,6 +30,12 @@ const Telefonnummer = (props: Props) => {
     privat: {}
   };
 
+  const initialValues = tlfnr && {
+    jobb: tlfnr.jobb,
+    mobil: tlfnr.mobil,
+    privat: tlfnr.privat
+  };
+
   const send = (e: FormContext) => {
     const { isValid } = e;
 
@@ -39,8 +45,12 @@ const Telefonnummer = (props: Props) => {
   };
 
   return (
-    <FormValidation onSubmit={send} config={formConfig}>
-      {({ errors, fields, submitted }) => {
+    <FormValidation
+      onSubmit={send}
+      config={formConfig}
+      initialValues={initialValues}
+    >
+      {({ errors, fields, submitted, setField }) => {
         console.log(errors);
         console.log(fields);
         console.log(submitted);
@@ -61,7 +71,8 @@ const Telefonnummer = (props: Props) => {
                     </Element>
                     <Input
                       label={""}
-                      defaultValue={(tlfnr && tlfnr.jobb) || ""}
+                      value={fields.jobb}
+                      onChange={v => setField({ jobb: v.target.value })}
                     />
                   </li>
                   <li>
@@ -71,7 +82,8 @@ const Telefonnummer = (props: Props) => {
                     </Element>
                     <Input
                       label={""}
-                      defaultValue={(tlfnr && tlfnr.mobil) || ""}
+                      value={fields.mobil}
+                      onChange={v => setField({ mobil: v.target.value })}
                     />
                   </li>
                   <li>
@@ -81,7 +93,8 @@ const Telefonnummer = (props: Props) => {
                     </Element>
                     <Input
                       label={""}
-                      defaultValue={(tlfnr && tlfnr.privat) || ""}
+                      value={fields.privat}
+                      onChange={v => setField({ privat: v.target.value })}
                     />
                   </li>
                   <li />

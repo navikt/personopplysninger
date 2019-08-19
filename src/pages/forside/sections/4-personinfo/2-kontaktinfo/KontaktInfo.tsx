@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Box from "../../../../../components/box/Box";
 import kontaktIkon from "../../../../../assets/img/Kontakt.svg";
 import TelefonnummerHosNav from "./subsections/TelefonnummerHosNav";
-import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/KontaktInfoFetch";
+import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
 
 interface Props {

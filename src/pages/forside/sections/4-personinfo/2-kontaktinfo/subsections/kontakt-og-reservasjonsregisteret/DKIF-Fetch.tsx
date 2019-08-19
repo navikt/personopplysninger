@@ -5,7 +5,7 @@ import Error, { HTTPError } from "../../../../../../../components/error/Error";
 import Spinner from "../../../../../../../components/spinner/Spinner";
 import { fetchKontaktInfo } from "../../../../../../../clients/apiClient";
 import { KontaktInfo } from "../../../../../../../types/kontaktInfo";
-import KontaktInformasjon from "./KontaktInfo";
+import KontaktInformasjon from "./DKIF";
 import { useStore } from "../../../../../../../providers/Provider";
 import Infotekst from "../../../../../../../components/infotekst/Infotekst";
 import { injectIntl, InjectedIntlProps } from "react-intl";

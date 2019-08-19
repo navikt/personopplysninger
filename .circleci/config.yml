@@ -85,7 +85,7 @@ commands:
   sett-miljovariabler:
     steps:
       - run:
-          name:  Definerer git-referanse, versjonsnummer og repo-navn
+          name: Definerer git-referanse, versjonsnummer og repo-navn
           command: |
             echo "export COMMIT_SHORT='$(git rev-parse --short HEAD)'" >> $BASH_ENV
             echo "export IMAGE_VERSION='$CIRCLE_WORKFLOW_ID-${CIRCLE_BRANCH////-}$CIRCLE_TAG'" >> $BASH_ENV
