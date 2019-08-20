@@ -7,7 +7,7 @@ const { apiUrl, loginUrl, baseUrl, dsopUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 export const sendTilLogin = () => {
-  window.location.assign(`${loginUrl}?redirect="${window.location.href}"`);
+  window.location.assign(`${loginUrl}?redirect='${window.location.href}'`);
 };
 
 const sjekkAuth = (response: Response): any => {
