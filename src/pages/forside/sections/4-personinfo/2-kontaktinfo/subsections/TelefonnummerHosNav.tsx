@@ -12,6 +12,8 @@ import { useStore } from "../../../../../../providers/Provider";
 import { FormValidation, FormContext } from "calidation";
 import { Input } from "nav-frontend-skjema";
 import { Hovedknapp } from "nav-frontend-knapper";
+import ReactPhoneInput from "react-phone-input-2";
+import "react-phone-input-2/dist/style.css";
 
 const { tjenesteUrl } = Environment();
 
@@ -69,10 +71,10 @@ const Telefonnummer = (props: Props) => {
                       <FormattedMessage id={"personalia.tlfnr.jobb"} />
                       <FormattedMessage id={"side.valgfritt"} />
                     </Element>
-                    <Input
-                      label={""}
+                    <ReactPhoneInput
+                      defaultCountry={"nb"}
                       value={fields.jobb}
-                      onChange={v => setField({ jobb: v.target.value })}
+                      onChange={(v: string) => setField({ jobb: v })}
                     />
                   </li>
                   <li>
