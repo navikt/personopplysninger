@@ -4,6 +4,7 @@ import { FormattedMessage, injectIntl, InjectedIntlProps } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
 import Infotekst from "../infotekst/Infotekst";
+import ScrollableAnchor from "react-scrollable-anchor";
 
 interface Props {
   id: string;
@@ -19,25 +20,27 @@ const Box = (props: Props & InjectedIntlProps) => {
 
   return (
     <div className="box__wrapper">
-      <Veilederpanel
-        svg={<img src={icon} className="box__ikon" alt="Veileder" />}
-        type={"plakat"}
-        kompakt={true}
-      >
-        <div className="box__container">
-          <div className="box__header" id={id}>
-            <div className="box__title-container">
-              {tittel && (
-                <Systemtittel>
-                  <FormattedMessage id={tittel} />
-                </Systemtittel>
-              )}
-              {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
+      <ScrollableAnchor id={id}>
+        <Veilederpanel
+          svg={<img src={icon} className="box__ikon" alt="Veileder" />}
+          type={"plakat"}
+          kompakt={true}
+        >
+          <div className="box__container">
+            <div className="box__header">
+              <div className="box__title-container">
+                {tittel && (
+                  <Systemtittel>
+                    <FormattedMessage id={tittel} />
+                  </Systemtittel>
+                )}
+                {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
+              </div>
             </div>
+            <div className="box__content">{children}</div>
           </div>
-          <div className="box__content">{children}</div>
-        </div>
-      </Veilederpanel>
+        </Veilederpanel>
+      </ScrollableAnchor>
     </div>
   );
 };

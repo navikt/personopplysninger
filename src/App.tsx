@@ -8,10 +8,17 @@ import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
 import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
+import { configureAnchors } from "react-scrollable-anchor";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
+
+  configureAnchors({
+    offset: -75,
+    scrollDuration: 0,
+    keepLastAnchorHash: true
+  });
 
   return (
     <div className="pagecontent">
