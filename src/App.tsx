@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
@@ -30,6 +35,11 @@ const App = () => {
                 exact={true}
                 path={`(/|${basePath})`}
                 component={Forside}
+              />
+              <Route
+                exact={true}
+                path={`${basePath}/arbeidsforhold`}
+                render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
               />
               <Route
                 exact={true}
