@@ -20,7 +20,7 @@ const App = () => {
   const [{ featureToggles }] = useStore();
 
   configureAnchors({
-    offset: -75,
+    offset: -65,
     scrollDuration: 0,
     keepLastAnchorHash: true
   });
