@@ -26,7 +26,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
 
   return (
     <Box
-      id="dittnavkontor"
+      id="ditt-nav-kontor"
       tittel="dittnavkontor.tittel"
       beskrivelse="dittnavkontor.beskrivelse"
       icon={dittNavKontorIkon}

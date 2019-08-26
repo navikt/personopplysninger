@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch
+} from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
@@ -8,10 +13,17 @@ import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
 import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
+import { configureAnchors } from "react-scrollable-anchor";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
+
+  configureAnchors({
+    offset: -65,
+    scrollDuration: 0,
+    keepLastAnchorHash: true
+  });
 
   return (
     <div className="pagecontent">
@@ -23,6 +35,11 @@ const App = () => {
                 exact={true}
                 path={`(/|${basePath})`}
                 component={Forside}
+              />
+              <Route
+                exact={true}
+                path={`${basePath}/arbeidsforhold`}
+                render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
               />
               <Route
                 exact={true}
