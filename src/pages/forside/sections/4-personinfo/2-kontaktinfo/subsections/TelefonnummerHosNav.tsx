@@ -12,8 +12,7 @@ import { useStore } from "../../../../../../providers/Provider";
 import { FormValidation, FormContext } from "calidation";
 import { Input } from "nav-frontend-skjema";
 import { Hovedknapp } from "nav-frontend-knapper";
-import ReactPhoneInput from "react-phone-input-2";
-import "react-phone-input-2/dist/style.css";
+import TelefonInput from "@navikt/personbruker-telefon-input";
 
 const { tjenesteUrl } = Environment();
 
@@ -71,8 +70,8 @@ const Telefonnummer = (props: Props) => {
                       <FormattedMessage id={"personalia.tlfnr.jobb"} />
                       <FormattedMessage id={"side.valgfritt"} />
                     </Element>
-                    <ReactPhoneInput
-                      defaultCountry={"nb"}
+                    <TelefonInput
+                      label={""}
                       value={fields.jobb}
                       onChange={(v: string) => setField({ jobb: v })}
                     />
@@ -102,7 +101,7 @@ const Telefonnummer = (props: Props) => {
                   <li />
                 </ul>
                 <div className="knapp__lagre">
-                  <Hovedknapp>
+                  <Hovedknapp type={"hoved"}>
                     <FormattedMessage id="side.lagre" />
                   </Hovedknapp>
                 </div>

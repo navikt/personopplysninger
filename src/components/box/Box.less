@@ -64,32 +64,30 @@
   }
 
   &__content {
-    ul {
+    ul.list-column-2 {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       list-style-type: none;
       padding-left: 0;
       margin: 0;
-    }
 
-    li {
-      flex-grow: 1;
-      box-sizing: border-box;
-      padding: 0.5rem 2rem 0.5rem 0rem;
+      > li {
+        width: 50%;
+        flex-grow: 1;
+        box-sizing: border-box;
+        padding: 0.5rem 2rem 0.5rem 0rem;
 
-      .title {
-        display: block;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        overflow: hidden;
-      }
-    }
+        .title {
+          display: block;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
 
-    ul.list-column-2 li {
-      width: 50%;
-      @media @mobile {
-        width: 100%;
+        @media @mobile {
+          width: 100%;
+        }
       }
     }
   }

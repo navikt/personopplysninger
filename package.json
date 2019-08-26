@@ -23,6 +23,7 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "@navikt/arbeidsforhold": "latest",
+    "@navikt/personbruker-telefon-input": "latest",
     "babel-polyfill": "^6.26.0",
     "calidation": "^1.16.2",
     "classnames": "^2.2.6",
