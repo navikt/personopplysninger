@@ -3,11 +3,17 @@ import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";
 
-const { apiUrl, loginUrl, baseUrl, dsopUrl } = Environment();
+const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
 export const sendTilLogin = () => {
-  window.location.assign(`${loginUrl}?redirect=${window.location.href}`);
+  const { pathname } = window.location;
+
+  if (pathname.includes("arbeidsforhold")) {
+    window.location.assign(`${loginUrl}?redirect=${appUrl}/arbeidsforhold`);
+  } else {
+    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
+  }
 };
 
 const sjekkAuth = (response: Response): any => {

@@ -24,7 +24,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
   const { adresser } = props;
   return (
     <Box
-      id="adresse"
+      id="adresser"
       tittel="adresse.tittel"
       beskrivelse="adresse.beskrivelse"
       icon={adresseIkon}

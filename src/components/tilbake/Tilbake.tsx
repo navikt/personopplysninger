@@ -1,5 +1,5 @@
 import React, { MouseEvent } from "react";
-import { HashLink as Link } from "react-router-hash-link";
+import { Link } from "react-router-dom";
 import { basePath } from "../../App";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";

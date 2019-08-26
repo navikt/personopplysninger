@@ -12,7 +12,11 @@ interface Props {
 class KontaktInfo extends Component<Props> {
   render() {
     return (
-      <Box id="kontaktinfo" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
+      <Box
+        id="kontaktinformasjon"
+        tittel="kontaktinfo.tittel"
+        icon={kontaktIkon}
+      >
         <hr className="box__linje-bred" />
         <TelefonnummerHosNav tlfnr={this.props.personalia.tlfnr} />
         <DKIF />
