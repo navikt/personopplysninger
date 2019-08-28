@@ -24,39 +24,37 @@ const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
   } as AFListeOnClick;
 
   return (
-    <div id="arbeidsforhold">
-      <Box
-        id="adresse"
-        tittel="arbeidsforhold.tittel"
-        beskrivelse="arbeidsforhold.beskrivelse"
-        icon={arbeidsforholdIkon}
-      >
-        <div className="arbeidsforhold">
-          <ListeMedArbeidsforhold
-            locale={intl.locale as "nb" | "en"}
-            miljo={miljo}
-            onClick={onClick}
-          />
+    <Box
+      id="arbeidsforhold"
+      tittel="arbeidsforhold.tittel"
+      beskrivelse="arbeidsforhold.beskrivelse"
+      icon={arbeidsforholdIkon}
+    >
+      <div className="arbeidsforhold">
+        <ListeMedArbeidsforhold
+          locale={intl.locale as "nb" | "en"}
+          miljo={miljo}
+          onClick={onClick}
+        />
+      </div>
+      <div className="arbeidsforhold__disclaimer">
+        <AlertStripeInfo>
+          <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
+        </AlertStripeInfo>
+      </div>
+      <div className="kilde__container">
+        <div className="arbeidsforhold__kilde">
+          <EtikettLiten>
+            <FormattedMessage id="arbeidsforhold.kilde" />
+          </EtikettLiten>
+          <EtikettLiten>
+            <span className="arbeidsforhold__arbeidsgiver">
+              <FormattedMessage id="arbeidsforhold.submitted.by" />
+            </span>
+          </EtikettLiten>
         </div>
-        <div className="arbeidsforhold__disclaimer">
-          <AlertStripeInfo>
-            <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
-          </AlertStripeInfo>
-        </div>
-        <div className="kilde__container">
-          <div className="arbeidsforhold__kilde">
-            <EtikettLiten>
-              <FormattedMessage id="arbeidsforhold.kilde" />
-            </EtikettLiten>
-            <EtikettLiten>
-              <span className="arbeidsforhold__arbeidsgiver">
-                <FormattedMessage id="arbeidsforhold.submitted.by" />
-              </span>
-            </EtikettLiten>
-          </div>
-        </div>
-      </Box>
-    </div>
+      </div>
+    </Box>
   );
 };
 export default injectIntl(withRouter(Arbeidsforhold));

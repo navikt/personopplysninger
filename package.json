@@ -1,6 +1,6 @@
 {
   "name": "personopplysninger",
-  "version": "1.0.35",
+  "version": "1.0.36",
   "private": true,
   "author": "NAV",
   "license": "MIT",
@@ -81,8 +81,8 @@
     "react-motion": "^0.5.2",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-router-hash-link": "^1.2.1",
     "react-scripts": "3.0.1",
+    "react-scrollable-anchor": "^0.6.1",
     "typescript": "^3.5.1"
   },
   "devDependencies": {
@@ -93,7 +93,7 @@
     "@types/react-dom": "16.8.4",
     "@types/react-intl": "^2.3.18",
     "@types/react-router-dom": "^4.3.4",
-    "@types/react-router-hash-link": "^1.2.1",
+    "@types/react-scrollable-anchor": "^0.6.0",
     "less": "^3.9.0",
     "prettier": "^1.18.2",
     "tslint": "^5.17.0",
