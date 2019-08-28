@@ -1,18 +1,13 @@
 import React, { useState } from "react";
-import { Element, Undertittel } from "nav-frontend-typografi";
+import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import ListElement from "../../../../../../components/listelement/ListElement";
-import Melding from "../../../../../../components/melding/Melding";
 import { Tlfnr } from "../../../../../../types/personalia";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Environment from "../../../../../../utils/Environments";
-import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import { useStore } from "../../../../../../providers/Provider";
-import { FormValidation, FormContext } from "calidation";
-import { Input } from "nav-frontend-skjema";
-import { Hovedknapp } from "nav-frontend-knapper";
-import TelefonInput from "@navikt/personbruker-telefon-input";
+import Melding from "../../../../../../components/melding/Melding";
+import Telefonnummer from "../../../../../../components/telefonnummer/Telefonnummer";
 
 const { tjenesteUrl } = Environment();
 
@@ -20,159 +15,53 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const Telefonnummer = (props: Props) => {
+const TelefonnummerHosNav = (props: Props) => {
   const [{ featureToggles }] = useStore();
-  const [edit, settEdit] = useState(false);
+  const [leggTil, settLeggTil] = useState();
   const { tlfnr } = props;
-
-  const formConfig = {
-    jobb: {},
-    mobil: {},
-    privat: {}
-  };
-
-  const initialValues = tlfnr && {
-    jobb: tlfnr.jobb,
-    mobil: tlfnr.mobil,
-    privat: tlfnr.privat
-  };
-
-  const send = (e: FormContext) => {
-    const { isValid } = e;
-
-    if (isValid) {
-      console.log("valid! yay");
-    }
-  };
-
   return (
-    <FormValidation
-      onSubmit={send}
-      config={formConfig}
-      initialValues={initialValues}
-    >
-      {({ errors, fields, submitted, setField }) => {
-        console.log(errors);
-        console.log(fields);
-        console.log(submitted);
-        return (
-          <>
-            <div className="underseksjon__header">
-              <Undertittel>
-                <FormattedMessage id="personalia.tlfnr.oveskrift" />
-              </Undertittel>
-            </div>
-            {edit ? (
-              <>
-                <ul className="list-column-2">
-                  <li>
-                    <Element>
-                      <FormattedMessage id={"personalia.tlfnr.jobb"} />
-                      <FormattedMessage id={"side.valgfritt"} />
-                    </Element>
-                    <TelefonInput
-                      label={""}
-                      value={fields.jobb}
-                      onChange={(v: string) => setField({ jobb: v })}
-                    />
-                  </li>
-                  <li>
-                    <Element>
-                      <FormattedMessage id={"personalia.tlfnr.mobil"} />
-                      <FormattedMessage id={"side.valgfritt"} />
-                    </Element>
-                    <Input
-                      label={""}
-                      value={fields.mobil}
-                      onChange={v => setField({ mobil: v.target.value })}
-                    />
-                  </li>
-                  <li>
-                    <Element>
-                      <FormattedMessage id={"personalia.tlfnr.privat"} />
-                      <FormattedMessage id={"side.valgfritt"} />
-                    </Element>
-                    <Input
-                      label={""}
-                      value={fields.privat}
-                      onChange={v => setField({ privat: v.target.value })}
-                    />
-                  </li>
-                  <li />
-                </ul>
-                <div className="knapp__lagre">
-                  <Hovedknapp type={"hoved"}>
-                    <FormattedMessage id="side.lagre" />
-                  </Hovedknapp>
-                </div>
-                <Kilde
-                  kilde="personalia.source.nav"
-                  onClick={() => settEdit(false)}
-                  lenkeTekst="side.avbryt"
-                  lenkeType={"KNAPP"}
-                />
-              </>
-            ) : tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
-              <>
-                <ul className="list-column-2">
-                  <ListElement
-                    titleId="personalia.tlfnr.jobb"
-                    content={tlfnr.jobb}
-                  />
-                  <ListElement
-                    titleId="personalia.tlfnr.mobil"
-                    content={tlfnr.mobil}
-                  />
-                  <ListElement
-                    titleId="personalia.tlfnr.privat"
-                    content={tlfnr.privat}
-                  />
-                </ul>
-                {featureToggles.data["personopplysninger.pdl"] ? (
-                  <Kilde
-                    kilde="personalia.source.nav"
-                    onClick={() => settEdit(true)}
-                    lenkeTekst="side.endre"
-                    lenkeType={"KNAPP"}
-                    ikon={endreIkon}
-                  />
-                ) : (
-                  <Kilde
-                    kilde="personalia.source.nav"
-                    lenke={`${tjenesteUrl}/brukerprofil/`}
-                    lenkeTekst="personalia.link.brukerprofil.endre"
-                    lenkeType={"EKSTERN"}
-                    ikon={endreIkon}
-                  />
-                )}
-              </>
-            ) : (
-              <>
-                <Melding meldingId="personalia.tlfnr.ingenData" />
-                {featureToggles.data["personopplysninger.pdl"] ? (
-                  <Kilde
-                    kilde="personalia.source.nav"
-                    onClick={() => settEdit(true)}
-                    lenkeTekst="side.leggtil"
-                    lenkeType={"KNAPP"}
-                    ikon={leggTilIkon}
-                  />
-                ) : (
-                  <Kilde
-                    kilde="personalia.source.nav"
-                    lenke={`${tjenesteUrl}/brukerprofil/`}
-                    lenkeTekst="personalia.link.brukerprofil.leggtil"
-                    lenkeType={"EKSTERN"}
-                    ikon={leggTilIkon}
-                  />
-                )}
-              </>
-            )}
-          </>
-        );
-      }}
-    </FormValidation>
+    <>
+      <div className="underseksjon__header">
+        <Undertittel>
+          <FormattedMessage id="personalia.tlfnr.oveskrift" />
+        </Undertittel>
+      </div>
+      {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+        <>
+          <Telefonnummer titleId="personalia.tlfnr.jobb" value={tlfnr.jobb} />
+          <Telefonnummer titleId="personalia.tlfnr.mobil" value={tlfnr.mobil} />
+          <Telefonnummer
+            titleId="personalia.tlfnr.privat"
+            value={tlfnr.privat}
+          />
+        </>
+      ) : (
+        <Melding meldingId="personalia.tlfnr.ingenData" />
+      )}
+
+      {featureToggles.data["personopplysninger.pdl"] ? (
+        tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat ? (
+          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+        ) : (
+          <Kilde
+            kilde="personalia.source.nav"
+            onClick={() => settLeggTil(!leggTil)}
+            lenkeTekst="side.leggtil"
+            lenkeType={"KNAPP"}
+            ikon={leggTilIkon}
+          />
+        )
+      ) : (
+        <Kilde
+          kilde="personalia.source.nav"
+          lenke={`${tjenesteUrl}/brukerprofil/`}
+          lenkeTekst="personalia.link.brukerprofil.leggtil"
+          lenkeType={"EKSTERN"}
+          ikon={leggTilIkon}
+        />
+      )}
+    </>
   );
 };
 
-export default Telefonnummer;
+export default TelefonnummerHosNav;
