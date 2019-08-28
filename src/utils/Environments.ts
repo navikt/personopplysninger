@@ -11,6 +11,18 @@ const Environment = () => {
       logoutUrl: "#"
     };
   }
+  if (window.location.hostname.indexOf("www-q1") > -1) {
+    return {
+      miljo: "DEV",
+      baseUrl: "https://www-q1.nav.no",
+      appUrl: "https://www-q1.nav.no/person/personopplysninger",
+      apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
+      dsopUrl: "https://www-q1.nav.no/person/dsop-api",
+      tjenesteUrl: "https://tjenester-q1.nav.no",
+      loginUrl: "https://loginservice-q.nav.no/login",
+      logoutUrl: "https://loginservice-q.nav.no/slo"
+    };
+  }
   if (window.location.hostname.indexOf("www-q0") > -1) {
     return {
       miljo: "DEV",
