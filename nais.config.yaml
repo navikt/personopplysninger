@@ -11,7 +11,7 @@ spec:
   team: {{team}}
   port: 8080
   ingresses:
-  {{#each my.var }}
+  {{#each ingresses }}
     - {{ this }}
   {{/each}}
   liveness:
