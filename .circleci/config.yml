@@ -92,7 +92,7 @@ commands:
                 --resource=nais.config.yaml \
                 --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$REPO_NAME \
-                --vars=<< parameters.til >>.vars.json \
+                --vars= nais.<< parameters.til >>.vars.json \
                 --key=gh_deploy_key.pem \
                 --ref=$COMMIT_SHORT \
                 --appid=34043
