@@ -59,18 +59,18 @@ commands:
       - run:
           name: Definer NAIS template variabler
           command: |
-            jq \
+            jq -n \
                 --arg baseurl "/person/$REPO_NAME" \
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-                '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > dev-sbs.vars.json
-            jq \
+                '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' >> dev-sbs.vars.json
+            jq -n
                 --arg baseurl "/person/$REPO_NAME" \
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-                '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > prod-sbs.vars.json
+                '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' >> prod-sbs.vars.json
       - run:
           name: Deployer til << parameters.til >>
           command: |
