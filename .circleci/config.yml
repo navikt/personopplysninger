@@ -65,14 +65,14 @@ commands:
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > test.json
+              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json
             ; else
               jq \
                 --arg baseurl "/person/$REPO_NAME" \
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > test.json
+              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json
             ; fi
       - run:
           name: Deployer til << parameters.til >>
