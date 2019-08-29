@@ -59,9 +59,14 @@ commands:
       - run:
           name: Definer NAIS variabler
           command: >
-            jq --arg city "$city"
+            jq
+              --arg baseurl "/person/$REPO_NAME"
+              --arg version="$IMAGE_VERSION"
+              --arg reponame "$REPO_NAME"
             '{
-              "first_name":$city
+              "baseurl":$baseurl,
+              "version":$version,
+              "reponame":$reponame
             }'
             > nais.variables.yaml
       - run:
@@ -73,7 +78,7 @@ commands:
                 --resource=nais.config.yaml \
                 --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$REPO_NAME \
-                --vars=nais.variables.json
+                --vars=nais.variables.json \
                 --key=gh_deploy_key.pem \
                 --ref=$COMMIT_SHORT \
                 --appid=34043
