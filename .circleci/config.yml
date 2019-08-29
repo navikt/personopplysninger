@@ -40,8 +40,12 @@ jobs:
             docker push $IMAGE_NAME
       - deploy:
           til: dev-sbs
-          ingress1: https://$REPO_NAME.nais.oera-q.local
-          ingress2: https://www-q0.nav.no/person/$REPO_NAME
+          ingress1: >-
+            - https://$REPO_NAME.nais.oera-q.local
+          ingress2: >-
+            - https://www-q1.nav.no/person/$REPO_NAME
+          ingress3: >-
+            - https://www-q0.nav.no/person/$REPO_NAME
 
   deploy-til-prod:
     docker:
@@ -51,8 +55,10 @@ jobs:
       - sett-miljovariabler
       - deploy:
           til: prod-sbs
-          ingress1: https://$REPO_NAME.nais.oera.no
-          ingress2: https://www.nav.no/person/$REPO_NAME
+          ingress1:
+            - https://$REPO_NAME.nais.oera.no
+          ingress2:
+            - https://www.nav.no/person/$REPO_NAME
 
 commands:
   deploy:
@@ -63,6 +69,9 @@ commands:
         type: string
       ingress2:
         type: string
+      ingress3:
+        type: string
+        default:
     steps:
       - run:
           name: Deployer til << parameters.til >>
@@ -76,6 +85,7 @@ commands:
                 --var baseurl=/person/$REPO_NAME \
                 --var ingress1=<< parameters.ingress1 >> \
                 --var ingress2=<< parameters.ingress2 >> \
+                --var ingress3=<< parameters.ingress2 >> \
                 --var reponame=$REPO_NAME \
                 --var version=$IMAGE_VERSION \
                 --key=gh_deploy_key.pem \
