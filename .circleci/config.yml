@@ -57,31 +57,23 @@ commands:
         type: string
     steps:
       - run:
-          name: Definer dev-sbs template variabler
+          name: Definerer ingresser for dev-sbs
           command: |
             jq -n '{
-                "baseurl": "'/person/$REPO_NAME'",
-                "version": "'$IMAGE_VERSION'",
-                "reponame": "'$REPO_NAME'",
                 "ingresses": [
                   "'https://$REPO_NAME.nais.oera-q.local'",
-                  "'https://www-q1.nav.no/person/$REPO_NAME'"
+                  "'https://www-q1.nav.no/person/$REPO_NAME'",
                   "'https://www-q0.nav.no/person/$REPO_NAME'"
-                ]
-            }' | tee -a nais.dev-sbs.vars.json
+            ]}' | tee -a nais.dev-sbs.vars.json
 
       - run:
-          name: Definer prod-sbs template variabler
+          name: Definerer ingresser for prod-sbs
           command: |
             jq -n '{
-                "baseurl": "'/person/$REPO_NAME'",
-                "version": "'$IMAGE_VERSION'",
-                "reponame": "'$REPO_NAME'",
                 "ingresses": [
                   "'https://$REPO_NAME.nais.oera.no'",
                   "'https://www.nav.no/person/$REPO_NAME'"
-                ]
-            }' | tee -a nais.prod-sbs.vars.json
+             ]}' | tee -a nais.prod-sbs.vars.json
 
       - run:
           name: Deployer til << parameters.til >>
@@ -92,7 +84,10 @@ commands:
                 --resource=nais.config.yaml \
                 --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$REPO_NAME \
-                --vars= nais.<< parameters.til >>.vars.json \
+                --vars=nais.<< parameters.til >>.vars.json \
+                --var baseurl=/person/$REPO_NAME \
+                --var reponame=$REPO_NAME \
+                --var version=$IMAGE_VERSION \
                 --key=gh_deploy_key.pem \
                 --ref=$COMMIT_SHORT \
                 --appid=34043
