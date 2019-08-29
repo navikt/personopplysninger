@@ -59,20 +59,21 @@ commands:
       - run:
           name: Definer NAIS template variabler
           command: |
+            export ARGS= --arg baseurl "/person/$REPO_NAME" --arg version "$IMAGE_VERSION" --arg reponame "$REPO_NAME"
             if [ '<< parameters.til >>' = 'dev-sbs' ]; then
               jq \
                 --arg baseurl "/person/$REPO_NAME" \
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json
+              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json \
             ; else
               jq \
                 --arg baseurl "/person/$REPO_NAME" \
                 --arg version "$IMAGE_VERSION" \
                 --arg reponame "$REPO_NAME" \
                 --argjson ingresses '["https://$REPO_NAME.nais.oera-q.local","https://www-q0.nav.no/person/$REPO_NAME"]' \
-              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json
+              '{ baseurl:$baseurl, version: $version, reponame:$reponame, ingresses:$ingresses }' > nais.variables.json \
             ; fi
       - run:
           name: Deployer til << parameters.til >>
