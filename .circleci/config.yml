@@ -59,7 +59,6 @@ commands:
       - run:
           name: Definer NAIS template variabler
           command: |
-            export ARGS= --arg baseurl "/person/$REPO_NAME" --arg version "$IMAGE_VERSION" --arg reponame "$REPO_NAME"
             if [ '<< parameters.til >>' = 'dev-sbs' ]; then
               jq \
                 --arg baseurl "/person/$REPO_NAME" \
