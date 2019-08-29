@@ -40,19 +40,6 @@ jobs:
             docker push $IMAGE_NAME
       - deploy:
           til: dev-sbs
-          command: >
-            cat > ./nais.variables.json << EOF
-                {
-                  "reponame": "$"REPO_NAME",
-                  "version": "$IMAGE_VERSION",
-                  "baseurl": "/"person/$REPO_NAME",
-                  "ingresses": [
-                    "https://$REPO_NAME.nais.oera-q.local",
-                    "https://www-q1.nav.no/person/$REPO_NAME",
-                    "https://www-q0.nav.no/person/$REPO_NAME"
-                  ]
-                }
-            EOF
 
   deploy-til-prod:
     docker:
@@ -62,18 +49,6 @@ jobs:
       - sett-miljovariabler
       - deploy:
           til: prod-sbs
-          command: >
-            cat > ./nais.variables.json <<EOF
-                {
-                  "reponame": "$REPO_NAME",
-                  "version": "$IMAGE_VERSION",
-                  "baseurl": "/person/$REPO_NAME",
-                  "ingresses": [
-                    "https://$REPO_NAME.nais.oera.no",
-                    "https://www.nav.no/person/$REPO_NAME"
-                  ]
-                }
-            EOF
 
 commands:
   deploy:
@@ -81,6 +56,10 @@ commands:
       til:
         type: string
     steps:
+      - run:
+          name: Definer NAIS variabler
+          command: >
+            jq --arg city "$city" '{"first_name":$city}' > nais.variablesgit stat.yaml
       - run:
           name: Deployer til << parameters.til >>
           command: |
