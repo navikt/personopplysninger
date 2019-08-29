@@ -11,8 +11,9 @@ spec:
   team: {{team}}
   port: 8080
   ingresses:
-    - {{ingress1}}
-    - {{ingress2}}
+  {{#each ingresses }}
+    - {{ this }}
+  {{/each}}
   liveness:
     path: {{baseurl}}/internal/isAlive
     initialDelay: 10
