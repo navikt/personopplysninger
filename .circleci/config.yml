@@ -63,7 +63,7 @@ jobs:
       - deploy:
           til: prod-sbs
           command: >
-            cat > ./nais.variables.json << EOF
+            cat > ./nais.variables.json <<EOF
                 {
                   "reponame": "$REPO_NAME",
                   "version": "$IMAGE_VERSION",
