@@ -1,9 +1,0 @@
-{
-  "baseurl": "/person/test",
-  "version": "1.0.0",
-  "reponame": "test",
-  "ingresses": [
-    "https://$REPO_NAME.nais.oera-q.local",
-    "https://www-q0.nav.no/person/$REPO_NAME"
-  ]
-}
