@@ -59,7 +59,11 @@ commands:
       - run:
           name: Definer NAIS variabler
           command: >
-            jq --arg city "$city" '{"first_name":$city}' > nais.variables.yaml
+            jq --arg city "$city"
+            '{
+              "first_name":$city
+            }'
+            > nais.variables.yaml
       - run:
           name: Deployer til << parameters.til >>
           command: |
