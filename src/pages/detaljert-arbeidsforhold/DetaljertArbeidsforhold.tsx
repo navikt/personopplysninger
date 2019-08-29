@@ -7,7 +7,7 @@ import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
 import PageContainer from "../../components/pagecontainer/PageContainer";
 
 const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
+const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
 
 interface Routes {
   id: string;

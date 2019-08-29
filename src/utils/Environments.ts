@@ -13,7 +13,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q1") > -1) {
     return {
-      miljo: "DEV",
+      miljo: "Q1",
       baseUrl: "https://www-q1.nav.no",
       appUrl: "https://www-q1.nav.no/person/personopplysninger",
       apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
@@ -25,7 +25,7 @@ const Environment = () => {
   }
   if (window.location.hostname.indexOf("www-q0") > -1) {
     return {
-      miljo: "DEV",
+      miljo: "Q0",
       baseUrl: "https://www-q0.nav.no",
       appUrl: "https://www-q0.nav.no/person/personopplysninger",
       apiUrl: "https://www-q0.nav.no/person/personopplysninger-api",

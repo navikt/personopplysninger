@@ -12,7 +12,7 @@ import { basePath } from "../../../../App";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 
 const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "DEV" | "PROD";
+const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
 
 const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
   const { intl } = props;
