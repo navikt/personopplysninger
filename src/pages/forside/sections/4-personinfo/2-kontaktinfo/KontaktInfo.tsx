@@ -1,28 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import Box from "../../../../../components/box/Box";
 import kontaktIkon from "../../../../../assets/img/Kontakt.svg";
-import TelefonnummerHosNav from "./subsections/TelefonnummerHosNav";
+import TelefonnummerHosNavPDL from "./subsections/TelefonnummerHosNav-PDL";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
+import { useStore } from "../../../../../providers/Provider";
+import TelefonnummerHosNav from "./subsections/TelefonnummerHosNav";
 
 interface Props {
   personalia: PersonaliaType;
 }
 
-class KontaktInfo extends Component<Props> {
-  render() {
-    return (
-      <Box
-        id="kontaktinformasjon"
-        tittel="kontaktinfo.tittel"
-        icon={kontaktIkon}
-      >
-        <hr className="box__linje-bred" />
-        <TelefonnummerHosNav tlfnr={this.props.personalia.tlfnr} />
-        <DKIF />
-      </Box>
-    );
-  }
-}
+const KontaktInfo = (props: Props) => {
+  const [{ featureToggles }] = useStore();
+  const { tlfnr } = props.personalia;
+  return (
+    <Box id="kontaktinformasjon" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
+      <hr className="box__linje-bred" />
+      {featureToggles.data["personopplysninger.pdl"] ? (
+        <TelefonnummerHosNavPDL tlfnr={tlfnr} />
+      ) : (
+        <TelefonnummerHosNav tlfnr={tlfnr} />
+      )}
+      <DKIF />
+    </Box>
+  );
+};
 
 export default KontaktInfo;
