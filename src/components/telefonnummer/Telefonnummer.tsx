@@ -112,7 +112,56 @@ const Telefonnummer = (props: Props) => {
                   <Element>
                     <FormattedMessage id={titleId} />
                   </Element>
-                  <Normaltekst>{value}</Normaltekst>
+                  {endre ? (
+                    <div>
+                      <div className={"tlfnummer__chevron"}>
+                        <NedChevron />
+                      </div>
+                      <div className={"tlfnummer__input-container"}>
+                        <div className={"tlfnummer__input"}>
+                          <Input
+                            label={"Landkode"}
+                            value={fields.landkode}
+                            onChange={e =>
+                              setField({ landkode: e.target.value })
+                            }
+                            feil={
+                              submitted && errors.landkode
+                                ? { feilmelding: errors.landkode }
+                                : undefined
+                            }
+                            bredde={"S"}
+                          />
+                        </div>
+                        <div className={"tlfnummer__input"}>
+                          <Input
+                            label={"Telefonnummer"}
+                            value={fields.tlfnummer}
+                            feil={
+                              submitted && errors.tlfnummer
+                                ? { feilmelding: errors.tlfnummer }
+                                : undefined
+                            }
+                            onChange={e =>
+                              setField({ tlfnummer: e.target.value })
+                            }
+                          />
+                        </div>
+                        <div className={"tlfnummer__submit"}>
+                          <Knapp
+                            type={"hoved"}
+                            htmlType={"submit"}
+                            autoDisableVedSpinner={true}
+                            spinner={endreLoading}
+                          >
+                            <FormattedMessage id={"side.lagre"} />
+                          </Knapp>
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <Normaltekst>{value}</Normaltekst>
+                  )}
                 </div>
                 <div className={"tlfnummer_knapper"}>
                   <Knapp
@@ -145,55 +194,7 @@ const Telefonnummer = (props: Props) => {
                   </Knapp>
                 </div>
               </div>
-              {endre && (
-                <div>
-                  <div className={"tlfnummer__endrestil"}>
-                    <div>
-                      <FormattedMessage id={"side.endretil"} />
-                    </div>
-                    <div className={"tlfnummer__chevron"}>
-                      <NedChevron />
-                    </div>
-                  </div>
-                  <div className={"tlfnummer__input-container"}>
-                    <div className={"tlfnummer__input"}>
-                      <Input
-                        label={"Landkode"}
-                        value={fields.landkode}
-                        onChange={e => setField({ landkode: e.target.value })}
-                        feil={
-                          submitted && errors.landkode
-                            ? { feilmelding: errors.landkode }
-                            : undefined
-                        }
-                        bredde={"S"}
-                      />
-                    </div>
-                    <div className={"tlfnummer__input"}>
-                      <Input
-                        label={"Telefonnummer"}
-                        value={fields.tlfnummer}
-                        feil={
-                          submitted && errors.tlfnummer
-                            ? { feilmelding: errors.tlfnummer }
-                            : undefined
-                        }
-                        onChange={e => setField({ tlfnummer: e.target.value })}
-                      />
-                    </div>
-                    <div className={"tlfnummer__submit"}>
-                      <Knapp
-                        type={"hoved"}
-                        htmlType={"submit"}
-                        autoDisableVedSpinner={true}
-                        spinner={endreLoading}
-                      >
-                        <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
-                    </div>
-                  </div>
-                </div>
-              )}
+
               {error && (
                 <AlertStripeFeil>
                   <span>Oi! Noe gikk galt: {error}</span>
