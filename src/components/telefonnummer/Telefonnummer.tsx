@@ -19,8 +19,8 @@ interface Props {
 
 export interface OutboundTlfnummer {
   type: string;
-  landkode: string;
-  tlfnummer: string;
+  landskode: string;
+  nummer: string;
 }
 
 const Telefonnummer = (props: Props) => {
@@ -36,8 +36,8 @@ const Telefonnummer = (props: Props) => {
     tlfnummer: value
   };
   const formConfig = {
-    landkode: {
-      isRequired: "Landkode er påkrevd"
+    landskode: {
+      isRequired: "landskode er påkrevd"
     },
     tlfnummer: {
       isRequired: "Du må skrive inn telefonnummer",
@@ -54,13 +54,13 @@ const Telefonnummer = (props: Props) => {
 
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { landkode, tlfnummer } = fields;
+    const { landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
         type,
-        landkode,
-        tlfnummer
+        landskode,
+        nummer: tlfnummer
       };
 
       console.log(outbound);
@@ -85,8 +85,8 @@ const Telefonnummer = (props: Props) => {
 
     const outbound = {
       type,
-      landkode: "+47",
-      tlfnummer: value
+      landskode: "+47",
+      nummer: value
     };
 
     settSlettLoading(true);
@@ -120,14 +120,14 @@ const Telefonnummer = (props: Props) => {
                       <div className={"tlfnummer__input-container"}>
                         <div className={"tlfnummer__input"}>
                           <Input
-                            label={"Landkode"}
-                            value={fields.landkode}
+                            label={"Landskode"}
+                            value={fields.landskode}
                             onChange={e =>
-                              setField({ landkode: e.target.value })
+                              setField({ landskode: e.target.value })
                             }
                             feil={
-                              submitted && errors.landkode
-                                ? { feilmelding: errors.landkode }
+                              submitted && errors.landskode
+                                ? { feilmelding: errors.landskode }
                                 : undefined
                             }
                             bredde={"S"}
