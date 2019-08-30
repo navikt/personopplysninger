@@ -63,8 +63,6 @@ const Telefonnummer = (props: Props) => {
 
       console.log(outbound);
       settLoading(true);
-      console.log(outbound);
-      settLoading(true);
       postTlfnummer(outbound)
         .then(() => {
           settSuccess("Telefonnummeret ble oppdatert");
