@@ -27,10 +27,9 @@ const Telefonnummer = (props: Props) => {
   const { value, titleId, type } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
+  const [endre, settEndre] = useState(false);
   const [error, settError] = useState();
   const [success, settSuccess] = useState();
-
-  const [endre, settEndre] = useState(false);
 
   const initialFields = {
     tlfnummer: value
