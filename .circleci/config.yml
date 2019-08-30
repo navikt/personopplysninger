@@ -40,8 +40,6 @@ jobs:
             docker push $IMAGE_NAME
       - deploy:
           til: dev-sbs
-          ingress1: https://$REPO_NAME.nais.oera-q.local
-          ingress2: https://www-q0.nav.no/person/$REPO_NAME
 
   deploy-til-prod:
     docker:
@@ -51,19 +49,32 @@ jobs:
       - sett-miljovariabler
       - deploy:
           til: prod-sbs
-          ingress1: https://$REPO_NAME.nais.oera.no
-          ingress2: https://www.nav.no/person/$REPO_NAME
 
 commands:
   deploy:
     parameters:
       til:
         type: string
-      ingress1:
-        type: string
-      ingress2:
-        type: string
     steps:
+      - run:
+          name: Definerer ingresser for dev-sbs
+          command: |
+            jq -n '{
+                "ingresses": [
+                  "'https://$REPO_NAME.nais.oera-q.local'",
+                  "'https://www-q1.nav.no/person/$REPO_NAME'",
+                  "'https://www-q0.nav.no/person/$REPO_NAME'"
+            ]}' | tee -a nais.dev-sbs.vars.json
+
+      - run:
+          name: Definerer ingresser for prod-sbs
+          command: |
+            jq -n '{
+                "ingresses": [
+                  "'https://$REPO_NAME.nais.oera.no'",
+                  "'https://www.nav.no/person/$REPO_NAME'"
+             ]}' | tee -a nais.prod-sbs.vars.json
+
       - run:
           name: Deployer til << parameters.til >>
           command: |
@@ -73,9 +84,8 @@ commands:
                 --resource=nais.config.yaml \
                 --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$REPO_NAME \
+                --vars=nais.<< parameters.til >>.vars.json \
                 --var baseurl=/person/$REPO_NAME \
-                --var ingress1=<< parameters.ingress1 >> \
-                --var ingress2=<< parameters.ingress2 >> \
                 --var reponame=$REPO_NAME \
                 --var version=$IMAGE_VERSION \
                 --key=gh_deploy_key.pem \

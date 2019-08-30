@@ -8,6 +8,9 @@ import Environment from "../../utils/Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
 
+// Config
+fetchMock.config.fallbackToNetwork = true;
+
 const mockKontaktinfo = true;
 const mockPersonalia = true;
 const mockFeatureToggles = true;

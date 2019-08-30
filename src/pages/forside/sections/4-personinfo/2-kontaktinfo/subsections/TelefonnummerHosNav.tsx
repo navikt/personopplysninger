@@ -26,12 +26,21 @@ const TelefonnummerHosNav = (props: Props) => {
           <FormattedMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
-      {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
+      {tlfnr ? (
         <>
-          <Telefonnummer titleId="personalia.tlfnr.jobb" value={tlfnr.jobb} />
-          <Telefonnummer titleId="personalia.tlfnr.mobil" value={tlfnr.mobil} />
           <Telefonnummer
-            titleId="personalia.tlfnr.privat"
+            type={"ARBEID"}
+            titleId="personalia.tlfnr.arbeid"
+            value={tlfnr.jobb}
+          />
+          <Telefonnummer
+            type={"MOBIL"}
+            titleId="personalia.tlfnr.mobil"
+            value={tlfnr.mobil}
+          />
+          <Telefonnummer
+            type={"HJEM"}
+            titleId="personalia.tlfnr.hjem"
             value={tlfnr.privat}
           />
         </>
