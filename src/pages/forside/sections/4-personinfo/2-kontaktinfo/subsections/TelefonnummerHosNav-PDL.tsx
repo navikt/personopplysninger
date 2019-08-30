@@ -3,16 +3,18 @@ import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
+import avbrytIkon from "../../../../../../assets/img/Back.svg";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Melding from "../../../../../../components/melding/Melding";
-import Telefonnummer from "../../../../../../components/telefonnummer/Telefonnummer";
+import EndreNummer from "../../../../../../components/telefonnummer/EndreNummer";
+import OpprettNummer from "../../../../../../components/telefonnummer/OpprettNummer";
 
 interface Props {
   tlfnr?: Tlfnr;
 }
 
 const PDLTelefonnummerHosNav = (props: Props) => {
-  const [leggTil, settLeggTil] = useState();
+  const [opprett, settOpprett] = useState();
   const { tlfnr } = props;
   return (
     <>
@@ -23,17 +25,17 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       </div>
       {tlfnr ? (
         <div>
-          <Telefonnummer
+          <EndreNummer
             type={"MOBIL"}
             titleId="personalia.tlfnr.mobil"
             value={tlfnr.mobil}
           />
-          <Telefonnummer
+          <EndreNummer
             type={"HJEM"}
             titleId="personalia.tlfnr.hjem"
             value={tlfnr.privat}
           />
-          <Telefonnummer
+          <EndreNummer
             type={"ARBEID"}
             titleId="personalia.tlfnr.arbeid"
             value={tlfnr.jobb}
@@ -43,15 +45,17 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat ? (
+      {opprett && <OpprettNummer onCancelClick={() => settOpprett(false)} />}
+
+      {opprett || (tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) ? (
         <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
       ) : (
         <Kilde
           kilde="personalia.source.nav"
-          onClick={() => settLeggTil(!leggTil)}
-          lenkeTekst="side.leggtil"
+          onClick={() => settOpprett(!opprett)}
+          lenkeTekst={opprett ? "side.avbryt" : "side.leggtil"}
           lenkeType={"KNAPP"}
-          ikon={leggTilIkon}
+          ikon={!opprett ? leggTilIkon : undefined}
         />
       )}
     </>

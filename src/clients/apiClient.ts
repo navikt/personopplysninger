@@ -2,7 +2,7 @@ import Environment from "../utils/Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";
-import { OutboundTlfnummer } from "../components/telefonnummer/Telefonnummer";
+import { OutboundTlfnummer } from "../components/telefonnummer/Utils";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();

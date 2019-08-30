@@ -10,6 +10,7 @@ import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
 import slettIkon from "../../assets/img/Slett.svg";
+import { formConfig } from "./Utils";
 
 interface Props {
   type: string;
@@ -17,17 +18,11 @@ interface Props {
   value?: string;
 }
 
-export interface OutboundTlfnummer {
-  type: string;
-  landskode: string;
-  nummer: string;
-}
-
 interface Alert {
   type: AlertStripeType;
   melding: string;
 }
-const Telefonnummer = (props: Props) => {
+const EndreTelefonnummer = (props: Props) => {
   const { value, titleId, type } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
@@ -36,22 +31,6 @@ const Telefonnummer = (props: Props) => {
 
   const initialFields = {
     tlfnummer: value
-  };
-  const formConfig = {
-    landskode: {
-      isRequired: "landskode er påkrevd"
-    },
-    tlfnummer: {
-      isRequired: "Du må skrive inn telefonnummer",
-      isMinLength: {
-        message: "Telefonnummeret må være 8 siffer",
-        length: 8
-      },
-      isMaxLength: {
-        message: "Telefonnummeret må være maksimalt 16 siffer",
-        length: 16
-      }
-    }
   };
 
   const submitEndre = (e: FormContext) => {
@@ -126,11 +105,13 @@ const Telefonnummer = (props: Props) => {
                   <Element>
                     <FormattedMessage id={titleId} />
                   </Element>
+                  {endre && (
+                    <div className={"tlfnummer__chevron"}>
+                      <NedChevron />
+                    </div>
+                  )}
                   {endre ? (
                     <div>
-                      <div className={"tlfnummer__chevron"}>
-                        <NedChevron />
-                      </div>
                       <div className={"tlfnummer__input-container"}>
                         <div className={"tlfnummer__input"}>
                           <Input
@@ -151,6 +132,8 @@ const Telefonnummer = (props: Props) => {
                           <Input
                             label={"Telefonnummer"}
                             value={fields.tlfnummer}
+                            bredde={"M"}
+                            type={"tel"}
                             feil={
                               submitted && errors.tlfnummer
                                 ? { feilmelding: errors.tlfnummer }
@@ -221,4 +204,4 @@ const Telefonnummer = (props: Props) => {
   ) : null;
 };
 
-export default Telefonnummer;
+export default EndreTelefonnummer;

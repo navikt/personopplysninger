@@ -2,22 +2,36 @@
   &__rad {
     border-bottom: 1px solid #e1e1e1;
   }
+  &__rad-leggtil {
+    border-top: 1px solid #e1e1e1;
+  }
   &__rad:last-child {
     border: 0;
   }
   &__container {
     display: flex;
     justify-content: space-between;
-    margin: 0.75rem 0;
+    padding: 0.75rem 0;
   }
   &__input-container {
     display: flex;
+    flex-wrap: wrap;
   }
   &__input {
-    margin-right: 0.5rem;
+    @media @tablet, @desktop {
+      margin-right: 0.5rem;
+    }
   }
   &__submit {
-    margin: 2rem 0 1rem 0.5rem;
+    @media @desktop {
+      margin: 2rem 0 1rem 0;
+    }
+    @media @tablet {
+      margin: 2rem 0 1rem 0;
+    }
+    @media @mobile {
+      margin: 1rem 0;
+    }
   }
   &__knapp {
     padding: 0 0.5rem !important;
