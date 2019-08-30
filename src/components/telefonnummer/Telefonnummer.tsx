@@ -176,7 +176,6 @@ const Telefonnummer = (props: Props) => {
                   {success && (
                     <AlertStripeSuksess>{success}</AlertStripeSuksess>
                   )}
-                  <hr className="box__linje-bred" />
                 </div>
               )}
             </>
