@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
-import { AlertStripeFeil, AlertStripeSuksess } from "nav-frontend-alertstriper";
+import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
@@ -23,13 +23,16 @@ export interface OutboundTlfnummer {
   nummer: string;
 }
 
+interface Alert {
+  type: AlertStripeType;
+  melding: string;
+}
 const Telefonnummer = (props: Props) => {
   const { value, titleId, type } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
-  const [error, settError] = useState();
-  const [success, settSuccess] = useState();
+  const [alert, settAlert] = useState<Alert | undefined>();
 
   const initialFields = {
     tlfnummer: value
@@ -41,11 +44,11 @@ const Telefonnummer = (props: Props) => {
     tlfnummer: {
       isRequired: "Du må skrive inn telefonnummer",
       isMinLength: {
-        message: "Telefonnmummeret må være 8 siffer",
+        message: "Telefonnummeret må være 8 siffer",
         length: 8
       },
       isMaxLength: {
-        message: "Telefonnmummeret må være maksimalt 16 siffer",
+        message: "Telefonnummeret må være maksimalt 16 siffer",
         length: 16
       }
     }
@@ -62,14 +65,19 @@ const Telefonnummer = (props: Props) => {
         nummer: tlfnummer
       };
 
-      console.log(outbound);
       settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
-          settSuccess("Telefonnummeret ble oppdatert");
+          settAlert({
+            type: "suksess",
+            melding: "Telefonnummeret ble oppdatert"
+          });
         })
         .catch((error: HTTPError) => {
-          settError(`${error.code} - ${error.text}`);
+          settAlert({
+            type: "feil",
+            melding: `${error.code} - ${error.text}`
+          });
         })
         .then(() => {
           settEndreLoading(false);
@@ -91,15 +99,22 @@ const Telefonnummer = (props: Props) => {
     settSlettLoading(true);
     slettTlfnummer(outbound)
       .then(() => {
-        settSuccess("Telefonnummeret ble slettet");
+        settAlert({
+          type: "suksess",
+          melding: "Telefonnummeret ble slettet"
+        });
       })
       .catch((error: HTTPError) => {
-        settError(`${error.code} - ${error.text}`);
+        settAlert({
+          type: "feil",
+          melding: `${error.code} - ${error.text}`
+        });
       })
       .then(() => {
         settSlettLoading(false);
       });
   };
+
   return value ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
       <Validation config={formConfig} initialValues={initialFields}>
@@ -193,16 +208,10 @@ const Telefonnummer = (props: Props) => {
                   </Knapp>
                 </div>
               </div>
-
-              {error && (
-                <AlertStripeFeil>
-                  <span>Oi! Noe gikk galt: {error}</span>
-                </AlertStripeFeil>
-              )}
-              {success && (
-                <AlertStripeSuksess>
-                  <span>{success}</span>
-                </AlertStripeSuksess>
+              {alert && (
+                <AlertStripe type={alert.type}>
+                  <span>{alert.melding}</span>
+                </AlertStripe>
               )}
             </>
           );
