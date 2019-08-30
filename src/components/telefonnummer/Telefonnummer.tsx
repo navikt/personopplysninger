@@ -99,7 +99,6 @@ const Telefonnummer = (props: Props) => {
                       <FormattedMessage id={"side.avbryt"} />
                     ) : (
                       <>
-                        <FormattedMessage id={"side.endre"} />
                         <div className={"tlfnummer__knapp-ikon"}>
                           <img alt={"Endre ikon"} src={endreIkon} />
                         </div>

@@ -24,11 +24,6 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       {tlfnr ? (
         <>
           <Telefonnummer
-            type={"ARBEID"}
-            titleId="personalia.tlfnr.arbeid"
-            value={tlfnr.jobb}
-          />
-          <Telefonnummer
             type={"MOBIL"}
             titleId="personalia.tlfnr.mobil"
             value={tlfnr.mobil}
@@ -37,6 +32,11 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             type={"HJEM"}
             titleId="personalia.tlfnr.hjem"
             value={tlfnr.privat}
+          />
+          <Telefonnummer
+            type={"ARBEID"}
+            titleId="personalia.tlfnr.arbeid"
+            value={tlfnr.jobb}
           />
         </>
       ) : (
