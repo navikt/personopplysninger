@@ -54,6 +54,23 @@ const hentJsonOgSjekkAuth = (url: string) =>
       throw error;
     });
 
+const sendJson = (url: string, data: OutboundTlfnummer) =>
+  fetch(url, {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json;charset=UTF-8" }
+  })
+    .then(response => sjekkForFeil(url, response))
+    .then(parseJson)
+    .catch((err: string & HTTPError) => {
+      const error = {
+        code: err.code || 404,
+        text: err.text || err
+      };
+      logApiError(url, error);
+      throw error;
+    });
+
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
 
@@ -75,11 +92,5 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
     `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
   );
 
-export const postTlfnummer = ({
-  tlfnummer,
-  landkode,
-  type
-}: OutboundTlfnummer) =>
-  hentJsonOgSjekkAuth(
-    `${apiUrl}/endreteTelfonnummer/${tlfnummer}/${landkode}/${type}`
-  );
+export const postTlfnummer = (data: OutboundTlfnummer) =>
+  sendJson(`${apiUrl}/endreTelfonnummer`, data);
