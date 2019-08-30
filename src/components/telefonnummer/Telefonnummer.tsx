@@ -93,6 +93,7 @@ const Telefonnummer = (props: Props) => {
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
+                    className={"tlfnummer__knapp"}
                     onClick={() => settEndre(!endre)}
                   >
                     {endre ? (
