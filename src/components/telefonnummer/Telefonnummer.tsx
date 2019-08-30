@@ -9,6 +9,7 @@ import { AlertStripeFeil, AlertStripeSuksess } from "nav-frontend-alertstriper";
 import { postTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
+import slettIkon from "../../assets/img/Slett.svg";
 
 interface Props {
   type: string;
@@ -101,7 +102,7 @@ const Telefonnummer = (props: Props) => {
                     ) : (
                       <>
                         <div className={"tlfnummer__knapp-ikon"}>
-                          <img alt={"Endre ikon"} src={endreIkon} />
+                          <img alt={"Endre telefonnummer"} src={endreIkon} />
                         </div>
                       </>
                     )}
@@ -109,11 +110,14 @@ const Telefonnummer = (props: Props) => {
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
+                    className={"tlfnummer__knapp"}
                     autoDisableVedSpinner={true}
                     spinner={slettLoading}
                     onClick={() => settSlettLoading(true)}
                   >
-                    <FormattedMessage id={"side.slett"} />
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                    </div>
                   </Knapp>
                 </div>
               </div>
