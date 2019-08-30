@@ -3,12 +3,12 @@ import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
-import { Hovedknapp, Knapp } from "nav-frontend-knapper";
+import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
 import { AlertStripeFeil, AlertStripeSuksess } from "nav-frontend-alertstriper";
 import { postTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
-import NavFrontendSpinner from "nav-frontend-spinner";
+import endreIkon from "../../assets/img/Pencil.svg";
 
 interface Props {
   type: string;
@@ -24,7 +24,8 @@ export interface OutboundTlfnummer {
 
 const Telefonnummer = (props: Props) => {
   const { value, titleId, type } = props;
-  const [loading, settLoading] = useState(false);
+  const [endreLoading, settEndreLoading] = useState(false);
+  const [slettLoading, settSlettLoading] = useState(false);
   const [error, settError] = useState();
   const [success, settSuccess] = useState();
 
@@ -62,7 +63,7 @@ const Telefonnummer = (props: Props) => {
       };
 
       console.log(outbound);
-      settLoading(true);
+      settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
           settSuccess("Telefonnummeret ble oppdatert");
@@ -71,7 +72,7 @@ const Telefonnummer = (props: Props) => {
           settError(`${error.code} - ${error.text}`);
         })
         .then(() => {
-          settLoading(false);
+          settEndreLoading(false);
         });
     }
   };
@@ -79,9 +80,6 @@ const Telefonnummer = (props: Props) => {
     <Form onSubmit={send}>
       <Validation config={formConfig} initialValues={initialFields}>
         {({ errors, fields, submitted, setField }) => {
-          console.log(errors);
-          console.log(fields);
-          console.log(submitted);
           return (
             <>
               <div className={"tlfnummer__container"}>
@@ -91,16 +89,31 @@ const Telefonnummer = (props: Props) => {
                   </Element>
                   <Normaltekst>{value}</Normaltekst>
                 </div>
-                <div
-                  className={"tlfnummer_knapper"}
-                  onClick={() => settEndre(!endre)}
-                >
-                  <Knapp type={"standard"} htmlType={"button"}>
+                <div className={"tlfnummer_knapper"}>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    onClick={() => settEndre(!endre)}
+                  >
                     {endre ? (
                       <FormattedMessage id={"side.avbryt"} />
                     ) : (
-                      <FormattedMessage id={"side.endre"} />
+                      <>
+                        <FormattedMessage id={"side.endre"} />
+                        <div className={"tlfnummer__knapp-ikon"}>
+                          <img alt={"Endre ikon"} src={endreIkon} />
+                        </div>
+                      </>
                     )}
+                  </Knapp>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    autoDisableVedSpinner={true}
+                    spinner={slettLoading}
+                    onClick={() => settSlettLoading(true)}
+                  >
+                    <FormattedMessage id={"side.slett"} />
                   </Knapp>
                 </div>
               </div>
@@ -141,13 +154,14 @@ const Telefonnummer = (props: Props) => {
                       />
                     </div>
                     <div className={"tlfnummer__submit"}>
-                      <Hovedknapp type={"hoved"} htmlType={"submit"}>
-                        {loading ? (
-                          <NavFrontendSpinner type={"S"} />
-                        ) : (
-                          <FormattedMessage id={"side.lagre"} />
-                        )}
-                      </Hovedknapp>
+                      <Knapp
+                        type={"hoved"}
+                        htmlType={"submit"}
+                        autoDisableVedSpinner={true}
+                        spinner={endreLoading}
+                      >
+                        <FormattedMessage id={"side.lagre"} />
+                      </Knapp>
                     </div>
                   </div>
                   {error && (
