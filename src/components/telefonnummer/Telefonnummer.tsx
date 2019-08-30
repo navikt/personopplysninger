@@ -78,7 +78,7 @@ const Telefonnummer = (props: Props) => {
     }
   };
   return value ? (
-    <Form onSubmit={send}>
+    <Form onSubmit={send} className={"tlfnummer__rad"}>
       <Validation config={formConfig} initialValues={initialFields}>
         {({ errors, fields, submitted, setField }) => {
           return (

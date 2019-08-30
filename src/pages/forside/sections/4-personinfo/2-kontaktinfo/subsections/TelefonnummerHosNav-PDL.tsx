@@ -22,7 +22,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         </Undertittel>
       </div>
       {tlfnr ? (
-        <>
+        <div>
           <Telefonnummer
             type={"MOBIL"}
             titleId="personalia.tlfnr.mobil"
@@ -38,7 +38,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             titleId="personalia.tlfnr.arbeid"
             value={tlfnr.jobb}
           />
-        </>
+        </div>
       ) : (
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
