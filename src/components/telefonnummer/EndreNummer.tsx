@@ -10,7 +10,7 @@ import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
 import slettIkon from "../../assets/img/Slett.svg";
-import { formConfig } from "./Utils";
+import { baseFormConfig } from "./Utils";
 
 interface Props {
   type: string;
@@ -96,7 +96,7 @@ const EndreTelefonnummer = (props: Props) => {
 
   return value ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
-      <Validation config={formConfig} initialValues={initialFields}>
+      <Validation config={baseFormConfig} initialValues={initialFields}>
         {({ errors, fields, submitted, setField }) => {
           return (
             <>

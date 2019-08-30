@@ -1,6 +1,6 @@
-export const formConfig = {
+export const baseFormConfig = {
   landskode: {
-    isRequired: "landskode er påkrevd"
+    isRequired: "Landskode er påkrevd"
   },
   tlfnummer: {
     isRequired: "Du må skrive inn telefonnummer",
@@ -11,6 +11,18 @@ export const formConfig = {
     isMaxLength: {
       message: "Telefonnummeret må være maksimalt 16 siffer",
       length: 16
+    }
+  }
+};
+
+export const typeFormConfig = {
+  type: {
+    isRequired: {
+      message: "Type er påkrevd"
+    },
+    isWhitelisted: {
+      message: "Type er påkrevd",
+      whitelist: ["MOBIL", "ARBEID", "HJEM"]
     }
   }
 };

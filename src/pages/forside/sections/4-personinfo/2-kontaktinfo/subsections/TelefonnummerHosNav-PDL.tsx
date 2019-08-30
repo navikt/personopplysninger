@@ -3,7 +3,6 @@ import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
-import avbrytIkon from "../../../../../../assets/img/Back.svg";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Melding from "../../../../../../components/melding/Melding";
 import EndreNummer from "../../../../../../components/telefonnummer/EndreNummer";
@@ -45,7 +44,9 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {opprett && <OpprettNummer onCancelClick={() => settOpprett(false)} />}
+      {opprett && (
+        <OpprettNummer onCancelClick={() => settOpprett(false)} tlfnr={tlfnr} />
+      )}
 
       {opprett || (tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) ? (
         <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />

@@ -6,13 +6,15 @@ import { Form, FormContext, Validation } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { postTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
-import { formConfig } from "./Utils";
+import { baseFormConfig, typeFormConfig } from "./Utils";
 import avbrytIkon from "../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
+import { Tlfnr } from "../../types/personalia";
 
 interface Props {
   onCancelClick: () => void;
+  tlfnr?: Tlfnr;
 }
 
 interface Alert {
@@ -20,13 +22,13 @@ interface Alert {
   melding: string;
 }
 const OpprettTelefonnummer = (props: Props) => {
-  const [type, settType] = useState();
   const [endreLoading, settEndreLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
+  const { tlfnr } = props;
 
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { landskode, tlfnummer } = fields;
+    const { type, landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
@@ -57,32 +59,47 @@ const OpprettTelefonnummer = (props: Props) => {
 
   return (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad-leggtil"}>
-      <Validation config={formConfig}>
-        {({ errors, fields, submitted, setField }) => {
-          return (
-            <>
-              <div className={"tlfnummer__container"}>
-                <div>
-                  <Element>
-                    <FormattedMessage id="side.leggtil"></FormattedMessage>
-                  </Element>
-                  <div className={"tlfnummer__chevron"}>
-                    <NedChevron />
-                  </div>
-                  <Select
-                    label={"Type"}
-                    value={fields.landskode}
-                    onChange={e => setField({ landskode: e.target.value })}
-                    bredde={"s"}
-                    feil={
-                      submitted && errors.landskode
-                        ? { feilmelding: errors.landskode }
-                        : undefined
-                    }
-                  >
-                    <option>Test</option>
-                  </Select>
-                  <div className={"tlfnummer__input-container"}>
+      <div className={"tlfnummer__container"}>
+        <div>
+          <Element>
+            <FormattedMessage id="side.leggtil" />
+          </Element>
+          <div className={"tlfnummer__chevron"}>
+            <NedChevron />
+          </div>
+          <Validation config={typeFormConfig}>
+            {({ errors, fields, submitted, setField }) => {
+              return (
+                <Select
+                  label={"Type"}
+                  value={fields.type}
+                  onChange={e => setField({ type: e.target.value })}
+                  bredde={"s"}
+                  feil={
+                    submitted && errors.type
+                      ? { feilmelding: errors.type }
+                      : undefined
+                  }
+                >
+                  <option>Velg type</option>
+                  {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
+                    <option value="MOBIL">Mobil</option>
+                  )}
+                  {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
+                    <option value="ARBEID">Arbeid</option>
+                  )}
+                  {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
+                    <option value="HJEM">Hjem</option>
+                  )}
+                </Select>
+              );
+            }}
+          </Validation>
+          <div className={"tlfnummer__input-container"}>
+            <Validation config={baseFormConfig}>
+              {({ errors, fields, submitted, setField }) => {
+                return (
+                  <>
                     <div className={"tlfnummer__input"}>
                       <Input
                         label={"Landskode"}
@@ -120,28 +137,28 @@ const OpprettTelefonnummer = (props: Props) => {
                         <FormattedMessage id={"side.lagre"} />
                       </Knapp>
                     </div>
-                  </div>
-                </div>
-                <div onClick={props.onCancelClick}>
-                  <Normaltekst className="kilde__lenke lenke">
-                    <FormattedHTMLMessage id="side.avbryt" />
-                    <span className="kilde__icon">
-                      <img src={avbrytIkon} alt="Ekstern lenke" />
-                    </span>
-                  </Normaltekst>
-                </div>
-              </div>
-              {alert && (
-                <div className={"tlfnummer__alert"}>
-                  <AlertStripe type={alert.type}>
-                    <span>{alert.melding}</span>
-                  </AlertStripe>
-                </div>
-              )}
-            </>
-          );
-        }}
-      </Validation>
+                  </>
+                );
+              }}
+            </Validation>
+          </div>
+        </div>
+        <div onClick={props.onCancelClick}>
+          <Normaltekst className="kilde__lenke lenke">
+            <FormattedHTMLMessage id="side.avbryt" />
+            <span className="kilde__icon">
+              <img src={avbrytIkon} alt="Ekstern lenke" />
+            </span>
+          </Normaltekst>
+        </div>
+      </div>
+      {alert && (
+        <div className={"tlfnummer__alert"}>
+          <AlertStripe type={alert.type}>
+            <span>{alert.melding}</span>
+          </AlertStripe>
+        </div>
+      )}
     </Form>
   );
 };
