@@ -94,3 +94,6 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
 
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
+
+export const slettTlfnummer = (data: OutboundTlfnummer) =>
+  sendJson(`${apiUrl}/slettTelefonnummer`, data);

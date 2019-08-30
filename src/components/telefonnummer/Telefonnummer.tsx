@@ -6,7 +6,7 @@ import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
 import { AlertStripeFeil, AlertStripeSuksess } from "nav-frontend-alertstriper";
-import { postTlfnummer } from "../../clients/apiClient";
+import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
 import slettIkon from "../../assets/img/Slett.svg";
@@ -52,7 +52,7 @@ const Telefonnummer = (props: Props) => {
     }
   };
 
-  const send = (e: FormContext) => {
+  const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
     const { landkode, tlfnummer } = fields;
 
@@ -77,8 +77,32 @@ const Telefonnummer = (props: Props) => {
         });
     }
   };
+
+  const submitSlett = () => {
+    if (!value) {
+      return;
+    }
+
+    const outbound = {
+      type,
+      landkode: "+47",
+      tlfnummer: value
+    };
+
+    settSlettLoading(true);
+    slettTlfnummer(outbound)
+      .then(() => {
+        settSuccess("Telefonnummeret ble slettet");
+      })
+      .catch((error: HTTPError) => {
+        settError(`${error.code} - ${error.text}`);
+      })
+      .then(() => {
+        settSlettLoading(false);
+      });
+  };
   return value ? (
-    <Form onSubmit={send} className={"tlfnummer__rad"}>
+    <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
       <Validation config={formConfig} initialValues={initialFields}>
         {({ errors, fields, submitted, setField }) => {
           return (
@@ -113,7 +137,7 @@ const Telefonnummer = (props: Props) => {
                     className={"tlfnummer__knapp"}
                     autoDisableVedSpinner={true}
                     spinner={slettLoading}
-                    onClick={() => settSlettLoading(true)}
+                    onClick={() => submitSlett()}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
                       <img alt={"Slett telefonnummer"} src={slettIkon} />
@@ -168,15 +192,17 @@ const Telefonnummer = (props: Props) => {
                       </Knapp>
                     </div>
                   </div>
-                  {error && (
-                    <AlertStripeFeil>
-                      Oi! Noe gikk galt: {error}
-                    </AlertStripeFeil>
-                  )}
-                  {success && (
-                    <AlertStripeSuksess>{success}</AlertStripeSuksess>
-                  )}
                 </div>
+              )}
+              {error && (
+                <AlertStripeFeil>
+                  <span>Oi! Noe gikk galt: {error}</span>
+                </AlertStripeFeil>
+              )}
+              {success && (
+                <AlertStripeSuksess>
+                  <span>{success}</span>
+                </AlertStripeSuksess>
               )}
             </>
           );
