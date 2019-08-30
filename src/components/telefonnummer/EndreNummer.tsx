@@ -110,55 +110,7 @@ const EndreTelefonnummer = (props: Props) => {
                       <NedChevron />
                     </div>
                   )}
-                  {endre ? (
-                    <div>
-                      <div className={"tlfnummer__input-container"}>
-                        <div className={"tlfnummer__input"}>
-                          <Input
-                            label={"Landskode"}
-                            value={fields.landskode}
-                            onChange={e =>
-                              setField({ landskode: e.target.value })
-                            }
-                            feil={
-                              submitted && errors.landskode
-                                ? { feilmelding: errors.landskode }
-                                : undefined
-                            }
-                            bredde={"S"}
-                          />
-                        </div>
-                        <div className={"tlfnummer__input"}>
-                          <Input
-                            label={"Telefonnummer"}
-                            value={fields.tlfnummer}
-                            bredde={"M"}
-                            type={"tel"}
-                            feil={
-                              submitted && errors.tlfnummer
-                                ? { feilmelding: errors.tlfnummer }
-                                : undefined
-                            }
-                            onChange={e =>
-                              setField({ tlfnummer: e.target.value })
-                            }
-                          />
-                        </div>
-                        <div className={"tlfnummer__submit"}>
-                          <Knapp
-                            type={"hoved"}
-                            htmlType={"submit"}
-                            autoDisableVedSpinner={true}
-                            spinner={endreLoading}
-                          >
-                            <FormattedMessage id={"side.lagre"} />
-                          </Knapp>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <Normaltekst>{value}</Normaltekst>
-                  )}
+                  {!endre && <Normaltekst>{value}</Normaltekst>}
                 </div>
                 <div className={"tlfnummer_knapper"}>
                   <Knapp
@@ -191,10 +143,55 @@ const EndreTelefonnummer = (props: Props) => {
                   </Knapp>
                 </div>
               </div>
+              {endre && (
+                <div>
+                  <div className={"tlfnummer__input-container"}>
+                    <div className={"tlfnummer__input"}>
+                      <Input
+                        label={"Landskode"}
+                        value={fields.landskode}
+                        onChange={e => setField({ landskode: e.target.value })}
+                        feil={
+                          submitted && errors.landskode
+                            ? { feilmelding: errors.landskode }
+                            : undefined
+                        }
+                        bredde={"S"}
+                      />
+                    </div>
+                    <div className={"tlfnummer__input"}>
+                      <Input
+                        label={"Telefonnummer"}
+                        value={fields.tlfnummer}
+                        bredde={"M"}
+                        type={"tel"}
+                        feil={
+                          submitted && errors.tlfnummer
+                            ? { feilmelding: errors.tlfnummer }
+                            : undefined
+                        }
+                        onChange={e => setField({ tlfnummer: e.target.value })}
+                      />
+                    </div>
+                    <div className={"tlfnummer__submit"}>
+                      <Knapp
+                        type={"hoved"}
+                        htmlType={"submit"}
+                        autoDisableVedSpinner={true}
+                        spinner={endreLoading}
+                      >
+                        <FormattedMessage id={"side.lagre"} />
+                      </Knapp>
+                    </div>
+                  </div>
+                </div>
+              )}
               {alert && (
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
+                <div className={"tlfnummer__alert"}>
+                  <AlertStripe type={alert.type}>
+                    <span>{alert.melding}</span>
+                  </AlertStripe>
+                </div>
               )}
             </>
           );

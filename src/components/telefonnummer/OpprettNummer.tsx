@@ -132,9 +132,11 @@ const OpprettTelefonnummer = (props: Props) => {
                 </div>
               </div>
               {alert && (
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
+                <div className={"tlfnummer__alert"}>
+                  <AlertStripe type={alert.type}>
+                    <span>{alert.melding}</span>
+                  </AlertStripe>
+                </div>
               )}
             </>
           );
