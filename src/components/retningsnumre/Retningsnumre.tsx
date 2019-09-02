@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import { OptionProps, ValueType } from "react-select/src/types";
+import { ValueType } from "react-select/src/types";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
@@ -16,7 +16,6 @@ interface Props {
   onChange: (value: ValueType<string>) => void;
 }
 
-type SelectOption = Pick<OptionProps, "label" | "value">;
 interface OptionType {
   value: string;
   label: string;
