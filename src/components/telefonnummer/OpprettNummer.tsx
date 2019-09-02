@@ -11,6 +11,7 @@ import avbrytIkon from "../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../types/personalia";
+import Retningsnumre from "../retningsnumre/Retningsnumre";
 
 interface Props {
   onCancelClick: () => void;
@@ -33,7 +34,7 @@ const OpprettTelefonnummer = (props: Props) => {
     if (isValid) {
       const outbound = {
         type,
-        landskode,
+        landskode: landskode.value,
         nummer: tlfnummer
       };
 
@@ -103,18 +104,12 @@ const OpprettTelefonnummer = (props: Props) => {
                   return (
                     <>
                       <div className={"tlfnummer__input"}>
-                        <Input
+                        <Retningsnumre
                           label={"Landskode"}
-                          value={fields.landskode}
-                          onChange={e =>
-                            setField({ landskode: e.target.value })
-                          }
-                          feil={
-                            submitted && errors.landskode
-                              ? { feilmelding: errors.landskode }
-                              : undefined
-                          }
-                          bredde={"S"}
+                          value={fields.landkode}
+                          onChange={value => setField({ landskode: value })}
+                          error={errors.landskode}
+                          submitted={submitted}
                         />
                       </div>
                       <div className={"tlfnummer__input"}>

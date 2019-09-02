@@ -1,0 +1,2332 @@
+{
+  "betydninger": {
+    "+51": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Peru",
+            "tekst": "Peru"
+          }
+        }
+      }
+    ],
+    "+52": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mexico",
+            "tekst": "Mexico"
+          }
+        }
+      }
+    ],
+    "+53": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Cuba",
+            "tekst": "Cuba"
+          }
+        }
+      }
+    ],
+    "+54": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Argentina",
+            "tekst": "Argentina"
+          }
+        }
+      }
+    ],
+    "+55": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Brasil",
+            "tekst": "Brasil"
+          }
+        }
+      }
+    ],
+    "+56": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Chile",
+            "tekst": "Chile"
+          }
+        }
+      }
+    ],
+    "+57": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Colombia",
+            "tekst": "Colombia"
+          }
+        }
+      }
+    ],
+    "+58": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Venezuela",
+            "tekst": "Venezuela"
+          }
+        }
+      }
+    ],
+    "+593": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Ecuador",
+            "tekst": "Ecuador"
+          }
+        }
+      }
+    ],
+    "+351": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Portugal",
+            "tekst": "Portugal"
+          }
+        }
+      }
+    ],
+    "+230": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mauritius",
+            "tekst": "Mauritius"
+          }
+        }
+      }
+    ],
+    "+352": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Luxembourg",
+            "tekst": "Luxembourg"
+          }
+        }
+      }
+    ],
+    "+231": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Liberia",
+            "tekst": "Liberia"
+          }
+        }
+      }
+    ],
+    "+595": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Paraguay",
+            "tekst": "Paraguay"
+          }
+        }
+      }
+    ],
+    "+353": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Irland og Nord-Irland",
+            "tekst": "Irland og Nord-Irland"
+          }
+        }
+      }
+    ],
+    "+232": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sierra Leone",
+            "tekst": "Sierra Leone"
+          }
+        }
+      }
+    ],
+    "+354": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Island",
+            "tekst": "Island"
+          }
+        }
+      }
+    ],
+    "+233": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Ghana",
+            "tekst": "Ghana"
+          }
+        }
+      }
+    ],
+    "+591": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bolivia",
+            "tekst": "Bolivia"
+          }
+        }
+      }
+    ],
+    "+592": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Guyana",
+            "tekst": "Guyana"
+          }
+        }
+      }
+    ],
+    "+238": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Cape Verde",
+            "tekst": "Cape Verde"
+          }
+        }
+      }
+    ],
+    "+359": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bulgaria",
+            "tekst": "Bulgaria"
+          }
+        }
+      }
+    ],
+    "+239": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "São Tomè og Principe",
+            "tekst": "São Tomè og Principe"
+          }
+        }
+      }
+    ],
+    "+234": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nigeria",
+            "tekst": "Nigeria"
+          }
+        }
+      }
+    ],
+    "+355": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Albania",
+            "tekst": "Albania"
+          }
+        }
+      }
+    ],
+    "+597": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Surinam",
+            "tekst": "Surinam"
+          }
+        }
+      }
+    ],
+    "+235": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tsjad",
+            "tekst": "Tsjad"
+          }
+        }
+      }
+    ],
+    "+598": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Uruguay",
+            "tekst": "Uruguay"
+          }
+        }
+      }
+    ],
+    "+356": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Malta",
+            "tekst": "Malta"
+          }
+        }
+      }
+    ],
+    "+357": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kypros (Sør)",
+            "tekst": "Kypros (Sør)"
+          }
+        }
+      }
+    ],
+    "+236": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Den Sentral-Afrikanske Republikk",
+            "tekst": "Den Sentral-Afrikanske Republikk"
+          }
+        }
+      }
+    ],
+    "+237": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Cameroon",
+            "tekst": "Cameroon"
+          }
+        }
+      }
+    ],
+    "+358": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Finland",
+            "tekst": "Finland"
+          }
+        }
+      }
+    ],
+    "+60": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Malaysia",
+            "tekst": "Malaysia"
+          }
+        }
+      }
+    ],
+    "+61": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Australia",
+            "tekst": "Australia"
+          }
+        }
+      }
+    ],
+    "+62": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Indonesia",
+            "tekst": "Indonesia"
+          }
+        }
+      }
+    ],
+    "+63": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Filippinene",
+            "tekst": "Filippinene"
+          }
+        }
+      }
+    ],
+    "+64": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "New Zealand",
+            "tekst": "New Zealand"
+          }
+        }
+      }
+    ],
+    "+65": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Singapore",
+            "tekst": "Singapore"
+          }
+        }
+      }
+    ],
+    "+66": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Thailand",
+            "tekst": "Thailand"
+          }
+        }
+      }
+    ],
+    "+241": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Gabon",
+            "tekst": "Gabon"
+          }
+        }
+      }
+    ],
+    "+242": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kongo",
+            "tekst": "Kongo"
+          }
+        }
+      }
+    ],
+    "+243": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Den Demokratiske Republikken Kongo (Zaire)",
+            "tekst": "Den Demokratiske Republikken Kongo (Zaire)"
+          }
+        }
+      }
+    ],
+    "+244": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Angola",
+            "tekst": "Angola"
+          }
+        }
+      }
+    ],
+    "+240": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Equatorial Guinea",
+            "tekst": "Equatorial Guinea"
+          }
+        }
+      }
+    ],
+    "+249": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sudan",
+            "tekst": "Sudan"
+          }
+        }
+      }
+    ],
+    "+1784": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "St Vincent og Grenadinane",
+            "tekst": "St Vincent og Grenadinane"
+          }
+        }
+      }
+    ],
+    "+245": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Guinea Bissay",
+            "tekst": "Guinea Bissay"
+          }
+        }
+      }
+    ],
+    "+248": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Seychellene",
+            "tekst": "Seychellene"
+          }
+        }
+      }
+    ],
+    "+373": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Moldova",
+            "tekst": "Moldova"
+          }
+        }
+      }
+    ],
+    "+252": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Somalia",
+            "tekst": "Somalia"
+          }
+        }
+      }
+    ],
+    "+253": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Djibouti",
+            "tekst": "Djibouti"
+          }
+        }
+      }
+    ],
+    "+374": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Armenia",
+            "tekst": "Armenia"
+          }
+        }
+      }
+    ],
+    "+375": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Hviterussland",
+            "tekst": "Hviterussland"
+          }
+        }
+      }
+    ],
+    "+254": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kenya",
+            "tekst": "Kenya"
+          }
+        }
+      }
+    ],
+    "+376": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Andorra",
+            "tekst": "Andorra"
+          }
+        }
+      }
+    ],
+    "+255": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tanzania",
+            "tekst": "Tanzania"
+          }
+        }
+      }
+    ],
+    "+370": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Litauen",
+            "tekst": "Litauen"
+          }
+        }
+      }
+    ],
+    "+250": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Rwanda",
+            "tekst": "Rwanda"
+          }
+        }
+      }
+    ],
+    "+371": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Latvia",
+            "tekst": "Latvia"
+          }
+        }
+      }
+    ],
+    "+251": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Etiopia",
+            "tekst": "Etiopia"
+          }
+        }
+      }
+    ],
+    "+372": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Estland",
+            "tekst": "Estland"
+          }
+        }
+      }
+    ],
+    "+256": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Uganda",
+            "tekst": "Uganda"
+          }
+        }
+      }
+    ],
+    "+377": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Monaco",
+            "tekst": "Monaco"
+          }
+        }
+      }
+    ],
+    "+257": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Burundi",
+            "tekst": "Burundi"
+          }
+        }
+      }
+    ],
+    "+378": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "San Marino",
+            "tekst": "San Marino"
+          }
+        }
+      }
+    ],
+    "+258": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mosambik",
+            "tekst": "Mosambik"
+          }
+        }
+      }
+    ],
+    "+81": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Japan",
+            "tekst": "Japan"
+          }
+        }
+      }
+    ],
+    "+82": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sør-Korea",
+            "tekst": "Sør-Korea"
+          }
+        }
+      }
+    ],
+    "+84": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Vietnam",
+            "tekst": "Vietnam"
+          }
+        }
+      }
+    ],
+    "+1767": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Dominica",
+            "tekst": "Dominica"
+          }
+        }
+      }
+    ],
+    "+86": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kina",
+            "tekst": "Kina"
+          }
+        }
+      }
+    ],
+    "+263": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Zimbabwe",
+            "tekst": "Zimbabwe"
+          }
+        }
+      }
+    ],
+    "+385": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kroatia",
+            "tekst": "Kroatia"
+          }
+        }
+      }
+    ],
+    "+264": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Namibia",
+            "tekst": "Namibia"
+          }
+        }
+      }
+    ],
+    "+265": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Malawi",
+            "tekst": "Malawi"
+          }
+        }
+      }
+    ],
+    "+386": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Slovenia",
+            "tekst": "Slovenia"
+          }
+        }
+      }
+    ],
+    "+387": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bosnia og Herzegovina",
+            "tekst": "Bosnia og Herzegovina"
+          }
+        }
+      }
+    ],
+    "+266": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Lesotho",
+            "tekst": "Lesotho"
+          }
+        }
+      }
+    ],
+    "+380": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Ukraina",
+            "tekst": "Ukraina"
+          }
+        }
+      }
+    ],
+    "+381": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Serbia og Montenegro",
+            "tekst": "Serbia og Montenegro"
+          }
+        }
+      }
+    ],
+    "+260": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Zambia",
+            "tekst": "Zambia"
+          }
+        }
+      }
+    ],
+    "+261": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Madagaskar",
+            "tekst": "Madagaskar"
+          }
+        }
+      }
+    ],
+    "+267": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Botswana",
+            "tekst": "Botswana"
+          }
+        }
+      }
+    ],
+    "+389": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Macedonia",
+            "tekst": "Macedonia"
+          }
+        }
+      }
+    ],
+    "+268": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Swaziland",
+            "tekst": "Swaziland"
+          }
+        }
+      }
+    ],
+    "+269": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Comoros",
+            "tekst": "Comoros"
+          }
+        }
+      }
+    ],
+    "+90": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tyrkia",
+            "tekst": "Tyrkia"
+          }
+        }
+      }
+    ],
+    "+91": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "India",
+            "tekst": "India"
+          }
+        }
+      }
+    ],
+    "+92": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Pakistan",
+            "tekst": "Pakistan"
+          }
+        }
+      }
+    ],
+    "+93": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Afghanistan",
+            "tekst": "Afghanistan"
+          }
+        }
+      }
+    ],
+    "+94": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sri Lanka",
+            "tekst": "Sri Lanka"
+          }
+        }
+      }
+    ],
+    "+95": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Myanmar (tidl. Burma)",
+            "tekst": "Myanmar (tidl. Burma)"
+          }
+        }
+      }
+    ],
+    "+98": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Iran",
+            "tekst": "Iran"
+          }
+        }
+      }
+    ],
+    "+1473": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Grenada",
+            "tekst": "Grenada"
+          }
+        }
+      }
+    ],
+    "+968": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Oman",
+            "tekst": "Oman"
+          }
+        }
+      }
+    ],
+    "+291": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Eritrea",
+            "tekst": "Eritrea"
+          }
+        }
+      }
+    ],
+    "+964": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Irak",
+            "tekst": "Irak"
+          }
+        }
+      }
+    ],
+    "+965": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kuwait",
+            "tekst": "Kuwait"
+          }
+        }
+      }
+    ],
+    "+966": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Saudi Arabia",
+            "tekst": "Saudi Arabia"
+          }
+        }
+      }
+    ],
+    "+967": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Yemen",
+            "tekst": "Yemen"
+          }
+        }
+      }
+    ],
+    "+960": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Maldivene",
+            "tekst": "Maldivene"
+          }
+        }
+      }
+    ],
+    "+961": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Libanon",
+            "tekst": "Libanon"
+          }
+        }
+      }
+    ],
+    "+962": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Jordan",
+            "tekst": "Jordan"
+          }
+        }
+      }
+    ],
+    "+963": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Syria",
+            "tekst": "Syria"
+          }
+        }
+      }
+    ],
+    "+298": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Færøyene",
+            "tekst": "Færøyene"
+          }
+        }
+      }
+    ],
+    "+299": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Grønland",
+            "tekst": "Grønland"
+          }
+        }
+      }
+    ],
+    "+970": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Palestinia",
+            "tekst": "Palestinia"
+          }
+        }
+      }
+    ],
+    "+975": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bhutan",
+            "tekst": "Bhutan"
+          }
+        }
+      }
+    ],
+    "+976": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mongolia",
+            "tekst": "Mongolia"
+          }
+        }
+      }
+    ],
+    "+855": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kambodsja",
+            "tekst": "Kambodsja"
+          }
+        }
+      }
+    ],
+    "+856": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Laos",
+            "tekst": "Laos"
+          }
+        }
+      }
+    ],
+    "+977": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nepal",
+            "tekst": "Nepal"
+          }
+        }
+      }
+    ],
+    "+971": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "De forente Arabiske Emirater",
+            "tekst": "De forente Arabiske Emirater"
+          }
+        }
+      }
+    ],
+    "+850": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nord-Korea",
+            "tekst": "Nord-Korea"
+          }
+        }
+      }
+    ],
+    "+972": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Israel",
+            "tekst": "Israel"
+          }
+        }
+      }
+    ],
+    "+973": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bahrain",
+            "tekst": "Bahrain"
+          }
+        }
+      }
+    ],
+    "+974": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Qatar",
+            "tekst": "Qatar"
+          }
+        }
+      }
+    ],
+    "+506": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Costa Rica",
+            "tekst": "Costa Rica"
+          }
+        }
+      }
+    ],
+    "+507": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Panama",
+            "tekst": "Panama"
+          }
+        }
+      }
+    ],
+    "+509": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Haiti",
+            "tekst": "Haiti"
+          }
+        }
+      }
+    ],
+    "+187": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Jamaica",
+            "tekst": "Jamaica"
+          }
+        }
+      }
+    ],
+    "+502": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Guatemala",
+            "tekst": "Guatemala"
+          }
+        }
+      }
+    ],
+    "+503": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "El Salvador",
+            "tekst": "El Salvador"
+          }
+        }
+      }
+    ],
+    "+504": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Honduras",
+            "tekst": "Honduras"
+          }
+        }
+      }
+    ],
+    "+505": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nicaragua",
+            "tekst": "Nicaragua"
+          }
+        }
+      }
+    ],
+    "+501": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Belize",
+            "tekst": "Belize"
+          }
+        }
+      }
+    ],
+    "+992": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tajikistan",
+            "tekst": "Tajikistan"
+          }
+        }
+      }
+    ],
+    "+998": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Uzbekistan",
+            "tekst": "Uzbekistan"
+          }
+        }
+      }
+    ],
+    "+993": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Turkmenistan",
+            "tekst": "Turkmenistan"
+          }
+        }
+      }
+    ],
+    "+994": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Azerbaijan",
+            "tekst": "Azerbaijan"
+          }
+        }
+      }
+    ],
+    "+995": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Georgia",
+            "tekst": "Georgia"
+          }
+        }
+      }
+    ],
+    "+996": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kyrgyzstan",
+            "tekst": "Kyrgyzstan"
+          }
+        }
+      }
+    ],
+    "+880": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bangladesh",
+            "tekst": "Bangladesh"
+          }
+        }
+      }
+    ],
+    "+1268": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Antigua og Barbuda",
+            "tekst": "Antigua og Barbuda"
+          }
+        }
+      }
+    ],
+    "+886": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Taiwan",
+            "tekst": "Taiwan"
+          }
+        }
+      }
+    ],
+    "+1": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Canada, USA",
+            "tekst": "Canada, USA"
+          }
+        }
+      }
+    ],
+    "+7": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Russland, Kazakhstan",
+            "tekst": "Russland, Kazakhstan"
+          }
+        }
+      }
+    ],
+    "+1809": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Den Dominikanske Republikk",
+            "tekst": "Den Dominikanske Republikk"
+          }
+        }
+      }
+    ],
+    "+420": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tjekkia",
+            "tekst": "Tjekkia"
+          }
+        }
+      }
+    ],
+    "+1246": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Barbados",
+            "tekst": "Barbados"
+          }
+        }
+      }
+    ],
+    "+421": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Slovakia",
+            "tekst": "Slovakia"
+          }
+        }
+      }
+    ],
+    "+1242": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Bahamas",
+            "tekst": "Bahamas"
+          }
+        }
+      }
+    ],
+    "+423": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Liechtenstein",
+            "tekst": "Liechtenstein"
+          }
+        }
+      }
+    ],
+    "+1758": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "St Lucia",
+            "tekst": "St Lucia"
+          }
+        }
+      }
+    ],
+    "+670": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Øst-Timor",
+            "tekst": "Øst-Timor"
+          }
+        }
+      }
+    ],
+    "+673": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Brunei",
+            "tekst": "Brunei"
+          }
+        }
+      }
+    ],
+    "+678": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Vanatu",
+            "tekst": "Vanatu"
+          }
+        }
+      }
+    ],
+    "+679": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Fiji",
+            "tekst": "Fiji"
+          }
+        }
+      }
+    ],
+    "+674": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nauru",
+            "tekst": "Nauru"
+          }
+        }
+      }
+    ],
+    "+675": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Papua Ny Guinea",
+            "tekst": "Papua Ny Guinea"
+          }
+        }
+      }
+    ],
+    "+676": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tonga",
+            "tekst": "Tonga"
+          }
+        }
+      }
+    ],
+    "+677": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Solomon-øyene",
+            "tekst": "Solomon-øyene"
+          }
+        }
+      }
+    ],
+    "+1869": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "St Kitts og Nevis",
+            "tekst": "St Kitts og Nevis"
+          }
+        }
+      }
+    ],
+    "+1868": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Trinidad og Tobago",
+            "tekst": "Trinidad og Tobago"
+          }
+        }
+      }
+    ],
+    "+20": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Egypt",
+            "tekst": "Egypt"
+          }
+        }
+      }
+    ],
+    "+27": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sør-Afrika",
+            "tekst": "Sør-Afrika"
+          }
+        }
+      }
+    ],
+    "+684": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Samoa (US)",
+            "tekst": "Samoa (US)"
+          }
+        }
+      }
+    ],
+    "+680": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Palau",
+            "tekst": "Palau"
+          }
+        }
+      }
+    ],
+    "+685": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Samoa (West)",
+            "tekst": "Samoa (West)"
+          }
+        }
+      }
+    ],
+    "+686": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Kiribati",
+            "tekst": "Kiribati"
+          }
+        }
+      }
+    ],
+    "+688": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tuvalu",
+            "tekst": "Tuvalu"
+          }
+        }
+      }
+    ],
+    "+30": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Hellas",
+            "tekst": "Hellas"
+          }
+        }
+      }
+    ],
+    "+31": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Nederland",
+            "tekst": "Nederland"
+          }
+        }
+      }
+    ],
+    "+32": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Belgia",
+            "tekst": "Belgia"
+          }
+        }
+      }
+    ],
+    "+33": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Frankrike",
+            "tekst": "Frankrike"
+          }
+        }
+      }
+    ],
+    "+34": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Spania",
+            "tekst": "Spania"
+          }
+        }
+      }
+    ],
+    "+36": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Ungarn",
+            "tekst": "Ungarn"
+          }
+        }
+      }
+    ],
+    "+692": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Marshall-øyene",
+            "tekst": "Marshall-øyene"
+          }
+        }
+      }
+    ],
+    "+39": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Italia",
+            "tekst": "Italia"
+          }
+        }
+      }
+    ],
+    "+691": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Micronesia",
+            "tekst": "Micronesia"
+          }
+        }
+      }
+    ],
+    "+216": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tunisia",
+            "tekst": "Tunisia"
+          }
+        }
+      }
+    ],
+    "+218": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Libya",
+            "tekst": "Libya"
+          }
+        }
+      }
+    ],
+    "+212": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Marokko",
+            "tekst": "Marokko"
+          }
+        }
+      }
+    ],
+    "+213": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Algerie",
+            "tekst": "Algerie"
+          }
+        }
+      }
+    ],
+    "+40": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Romania",
+            "tekst": "Romania"
+          }
+        }
+      }
+    ],
+    "+41": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sveits",
+            "tekst": "Sveits"
+          }
+        }
+      }
+    ],
+    "+43": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Østerrike",
+            "tekst": "Østerrike"
+          }
+        }
+      }
+    ],
+    "+44": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Storbritannia (UK)",
+            "tekst": "Storbritannia (UK)"
+          }
+        }
+      }
+    ],
+    "+45": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Danmark",
+            "tekst": "Danmark"
+          }
+        }
+      }
+    ],
+    "+46": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Sverige",
+            "tekst": "Sverige"
+          }
+        }
+      }
+    ],
+    "+47": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Norge",
+            "tekst": "Norge"
+          }
+        }
+      }
+    ],
+    "+48": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Polen",
+            "tekst": "Polen"
+          }
+        }
+      }
+    ],
+    "+49": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Tyskland",
+            "tekst": "Tyskland"
+          }
+        }
+      }
+    ],
+    "+220": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Gambia",
+            "tekst": "Gambia"
+          }
+        }
+      }
+    ],
+    "+221": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Senegal",
+            "tekst": "Senegal"
+          }
+        }
+      }
+    ],
+    "+222": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mauritania",
+            "tekst": "Mauritania"
+          }
+        }
+      }
+    ],
+    "+227": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Niger",
+            "tekst": "Niger"
+          }
+        }
+      }
+    ],
+    "+228": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Togo",
+            "tekst": "Togo"
+          }
+        }
+      }
+    ],
+    "+229": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Benin",
+            "tekst": "Benin"
+          }
+        }
+      }
+    ],
+    "+223": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Mali",
+            "tekst": "Mali"
+          }
+        }
+      }
+    ],
+    "+224": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Guinea",
+            "tekst": "Guinea"
+          }
+        }
+      }
+    ],
+    "+225": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Côte d'Ivoire",
+            "tekst": "Côte d'Ivoire"
+          }
+        }
+      }
+    ],
+    "+226": [
+      {
+        "gyldigFra": "1900-01-01",
+        "gyldigTil": "9999-12-31",
+        "beskrivelser": {
+          "nb": {
+            "term": "Burkina Faso",
+            "tekst": "Burkina Faso"
+          }
+        }
+      }
+    ]
+  }
+}

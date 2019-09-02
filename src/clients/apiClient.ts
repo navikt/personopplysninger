@@ -80,6 +80,9 @@ export const fetchKontaktInfo = () =>
 export const fetchAuthInfo = () =>
   hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
 
+export const fetchRetningsnumre = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre/nb`);
+
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
 
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>

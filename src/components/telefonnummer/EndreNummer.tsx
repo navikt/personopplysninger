@@ -11,6 +11,7 @@ import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
+import Retningsnumre from "../retningsnumre/Retningsnumre";
 
 interface Props {
   type: string;
@@ -40,7 +41,7 @@ const EndreTelefonnummer = (props: Props) => {
     if (isValid) {
       const outbound = {
         type,
-        landskode,
+        landskode: landskode.value,
         nummer: tlfnummer
       };
 
@@ -147,16 +148,12 @@ const EndreTelefonnummer = (props: Props) => {
                 <div>
                   <div className={"tlfnummer__input-container"}>
                     <div className={"tlfnummer__input"}>
-                      <Input
+                      <Retningsnumre
                         label={"Landskode"}
-                        value={fields.landskode}
-                        onChange={e => setField({ landskode: e.target.value })}
-                        feil={
-                          submitted && errors.landskode
-                            ? { feilmelding: errors.landskode }
-                            : undefined
-                        }
-                        bredde={"S"}
+                        value={fields.landkode}
+                        onChange={value => setField({ landskode: value })}
+                        error={errors.landskode}
+                        submitted={submitted}
                       />
                     </div>
                     <div className={"tlfnummer__input"}>

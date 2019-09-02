@@ -1,0 +1,41 @@
+.KodeverkSelect {
+  &__dropdown-indicator {
+    padding: 0 0.5rem;
+  }
+
+  &__control {
+    border: 1px solid @navGra60;
+    min-height: 40px;
+    width: 140px;
+
+    &-feil {
+      .KodeverkSelect {
+        &__control {
+          background-color: @pinkErrorBg;
+          border-color: @redError;
+        }
+      }
+    }
+
+    &:hover {
+      border-color: @navBla !important;
+      transition: border-color 200ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    }
+
+    &--is-focused {
+      box-shadow: 0 0 0 3px @fokusFarge;
+    }
+
+    &--is-disabled {
+      background-color: @navLysGra;
+    }
+
+    &__single-value {
+      color: @navMorkGra;
+    }
+
+    &__spinner {
+      margin-right: 5px;
+    }
+  }
+}
