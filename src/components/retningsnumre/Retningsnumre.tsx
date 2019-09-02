@@ -109,6 +109,7 @@ const Landskode = (props: Props) => {
   ) : (
     <Input
       label={"Landskode"}
+      value={props.value}
       onChange={e => props.onChange(e.target.value)}
       bredde={"S"}
       feil={
