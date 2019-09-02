@@ -111,6 +111,11 @@ const Landskode = (props: Props) => {
       label={"Landskode"}
       onChange={e => props.onChange(e.target.value)}
       bredde={"S"}
+      feil={
+        props.submitted && props.error
+          ? { feilmelding: props.error }
+          : undefined
+      }
       placeholder={"+"}
     />
   );
