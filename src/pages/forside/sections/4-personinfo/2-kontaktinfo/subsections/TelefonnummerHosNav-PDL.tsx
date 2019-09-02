@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
@@ -12,19 +12,23 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
+const mapTypes = {
+  HJEM: "privat",
+  MOBIL: "mobil",
+  ARBEID: "arbeid"
+} as { [key: string]: string };
+
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
-  const [tlfnr, settTlfnr] = useState(props.tlfnr);
-
-  const mapTypes = {
-    HJEM: "privat",
-    MOBIL: "mobil",
-    ARBEID: "arbeid"
-  } as { [key: string]: string };
+  const [tlfnr, settTlfnr] = useState();
 
   const onSuccess = (type: string, tlfnummer: string) => {
     settTlfnr({ ...tlfnr, [mapTypes[type]]: tlfnummer });
   };
+
+  useEffect(() => {
+    settTlfnr(props.tlfnr);
+  }, [props.tlfnr]);
 
   return (
     <>
