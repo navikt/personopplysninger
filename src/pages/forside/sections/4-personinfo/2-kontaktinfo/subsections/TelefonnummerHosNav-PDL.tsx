@@ -14,7 +14,18 @@ interface Props {
 
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
-  const { tlfnr } = props;
+  const [tlfnr, settTlfnr] = useState(props.tlfnr);
+
+  const mapTypes = {
+    HJEM: "privat",
+    MOBIL: "mobil",
+    ARBEID: "arbeid"
+  } as { [key: string]: string };
+
+  const onSuccess = (type: string, tlfnummer: string) => {
+    settTlfnr({ ...tlfnr, [mapTypes[type]]: tlfnummer });
+  };
+
   return (
     <>
       <div className="underseksjon__header">
@@ -26,16 +37,19 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <div>
           <EndreNummer
             type={"MOBIL"}
+            onSuccess={onSuccess}
             titleId="personalia.tlfnr.mobil"
             value={tlfnr.mobil}
           />
           <EndreNummer
             type={"HJEM"}
+            onSuccess={onSuccess}
             titleId="personalia.tlfnr.hjem"
             value={tlfnr.privat}
           />
           <EndreNummer
             type={"ARBEID"}
+            onSuccess={onSuccess}
             titleId="personalia.tlfnr.arbeid"
             value={tlfnr.jobb}
           />
@@ -45,7 +59,11 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       )}
 
       {opprett ? (
-        <OpprettNummer onCancelClick={() => settOpprett(false)} tlfnr={tlfnr} />
+        <OpprettNummer
+          onSuccess={onSuccess}
+          onCancelClick={() => settOpprett(false)}
+          tlfnr={tlfnr}
+        />
       ) : (
         <div className="tlfnummer__divider-hidden" />
       )}

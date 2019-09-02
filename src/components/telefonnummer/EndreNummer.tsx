@@ -16,6 +16,7 @@ import Retningsnumre from "../retningsnumre/Retningsnumre";
 interface Props {
   type: string;
   titleId: string;
+  onSuccess: (type: string, tlfnummer: string) => void;
   value?: string;
 }
 
@@ -23,8 +24,9 @@ interface Alert {
   type: AlertStripeType;
   melding: string;
 }
+
 const EndreTelefonnummer = (props: Props) => {
-  const { value, titleId, type } = props;
+  const { value, titleId, type, onSuccess } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -48,6 +50,7 @@ const EndreTelefonnummer = (props: Props) => {
       settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
+          onSuccess(type, tlfnummer);
           settAlert({
             type: "suksess",
             melding: "Telefonnummeret ble oppdatert"
@@ -94,6 +97,16 @@ const EndreTelefonnummer = (props: Props) => {
         settSlettLoading(false);
       });
   };
+
+  if (alert && alert.type === "suksess") {
+    return (
+      <div className={"tlfnummer__alert"}>
+        <AlertStripe type={alert.type}>
+          <span>{alert.melding}</span>
+        </AlertStripe>
+      </div>
+    );
+  }
 
   return value ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
