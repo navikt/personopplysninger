@@ -58,108 +58,115 @@ const OpprettTelefonnummer = (props: Props) => {
   };
 
   return (
-    <Form onSubmit={submitEndre} className={"tlfnummer__rad-leggtil"}>
-      <div className={"tlfnummer__container"}>
-        <div>
-          <Element>
-            <FormattedMessage id="side.leggtil" />
-          </Element>
-          <div className={"tlfnummer__chevron"}>
-            <NedChevron />
-          </div>
-          <Validation config={typeFormConfig}>
-            {({ errors, fields, submitted, setField }) => {
-              return (
-                <Select
-                  label={"Type"}
-                  value={fields.type}
-                  onChange={e => setField({ type: e.target.value })}
-                  bredde={"s"}
-                  feil={
-                    submitted && errors.type
-                      ? { feilmelding: errors.type }
-                      : undefined
-                  }
-                >
-                  <option>Velg type</option>
-                  {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                    <option value="MOBIL">Mobil</option>
-                  )}
-                  {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                    <option value="ARBEID">Arbeid</option>
-                  )}
-                  {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                    <option value="HJEM">Hjem</option>
-                  )}
-                </Select>
-              );
-            }}
-          </Validation>
-          <div className={"tlfnummer__input-container"}>
-            <Validation config={baseFormConfig}>
+    <>
+      <div className="tlfnummer__divider" />
+      <Form onSubmit={submitEndre} className={"tlfnummer__rad-leggtil"}>
+        <div className={"tlfnummer__container"}>
+          <div>
+            <Element>
+              <FormattedMessage id="side.leggtil" />
+            </Element>
+            <div className={"tlfnummer__chevron"}>
+              <NedChevron />
+            </div>
+            <Validation config={typeFormConfig}>
               {({ errors, fields, submitted, setField }) => {
                 return (
-                  <>
-                    <div className={"tlfnummer__input"}>
-                      <Input
-                        label={"Landskode"}
-                        value={fields.landskode}
-                        onChange={e => setField({ landskode: e.target.value })}
-                        feil={
-                          submitted && errors.landskode
-                            ? { feilmelding: errors.landskode }
-                            : undefined
-                        }
-                        bredde={"S"}
-                      />
-                    </div>
-                    <div className={"tlfnummer__input"}>
-                      <Input
-                        label={"Telefonnummer"}
-                        value={fields.tlfnummer}
-                        type={"tel"}
-                        bredde={"M"}
-                        feil={
-                          submitted && errors.tlfnummer
-                            ? { feilmelding: errors.tlfnummer }
-                            : undefined
-                        }
-                        onChange={e => setField({ tlfnummer: e.target.value })}
-                      />
-                    </div>
-                    <div className={"tlfnummer__submit"}>
-                      <Knapp
-                        type={"hoved"}
-                        htmlType={"submit"}
-                        autoDisableVedSpinner={true}
-                        spinner={endreLoading}
-                      >
-                        <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
-                    </div>
-                  </>
+                  <Select
+                    label={"Type"}
+                    value={fields.type}
+                    onChange={e => setField({ type: e.target.value })}
+                    bredde={"s"}
+                    feil={
+                      submitted && errors.type
+                        ? { feilmelding: errors.type }
+                        : undefined
+                    }
+                  >
+                    <option>Velg type</option>
+                    {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
+                      <option value="MOBIL">Mobil</option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
+                      <option value="ARBEID">Arbeid</option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
+                      <option value="HJEM">Hjem</option>
+                    )}
+                  </Select>
                 );
               }}
             </Validation>
+            <div className={"tlfnummer__input-container"}>
+              <Validation config={baseFormConfig}>
+                {({ errors, fields, submitted, setField }) => {
+                  return (
+                    <>
+                      <div className={"tlfnummer__input"}>
+                        <Input
+                          label={"Landskode"}
+                          value={fields.landskode}
+                          onChange={e =>
+                            setField({ landskode: e.target.value })
+                          }
+                          feil={
+                            submitted && errors.landskode
+                              ? { feilmelding: errors.landskode }
+                              : undefined
+                          }
+                          bredde={"S"}
+                        />
+                      </div>
+                      <div className={"tlfnummer__input"}>
+                        <Input
+                          label={"Telefonnummer"}
+                          value={fields.tlfnummer}
+                          type={"tel"}
+                          bredde={"M"}
+                          feil={
+                            submitted && errors.tlfnummer
+                              ? { feilmelding: errors.tlfnummer }
+                              : undefined
+                          }
+                          onChange={e =>
+                            setField({ tlfnummer: e.target.value })
+                          }
+                        />
+                      </div>
+                      <div className={"tlfnummer__submit"}>
+                        <Knapp
+                          type={"hoved"}
+                          htmlType={"submit"}
+                          autoDisableVedSpinner={true}
+                          spinner={endreLoading}
+                        >
+                          <FormattedMessage id={"side.lagre"} />
+                        </Knapp>
+                      </div>
+                    </>
+                  );
+                }}
+              </Validation>
+            </div>
+          </div>
+          <div onClick={props.onCancelClick}>
+            <Normaltekst className="kilde__lenke lenke">
+              <FormattedHTMLMessage id="side.avbryt" />
+              <span className="kilde__icon">
+                <img src={avbrytIkon} alt="Ekstern lenke" />
+              </span>
+            </Normaltekst>
           </div>
         </div>
-        <div onClick={props.onCancelClick}>
-          <Normaltekst className="kilde__lenke lenke">
-            <FormattedHTMLMessage id="side.avbryt" />
-            <span className="kilde__icon">
-              <img src={avbrytIkon} alt="Ekstern lenke" />
-            </span>
-          </Normaltekst>
-        </div>
-      </div>
-      {alert && (
-        <div className={"tlfnummer__alert"}>
-          <AlertStripe type={alert.type}>
-            <span>{alert.melding}</span>
-          </AlertStripe>
-        </div>
-      )}
-    </Form>
+        {alert && (
+          <div className={"tlfnummer__alert"}>
+            <AlertStripe type={alert.type}>
+              <span>{alert.melding}</span>
+            </AlertStripe>
+          </div>
+        )}
+      </Form>
+    </>
   );
 };
 
