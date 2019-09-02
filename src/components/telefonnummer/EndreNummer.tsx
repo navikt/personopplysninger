@@ -84,6 +84,7 @@ const EndreTelefonnummer = (props: Props) => {
         onDeleteSuccess(type);
       })
       .catch((error: HTTPError) => {
+        onDeleteSuccess(type);
         settAlert({
           type: "feil",
           melding: `${error.code} - ${error.text}`
