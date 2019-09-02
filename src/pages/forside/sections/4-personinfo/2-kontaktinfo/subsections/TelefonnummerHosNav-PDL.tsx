@@ -15,7 +15,7 @@ interface Props {
 const mapTypes = {
   HJEM: "privat",
   MOBIL: "mobil",
-  ARBEID: "arbeid"
+  ARBEID: "jobb"
 } as { [key: string]: string };
 
 const PDLTelefonnummerHosNav = (props: Props) => {
