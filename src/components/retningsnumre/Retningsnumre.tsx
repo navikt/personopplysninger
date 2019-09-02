@@ -94,7 +94,7 @@ const Landskode = (props: Props) => {
           options={mapKoderToOptions(retningsnumre) as any}
           noOptionsMessage={noOptionsMessage}
           components={{ LoadingIndicator, DropdownIndicator }}
-          onChange={e => props.onChange(e)}
+          onChange={value => props.onChange(value)}
         />
       </div>
       {props.submitted && props.error && (
