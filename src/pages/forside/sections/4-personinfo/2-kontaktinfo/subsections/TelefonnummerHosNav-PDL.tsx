@@ -28,7 +28,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
 
   const onDeleteSuccess = (type: string) => {
     Object.assign({}, tlfnr);
-    delete tlfnr[type];
+    delete tlfnr[mapTypes[type]];
     settTlfnr(tlfnr);
   };
 
