@@ -43,7 +43,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
           <FormattedMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
-      {tlfnr ? (
+      {tlfnr && (tlfnr.mobil || tlfnr.privat || tlfnr.jobb) ? (
         <div>
           <EndreNummer
             type={"MOBIL"}
