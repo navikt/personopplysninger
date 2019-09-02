@@ -65,7 +65,7 @@ const Landskode = (props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const mapKoderToOptions = (koder: Kode[]): OptionType[] =>
+  const mapKoderToOptions = (koder: Kode[]): any =>
     koder.map(k => ({
       label: `${k.land} (${k.retningsnummer})`,
       value: k.retningsnummer
@@ -90,10 +90,10 @@ const Landskode = (props: Props) => {
           value={props.value}
           className={controlClasses}
           isLoading={loading}
-          options={mapKoderToOptions(retningsnumre) as any}
+          options={mapKoderToOptions(retningsnumre)}
           noOptionsMessage={noOptionsMessage}
           components={{ LoadingIndicator, DropdownIndicator }}
-          onChange={value => props.onChange(value)}
+          onChange={(option: any) => props.onChange(option.value)}
         />
       </div>
       {props.submitted && props.error && (

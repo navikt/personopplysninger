@@ -36,7 +36,7 @@ const OpprettTelefonnummer = (props: Props) => {
     if (isValid) {
       const outbound = {
         type,
-        landskode: landskode.value,
+        landskode,
         nummer: tlfnummer
       };
 
