@@ -16,7 +16,8 @@ import Retningsnumre from "../retningsnumre/Retningsnumre";
 interface Props {
   type: string;
   titleId: string;
-  onSuccess: (type: string, tlfnummer: string) => void;
+  onDeleteSuccess: (type: string) => void;
+  onChangeSuccess: (type: string, tlfnummer: string) => void;
   value?: string;
 }
 
@@ -26,7 +27,7 @@ interface Alert {
 }
 
 const EndreTelefonnummer = (props: Props) => {
-  const { value, titleId, type, onSuccess } = props;
+  const { value, titleId, type, onChangeSuccess, onDeleteSuccess } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -51,7 +52,7 @@ const EndreTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(() => {
           settEndre(false);
-          onSuccess(type, tlfnummer);
+          onChangeSuccess(type, tlfnummer);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -80,10 +81,7 @@ const EndreTelefonnummer = (props: Props) => {
     slettTlfnummer(outbound)
       .then(() => {
         settEndre(false);
-        settAlert({
-          type: "suksess",
-          melding: "Telefonnummeret ble slettet"
-        });
+        onDeleteSuccess(type);
       })
       .catch((error: HTTPError) => {
         settAlert({

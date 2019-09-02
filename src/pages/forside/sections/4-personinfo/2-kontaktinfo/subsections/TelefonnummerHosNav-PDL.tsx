@@ -22,8 +22,14 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const [tlfnr, settTlfnr] = useState();
 
-  const onSuccess = (type: string, tlfnummer: string) => {
+  const onChangeSuccess = (type: string, tlfnummer: string) => {
     settTlfnr({ ...tlfnr, [mapTypes[type]]: tlfnummer });
+  };
+
+  const onDeleteSuccess = (type: string) => {
+    Object.assign({}, tlfnr);
+    delete tlfnr[type];
+    settTlfnr(tlfnr);
   };
 
   useEffect(() => {
@@ -41,19 +47,22 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <div>
           <EndreNummer
             type={"MOBIL"}
-            onSuccess={onSuccess}
+            onDeleteSuccess={onDeleteSuccess}
+            onChangeSuccess={onChangeSuccess}
             titleId="personalia.tlfnr.mobil"
             value={tlfnr.mobil}
           />
           <EndreNummer
             type={"HJEM"}
-            onSuccess={onSuccess}
+            onDeleteSuccess={onDeleteSuccess}
+            onChangeSuccess={onChangeSuccess}
             titleId="personalia.tlfnr.hjem"
             value={tlfnr.privat}
           />
           <EndreNummer
             type={"ARBEID"}
-            onSuccess={onSuccess}
+            onDeleteSuccess={onDeleteSuccess}
+            onChangeSuccess={onChangeSuccess}
             titleId="personalia.tlfnr.arbeid"
             value={tlfnr.jobb}
           />
@@ -64,11 +73,11 @@ const PDLTelefonnummerHosNav = (props: Props) => {
 
       {opprett ? (
         <OpprettNummer
-          onSuccess={(type, tlfnummer) => {
-            onSuccess(type, tlfnummer);
+          onCancelClick={() => settOpprett(false)}
+          onChangeSuccess={(type, tlfnummer) => {
+            onChangeSuccess(type, tlfnummer);
             settOpprett(false);
           }}
-          onCancelClick={() => settOpprett(false)}
           tlfnr={tlfnr}
         />
       ) : (
