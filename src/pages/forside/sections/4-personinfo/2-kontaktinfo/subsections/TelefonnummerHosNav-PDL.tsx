@@ -64,7 +64,10 @@ const PDLTelefonnummerHosNav = (props: Props) => {
 
       {opprett ? (
         <OpprettNummer
-          onSuccess={onSuccess}
+          onSuccess={(type, melding) => {
+            onSuccess(type, melding);
+            settOpprett(false);
+          }}
           onCancelClick={() => settOpprett(false)}
           tlfnr={tlfnr}
         />

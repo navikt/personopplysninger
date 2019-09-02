@@ -44,10 +44,6 @@ const OpprettTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(() => {
           onSuccess(type, tlfnummer);
-          settAlert({
-            type: "suksess",
-            melding: "Telefonnummeret ble opprettet"
-          });
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -60,16 +56,6 @@ const OpprettTelefonnummer = (props: Props) => {
         });
     }
   };
-
-  if (alert && alert.type === "suksess") {
-    return (
-      <div className={"tlfnummer__alert"}>
-        <AlertStripe type={alert.type}>
-          <span>{alert.melding}</span>
-        </AlertStripe>
-      </div>
-    );
-  }
 
   return (
     <>

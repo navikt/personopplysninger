@@ -50,11 +50,8 @@ const EndreTelefonnummer = (props: Props) => {
       settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
+          settEndre(false);
           onSuccess(type, tlfnummer);
-          settAlert({
-            type: "suksess",
-            melding: "Telefonnummeret ble oppdatert"
-          });
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -82,6 +79,7 @@ const EndreTelefonnummer = (props: Props) => {
     settSlettLoading(true);
     slettTlfnummer(outbound)
       .then(() => {
+        settEndre(false);
         settAlert({
           type: "suksess",
           melding: "Telefonnummeret ble slettet"
@@ -97,16 +95,6 @@ const EndreTelefonnummer = (props: Props) => {
         settSlettLoading(false);
       });
   };
-
-  if (alert && alert.type === "suksess") {
-    return (
-      <div className={"tlfnummer__alert"}>
-        <AlertStripe type={alert.type}>
-          <span>{alert.melding}</span>
-        </AlertStripe>
-      </div>
-    );
-  }
 
   return value ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
