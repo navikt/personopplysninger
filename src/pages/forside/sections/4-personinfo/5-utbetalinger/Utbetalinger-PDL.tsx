@@ -14,8 +14,7 @@ interface Props {
 }
 
 const { tjenesteUrl } = Environment();
-
-class Utbetalinger extends Component<Props> {
+class UtbetalingerPDL extends Component<Props> {
   render() {
     const { kontonr, utenlandskbank } = this.props.personalia;
 
@@ -44,4 +43,4 @@ class Utbetalinger extends Component<Props> {
   }
 }
 
-export default Utbetalinger;
+export default UtbetalingerPDL;

@@ -9,6 +9,7 @@ import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
 import KontaktInfo from "./2-kontaktinfo/KontaktInfo";
 import Utbetalinger from "./5-utbetalinger/Utbetalinger";
+import UtbetalingerPDL from "./5-utbetalinger/Utbetalinger-PDL";
 import personaliaIkon from "../../../../assets/img/Personalia.svg";
 import Box from "../../../../components/box/Box";
 
@@ -18,7 +19,7 @@ export type FetchPersonInfo =
   | { status: "ERROR"; error: HTTPError };
 
 const VisPersonInfo = () => {
-  const [{ personInfo }, dispatch] = useStore();
+  const [{ personInfo, featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
     if (personInfo.status === "LOADING") {
@@ -61,23 +62,25 @@ const VisPersonInfo = () => {
       if (adresser) {
         elements.push(<Adresser key="a" adresser={adresser} />);
 
-        if (
-          adresser.geografiskTilknytning &&
-          enhetKontaktInformasjon &&
-          enhetKontaktInformasjon.enhet
-        ) {
-          elements.push(
-            <DittNavKontor
-              key="d"
-              enhetKontaktInfo={enhetKontaktInformasjon.enhet}
-              geografiskTilknytning={adresser.geografiskTilknytning}
-            />
-          );
+        if (adresser.geografiskTilknytning) {
+          if (enhetKontaktInformasjon && enhetKontaktInformasjon.enhet) {
+            elements.push(
+              <DittNavKontor
+                key="d"
+                enhetKontaktInfo={enhetKontaktInformasjon.enhet}
+                geografiskTilknytning={adresser.geografiskTilknytning}
+              />
+            );
+          }
         }
       }
 
       if (personalia) {
-        elements.push(<Utbetalinger key="u" personalia={personalia} />);
+        if (featureToggles.data["personopplysninger.pdl"]) {
+          elements.push(<UtbetalingerPDL key="u" personalia={personalia} />);
+        } else {
+          elements.push(<Utbetalinger key="u" personalia={personalia} />);
+        }
       }
 
       return <>{elements}</>;
