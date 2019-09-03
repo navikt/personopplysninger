@@ -6,8 +6,8 @@ import Kilde from "../../../../../components/kilde/Kilde";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import Environment from "../../../../../utils/Environments";
 import Melding from "../../../../../components/melding/Melding";
-import NorskKontonummer from "./subsections/NorskKontonummer";
-import Utenlandskonto from "./subsections/UtenlandsBankkonto";
+import NorskKontonummer from "./visning/NorskKontonummer";
+import Utenlandskonto from "./visning/UtenlandsBankkonto";
 
 interface Props {
   personalia: PersonaliaType;
