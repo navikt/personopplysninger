@@ -10,6 +10,8 @@ import Melding from "../../../../../components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
+import OpprettEllerEndreUtenlandskontonr from "./endring/UtenlandsBankkonto";
+import { RadioPanelGruppe } from "nav-frontend-skjema";
 
 interface Props {
   personalia: PersonaliaType;
@@ -18,14 +20,39 @@ interface Props {
 const UtbetalingerPDL = (props: Props) => {
   const { kontonr, utenlandskbank } = props.personalia;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
   const harRegistrertKonto = kontonr || utenlandskbank;
 
+  console.log(norskEllerUtenlandsk);
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
       <hr className="box__linje-bred" />
       {opprettEllerEndre ? (
         <>
-          <OpprettEllerEndreNorskKontonr />
+          <div className="utbetaling__type">
+            <RadioPanelGruppe
+              name="type"
+              legend=""
+              radios={[
+                {
+                  label: "Norsk kontonummer",
+                  value: "NORSK"
+                },
+                {
+                  label: "Utenlandsk kontonummer",
+                  value: "UTENLANDSK"
+                }
+              ]}
+              checked={norskEllerUtenlandsk}
+              onChange={(e, value) => settNorskEllerUtenlandsk(value)}
+            />
+          </div>
+          {norskEllerUtenlandsk === "NORSK" && (
+            <OpprettEllerEndreNorskKontonr />
+          )}
+          {norskEllerUtenlandsk === "UTENLANDSK" && (
+            <OpprettEllerEndreUtenlandskontonr />
+          )}
           <Kilde
             kilde="personalia.source.nav"
             onClick={() => settOpprettEllerEndre(false)}
