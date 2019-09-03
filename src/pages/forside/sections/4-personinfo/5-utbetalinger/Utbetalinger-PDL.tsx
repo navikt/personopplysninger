@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import kontonummerIkon from "../../../../../assets/img/Kontonummer.svg";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
@@ -17,11 +17,11 @@ const { tjenesteUrl } = Environment();
 class UtbetalingerPDL extends Component<Props> {
   render() {
     const { kontonr, utenlandskbank } = this.props.personalia;
+    const [opprett, settOpprett] = useState();
 
     return (
       <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
         <hr className="box__linje-bred" />
-
         {kontonr || utenlandskbank ? (
           <>
             <NorskKontonummer kontonummer={kontonr} />
@@ -30,7 +30,6 @@ class UtbetalingerPDL extends Component<Props> {
         ) : (
           <Melding meldingId="personalia.kontonr.ingenData" />
         )}
-
         <Kilde
           kilde="personalia.source.nav"
           lenke={`${tjenesteUrl}/brukerprofil/`}
