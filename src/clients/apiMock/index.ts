@@ -42,7 +42,7 @@ export const setUpMock = async () => {
     );
   mockRetningsnumre &&
     fetchMock.get(
-      `${apiUrl}/retningsnumre/nb`,
+      `${apiUrl}/retningsnumre`,
       delay(10, 50).then(() => retningsnumre)
     );
   mockDsopInfo &&
