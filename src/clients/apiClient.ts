@@ -85,7 +85,7 @@ export const fetchAuthInfo = () =>
   hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
 
 export const fetchRetningsnumre = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre/nb`);
+  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
 
