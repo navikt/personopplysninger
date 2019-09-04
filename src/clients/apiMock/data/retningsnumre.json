@@ -1,0 +1,1166 @@
+[
+  {
+    "retningsnummer": "+51",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Peru"
+  },
+  {
+    "retningsnummer": "+52",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mexico"
+  },
+  {
+    "retningsnummer": "+53",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Cuba"
+  },
+  {
+    "retningsnummer": "+54",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Argentina"
+  },
+  {
+    "retningsnummer": "+55",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Brasil"
+  },
+  {
+    "retningsnummer": "+56",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Chile"
+  },
+  {
+    "retningsnummer": "+57",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Colombia"
+  },
+  {
+    "retningsnummer": "+58",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Venezuela"
+  },
+  {
+    "retningsnummer": "+593",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Ecuador"
+  },
+  {
+    "retningsnummer": "+351",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Portugal"
+  },
+  {
+    "retningsnummer": "+230",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mauritius"
+  },
+  {
+    "retningsnummer": "+352",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Luxembourg"
+  },
+  {
+    "retningsnummer": "+231",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Liberia"
+  },
+  {
+    "retningsnummer": "+595",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Paraguay"
+  },
+  {
+    "retningsnummer": "+353",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Irland og Nord-Irland"
+  },
+  {
+    "retningsnummer": "+232",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sierra Leone"
+  },
+  {
+    "retningsnummer": "+354",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Island"
+  },
+  {
+    "retningsnummer": "+233",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Ghana"
+  },
+  {
+    "retningsnummer": "+591",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bolivia"
+  },
+  {
+    "retningsnummer": "+592",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Guyana"
+  },
+  {
+    "retningsnummer": "+238",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Cape Verde"
+  },
+  {
+    "retningsnummer": "+359",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bulgaria"
+  },
+  {
+    "retningsnummer": "+239",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "São Tomè og Principe"
+  },
+  {
+    "retningsnummer": "+234",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nigeria"
+  },
+  {
+    "retningsnummer": "+355",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Albania"
+  },
+  {
+    "retningsnummer": "+597",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Surinam"
+  },
+  {
+    "retningsnummer": "+235",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tsjad"
+  },
+  {
+    "retningsnummer": "+598",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Uruguay"
+  },
+  {
+    "retningsnummer": "+356",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Malta"
+  },
+  {
+    "retningsnummer": "+357",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kypros (Sør)"
+  },
+  {
+    "retningsnummer": "+236",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Den Sentral-Afrikanske Republikk"
+  },
+  {
+    "retningsnummer": "+237",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Cameroon"
+  },
+  {
+    "retningsnummer": "+358",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Finland"
+  },
+  {
+    "retningsnummer": "+60",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Malaysia"
+  },
+  {
+    "retningsnummer": "+61",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Australia"
+  },
+  {
+    "retningsnummer": "+62",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Indonesia"
+  },
+  {
+    "retningsnummer": "+63",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Filippinene"
+  },
+  {
+    "retningsnummer": "+64",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "New Zealand"
+  },
+  {
+    "retningsnummer": "+65",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Singapore"
+  },
+  {
+    "retningsnummer": "+66",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Thailand"
+  },
+  {
+    "retningsnummer": "+241",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Gabon"
+  },
+  {
+    "retningsnummer": "+242",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kongo"
+  },
+  {
+    "retningsnummer": "+243",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Den Demokratiske Republikken Kongo (Zaire)"
+  },
+  {
+    "retningsnummer": "+244",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Angola"
+  },
+  {
+    "retningsnummer": "+240",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Equatorial Guinea"
+  },
+  {
+    "retningsnummer": "+249",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sudan"
+  },
+  {
+    "retningsnummer": "+1784",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "St Vincent og Grenadinane"
+  },
+  {
+    "retningsnummer": "+245",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Guinea Bissay"
+  },
+  {
+    "retningsnummer": "+248",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Seychellene"
+  },
+  {
+    "retningsnummer": "+373",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Moldova"
+  },
+  {
+    "retningsnummer": "+252",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Somalia"
+  },
+  {
+    "retningsnummer": "+253",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Djibouti"
+  },
+  {
+    "retningsnummer": "+374",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Armenia"
+  },
+  {
+    "retningsnummer": "+375",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Hviterussland"
+  },
+  {
+    "retningsnummer": "+254",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kenya"
+  },
+  {
+    "retningsnummer": "+376",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Andorra"
+  },
+  {
+    "retningsnummer": "+255",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tanzania"
+  },
+  {
+    "retningsnummer": "+370",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Litauen"
+  },
+  {
+    "retningsnummer": "+250",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Rwanda"
+  },
+  {
+    "retningsnummer": "+371",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Latvia"
+  },
+  {
+    "retningsnummer": "+251",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Etiopia"
+  },
+  {
+    "retningsnummer": "+372",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Estland"
+  },
+  {
+    "retningsnummer": "+256",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Uganda"
+  },
+  {
+    "retningsnummer": "+377",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Monaco"
+  },
+  {
+    "retningsnummer": "+257",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Burundi"
+  },
+  {
+    "retningsnummer": "+378",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "San Marino"
+  },
+  {
+    "retningsnummer": "+258",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mosambik"
+  },
+  {
+    "retningsnummer": "+81",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Japan"
+  },
+  {
+    "retningsnummer": "+82",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sør-Korea"
+  },
+  {
+    "retningsnummer": "+84",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Vietnam"
+  },
+  {
+    "retningsnummer": "+1767",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Dominica"
+  },
+  {
+    "retningsnummer": "+86",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kina"
+  },
+  {
+    "retningsnummer": "+263",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Zimbabwe"
+  },
+  {
+    "retningsnummer": "+385",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kroatia"
+  },
+  {
+    "retningsnummer": "+264",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Namibia"
+  },
+  {
+    "retningsnummer": "+265",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Malawi"
+  },
+  {
+    "retningsnummer": "+386",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Slovenia"
+  },
+  {
+    "retningsnummer": "+387",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bosnia og Herzegovina"
+  },
+  {
+    "retningsnummer": "+266",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Lesotho"
+  },
+  {
+    "retningsnummer": "+380",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Ukraina"
+  },
+  {
+    "retningsnummer": "+381",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Serbia og Montenegro"
+  },
+  {
+    "retningsnummer": "+260",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Zambia"
+  },
+  {
+    "retningsnummer": "+261",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Madagaskar"
+  },
+  {
+    "retningsnummer": "+267",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Botswana"
+  },
+  {
+    "retningsnummer": "+389",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Macedonia"
+  },
+  {
+    "retningsnummer": "+268",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Swaziland"
+  },
+  {
+    "retningsnummer": "+269",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Comoros"
+  },
+  {
+    "retningsnummer": "+90",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tyrkia"
+  },
+  {
+    "retningsnummer": "+91",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "India"
+  },
+  {
+    "retningsnummer": "+92",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Pakistan"
+  },
+  {
+    "retningsnummer": "+93",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Afghanistan"
+  },
+  {
+    "retningsnummer": "+94",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sri Lanka"
+  },
+  {
+    "retningsnummer": "+95",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Myanmar (tidl. Burma)"
+  },
+  {
+    "retningsnummer": "+98",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Iran"
+  },
+  {
+    "retningsnummer": "+1473",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Grenada"
+  },
+  {
+    "retningsnummer": "+968",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Oman"
+  },
+  {
+    "retningsnummer": "+291",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Eritrea"
+  },
+  {
+    "retningsnummer": "+964",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Irak"
+  },
+  {
+    "retningsnummer": "+965",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kuwait"
+  },
+  {
+    "retningsnummer": "+966",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Saudi Arabia"
+  },
+  {
+    "retningsnummer": "+967",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Yemen"
+  },
+  {
+    "retningsnummer": "+960",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Maldivene"
+  },
+  {
+    "retningsnummer": "+961",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Libanon"
+  },
+  {
+    "retningsnummer": "+962",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Jordan"
+  },
+  {
+    "retningsnummer": "+963",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Syria"
+  },
+  {
+    "retningsnummer": "+298",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Færøyene"
+  },
+  {
+    "retningsnummer": "+299",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Grønland"
+  },
+  {
+    "retningsnummer": "+970",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Palestinia"
+  },
+  {
+    "retningsnummer": "+975",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bhutan"
+  },
+  {
+    "retningsnummer": "+976",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mongolia"
+  },
+  {
+    "retningsnummer": "+855",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kambodsja"
+  },
+  {
+    "retningsnummer": "+856",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Laos"
+  },
+  {
+    "retningsnummer": "+977",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nepal"
+  },
+  {
+    "retningsnummer": "+971",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "De forente Arabiske Emirater"
+  },
+  {
+    "retningsnummer": "+850",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nord-Korea"
+  },
+  {
+    "retningsnummer": "+972",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Israel"
+  },
+  {
+    "retningsnummer": "+973",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bahrain"
+  },
+  {
+    "retningsnummer": "+974",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Qatar"
+  },
+  {
+    "retningsnummer": "+506",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Costa Rica"
+  },
+  {
+    "retningsnummer": "+507",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Panama"
+  },
+  {
+    "retningsnummer": "+509",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Haiti"
+  },
+  {
+    "retningsnummer": "+187",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Jamaica"
+  },
+  {
+    "retningsnummer": "+502",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Guatemala"
+  },
+  {
+    "retningsnummer": "+503",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "El Salvador"
+  },
+  {
+    "retningsnummer": "+504",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Honduras"
+  },
+  {
+    "retningsnummer": "+505",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nicaragua"
+  },
+  {
+    "retningsnummer": "+501",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Belize"
+  },
+  {
+    "retningsnummer": "+992",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tajikistan"
+  },
+  {
+    "retningsnummer": "+998",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Uzbekistan"
+  },
+  {
+    "retningsnummer": "+993",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Turkmenistan"
+  },
+  {
+    "retningsnummer": "+994",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Azerbaijan"
+  },
+  {
+    "retningsnummer": "+995",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Georgia"
+  },
+  {
+    "retningsnummer": "+996",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kyrgyzstan"
+  },
+  {
+    "retningsnummer": "+880",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bangladesh"
+  },
+  {
+    "retningsnummer": "+1268",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Antigua og Barbuda"
+  },
+  {
+    "retningsnummer": "+886",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Taiwan"
+  },
+  {
+    "retningsnummer": "+1",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Canada, USA"
+  },
+  {
+    "retningsnummer": "+7",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Russland, Kazakhstan"
+  },
+  {
+    "retningsnummer": "+1809",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Den Dominikanske Republikk"
+  },
+  {
+    "retningsnummer": "+420",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tjekkia"
+  },
+  {
+    "retningsnummer": "+1246",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Barbados"
+  },
+  {
+    "retningsnummer": "+421",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Slovakia"
+  },
+  {
+    "retningsnummer": "+1242",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Bahamas"
+  },
+  {
+    "retningsnummer": "+423",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Liechtenstein"
+  },
+  {
+    "retningsnummer": "+1758",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "St Lucia"
+  },
+  {
+    "retningsnummer": "+670",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Øst-Timor"
+  },
+  {
+    "retningsnummer": "+673",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Brunei"
+  },
+  {
+    "retningsnummer": "+678",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Vanatu"
+  },
+  {
+    "retningsnummer": "+679",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Fiji"
+  },
+  {
+    "retningsnummer": "+674",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nauru"
+  },
+  {
+    "retningsnummer": "+675",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Papua Ny Guinea"
+  },
+  {
+    "retningsnummer": "+676",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tonga"
+  },
+  {
+    "retningsnummer": "+677",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Solomon-øyene"
+  },
+  {
+    "retningsnummer": "+1869",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "St Kitts og Nevis"
+  },
+  {
+    "retningsnummer": "+1868",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Trinidad og Tobago"
+  },
+  {
+    "retningsnummer": "+20",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Egypt"
+  },
+  {
+    "retningsnummer": "+27",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sør-Afrika"
+  },
+  {
+    "retningsnummer": "+684",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Samoa (US)"
+  },
+  {
+    "retningsnummer": "+680",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Palau"
+  },
+  {
+    "retningsnummer": "+685",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Samoa (West)"
+  },
+  {
+    "retningsnummer": "+686",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Kiribati"
+  },
+  {
+    "retningsnummer": "+688",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tuvalu"
+  },
+  {
+    "retningsnummer": "+30",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Hellas"
+  },
+  {
+    "retningsnummer": "+31",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Nederland"
+  },
+  {
+    "retningsnummer": "+32",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Belgia"
+  },
+  {
+    "retningsnummer": "+33",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Frankrike"
+  },
+  {
+    "retningsnummer": "+34",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Spania"
+  },
+  {
+    "retningsnummer": "+36",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Ungarn"
+  },
+  {
+    "retningsnummer": "+692",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Marshall-øyene"
+  },
+  {
+    "retningsnummer": "+39",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Italia"
+  },
+  {
+    "retningsnummer": "+691",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Micronesia"
+  },
+  {
+    "retningsnummer": "+216",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tunisia"
+  },
+  {
+    "retningsnummer": "+218",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Libya"
+  },
+  {
+    "retningsnummer": "+212",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Marokko"
+  },
+  {
+    "retningsnummer": "+213",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Algerie"
+  },
+  {
+    "retningsnummer": "+40",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Romania"
+  },
+  {
+    "retningsnummer": "+41",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sveits"
+  },
+  {
+    "retningsnummer": "+43",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Østerrike"
+  },
+  {
+    "retningsnummer": "+44",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Storbritannia (UK)"
+  },
+  {
+    "retningsnummer": "+45",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Danmark"
+  },
+  {
+    "retningsnummer": "+46",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Sverige"
+  },
+  {
+    "retningsnummer": "+47",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Norge"
+  },
+  {
+    "retningsnummer": "+48",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Polen"
+  },
+  {
+    "retningsnummer": "+49",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Tyskland"
+  },
+  {
+    "retningsnummer": "+220",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Gambia"
+  },
+  {
+    "retningsnummer": "+221",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Senegal"
+  },
+  {
+    "retningsnummer": "+222",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mauritania"
+  },
+  {
+    "retningsnummer": "+227",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Niger"
+  },
+  {
+    "retningsnummer": "+228",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Togo"
+  },
+  {
+    "retningsnummer": "+229",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Benin"
+  },
+  {
+    "retningsnummer": "+223",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Mali"
+  },
+  {
+    "retningsnummer": "+224",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Guinea"
+  },
+  {
+    "retningsnummer": "+225",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Côte d'Ivoire"
+  },
+  {
+    "retningsnummer": "+226",
+    "gyldigFra": "1900-01-01",
+    "gyldigTil": "9999-12-31",
+    "land": "Burkina Faso"
+  }
+]

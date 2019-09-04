@@ -32,7 +32,7 @@ const KontaktInformasjon = (props: Props) => {
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.endre"
-        eksternLenke={true}
+        lenkeType={"EKSTERN"}
         ikon={eksternLenkeIkon}
       />
     </>
@@ -43,7 +43,7 @@ const KontaktInformasjon = (props: Props) => {
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"
         lenkeTekst="personalia.link.dkif.leggtil"
-        eksternLenke={true}
+        lenkeType={"EKSTERN"}
         ikon={eksternLenkeIkon}
       />
     </>

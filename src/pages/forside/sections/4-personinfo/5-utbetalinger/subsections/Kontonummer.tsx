@@ -24,7 +24,7 @@ const Kontonummer = (props: Props) => {
         kilde="personalia.source.nav"
         lenke={`${tjenesteUrl}/brukerprofil/`}
         lenkeTekst="personalia.link.brukerprofil.endre"
-        eksternLenke={true}
+        lenkeType={"EKSTERN"}
         ikon={endreIkon}
       />
     </>

@@ -8,8 +8,6 @@ import Kilde from "../../../../../../components/kilde/Kilde";
 import Environment from "../../../../../../utils/Environments";
 import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
-import { useStore } from "../../../../../../providers/Provider";
-import { basePath } from "../../../../../../App";
 
 const { tjenesteUrl } = Environment();
 
@@ -17,8 +15,7 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const Telefonnummer = (props: Props) => {
-  const [{ featureToggles }] = useStore();
+const TelefonnummerHosNav = (props: Props) => {
   const { tlfnr } = props;
   return (
     <>
@@ -30,56 +27,41 @@ const Telefonnummer = (props: Props) => {
       {tlfnr && (tlfnr.jobb || tlfnr.mobil || tlfnr.privat) ? (
         <>
           <ul className="list-column-2">
-            <ListElement titleId="personalia.tlfnr.jobb" content={tlfnr.jobb} />
+            <ListElement
+              titleId="personalia.tlfnr.arbeid"
+              content={tlfnr.jobb}
+            />
             <ListElement
               titleId="personalia.tlfnr.mobil"
               content={tlfnr.mobil}
             />
             <ListElement
-              titleId="personalia.tlfnr.privat"
+              titleId="personalia.tlfnr.hjem"
               content={tlfnr.privat}
             />
           </ul>
-          {featureToggles.data["personopplysninger.pdl"] ? (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${basePath}/endre/kontaktinformasjon/`}
-              lenkeTekst="side.endre"
-              ikon={endreIkon}
-            />
-          ) : (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${tjenesteUrl}/brukerprofil/`}
-              lenkeTekst="personalia.link.brukerprofil.endre"
-              eksternLenke={true}
-              ikon={endreIkon}
-            />
-          )}
+          <Kilde
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenkeTekst="personalia.link.brukerprofil.endre"
+            lenkeType={"EKSTERN"}
+            ikon={endreIkon}
+          />
         </>
       ) : (
         <>
           <Melding meldingId="personalia.tlfnr.ingenData" />
-          {featureToggles.data["personopplysninger.pdl"] ? (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${basePath}/endre/kontaktinformasjon/`}
-              lenkeTekst="side.leggtil"
-              ikon={leggTilIkon}
-            />
-          ) : (
-            <Kilde
-              kilde="personalia.source.nav"
-              lenke={`${tjenesteUrl}/brukerprofil/`}
-              lenkeTekst="personalia.link.brukerprofil.leggtil"
-              eksternLenke={true}
-              ikon={leggTilIkon}
-            />
-          )}
+          <Kilde
+            kilde="personalia.source.nav"
+            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenkeTekst="personalia.link.brukerprofil.leggtil"
+            lenkeType={"EKSTERN"}
+            ikon={leggTilIkon}
+          />
         </>
       )}
     </>
   );
 };
 
-export default Telefonnummer;
+export default TelefonnummerHosNav;

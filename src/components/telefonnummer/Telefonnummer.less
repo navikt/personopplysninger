@@ -1,0 +1,53 @@
+.tlfnummer {
+  &__rad,
+  &__rad-leggtil {
+    padding: 0.75rem 0;
+  }
+  &__rad {
+    border-bottom: 1px solid #e1e1e1;
+  }
+  &__divider {
+    height: 1px;
+    border-top: 1px solid #e1e1e1;
+    &-hidden {
+      visibility: hidden;
+    }
+  }
+  &__rad:last-child {
+    border: 0;
+  }
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  &__input-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__alert {
+    margin-top: 0.5rem;
+  }
+  &__input {
+    @media @tablet, @desktop {
+      margin-right: 0.5rem;
+    }
+  }
+  &__submit {
+    @media @desktop {
+      margin: 2rem 0 1rem 0;
+    }
+    @media @tablet {
+      margin: 2rem 0 1rem 0;
+    }
+    @media @mobile {
+      margin: 1rem 0;
+    }
+  }
+  &__knapp {
+    padding: 0 0.5rem !important;
+  }
+  &__chevron {
+    margin: 0.5rem 0;
+  }
+}

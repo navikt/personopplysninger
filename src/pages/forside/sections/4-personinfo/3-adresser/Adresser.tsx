@@ -43,7 +43,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
             kilde="personalia.source.folkeregisteret"
             lenke="https://www.skatteetaten.no/person/folkeregister/"
             lenkeTekst="personalia.link.folkeregisteret"
-            eksternLenke={true}
+            lenkeType={"EKSTERN"}
             ikon={eksternLenkeIkon}
           />
         )}
@@ -63,7 +63,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
-            eksternLenke={true}
+            lenkeType={"EKSTERN"}
             ikon={endreIkon}
           />
         ) : (
@@ -71,7 +71,7 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
             kilde="personalia.source.nav"
             lenke={`${tjenesteUrl}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
-            eksternLenke={true}
+            lenkeType={"EKSTERN"}
             ikon={leggTilIkon}
           />
         )}
