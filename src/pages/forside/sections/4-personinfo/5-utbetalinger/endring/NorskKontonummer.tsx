@@ -66,7 +66,13 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   };
 
   const format = (input: string) => {
-    return input.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3");
+    if (input.length > 6) {
+      return input.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3");
+    }
+    if (input.length > 4) {
+      return input.replace(/^(.{4})(.*)$/, "$1 $2");
+    }
+    return input;
   };
 
   return (
