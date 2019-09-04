@@ -23,32 +23,37 @@ const UtbetalingerPDL = (props: Props) => {
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
   const harRegistrertKonto = kontonr || utenlandskbank;
 
-  console.log(norskEllerUtenlandsk);
+  const radioButtons = [
+    {
+      label: "Norsk kontonummer",
+      value: "NORSK"
+    },
+    {
+      label: "Utenlandsk kontonummer",
+      value: "UTENLANDSK"
+    }
+  ];
+
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
       <hr className="box__linje-bred" />
       {opprettEllerEndre ? (
         <>
-          <div className="utbetaling__type">
+          <div className="utbetalinger__type">
             <RadioPanelGruppe
               name="type"
               legend=""
-              radios={[
-                {
-                  label: "Norsk kontonummer",
-                  value: "NORSK"
-                },
-                {
-                  label: "Utenlandsk kontonummer",
-                  value: "UTENLANDSK"
-                }
-              ]}
+              radios={radioButtons}
               checked={norskEllerUtenlandsk}
               onChange={(e, value) => settNorskEllerUtenlandsk(value)}
             />
           </div>
           {norskEllerUtenlandsk === "NORSK" && (
-            <OpprettEllerEndreNorskKontonr />
+            <OpprettEllerEndreNorskKontonr
+              onChangeSuccess={() => {
+                console.log("Success");
+              }}
+            />
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
             <OpprettEllerEndreUtenlandskontonr />
