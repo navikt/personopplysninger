@@ -3,6 +3,7 @@ import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";
 import { OutboundTlfnummer } from "../components/telefonnummer/Utils";
+import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/NorskKontonummer";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -54,8 +55,12 @@ const hentJsonOgSjekkAuth = (url: string) =>
       throw error;
     });
 
-const sendJson = (url: string, data: OutboundTlfnummer) =>
-  fetch(url, {
+const sendJson = (
+  url: string,
+  data: OutboundTlfnummer | OutboundNorskKontonummer
+) => {
+  console.log(url, data);
+  return fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json;charset=UTF-8" }
@@ -70,6 +75,7 @@ const sendJson = (url: string, data: OutboundTlfnummer) =>
       logApiError(url, error);
       throw error;
     });
+};
 
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
@@ -81,7 +87,7 @@ export const fetchAuthInfo = () =>
   hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
 
 export const fetchRetningsnumre = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre/nb`);
+  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
 
@@ -97,6 +103,9 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
 
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
+
+export const postKontonummer = (data: OutboundNorskKontonummer) =>
+  sendJson(`${apiUrl}/endreKontonummer`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);

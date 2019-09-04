@@ -94,7 +94,7 @@ const Landskode = (props: Props) => {
           noOptionsMessage={noOptionsMessage}
           components={{ LoadingIndicator, DropdownIndicator }}
           onChange={(option: any) => {
-            if (props.value) {
+            if (option.value) {
               props.onChange(option.value);
             }
           }}
