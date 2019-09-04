@@ -81,7 +81,7 @@ commands:
             echo $GH_DEPLOY_KEY | base64 -d | dos2unix > gh_deploy_key.pem
             deployment-cli deploy create \
                 --team=personbruker \
-                --resource=nais.config.yaml \
+                --resource=.nais/config.yaml \
                 --cluster=<< parameters.til >> \
                 --repository=$CIRCLE_PROJECT_USERNAME/$REPO_NAME \
                 --vars=nais.<< parameters.til >>.vars.json \
