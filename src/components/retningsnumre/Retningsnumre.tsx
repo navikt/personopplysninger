@@ -7,6 +7,7 @@ import { NedChevron } from "nav-frontend-chevron";
 import { fetchRetningsnumre } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import { Input } from "nav-frontend-skjema";
+import { FormatOptionLabelMeta } from "react-select/base";
 
 interface Props {
   value: string;
@@ -71,20 +72,28 @@ const Landskode = (props: Props) => {
       value: k.retningsnummer
     }));
 
-  const noOptionsMessage = ({ inputValue = "" }) =>
-    `Ingen treff funnet for ${inputValue}...`;
+  const defineLabel = (
+    option: OptionType,
+    context: FormatOptionLabelMeta<OptionType>
+  ) => (context.context === "value" ? `${option.value} ` : `${option.label}`);
 
-  const controlClasses = cls({
-    "KodeverkSelect__control-feil": props.submitted && props.error
-  });
-
-  const options = mapKoderToOptions(retningsnumre).sort((option: OptionType) =>
-    option.value === "+47" ? -1 : 1
-  );
+  const options = mapKoderToOptions(retningsnumre)
+    .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1))
+    .sort((option: OptionType) => (option.value === "+47" ? -1 : 1));
 
   const value = options
     .filter((option: OptionType) => option.value === props.value)
     .shift();
+
+  const onChange = (option: OptionType) => {
+    if (option && option.value) {
+      props.onChange(option.value);
+    }
+  };
+
+  const controlClasses = cls({
+    "KodeverkSelect__control-feil": props.submitted && props.error
+  });
 
   return !fetchError ? (
     <div className={"KodeverkSelect skjemaelement"}>
@@ -94,19 +103,16 @@ const Landskode = (props: Props) => {
           label={"Landskode"}
           placeholder="Søk..."
           classNamePrefix="KodeverkSelect"
+          formatOptionLabel={defineLabel}
           loadingMessage={() => "Laster inn..."}
           value={value}
           className={controlClasses}
           isLoading={loading}
           options={options}
           onMenuOpen={() => props.onChange(undefined)}
-          noOptionsMessage={noOptionsMessage}
+          noOptionsMessage={v => `Ingen treff funnet for ${v}...`}
           components={{ LoadingIndicator, DropdownIndicator }}
-          onChange={option => {
-            if (option.value) {
-              props.onChange(option.value);
-            }
-          }}
+          onChange={onChange as any}
         />
       </div>
       {props.submitted && props.error && (
