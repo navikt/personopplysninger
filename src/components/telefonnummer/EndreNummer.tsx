@@ -9,6 +9,7 @@ import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
+import avbrytIkon from "../../assets/img/Back.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
 import Retningsnumre from "../retningsnumre/Retningsnumre";
@@ -114,7 +115,7 @@ const EndreTelefonnummer = (props: Props) => {
                   )}
                   {!endre && <Normaltekst>{value}</Normaltekst>}
                 </div>
-                <div className={"tlfnummer_knapper"}>
+                <div className={"tlfnummer__knapper"}>
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
@@ -122,9 +123,19 @@ const EndreTelefonnummer = (props: Props) => {
                     onClick={() => settEndre(!endre)}
                   >
                     {endre ? (
-                      <FormattedMessage id={"side.avbryt"} />
+                      <>
+                        <div className={"tlfnummer__knapp-tekst"}>
+                          <FormattedMessage id={"side.avbryt"} />
+                        </div>
+                        <div className={"tlfnummer__knapp-ikon"}>
+                          <img alt={"Avbryt"} src={avbrytIkon} />
+                        </div>
+                      </>
                     ) : (
                       <>
+                        <div className={"tlfnummer__knapp-tekst"}>
+                          <FormattedMessage id={"side.endre"} />
+                        </div>
                         <div className={"tlfnummer__knapp-ikon"}>
                           <img alt={"Endre telefonnummer"} src={endreIkon} />
                         </div>
@@ -139,6 +150,9 @@ const EndreTelefonnummer = (props: Props) => {
                     spinner={slettLoading}
                     onClick={() => submitSlett()}
                   >
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.slett"} />
+                    </div>
                     <div className={"tlfnummer__knapp-ikon"}>
                       <img alt={"Slett telefonnummer"} src={slettIkon} />
                     </div>
