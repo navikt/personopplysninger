@@ -29,7 +29,11 @@ const OpprettTelefonnummer = (props: Props) => {
   const [alert, settAlert] = useState<Alert | undefined>();
   const { tlfnr, onChangeSuccess } = props;
 
-  const submitEndre = (e: FormContext) => {
+  const initialValues = {
+    landskode: "+47"
+  };
+
+  const submit = (e: FormContext) => {
     const { isValid, fields } = e;
     const { type, landskode, tlfnummer } = fields;
 
@@ -60,7 +64,7 @@ const OpprettTelefonnummer = (props: Props) => {
   return (
     <>
       <div className="tlfnummer__divider" />
-      <Form onSubmit={submitEndre} className={"tlfnummer__rad-leggtil"}>
+      <Form onSubmit={submit} className={"tlfnummer__rad-leggtil"}>
         <div className={"tlfnummer__container"}>
           <div>
             <Element>
@@ -98,14 +102,14 @@ const OpprettTelefonnummer = (props: Props) => {
               }}
             </Validation>
             <div className={"tlfnummer__input-container"}>
-              <Validation config={baseFormConfig}>
+              <Validation config={baseFormConfig} initialValues={initialValues}>
                 {({ errors, fields, submitted, setField }) => {
                   return (
                     <>
                       <div className={"tlfnummer__input"}>
                         <Retningsnumre
                           label={"Landskode"}
-                          value={fields.landkode}
+                          value={fields.landskode}
                           onChange={value => setField({ landskode: value })}
                           error={errors.landskode}
                           submitted={submitted}

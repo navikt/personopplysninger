@@ -33,7 +33,8 @@ const EndreTelefonnummer = (props: Props) => {
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
 
-  const initialFields = {
+  const initialValues = {
+    landskode: "+47",
     tlfnummer: value
   };
 
@@ -73,7 +74,7 @@ const EndreTelefonnummer = (props: Props) => {
 
     const outbound = {
       type,
-      landskode: "+47",
+      landskode: "+51",
       nummer: value
     };
 
@@ -97,7 +98,7 @@ const EndreTelefonnummer = (props: Props) => {
 
   return value ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
-      <Validation config={baseFormConfig} initialValues={initialFields}>
+      <Validation config={baseFormConfig} initialValues={initialValues}>
         {({ errors, fields, submitted, setField }) => {
           return (
             <>
@@ -150,7 +151,7 @@ const EndreTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__input"}>
                       <Retningsnumre
                         label={"Landskode"}
-                        value={fields.landkode}
+                        value={fields.landskode}
                         onChange={value => setField({ landskode: value })}
                         error={errors.landskode}
                         submitted={submitted}

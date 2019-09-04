@@ -78,6 +78,14 @@ const Landskode = (props: Props) => {
     "KodeverkSelect__control-feil": props.submitted && props.error
   });
 
+  const options = mapKoderToOptions(retningsnumre).sort((option: OptionType) =>
+    option.value === "+47" ? -1 : 1
+  );
+
+  const value = options
+    .filter((option: OptionType) => option.value === props.value)
+    .shift();
+
   return !fetchError ? (
     <div className={"KodeverkSelect skjemaelement"}>
       <label className="skjemaelement__label">{props.label}</label>
@@ -87,13 +95,14 @@ const Landskode = (props: Props) => {
           placeholder="Søk..."
           classNamePrefix="KodeverkSelect"
           loadingMessage={() => "Laster inn..."}
-          value={props.value}
+          value={value}
           className={controlClasses}
           isLoading={loading}
-          options={mapKoderToOptions(retningsnumre)}
+          options={options}
+          onMenuOpen={() => props.onChange(undefined)}
           noOptionsMessage={noOptionsMessage}
           components={{ LoadingIndicator, DropdownIndicator }}
-          onChange={(option: any) => {
+          onChange={option => {
             if (option.value) {
               props.onChange(option.value);
             }
