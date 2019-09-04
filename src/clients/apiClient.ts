@@ -58,8 +58,9 @@ const hentJsonOgSjekkAuth = (url: string) =>
 const sendJson = (
   url: string,
   data: OutboundTlfnummer | OutboundNorskKontonummer
-) =>
-  fetch(url, {
+) => {
+  console.log(url, data);
+  return fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json;charset=UTF-8" }
@@ -74,6 +75,7 @@ const sendJson = (
       logApiError(url, error);
       throw error;
     });
+};
 
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
