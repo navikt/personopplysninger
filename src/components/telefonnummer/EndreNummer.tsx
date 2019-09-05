@@ -181,7 +181,7 @@ const EndreTelefonnummer = (props: Props) => {
                   <div className={"tlfnummer__input-container"}>
                     <div className={"tlfnummer__input input--s"}>
                       <Retningsnumre
-                        label={"Landskode"}
+                        label={"Landkode"}
                         value={fields.landskode}
                         onChange={value => setField({ landskode: value })}
                         error={errors.landskode}

@@ -66,29 +66,31 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
       {({ errors, fields, submitted, setField }) => {
         return (
           <>
-            <div style={{ width: "50%" }}>
-              <Input
-                label={"Kontonummer"}
-                value={fields.kontonummer}
-                onChange={e => setField({ kontonummer: e.target.value })}
-                maxLength={11}
-                feil={
-                  submitted && errors.kontonummer
-                    ? { feilmelding: errors.kontonummer }
-                    : undefined
-                }
-                bredde={"M"}
-              />
-            </div>
-            <div className={"utbetalinger__knapp-container"}>
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="utbetalinger__rad">
+              <div className="utbetalinger__input">
+                <Input
+                  label={"Kontonummer"}
+                  value={fields.kontonummer}
+                  onChange={e => setField({ kontonummer: e.target.value })}
+                  maxLength={11}
+                  bredde={"M"}
+                  feil={
+                    submitted && errors.kontonummer
+                      ? { feilmelding: errors.kontonummer }
+                      : undefined
+                  }
+                />
+              </div>
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"hoved"}
+                  htmlType={"submit"}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
             </div>
             {alert && (
               <div className={"tlfnummer__alert"}>
