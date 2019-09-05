@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchRetningsnumre } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import { FormatOptionLabelMeta } from "react-select/base";
-import NAVSelect from "../select/Retningsnumre";
+import NAVSelect from "../select/NAVSelect";
 
 interface Props {
   value: string;

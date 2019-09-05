@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Error, { HTTPError } from "../error/Error";
-import { useStore } from "../../providers/Provider";
+import Error, { HTTPError } from "../../components/error/Error";
+import { useStore } from "../Provider";
 import { fetchAuthInfo, sendTilLogin } from "../../clients/apiClient";
 import { AuthInfo } from "../../types/authInfo";
-import Spinner from "../spinner/Spinner";
+import Spinner from "../../components/spinner/Spinner";
 
 export type FetchAuthInfo =
   | { status: "LOADING" }

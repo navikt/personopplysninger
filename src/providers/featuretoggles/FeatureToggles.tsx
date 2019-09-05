@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import { HTTPError } from "../error/Error";
-import { useStore } from "../../providers/Provider";
+import { HTTPError } from "../../components/error/Error";
+import { useStore } from "../Provider";
 import { fetchFeatureToggles } from "../../clients/apiClient";
-import { FeatureToggles } from "../../providers/Store";
+import { FeatureToggles } from "../Store";
 
 export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "LOADING" }
