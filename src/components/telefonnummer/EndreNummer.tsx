@@ -179,7 +179,7 @@ const EndreTelefonnummer = (props: Props) => {
               {endre && (
                 <div>
                   <div className={"tlfnummer__input-container"}>
-                    <div className={"tlfnummer__input"}>
+                    <div className={"tlfnummer__input input--s"}>
                       <Retningsnumre
                         label={"Landskode"}
                         value={fields.landskode}
@@ -188,7 +188,7 @@ const EndreTelefonnummer = (props: Props) => {
                         submitted={submitted}
                       />
                     </div>
-                    <div className={"tlfnummer__input"}>
+                    <div className={"tlfnummer__input input--m"}>
                       <Input
                         label={"Telefonnummer"}
                         value={fields.tlfnummer}

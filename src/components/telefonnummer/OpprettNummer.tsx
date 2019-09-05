@@ -115,52 +115,51 @@ const OpprettTelefonnummer = (props: Props) => {
               );
             }}
           </Validation>
-          <div className={"tlfnummer__input-container"}>
-            <Validation config={baseFormConfig} initialValues={initialValues}>
-              {({ errors, fields, submitted, setField }) => {
-                return (
-                  <>
-                    <div className={"tlfnummer__input"}>
-                      <Retningsnumre
-                        label={"Landskode"}
-                        value={fields.landskode}
-                        onChange={value => setField({ landskode: value })}
-                        error={errors.landskode}
-                        submitted={submitted}
-                      />
-                    </div>
-                    <div className={"tlfnummer__input"}>
-                      <Input
-                        label={"Telefonnummer"}
-                        value={fields.tlfnummer}
-                        type={"tel"}
-                        bredde={"M"}
-                        maxLength={fields.landskode === "+47" ? 8 : 16}
-                        onChange={e => setField({ tlfnummer: e.target.value })}
-                        feil={
-                          submitted && errors.tlfnummer
-                            ? { feilmelding: errors.tlfnummer }
-                            : undefined
-                        }
-                      />
-                    </div>
-                    <div className={"tlfnummer__submit"}>
-                      <Knapp
-                        type={"hoved"}
-                        htmlType={"submit"}
-                        autoDisableVedSpinner={true}
-                        spinner={endreLoading}
-                      >
-                        <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
-                    </div>
-                  </>
-                );
-              }}
-            </Validation>
-          </div>
         </div>
-
+        <div className={"tlfnummer__input-container"}>
+          <Validation config={baseFormConfig} initialValues={initialValues}>
+            {({ errors, fields, submitted, setField }) => {
+              return (
+                <>
+                  <div className={"tlfnummer__input input--s"}>
+                    <Retningsnumre
+                      label={"Landskode"}
+                      value={fields.landskode}
+                      onChange={value => setField({ landskode: value })}
+                      error={errors.landskode}
+                      submitted={submitted}
+                    />
+                  </div>
+                  <div className={"tlfnummer__input input--m"}>
+                    <Input
+                      label={"Telefonnummer"}
+                      value={fields.tlfnummer}
+                      type={"tel"}
+                      bredde={"M"}
+                      maxLength={fields.landskode === "+47" ? 8 : 16}
+                      onChange={e => setField({ tlfnummer: e.target.value })}
+                      feil={
+                        submitted && errors.tlfnummer
+                          ? { feilmelding: errors.tlfnummer }
+                          : undefined
+                      }
+                    />
+                  </div>
+                  <div className={"tlfnummer__submit"}>
+                    <Knapp
+                      type={"hoved"}
+                      htmlType={"submit"}
+                      autoDisableVedSpinner={true}
+                      spinner={endreLoading}
+                    >
+                      <FormattedMessage id={"side.lagre"} />
+                    </Knapp>
+                  </div>
+                </>
+              );
+            }}
+          </Validation>
+        </div>
         {alert && (
           <div className={"tlfnummer__alert"}>
             <AlertStripe type={alert.type}>

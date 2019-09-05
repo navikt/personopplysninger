@@ -1,6 +1,6 @@
 export const baseFormConfig = {
   landskode: {
-    isRequired: "Landskode er påkrevd"
+    isRequired: "Retningsnummer er påkrevd"
   },
   tlfnummer: {
     isRequired: "Du må skrive inn telefonnummer",
