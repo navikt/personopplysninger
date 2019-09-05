@@ -12,7 +12,6 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../types/personalia";
 import Retningsnumre from "../retningsnumre/Retningsnumre";
-import { formatTelefonnummer, normalizeNummer } from "../../utils/formattering";
 
 interface Props {
   onCancelClick: () => void;
@@ -133,22 +132,15 @@ const OpprettTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__input"}>
                       <Input
                         label={"Telefonnummer"}
-                        value={formatTelefonnummer(
-                          fields.type,
-                          fields.landskode,
-                          fields.tlfnummer
-                        )}
+                        value={fields.tlfnummer}
                         type={"tel"}
                         bredde={"M"}
+                        maxLength={fields.landskode === "+47" ? 8 : 16}
+                        onChange={e => setField({ tlfnummer: e.target.value })}
                         feil={
                           submitted && errors.tlfnummer
                             ? { feilmelding: errors.tlfnummer }
                             : undefined
-                        }
-                        onChange={e =>
-                          setField({
-                            tlfnummer: normalizeNummer(e.target.value)
-                          })
                         }
                       />
                     </div>

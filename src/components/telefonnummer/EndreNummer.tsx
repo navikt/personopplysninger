@@ -13,7 +13,7 @@ import avbrytIkon from "../../assets/img/Back.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
 import Retningsnumre from "../retningsnumre/Retningsnumre";
-import { formatTelefonnummer, normalizeNummer } from "../../utils/formattering";
+import { formatTelefonnummer } from "../../utils/formattering";
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";
@@ -191,22 +191,15 @@ const EndreTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__input"}>
                       <Input
                         label={"Telefonnummer"}
-                        value={formatTelefonnummer(
-                          type,
-                          fields.landskode,
-                          fields.tlfnummer
-                        )}
+                        value={fields.tlfnummer}
                         bredde={"M"}
                         type={"tel"}
+                        maxLength={fields.landskode === "+47" ? 8 : 16}
+                        onChange={e => setField({ tlfnummer: e.target.value })}
                         feil={
                           submitted && errors.tlfnummer
                             ? { feilmelding: errors.tlfnummer }
                             : undefined
-                        }
-                        onChange={e =>
-                          setField({
-                            tlfnummer: normalizeNummer(e.target.value)
-                          })
                         }
                       />
                     </div>
