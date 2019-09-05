@@ -4,6 +4,7 @@ import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";
 import { OutboundTlfnummer } from "../components/telefonnummer/Utils";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/NorskKontonummer";
+import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -55,10 +56,12 @@ const hentJsonOgSjekkAuth = (url: string) =>
       throw error;
     });
 
-const sendJson = (
-  url: string,
-  data: OutboundTlfnummer | OutboundNorskKontonummer
-) => {
+type Outbound =
+  | OutboundTlfnummer
+  | OutboundNorskKontonummer
+  | OutboundUtenlandsbankonto;
+
+const sendJson = (url: string, data: Outbound) => {
   console.log(url, data);
   return fetch(url, {
     method: "POST",
@@ -104,8 +107,9 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
 
-export const postKontonummer = (data: OutboundNorskKontonummer) =>
-  sendJson(`${apiUrl}/endreKontonummer`, data);
+export const postKontonummer = (
+  data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
+) => sendJson(`${apiUrl}/endreKontonummer`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);

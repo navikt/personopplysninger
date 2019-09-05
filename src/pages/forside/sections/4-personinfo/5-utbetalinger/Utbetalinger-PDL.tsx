@@ -10,7 +10,7 @@ import Melding from "../../../../../components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
-import OpprettEllerEndreUtenlandskontonr from "./endring/UtenlandsBankkonto";
+import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 
 interface Props {
@@ -64,7 +64,7 @@ const UtbetalingerPDL = (props: Props) => {
             />
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
-            <OpprettEllerEndreUtenlandskontonr
+            <OpprettEllerEndreUtenlandsbank
               onChangeSuccess={bank => {
                 settUtenlandskbank(bank);
                 settOpprettEllerEndre(false);
