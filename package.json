@@ -26,6 +26,7 @@
     "calidation": "^1.16.2",
     "core-js": "^2.5.7",
     "fetch-mock": "^7.3.3",
+    "ibantools": "^2.2.0",
     "intl": "^1.2.5",
     "lodash.throttle": "^4.1.1",
     "moment": "^2.24.0",

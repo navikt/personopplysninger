@@ -4,6 +4,7 @@ import GateAdresse from "../../../../../../components/adresse/GateAdresse";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import React from "react";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
+import { friendlyFormatIBAN } from "ibantools";
 
 interface Props {
   utenlandskBankkonto?: UtenlandskBankkonto;
@@ -28,10 +29,18 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
           <Normaltekst>{utenlandskBankkonto.land}</Normaltekst>
         )}
       </li>
-      <ListElement
-        titleId="personalia.kontonrelleriban"
-        content={utenlandskBankkonto.kontonummer || utenlandskBankkonto.iban}
-      />
+      {utenlandskBankkonto.kontonummer && (
+        <ListElement
+          titleId="personalia.kontonrelleriban"
+          content={utenlandskBankkonto.kontonummer}
+        />
+      )}
+      {utenlandskBankkonto.iban && (
+        <ListElement
+          titleId="personalia.kontonrelleriban"
+          content={friendlyFormatIBAN(utenlandskBankkonto.iban)}
+        />
+      )}
       <ListElement
         titleId="personalia.bankkode"
         content={utenlandskBankkonto.bankkode}

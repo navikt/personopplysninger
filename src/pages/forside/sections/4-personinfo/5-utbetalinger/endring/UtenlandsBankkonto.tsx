@@ -10,6 +10,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
 import EndreKontoFelt from "../../../../../../components/kontonummer/EndreKontoFelt";
+import { electronicFormatIBAN } from "ibantools";
 
 interface Props {
   onChangeSuccess: (kontonummer: UtenlandskBankkonto) => void;
@@ -43,22 +44,24 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
   const formConfig = {
     kontonummer: {
-      isRequired: "Kontonummer er påkrevd"
+      isRequired: "Kontonummer / IBAN er påkrevd",
+      isIBAN: "Et gyldig IBAN (International Bank Account Number) er påkrevd"
     },
     bankkode: {
-      isRequired: "Er påkrevd "
+      isRequired: "Bankkode er påkrevd"
     },
     banknavn: {
-      isRequired: "Er påkrevd "
+      isRequired: "Banknavn er påkrevd"
     },
     land: {
-      isRequired: "Er påkrevd "
+      isRequired: "Land er påkrevd"
     },
     swiftkode: {
-      isRequired: "Er påkrevd "
+      isRequired: "Swift / BIC kode er påkrevd",
+      isBIC: "En gyldig SWIFT / BIC (Bank Identifier Code) kode er påkrevd"
     },
     valuta: {
-      isRequired: "Er påkrevd "
+      isRequired: "Valuta er påkrevd"
     },
     adresse1: {
       isRequired: "Er påkrevd "
@@ -70,7 +73,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const submitEndre = (c: FormContext) => {
     const { isValid, fields } = c;
 
-    console.log(isValid);
     if (isValid) {
       const outbound = {
         value: fields.kontonummer,
@@ -84,11 +86,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
           },
           landkode: fields.land,
           swift: fields.swiftkode,
-          valuta: fields.valuta
+          valuta: electronicFormatIBAN(fields.valuta)
         }
       };
 
-      console.log(outbound);
       settLoading(true);
       postKontonummer(outbound)
         .then(() => {
@@ -135,7 +136,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               </div>
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
-                  label={"BIC / Swift kode"}
+                  label={"Swift / BIC-kode"}
                   value={fields.swiftkode}
                   submitted={submitted}
                   onChange={value => setField({ swiftkode: value })}
