@@ -43,17 +43,19 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const [alert, settAlert] = useState<Alert | undefined>();
   const { onChangeSuccess, utenlandskbank } = props;
 
-  const initialValues = utenlandskbank && {
-    kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
-    bankkode: utenlandskbank.bankkode,
-    banknavn: utenlandskbank.banknavn,
-    land: utenlandskbank.land,
-    swiftkode: utenlandskbank.swiftkode,
-    valuta: utenlandskbank.valuta,
-    adresse1: utenlandskbank.adresse1,
-    adresse2: utenlandskbank.adresse2,
-    adresse3: utenlandskbank.adresse3
-  };
+  const initialValues = utenlandskbank
+    ? {
+        kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
+        bankkode: utenlandskbank.bankkode,
+        banknavn: utenlandskbank.banknavn,
+        land: utenlandskbank.land,
+        swiftkode: utenlandskbank.swiftkode,
+        valuta: utenlandskbank.valuta,
+        adresse1: utenlandskbank.adresse1,
+        adresse2: utenlandskbank.adresse2,
+        adresse3: utenlandskbank.adresse3
+      }
+    : {};
 
   const formConfig = {
     kontonummer: {
