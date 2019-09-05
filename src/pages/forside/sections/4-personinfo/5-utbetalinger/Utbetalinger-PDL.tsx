@@ -19,13 +19,20 @@ interface Props {
 
 const UtbetalingerPDL = (props: Props) => {
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
   const [utenlandskbank, settUtenlandskbank] = useState();
   const [kontonr, settKontonr] = useState();
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
 
   useEffect(() => {
     settKontonr(props.personalia.kontonr);
     settUtenlandskbank(props.personalia.utenlandskbank);
+    settNorskEllerUtenlandsk(
+      props.personalia.kontonr
+        ? "NORSK"
+        : props.personalia.utenlandskbank
+        ? "UTENLANDSK"
+        : undefined
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -56,6 +63,7 @@ const UtbetalingerPDL = (props: Props) => {
           </div>
           {norskEllerUtenlandsk === "NORSK" && (
             <OpprettEllerEndreNorskKontonr
+              kontonummer={kontonr}
               onChangeSuccess={kontonummer => {
                 settKontonr(kontonummer);
                 settOpprettEllerEndre(false);
@@ -65,6 +73,7 @@ const UtbetalingerPDL = (props: Props) => {
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
             <OpprettEllerEndreUtenlandsbank
+              utenlandskbank={utenlandskbank}
               onChangeSuccess={bank => {
                 settUtenlandskbank(bank);
                 settOpprettEllerEndre(false);

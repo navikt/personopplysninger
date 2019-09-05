@@ -8,6 +8,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 
 interface Props {
+  kontonummer?: string;
   onChangeSuccess: (kontonummer: string) => void;
 }
 
@@ -23,7 +24,13 @@ export interface OutboundNorskKontonummer {
 const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { onChangeSuccess } = props;
+  const { onChangeSuccess, kontonummer } = props;
+
+  const initialValues = kontonummer
+    ? {
+        kontonummer: kontonummer
+      }
+    : {};
 
   const formConfig = {
     kontonummer: {
@@ -63,7 +70,11 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   };
 
   return (
-    <FormValidation onSubmit={submitEndre} config={formConfig}>
+    <FormValidation
+      onSubmit={submitEndre}
+      config={formConfig}
+      initialValues={initialValues}
+    >
       {({ errors, fields, submitted, setField }) => {
         return (
           <>

@@ -13,6 +13,7 @@ import EndreKontoFelt from "../../../../../../components/kontonummer/EndreKontoF
 import { electronicFormatIBAN } from "ibantools";
 
 interface Props {
+  utenlandskbank?: UtenlandskBankkonto;
   onChangeSuccess: (kontonummer: UtenlandskBankkonto) => void;
 }
 
@@ -40,7 +41,19 @@ export interface OutboundUtenlandsbankonto {
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { onChangeSuccess } = props;
+  const { onChangeSuccess, utenlandskbank } = props;
+
+  const initialValues = utenlandskbank && {
+    kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
+    bankkode: utenlandskbank.bankkode,
+    banknavn: utenlandskbank.banknavn,
+    land: utenlandskbank.land,
+    swiftkode: utenlandskbank.swiftkode,
+    valuta: utenlandskbank.valuta,
+    adresse1: utenlandskbank.adresse1,
+    adresse2: utenlandskbank.adresse2,
+    adresse3: utenlandskbank.adresse3
+  };
 
   const formConfig = {
     kontonummer: {
@@ -108,7 +121,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   };
 
   return (
-    <FormValidation onSubmit={submitEndre} config={formConfig}>
+    <FormValidation
+      onSubmit={submitEndre}
+      config={formConfig}
+      initialValues={initialValues}
+    >
       {({ errors, fields, submitted, setField }) => {
         return (
           <>
