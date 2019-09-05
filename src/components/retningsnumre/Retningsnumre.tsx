@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import { ValueType } from "react-select/src/types";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
@@ -14,7 +13,7 @@ interface Props {
   submitted: boolean;
   label: string;
   error: string | null;
-  onChange: (value: ValueType<string>) => void;
+  onChange: (value?: string) => void;
 }
 
 interface OptionType {

@@ -6,6 +6,10 @@ import { HTTPError } from "../../../../../../components/error/Error";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
+import {
+  formatKontonummer,
+  normalizeNummer
+} from "../../../../../../utils/formattering";
 
 interface Props {
   onChangeSuccess: (kontonummer: string) => void;
@@ -61,20 +65,6 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
     }
   };
 
-  const normalize = (input: string) => {
-    return input.replace(/\D/g, "");
-  };
-
-  const format = (input: string) => {
-    if (input.length > 6) {
-      return input.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3");
-    }
-    if (input.length > 4) {
-      return input.replace(/^(.{4})(.*)$/, "$1 $2");
-    }
-    return input;
-  };
-
   return (
     <FormValidation onSubmit={submitEndre} config={formConfig}>
       {({ errors, fields, submitted, setField }) => {
@@ -83,9 +73,9 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
             <div style={{ width: "50%" }}>
               <Input
                 label={"Kontonummer"}
-                value={format(fields.kontonummer)}
+                value={formatKontonummer(fields.kontonummer)}
                 onChange={e =>
-                  setField({ kontonummer: normalize(e.target.value) })
+                  setField({ kontonummer: normalizeNummer(e.target.value) })
                 }
                 feil={
                   submitted && errors.kontonummer
