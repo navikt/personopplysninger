@@ -27,6 +27,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
 
   const formConfig = {
     kontonummer: {
+      isNumber: "Kontonummer må kun inneholde siffer",
       isRequired: "Kontonummer er påkrevd",
       isExactLength: {
         message: "Kontonummeret må være 11 siffer",

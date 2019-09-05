@@ -9,13 +9,8 @@ interface Props {
   utenlandskBankkonto?: UtenlandskBankkonto;
 }
 
-const Utenlandskonto = (props: Props) => {
-  const { utenlandskBankkonto } = props;
-  if (!utenlandskBankkonto) {
-    return null;
-  }
-
-  return (
+const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
+  return utenlandskBankkonto ? (
     <ul className="list-column-2">
       <li>
         <Element>
@@ -50,7 +45,7 @@ const Utenlandskonto = (props: Props) => {
         content={utenlandskBankkonto.swiftkode}
       />
     </ul>
-  );
+  ) : null;
 };
 
 export default Utenlandskonto;
