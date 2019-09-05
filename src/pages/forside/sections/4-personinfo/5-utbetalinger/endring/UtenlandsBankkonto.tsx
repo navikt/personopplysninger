@@ -45,7 +45,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const formConfig = {
     kontonummer: {
       isRequired: "Kontonummer / IBAN er påkrevd",
-      isIBAN: "Et gyldig IBAN (International Bank Account Number) er påkrevd"
+      isIBAN: "Et gyldig IBAN er påkrevd"
     },
     bankkode: {
       isRequired: "Bankkode er påkrevd"
@@ -58,7 +58,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     },
     swiftkode: {
       isRequired: "Swift / BIC kode er påkrevd",
-      isBIC: "En gyldig SWIFT / BIC (Bank Identifier Code) kode er påkrevd"
+      isBIC: "En gyldig SWIFT / BIC-kode er påkrevd"
     },
     valuta: {
       isRequired: "Valuta er påkrevd"
