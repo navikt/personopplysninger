@@ -45,18 +45,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     kontonummer: {
       isRequired: "Kontonummer er påkrevd"
     },
-    adresse1: {
-      isRequired: "Er påkrevd "
-    },
-    adresse2: {},
-    adresse3: {},
     bankkode: {
       isRequired: "Er påkrevd "
     },
     banknavn: {
-      isRequired: "Er påkrevd "
-    },
-    iban: {
       isRequired: "Er påkrevd "
     },
     land: {
@@ -67,12 +59,18 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     },
     valuta: {
       isRequired: "Er påkrevd "
-    }
+    },
+    adresse1: {
+      isRequired: "Er påkrevd "
+    },
+    adresse2: {},
+    adresse3: {}
   };
 
-  const submitEndre = (e: FormContext) => {
-    const { isValid, fields } = e;
+  const submitEndre = (c: FormContext) => {
+    const { isValid, fields } = c;
 
+    console.log(isValid);
     if (isValid) {
       const outbound = {
         value: fields.kontonummer,
@@ -90,6 +88,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         }
       };
 
+      console.log(outbound);
       settLoading(true);
       postKontonummer(outbound)
         .then(() => {
