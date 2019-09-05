@@ -1,5 +1,7 @@
 import React from "react";
 import { Input, NavFrontendInputProps } from "nav-frontend-skjema";
+import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
+import { FormattedHTMLMessage } from "react-intl";
 
 type InputProps = Omit<NavFrontendInputProps, "onChange">;
 interface Props extends InputProps {
@@ -7,17 +9,38 @@ interface Props extends InputProps {
   error: string | null;
   submitted: boolean;
   onChange: (value: string) => void;
+  hjelpetekst?: string;
 }
 
-const EndreKontonummerFelt = (props: Props) => {
-  const { value, onChange, submitted, error, ...restProps } = props;
+const EndreKontonummerFelt = ({
+  value,
+  onChange,
+  submitted,
+  error,
+  label,
+  hjelpetekst,
+  ...restProps
+}: Props) => {
   return (
-    <Input
-      value={props.value}
-      onChange={e => props.onChange(e.target.value)}
-      feil={submitted && error ? { feilmelding: error } : undefined}
-      {...restProps}
-    />
+    <>
+      <div className="ekf__header">
+        {label && <div className="skjemaelement__label">{label}</div>}
+        {hjelpetekst && (
+          <HjelpetekstHoyre id={"hjelpetekst"}>
+            <FormattedHTMLMessage id={hjelpetekst} />
+          </HjelpetekstHoyre>
+        )}
+      </div>
+      <div className="ekf__input">
+        <Input
+          label={""}
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          feil={submitted && error ? { feilmelding: error } : undefined}
+          {...restProps}
+        />
+      </div>
+    </>
   );
 };
 

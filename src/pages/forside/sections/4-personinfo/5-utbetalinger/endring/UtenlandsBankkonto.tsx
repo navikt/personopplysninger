@@ -147,6 +147,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Kontonummer / IBAN"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.iban"}
                   value={fields.kontonummer}
                   submitted={submitted}
                   onChange={value => setField({ kontonummer: value })}
@@ -156,6 +157,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Swift / BIC-kode"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
                   value={fields.swiftkode}
                   submitted={submitted}
                   onChange={value => setField({ swiftkode: value })}
@@ -165,6 +167,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Bankens land"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   value={fields.land}
                   submitted={submitted}
                   onChange={value => setField({ land: value })}
@@ -174,6 +177,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Valuta"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
                   value={fields.valuta}
                   submitted={submitted}
                   onChange={value => setField({ valuta: value })}
@@ -183,6 +187,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Bankkode"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                   value={fields.bankkode}
                   submitted={submitted}
                   onChange={value => setField({ bankkode: value })}
@@ -192,6 +197,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
                   label={"Bankens navn"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.banknavn"}
                   value={fields.banknavn}
                   submitted={submitted}
                   onChange={value => setField({ banknavn: value })}
@@ -201,6 +207,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <div className="utbetalinger__adressefelter">
                 <EndreKontoFelt
                   label={"Adresse"}
+                  hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
                   value={fields.adresse1}
                   submitted={submitted}
                   onChange={value => setField({ adresse1: value })}
