@@ -64,7 +64,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isRequired: "Valuta er påkrevd"
     },
     adresse1: {
-      isRequired: "Er påkrevd "
+      isRequired: "Feltet er påkrevd"
     },
     adresse2: {},
     adresse3: {}
