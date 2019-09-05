@@ -126,7 +126,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
             <div className="utbetalinger__input-container">
               <div className="utbetalinger__input-box input--m">
                 <EndreKontoFelt
-                  label={"Kontonummer"}
+                  label={"Kontonummer / IBAN"}
                   value={fields.kontonummer}
                   submitted={submitted}
                   onChange={value => setField({ kontonummer: value })}

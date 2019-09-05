@@ -43,7 +43,7 @@ export default {
   "personalia.link.dkif.endre": `Endre i Kontakt- og<br/>reservasjonsregisteret `,
   "personalia.link.dkif.leggtil": `Gå til Kontakt- og<br/>reservasjonsregisteret `,
   "personalia.kontonr": `Kontonummer`,
-  "personalia.kontonrelleriban": `Kontonummer/IBAN`,
+  "personalia.kontonrelleriban": `Kontonummer / IBAN`,
   "personalia.kontonr.oveskrift": `Kontonummer vi utbetaler til`,
   "personalia.kontonr.ingenData": `Vi har ikke registrert kontonummer på deg. <br>Du kan registrere kontonummer via Din profil.`,
   "personalia.bank": `Bank`,
