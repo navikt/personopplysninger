@@ -48,7 +48,7 @@ export default {
   "personalia.kontonr.ingenData": `Vi har ikke registrert kontonummer på deg. <br>Du kan registrere kontonummer via Din profil.`,
   "personalia.bank": `Bank`,
   "personalia.valuta": `Valuta`,
-  "personalia.swiftkode": `BIC/SWIFT-kode`,
+  "personalia.swiftkode": `BIC / SWIFT-kode`,
   "personalia.bankkode": `Bankkode`,
   "personalia.tlfnr": `Telefon`,
   "personalia.tlfnr.oveskrift": `Telefonnummer registrert hos NAV`,
