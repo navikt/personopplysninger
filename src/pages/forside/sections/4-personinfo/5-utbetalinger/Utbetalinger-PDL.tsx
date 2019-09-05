@@ -58,6 +58,7 @@ const UtbetalingerPDL = (props: Props) => {
             <OpprettEllerEndreNorskKontonr
               onChangeSuccess={kontonummer => {
                 settKontonr(kontonummer);
+                settOpprettEllerEndre(false);
                 settUtenlandskbank(undefined);
               }}
             />
@@ -66,6 +67,7 @@ const UtbetalingerPDL = (props: Props) => {
             <OpprettEllerEndreUtenlandskontonr
               onChangeSuccess={bank => {
                 settUtenlandskbank(bank);
+                settOpprettEllerEndre(false);
                 settKontonr(undefined);
               }}
             />
