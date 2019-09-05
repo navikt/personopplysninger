@@ -67,7 +67,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
         return (
           <>
             <div className="utbetalinger__rad">
-              <div className="utbetalinger__input">
+              <div className="utbetalinger__input input--m">
                 <Input
                   label={"Kontonummer"}
                   value={fields.kontonummer}
