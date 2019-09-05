@@ -22,9 +22,7 @@ interface OptionType {
 }
 
 export interface Kode {
-  retningsnummer: string;
-  gyldigFra: string;
-  gyldigTil: string;
+  landskode: string;
   land: string;
 }
 
@@ -67,8 +65,8 @@ const Landskode = (props: Props) => {
 
   const mapKoderToOptions = (koder: Kode[]): any =>
     koder.map(k => ({
-      label: `${k.land} (${k.retningsnummer})`,
-      value: k.retningsnummer
+      label: `${k.land} (${k.landskode})`,
+      value: k.landskode
     }));
 
   const defineLabel = (
