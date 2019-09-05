@@ -11,7 +11,7 @@ import avbrytIkon from "../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../types/personalia";
-import Retningsnumre from "../retningsnumre/Retningsnumre";
+import Retningsnumre from "../kodeverk/Retningsnumre";
 
 interface Props {
   onCancelClick: () => void;

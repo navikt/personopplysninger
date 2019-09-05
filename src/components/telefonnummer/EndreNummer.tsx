@@ -12,7 +12,7 @@ import endreIkon from "../../assets/img/Pencil.svg";
 import avbrytIkon from "../../assets/img/Back.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
-import Retningsnumre from "../retningsnumre/Retningsnumre";
+import Retningsnumre from "../kodeverk/Retningsnumre";
 import { formatTelefonnummer } from "../../utils/formattering";
 
 interface Props {
