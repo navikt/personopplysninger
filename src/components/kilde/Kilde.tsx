@@ -54,8 +54,8 @@ const Knapp = (props: Props) => {
       );
     case "KNAPP":
       return (
-        <div onClick={props.onClick}>
-          <Normaltekst className="kilde__lenke lenke">
+        <button onClick={props.onClick} className="kilde__lenke lenke">
+          <Normaltekst>
             <FormattedHTMLMessage id={props.lenkeTekst} />
             {props.ikon && (
               <span className="kilde__icon">
@@ -63,7 +63,7 @@ const Knapp = (props: Props) => {
               </span>
             )}
           </Normaltekst>
-        </div>
+        </button>
       );
     case "INGEN":
     default:

@@ -11,7 +11,7 @@ import avbrytIkon from "../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../types/personalia";
-import Retningsnumre from "../retningsnumre/Retningsnumre";
+import SelectLandskode from "../kodeverk/SelectLandskode";
 
 interface Props {
   onCancelClick: () => void;
@@ -29,7 +29,11 @@ const OpprettTelefonnummer = (props: Props) => {
   const [alert, settAlert] = useState<Alert | undefined>();
   const { tlfnr, onChangeSuccess } = props;
 
-  const submitEndre = (e: FormContext) => {
+  const initialValues = {
+    landskode: "+47"
+  };
+
+  const submit = (e: FormContext) => {
     const { isValid, fields } = e;
     const { type, landskode, tlfnummer } = fields;
 
@@ -60,7 +64,7 @@ const OpprettTelefonnummer = (props: Props) => {
   return (
     <>
       <div className="tlfnummer__divider" />
-      <Form onSubmit={submitEndre} className={"tlfnummer__rad-leggtil"}>
+      <Form onSubmit={submit} className={"tlfnummer__rad-leggtil"}>
         <div className={"tlfnummer__container"}>
           <div>
             <Element>
@@ -69,88 +73,92 @@ const OpprettTelefonnummer = (props: Props) => {
             <div className={"tlfnummer__chevron"}>
               <NedChevron />
             </div>
-            <Validation config={typeFormConfig}>
-              {({ errors, fields, submitted, setField }) => {
-                return (
-                  <Select
-                    label={"Type"}
-                    value={fields.type}
-                    onChange={e => setField({ type: e.target.value })}
-                    bredde={"s"}
-                    feil={
-                      submitted && errors.type
-                        ? { feilmelding: errors.type }
-                        : undefined
-                    }
-                  >
-                    <option>Velg type</option>
-                    {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                      <option value="MOBIL">Mobil</option>
-                    )}
-                    {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                      <option value="ARBEID">Arbeid</option>
-                    )}
-                    {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                      <option value="HJEM">Hjem</option>
-                    )}
-                  </Select>
-                );
-              }}
-            </Validation>
-            <div className={"tlfnummer__input-container"}>
-              <Validation config={baseFormConfig}>
-                {({ errors, fields, submitted, setField }) => {
-                  return (
-                    <>
-                      <div className={"tlfnummer__input"}>
-                        <Retningsnumre
-                          label={"Landskode"}
-                          value={fields.landkode}
-                          onChange={value => setField({ landskode: value })}
-                          error={errors.landskode}
-                          submitted={submitted}
-                        />
-                      </div>
-                      <div className={"tlfnummer__input"}>
-                        <Input
-                          label={"Telefonnummer"}
-                          value={fields.tlfnummer}
-                          type={"tel"}
-                          bredde={"M"}
-                          feil={
-                            submitted && errors.tlfnummer
-                              ? { feilmelding: errors.tlfnummer }
-                              : undefined
-                          }
-                          onChange={e =>
-                            setField({ tlfnummer: e.target.value })
-                          }
-                        />
-                      </div>
-                      <div className={"tlfnummer__submit"}>
-                        <Knapp
-                          type={"hoved"}
-                          htmlType={"submit"}
-                          autoDisableVedSpinner={true}
-                          spinner={endreLoading}
-                        >
-                          <FormattedMessage id={"side.lagre"} />
-                        </Knapp>
-                      </div>
-                    </>
-                  );
-                }}
-              </Validation>
-            </div>
           </div>
-          <div onClick={props.onCancelClick}>
-            <Normaltekst className="kilde__lenke lenke">
+          <button
+            onClick={props.onCancelClick}
+            className={"kilde__lenke lenke"}
+          >
+            <Normaltekst>
               <FormattedHTMLMessage id="side.avbryt" />
               <span className="kilde__icon">
                 <img src={avbrytIkon} alt="Ekstern lenke" />
               </span>
             </Normaltekst>
-          </div>
+          </button>
+        </div>
+        <div className={"tlfnummer__container"}>
+          <Validation config={typeFormConfig}>
+            {({ errors, fields, submitted, setField }) => {
+              return (
+                <Select
+                  label={"Type"}
+                  value={fields.type}
+                  onChange={e => setField({ type: e.target.value })}
+                  bredde={"s"}
+                  feil={
+                    submitted && errors.type
+                      ? { feilmelding: errors.type }
+                      : undefined
+                  }
+                >
+                  <option>Velg type</option>
+                  {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
+                    <option value="MOBIL">Mobil</option>
+                  )}
+                  {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
+                    <option value="ARBEID">Arbeid</option>
+                  )}
+                  {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
+                    <option value="HJEM">Hjem</option>
+                  )}
+                </Select>
+              );
+            }}
+          </Validation>
+        </div>
+        <div className={"tlfnummer__input-container"}>
+          <Validation config={baseFormConfig} initialValues={initialValues}>
+            {({ errors, fields, submitted, setField }) => {
+              return (
+                <>
+                  <div className={"tlfnummer__input input--s"}>
+                    <SelectLandskode
+                      label={"Landkode"}
+                      value={fields.landskode}
+                      onChange={value => setField({ landskode: value })}
+                      error={errors.landskode}
+                      submitted={submitted}
+                    />
+                  </div>
+                  <div className={"tlfnummer__input input--m"}>
+                    <Input
+                      label={"Telefonnummer"}
+                      value={fields.tlfnummer}
+                      type={"tel"}
+                      bredde={"M"}
+                      maxLength={fields.landskode === "+47" ? 8 : 16}
+                      onChange={e => setField({ tlfnummer: e.target.value })}
+                      feil={
+                        submitted && errors.tlfnummer
+                          ? { feilmelding: errors.tlfnummer }
+                          : undefined
+                      }
+                    />
+                  </div>
+                  <div className={"tlfnummer__submit"}>
+                    <Knapp
+                      type={"hoved"}
+                      htmlType={"submit"}
+                      autoDisableVedSpinner={true}
+                      spinner={endreLoading}
+                    >
+                      <FormattedMessage id={"side.lagre"} />
+                    </Knapp>
+                  </div>
+                </>
+              );
+            }}
+          </Validation>
         </div>
         {alert && (
           <div className={"tlfnummer__alert"}>

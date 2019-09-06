@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import kontonummerIkon from "../../../../../assets/img/Kontonummer.svg";
 import { Personalia as PersonaliaType } from "../../../../../types/personalia";
@@ -10,7 +10,7 @@ import Melding from "../../../../../components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
-import OpprettEllerEndreUtenlandskontonr from "./endring/UtenlandsBankkonto";
+import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 
 interface Props {
@@ -18,10 +18,23 @@ interface Props {
 }
 
 const UtbetalingerPDL = (props: Props) => {
-  const { kontonr, utenlandskbank } = props.personalia;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
+  const [utenlandskbank, settUtenlandskbank] = useState();
+  const [kontonr, settKontonr] = useState();
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
-  const harRegistrertKonto = kontonr || utenlandskbank;
+
+  useEffect(() => {
+    settKontonr(props.personalia.kontonr);
+    settUtenlandskbank(props.personalia.utenlandskbank);
+    settNorskEllerUtenlandsk(
+      props.personalia.kontonr
+        ? "NORSK"
+        : props.personalia.utenlandskbank
+        ? "UTENLANDSK"
+        : undefined
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const radioButtons = [
     {
@@ -50,13 +63,23 @@ const UtbetalingerPDL = (props: Props) => {
           </div>
           {norskEllerUtenlandsk === "NORSK" && (
             <OpprettEllerEndreNorskKontonr
-              onChangeSuccess={() => {
-                console.log("Success");
+              kontonummer={kontonr}
+              onChangeSuccess={kontonummer => {
+                settKontonr(kontonummer);
+                settOpprettEllerEndre(false);
+                settUtenlandskbank(undefined);
               }}
             />
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
-            <OpprettEllerEndreUtenlandskontonr />
+            <OpprettEllerEndreUtenlandsbank
+              utenlandskbank={utenlandskbank}
+              onChangeSuccess={bank => {
+                settUtenlandskbank(bank);
+                settOpprettEllerEndre(false);
+                settKontonr(undefined);
+              }}
+            />
           )}
           <Kilde
             kilde="personalia.source.nav"
@@ -68,7 +91,7 @@ const UtbetalingerPDL = (props: Props) => {
         </>
       ) : (
         <>
-          {harRegistrertKonto ? (
+          {kontonr || utenlandskbank ? (
             <>
               <NorskKontonummer kontonummer={kontonr} />
               <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
@@ -79,9 +102,11 @@ const UtbetalingerPDL = (props: Props) => {
           <Kilde
             kilde="personalia.source.nav"
             onClick={() => settOpprettEllerEndre(true)}
-            lenkeTekst={!harRegistrertKonto ? "side.leggtil" : "side.endre"}
+            lenkeTekst={
+              kontonr || utenlandskbank ? "side.endre" : "side.leggtil"
+            }
             lenkeType={"KNAPP"}
-            ikon={!harRegistrertKonto ? leggTilIkon : endreIkon}
+            ikon={kontonr || utenlandskbank ? endreIkon : leggTilIkon}
           />
         </>
       )}

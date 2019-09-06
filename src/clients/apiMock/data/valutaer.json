@@ -1,0 +1,658 @@
+[
+  {
+    "kode": "AFA",
+    "tekst": "Afghanis Afghanistan"
+  },
+  {
+    "kode": "DZD",
+    "tekst": "Algerie Dinarer"
+  },
+  {
+    "kode": "USD",
+    "tekst": "Amerikanske dollar"
+  },
+  {
+    "kode": "MGA",
+    "tekst": "Ariary Madagascar"
+  },
+  {
+    "kode": "AUD",
+    "tekst": "Australske dollar"
+  },
+  {
+    "kode": "BHD",
+    "tekst": "Bahrain dinarer"
+  },
+  {
+    "kode": "PAB",
+    "tekst": "Balboa Panama"
+  },
+  {
+    "kode": "XOF",
+    "tekst": "Benin,BurkinaFaso,IvoryCoast,Mali,Niger,Senega"
+  },
+  {
+    "kode": "ETB",
+    "tekst": "Birr Ethiopia"
+  },
+  {
+    "kode": "VEB",
+    "tekst": "Bolivares Venezuela"
+  },
+  {
+    "kode": "BOB",
+    "tekst": "Bolivianos Bolivia"
+  },
+  {
+    "kode": "BRL",
+    "tekst": "Brazil Real Brazil"
+  },
+  {
+    "kode": "GBP",
+    "tekst": "Britiske pund"
+  },
+  {
+    "kode": "GHC",
+    "tekst": "Cedis Ghana"
+  },
+  {
+    "kode": "CRC",
+    "tekst": "Colones CostaRica"
+  },
+  {
+    "kode": "SVC",
+    "tekst": "Colones El Salvador"
+  },
+  {
+    "kode": "CDF",
+    "tekst": "Congolese Francsá Congo/Kinshas"
+  },
+  {
+    "kode": "BAM",
+    "tekst": "Convertible Marka Bosniaand Her"
+  },
+  {
+    "kode": "GMD",
+    "tekst": "Dalasi Gambia"
+  },
+  {
+    "kode": "DKK",
+    "tekst": "Danske kroner"
+  },
+  {
+    "kode": "MKD",
+    "tekst": "Denars Macedonia"
+  },
+  {
+    "kode": "IQD",
+    "tekst": "Dinars Iraq"
+  },
+  {
+    "kode": "JOD",
+    "tekst": "Dinars Jordan"
+  },
+  {
+    "kode": "LYD",
+    "tekst": "Dinars Libya"
+  },
+  {
+    "kode": "CSD",
+    "tekst": "Dinars Serbia"
+  },
+  {
+    "kode": "STD",
+    "tekst": "Dobras SÒo Tomeand Principe"
+  },
+  {
+    "kode": "BSD",
+    "tekst": "Dollars Bahamas"
+  },
+  {
+    "kode": "BBD",
+    "tekst": "Dollars Barbados"
+  },
+  {
+    "kode": "BZD",
+    "tekst": "Dollars Belize"
+  },
+  {
+    "kode": "BMD",
+    "tekst": "Dollars Bermuda"
+  },
+  {
+    "kode": "BND",
+    "tekst": "Dollars Brunei Darussalam"
+  },
+  {
+    "kode": "KYD",
+    "tekst": "Dollars Cayman Islands"
+  },
+  {
+    "kode": "FJD",
+    "tekst": "Dollars Fiji"
+  },
+  {
+    "kode": "JMD",
+    "tekst": "Dollars Jamaica"
+  },
+  {
+    "kode": "LRD",
+    "tekst": "Dollars Liberia"
+  },
+  {
+    "kode": "NAD",
+    "tekst": "Dollars Namibia"
+  },
+  {
+    "kode": "SBD",
+    "tekst": "Dollars Solomon Islands"
+  },
+  {
+    "kode": "SRD",
+    "tekst": "Dollars Suriname"
+  },
+  {
+    "kode": "TTD",
+    "tekst": "Dollars Trinidadand Tobago"
+  },
+  {
+    "kode": "VND",
+    "tekst": "Dong Vietnam"
+  },
+  {
+    "kode": "AMD",
+    "tekst": "Drams Armenia"
+  },
+  {
+    "kode": "SZL",
+    "tekst": "Emalangeni Swaziland"
+  },
+  {
+    "kode": "AED",
+    "tekst": "Emiratene"
+  },
+  {
+    "kode": "CVE",
+    "tekst": "Escudos Cape Verde"
+  },
+  {
+    "kode": "EUR",
+    "tekst": "Euro"
+  },
+  {
+    "kode": "PHP",
+    "tekst": "Filippinene"
+  },
+  {
+    "kode": "BIF",
+    "tekst": "Francs Burundi"
+  },
+  {
+    "kode": "XAF",
+    "tekst": "Francs CommunautÚ FinanciÞre Af"
+  },
+  {
+    "kode": "KMF",
+    "tekst": "Francs Comoros"
+  },
+  {
+    "kode": "DJF",
+    "tekst": "Francs Djibouti"
+  },
+  {
+    "kode": "GNF",
+    "tekst": "Francs Guinea"
+  },
+  {
+    "kode": "NIO",
+    "tekst": "Gold Cordobas Nicaragua"
+  },
+  {
+    "kode": "HTG",
+    "tekst": "Gourdes Haiti"
+  },
+  {
+    "kode": "PYG",
+    "tekst": "Guarani Paraguay"
+  },
+  {
+    "kode": "AWG",
+    "tekst": "Guilders Aruba"
+  },
+  {
+    "kode": "ANG",
+    "tekst": "Guilders Netherlands Antilles"
+  },
+  {
+    "kode": "GYD",
+    "tekst": "Guyana"
+  },
+  {
+    "kode": "HKD",
+    "tekst": "Hong Kong Dollar"
+  },
+  {
+    "kode": "UAH",
+    "tekst": "Hryvnia Ukraine"
+  },
+  {
+    "kode": "INR",
+    "tekst": "Indiske Rupi"
+  },
+  {
+    "kode": "IDR",
+    "tekst": "Indonesia"
+  },
+  {
+    "kode": "ISK",
+    "tekst": "Islandske kroner"
+  },
+  {
+    "kode": "ILS",
+    "tekst": "Israel"
+  },
+  {
+    "kode": "JPY",
+    "tekst": "Japanske Yen"
+  },
+  {
+    "kode": "CAD",
+    "tekst": "Kanadiske dollar"
+  },
+  {
+    "kode": "KES",
+    "tekst": "Kenya"
+  },
+  {
+    "kode": "CNY",
+    "tekst": "Kina"
+  },
+  {
+    "kode": "PGK",
+    "tekst": "Kina Papua New Guinea"
+  },
+  {
+    "kode": "LAK",
+    "tekst": "Kips Laos"
+  },
+  {
+    "kode": "HRK",
+    "tekst": "Kuna Croatia"
+  },
+  {
+    "kode": "KWD",
+    "tekst": "Kuwait"
+  },
+  {
+    "kode": "ZMK",
+    "tekst": "Kwacha Zambia"
+  },
+  {
+    "kode": "MWK",
+    "tekst": "Kwachas Malawi"
+  },
+  {
+    "kode": "AOA",
+    "tekst": "Kwanza Angola"
+  },
+  {
+    "kode": "MMK",
+    "tekst": "Kyats Myanmar (Burma)"
+  },
+  {
+    "kode": "CYP",
+    "tekst": "Kypros"
+  },
+  {
+    "kode": "GEL",
+    "tekst": "Lari Georgia"
+  },
+  {
+    "kode": "LVL",
+    "tekst": "Latvia"
+  },
+  {
+    "kode": "MDL",
+    "tekst": "Lei Moldova"
+  },
+  {
+    "kode": "ROL",
+    "tekst": "Lei Romania"
+  },
+  {
+    "kode": "ALL",
+    "tekst": "Leke Albania"
+  },
+  {
+    "kode": "HNL",
+    "tekst": "Lempiras Honduras"
+  },
+  {
+    "kode": "SLL",
+    "tekst": "Leones SierraLeone"
+  },
+  {
+    "kode": "BGN",
+    "tekst": "Leva Bulgaria"
+  },
+  {
+    "kode": "LTL",
+    "tekst": "Litauen"
+  },
+  {
+    "kode": "SPL",
+    "tekst": "Luigini Seborga"
+  },
+  {
+    "kode": "MYR",
+    "tekst": "Malaysia Ringgit"
+  },
+  {
+    "kode": "LSL",
+    "tekst": "Maloti Lesotho"
+  },
+  {
+    "kode": "MTL",
+    "tekst": "Malta"
+  },
+  {
+    "kode": "AZM",
+    "tekst": "Manats Azerbaijan"
+  },
+  {
+    "kode": "TMM",
+    "tekst": "Manats Turkmenistan"
+  },
+  {
+    "kode": "MAD",
+    "tekst": "Marokko"
+  },
+  {
+    "kode": "MZM",
+    "tekst": "Meticais Mozambique"
+  },
+  {
+    "kode": "MXN",
+    "tekst": "Mexico"
+  },
+  {
+    "kode": "NGN",
+    "tekst": "Nairas Nigeria"
+  },
+  {
+    "kode": "ERN",
+    "tekst": "Nakfa Eritrea"
+  },
+  {
+    "kode": "NPR",
+    "tekst": "Nepal Rupees Nepal"
+  },
+  {
+    "kode": "NZD",
+    "tekst": "New Zealand dollar"
+  },
+  {
+    "kode": "BTN",
+    "tekst": "Ngultrum Bhutan"
+  },
+  {
+    "kode": "NOK",
+    "tekst": "Norske kroner"
+  },
+  {
+    "kode": "PEN",
+    "tekst": "Nuevos Soles Peru"
+  },
+  {
+    "kode": "MRO",
+    "tekst": "Ouguiyas Mauritania"
+  },
+  {
+    "kode": "TOP",
+    "tekst": "Pa'anga Tonga"
+  },
+  {
+    "kode": "PKR",
+    "tekst": "Pakistanske Roupies"
+  },
+  {
+    "kode": "MOP",
+    "tekst": "Patacas Macau"
+  },
+  {
+    "kode": "ARS",
+    "tekst": "Pesos Argentina"
+  },
+  {
+    "kode": "CLP",
+    "tekst": "Pesos Chile"
+  },
+  {
+    "kode": "COP",
+    "tekst": "Pesos Colombia"
+  },
+  {
+    "kode": "CUP",
+    "tekst": "Pesos Cuba"
+  },
+  {
+    "kode": "DOP",
+    "tekst": "Pesos Dominican Republic"
+  },
+  {
+    "kode": "UYU",
+    "tekst": "Pesos Uruguay"
+  },
+  {
+    "kode": "PLN",
+    "tekst": "Polen"
+  },
+  {
+    "kode": "EGP",
+    "tekst": "Pounds Egypt"
+  },
+  {
+    "kode": "FKP",
+    "tekst": "Pounds Falkland Islands (Malvin"
+  },
+  {
+    "kode": "GIP",
+    "tekst": "Pounds Gibraltar"
+  },
+  {
+    "kode": "GGP",
+    "tekst": "Pounds Guernsey"
+  },
+  {
+    "kode": "IMP",
+    "tekst": "Pounds Isle of Man"
+  },
+  {
+    "kode": "JEP",
+    "tekst": "Pounds Jersey"
+  },
+  {
+    "kode": "LBP",
+    "tekst": "Pounds Lebanon"
+  },
+  {
+    "kode": "SHP",
+    "tekst": "Pounds Saint Helena"
+  },
+  {
+    "kode": "SYP",
+    "tekst": "Pounds Syria"
+  },
+  {
+    "kode": "BWP",
+    "tekst": "Pulas Botswana"
+  },
+  {
+    "kode": "QAR",
+    "tekst": "Qatar"
+  },
+  {
+    "kode": "GTQ",
+    "tekst": "Quetzales Guatemala"
+  },
+  {
+    "kode": "IRR",
+    "tekst": "Rials Iran"
+  },
+  {
+    "kode": "OMR",
+    "tekst": "Rials Oman"
+  },
+  {
+    "kode": "YER",
+    "tekst": "Rials Yemen"
+  },
+  {
+    "kode": "KHR",
+    "tekst": "Riels Cambodia"
+  },
+  {
+    "kode": "BYR",
+    "tekst": "Rubles Belarus"
+  },
+  {
+    "kode": "MVR",
+    "tekst": "Rufiyaa Maldives (Maldive Islan"
+  },
+  {
+    "kode": "MUR",
+    "tekst": "Rupees Mauritius"
+  },
+  {
+    "kode": "SCR",
+    "tekst": "Rupees Seychelles"
+  },
+  {
+    "kode": "RUB",
+    "tekst": "Russland"
+  },
+  {
+    "kode": "RWF",
+    "tekst": "Rwanda Francs Rwanda"
+  },
+  {
+    "kode": "SAR",
+    "tekst": "Saudi Arabia"
+  },
+  {
+    "kode": "SOS",
+    "tekst": "Shillings Somalia"
+  },
+  {
+    "kode": "UGX",
+    "tekst": "Shillings Uganda"
+  },
+  {
+    "kode": "SGD",
+    "tekst": "Singapore dollar"
+  },
+  {
+    "kode": "SKK",
+    "tekst": "Slovakia"
+  },
+  {
+    "kode": "TJS",
+    "tekst": "Somoni Tajikistan"
+  },
+  {
+    "kode": "KGS",
+    "tekst": "Soms Kyrgyzstan"
+  },
+  {
+    "kode": "LKR",
+    "tekst": "Sri Lanka"
+  },
+  {
+    "kode": "SDD",
+    "tekst": "Sudan dinar"
+  },
+  {
+    "kode": "UZS",
+    "tekst": "Sums Uzbekistan"
+  },
+  {
+    "kode": "CHF",
+    "tekst": "Sveitsiske franc"
+  },
+  {
+    "kode": "SEK",
+    "tekst": "Svenske kroner"
+  },
+  {
+    "kode": "ZAR",
+    "tekst": "Sør-Afrikanse rand"
+  },
+  {
+    "kode": "KRW",
+    "tekst": "Sør-Korea"
+  },
+  {
+    "kode": "TWD",
+    "tekst": "Taiwan"
+  },
+  {
+    "kode": "BDT",
+    "tekst": "Taka Bangladesh"
+  },
+  {
+    "kode": "WST",
+    "tekst": "Tala Samoa"
+  },
+  {
+    "kode": "TZS",
+    "tekst": "Tanzania"
+  },
+  {
+    "kode": "KZT",
+    "tekst": "Tenge Kazakstan"
+  },
+  {
+    "kode": "THB",
+    "tekst": "Thailandske baht"
+  },
+  {
+    "kode": "CZK",
+    "tekst": "Tjekkia"
+  },
+  {
+    "kode": "SIT",
+    "tekst": "Tolars Slovenia"
+  },
+  {
+    "kode": "MNT",
+    "tekst": "Tugriks Mongolia"
+  },
+  {
+    "kode": "TND",
+    "tekst": "Tunis"
+  },
+  {
+    "kode": "TVD",
+    "tekst": "Tuvalu Dollars Tuvalu"
+  },
+  {
+    "kode": "TRY",
+    "tekst": "Tyrkia"
+  },
+  {
+    "kode": "HUF",
+    "tekst": "Ungarn"
+  },
+  {
+    "kode": "VUV",
+    "tekst": "Vatu Vanuatu"
+  },
+  {
+    "kode": "KPW",
+    "tekst": "Won Korea (North)"
+  },
+  {
+    "kode": "ZWD",
+    "tekst": "Zimbabwe"
+  }
+]

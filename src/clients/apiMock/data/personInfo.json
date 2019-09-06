@@ -12,11 +12,10 @@
       "adresse3": "",
       "bankkode": "90081210188",
       "banknavn": "Nordax Bank AB",
-      "iban": "",
-      "kontonummer": "US90081210188",
+      "iban": "NO9297224925961",
       "land": "Sverige",
-      "swiftkode": "HELGSE21",
-      "valuta": "Tugriks Mongolia"
+      "swiftkode": "DNBANOKK",
+      "valuta": "Svenske kroner"
     },
     "tlfnr": {
       "jobb": "12121212",

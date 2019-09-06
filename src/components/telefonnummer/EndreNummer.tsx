@@ -9,16 +9,19 @@ import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
 import endreIkon from "../../assets/img/Pencil.svg";
+import avbrytIkon from "../../assets/img/Back.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
-import Retningsnumre from "../retningsnumre/Retningsnumre";
+import SelectLandskode from "../kodeverk/SelectLandskode";
+import { formatTelefonnummer } from "../../utils/formattering";
 
 interface Props {
-  type: string;
+  type: "MOBIL" | "HJEM" | "ARBEID";
   titleId: string;
   onDeleteSuccess: (type: string) => void;
   onChangeSuccess: (type: string, tlfnummer: string) => void;
-  value?: string;
+  currentLandskode: string;
+  currentTlfnummer?: string;
 }
 
 interface Alert {
@@ -27,32 +30,40 @@ interface Alert {
 }
 
 const EndreTelefonnummer = (props: Props) => {
-  const { value, titleId, type, onChangeSuccess, onDeleteSuccess } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
 
-  const initialFields = {
-    tlfnummer: value
+  const {
+    type,
+    titleId,
+    currentLandskode,
+    currentTlfnummer,
+    onChangeSuccess,
+    onDeleteSuccess
+  } = props;
+
+  const initialValues = {
+    landskode: currentLandskode,
+    tlfnummer: currentTlfnummer
   };
 
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
         type,
-        landskode,
-        nummer: tlfnummer
+        landskode: fields.landskode,
+        nummer: fields.tlfnummer
       };
 
       settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
           settEndre(false);
-          onChangeSuccess(type, tlfnummer);
+          onChangeSuccess(type, fields.tlfnummer);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -67,14 +78,14 @@ const EndreTelefonnummer = (props: Props) => {
   };
 
   const submitSlett = () => {
-    if (!value) {
+    if (!currentTlfnummer) {
       return;
     }
 
     const outbound = {
       type,
-      landskode: "+47",
-      nummer: value
+      landskode: currentLandskode,
+      nummer: currentTlfnummer
     };
 
     settSlettLoading(true);
@@ -95,9 +106,9 @@ const EndreTelefonnummer = (props: Props) => {
       });
   };
 
-  return value ? (
+  return currentTlfnummer ? (
     <Form onSubmit={submitEndre} className={"tlfnummer__rad"}>
-      <Validation config={baseFormConfig} initialValues={initialFields}>
+      <Validation config={baseFormConfig} initialValues={initialValues}>
         {({ errors, fields, submitted, setField }) => {
           return (
             <>
@@ -111,9 +122,17 @@ const EndreTelefonnummer = (props: Props) => {
                       <NedChevron />
                     </div>
                   )}
-                  {!endre && <Normaltekst>{value}</Normaltekst>}
+                  {!endre && (
+                    <Normaltekst>
+                      {formatTelefonnummer(
+                        type,
+                        currentLandskode,
+                        currentTlfnummer
+                      )}
+                    </Normaltekst>
+                  )}
                 </div>
-                <div className={"tlfnummer_knapper"}>
+                <div className={"tlfnummer__knapper"}>
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
@@ -121,9 +140,19 @@ const EndreTelefonnummer = (props: Props) => {
                     onClick={() => settEndre(!endre)}
                   >
                     {endre ? (
-                      <FormattedMessage id={"side.avbryt"} />
+                      <>
+                        <div className={"tlfnummer__knapp-tekst"}>
+                          <FormattedMessage id={"side.avbryt"} />
+                        </div>
+                        <div className={"tlfnummer__knapp-ikon"}>
+                          <img alt={"Avbryt"} src={avbrytIkon} />
+                        </div>
+                      </>
                     ) : (
                       <>
+                        <div className={"tlfnummer__knapp-tekst"}>
+                          <FormattedMessage id={"side.endre"} />
+                        </div>
                         <div className={"tlfnummer__knapp-ikon"}>
                           <img alt={"Endre telefonnummer"} src={endreIkon} />
                         </div>
@@ -138,6 +167,9 @@ const EndreTelefonnummer = (props: Props) => {
                     spinner={slettLoading}
                     onClick={() => submitSlett()}
                   >
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.slett"} />
+                    </div>
                     <div className={"tlfnummer__knapp-ikon"}>
                       <img alt={"Slett telefonnummer"} src={slettIkon} />
                     </div>
@@ -147,27 +179,28 @@ const EndreTelefonnummer = (props: Props) => {
               {endre && (
                 <div>
                   <div className={"tlfnummer__input-container"}>
-                    <div className={"tlfnummer__input"}>
-                      <Retningsnumre
-                        label={"Landskode"}
-                        value={fields.landkode}
+                    <div className={"tlfnummer__input input--s"}>
+                      <SelectLandskode
+                        label={"Landkode"}
+                        value={fields.landskode}
                         onChange={value => setField({ landskode: value })}
                         error={errors.landskode}
                         submitted={submitted}
                       />
                     </div>
-                    <div className={"tlfnummer__input"}>
+                    <div className={"tlfnummer__input input--m"}>
                       <Input
                         label={"Telefonnummer"}
                         value={fields.tlfnummer}
                         bredde={"M"}
                         type={"tel"}
+                        maxLength={fields.landskode === "+47" ? 8 : 16}
+                        onChange={e => setField({ tlfnummer: e.target.value })}
                         feil={
                           submitted && errors.tlfnummer
                             ? { feilmelding: errors.tlfnummer }
                             : undefined
                         }
-                        onChange={e => setField({ tlfnummer: e.target.value })}
                       />
                     </div>
                     <div className={"tlfnummer__submit"}>

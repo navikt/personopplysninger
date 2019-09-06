@@ -1,4 +1,8 @@
 .KodeverkSelect {
+  &__header {
+    display: flex;
+  }
+
   &__dropdown-indicator {
     padding: 0 0.5rem;
   }
@@ -6,7 +10,6 @@
   &__control {
     border: 1px solid @navGra60 !important;
     min-height: 40px !important;
-    width: 140px !important;
 
     &-feil {
       .KodeverkSelect {
@@ -37,5 +40,16 @@
     &__spinner {
       margin-right: 5px;
     }
+  }
+  &__menu {
+    @media @desktop {
+      min-width: 315px;
+    }
+  }
+}
+
+.KodeverkSelect__borderUnderFirst {
+  .KodeverkSelect__option:first-child {
+    border-bottom: 1px solid #979797;
   }
 }

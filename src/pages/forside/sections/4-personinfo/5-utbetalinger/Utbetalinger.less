@@ -1,4 +1,7 @@
 .utbetalinger {
+  &__rad {
+    display: flex;
+  }
   &__type {
     margin-bottom: 1rem;
 
@@ -12,8 +15,34 @@
       }
     }
   }
-  &__knapp-container {
+  &__knapp {
+    margin: 2rem 0 0 1rem;
+  }
+  &__input-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__alert {
+    margin-bottom: 2rem;
+  }
+  &__input-box {
+    @media @desktop {
+      min-width: 50%;
+      &:nth-child(odd) {
+        padding-right: 0.25rem;
+      }
+      &:nth-child(even) {
+        padding-left: 0.25rem;
+      }
+    }
+  }
+
+  &__adressefelter {
+    width: 100%;
+  }
+  &__sentrert-knapp {
     display: flex;
     justify-content: center;
+    align-items: center;
   }
 }

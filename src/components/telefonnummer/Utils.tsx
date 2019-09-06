@@ -1,13 +1,11 @@
 export const baseFormConfig = {
   landskode: {
-    isRequired: "Landskode er påkrevd"
+    isRequired: "Retningsnummer er påkrevd"
   },
   tlfnummer: {
     isRequired: "Du må skrive inn telefonnummer",
-    isMinLength: {
-      message: "Telefonnummeret må være 8 siffer",
-      length: 8
-    },
+    isNumber: "Telefonnummer kan kun inneholde siffer",
+    isNorwegianTelephoneNumber: "Norske telefonnummer må ha 8 siffer",
     isMaxLength: {
       message: "Telefonnummeret må være maksimalt 16 siffer",
       length: 16

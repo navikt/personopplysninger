@@ -17,6 +17,8 @@ import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 
 import App from "./App";
+import { ValidatorsProvider } from "calidation";
+import { extraValidators } from "./utils/validators";
 
 // Intl polyfill
 global.Intl = require("intl");
@@ -59,9 +61,11 @@ const init = async () => {
 
   ReactDOM.render(
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
-      <StoreProvider initialState={initialState} reducer={reducer}>
-        <App />
-      </StoreProvider>
+      <ValidatorsProvider validators={extraValidators}>
+        <StoreProvider initialState={initialState} reducer={reducer}>
+          <App />
+        </StoreProvider>
+      </ValidatorsProvider>
     </IntlProvider>,
     document.getElementById("app")
   );

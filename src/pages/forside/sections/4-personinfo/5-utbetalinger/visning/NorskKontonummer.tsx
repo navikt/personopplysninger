@@ -7,18 +7,14 @@ interface Props {
 }
 
 const NorskKontonummer = ({ kontonummer }: Props) => {
-  if (!kontonummer) {
-    return null;
-  }
-
-  return (
+  return kontonummer ? (
     <ul className="list-column-2">
       <ListElement
         titleId="personalia.kontonr"
         content={formatterKontonr(kontonummer)}
       />
     </ul>
-  );
+  ) : null;
 };
 
 export default NorskKontonummer;

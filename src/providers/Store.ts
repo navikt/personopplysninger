@@ -4,8 +4,8 @@ import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
 import { AuthInfo } from "../types/authInfo";
-import { FetchAuthInfo } from "../components/auth/Auth";
-import { FetchFeatureToggles } from "../components/featuretoggles/FeatureToggles";
+import { FetchAuthInfo } from "./auth/Auth";
+import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
 import { FetchDsopInfo } from "../pages/dsop/DSOP";
 import { DsopInfo } from "../types/dsop";
 
@@ -95,7 +95,7 @@ export const reducer = (state: Store, action: Action) => {
       return {
         ...state,
         featureToggles: {
-          ...state.featureToggles,
+          status: "RESULT",
           data: action.payload
         } as FetchFeatureToggles
       };

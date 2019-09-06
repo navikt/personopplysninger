@@ -8,6 +8,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 
 interface Props {
+  kontonummer?: string;
   onChangeSuccess: (kontonummer: string) => void;
 }
 
@@ -23,10 +24,17 @@ export interface OutboundNorskKontonummer {
 const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { onChangeSuccess } = props;
+  const { onChangeSuccess, kontonummer } = props;
+
+  const initialValues = kontonummer
+    ? {
+        kontonummer: kontonummer
+      }
+    : {};
 
   const formConfig = {
     kontonummer: {
+      isNumber: "Kontonummer må kun inneholde siffer",
       isRequired: "Kontonummer er påkrevd",
       isExactLength: {
         message: "Kontonummeret må være 11 siffer",
@@ -61,50 +69,40 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
     }
   };
 
-  const normalize = (input: string) => {
-    return input.replace(/\D/g, "");
-  };
-
-  const format = (input: string) => {
-    if (input.length > 6) {
-      return input.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3");
-    }
-    if (input.length > 4) {
-      return input.replace(/^(.{4})(.*)$/, "$1 $2");
-    }
-    return input;
-  };
-
   return (
-    <FormValidation onSubmit={submitEndre} config={formConfig}>
+    <FormValidation
+      onSubmit={submitEndre}
+      config={formConfig}
+      initialValues={initialValues}
+    >
       {({ errors, fields, submitted, setField }) => {
         return (
           <>
-            <div style={{ width: "50%" }}>
-              <Input
-                label={"Kontonummer"}
-                value={format(fields.kontonummer)}
-                onChange={e =>
-                  setField({ kontonummer: normalize(e.target.value) })
-                }
-                feil={
-                  submitted && errors.kontonummer
-                    ? { feilmelding: errors.kontonummer }
-                    : undefined
-                }
-                maxLength={13}
-                bredde={"M"}
-              />
-            </div>
-            <div className={"utbetalinger__knapp-container"}>
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="utbetalinger__rad">
+              <div className="utbetalinger__input input--m">
+                <Input
+                  label={"Kontonummer"}
+                  value={fields.kontonummer}
+                  onChange={e => setField({ kontonummer: e.target.value })}
+                  maxLength={11}
+                  bredde={"M"}
+                  feil={
+                    submitted && errors.kontonummer
+                      ? { feilmelding: errors.kontonummer }
+                      : undefined
+                  }
+                />
+              </div>
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"hoved"}
+                  htmlType={"submit"}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
             </div>
             {alert && (
               <div className={"tlfnummer__alert"}>

@@ -21,6 +21,7 @@ const mapTypes = {
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const [tlfnr, settTlfnr] = useState();
+  const tempLandkode = "+47";
 
   const onChangeSuccess = (type: string, tlfnummer: string) => {
     settTlfnr({ ...tlfnr, [mapTypes[type]]: tlfnummer });
@@ -47,24 +48,27 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <div>
           <EndreNummer
             type={"MOBIL"}
+            titleId="personalia.tlfnr.mobil"
+            currentLandskode={tempLandkode}
+            currentTlfnummer={tlfnr.mobil}
             onDeleteSuccess={onDeleteSuccess}
             onChangeSuccess={onChangeSuccess}
-            titleId="personalia.tlfnr.mobil"
-            value={tlfnr.mobil}
           />
           <EndreNummer
             type={"HJEM"}
+            titleId="personalia.tlfnr.hjem"
+            currentLandskode={tempLandkode}
+            currentTlfnummer={tlfnr.privat}
             onDeleteSuccess={onDeleteSuccess}
             onChangeSuccess={onChangeSuccess}
-            titleId="personalia.tlfnr.hjem"
-            value={tlfnr.privat}
           />
           <EndreNummer
             type={"ARBEID"}
+            titleId="personalia.tlfnr.arbeid"
+            currentLandskode={tempLandkode}
+            currentTlfnummer={tlfnr.jobb}
             onDeleteSuccess={onDeleteSuccess}
             onChangeSuccess={onChangeSuccess}
-            titleId="personalia.tlfnr.arbeid"
-            value={tlfnr.jobb}
           />
         </div>
       ) : (

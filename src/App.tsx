@@ -8,8 +8,8 @@ import {
 import { useStore } from "./providers/Provider";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import WithAuth from "./components/auth/Auth";
-import WithFeatureToggles from "./components/featuretoggles/FeatureToggles";
+import WithAuth from "./providers/auth/Auth";
+import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
 import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
