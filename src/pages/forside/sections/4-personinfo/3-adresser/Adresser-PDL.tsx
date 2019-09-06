@@ -1,16 +1,20 @@
 import React, { useState } from "react";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import {
+  FormattedHTMLMessage,
+  InjectedIntlProps,
+  injectIntl
+} from "react-intl";
 import UtenlandskAdresse from "./visning/UtenlandskAdresse";
 import MidlertidigAdresse from "./visning/MidlertidigAdresse";
 import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
-import LeggTilAdresse from "./LeggTilAdresse";
 import Kilde from "../../../../../components/kilde/Kilde";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
 import AdressePanel from "../../../../../components/adresse/AdressePanel";
 import Folkeregisteret from "./visning/Folkeregisteret";
+import { Normaltekst } from "nav-frontend-typografi";
 
 interface Props {
   adresser: Adresser;
@@ -57,7 +61,9 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                 />
               )}
               {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
-                <LeggTilAdresse />
+                <Normaltekst>
+                  <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
+                </Normaltekst>
               )}
               <Kilde
                 kilde="personalia.source.nav"
