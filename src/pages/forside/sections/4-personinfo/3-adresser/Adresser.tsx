@@ -5,8 +5,8 @@ import {
   InjectedIntlProps,
   injectIntl
 } from "react-intl";
-import UtenlandskAdresse from "./visning/UtenlandskAdresse";
-import MidlertidigAdresse from "./visning/MidlertidigAdresse";
+import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
+import MidlertidigAdresse from "./midlertidig-adresse/visning/MidlertidigAdresse";
 import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
@@ -15,7 +15,7 @@ import Environment from "../../../../../utils/Environments";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
 import AdressePanel from "../../../../../components/adresse/AdressePanel";
-import Folkeregisteret from "./visning/Folkeregisteret";
+import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";
 
 const { tjenesteUrl } = Environment();

@@ -1,7 +1,7 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../types/adresser/utenlandskadresse";
-import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../../types/adresser/utenlandskadresse";
+import GateAdresse from "../../../../../../../components/adresse/GateAdresse";
 
 interface Props {
   utenlandskadresse: UtenlandskAdresseType;

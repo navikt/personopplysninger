@@ -1,7 +1,7 @@
 import React from "react";
-import GateAdresse from "../../../../../../components/adresse/GateAdresse";
-import Postnummer from "../../../../../../components/adresse/Postnummer";
-import { Tilleggsadresse } from "../../../../../../types/adresser/tilleggsadresse";
+import GateAdresse from "../../../../../../../components/adresse/GateAdresse";
+import Postnummer from "../../../../../../../components/adresse/Postnummer";
+import { Tilleggsadresse } from "../../../../../../../types/adresser/tilleggsadresse";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
