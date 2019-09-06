@@ -30,8 +30,8 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
     >
       <hr className="box__linje-bred" />
       <Folkeregisteret adresser={adresser} />
-      <div className="underseksjon__divider">
-        <AdressePanel tittel="adresse.midlertidigadresse">
+      <AdressePanel tittel="adresse.midlertidigadresse">
+        <div className="underseksjon__divider">
           <>
             {adresser.tilleggsadresse && (
               <MidlertidigAdresse tilleggsadresse={adresser.tilleggsadresse} />
@@ -62,8 +62,8 @@ const AdresseContainer = (props: Props & InjectedIntlProps) => {
               />
             )}
           </>
-        </AdressePanel>
-      </div>
+        </div>
+      </AdressePanel>
     </Box>
   );
 };
