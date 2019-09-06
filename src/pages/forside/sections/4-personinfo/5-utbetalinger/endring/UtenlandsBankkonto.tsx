@@ -16,7 +16,7 @@ import SelectValuta from "../../../../../../components/kodeverk/SelectValuta";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
-  onChangeSuccess: (kontonummer: UtenlandskBankkonto) => void;
+  onChangeSuccess: (iban: UtenlandskBankkonto) => void;
 }
 
 interface Alert {
@@ -47,7 +47,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
   const initialValues = utenlandskbank
     ? {
-        kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
+        iban: utenlandskbank.kontonummer || utenlandskbank.iban,
         bankkode: utenlandskbank.bankkode,
         banknavn: utenlandskbank.banknavn,
         land: utenlandskbank.land,
@@ -60,7 +60,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     : {};
 
   const formConfig = {
-    kontonummer: {
+    iban: {
       isRequired: "Kontonummer / IBAN er påkrevd",
       isIBAN: "Et gyldig IBAN er påkrevd"
     },
@@ -92,7 +92,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
     if (isValid) {
       const outbound = {
-        value: fields.kontonummer,
+        value: fields.iban,
         utenlandskKontoInformasjon: {
           bank: {
             adresseLinje1: fields.adresse1,
@@ -150,10 +150,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 <EndreKontoFelt
                   label={"Kontonummer / IBAN"}
                   hjelpetekst={"utbetalinger.hjelpetekster.iban"}
-                  value={fields.kontonummer}
+                  value={fields.iban}
                   submitted={submitted}
-                  onChange={value => setField({ kontonummer: value })}
-                  error={errors.kontonummer}
+                  onChange={value => setField({ iban: value })}
+                  error={errors.iban}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
