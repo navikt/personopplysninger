@@ -52,7 +52,8 @@ const NAVSelect = (props: Props) => {
   });
 
   const containerClasses = cls({
-    "KodeverkSelect skjemaelement": true,
+    skjemaelement: true,
+    KodeverkSelect: true,
     KodeverkSelect__borderUnderFirst: props.borderUnderFirst
   });
 
