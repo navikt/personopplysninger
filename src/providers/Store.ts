@@ -95,7 +95,7 @@ export const reducer = (state: Store, action: Action) => {
       return {
         ...state,
         featureToggles: {
-          ...state.featureToggles,
+          status: "RESULT",
           data: action.payload
         } as FetchFeatureToggles
       };
