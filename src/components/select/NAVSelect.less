@@ -1,4 +1,8 @@
 .KodeverkSelect {
+  &__header {
+    display: flex;
+  }
+
   &__dropdown-indicator {
     padding: 0 0.5rem;
   }
@@ -42,7 +46,10 @@
       min-width: 315px;
     }
   }
-  &__option:first-child {
+}
+
+.KodeverkSelect__borderUnderFirst {
+  .KodeverkSelect__option:first-child {
     border-bottom: 1px solid #979797;
   }
 }

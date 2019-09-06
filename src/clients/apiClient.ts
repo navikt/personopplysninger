@@ -92,17 +92,9 @@ export const fetchAuthInfo = () =>
 export const fetchRetningsnumre = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
+export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
+export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
-
-export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
-  Object.keys(featureToggles)
-    .map((feature: string, i: number) => `${!i ? `?` : ``}feature=${feature}`)
-    .join("&");
-
-export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
-  hentJsonOgSjekkAuth(
-    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
-  );
 
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
@@ -113,3 +105,13 @@ export const postKontonummer = (
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);
+
+export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
+  Object.keys(featureToggles)
+    .map((feature: string, i: number) => `${!i ? `?` : ``}feature=${feature}`)
+    .join("&");
+
+export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
+  hentJsonOgSjekkAuth(
+    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
+  );

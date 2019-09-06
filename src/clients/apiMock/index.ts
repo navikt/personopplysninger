@@ -5,6 +5,8 @@ import featureToggles from "./data/featureToggles.json";
 import authInfo from "./data/authInfo.json";
 import dsopInfo from "./data/dsopInfo.json";
 import retningsnumre from "./data/retningsnumre.json";
+import valutaer from "./data/valutaer.json";
+import land from "./data/land.json";
 import Environment from "../../utils/Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
@@ -18,6 +20,8 @@ const mockFeatureToggles = true;
 const mockAuthInfo = true;
 const mockDsopInfo = true;
 const mockRetningsnumre = true;
+const mockLand = true;
+const mockValutaer = true;
 
 export const setUpMock = async () => {
   mockKontaktinfo &&
@@ -45,8 +49,11 @@ export const setUpMock = async () => {
       `${apiUrl}/retningsnumre`,
       delay(10, 50).then(() => retningsnumre)
     );
+  mockValutaer &&
+    fetchMock.get(`${apiUrl}/valuta`, delay(10, 50).then(() => valutaer));
   mockDsopInfo &&
     fetchMock.get(`${dsopUrl}/get`, delay(10, 50).then(() => dsopInfo));
+  mockLand && fetchMock.get(`${apiUrl}/land`, delay(10, 50).then(() => land));
 };
 
 const delay = (min: number, max: number) => {

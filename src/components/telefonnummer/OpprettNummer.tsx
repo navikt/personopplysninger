@@ -11,7 +11,7 @@ import avbrytIkon from "../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../types/personalia";
-import Retningsnumre from "../kodeverk/Retningsnumre";
+import SelectLandskode from "../kodeverk/SelectLandskode";
 
 interface Props {
   onCancelClick: () => void;
@@ -122,7 +122,7 @@ const OpprettTelefonnummer = (props: Props) => {
               return (
                 <>
                   <div className={"tlfnummer__input input--s"}>
-                    <Retningsnumre
+                    <SelectLandskode
                       label={"Landkode"}
                       value={fields.landskode}
                       onChange={value => setField({ landskode: value })}

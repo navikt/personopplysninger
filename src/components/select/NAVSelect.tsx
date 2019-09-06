@@ -5,6 +5,8 @@ import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
 import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
+import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
+import { FormattedHTMLMessage } from "react-intl";
 
 interface Props {
   value: string;
@@ -13,12 +15,14 @@ interface Props {
   options: OptionType[];
   error: string | null;
   fetchError: boolean;
+  hjelpetekst?: string;
   onChange: (value?: string) => void;
-  defineLabel: (
+  borderUnderFirst?: boolean;
+  loading?: boolean;
+  defineLabel?: (
     option: OptionType,
     context: FormatOptionLabelMeta<OptionType>
   ) => string;
-  loading?: boolean;
 }
 
 interface OptionType {
@@ -46,6 +50,11 @@ const NAVSelect = (props: Props) => {
     "KodeverkSelect__control-feil": props.submitted && props.error
   });
 
+  const containerClasses = cls({
+    "KodeverkSelect skjemaelement": true,
+    KodeverkSelect__borderUnderFirst: props.borderUnderFirst
+  });
+
   const value = props.options
     .filter((option: OptionType) => option.value === props.value)
     .shift();
@@ -57,21 +66,30 @@ const NAVSelect = (props: Props) => {
   };
 
   return !props.fetchError ? (
-    <div className={"KodeverkSelect skjemaelement"}>
-      <label className="skjemaelement__label">{props.label}</label>
+    <div className={containerClasses}>
+      <div className="KodeverkSelect__header">
+        {props.label && (
+          <div className="skjemaelement__label">{props.label}</div>
+        )}
+        {props.hjelpetekst && (
+          <HjelpetekstHoyre id={"hjelpetekst"}>
+            <FormattedHTMLMessage id={props.hjelpetekst} />
+          </HjelpetekstHoyre>
+        )}
+      </div>
       <div className={cls("KodeverkSelect--select-wrapper")}>
         <Select
+          value={value}
           label={props.label}
           placeholder="Søk..."
           classNamePrefix="KodeverkSelect"
-          formatOptionLabel={props.defineLabel}
           loadingMessage={() => "Laster inn..."}
-          value={value}
+          noOptionsMessage={v => `Ingen treff funnet for ${v}...`}
           className={controlClasses}
           isLoading={props.loading}
           options={props.options}
+          formatOptionLabel={props.defineLabel}
           onMenuOpen={() => props.onChange(undefined)}
-          noOptionsMessage={v => `Ingen treff funnet for ${v}...`}
           components={{ LoadingIndicator, DropdownIndicator }}
           onChange={onChange as any}
         />

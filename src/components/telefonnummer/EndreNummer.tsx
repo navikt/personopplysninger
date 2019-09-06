@@ -12,7 +12,7 @@ import endreIkon from "../../assets/img/Pencil.svg";
 import avbrytIkon from "../../assets/img/Back.svg";
 import slettIkon from "../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
-import Retningsnumre from "../kodeverk/Retningsnumre";
+import SelectLandskode from "../kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "../../utils/formattering";
 
 interface Props {
@@ -180,7 +180,7 @@ const EndreTelefonnummer = (props: Props) => {
                 <div>
                   <div className={"tlfnummer__input-container"}>
                     <div className={"tlfnummer__input input--s"}>
-                      <Retningsnumre
+                      <SelectLandskode
                         label={"Landkode"}
                         value={fields.landskode}
                         onChange={value => setField({ landskode: value })}

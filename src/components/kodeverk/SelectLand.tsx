@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchRetningsnumre } from "../../clients/apiClient";
+import { fetchLand } from "../../clients/apiClient";
 import { HTTPError } from "../error/Error";
-import { FormatOptionLabelMeta } from "react-select/base";
 import NAVSelect from "../select/NAVSelect";
 
 interface Props {
@@ -10,6 +9,7 @@ interface Props {
   label: string;
   error: string | null;
   onChange: (value?: string) => void;
+  hjelpetekst?: string;
 }
 
 interface OptionType {
@@ -17,22 +17,22 @@ interface OptionType {
   label: string;
 }
 
-export interface Kode {
-  landskode: string;
-  land: string;
+export interface Land {
+  kode: string;
+  tekst: string;
 }
 
-const Landskode = (props: Props) => {
+const SelectLand = (props: Props) => {
   const [loading, settLoading] = useState(false);
-  const [retningsnumre, settRetningsnumre] = useState([] as Kode[]);
+  const [valutaer, settValutaer] = useState([] as Land[]);
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
     if (!loading) {
       settLoading(true);
-      fetchRetningsnumre()
-        .then(landskoder => {
-          settRetningsnumre(landskoder);
+      fetchLand()
+        .then(v => {
+          settValutaer(v);
         })
         .catch((error: HTTPError) => {
           settFetchError(error);
@@ -44,20 +44,15 @@ const Landskode = (props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const mapKoderToOptions = (koder: Kode[]): any =>
+  const mapKoderToOptions = (koder: Land[]): any =>
     koder.map(k => ({
-      label: `${k.land} (${k.landskode})`,
-      value: k.landskode
+      label: k.tekst,
+      value: k.kode
     }));
 
-  const defineLabel = (
-    option: OptionType,
-    context: FormatOptionLabelMeta<OptionType>
-  ) => (context.context === "value" ? `${option.value} ` : `${option.label}`);
-
-  const options = mapKoderToOptions(retningsnumre)
-    .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1))
-    .sort((option: OptionType) => (option.value === "+47" ? -1 : 1));
+  const options = mapKoderToOptions(valutaer).sort(
+    (a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1)
+  );
 
   return (
     <NAVSelect
@@ -65,12 +60,12 @@ const Landskode = (props: Props) => {
       error={props.error}
       options={options}
       fetchError={fetchError}
-      defineLabel={defineLabel}
       value={props.value}
       submitted={props.submitted}
       onChange={props.onChange}
+      hjelpetekst={props.hjelpetekst}
     />
   );
 };
 
-export default Landskode;
+export default SelectLand;

@@ -11,6 +11,8 @@ import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
 import EndreKontoFelt from "../../../../../../components/kontonummer/EndreKontoFelt";
 import { electronicFormatIBAN } from "ibantools";
+import SelectLand from "../../../../../../components/kodeverk/SelectLand";
+import SelectValuta from "../../../../../../components/kodeverk/SelectValuta";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -165,7 +167,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <SelectLand
                   label={"Bankens land"}
                   hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   value={fields.land}
@@ -175,7 +177,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <SelectValuta
                   label={"Valuta"}
                   hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
                   value={fields.valuta}
