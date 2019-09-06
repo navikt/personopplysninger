@@ -114,10 +114,9 @@ const NAVSelect = (props: Props) => {
     </div>
   ) : (
     <Input
-      label={"Landskode"}
+      label={props.label}
       value={props.value}
       onChange={e => props.onChange(e.target.value)}
-      bredde={"S"}
       feil={
         props.submitted && props.error
           ? { feilmelding: props.error }
