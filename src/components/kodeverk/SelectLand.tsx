@@ -50,9 +50,9 @@ const SelectLand = (props: Props) => {
       value: k.kode
     }));
 
-  const options = mapKoderToOptions(valutaer).sort(
-    (a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1)
-  );
+  const options = mapKoderToOptions(valutaer)
+    .filter((option: OptionType) => option.value !== "NOR")
+    .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1));
 
   return (
     <NAVSelect

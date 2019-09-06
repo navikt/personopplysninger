@@ -84,7 +84,7 @@ const NAVSelect = (props: Props) => {
           placeholder="Søk..."
           classNamePrefix="KodeverkSelect"
           loadingMessage={() => "Laster inn..."}
-          noOptionsMessage={v => `Ingen treff funnet for ${v}...`}
+          noOptionsMessage={v => `Ingen treff funnet for ${v.inputValue}...`}
           className={controlClasses}
           isLoading={props.loading}
           options={props.options}
