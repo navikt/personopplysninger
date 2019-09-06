@@ -12,6 +12,7 @@ import Utbetalinger from "./5-utbetalinger/Utbetalinger";
 import UtbetalingerPDL from "./5-utbetalinger/Utbetalinger-PDL";
 import personaliaIkon from "../../../../assets/img/Personalia.svg";
 import Box from "../../../../components/box/Box";
+import AdresserPDL from "./3-adresser/Adresser-PDL";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -60,7 +61,11 @@ const VisPersonInfo = () => {
       }
 
       if (adresser) {
-        elements.push(<Adresser key="a" adresser={adresser} />);
+        if (featureToggles.data["personopplysninger.pdl"]) {
+          elements.push(<AdresserPDL key="a" adresser={adresser} />);
+        } else {
+          elements.push(<Adresser key="a" adresser={adresser} />);
+        }
 
         if (adresser.geografiskTilknytning) {
           if (enhetKontaktInformasjon && enhetKontaktInformasjon.enhet) {
