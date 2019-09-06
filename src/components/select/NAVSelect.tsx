@@ -7,6 +7,7 @@ import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
+import { inString, isValueEqual } from "./utils";
 
 interface Props {
   value: string;
@@ -55,9 +56,15 @@ const NAVSelect = (props: Props) => {
     KodeverkSelect__borderUnderFirst: props.borderUnderFirst
   });
 
-  const value = props.options
-    .filter((option: OptionType) => option.value === props.value)
-    .shift();
+  const value = props.value
+    ? props.options
+        .filter(
+          (option: OptionType) =>
+            isValueEqual(option.value, props.value) ||
+            inString(option.label, props.value)
+        )
+        .shift()
+    : undefined;
 
   const onChange = (option: OptionType) => {
     if (option && option.value) {
