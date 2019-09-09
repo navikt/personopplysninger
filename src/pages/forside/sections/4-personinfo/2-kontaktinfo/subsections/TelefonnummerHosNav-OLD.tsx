@@ -15,7 +15,7 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const TelefonnummerHosNav = (props: Props) => {
+const TelefonnummerHosNavOLD = (props: Props) => {
   const { tlfnr } = props;
   return (
     <>
@@ -64,4 +64,4 @@ const TelefonnummerHosNav = (props: Props) => {
   );
 };
 
-export default TelefonnummerHosNav;
+export default TelefonnummerHosNavOLD;
