@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchLand } from "../../clients/apiClient";
-import { HTTPError } from "../error/Error";
+import { fetchLand } from "../../../clients/apiClient";
+import { HTTPError } from "../../error/Error";
 import NAVSelect from "../select/NAVSelect";
 
 interface Props {

@@ -1,8 +1,8 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import AdressePanel from "../../../../../../components/adresse/AdressePanel";
-import GateAdresse from "../../../../../../components/adresse/GateAdresse";
-import Postnummer from "../../../../../../components/adresse/Postnummer";
+import AdressePanel from "../komponenter/AdressePanel";
+import GateAdresse from "../komponenter/GateAdresse";
+import Postnummer from "../komponenter/Postnummer";
 import { Postadresse } from "../../../../../../types/adresser/postadresse";
 
 interface Props {

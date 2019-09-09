@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import kontonummerIkon from "../../../../../assets/img/Kontonummer.svg";
-import { Personalia as PersonaliaType } from "../../../../../types/personalia";
+import { UtenlandskBankkonto } from "../../../../../types/personalia";
 import Kilde from "../../../../../components/kilde/Kilde";
 import avbrytIkon from "../../../../../assets/img/Back.svg";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
@@ -14,7 +14,8 @@ import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
 
 interface Props {
-  personalia: PersonaliaType;
+  utenlandskbank?: UtenlandskBankkonto;
+  kontonr?: string;
 }
 
 const UtbetalingerPDL = (props: Props) => {
@@ -24,17 +25,12 @@ const UtbetalingerPDL = (props: Props) => {
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
 
   useEffect(() => {
-    settKontonr(props.personalia.kontonr);
-    settUtenlandskbank(props.personalia.utenlandskbank);
+    settKontonr(props.kontonr);
+    settUtenlandskbank(props.utenlandskbank);
     settNorskEllerUtenlandsk(
-      props.personalia.kontonr
-        ? "NORSK"
-        : props.personalia.utenlandskbank
-        ? "UTENLANDSK"
-        : undefined
+      props.kontonr ? "NORSK" : props.utenlandskbank ? "UTENLANDSK" : undefined
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [props.kontonr, props.utenlandskbank]);
 
   const radioButtons = [
     {

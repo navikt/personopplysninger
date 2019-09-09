@@ -6,14 +6,17 @@ import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
-import { postTlfnummer, slettTlfnummer } from "../../clients/apiClient";
-import { HTTPError } from "../error/Error";
-import endreIkon from "../../assets/img/Pencil.svg";
-import avbrytIkon from "../../assets/img/Back.svg";
-import slettIkon from "../../assets/img/Slett.svg";
+import {
+  postTlfnummer,
+  slettTlfnummer
+} from "../../../../../../../clients/apiClient";
+import { HTTPError } from "../../../../../../../components/error/Error";
+import endreIkon from "../../../../../../../assets/img/Pencil.svg";
+import avbrytIkon from "../../../../../../../assets/img/Back.svg";
+import slettIkon from "../../../../../../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
-import SelectLandskode from "../kodeverk/SelectLandskode";
-import { formatTelefonnummer } from "../../utils/formattering";
+import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
+import { formatTelefonnummer } from "../../../../../../../utils/formattering";
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";

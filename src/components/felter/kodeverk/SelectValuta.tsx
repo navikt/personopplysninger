@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchValutaer } from "../../clients/apiClient";
-import { HTTPError } from "../error/Error";
+import { fetchValutaer } from "../../../clients/apiClient";
+import { HTTPError } from "../../error/Error";
 import NAVSelect from "../select/NAVSelect";
 
 interface Props {

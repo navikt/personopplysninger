@@ -8,10 +8,9 @@ import { PersonInfo } from "../../../../types/personInfo";
 import { fetchPersonInfo } from "../../../../clients/apiClient";
 import { useStore } from "../../../../providers/Provider";
 import KontaktInfo from "./2-kontaktinfo/KontaktInfo";
-import Utbetalinger from "./5-utbetalinger/Utbetalinger";
-import UtbetalingerPDL from "./5-utbetalinger/Utbetalinger-PDL";
 import personaliaIkon from "../../../../assets/img/Personalia.svg";
 import Box from "../../../../components/box/Box";
+import Utbetalinger from "./5-utbetalinger/Utbetalinger";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -19,7 +18,7 @@ export type FetchPersonInfo =
   | { status: "ERROR"; error: HTTPError };
 
 const VisPersonInfo = () => {
-  const [{ personInfo, featureToggles }, dispatch] = useStore();
+  const [{ personInfo }, dispatch] = useStore();
 
   useEffect(() => {
     if (personInfo.status === "LOADING") {
@@ -51,39 +50,34 @@ const VisPersonInfo = () => {
         </Box>
       );
     case "RESULT":
-      const elements = [];
       const { personalia, adresser, enhetKontaktInformasjon } = personInfo.data;
-
-      if (personalia) {
-        elements.push(<Personalia key="p" personalia={personalia} />);
-        elements.push(<KontaktInfo key="k" personalia={personalia} />);
-      }
-
-      if (adresser) {
-        elements.push(<Adresser key="a" adresser={adresser} />);
-
-        if (adresser.geografiskTilknytning) {
-          if (enhetKontaktInformasjon && enhetKontaktInformasjon.enhet) {
-            elements.push(
-              <DittNavKontor
-                key="d"
-                enhetKontaktInfo={enhetKontaktInformasjon.enhet}
-                geografiskTilknytning={adresser.geografiskTilknytning}
-              />
-            );
-          }
-        }
-      }
-
-      if (personalia) {
-        if (featureToggles.data["personopplysninger.pdl"]) {
-          elements.push(<UtbetalingerPDL key="u" personalia={personalia} />);
-        } else {
-          elements.push(<Utbetalinger key="u" personalia={personalia} />);
-        }
-      }
-
-      return <>{elements}</>;
+      return (
+        <>
+          {personalia && (
+            <>
+              <Personalia personalia={personalia} />
+              <KontaktInfo tlfnr={personalia.tlfnr} />
+            </>
+          )}
+          {adresser && (
+            <>
+              <Adresser adresser={adresser} />
+              {adresser.geografiskTilknytning && enhetKontaktInformasjon && (
+                <DittNavKontor
+                  enhetKontaktInformasjon={enhetKontaktInformasjon}
+                  geografiskTilknytning={adresser.geografiskTilknytning}
+                />
+              )}
+            </>
+          )}
+          {personalia && (
+            <Utbetalinger
+              kontonr={personalia.kontonr}
+              utenlandskbank={personalia.utenlandskbank}
+            />
+          )}
+        </>
+      );
     case "ERROR":
       return (
         <Box

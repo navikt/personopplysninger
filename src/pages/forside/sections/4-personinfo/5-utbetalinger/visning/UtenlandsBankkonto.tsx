@@ -1,6 +1,6 @@
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import GateAdresse from "../../../../../../components/adresse/GateAdresse";
+import GateAdresse from "../../3-adresser/komponenter/GateAdresse";
 import ListElement from "../../../../../../components/listelement/ListElement";
 import React from "react";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";

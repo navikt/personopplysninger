@@ -9,10 +9,10 @@ import AlertStripe, {
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
-import EndreKontoFelt from "../../../../../../components/kontonummer/EndreKontoFelt";
 import { electronicFormatIBAN } from "ibantools";
-import SelectLand from "../../../../../../components/kodeverk/SelectLand";
-import SelectValuta from "../../../../../../components/kodeverk/SelectValuta";
+import SelectLand from "../../../../../../components/felter/kodeverk/SelectLand";
+import SelectValuta from "../../../../../../components/felter/kodeverk/SelectValuta";
+import InputMedHjelpetekst from "../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -147,7 +147,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
             </div>
             <div className="utbetalinger__input-container">
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={"Kontonummer / IBAN"}
                   hjelpetekst={"utbetalinger.hjelpetekster.iban"}
                   value={fields.iban}
@@ -157,7 +157,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={"Swift / BIC-kode"}
                   hjelpetekst={"utbetalinger.hjelpetekster.bic"}
                   value={fields.swiftkode}
@@ -187,7 +187,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={"Bankkode"}
                   hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                   value={fields.bankkode}
@@ -197,7 +197,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={"Bankens navn"}
                   hjelpetekst={"utbetalinger.hjelpetekster.banknavn"}
                   value={fields.banknavn}
@@ -207,7 +207,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               </div>
               <div className="utbetalinger__adressefelter">
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={"Adresse"}
                   hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
                   value={fields.adresse1}
@@ -215,14 +215,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                   onChange={value => setField({ adresse1: value })}
                   error={errors.adresse1}
                 />
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={""}
                   value={fields.adresse2}
                   submitted={submitted}
                   onChange={value => setField({ adresse2: value })}
                   error={errors.adresse2}
                 />
-                <EndreKontoFelt
+                <InputMedHjelpetekst
                   label={""}
                   value={fields.adresse3}
                   submitted={submitted}
