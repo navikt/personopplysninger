@@ -1,45 +1,26 @@
-import React, { Component } from "react";
-import Box from "../../../../../components/box/Box";
-import kontonummerIkon from "../../../../../assets/img/Kontonummer.svg";
-import { Personalia as PersonaliaType } from "../../../../../types/personalia";
-import Kilde from "../../../../../components/kilde/Kilde";
-import endreIkon from "../../../../../assets/img/Pencil.svg";
-import Environment from "../../../../../utils/Environments";
-import Melding from "../../../../../components/melding/Melding";
-import NorskKontonummer from "./visning/NorskKontonummer";
-import Utenlandskonto from "./visning/UtenlandsBankkonto";
+import React from "react";
+import { UtenlandskBankkonto } from "../../../../../types/personalia";
+import { useStore } from "../../../../../providers/Provider";
+import UtbetalingerPDL from "./Utbetalinger-PDL";
+import UtbetalingerOLD from "./Utbetalinger-OLD";
 
 interface Props {
-  personalia: PersonaliaType;
+  utenlandskbank?: UtenlandskBankkonto;
+  kontonr?: string;
 }
-
-const { tjenesteUrl } = Environment();
-
-class Utbetalinger extends Component<Props> {
-  render() {
-    const { kontonr, utenlandskbank } = this.props.personalia;
-
-    return (
-      <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
-        <hr className="box__linje-bred" />
-        {kontonr || utenlandskbank ? (
-          <>
-            <NorskKontonummer kontonummer={kontonr} />
-            <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
-          </>
-        ) : (
-          <Melding meldingId="personalia.kontonr.ingenData" />
-        )}
-        <Kilde
-          kilde="personalia.source.nav"
-          lenke={`${tjenesteUrl}/brukerprofil/`}
-          lenkeTekst="personalia.link.brukerprofil.endre"
-          lenkeType={"EKSTERN"}
-          ikon={endreIkon}
-        />
-      </Box>
-    );
-  }
-}
+const Utbetalinger = (props: Props) => {
+  const [{ featureToggles }] = useStore();
+  return featureToggles.data["personopplysninger.pdl"] ? (
+    <UtbetalingerPDL
+      kontonr={props.kontonr}
+      utenlandskbank={props.utenlandskbank}
+    />
+  ) : (
+    <UtbetalingerOLD
+      kontonr={props.kontonr}
+      utenlandskbank={props.utenlandskbank}
+    />
+  );
+};
 
 export default Utbetalinger;

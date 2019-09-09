@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from "react";
 import Box from "../../../../../components/box/Box";
 import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
-import { Enhet } from "../../../../../types/enhetKontaktInfo";
+import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "../../../../../types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
@@ -13,16 +13,22 @@ import { print } from "../../../../../utils/text";
 import Kilde from "../../../../../components/kilde/Kilde";
 
 interface Props {
-  enhetKontaktInfo: Enhet;
+  enhetKontaktInformasjon: EnhetKontaktInfo;
   geografiskTilknytning: GeografiskTilknytning;
 }
 
 const DittNavKontor = (props: Props & InjectedIntlProps) => {
-  const { enhetKontaktInfo, geografiskTilknytning, intl } = props;
-  const { publikumsmottak, postadresse } = enhetKontaktInfo;
+  const { enhet } = props.enhetKontaktInformasjon;
   const [valgtMottakId, settValgtMottakId] = useState(
-    publikumsmottak.length > 1 ? -1 : 0
+    enhet && enhet.publikumsmottak.length > 1 ? -1 : 0
   );
+
+  if (!enhet) {
+    return null;
+  }
+
+  const { geografiskTilknytning, intl } = props;
+  const { publikumsmottak, postadresse } = enhet;
 
   return (
     <Box

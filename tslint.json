@@ -12,6 +12,7 @@
     "interface-name": [true, "never-prefix"],
     "jsdoc-format": true,
     "jsx-no-lambda": false,
+    "react-hooks/exhaustive-deps": false,
     "jsx-no-multiline-js": false,
     "label-position": true,
     "max-line-length": [true, 160],
