@@ -5,8 +5,8 @@ import { Tlfnr } from "../../../../../../types/personalia";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import Kilde from "../../../../../../components/kilde/Kilde";
 import Melding from "../../../../../../components/melding/Melding";
-import EndreNummer from "../../../../../../components/telefonnummer/EndreNummer";
-import OpprettNummer from "../../../../../../components/telefonnummer/OpprettNummer";
+import EndreNummer from "./telefonnummer/EndreNummer";
+import OpprettNummer from "./telefonnummer/OpprettNummer";
 
 interface Props {
   tlfnr?: Tlfnr;

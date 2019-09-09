@@ -8,7 +8,7 @@ import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import ListElement from "../../../../../components/listelement/ListElement";
-import Apningstid from "../../../../../components/apningstid/Apningstid";
+import Apningstid from "./apningstid/Apningstid";
 import { print } from "../../../../../utils/text";
 import Kilde from "../../../../../components/kilde/Kilde";
 

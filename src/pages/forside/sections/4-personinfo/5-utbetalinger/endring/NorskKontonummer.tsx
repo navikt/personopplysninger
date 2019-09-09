@@ -6,6 +6,10 @@ import { HTTPError } from "../../../../../../components/error/Error";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
+import {
+  formatKontonummer,
+  normalizeNummer
+} from "../../../../../../utils/formattering";
 
 interface Props {
   kontonummer?: string;
@@ -82,9 +86,11 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               <div className="utbetalinger__input input--m">
                 <Input
                   label={"Kontonummer"}
-                  value={fields.kontonummer}
-                  onChange={e => setField({ kontonummer: e.target.value })}
-                  maxLength={11}
+                  value={formatKontonummer(fields.kontonummer)}
+                  onChange={e =>
+                    setField({ kontonummer: normalizeNummer(e.target.value) })
+                  }
+                  maxLength={13}
                   bredde={"M"}
                   feil={
                     submitted && errors.kontonummer

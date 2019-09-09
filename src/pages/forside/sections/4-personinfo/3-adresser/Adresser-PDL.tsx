@@ -12,7 +12,7 @@ import adresseIkon from "../../../../../assets/img/Adresse.svg";
 import Kilde from "../../../../../components/kilde/Kilde";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
-import AdressePanel from "../../../../../components/adresse/AdressePanel";
+import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";
 

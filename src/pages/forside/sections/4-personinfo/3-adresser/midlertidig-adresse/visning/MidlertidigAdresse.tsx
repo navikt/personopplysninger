@@ -1,6 +1,6 @@
 import React from "react";
-import GateAdresse from "../../../../../../../components/adresse/GateAdresse";
-import Postnummer from "../../../../../../../components/adresse/Postnummer";
+import GateAdresse from "../../komponenter/GateAdresse";
+import Postnummer from "../../komponenter/Postnummer";
 import { Tilleggsadresse } from "../../../../../../../types/adresser/tilleggsadresse";
 
 interface Props {

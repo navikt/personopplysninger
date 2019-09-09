@@ -1,6 +1,6 @@
 import React from "react";
-import { Aapningstid } from "../../types/enhetKontaktInfo";
-import { print } from "../../utils/text";
+import { Aapningstid } from "../../../../../../types/enhetKontaktInfo";
+import { print } from "../../../../../../utils/text";
 
 interface Props {
   apningstid?: Aapningstid;

@@ -4,14 +4,14 @@ import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
-import { postTlfnummer } from "../../clients/apiClient";
-import { HTTPError } from "../error/Error";
+import { postTlfnummer } from "../../../../../../../clients/apiClient";
+import { HTTPError } from "../../../../../../../components/error/Error";
 import { baseFormConfig, typeFormConfig } from "./Utils";
-import avbrytIkon from "../../assets/img/Back.svg";
+import avbrytIkon from "../../../../../../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
-import { Tlfnr } from "../../types/personalia";
-import SelectLandskode from "../kodeverk/SelectLandskode";
+import { Tlfnr } from "../../../../../../../types/personalia";
+import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 
 interface Props {
   onCancelClick: () => void;
