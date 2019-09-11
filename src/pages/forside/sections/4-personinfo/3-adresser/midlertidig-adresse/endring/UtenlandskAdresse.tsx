@@ -32,8 +32,6 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
     ...props.utenlandskadresse
   };
 
-  console.log(initialValues);
-
   const formConfig = {
     adresse1: {
       isRequired: "Gateadresse er påkrevd"
