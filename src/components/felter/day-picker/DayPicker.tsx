@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
-import moment from "moment";
-import "react-day-picker/lib/style.css";
-import cls from "classnames";
 import MomentLocaleUtils from "react-day-picker/moment";
 import { formatDate, parseDate } from "./utils";
 import { DayModifiers } from "react-day-picker";
+import moment from "moment";
+import cls from "classnames";
 
 interface Props {
   label?: string;
