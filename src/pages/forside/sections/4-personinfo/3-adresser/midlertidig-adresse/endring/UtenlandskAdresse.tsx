@@ -67,7 +67,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
 
       const view = {
         ...fields,
-        land: fields.valuta.label
+        land: fields.land.label
       };
 
       settLoading(true);
