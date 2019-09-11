@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import moment from "moment";
 import "react-day-picker/lib/style.css";
@@ -28,24 +28,21 @@ const DayPicker = (props: Props) => {
     new Date().setFullYear(new Date().getFullYear() + 1)
   );
 
-  const inputClasses = cls({
-    "skjemaelement__input--harFeil": submitted && error,
-    "skjemaelement__input input--m": true
-  });
+  useEffect(() => {
+    if (props.value) {
+      settValgtDag(moment(props.value).toDate());
+    }
+  }, [props.value]);
 
   const onChange = (
     nyValgtDag: Date,
     modifiers: DayModifiers,
     dayPickerInput: DayPickerInput
   ) => {
+    settValgtDag(nyValgtDag);
     const input = dayPickerInput.getInput();
     const isEmpty = input.value && !input.value.trim();
     const isDisabled = modifiers.disabled === true;
-
-    // Sett lokal dato
-    settValgtDag(nyValgtDag);
-
-    // Fortell parent
     if (nyValgtDag && !isDisabled) {
       props.onChange(moment(nyValgtDag).format("YYYY-MM-DD"));
     }
@@ -53,6 +50,11 @@ const DayPicker = (props: Props) => {
       onErrors("Ugyldig dato");
     }
   };
+
+  const inputClasses = cls({
+    "skjemaelement__input--harFeil": submitted && error,
+    "skjemaelement__input input--m": true
+  });
 
   return (
     <>

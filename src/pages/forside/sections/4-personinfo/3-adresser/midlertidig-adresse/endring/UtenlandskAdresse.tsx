@@ -27,18 +27,23 @@ export interface OutboundUtenlandskAdresse {
 const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
-  const initialValues = {};
+
+  const initialValues = {
+    ...props.utenlandskadresse
+  };
+
+  console.log(initialValues);
 
   const formConfig = {
-    adresselinje1: {
+    adresse1: {
       isRequired: "Gateadresse er påkrevd"
     },
-    adresselinje2: {},
-    adresselinje3: {},
-    landkode: {
+    adresse2: {},
+    adresse3: {},
+    land: {
       isRequired: "Land er påkrevd"
     },
-    gyldigTom: {
+    datoTilOgMed: {
       isRequired: "Gyldig til er påkrevd"
     }
   };
@@ -47,9 +52,9 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
     const { isValid, fields } = c;
     if (isValid) {
       const outbound: OutboundUtenlandskAdresse = {
-        adresselinje1: fields.adresselinje1,
-        adresselinje2: fields.adresselinje2,
-        adresselinje3: fields.adresselinje3,
+        adresselinje1: fields.adresse1,
+        adresselinje2: fields.adresse2,
+        adresselinje3: fields.adresse3,
         landkode: fields.landkode,
         gyldigTom: fields.gyldigTom
       };
@@ -57,7 +62,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       settLoading(true);
       postUtenlandskAdresse(outbound)
         .then(() => {
-          props.onChangeSuccess(fields as UtenlandskAdresseType);
+          props.onChangeSuccess(fields);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -82,41 +87,41 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
           <>
             <Input
               label={"Adresse"}
-              value={fields.adresselinje1}
-              onChange={e => setField({ adresselinje1: e.target.value })}
+              value={fields.adresse1}
+              onChange={e => setField({ adresse1: e.target.value })}
               bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresselinje1)}
+              feil={sjekkForFeil(submitted, errors.adresse1)}
             />
             <Input
               label={""}
-              value={fields.adresselinje2}
-              onChange={e => setField({ adresselinje2: e.target.value })}
+              value={fields.adresse2}
+              onChange={e => setField({ adresse2: e.target.value })}
               bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresselinje2)}
+              feil={sjekkForFeil(submitted, errors.adresse2)}
             />
             <Input
               label={""}
-              value={fields.adresselinje3}
-              onChange={e => setField({ adresselinje3: e.target.value })}
+              value={fields.adresse3}
+              onChange={e => setField({ adresse3: e.target.value })}
               bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresselinje3)}
+              feil={sjekkForFeil(submitted, errors.adresse3)}
             />
             <div className="addresse__land-select">
               <SelectLand
-                value={fields.landkode}
+                value={fields.land}
                 submitted={submitted}
                 label={"Land"}
-                error={errors.landkode}
-                onChange={landkode => setField({ landkode })}
+                error={errors.land}
+                onChange={land => setField({ land })}
               />
             </div>
             <DayPicker
-              value={fields.gyldigTom}
+              value={fields.datoTilOgMed}
               label={"Gyldig til"}
               submitted={submitted}
-              error={errors.gyldigTom}
-              onChange={value => setField({ gyldigTom: value })}
-              onErrors={error => setError({ gyldigTom: error })}
+              error={errors.datoTilOgMed}
+              onChange={value => setField({ datoTilOgMed: value })}
+              onErrors={error => setError({ datoTilOgMed: error })}
             />
             <div className="addresse__submit-container">
               <Knapp
