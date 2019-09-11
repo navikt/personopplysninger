@@ -1,103 +1,99 @@
-import React, { RefObject, useState } from "react";
+import React, { useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
-import { Input, NavFrontendInputProps } from "nav-frontend-skjema";
 import moment from "moment";
 import "react-day-picker/lib/style.css";
-
+import cls from "classnames";
 import MomentLocaleUtils from "react-day-picker/moment";
-import { sjekkForFeil } from "../../../utils/validators";
+import { formatDate, parseDate } from "./utils";
+import { DayModifiers } from "react-day-picker";
 
-type InputProps = Omit<NavFrontendInputProps, "onChange">;
-interface Props extends InputProps {
+interface Props {
+  label?: string;
   value: string;
   error: string | null;
+  format: string;
+  locale: string;
   submitted: boolean;
+  placeholder: string;
   onChange: (value: string) => void;
   onErrors: (value: string) => void;
 }
 
-const formatDate = (date: Date, format: string, locale: string) =>
-  moment(date)
-    .locale(locale)
-    .format(format);
-
-const parseDate = (
-  date: string,
-  format: string,
-  locale: string
-): Date | undefined =>
-  moment(date, format, true).isValid()
-    ? moment(date, format)
-        .locale(locale)
-        .toDate()
-    : undefined;
-
 const DayPicker = (props: Props) => {
-  const {
-    value,
-    onChange,
-    onErrors,
-    submitted,
-    error,
-    label,
-    ...restProps
-  } = props;
-
+  const { label, onErrors, submitted, error } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
-  const [lokalFeil, settLokalFeil] = useState();
   const dateNow = new Date(Date.now());
+
   const dateOneYearAhead = new Date(
     new Date().setFullYear(new Date().getFullYear() + 1)
   );
 
-  return (
-    <DayPickerInput
-      value={valgtDag}
-      format={"DD.MM.YYYY"}
-      placeholder={"DD.MM.YYYY"}
-      formatDate={formatDate}
-      parseDate={parseDate}
-      onDayChange={(nyValgtDag, modifiers, dayPickerInput) => {
-        const input = dayPickerInput.getInput();
-        const isEmpty = input.value && !input.value.trim();
-        const isDisabled = modifiers.disabled === true;
+  const inputClasses = cls({
+    "skjemaelement__input--harFeil": submitted && error,
+    "skjemaelement__input input--m": true
+  });
 
-        settValgtDag(nyValgtDag);
-        if (nyValgtDag && !isDisabled) {
-          onChange(moment(nyValgtDag).format("YYYY.MM.DD"));
-        }
-        if (!nyValgtDag && !isEmpty) {
-          settLokalFeil("Invalid date");
-        }
-      }}
-      component={React.forwardRef((p, ref) => (
-        <Input
-          key={"day-picker"}
-          label={label}
-          ref={ref as RefObject<Input>}
-          feil={sjekkForFeil(submitted, error)}
-          {...p}
-        />
-      ))}
-      dayPickerProps={{
-        selectedDays: valgtDag,
-        numberOfMonths: 2,
-        locale: "nb",
-        localeUtils: MomentLocaleUtils,
-        month: dateOneYearAhead,
-        fromMonth: dateNow,
-        toMonth: dateOneYearAhead,
-        disabledDays: [
-          {
-            before: dateNow,
-            after: dateOneYearAhead
-          }
-        ]
-      }}
-      inputProps={{
-        ...restProps
-      }}
-    />
+  const onChange = (
+    nyValgtDag: Date,
+    modifiers: DayModifiers,
+    dayPickerInput: DayPickerInput
+  ) => {
+    const input = dayPickerInput.getInput();
+    const isEmpty = input.value && !input.value.trim();
+    const isDisabled = modifiers.disabled === true;
+
+    // Sett lokal dato
+    settValgtDag(nyValgtDag);
+
+    // Fortell parent
+    if (nyValgtDag && !isDisabled) {
+      props.onChange(moment(nyValgtDag).format("YYYY-MM-DD"));
+    }
+    if (!nyValgtDag && !isEmpty) {
+      onErrors("Ugyldig dato");
+    }
+  };
+
+  return (
+    <>
+      {label && <div className="skjemaelement__label">{label}</div>}
+      <DayPickerInput
+        value={valgtDag}
+        format={props.format}
+        placeholder={props.placeholder}
+        formatDate={formatDate}
+        parseDate={parseDate}
+        onDayChange={onChange}
+        inputProps={{
+          className: inputClasses
+        }}
+        dayPickerProps={{
+          selectedDays: valgtDag,
+          numberOfMonths: 2,
+          locale: props.locale,
+          localeUtils: MomentLocaleUtils,
+          month: dateOneYearAhead,
+          fromMonth: dateNow,
+          toMonth: dateOneYearAhead,
+          disabledDays: [
+            {
+              before: dateNow,
+              after: dateOneYearAhead
+            }
+          ]
+        }}
+      />
+      {submitted && error && (
+        <div className="skjemaelement__feilmelding">{error}</div>
+      )}
+    </>
   );
 };
+
+DayPicker.defaultProps = {
+  format: "DD.MM.YYYY",
+  placeholder: "DD.MM.ÅÅÅÅ",
+  locale: "nb"
+};
+
 export default DayPicker;

@@ -8,22 +8,34 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { sjekkForFeil } from "../../../../../../../utils/validators";
 import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
+import { postUtenlandskAdresse } from "../../../../../../../clients/apiClient";
+import { HTTPError } from "../../../../../../../components/error/Error";
 
 interface Props {
   utenlandskadresse: UtenlandskAdresseType;
+  onChangeSuccess: (konto: UtenlandskAdresseType) => void;
+}
+
+export interface OutboundUtenlandskAdresse {
+  adresselinje1: string;
+  adresselinje2: string;
+  adresselinje3: string;
+  landkode: string;
+  gyldigTom: string;
 }
 
 const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const initialValues = {};
+
   const formConfig = {
     adresselinje1: {
       isRequired: "Gateadresse er påkrevd"
     },
     adresselinje2: {},
     adresselinje3: {},
-    land: {
+    landkode: {
       isRequired: "Land er påkrevd"
     },
     gyldigTom: {
@@ -34,14 +46,28 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const outbound = {
+      const outbound: OutboundUtenlandskAdresse = {
         adresselinje1: fields.adresselinje1,
         adresselinje2: fields.adresselinje2,
         adresselinje3: fields.adresselinje3,
-        landkode: fields.land,
+        landkode: fields.landkode,
         gyldigTom: fields.gyldigTom
       };
-      console.log(outbound);
+
+      settLoading(true);
+      postUtenlandskAdresse(outbound)
+        .then(() => {
+          props.onChangeSuccess(fields as UtenlandskAdresseType);
+        })
+        .catch((error: HTTPError) => {
+          settAlert({
+            type: "feil",
+            melding: `${error.code} - ${error.text}`
+          });
+        })
+        .then(() => {
+          settLoading(false);
+        });
     }
   };
 
@@ -77,11 +103,11 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
             />
             <div className="addresse__land-select">
               <SelectLand
-                value={fields.land}
+                value={fields.landkode}
                 submitted={submitted}
                 label={"Land"}
-                error={errors.land}
-                onChange={land => setField({ land })}
+                error={errors.landkode}
+                onChange={landkode => setField({ landkode })}
               />
             </div>
             <DayPicker
