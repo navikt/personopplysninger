@@ -73,6 +73,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
     "react-collapse": "^4.0.3",
+    "react-day-picker": "^7.3.2",
     "react-dom": "^16.8.6",
     "react-intl": "^2.9.0",
     "react-json-view": "^1.19.1",

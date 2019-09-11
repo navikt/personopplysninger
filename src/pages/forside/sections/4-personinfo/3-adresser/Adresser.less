@@ -19,4 +19,41 @@
   &__divider {
     padding: 0.5rem;
   }
+  &__land-select {
+    @media @maxMobile {
+      width: 100%;
+    }
+    @media @minMobile {
+      width: 40%;
+    }
+  }
+  &__kolonne-bysted {
+    width: 350px;
+  }
+  &__kolonne-postnr {
+    width: 150px;
+  }
+  &__rad {
+    display: flex;
+    @media @maxTablet {
+      flex-direction: column;
+    }
+    width: 100%;
+  }
+  &__kolonne {
+    @media @maxMobile {
+      width: 100%;
+    }
+  }
+  &__kolonne:first-child {
+    padding-right: 0.25rem;
+  }
+  &__kolonne:last-child {
+    padding-left: 0.25rem;
+  }
+  &__submit-container {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 0 0;
+  }
 }

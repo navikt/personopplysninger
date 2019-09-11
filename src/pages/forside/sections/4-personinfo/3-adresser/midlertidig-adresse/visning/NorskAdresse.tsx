@@ -7,7 +7,7 @@ interface Props {
   tilleggsadresse: Tilleggsadresse;
 }
 
-const MidlertidigAdresse = (props: Props) => {
+const NorskMidlertidigAdresse = (props: Props) => {
   const {
     adresse1,
     adresse2,
@@ -27,4 +27,4 @@ const MidlertidigAdresse = (props: Props) => {
   );
 };
 
-export default MidlertidigAdresse;
+export default NorskMidlertidigAdresse;

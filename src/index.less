@@ -1,6 +1,9 @@
-@desktop: ~"all and (min-width: 959px)";
-@tablet: ~"all and (max-width: 959px)";
-@mobile: ~"all and (max-width: 420px)";
+@minDesktop: ~"all and (min-width: 959px)";
+@maxDesktop: ~"all and (max-width: 959px)";
+@maxTablet: ~"all and (max-width: 959px)";
+@minTablet: ~"all and (min-width: 959px)";
+@maxMobile: ~"all and (max-width: 420px)";
+@minMobile: ~"all and (min-width: 420px)";
 
 @import "~nav-frontend-spinner-style";
 @import "~nav-frontend-typografi-style";
@@ -45,6 +48,7 @@
 @import "components/felter/kodeverk/Kodeverk.less";
 @import "components/felter/input-med-hjelpetekst/InputMedHjelpetekst.less";
 @import "components/felter/select/NAVSelect.less";
+@import "components/felter/day-picker/DayPicker.less";
 @import "components/icon/Icon.less";
 @import "components/melding/Melding.less";
 @import "components/kilde/Kilde.less";

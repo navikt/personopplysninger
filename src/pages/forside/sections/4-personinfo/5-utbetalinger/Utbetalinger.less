@@ -6,11 +6,13 @@
     margin-bottom: 1rem;
 
     .inputPanelGruppe__inner {
-      display: flex;
-      > * {
-        width: 50%;
-        &:first-child {
-          margin-right: 0.5rem;
+      @media @minTablet {
+        display: flex;
+        > * {
+          width: 50%;
+          &:first-child {
+            margin-right: 0.5rem;
+          }
         }
       }
     }
@@ -26,7 +28,7 @@
     margin-bottom: 2rem;
   }
   &__input-box {
-    @media @desktop {
+    @media @minTablet {
       min-width: 50%;
       &:nth-child(odd) {
         padding-right: 0.25rem;
@@ -34,6 +36,9 @@
       &:nth-child(even) {
         padding-left: 0.25rem;
       }
+    }
+    @media @maxTablet {
+      min-width: 100%;
     }
   }
 

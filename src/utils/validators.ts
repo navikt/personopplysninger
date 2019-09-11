@@ -12,3 +12,6 @@ export const extraValidators = {
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null
 } as any;
+
+export const sjekkForFeil = (submitted: boolean, error: string | null) =>
+  submitted && error ? { feilmelding: error } : undefined;

@@ -4,7 +4,7 @@
     display: flex;
     align-items: baseline;
     margin: 1rem 0;
-    @media @mobile {
+    @media @maxMobile {
       flex-direction: column;
     }
     > :first-child {
@@ -16,13 +16,13 @@
     display: flex;
     align-items: center;
     color: #78706a;
-    @media @mobile {
+    @media @maxMobile {
       width: 100%;
       padding-bottom: 0.25rem;
     }
   }
   &__lenke-container {
-    @media @desktop {
+    @media @minDesktop {
       display: flex;
       justify-content: flex-end;
     }
@@ -31,6 +31,9 @@
     display: flex;
     align-items: center;
     border: 0;
+    @media @maxMobile {
+      padding: 0;
+    }
   }
   &__icon {
     margin-left: 0.5rem;

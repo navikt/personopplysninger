@@ -24,11 +24,11 @@ body {
 
 .seksjon {
   position: relative;
-  @media @tablet {
+  @media @maxTablet {
     margin: 4rem 0;
     flex-direction: column !important;
   }
-  @media @desktop {
+  @media @minDesktop {
     margin: 3rem 0;
   }
 }
@@ -42,6 +42,16 @@ body {
   }
   &__divider {
     padding-top: 0.5rem;
+  }
+}
+
+.input--xs,
+.input--s,
+.input--m,
+.input--l,
+.input--xl {
+  @media @maxMobile {
+    min-width: 100%;
   }
 }
 
