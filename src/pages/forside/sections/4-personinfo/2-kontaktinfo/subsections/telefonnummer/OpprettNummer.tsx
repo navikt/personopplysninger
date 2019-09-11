@@ -132,10 +132,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     <SelectLandskode
                       label={"Landkode"}
                       option={fields.landskode}
-                      onChange={option => {
-                        console.log(option);
-                        setField({ landskode: option });
-                      }}
+                      onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
                     />
