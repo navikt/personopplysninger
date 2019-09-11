@@ -53,8 +53,8 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
         adresselinje1: fields.adresse1,
         adresselinje2: fields.adresse2,
         adresselinje3: fields.adresse3,
-        landkode: fields.landkode,
-        gyldigTom: fields.gyldigTom
+        landkode: fields.land,
+        gyldigTom: fields.datoTilOgMed
       };
 
       settLoading(true);
