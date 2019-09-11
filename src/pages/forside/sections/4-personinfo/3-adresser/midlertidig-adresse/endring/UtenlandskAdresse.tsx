@@ -30,7 +30,6 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const [alert, settAlert] = useState();
   const { utenlandskadresse } = props;
 
-  console.log(utenlandskadresse);
   const initialValues = utenlandskadresse
     ? {
         ...utenlandskadresse,
