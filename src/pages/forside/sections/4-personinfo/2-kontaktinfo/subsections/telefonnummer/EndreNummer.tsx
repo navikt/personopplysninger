@@ -17,6 +17,7 @@ import slettIkon from "../../../../../../../assets/img/Slett.svg";
 import { baseFormConfig } from "./Utils";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "../../../../../../../utils/formattering";
+import { UNKNOWN } from "../../../../../../../utils/text";
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";
@@ -48,8 +49,11 @@ const EndreTelefonnummer = (props: Props) => {
   } = props;
 
   const initialValues = {
-    landskode: currentLandskode,
-    tlfnummer: currentTlfnummer
+    tlfnummer: currentTlfnummer,
+    landskode: {
+      value: currentLandskode,
+      label: UNKNOWN
+    }
   };
 
   const submitEndre = (e: FormContext) => {
@@ -58,7 +62,7 @@ const EndreTelefonnummer = (props: Props) => {
     if (isValid) {
       const outbound = {
         type,
-        landskode: fields.landskode,
+        landskode: fields.landskode.value,
         nummer: fields.tlfnummer
       };
 
@@ -185,8 +189,8 @@ const EndreTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__input input--s"}>
                       <SelectLandskode
                         label={"Landkode"}
-                        value={fields.landskode}
-                        onChange={value => setField({ landskode: value })}
+                        option={fields.landskode}
+                        onChange={option => setField({ landskode: option })}
                         error={errors.landskode}
                         submitted={submitted}
                       />

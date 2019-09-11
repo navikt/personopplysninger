@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Select from "react-select";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
@@ -7,17 +7,17 @@ import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
-import { inString, isValueEqual } from "./utils";
+import { inString } from "./utils";
 
 interface Props {
-  value: string;
+  option: OptionType;
   submitted: boolean;
   label: string;
   options: OptionType[];
   error: string | null;
   fetchError: boolean;
   hjelpetekst?: string;
-  onChange: (value?: string) => void;
+  onChange: (value?: OptionType) => void;
   borderUnderFirst?: boolean;
   loading?: boolean;
   defineLabel?: (
@@ -57,19 +57,27 @@ const NAVSelect = (props: Props) => {
     KodeverkSelect__borderUnderFirst: props.borderUnderFirst
   });
 
-  const value = props.value
+  const value = props.option
     ? props.options
         .filter(
           (option: OptionType) =>
-            isValueEqual(option.value, props.value) ||
-            inString(option.label, props.value)
+            inString(option.label, props.option.value) ||
+            inString(option.label, props.option.label) ||
+            inString(option.value, props.option.value) ||
+            inString(option.value, props.option.label)
         )
         .shift()
-    : undefined;
+    : null;
+
+  useEffect(() => {
+    if (value && value.value !== props.option.value) {
+      props.onChange(value);
+    }
+  }, [props, value]);
 
   const onChange = (option: OptionType) => {
-    if (option && option.value) {
-      props.onChange(option.value);
+    if (option) {
+      props.onChange(option);
     }
   };
 
@@ -115,8 +123,10 @@ const NAVSelect = (props: Props) => {
   ) : (
     <Input
       label={props.label}
-      value={props.value}
-      onChange={e => props.onChange(e.target.value)}
+      value={props.option.value}
+      onChange={e =>
+        props.onChange({ label: props.label, value: e.target.value })
+      }
       feil={
         props.submitted && props.error
           ? { feilmelding: props.error }

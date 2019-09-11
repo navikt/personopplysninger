@@ -13,6 +13,7 @@ import { electronicFormatIBAN } from "ibantools";
 import SelectLand from "../../../../../../components/felter/kodeverk/SelectLand";
 import SelectValuta from "../../../../../../components/felter/kodeverk/SelectValuta";
 import InputMedHjelpetekst from "../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { UNKNOWN } from "../../../../../../utils/text";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -47,15 +48,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
   const initialValues = utenlandskbank
     ? {
+        ...utenlandskbank,
         iban: utenlandskbank.kontonummer || utenlandskbank.iban,
-        bankkode: utenlandskbank.bankkode,
-        banknavn: utenlandskbank.banknavn,
-        land: utenlandskbank.land,
-        swiftkode: utenlandskbank.swiftkode,
-        valuta: utenlandskbank.valuta,
-        adresse1: utenlandskbank.adresse1,
-        adresse2: utenlandskbank.adresse2,
-        adresse3: utenlandskbank.adresse3
+        land: {
+          label: utenlandskbank.land.toUpperCase(),
+          value: UNKNOWN
+        },
+        valuta: {
+          label: utenlandskbank.valuta,
+          value: UNKNOWN
+        }
       }
     : {};
 
@@ -92,7 +94,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
     if (isValid) {
       const outbound = {
-        value: fields.iban,
+        value: electronicFormatIBAN(fields.iban),
         utenlandskKontoInformasjon: {
           bank: {
             adresseLinje1: fields.adresse1,
@@ -101,16 +103,22 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
             kode: fields.bankkode,
             navn: fields.banknavn
           },
-          landkode: fields.land,
-          swift: fields.swiftkode,
-          valuta: electronicFormatIBAN(fields.valuta)
+          landkode: fields.land.value,
+          valuta: fields.valuta.value,
+          swift: fields.swiftkode
         }
+      };
+
+      const view = {
+        ...fields,
+        land: fields.land.label,
+        valuta: fields.valuta.label
       };
 
       settLoading(true);
       postKontonummer(outbound)
         .then(() => {
-          onChangeSuccess(fields as UtenlandskBankkonto);
+          onChangeSuccess(view as UtenlandskBankkonto);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -170,7 +178,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 <SelectLand
                   label={"Bankens land"}
                   hjelpetekst={"utbetalinger.hjelpetekster.land"}
-                  value={fields.land}
+                  option={fields.land}
                   submitted={submitted}
                   onChange={value => setField({ land: value })}
                   error={errors.land}
@@ -180,7 +188,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 <SelectValuta
                   label={"Valuta"}
                   hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
-                  value={fields.valuta}
+                  option={fields.valuta}
                   submitted={submitted}
                   onChange={value => setField({ valuta: value })}
                   error={errors.valuta}

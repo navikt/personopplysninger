@@ -10,6 +10,7 @@ import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLa
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
 import { postUtenlandskAdresse } from "../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../components/error/Error";
+import { UNKNOWN } from "../../../../../../../utils/text";
 
 interface Props {
   utenlandskadresse: UtenlandskAdresseType;
@@ -27,10 +28,18 @@ export interface OutboundUtenlandskAdresse {
 const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
+  const { utenlandskadresse } = props;
 
-  const initialValues = {
-    ...props.utenlandskadresse
-  };
+  console.log(utenlandskadresse);
+  const initialValues = utenlandskadresse
+    ? {
+        ...utenlandskadresse,
+        land: {
+          label: utenlandskadresse.land,
+          value: UNKNOWN
+        }
+      }
+    : {};
 
   const formConfig = {
     adresse1: {
@@ -53,14 +62,19 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
         adresselinje1: fields.adresse1,
         adresselinje2: fields.adresse2,
         adresselinje3: fields.adresse3,
-        landkode: fields.land,
+        landkode: fields.land.value,
         gyldigTom: fields.datoTilOgMed
+      };
+
+      const view = {
+        ...fields,
+        land: fields.valuta.label
       };
 
       settLoading(true);
       postUtenlandskAdresse(outbound)
         .then(() => {
-          props.onChangeSuccess(fields);
+          props.onChangeSuccess(view);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -106,7 +120,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
             />
             <div className="addresse__land-select">
               <SelectLand
-                value={fields.land}
+                option={fields.land}
                 submitted={submitted}
                 label={"Land"}
                 error={errors.land}
