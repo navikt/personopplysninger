@@ -79,6 +79,7 @@ const OpprettTelefonnummer = (props: Props) => {
             </div>
           </div>
           <button
+            type={"button"}
             onClick={props.onCancelClick}
             className={"kilde__lenke lenke"}
           >
