@@ -85,9 +85,11 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
+      const { datoTilOgMed, ...equalFields } = fields;
+
       const outbound = {
-        ...fields,
-        gyldigTom: fields.datoTilOgMed
+        ...equalFields,
+        gyldigTom: datoTilOgMed
       } as OutboundGateadresse;
 
       settLoading(true);
