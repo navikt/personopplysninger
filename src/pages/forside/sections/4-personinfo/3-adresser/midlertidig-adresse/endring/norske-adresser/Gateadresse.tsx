@@ -33,9 +33,32 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   const [alert, settAlert] = useState();
   const { tilleggsadresse } = props;
 
-  const initialValues = {
-    ...tilleggsadresse
-  };
+  const trimAdresse = (
+    adresse: string = "",
+    husbokstav: string = "",
+    bolignummer: string = ""
+  ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
+
+  const initialValues = tilleggsadresse
+    ? tilleggsadresse.adresse1 && tilleggsadresse.adresse2
+      ? {
+          ...tilleggsadresse,
+          tilleggslinje: tilleggsadresse.adresse1,
+          gatenavn: trimAdresse(
+            tilleggsadresse.adresse2,
+            tilleggsadresse.husbokstav,
+            tilleggsadresse.bolignummer
+          )
+        }
+      : {
+          ...tilleggsadresse,
+          gatenavn: trimAdresse(
+            tilleggsadresse.adresse1,
+            tilleggsadresse.husbokstav,
+            tilleggsadresse.bolignummer
+          )
+        }
+    : {};
 
   const formConfig = {
     tilleggslinje: {},
@@ -119,7 +142,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 <div className="addresse__rad">
                   <Input
                     label={"Nummer"}
-                    value={fields.husnummer}
+                    value={parseInt(fields.husnummer)}
                     className="addresse__input-avstand"
                     onChange={e => setField({ husnummer: e.target.value })}
                     bredde={"XS"}
