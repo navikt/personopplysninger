@@ -40,24 +40,28 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
 
   const initialValues = tilleggsadresse
-    ? tilleggsadresse.adresse1 && tilleggsadresse.adresse2
-      ? {
-          ...tilleggsadresse,
-          tilleggslinje: tilleggsadresse.adresse1,
-          gatenavn: trimAdresse(
-            tilleggsadresse.adresse2,
-            tilleggsadresse.husbokstav,
-            tilleggsadresse.bolignummer
-          )
-        }
-      : {
-          ...tilleggsadresse,
-          gatenavn: trimAdresse(
-            tilleggsadresse.adresse1,
-            tilleggsadresse.husbokstav,
-            tilleggsadresse.bolignummer
-          )
-        }
+    ? {
+        ...tilleggsadresse,
+        ...(tilleggsadresse.husnummer && {
+          husnummer: parseInt(tilleggsadresse.husnummer)
+        }),
+        ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
+          ? {
+              tilleggslinje: tilleggsadresse.adresse1,
+              gatenavn: trimAdresse(
+                tilleggsadresse.adresse2,
+                tilleggsadresse.husbokstav,
+                tilleggsadresse.bolignummer
+              )
+            }
+          : tilleggsadresse.adresse1 && {
+              gatenavn: trimAdresse(
+                tilleggsadresse.adresse1,
+                tilleggsadresse.husbokstav,
+                tilleggsadresse.bolignummer
+              )
+            })
+      }
     : {};
 
   const formConfig = {
@@ -146,9 +150,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 <div className="addresse__rad">
                   <Input
                     label={"Nummer"}
+                    type={"number"}
                     value={parseInt(fields.husnummer)}
                     className="addresse__input-avstand"
-                    onChange={e => setField({ husnummer: e.target.value })}
+                    onChange={e =>
+                      setField({ husnummer: parseInt(e.target.value) })
+                    }
                     bredde={"XS"}
                     feil={sjekkForFeil(submitted, errors.husnummer)}
                   />
