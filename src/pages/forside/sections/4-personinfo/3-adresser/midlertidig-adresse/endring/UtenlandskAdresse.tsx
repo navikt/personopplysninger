@@ -96,27 +96,50 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       {({ errors, fields, submitted, setField, setError }) => {
         return (
           <>
-            <Input
-              label={"Adresse"}
-              value={fields.adresse1}
-              onChange={e => setField({ adresse1: e.target.value })}
-              bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresse1)}
+            <DayPicker
+              value={fields.datoTilOgMed}
+              label={"Gyldig til"}
+              submitted={submitted}
+              error={errors.datoTilOgMed}
+              onChange={value => setField({ datoTilOgMed: value })}
+              onErrors={error => setError({ datoTilOgMed: error })}
             />
-            <Input
-              label={""}
-              value={fields.adresse2}
-              onChange={e => setField({ adresse2: e.target.value })}
-              bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresse2)}
-            />
-            <Input
-              label={""}
-              value={fields.adresse3}
-              onChange={e => setField({ adresse3: e.target.value })}
-              bredde={"XXL"}
-              feil={sjekkForFeil(submitted, errors.adresse3)}
-            />
+            <div className="addresse__rad">
+              <div className="addresse__kolonne">
+                <Input
+                  label={"Adresse"}
+                  value={fields.adresse1}
+                  onChange={e => setField({ adresse1: e.target.value })}
+                  bredde={"XXL"}
+                  feil={sjekkForFeil(submitted, errors.adresse1)}
+                />
+              </div>
+              <div className="addresse__kolonne" />
+            </div>
+            <div className="addresse__rad">
+              <div className="addresse__kolonne">
+                <Input
+                  label={""}
+                  value={fields.adresse2}
+                  onChange={e => setField({ adresse2: e.target.value })}
+                  bredde={"XXL"}
+                  feil={sjekkForFeil(submitted, errors.adresse2)}
+                />
+              </div>
+              <div className="addresse__kolonne" />
+            </div>
+            <div className="addresse__rad">
+              <div className="addresse__kolonne">
+                <Input
+                  label={""}
+                  value={fields.adresse3}
+                  onChange={e => setField({ adresse3: e.target.value })}
+                  bredde={"XXL"}
+                  feil={sjekkForFeil(submitted, errors.adresse3)}
+                />
+              </div>
+              <div className="addresse__kolonne" />
+            </div>
             <div className="addresse__land-select">
               <SelectLand
                 option={fields.land}
@@ -126,14 +149,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
                 onChange={land => setField({ land })}
               />
             </div>
-            <DayPicker
-              value={fields.datoTilOgMed}
-              label={"Gyldig til"}
-              submitted={submitted}
-              error={errors.datoTilOgMed}
-              onChange={value => setField({ datoTilOgMed: value })}
-              onErrors={error => setError({ datoTilOgMed: error })}
-            />
+
             <div className="addresse__submit-container">
               <Knapp
                 type={"hoved"}

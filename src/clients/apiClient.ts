@@ -6,6 +6,7 @@ import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kont
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
 import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
+import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();
@@ -59,8 +60,9 @@ const hentJsonOgSjekkAuth = (url: string) =>
 
 type Outbound =
   | OutboundTlfnummer
-  | OutboundNorskKontonummer
+  | OutboundGateadresse
   | OutboundUtenlandskAdresse
+  | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
 const sendJson = (url: string, data: Outbound) => {
@@ -106,6 +108,9 @@ export const postKontonummer = (
 ) => sendJson(`${apiUrl}/endreKontonummer`, data);
 
 export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
+  sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
+
+export const postGateadresse = (data: OutboundGateadresse) =>
   sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
