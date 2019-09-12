@@ -111,7 +111,7 @@ export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
   sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
 
 export const postGateadresse = (data: OutboundGateadresse) =>
-  sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
+  sendJson(`${apiUrl}/endreAdresse`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);
