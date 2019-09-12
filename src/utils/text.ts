@@ -13,3 +13,5 @@ export const mergeAddress = (
 ) => `${adresse1 || ""}${adresse2 || ""}${adresse3 || ""}`;
 
 export const print = (tekst?: string) => (tekst ? tekst : "");
+
+export const UNKNOWN = "ukjent-verdi";

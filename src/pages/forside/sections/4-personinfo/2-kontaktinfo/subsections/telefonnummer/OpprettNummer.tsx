@@ -12,6 +12,7 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../../../../../../types/personalia";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
+import { sjekkForFeil } from "../../../../../../../utils/validators";
 
 interface Props {
   onCancelClick: () => void;
@@ -30,7 +31,10 @@ const OpprettTelefonnummer = (props: Props) => {
   const { tlfnr, onChangeSuccess } = props;
 
   const initialValues = {
-    landskode: "+47"
+    landskode: {
+      label: "Norge",
+      value: "+47"
+    }
   };
 
   const submit = (e: FormContext) => {
@@ -40,7 +44,7 @@ const OpprettTelefonnummer = (props: Props) => {
     if (isValid) {
       const outbound = {
         type,
-        landskode,
+        landskode: landskode.value,
         nummer: tlfnummer
       };
 
@@ -119,30 +123,29 @@ const OpprettTelefonnummer = (props: Props) => {
         <div className={"tlfnummer__input-container"}>
           <Validation config={baseFormConfig} initialValues={initialValues}>
             {({ errors, fields, submitted, setField }) => {
+              const tlfNummerMaxLength =
+                fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
+
               return (
                 <>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
                       label={"Landkode"}
-                      value={fields.landskode}
-                      onChange={value => setField({ landskode: value })}
+                      option={fields.landskode}
+                      onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
                     />
                   </div>
                   <div className={"tlfnummer__input input--m"}>
                     <Input
-                      label={"Telefonnummer"}
-                      value={fields.tlfnummer}
                       type={"tel"}
                       bredde={"M"}
-                      maxLength={fields.landskode === "+47" ? 8 : 16}
+                      label={"Telefonnummer"}
+                      value={fields.tlfnummer}
+                      maxLength={tlfNummerMaxLength}
                       onChange={e => setField({ tlfnummer: e.target.value })}
-                      feil={
-                        submitted && errors.tlfnummer
-                          ? { feilmelding: errors.tlfnummer }
-                          : undefined
-                      }
+                      feil={sjekkForFeil(submitted, errors.tlfnummer)}
                     />
                   </div>
                   <div className={"tlfnummer__submit"}>

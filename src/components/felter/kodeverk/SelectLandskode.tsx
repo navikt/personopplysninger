@@ -5,11 +5,11 @@ import { FormatOptionLabelMeta } from "react-select/base";
 import NAVSelect from "../select/NAVSelect";
 
 interface Props {
-  value: string;
+  option: OptionType;
   submitted: boolean;
   label: string;
   error: string | null;
-  onChange: (value?: string) => void;
+  onChange: (value?: OptionType) => void;
 }
 
 interface OptionType {
@@ -66,7 +66,7 @@ const SelectLandskode = (props: Props) => {
       options={options}
       fetchError={fetchError}
       defineLabel={defineLabel}
-      value={props.value}
+      option={props.option}
       submitted={props.submitted}
       onChange={props.onChange}
       borderUnderFirst={true}

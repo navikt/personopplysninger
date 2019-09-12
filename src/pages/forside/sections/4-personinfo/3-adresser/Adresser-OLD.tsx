@@ -5,7 +5,7 @@ import {
   injectIntl
 } from "react-intl";
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
-import MidlertidigAdresse from "./midlertidig-adresse/visning/MidlertidigAdresse";
+import NorskMidlertidigAdresse from "./midlertidig-adresse/visning/NorskAdresse";
 import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
@@ -38,7 +38,9 @@ const AdresserOLD = (props: Props & InjectedIntlProps) => {
         <div className="underseksjon__divider">
           <>
             {adresser.tilleggsadresse && (
-              <MidlertidigAdresse tilleggsadresse={adresser.tilleggsadresse} />
+              <NorskMidlertidigAdresse
+                tilleggsadresse={adresser.tilleggsadresse}
+              />
             )}
             {adresser.utenlandskAdresse && (
               <UtenlandskAdresse

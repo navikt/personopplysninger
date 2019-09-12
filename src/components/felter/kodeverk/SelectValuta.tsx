@@ -4,11 +4,11 @@ import { HTTPError } from "../../error/Error";
 import NAVSelect from "../select/NAVSelect";
 
 interface Props {
-  value: string;
+  option: OptionType;
   submitted: boolean;
   label: string;
   error: string | null;
-  onChange: (value?: string) => void;
+  onChange: (value?: OptionType) => void;
   hjelpetekst?: string;
 }
 
@@ -60,7 +60,7 @@ const SelectValuta = (props: Props) => {
       error={props.error}
       options={options}
       fetchError={fetchError}
-      value={props.value}
+      option={props.option}
       submitted={props.submitted}
       onChange={props.onChange}
       hjelpetekst={props.hjelpetekst}

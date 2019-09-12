@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FormattedHTMLMessage,
   InjectedIntlProps,
   injectIntl
 } from "react-intl";
-import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
-import MidlertidigAdresse from "./midlertidig-adresse/visning/MidlertidigAdresse";
 import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
@@ -15,6 +13,11 @@ import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
 import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";
+import { RadioPanelGruppe } from "nav-frontend-skjema";
+import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
+import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
+import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
+import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 
 interface Props {
   adresser: Adresser;
@@ -22,10 +25,34 @@ interface Props {
 
 const AdresserPDL = (props: Props & InjectedIntlProps) => {
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const { adresser } = props;
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
+  const [utenlandskAdresse, settUtenlandskAdresse] = useState();
+  const [tilleggsadresse, settTilleggsadresse] = useState();
 
-  const harMidlertidigAdr =
-    adresser.tilleggsadresse || adresser.utenlandskAdresse;
+  useEffect(() => {
+    settTilleggsadresse(props.adresser.tilleggsadresse);
+    settUtenlandskAdresse(props.adresser.utenlandskAdresse);
+    settNorskEllerUtenlandsk(
+      props.adresser.tilleggsadresse
+        ? "NORSK"
+        : props.adresser.utenlandskAdresse
+        ? "UTENLANDSK"
+        : undefined
+    );
+  }, [props.adresser.tilleggsadresse, props.adresser.utenlandskAdresse]);
+
+  const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
+
+  const radioButtons = [
+    {
+      label: "Norsk adresse",
+      value: "NORSK"
+    },
+    {
+      label: "Utenlandsk adresse",
+      value: "UTENLANDSK"
+    }
+  ];
 
   return (
     <Box
@@ -35,11 +62,35 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       icon={adresseIkon}
     >
       <hr className="box__linje-bred" />
-      <Folkeregisteret adresser={adresser} />
+      <Folkeregisteret adresser={props.adresser} />
       <AdressePanel tittel="adresse.midlertidigadresse">
         <div className="underseksjon__divider">
           {opprettEllerEndre ? (
             <>
+              <div className="utbetalinger__type">
+                <RadioPanelGruppe
+                  name="type"
+                  legend=""
+                  radios={radioButtons}
+                  checked={norskEllerUtenlandsk}
+                  onChange={(e, value) => settNorskEllerUtenlandsk(value)}
+                />
+              </div>
+              {norskEllerUtenlandsk === "NORSK" && (
+                <OpprettEllerEndreNorskMidlertidigAdresse
+                  tilleggsadresse={tilleggsadresse}
+                />
+              )}
+              {norskEllerUtenlandsk === "UTENLANDSK" && (
+                <OpprettEllerEndreUtenlandskAdresse
+                  onChangeSuccess={adresse => {
+                    settUtenlandskAdresse(adresse);
+                    settOpprettEllerEndre(false);
+                    settTilleggsadresse(undefined);
+                  }}
+                  utenlandskadresse={utenlandskAdresse}
+                />
+              )}
               <Kilde
                 kilde="personalia.source.nav"
                 onClick={() => settOpprettEllerEndre(false)}
@@ -50,17 +101,13 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
             </>
           ) : (
             <>
-              {adresser.tilleggsadresse && (
-                <MidlertidigAdresse
-                  tilleggsadresse={adresser.tilleggsadresse}
-                />
+              {tilleggsadresse && (
+                <MidlertidigNorskAdresse tilleggsadresse={tilleggsadresse} />
               )}
-              {adresser.utenlandskAdresse && (
-                <UtenlandskAdresse
-                  utenlandskadresse={adresser.utenlandskAdresse}
-                />
+              {utenlandskAdresse && (
+                <UtenlandskAdresse utenlandskadresse={utenlandskAdresse} />
               )}
-              {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
+              {!tilleggsadresse && !utenlandskAdresse && (
                 <Normaltekst>
                   <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
                 </Normaltekst>
