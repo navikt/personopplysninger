@@ -46,7 +46,7 @@ const DropdownIndicator = (props: any) => (
   </div>
 );
 
-const NAVSelect = (props: Props) => {
+const NAVSelect = React.memo((props: Props) => {
   const controlClasses = cls({
     "KodeverkSelect__control-feil": props.submitted && props.error
   });
@@ -135,6 +135,6 @@ const NAVSelect = (props: Props) => {
       placeholder={"+"}
     />
   );
-};
+});
 
 export default NAVSelect;

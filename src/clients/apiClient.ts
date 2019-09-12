@@ -45,6 +45,9 @@ export const fetchAuthInfo = () =>
 export const fetchRetningsnumre = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
+export const fetchPostnummer = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/postnummer`);
+
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   hentJsonOgSjekkAuth(
     `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`

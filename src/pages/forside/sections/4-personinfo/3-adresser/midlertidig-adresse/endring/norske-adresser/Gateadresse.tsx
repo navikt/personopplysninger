@@ -10,6 +10,7 @@ import { postGateadresse } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
+import SelectPostnummer from "../../../../../../../../components/felter/kodeverk/SelectPostnummer";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
@@ -45,6 +46,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         ...tilleggsadresse,
         ...(tilleggsadresse.husnummer && {
           husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
+        }),
+        ...(tilleggsadresse.postnummer && {
+          postnummer: {
+            label: `${tilleggsadresse.postnummer}`,
+            value: tilleggsadresse.postnummer
+          }
         }),
         ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
           ? {
@@ -175,12 +182,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
             </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
-                <Input
+                <SelectPostnummer
                   label={"Postnummer"}
-                  value={fields.postnummer}
-                  onChange={e => setField({ postnummer: e.target.value })}
-                  bredde={"M"}
-                  feil={sjekkForFeil(submitted, errors.postnummer)}
+                  option={fields.postnummer}
+                  submitted={submitted}
+                  error={errors.postnummer}
+                  onChange={postnummer => setField({ postnummer })}
                 />
               </div>
               <div className="addresse__kolonne">
