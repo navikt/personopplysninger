@@ -9,6 +9,7 @@ import DayPicker from "../../../../../../../../components/felter/day-picker/DayP
 import { postGateadresse } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
+import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
@@ -43,7 +44,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
     ? {
         ...tilleggsadresse,
         ...(tilleggsadresse.husnummer && {
-          husnummer: parseInt(tilleggsadresse.husnummer)
+          husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
         }),
         ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
           ? {
@@ -151,10 +152,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                   <Input
                     label={"Nummer"}
                     type={"number"}
-                    value={parseInt(fields.husnummer)}
+                    value={parseInt(fields.husnummer, RADIX_DECIMAL)}
                     className="addresse__input-avstand"
                     onChange={e =>
-                      setField({ husnummer: parseInt(e.target.value) })
+                      setField({
+                        husnummer: parseInt(e.target.value, RADIX_DECIMAL)
+                      })
                     }
                     bredde={"XS"}
                     feil={sjekkForFeil(submitted, errors.husnummer)}

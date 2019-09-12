@@ -51,3 +51,5 @@ export const formatTelefonnummer = (
 
   return input;
 };
+
+export const RADIX_DECIMAL = 10;
