@@ -11,34 +11,9 @@ import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-ad
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: any) => data.json();
 
-export const sendTilLogin = () => {
-  const { pathname } = window.location;
-
-  if (pathname.includes("arbeidsforhold")) {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}/arbeidsforhold`);
-  } else {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
-  }
-};
-
-const sjekkAuth = (response: Response): any => {
-  if (response.status === 401 || response.status === 403) {
-    sendTilLogin();
-  }
-  return response;
-};
-
-const sjekkForFeil = (url: string, response: Response) => {
-  if (response.ok) {
-    return response;
-  } else {
-    const error = {
-      code: response.status,
-      text: response.statusText
-    };
-    throw error;
-  }
-};
+/*
+    FETCH
+ */
 
 const hentJsonOgSjekkAuth = (url: string) =>
   fetch(url, {
@@ -58,6 +33,30 @@ const hentJsonOgSjekkAuth = (url: string) =>
       throw error;
     });
 
+export const fetchPersonInfo = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
+
+export const fetchKontaktInfo = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
+
+export const fetchAuthInfo = () =>
+  hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
+
+export const fetchRetningsnumre = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
+
+export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
+  hentJsonOgSjekkAuth(
+    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
+  );
+
+export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
+export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
+export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
+
+/*
+    POST
+ */
 type Outbound =
   | OutboundTlfnummer
   | OutboundGateadresse
@@ -84,22 +83,6 @@ const sendJson = (url: string, data: Outbound) => {
     });
 };
 
-export const fetchPersonInfo = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
-
-export const fetchKontaktInfo = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
-
-export const fetchAuthInfo = () =>
-  hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
-
-export const fetchRetningsnumre = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
-
-export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
-export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
-export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
-
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
 
@@ -116,12 +99,39 @@ export const postGateadresse = (data: OutboundGateadresse) =>
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);
 
+/*
+    UTILS
+ */
+
+const sjekkAuth = (response: Response): any => {
+  if (response.status === 401 || response.status === 403) {
+    sendTilLogin();
+  }
+  return response;
+};
+
+export const sendTilLogin = () => {
+  const { pathname } = window.location;
+  if (pathname.includes("arbeidsforhold")) {
+    window.location.assign(`${loginUrl}?redirect=${appUrl}/arbeidsforhold`);
+  } else {
+    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
+  }
+};
+
+const sjekkForFeil = (url: string, response: Response) => {
+  if (response.ok) {
+    return response;
+  } else {
+    const error = {
+      code: response.status,
+      text: response.statusText
+    };
+    throw error;
+  }
+};
+
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
   Object.keys(featureToggles)
     .map((feature: string, i: number) => `${!i ? `?` : ``}feature=${feature}`)
     .join("&");
-
-export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
-  hentJsonOgSjekkAuth(
-    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
-  );
