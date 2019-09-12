@@ -6,10 +6,6 @@ import { HTTPError } from "../../../../../../components/error/Error";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import {
-  formatKontonummer,
-  normalizeNummer
-} from "../../../../../../utils/formattering";
 
 interface Props {
   kontonummer?: string;
