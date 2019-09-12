@@ -86,10 +86,8 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               <div className="utbetalinger__input input--m">
                 <Input
                   label={"Kontonummer"}
-                  value={formatKontonummer(fields.kontonummer)}
-                  onChange={e =>
-                    setField({ kontonummer: normalizeNummer(e.target.value) })
-                  }
+                  value={fields.kontonummer}
+                  onChange={e => setField({ kontonummer: e.target.value })}
                   maxLength={13}
                   bredde={"M"}
                   feil={
