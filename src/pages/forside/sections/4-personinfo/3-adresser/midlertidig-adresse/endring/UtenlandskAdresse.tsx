@@ -96,14 +96,19 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       {({ errors, fields, submitted, setField, setError }) => {
         return (
           <>
-            <DayPicker
-              value={fields.datoTilOgMed}
-              label={"Gyldig til"}
-              submitted={submitted}
-              error={errors.datoTilOgMed}
-              onChange={value => setField({ datoTilOgMed: value })}
-              onErrors={error => setError({ datoTilOgMed: error })}
-            />
+            <div className="addresse__rad">
+              <div className="addresse__kolonne">
+                <DayPicker
+                  value={fields.datoTilOgMed}
+                  label={"Gyldig til"}
+                  submitted={submitted}
+                  error={errors.datoTilOgMed}
+                  onChange={value => setField({ datoTilOgMed: value })}
+                  onErrors={error => setError({ datoTilOgMed: error })}
+                />
+              </div>
+              <div className="addresse__kolonne" />
+            </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
@@ -149,7 +154,6 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
                 onChange={land => setField({ land })}
               />
             </div>
-
             <div className="addresse__submit-container">
               <Knapp
                 type={"hoved"}

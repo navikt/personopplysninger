@@ -46,10 +46,14 @@
     padding-right: 0.5rem;
   }
   &__kolonne:first-child {
-    padding-right: 0.25rem;
+    @media @maxMobile {
+      padding-right: 0.25rem;
+    }
   }
   &__kolonne:last-child {
-    padding-left: 0.25rem;
+    @media @minMobile {
+      padding-left: 0.25rem;
+    }
   }
   &__submit-container {
     display: flex;
