@@ -57,6 +57,7 @@ export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
 /*
     POST
  */
+
 type Outbound =
   | OutboundTlfnummer
   | OutboundGateadresse
