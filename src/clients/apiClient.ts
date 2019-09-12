@@ -9,7 +9,7 @@ import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinf
 import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
-const parseJson = (data: any) => data.json();
+const parseJson = (data: Response) => data.json();
 
 /*
     FETCH
