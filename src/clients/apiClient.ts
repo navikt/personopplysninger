@@ -22,7 +22,7 @@ const hentJsonOgSjekkAuth = (url: string) =>
     credentials: "include"
   })
     .then(sjekkAuth)
-    .then(response => sjekkForFeil(url, response))
+    .then(sjekkForFeil)
     .then(parseJson)
     .catch((err: string & HTTPError) => {
       const error = {
@@ -72,7 +72,7 @@ const sendJson = (url: string, data: Outbound) => {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json;charset=UTF-8" }
   })
-    .then(response => sjekkForFeil(url, response))
+    .then(sjekkForFeil)
     .then(parseJson)
     .catch((err: string & HTTPError) => {
       const error = {
@@ -120,7 +120,7 @@ export const sendTilLogin = () => {
   }
 };
 
-const sjekkForFeil = (url: string, response: Response) => {
+const sjekkForFeil = (response: Response) => {
   if (response.ok) {
     return response;
   } else {
