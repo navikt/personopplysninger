@@ -17,6 +17,7 @@ interface Props {
   error: string | null;
   fetchError: boolean;
   hjelpetekst?: string;
+  openMenuOnClick?: boolean;
   onChange: (value?: OptionType) => void;
   borderUnderFirst?: boolean;
   loading?: boolean;
@@ -102,6 +103,8 @@ const NAVSelect = React.memo((props: Props) => {
           loadingMessage={() => "Laster inn..."}
           noOptionsMessage={v => `Ingen treff funnet for ${v.inputValue}...`}
           className={controlClasses}
+          cacheOptions={true}
+          openMenuOnClick={props.openMenuOnClick}
           isLoading={props.loading}
           options={props.options}
           formatOptionLabel={props.defineLabel}

@@ -21,7 +21,7 @@ export interface Kode {
   tekst: string;
 }
 
-const SelectPostnummer = (props: Props) => {
+const SelectPostnummer = React.memo((props: Props) => {
   const [loading, settLoading] = useState(false);
   const [postnummer, settPostnummer] = useState([] as Kode[]);
   const [fetchError, settFetchError] = useState();
@@ -30,7 +30,7 @@ const SelectPostnummer = (props: Props) => {
     if (!loading) {
       settLoading(true);
       fetchPostnummer()
-        .then(postnummer => {
+        .then((postnummer: Kode[]) => {
           settPostnummer(postnummer);
         })
         .catch((error: HTTPError) => {
@@ -60,11 +60,12 @@ const SelectPostnummer = (props: Props) => {
       options={options}
       fetchError={fetchError}
       option={props.option}
+      openMenuOnClick={false}
       submitted={props.submitted}
       onChange={props.onChange}
       borderUnderFirst={true}
     />
   );
-};
+});
 
 export default SelectPostnummer;
