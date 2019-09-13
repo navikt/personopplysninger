@@ -52,4 +52,15 @@ export const formatTelefonnummer = (
   return input;
 };
 
+export const erInteger = (str: string) => {
+  var n = Math.floor(Number(str));
+  return n !== Infinity && String(n) === str && n >= 0;
+};
+
+export const visDersomInteger = (value?: string) =>
+  value ? parseInt(value, RADIX_DECIMAL) : undefined;
+
+export const settDersomInteger = (value: string) =>
+  erInteger(value) ? parseInt(value, RADIX_DECIMAL) : undefined;
+
 export const RADIX_DECIMAL = 10;

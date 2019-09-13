@@ -9,7 +9,11 @@ import DayPicker from "../../../../../../../../components/felter/day-picker/DayP
 import { postGateadresse } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
-import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
+import {
+  RADIX_DECIMAL,
+  settDersomInteger,
+  visDersomInteger
+} from "../../../../../../../../utils/formattering";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 
 interface Props {
@@ -74,12 +78,8 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
     husnummer: {
       isRequired: "Husnummer er påkrevd"
     },
-    husbokstav: {
-      isRequired: "Husbokstav er påkrevd"
-    },
-    postnummer: {
-      isRequired: "Postnummer er påkrevd"
-    },
+    husbokstav: {},
+    postnummer: {},
     bolignummer: {
       isRequired: "Bolignummer er påkrevd"
     },
@@ -153,12 +153,11 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                   <Input
                     label={"Nummer"}
                     type={"number"}
-                    value={parseInt(fields.husnummer, RADIX_DECIMAL)}
+                    min={1}
+                    value={visDersomInteger(fields.husnummer)}
                     className="addresse__input-avstand"
-                    onChange={e =>
-                      setField({
-                        husnummer: parseInt(e.target.value, RADIX_DECIMAL)
-                      })
+                    onChange={({ target }) =>
+                      setField({ husnummer: settDersomInteger(target.value) })
                     }
                     bredde={"XS"}
                     feil={sjekkForFeil(submitted, errors.husnummer)}

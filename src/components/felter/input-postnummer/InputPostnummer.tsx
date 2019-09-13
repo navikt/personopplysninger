@@ -48,6 +48,11 @@ const SelectPostnummer = React.memo((props: Props) => {
         value={props.value}
         label={props.label}
         bredde={"S"}
+        feil={
+          props.submitted && props.error
+            ? { feilmelding: props.error }
+            : undefined
+        }
         onChange={e => props.onChange(e.target.value)}
       />
       <div className="input-postnummer__poststed">
