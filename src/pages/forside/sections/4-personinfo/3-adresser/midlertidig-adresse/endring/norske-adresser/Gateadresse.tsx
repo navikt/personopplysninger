@@ -75,14 +75,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
     gatenavn: {
       isRequired: "Gateadresse er påkrevd"
     },
-    husnummer: {
-      isRequired: "Husnummer er påkrevd"
-    },
+    husnummer: {},
     husbokstav: {},
-    postnummer: {},
-    bolignummer: {
+    postnummer: {
       isRequired: "Bolignummer er påkrevd"
     },
+    bolignummer: {},
     datoTilOgMed: {
       isRequired: "Gyldig dato er påkrevd"
     }
@@ -151,16 +149,16 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <div className="addresse__rad">
                   <Input
-                    label={"Nummer"}
-                    type={"number"}
                     min={1}
+                    bredde={"XS"}
+                    type={"number"}
+                    label={"Nummer"}
                     value={visDersomInteger(fields.husnummer)}
                     className="addresse__input-avstand"
+                    feil={sjekkForFeil(submitted, errors.husnummer)}
                     onChange={({ target }) =>
                       setField({ husnummer: settDersomInteger(target.value) })
                     }
-                    bredde={"XS"}
-                    feil={sjekkForFeil(submitted, errors.husnummer)}
                   />
                   <Input
                     label={"Bokstav"}
@@ -179,8 +177,8 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 className="addresse__input-avstand"
                 value={fields.bolignummer}
                 onChange={e => setField({ bolignummer: e.target.value })}
-                bredde={"S"}
                 feil={sjekkForFeil(submitted, errors.bolignummer)}
+                bredde={"S"}
               />
               <InputPostnummer
                 label={"Postnummer"}
@@ -188,6 +186,11 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 submitted={submitted}
                 error={errors.postnummer}
                 onChange={postnummer => setField({ postnummer })}
+                onErrors={error =>
+                  setError({
+                    postnummer: error
+                  })
+                }
               />
             </div>
             <div className="addresse__rad">

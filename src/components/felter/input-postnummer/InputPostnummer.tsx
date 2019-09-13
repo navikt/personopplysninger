@@ -9,6 +9,7 @@ interface Props {
   label: string;
   error: string | null;
   onChange: (value: string) => void;
+  onErrors: (value: string) => void;
 }
 
 export interface Kode {
@@ -41,6 +42,13 @@ const SelectPostnummer = React.memo((props: Props) => {
   const poststed = postnummer
     .filter(postnummer => postnummer.kode === props.value)
     .shift();
+
+  useEffect(() => {
+    const errorText = "Ugyldig postnummer";
+    if (props.error !== errorText && !poststed) {
+      props.onErrors(errorText);
+    }
+  }, [props, poststed]);
 
   return (
     <div className="input-postnummer__container">
