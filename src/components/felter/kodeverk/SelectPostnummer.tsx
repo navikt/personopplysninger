@@ -63,7 +63,6 @@ const SelectPostnummer = React.memo((props: Props) => {
       openMenuOnClick={false}
       submitted={props.submitted}
       onChange={props.onChange}
-      borderUnderFirst={true}
     />
   );
 });
