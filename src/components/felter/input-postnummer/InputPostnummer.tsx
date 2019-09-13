@@ -1,19 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { fetchPostnummer } from "../../../clients/apiClient";
 import { HTTPError } from "../../error/Error";
-import NAVSelect from "../select/NAVSelect";
+import { Input } from "nav-frontend-skjema";
 
 interface Props {
-  option: OptionType;
+  value: string;
   submitted: boolean;
   label: string;
   error: string | null;
-  onChange: (value?: OptionType) => void;
-}
-
-interface OptionType {
-  value: string;
-  label: string;
+  onChange: (value: string) => void;
 }
 
 export interface Kode {
@@ -43,27 +38,22 @@ const SelectPostnummer = React.memo((props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const mapKoderToOptions = (koder: Kode[]): OptionType[] =>
-    koder.map(k => ({
-      label: `${k.kode} (${k.tekst})`,
-      value: k.kode
-    }));
-
-  const options = mapKoderToOptions(postnummer).sort(
-    (a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1)
-  );
+  const poststed = postnummer
+    .filter(postnummer => postnummer.kode === props.value)
+    .shift();
 
   return (
-    <NAVSelect
-      label={props.label}
-      error={props.error}
-      options={options}
-      fetchError={fetchError}
-      option={props.option}
-      openMenuOnClick={false}
-      submitted={props.submitted}
-      onChange={props.onChange}
-    />
+    <div className="input-postnummer__container">
+      <Input
+        value={props.value}
+        label={"Poststed"}
+        bredde={"S"}
+        onChange={e => props.onChange(e.target.value)}
+      />
+      <div className="input-postnummer__poststed">
+        {poststed && !fetchError && <>{poststed.tekst}</>}
+      </div>
+    </div>
   );
 });
 

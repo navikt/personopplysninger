@@ -10,7 +10,7 @@ import { postGateadresse } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
-import SelectPostnummer from "../../../../../../../../components/felter/kodeverk/SelectPostnummer";
+import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
@@ -46,12 +46,6 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         ...tilleggsadresse,
         ...(tilleggsadresse.husnummer && {
           husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
-        }),
-        ...(tilleggsadresse.postnummer && {
-          postnummer: {
-            label: `${tilleggsadresse.postnummer}`,
-            value: tilleggsadresse.postnummer
-          }
         }),
         ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
           ? {
@@ -181,24 +175,21 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               </div>
             </div>
             <div className="addresse__rad">
-              <div className="addresse__kolonne">
-                <SelectPostnummer
-                  label={"Postnummer"}
-                  option={fields.postnummer}
-                  submitted={submitted}
-                  error={errors.postnummer}
-                  onChange={postnummer => setField({ postnummer })}
-                />
-              </div>
-              <div className="addresse__kolonne">
-                <Input
-                  label={"Bolignummer"}
-                  value={fields.bolignummer}
-                  onChange={e => setField({ bolignummer: e.target.value })}
-                  bredde={"S"}
-                  feil={sjekkForFeil(submitted, errors.bolignummer)}
-                />
-              </div>
+              <Input
+                label={"Bolignummer"}
+                className="addresse__input-avstand"
+                value={fields.bolignummer}
+                onChange={e => setField({ bolignummer: e.target.value })}
+                bredde={"S"}
+                feil={sjekkForFeil(submitted, errors.bolignummer)}
+              />
+              <InputPostnummer
+                label={"Postnummer"}
+                value={fields.postnummer}
+                submitted={submitted}
+                error={errors.postnummer}
+                onChange={postnummer => setField({ postnummer })}
+              />
             </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
