@@ -103,14 +103,11 @@ const EndreTelefonnummer = (props: Props) => {
         onDeleteSuccess(type);
       })
       .catch((error: HTTPError) => {
-        onDeleteSuccess(type);
+        settSlettLoading(false);
         settAlert({
           type: "feil",
           melding: `${error.code} - ${error.text}`
         });
-      })
-      .then(() => {
-        settSlettLoading(false);
       });
   };
 
