@@ -138,7 +138,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       config={formConfig}
       initialValues={initialValues}
     >
-      {({ errors, fields, submitted, setField }) => {
+      {({ errors, fields, submitted, isValid, setField }) => {
         return (
           <>
             <div className="utbetalinger__alert">
@@ -243,6 +243,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}
+                disabled={submitted && !isValid}
                 autoDisableVedSpinner={true}
                 spinner={loading}
               >

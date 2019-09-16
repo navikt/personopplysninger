@@ -14,11 +14,11 @@ export const formatKontonummer = (input: string) => {
 
 export const formatTelefonnummer = (
   type: string,
-  landskode: string,
+  landskode: { label: string; value: string },
   input: string
 ) => {
   input = input.trim();
-  if (landskode === "+47") {
+  if (landskode.value === "+47") {
     switch (type) {
       case "MOBIL":
         if (input.length > 8) {

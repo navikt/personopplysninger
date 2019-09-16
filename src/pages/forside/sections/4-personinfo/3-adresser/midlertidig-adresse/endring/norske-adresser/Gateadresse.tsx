@@ -98,10 +98,14 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         tilleggslinjeType: "V"
       } as OutboundGateadresse;
 
+      const view = {
+        ...fields
+      };
+
       settLoading(true);
       postGateadresse(outbound)
         .then(() => {
-          console.log("Success");
+          props.onChangeSuccess(view);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -121,7 +125,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
       config={formConfig}
       initialValues={initialValues}
     >
-      {({ errors, fields, submitted, setField, setError }) => {
+      {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
             <div className="addresse__rad">
@@ -186,11 +190,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 submitted={submitted}
                 error={errors.postnummer}
                 onChange={postnummer => setField({ postnummer })}
-                onErrors={error =>
-                  setError({
-                    postnummer: error
-                  })
-                }
+                onErrors={error => setError({ postnummer: error })}
               />
             </div>
             <div className="addresse__rad">
@@ -210,6 +210,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}
+                disabled={submitted && !isValid}
                 autoDisableVedSpinner={true}
                 spinner={loading}
               >

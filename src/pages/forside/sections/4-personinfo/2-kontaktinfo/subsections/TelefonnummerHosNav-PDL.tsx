@@ -21,10 +21,13 @@ const mapTypes = {
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const [tlfnr, settTlfnr] = useState();
-  const tempLandkode = "+47";
 
-  const onChangeSuccess = (type: string, tlfnummer: string) => {
-    settTlfnr({ ...tlfnr, [mapTypes[type]]: tlfnummer });
+  const onChangeSuccess = (
+    type: string,
+    tlfnummer: string,
+    landskode: { value: string; label: string }
+  ) => {
+    settTlfnr({ ...tlfnr, [mapTypes[type]]: { nummer: tlfnummer, landskode } });
   };
 
   const onDeleteSuccess = (type: string) => {
@@ -34,7 +37,33 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   };
 
   useEffect(() => {
-    settTlfnr(props.tlfnr);
+    const tempLandskode = {
+      value: "+47",
+      label: "Norge"
+    };
+
+    if (props.tlfnr) {
+      settTlfnr({
+        ...(props.tlfnr.mobil && {
+          mobil: {
+            landskode: tempLandskode,
+            nummer: props.tlfnr.mobil
+          }
+        }),
+        ...(props.tlfnr.privat && {
+          privat: {
+            landskode: tempLandskode,
+            nummer: props.tlfnr.privat
+          }
+        }),
+        ...(props.tlfnr.jobb && {
+          jobb: {
+            landskode: tempLandskode,
+            nummer: props.tlfnr.jobb
+          }
+        })
+      });
+    }
   }, [props.tlfnr]);
 
   return (
@@ -46,30 +75,36 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       </div>
       {tlfnr && (tlfnr.mobil || tlfnr.privat || tlfnr.jobb) ? (
         <div>
-          <EndreNummer
-            type={"MOBIL"}
-            titleId="personalia.tlfnr.mobil"
-            currentLandskode={tempLandkode}
-            currentTlfnummer={tlfnr.mobil}
-            onDeleteSuccess={onDeleteSuccess}
-            onChangeSuccess={onChangeSuccess}
-          />
-          <EndreNummer
-            type={"HJEM"}
-            titleId="personalia.tlfnr.hjem"
-            currentLandskode={tempLandkode}
-            currentTlfnummer={tlfnr.privat}
-            onDeleteSuccess={onDeleteSuccess}
-            onChangeSuccess={onChangeSuccess}
-          />
-          <EndreNummer
-            type={"ARBEID"}
-            titleId="personalia.tlfnr.arbeid"
-            currentLandskode={tempLandkode}
-            currentTlfnummer={tlfnr.jobb}
-            onDeleteSuccess={onDeleteSuccess}
-            onChangeSuccess={onChangeSuccess}
-          />
+          {tlfnr.mobil && (
+            <EndreNummer
+              type={"MOBIL"}
+              titleId="personalia.tlfnr.mobil"
+              currentLandskode={tlfnr.mobil.landskode}
+              currentTlfnummer={tlfnr.mobil.nummer}
+              onDeleteSuccess={onDeleteSuccess}
+              onChangeSuccess={onChangeSuccess}
+            />
+          )}
+          {tlfnr.privat && (
+            <EndreNummer
+              type={"HJEM"}
+              titleId="personalia.tlfnr.hjem"
+              currentLandskode={tlfnr.privat.landskode}
+              currentTlfnummer={tlfnr.privat.nummer}
+              onDeleteSuccess={onDeleteSuccess}
+              onChangeSuccess={onChangeSuccess}
+            />
+          )}
+          {tlfnr.jobb && (
+            <EndreNummer
+              type={"ARBEID"}
+              titleId="personalia.tlfnr.arbeid"
+              currentLandskode={tlfnr.jobb.landskode}
+              currentTlfnummer={tlfnr.jobb.nummer}
+              onDeleteSuccess={onDeleteSuccess}
+              onChangeSuccess={onChangeSuccess}
+            />
+          )}
         </div>
       ) : (
         <Melding meldingId="personalia.tlfnr.ingenData" />
@@ -78,8 +113,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       {opprett ? (
         <OpprettNummer
           onCancelClick={() => settOpprett(false)}
-          onChangeSuccess={(type, tlfnummer) => {
-            onChangeSuccess(type, tlfnummer);
+          onChangeSuccess={(type, tlfnummer, landskode) => {
+            onChangeSuccess(type, tlfnummer, landskode);
             settOpprett(false);
           }}
           tlfnr={tlfnr}

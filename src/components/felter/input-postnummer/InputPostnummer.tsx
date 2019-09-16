@@ -18,24 +18,22 @@ export interface Kode {
 }
 
 const SelectPostnummer = React.memo((props: Props) => {
-  const [loading, settLoading] = useState(false);
+  const [loading, settLoading] = useState(true);
   const [postnummer, settPostnummer] = useState([] as Kode[]);
   const [fetchError, settFetchError] = useState();
+  const { error, onErrors } = props;
 
   useEffect(() => {
-    if (!loading) {
-      settLoading(true);
-      fetchPostnummer()
-        .then((postnummer: Kode[]) => {
-          settPostnummer(postnummer);
-        })
-        .catch((error: HTTPError) => {
-          settFetchError(error);
-        })
-        .then(() => {
-          settLoading(false);
-        });
-    }
+    fetchPostnummer()
+      .then((postnummer: Kode[]) => {
+        settPostnummer(postnummer);
+      })
+      .catch((error: HTTPError) => {
+        settFetchError(error);
+      })
+      .then(() => {
+        settLoading(false);
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -45,10 +43,10 @@ const SelectPostnummer = React.memo((props: Props) => {
 
   useEffect(() => {
     const errorText = "Ugyldig postnummer";
-    if (props.error !== errorText && !poststed) {
-      props.onErrors(errorText);
+    if (error !== errorText && !poststed && !loading) {
+      onErrors(errorText);
     }
-  }, [props, poststed]);
+  }, [loading, error, onErrors, poststed]);
 
   return (
     <div className="input-postnummer__container">
