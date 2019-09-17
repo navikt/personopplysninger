@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, FormValidation } from "calidation";
-import { postKontonummer } from "../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postKontonummer
+} from "../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../components/error/Error";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
+import { useStore } from "../../../../../../providers/Provider";
+import { PersonInfo } from "../../../../../../types/personInfo";
 
 interface Props {
   kontonummer?: string;
-  onChangeSuccess: (kontonummer: string) => void;
+  onChangeSuccess: () => void;
 }
 
 interface Alert {
@@ -25,6 +30,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
   const { onChangeSuccess, kontonummer } = props;
+  const [, dispatch] = useStore();
 
   const initialValues = kontonummer
     ? {
@@ -43,6 +49,14 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
     }
   };
 
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
     const { kontonummer } = fields;
@@ -54,17 +68,14 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
 
       settLoading(true);
       postKontonummer(outbound)
-        .then(() => {
-          onChangeSuccess(kontonummer);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };
@@ -84,7 +95,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
                   label={"Kontonummer"}
                   value={fields.kontonummer}
                   onChange={e => setField({ kontonummer: e.target.value })}
-                  maxLength={13}
+                  maxLength={11}
                   bredde={"M"}
                   feil={
                     submitted && errors.kontonummer

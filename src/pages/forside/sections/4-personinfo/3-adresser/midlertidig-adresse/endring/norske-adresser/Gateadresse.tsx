@@ -6,7 +6,10 @@ import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
 import { sjekkForFeil } from "../../../../../../../../utils/validators";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
-import { postGateadresse } from "../../../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postGateadresse
+} from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import {
@@ -15,10 +18,12 @@ import {
   visDersomInteger
 } from "../../../../../../../../utils/formattering";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
+import { PersonInfo } from "../../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../../providers/Provider";
 
 interface Props {
-  tilleggsadresse: Tilleggsadresse;
-  onChangeSuccess: (konto: Tilleggsadresse) => void;
+  tilleggsadresse?: Tilleggsadresse;
+  onChangeSuccess: () => void;
 }
 
 export interface OutboundGateadresse {
@@ -35,9 +40,10 @@ export interface OutboundGateadresse {
 }
 
 const OpprettEllerEndreGateadresse = (props: Props) => {
+  const { tilleggsadresse, onChangeSuccess } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
-  const { tilleggsadresse } = props;
+  const [, dispatch] = useStore();
 
   const trimAdresse = (
     adresse: string = "",
@@ -86,6 +92,14 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
     }
   };
 
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -98,23 +112,16 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         tilleggslinjeType: "V"
       } as OutboundGateadresse;
 
-      const view = {
-        ...fields
-      };
-
       settLoading(true);
       postGateadresse(outbound)
-        .then(() => {
-          props.onChangeSuccess(view);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };

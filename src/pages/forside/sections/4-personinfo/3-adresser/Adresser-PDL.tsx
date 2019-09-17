@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
-import {
-  FormattedHTMLMessage,
-  InjectedIntlProps,
-  injectIntl
-} from "react-intl";
+import React, { useState } from "react";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
@@ -24,24 +21,16 @@ interface Props {
 }
 
 const AdresserPDL = (props: Props & InjectedIntlProps) => {
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
-  const [utenlandskAdresse, settUtenlandskAdresse] = useState();
-  const [tilleggsadresse, settTilleggsadresse] = useState();
-
-  useEffect(() => {
-    settTilleggsadresse(props.adresser.tilleggsadresse);
-    settUtenlandskAdresse(props.adresser.utenlandskAdresse);
-    settNorskEllerUtenlandsk(
-      props.adresser.tilleggsadresse
-        ? "NORSK"
-        : props.adresser.utenlandskAdresse
-        ? "UTENLANDSK"
-        : undefined
-    );
-  }, [props.adresser.tilleggsadresse, props.adresser.utenlandskAdresse]);
-
+  const { tilleggsadresse, utenlandskAdresse } = props.adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState();
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
+    props.adresser.tilleggsadresse
+      ? "NORSK"
+      : props.adresser.utenlandskAdresse
+      ? "UTENLANDSK"
+      : undefined
+  );
 
   const radioButtons = [
     {
@@ -78,22 +67,14 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
               </div>
               {norskEllerUtenlandsk === "NORSK" && (
                 <OpprettEllerEndreNorskMidlertidigAdresse
-                  tilleggsadresse={tilleggsadresse}
-                  onChangeSuccess={adresse => {
-                    settTilleggsadresse(adresse);
-                    settOpprettEllerEndre(false);
-                    settUtenlandskAdresse(undefined);
-                  }}
+                  tilleggsadresse={props.adresser.tilleggsadresse}
+                  onChangeSuccess={() => settOpprettEllerEndre(false)}
                 />
               )}
               {norskEllerUtenlandsk === "UTENLANDSK" && (
                 <OpprettEllerEndreUtenlandskAdresse
-                  onChangeSuccess={adresse => {
-                    settUtenlandskAdresse(adresse);
-                    settOpprettEllerEndre(false);
-                    settTilleggsadresse(undefined);
-                  }}
-                  utenlandskadresse={utenlandskAdresse}
+                  onChangeSuccess={() => settOpprettEllerEndre(false)}
+                  utenlandskadresse={props.adresser.utenlandskAdresse}
                 />
               )}
               <Kilde

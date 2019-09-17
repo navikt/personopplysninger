@@ -12,28 +12,16 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const mapTypes = {
-  HJEM: "privat",
-  MOBIL: "mobil",
-  ARBEID: "jobb"
-} as { [key: string]: string };
-
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const [tlfnr, settTlfnr] = useState();
 
-  const onChangeSuccess = (
-    type: string,
-    tlfnummer: string,
-    landskode: { value: string; label: string }
-  ) => {
-    settTlfnr({ ...tlfnr, [mapTypes[type]]: { nummer: tlfnummer, landskode } });
+  const onChangeSuccess = () => {
+    settOpprett(false);
   };
 
-  const onDeleteSuccess = (type: string) => {
-    const rest = Object.assign({}, tlfnr);
-    delete rest[mapTypes[type]];
-    settTlfnr(rest);
+  const onDeleteSuccess = () => {
+    settOpprett(false);
   };
 
   useEffect(() => {
@@ -113,10 +101,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
       {opprett ? (
         <OpprettNummer
           onCancelClick={() => settOpprett(false)}
-          onChangeSuccess={(type, tlfnummer, landskode) => {
-            onChangeSuccess(type, tlfnummer, landskode);
-            settOpprett(false);
-          }}
+          onChangeSuccess={onChangeSuccess}
           tlfnr={tlfnr}
         />
       ) : (

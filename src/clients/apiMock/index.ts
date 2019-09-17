@@ -15,49 +15,63 @@ const { apiUrl, baseUrl, dsopUrl } = Environment();
 // Config
 fetchMock.config.fallbackToNetwork = true;
 
-const mockKontaktinfo = true;
-const mockPersonalia = true;
-const mockFeatureToggles = true;
-const mockAuthInfo = true;
-const mockDsopInfo = true;
-const mockRetningsnumre = true;
-const mockLand = true;
-const mockValutaer = true;
-const mockPostnummer = true;
+const mockFetchKontaktinfo = true;
+const mockFetchPersonalia = true;
+const mockFetchFeatureToggles = true;
+const mockFetchAuthInfo = true;
+const mockFetchDsopInfo = true;
+const mockFetchRetningsnumre = true;
+const mockFetchLand = true;
+const mockFetchValutaer = true;
+const mockFetchPostnummer = true;
+const mockPostgateadresse = true;
 
 export const setUpMock = async () => {
-  mockKontaktinfo &&
+  /*
+    Fetch
+   */
+  mockFetchKontaktinfo &&
     fetchMock.get(
       `${apiUrl}/kontaktinformasjon`,
       delay(200, 750).then(() => kontaktInformasjon)
     );
-  mockPersonalia &&
+  mockFetchPersonalia &&
     fetchMock.get(
       `${apiUrl}/personalia`,
       delay(200, 750).then(() => personInformasjon)
     );
-  mockFeatureToggles &&
+  mockFetchFeatureToggles &&
     fetchMock.get(
       `begin:${apiUrl}/feature-toggles`,
       delay(200, 750).then(() => featureToggles)
     );
-  mockAuthInfo &&
+  mockFetchAuthInfo &&
     fetchMock.get(
       `${baseUrl}/innloggingslinje-api/auth`,
       delay(10, 50).then(() => authInfo)
     );
-  mockRetningsnumre &&
+  mockFetchRetningsnumre &&
     fetchMock.get(
       `${apiUrl}/retningsnumre`,
       delay(10, 50).then(() => retningsnumre)
     );
-  mockPostnummer &&
+  mockFetchPostnummer &&
     fetchMock.get(`${apiUrl}/postnummer`, delay(10, 50).then(() => postnummer));
-  mockValutaer &&
+  mockFetchValutaer &&
     fetchMock.get(`${apiUrl}/valuta`, delay(10, 50).then(() => valutaer));
-  mockDsopInfo &&
+  mockFetchDsopInfo &&
     fetchMock.get(`${dsopUrl}/get`, delay(10, 50).then(() => dsopInfo));
-  mockLand && fetchMock.get(`${apiUrl}/land`, delay(10, 50).then(() => land));
+  mockFetchLand &&
+    fetchMock.get(`${apiUrl}/land`, delay(10, 50).then(() => land));
+
+  /*
+    POST
+   */
+  mockPostgateadresse &&
+    fetchMock.post(
+      `${apiUrl}/endreGateadresse`,
+      delay(10, 50).then(() => ({ statusType: "OK" }))
+    );
 };
 
 const delay = (min: number, max: number) => {

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Box from "../../../../../components/box/Box";
 import kontonummerIkon from "../../../../../assets/img/Kontonummer.svg";
 import { UtenlandskBankkonto } from "../../../../../types/personalia";
@@ -19,18 +19,11 @@ interface Props {
 }
 
 const UtbetalingerPDL = (props: Props) => {
+  const { kontonr, utenlandskbank } = props;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [utenlandskbank, settUtenlandskbank] = useState();
-  const [kontonr, settKontonr] = useState();
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState();
-
-  useEffect(() => {
-    settKontonr(props.kontonr);
-    settUtenlandskbank(props.utenlandskbank);
-    settNorskEllerUtenlandsk(
-      props.kontonr ? "NORSK" : props.utenlandskbank ? "UTENLANDSK" : undefined
-    );
-  }, [props.kontonr, props.utenlandskbank]);
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
+    kontonr ? "NORSK" : utenlandskbank ? "UTENLANDSK" : undefined
+  );
 
   const radioButtons = [
     {
@@ -60,21 +53,13 @@ const UtbetalingerPDL = (props: Props) => {
           {norskEllerUtenlandsk === "NORSK" && (
             <OpprettEllerEndreNorskKontonr
               kontonummer={kontonr}
-              onChangeSuccess={kontonummer => {
-                settKontonr(kontonummer);
-                settOpprettEllerEndre(false);
-                settUtenlandskbank(undefined);
-              }}
+              onChangeSuccess={() => settOpprettEllerEndre(false)}
             />
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
             <OpprettEllerEndreUtenlandsbank
               utenlandskbank={utenlandskbank}
-              onChangeSuccess={bank => {
-                settUtenlandskbank(bank);
-                settOpprettEllerEndre(false);
-                settKontonr(undefined);
-              }}
+              onChangeSuccess={() => settOpprettEllerEndre(false)}
             />
           )}
           <Kilde

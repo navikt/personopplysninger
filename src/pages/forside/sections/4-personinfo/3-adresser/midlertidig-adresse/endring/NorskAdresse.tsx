@@ -6,8 +6,8 @@ import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse"
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
 
 interface Props {
-  tilleggsadresse: Tilleggsadresse;
-  onChangeSuccess: (konto: Tilleggsadresse) => void;
+  tilleggsadresse?: Tilleggsadresse;
+  onChangeSuccess: () => void;
 }
 
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
@@ -27,7 +27,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
             <option value="STEDSADRESSE">Stedsadresse</option>
           </Select>
         </div>
-        <div className="addresse__kolonne"></div>
+        <div className="addresse__kolonne" />
       </div>
       {
         {

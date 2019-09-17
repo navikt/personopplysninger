@@ -8,13 +8,18 @@ import AlertStripe from "nav-frontend-alertstriper";
 import { sjekkForFeil } from "../../../../../../../utils/validators";
 import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
-import { postUtenlandskAdresse } from "../../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postUtenlandskAdresse
+} from "../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../components/error/Error";
 import { UNKNOWN } from "../../../../../../../utils/text";
+import { PersonInfo } from "../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../providers/Provider";
 
 interface Props {
-  utenlandskadresse: UtenlandskAdresseType;
-  onChangeSuccess: (konto: UtenlandskAdresseType) => void;
+  utenlandskadresse?: UtenlandskAdresseType;
+  onChangeSuccess: () => void;
 }
 
 export interface OutboundUtenlandskAdresse {
@@ -26,9 +31,10 @@ export interface OutboundUtenlandskAdresse {
 }
 
 const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
+  const { utenlandskadresse, onChangeSuccess } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
-  const { utenlandskadresse } = props;
+  const [, dispatch] = useStore();
 
   const initialValues = utenlandskadresse
     ? {
@@ -54,6 +60,14 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
     }
   };
 
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -65,24 +79,16 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
         gyldigTom: fields.datoTilOgMed
       };
 
-      const view = {
-        ...fields,
-        land: fields.land.label
-      };
-
       settLoading(true);
       postUtenlandskAdresse(outbound)
-        .then(() => {
-          props.onChangeSuccess(view);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };
