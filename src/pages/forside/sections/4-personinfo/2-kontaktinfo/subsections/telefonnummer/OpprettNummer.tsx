@@ -4,7 +4,10 @@ import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { Form, FormContext, Validation } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
-import { postTlfnummer } from "../../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postTlfnummer
+} from "../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../components/error/Error";
 import { baseFormConfig, typeFormConfig } from "./Utils";
 import avbrytIkon from "../../../../../../../assets/img/Back.svg";
@@ -13,15 +16,12 @@ import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../../../../../../types/personalia";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { sjekkForFeil } from "../../../../../../../utils/validators";
-import { OptionType } from "../../../../../../../types/option";
+import { PersonInfo } from "../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../providers/Provider";
 
 interface Props {
   onCancelClick: () => void;
-  onChangeSuccess: (
-    type: string,
-    tlfnummer: string,
-    landskode: OptionType
-  ) => void;
+  onChangeSuccess: () => void;
   tlfnr?: Tlfnr;
 }
 
@@ -34,6 +34,7 @@ const OpprettTelefonnummer = (props: Props) => {
   const [endreLoading, settEndreLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
   const { tlfnr, onChangeSuccess } = props;
+  const [, dispatch] = useStore();
 
   const initialValues = {
     landskode: {
@@ -41,6 +42,14 @@ const OpprettTelefonnummer = (props: Props) => {
       value: "+47"
     }
   };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
 
   const submit = (e: FormContext) => {
     const { isValid, fields } = e;
@@ -55,17 +64,14 @@ const OpprettTelefonnummer = (props: Props) => {
 
       settEndreLoading(true);
       postTlfnummer(outbound)
-        .then(() => {
-          onChangeSuccess(type, tlfnummer, landskode);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settEndreLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settEndreLoading(false);
         });
     }
   };

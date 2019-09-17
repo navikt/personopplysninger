@@ -12,12 +12,17 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import AlertStripe from "nav-frontend-alertstriper";
 import { FormContext, FormValidation } from "calidation";
-import { postPostboksadresse } from "../../../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postPostboksadresse
+} from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
+import { PersonInfo } from "../../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../../providers/Provider";
 
 interface Props {
-  tilleggsadresse: Tilleggsadresse;
-  onChangeSuccess: (konto: Tilleggsadresse) => void;
+  tilleggsadresse?: Tilleggsadresse;
+  onChangeSuccess: () => void;
 }
 
 export interface OutboundPostboksadresse {
@@ -29,11 +34,13 @@ export interface OutboundPostboksadresse {
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
+  const { tilleggsadresse, onChangeSuccess } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
+  const [, dispatch] = useStore();
 
   const initialValues = {
-    ...props.tilleggsadresse
+    ...tilleggsadresse
   };
 
   const formConfig = {
@@ -43,6 +50,14 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
     postnummer: {},
     datoTilOgMed: {}
   };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
@@ -54,23 +69,16 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
         gyldigTom: datoTilOgMed
       } as OutboundPostboksadresse;
 
-      const view = {
-        ...fields
-      };
-
       settLoading(true);
       postPostboksadresse(outbound)
-        .then(() => {
-          props.onChangeSuccess(view);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };

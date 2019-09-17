@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { FormContext, FormValidation } from "calidation";
-import { postKontonummer } from "../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postKontonummer
+} from "../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../components/error/Error";
 import AlertStripe, {
   AlertStripeInfo,
@@ -14,10 +17,12 @@ import SelectLand from "../../../../../../components/felter/kodeverk/SelectLand"
 import SelectValuta from "../../../../../../components/felter/kodeverk/SelectValuta";
 import InputMedHjelpetekst from "../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "../../../../../../utils/text";
+import { useStore } from "../../../../../../providers/Provider";
+import { PersonInfo } from "../../../../../../types/personInfo";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
-  onChangeSuccess: (iban: UtenlandskBankkonto) => void;
+  onChangeSuccess: () => void;
 }
 
 interface Alert {
@@ -45,6 +50,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
   const { onChangeSuccess, utenlandskbank } = props;
+  const [, dispatch] = useStore();
 
   const initialValues = utenlandskbank
     ? {
@@ -89,6 +95,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     adresse3: {}
   };
 
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
   const submitEndre = (c: FormContext) => {
     const { isValid, fields } = c;
 
@@ -109,25 +123,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         }
       };
 
-      const view = {
-        ...fields,
-        land: fields.land.label,
-        valuta: fields.valuta.label
-      };
-
       settLoading(true);
       postKontonummer(outbound)
-        .then(() => {
-          onChangeSuccess(view as UtenlandskBankkonto);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };

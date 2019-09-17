@@ -22,8 +22,8 @@ import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 
 interface Props {
-  tilleggsadresse: Tilleggsadresse;
-  onChangeSuccess: (konto: Tilleggsadresse) => void;
+  tilleggsadresse?: Tilleggsadresse;
+  onChangeSuccess: () => void;
 }
 
 export interface OutboundGateadresse {
@@ -40,12 +40,10 @@ export interface OutboundGateadresse {
 }
 
 const OpprettEllerEndreGateadresse = (props: Props) => {
+  const { tilleggsadresse, onChangeSuccess } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
-  const { tilleggsadresse } = props;
-
-  // eslint-disable-next-line
-  const [{}, dispatch] = useStore();
+  const [, dispatch] = useStore();
 
   const trimAdresse = (
     adresse: string = "",
@@ -94,6 +92,14 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
     }
   };
 
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -106,36 +112,16 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         tilleggslinjeType: "V"
       } as OutboundGateadresse;
 
-      const view = {
-        ...fields
-      };
-
       settLoading(true);
       postGateadresse(outbound)
-        .then(() => {
-          fetchPersonInfo()
-            .then(personInfo => {
-              props.onChangeSuccess(view);
-              dispatch({
-                type: "SETT_PERSON_INFO_RESULT",
-                payload: personInfo as PersonInfo
-              });
-            })
-            .catch((error: HTTPError) =>
-              settAlert({
-                type: "feil",
-                melding: `${error.code} - ${error.text}`
-              })
-            );
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
         .catch((error: HTTPError) => {
+          settLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settLoading(false);
         });
     }
   };

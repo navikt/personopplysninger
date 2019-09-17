@@ -7,6 +7,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
+  fetchPersonInfo,
   postTlfnummer,
   slettTlfnummer
 } from "../../../../../../../clients/apiClient";
@@ -18,16 +19,14 @@ import { baseFormConfig } from "./Utils";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "../../../../../../../utils/formattering";
 import { OptionType } from "../../../../../../../types/option";
+import { PersonInfo } from "../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../providers/Provider";
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";
   titleId: string;
-  onDeleteSuccess: (type: string) => void;
-  onChangeSuccess: (
-    type: string,
-    tlfnummer: string,
-    landskode: OptionType
-  ) => void;
+  onDeleteSuccess: () => void;
+  onChangeSuccess: () => void;
   currentLandskode: OptionType;
   currentTlfnummer?: string;
 }
@@ -38,24 +37,35 @@ interface Alert {
 }
 
 const EndreTelefonnummer = (props: Props) => {
+  const { type, titleId, currentLandskode, currentTlfnummer } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-
-  const {
-    type,
-    titleId,
-    currentLandskode,
-    currentTlfnummer,
-    onChangeSuccess,
-    onDeleteSuccess
-  } = props;
+  const [, dispatch] = useStore();
 
   const initialValues = {
     tlfnummer: currentTlfnummer,
     landskode: currentLandskode
   };
+
+  const onChangeSuccess = () => {
+    props.onChangeSuccess();
+    settEndre(false);
+  };
+
+  const onDeleteSuccess = () => {
+    props.onDeleteSuccess();
+    settEndre(false);
+  };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
 
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
@@ -69,18 +79,15 @@ const EndreTelefonnummer = (props: Props) => {
 
       settEndreLoading(true);
       postTlfnummer(outbound)
-        .then(() => {
-          settEndre(false);
-          onChangeSuccess(type, fields.tlfnummer, fields.landskode);
-        })
+        .then(getUpdatedData)
+        .then(onChangeSuccess)
+        .then(() => settEndre(false))
         .catch((error: HTTPError) => {
+          settEndreLoading(false);
           settAlert({
             type: "feil",
             melding: `${error.code} - ${error.text}`
           });
-        })
-        .then(() => {
-          settEndreLoading(false);
         });
     }
   };
@@ -98,10 +105,8 @@ const EndreTelefonnummer = (props: Props) => {
 
     settSlettLoading(true);
     slettTlfnummer(outbound)
-      .then(() => {
-        settEndre(false);
-        onDeleteSuccess(type);
-      })
+      .then(getUpdatedData)
+      .then(onDeleteSuccess)
       .catch((error: HTTPError) => {
         settSlettLoading(false);
         settAlert({

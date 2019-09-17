@@ -17,8 +17,9 @@ const parseJson = (data: Response) => data.json();
     FETCH
  */
 
-const hentJsonOgSjekkAuth = (url: string) =>
-  fetch(url, {
+const hentJsonOgSjekkAuth = (url: string) => {
+  console.log(url);
+  return fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
     credentials: "include"
@@ -34,9 +35,13 @@ const hentJsonOgSjekkAuth = (url: string) =>
       logApiError(url, error);
       throw error;
     });
+};
 
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
+
+export const fetchPersonInfoDummy = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/personalia-dummy`);
 
 export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
