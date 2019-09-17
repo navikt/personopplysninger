@@ -8,7 +8,7 @@ import retningsnumre from "./data/retningsnumre.json";
 import valutaer from "./data/valutaer.json";
 import postnummer from "./data/postnummer.json";
 import land from "./data/land.json";
-import Environment from "../../utils/Environments";
+import Environment from "../../Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
 

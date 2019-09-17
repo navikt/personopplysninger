@@ -1,4 +1,4 @@
-import Environment from "../utils/Environments";
+import Environment from "../Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { HTTPError } from "../components/error/Error";

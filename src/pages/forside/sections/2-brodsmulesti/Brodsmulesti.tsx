@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import Environment from "../../../../utils/Environments";
+import Environment from "../../../../Environments";
 import konto from "../../../../assets/img/Konto.svg";
 import { withRouter, RouteComponentProps } from "react-router";
 import { Link } from "react-router-dom";

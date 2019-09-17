@@ -10,7 +10,7 @@ import { Adresser } from "../../../../../types/adresser";
 import Box from "../../../../../components/box/Box";
 import adresseIkon from "../../../../../assets/img/Adresse.svg";
 import Kilde from "../../../../../components/kilde/Kilde";
-import Environment from "../../../../../utils/Environments";
+import Environment from "../../../../../Environments";
 import endreIkon from "../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
 import AdressePanel from "./komponenter/AdressePanel";
