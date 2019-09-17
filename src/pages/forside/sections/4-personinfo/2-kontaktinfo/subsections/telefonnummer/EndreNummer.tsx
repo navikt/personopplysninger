@@ -81,7 +81,6 @@ const EndreTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .then(() => settEndre(false))
         .catch((error: HTTPError) => {
           settEndreLoading(false);
           settAlert({

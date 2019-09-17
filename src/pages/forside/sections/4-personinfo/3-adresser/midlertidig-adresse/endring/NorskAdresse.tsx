@@ -27,7 +27,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
             <option value="STEDSADRESSE">Stedsadresse</option>
           </Select>
         </div>
-        <div className="addresse__kolonne"></div>
+        <div className="addresse__kolonne" />
       </div>
       {
         {
