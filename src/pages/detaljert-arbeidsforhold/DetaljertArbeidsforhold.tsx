@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
-import Environment from "../../utils/Environments";
+import Environment from "../../Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";

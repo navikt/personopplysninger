@@ -202,31 +202,31 @@
       "enhet": "NAV Falkenborg"
     },
     "postadresse": {
-      "adresse1": "12345 HFJEF IQUFJ HFURHGHQBEUQ",
-      "adresse2": "BATOOM LUNCHAGRAMA,GONGRUPEA,DD",
-      "adresse3": "GGLAM,10000 HCAMGHU,THAILAND",
+      "adresse1": "MS Joyce Browning",
+      "adresse2": "2045 Royal Road",
+      "adresse3": "LONDON WIP 6HQ",
       "datoFraOgMed": "2018-03-13",
-      "land": "THA",
+      "land": "ENGLAND",
       "postnummer": "",
-      "poststed": "Nittedal"
+      "poststed": ""
     },
     "prioritertAdresse": "TIAD",
     "tilleggsadresse": {
-      "adresse1": "JEPP 10jfioew JIO LPFL ",
-      "adresse2": "LOOOL FKEOWIF JEWIOF WECOOOO FJEI",
+      "adresse1": "C/O Per Vikane",
+      "adresse2": "Per Vikens Gate A H0402",
       "adresse3": "",
-      "bolignummer": "",
+      "bolignummer": "H0402",
       "bydel": "",
       "datoFraOgMed": "2019-01-12",
       "datoTilOgMed": "2023-01-11",
       "gateKode": "0270",
-      "husbokstav": "",
+      "husbokstav": "A",
       "husnummer": "0020",
       "kommunenummer": "0131",
       "postboksanlegg": "",
       "postboksnummer": "",
       "postnummer": "2021",
-      "poststed": "JAJAJA"
+      "poststed": "OSLO"
     },
     "datakilder": [{}, {}]
   }

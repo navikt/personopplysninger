@@ -17,6 +17,7 @@ interface Props {
   error: string | null;
   fetchError: boolean;
   hjelpetekst?: string;
+  openMenuOnClick?: boolean;
   onChange: (value?: OptionType) => void;
   borderUnderFirst?: boolean;
   loading?: boolean;
@@ -46,7 +47,7 @@ const DropdownIndicator = (props: any) => (
   </div>
 );
 
-const NAVSelect = (props: Props) => {
+const NAVSelect = React.memo((props: Props) => {
   const controlClasses = cls({
     "KodeverkSelect__control-feil": props.submitted && props.error
   });
@@ -102,6 +103,8 @@ const NAVSelect = (props: Props) => {
           loadingMessage={() => "Laster inn..."}
           noOptionsMessage={v => `Ingen treff funnet for ${v.inputValue}...`}
           className={controlClasses}
+          cacheOptions={true}
+          openMenuOnClick={props.openMenuOnClick}
           isLoading={props.loading}
           options={props.options}
           formatOptionLabel={props.defineLabel}
@@ -135,6 +138,6 @@ const NAVSelect = (props: Props) => {
       placeholder={"+"}
     />
   );
-};
+});
 
 export default NAVSelect;

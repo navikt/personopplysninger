@@ -1,77 +1,59 @@
 import React, { useState } from "react";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../../types/adresser/utenlandskadresse";
+import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
+import { FormContext, FormValidation } from "calidation";
+import { postStedsadresse } from "../../../../../../../../clients/apiClient";
+import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Input } from "nav-frontend-skjema";
+import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
-import { sjekkForFeil } from "../../../../../../../utils/validators";
-import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
-import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
-import { postUtenlandskAdresse } from "../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../components/error/Error";
-import { UNKNOWN } from "../../../../../../../utils/text";
+import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 
 interface Props {
-  utenlandskadresse: UtenlandskAdresseType;
-  onChangeSuccess: (konto: UtenlandskAdresseType) => void;
+  tilleggsadresse: Tilleggsadresse;
+  onChangeSuccess: (konto: Tilleggsadresse) => void;
 }
 
-export interface OutboundUtenlandskAdresse {
-  adresselinje1: string;
-  adresselinje2: string;
-  adresselinje3: string;
-  landkode: string;
+export interface OutboundStedsadresse {
+  tilleggslinje: string;
+  eiendomsnavn: string;
+  postnummer: string;
   gyldigTom: string;
 }
 
-const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
+const OpprettEllerEndreStedsadresse = (props: Props) => {
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
-  const { utenlandskadresse } = props;
 
-  const initialValues = utenlandskadresse
-    ? {
-        ...utenlandskadresse,
-        land: {
-          label: utenlandskadresse.land,
-          value: UNKNOWN
-        }
-      }
-    : {};
+  const initialValues = {
+    ...props.tilleggsadresse
+  };
 
   const formConfig = {
-    adresse1: {
-      isRequired: "Gateadresse er påkrevd"
-    },
-    adresse2: {},
-    adresse3: {},
-    land: {
-      isRequired: "Land er påkrevd"
-    },
-    datoTilOgMed: {
-      isRequired: "Gyldig til er påkrevd"
-    }
+    tilleggslinje: {},
+    eiendomsnavn: {},
+    postnummer: {},
+    datoTilOgMed: {}
   };
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const outbound: OutboundUtenlandskAdresse = {
-        adresselinje1: fields.adresse1,
-        adresselinje2: fields.adresse2,
-        adresselinje3: fields.adresse3,
-        landkode: fields.land.value,
-        gyldigTom: fields.datoTilOgMed
-      };
+      const { datoTilOgMed, ...equalFields } = fields;
+
+      const outbound = {
+        ...equalFields,
+        gyldigTom: datoTilOgMed
+      } as OutboundStedsadresse;
 
       const view = {
-        ...fields,
-        land: fields.land.label
+        ...fields
       };
 
       settLoading(true);
-      postUtenlandskAdresse(outbound)
+      postStedsadresse(outbound)
         .then(() => {
           props.onChangeSuccess(view);
         })
@@ -93,17 +75,17 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       config={formConfig}
       initialValues={initialValues}
     >
-      {({ errors, fields, submitted, isValid, setField, setError }) => {
+      {({ errors, fields, isValid, submitted, setField, setError }) => {
         return (
           <>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
-                  label={"Adresse"}
-                  value={fields.adresse1}
-                  onChange={e => setField({ adresse1: e.target.value })}
+                  label={"Person som eier adressen (valgfri)"}
+                  value={fields.tilleggslinje}
+                  onChange={e => setField({ tilleggslinje: e.target.value })}
                   bredde={"XXL"}
-                  feil={sjekkForFeil(submitted, errors.adresse1)}
+                  feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
               <div className="addresse__kolonne" />
@@ -111,35 +93,26 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
-                  label={""}
-                  value={fields.adresse2}
-                  onChange={e => setField({ adresse2: e.target.value })}
+                  label={"Stedsadresse"}
+                  value={fields.eiendomsnavn}
+                  onChange={e => setField({ eiendomsnavn: e.target.value })}
                   bredde={"XXL"}
-                  feil={sjekkForFeil(submitted, errors.adresse2)}
+                  feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
               </div>
               <div className="addresse__kolonne" />
             </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
-                <Input
-                  label={""}
-                  value={fields.adresse3}
-                  onChange={e => setField({ adresse3: e.target.value })}
-                  bredde={"XXL"}
-                  feil={sjekkForFeil(submitted, errors.adresse3)}
+                <InputPostnummer
+                  label={"Postnummer"}
+                  value={fields.postnummer}
+                  submitted={submitted}
+                  error={errors.postnummer}
+                  onChange={postnummer => setField({ postnummer })}
+                  onErrors={error => setError({ postnummer: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
-            </div>
-            <div className="addresse__land-select">
-              <SelectLand
-                option={fields.land}
-                submitted={submitted}
-                label={"Land"}
-                error={errors.land}
-                onChange={land => setField({ land })}
-              />
             </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
@@ -179,4 +152,4 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreUtenlandskAdresse;
+export default OpprettEllerEndreStedsadresse;

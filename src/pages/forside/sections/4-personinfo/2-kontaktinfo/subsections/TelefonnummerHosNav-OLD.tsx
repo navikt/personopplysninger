@@ -5,7 +5,7 @@ import ListElement from "../../../../../../components/listelement/ListElement";
 import Melding from "../../../../../../components/melding/Melding";
 import { Tlfnr } from "../../../../../../types/personalia";
 import Kilde from "../../../../../../components/kilde/Kilde";
-import Environment from "../../../../../../utils/Environments";
+import Environment from "../../../../../../Environments";
 import endreIkon from "../../../../../../assets/img/Pencil.svg";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 

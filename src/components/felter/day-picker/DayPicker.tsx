@@ -56,7 +56,7 @@ const DayPicker = (props: Props) => {
   });
 
   return (
-    <>
+    <div className="skjemaelement">
       {label && <div className="skjemaelement__label">{label}</div>}
       <DayPickerInput
         value={valgtDag}
@@ -70,7 +70,6 @@ const DayPicker = (props: Props) => {
         }}
         dayPickerProps={{
           selectedDays: valgtDag,
-          numberOfMonths: 2,
           locale: props.locale,
           localeUtils: MomentLocaleUtils,
           month: dateOneYearAhead,
@@ -87,7 +86,7 @@ const DayPicker = (props: Props) => {
       {submitted && error && (
         <div className="skjemaelement__feilmelding">{error}</div>
       )}
-    </>
+    </div>
   );
 };
 

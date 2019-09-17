@@ -4,7 +4,7 @@ import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "../../../../assets/img/Arbeidsforhold.svg";
 import { EtikettLiten } from "nav-frontend-typografi";
 import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
-import Environment from "../../../../utils/Environments";
+import Environment from "../../../../Environments";
 import { withRouter, RouteComponentProps } from "react-router";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import { Link } from "react-router-dom";

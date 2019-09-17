@@ -13,10 +13,15 @@ import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "../../../../../../../types/personalia";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { sjekkForFeil } from "../../../../../../../utils/validators";
+import { OptionType } from "../../../../../../../types/option";
 
 interface Props {
   onCancelClick: () => void;
-  onChangeSuccess: (type: string, tlfnummer: string) => void;
+  onChangeSuccess: (
+    type: string,
+    tlfnummer: string,
+    landskode: OptionType
+  ) => void;
   tlfnr?: Tlfnr;
 }
 
@@ -51,7 +56,7 @@ const OpprettTelefonnummer = (props: Props) => {
       settEndreLoading(true);
       postTlfnummer(outbound)
         .then(() => {
-          onChangeSuccess(type, tlfnummer);
+          onChangeSuccess(type, tlfnummer, landskode);
         })
         .catch((error: HTTPError) => {
           settAlert({
@@ -79,6 +84,7 @@ const OpprettTelefonnummer = (props: Props) => {
             </div>
           </div>
           <button
+            type={"button"}
             onClick={props.onCancelClick}
             className={"kilde__lenke lenke"}
           >
@@ -122,7 +128,7 @@ const OpprettTelefonnummer = (props: Props) => {
         </div>
         <div className={"tlfnummer__input-container"}>
           <Validation config={baseFormConfig} initialValues={initialValues}>
-            {({ errors, fields, submitted, setField }) => {
+            {({ errors, fields, isValid, submitted, setField }) => {
               const tlfNummerMaxLength =
                 fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
 
@@ -152,6 +158,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     <Knapp
                       type={"hoved"}
                       htmlType={"submit"}
+                      disabled={submitted && !isValid}
                       autoDisableVedSpinner={true}
                       spinner={endreLoading}
                     >

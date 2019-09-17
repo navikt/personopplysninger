@@ -27,15 +27,9 @@
       width: 40%;
     }
   }
-  &__kolonne-bysted {
-    width: 350px;
-  }
-  &__kolonne-postnr {
-    width: 150px;
-  }
   &__rad {
     display: flex;
-    @media @maxTablet {
+    @media @maxMobile {
       flex-direction: column;
     }
     width: 100%;
@@ -44,12 +38,22 @@
     @media @maxMobile {
       width: 100%;
     }
+    @media @minMobile {
+      width: 50%;
+    }
+  }
+  &__input-avstand {
+    padding-right: 0.5rem;
   }
   &__kolonne:first-child {
-    padding-right: 0.25rem;
+    @media @minMobile {
+      padding-right: 0.25rem;
+    }
   }
   &__kolonne:last-child {
-    padding-left: 0.25rem;
+    @media @minMobile {
+      padding-left: 0.25rem;
+    }
   }
   &__submit-container {
     display: flex;

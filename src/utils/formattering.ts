@@ -1,3 +1,5 @@
+import { erInteger } from "./validators";
+
 export const normalizeNummer = (input: string) => {
   return input.replace(/\D/g, "");
 };
@@ -14,10 +16,11 @@ export const formatKontonummer = (input: string) => {
 
 export const formatTelefonnummer = (
   type: string,
-  landskode: string,
+  landskode: { label: string; value: string },
   input: string
 ) => {
-  if (landskode === "+47") {
+  input = input.trim();
+  if (landskode.value === "+47") {
     switch (type) {
       case "MOBIL":
         if (input.length > 8) {
@@ -50,3 +53,11 @@ export const formatTelefonnummer = (
 
   return input;
 };
+
+export const visDersomInteger = (value?: string) =>
+  value ? parseInt(value, RADIX_DECIMAL) : undefined;
+
+export const settDersomInteger = (value: string) =>
+  erInteger(value) ? parseInt(value, RADIX_DECIMAL) : undefined;
+
+export const RADIX_DECIMAL = 10;

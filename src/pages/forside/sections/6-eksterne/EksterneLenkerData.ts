@@ -3,7 +3,7 @@ import pensjon from "../../../../assets/img/Pensjon.svg";
 import utbetalinger from "../../../../assets/img/Utbetalinger.svg";
 import sykefravaer from "../../../../assets/img/Sykepenger.svg";
 import dineSaker from "../../../../assets/img/DineSaker.svg";
-import Environment from "../../../../utils/Environments";
+import Environment from "../../../../Environments";
 
 const { tjenesteUrl } = Environment();
 
