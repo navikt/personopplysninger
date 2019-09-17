@@ -4,6 +4,7 @@ export const baseFormConfig = {
   },
   tlfnummer: {
     isRequired: "Du må skrive inn telefonnummer",
+    isNumber: "Telefonnummer kan kun bestå av siffer",
     isNorwegianTelephoneNumber: "Norske telefonnummer må bestå av 8 siffer",
     isMaxLength: {
       message: "Telefonnummeret må være maksimalt 16 siffer",
