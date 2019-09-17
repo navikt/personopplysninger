@@ -38,9 +38,6 @@ const hentJsonOgSjekkAuth = (url: string) =>
 export const fetchPersonInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
 
-export const fetchPersonInfoDummy = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/personalia-dummy`);
-
 export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
 
