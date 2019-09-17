@@ -7,7 +7,10 @@ import {
 } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import {
+  blacklistedWords,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -39,10 +42,18 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
   };
 
   const formConfig = {
-    tilleggslinje: {},
-    eiendomsnavn: {},
-    postnummer: {},
-    datoTilOgMed: {}
+    tilleggslinje: {
+      isBlacklisted: blacklistedWords
+    },
+    eiendomsnavn: {
+      isBlacklisted: blacklistedWords
+    },
+    postnummer: {
+      isBlacklisted: blacklistedWords
+    },
+    datoTilOgMed: {
+      isBlacklisted: blacklistedWords
+    }
   };
 
   const getUpdatedData = () =>
@@ -89,10 +100,11 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
+                  bredde={"XXL"}
+                  placeholder={"C/O"}
                   label={"Person som eier adressen (valgfri)"}
                   value={fields.tilleggslinje}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
@@ -101,10 +113,10 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
+                  bredde={"XXL"}
                   label={"Stedsadresse"}
                   value={fields.eiendomsnavn}
                   onChange={e => setField({ eiendomsnavn: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
               </div>

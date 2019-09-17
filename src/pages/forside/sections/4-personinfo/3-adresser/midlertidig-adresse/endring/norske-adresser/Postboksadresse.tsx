@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import {
+  blacklistedWords,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import {
   settDersomInteger,
   visDersomInteger
@@ -44,11 +47,21 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   };
 
   const formConfig = {
-    tilleggslinje: {},
-    postboksnummer: {},
-    postboksanlegg: {},
-    postnummer: {},
-    datoTilOgMed: {}
+    tilleggslinje: {
+      isBlacklisted: blacklistedWords
+    },
+    postboksnummer: {
+      isBlacklisted: blacklistedWords
+    },
+    postboksanlegg: {
+      isBlacklisted: blacklistedWords
+    },
+    postnummer: {
+      isBlacklisted: blacklistedWords
+    },
+    datoTilOgMed: {
+      isBlacklisted: blacklistedWords
+    }
   };
 
   const getUpdatedData = () =>
@@ -95,10 +108,11 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
+                  bredde={"XXL"}
+                  placeholder={"C/O"}
                   label={"Person som eier adressen (valgfri)"}
                   value={fields.tilleggslinje}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>

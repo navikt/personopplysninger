@@ -11,6 +11,10 @@ export const extraValidators = {
     !isValidBIC(value) ? config.message : null,
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
+  isLetters: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
+  isLettersOrDigits: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
   isNorwegianTelephoneNumber: (
     config: SimpleValidatorConfig,
     { fields }: ValidatorContext
@@ -21,6 +25,11 @@ export const extraValidators = {
       ? config.message
       : null
 } as any;
+
+export const blacklistedWords = {
+  message: `Kan ikke inneholde ord som "ukjent" og "vet ikke"`,
+  blacklist: ["ukjent", "vet ikke"]
+};
 
 export const sjekkForFeil = (submitted: boolean, error: string | null) =>
   submitted && error ? { feilmelding: error } : undefined;

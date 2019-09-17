@@ -5,7 +5,10 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
-import { sjekkForFeil } from "../../../../../../../utils/validators";
+import {
+  blacklistedWords,
+  sjekkForFeil
+} from "../../../../../../../utils/validators";
 import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
 import {
@@ -48,14 +51,21 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
 
   const formConfig = {
     adresse1: {
+      isBlacklisted: blacklistedWords,
       isRequired: "Gateadresse er påkrevd"
     },
-    adresse2: {},
-    adresse3: {},
+    adresse2: {
+      isBlacklisted: blacklistedWords
+    },
+    adresse3: {
+      isBlacklisted: blacklistedWords
+    },
     land: {
+      isBlacklisted: blacklistedWords,
       isRequired: "Land er påkrevd"
     },
     datoTilOgMed: {
+      isBlacklisted: blacklistedWords,
       isRequired: "Gyldig til er påkrevd"
     }
   };

@@ -4,7 +4,10 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import {
+  blacklistedWords,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 import {
   fetchPersonInfo,
@@ -20,6 +23,7 @@ import {
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -39,8 +43,8 @@ export interface OutboundGateadresse {
   tilleggslinjeType: string;
 }
 
-const OpprettEllerEndreGateadresse = (props: Props) => {
-  const { tilleggsadresse, onChangeSuccess } = props;
+const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
+  const { tilleggsadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -79,15 +83,26 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   const formConfig = {
     tilleggslinje: {},
     gatenavn: {
-      isRequired: "Gateadresse er påkrevd"
+      isBlacklisted: blacklistedWords,
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"],
+      isRequired: intl.messages["validation.gatenavn.pakrevd"]
     },
-    husnummer: {},
-    husbokstav: {},
+    husnummer: {
+      isBlacklisted: blacklistedWords,
+      isNumber: intl.messages["validation.only.digits"]
+    },
+    husbokstav: {
+      isBlacklisted: blacklistedWords
+    },
     postnummer: {
+      isBlacklisted: blacklistedWords,
       isRequired: "Bolignummer er påkrevd"
     },
-    bolignummer: {},
+    bolignummer: {
+      isBlacklisted: blacklistedWords
+    },
     datoTilOgMed: {
+      isBlacklisted: blacklistedWords,
       isRequired: "Gyldig dato er påkrevd"
     }
   };
@@ -138,10 +153,11 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
+                  bredde={"XXL"}
+                  placeholder={"C/O"}
                   label={"Person som eier adressen (valgfri)"}
                   value={fields.tilleggslinje}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
@@ -150,10 +166,10 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
+                  bredde={"XXL"}
                   label={"Gatenavn"}
                   value={fields.gatenavn}
                   onChange={e => setField({ gatenavn: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.gatenavn)}
                 />
               </div>
@@ -238,4 +254,4 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreGateadresse;
+export default injectIntl(OpprettEllerEndreGateadresse);
