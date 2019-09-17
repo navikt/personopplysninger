@@ -105,10 +105,10 @@ export const postGateadresse = (data: OutboundGateadresse) =>
   sendJson(`${apiUrl}/endreGateadresse`, data);
 
 export const postPostboksadresse = (data: OutboundPostboksadresse) =>
-  sendJson(`${apiUrl}/endreGateadresse`, data);
+  sendJson(`${apiUrl}/endrePostboksadresse`, data);
 
 export const postStedsadresse = (data: OutboundStedsadresse) =>
-  sendJson(`${apiUrl}/endreGateadresse`, data);
+  sendJson(`${apiUrl}/endreStedsadresse`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/slettTelefonnummer`, data);

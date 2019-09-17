@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { FormContext, FormValidation } from "calidation";
-import { postPostboksadresse } from "../../../../../../../../clients/apiClient";
+import { postStedsadresse } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
-import { OutboundPostboksadresse } from "./Postboksadresse";
 import { Input } from "nav-frontend-skjema";
 import { sjekkForFeil } from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
@@ -47,14 +46,14 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
       const outbound = {
         ...equalFields,
         gyldigTom: datoTilOgMed
-      } as OutboundPostboksadresse;
+      } as OutboundStedsadresse;
 
       const view = {
         ...fields
       };
 
       settLoading(true);
-      postPostboksadresse(outbound)
+      postStedsadresse(outbound)
         .then(() => {
           props.onChangeSuccess(view);
         })
