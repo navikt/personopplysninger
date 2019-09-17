@@ -6,7 +6,10 @@ import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
 import { sjekkForFeil } from "../../../../../../../../utils/validators";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
-import { postGateadresse } from "../../../../../../../../clients/apiClient";
+import {
+  fetchPersonInfo,
+  postGateadresse
+} from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import {
@@ -15,6 +18,8 @@ import {
   visDersomInteger
 } from "../../../../../../../../utils/formattering";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
+import { PersonInfo } from "../../../../../../../../types/personInfo";
+import { useStore } from "../../../../../../../../providers/Provider";
 
 interface Props {
   tilleggsadresse: Tilleggsadresse;
@@ -38,6 +43,9 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const { tilleggsadresse } = props;
+
+  // eslint-disable-next-line
+  const [{}, dispatch] = useStore();
 
   const trimAdresse = (
     adresse: string = "",
@@ -105,7 +113,20 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
       settLoading(true);
       postGateadresse(outbound)
         .then(() => {
-          props.onChangeSuccess(view);
+          fetchPersonInfo()
+            .then(personInfo => {
+              props.onChangeSuccess(view);
+              dispatch({
+                type: "SETT_PERSON_INFO_RESULT",
+                payload: personInfo as PersonInfo
+              });
+            })
+            .catch((error: HTTPError) =>
+              settAlert({
+                type: "feil",
+                melding: `${error.code} - ${error.text}`
+              })
+            );
         })
         .catch((error: HTTPError) => {
           settAlert({

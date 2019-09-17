@@ -79,20 +79,12 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
               {norskEllerUtenlandsk === "NORSK" && (
                 <OpprettEllerEndreNorskMidlertidigAdresse
                   tilleggsadresse={tilleggsadresse}
-                  onChangeSuccess={adresse => {
-                    settTilleggsadresse(adresse);
-                    settOpprettEllerEndre(false);
-                    settUtenlandskAdresse(undefined);
-                  }}
+                  onChangeSuccess={adresse => settOpprettEllerEndre(false)}
                 />
               )}
               {norskEllerUtenlandsk === "UTENLANDSK" && (
                 <OpprettEllerEndreUtenlandskAdresse
-                  onChangeSuccess={adresse => {
-                    settUtenlandskAdresse(adresse);
-                    settOpprettEllerEndre(false);
-                    settTilleggsadresse(undefined);
-                  }}
+                  onChangeSuccess={adresse => settOpprettEllerEndre(false)}
                   utenlandskadresse={utenlandskAdresse}
                 />
               )}
