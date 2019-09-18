@@ -144,6 +144,9 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField }) => {
+        const tlfNummerMaxLength =
+          fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
+
         return (
           <>
             <div className={"tlfnummer__container"}>
@@ -158,7 +161,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 )}
                 {!endre && (
                   <Normaltekst>
-                    {`${fields.landskode.value} ${formatTelefonnummer(
+                    {`${currentLandskode.value} ${formatTelefonnummer(
                       type,
                       currentLandskode,
                       currentTlfnummer
@@ -215,8 +218,8 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
-                      label={"Landkode"}
                       option={fields.landskode}
+                      label={intl.messages["felter.landkode.label"]}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -224,16 +227,12 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                   </div>
                   <div className={"tlfnummer__input input--m"}>
                     <Input
-                      label={"Telefonnummer"}
-                      value={fields.tlfnummer}
-                      bredde={"M"}
                       type={"tel"}
-                      maxLength={
-                        fields.landskode && fields.landskode.value === "+47"
-                          ? 8
-                          : 16
-                      }
+                      bredde={"M"}
+                      value={fields.tlfnummer}
+                      label={intl.messages["felter.tlfnr.label"]}
                       onChange={e => setField({ tlfnummer: e.target.value })}
+                      maxLength={tlfNummerMaxLength}
                       feil={
                         submitted && errors.tlfnummer
                           ? { feilmelding: errors.tlfnummer }

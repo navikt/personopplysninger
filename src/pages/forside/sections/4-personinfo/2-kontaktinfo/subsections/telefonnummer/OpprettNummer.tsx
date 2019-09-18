@@ -139,8 +139,8 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
               </div>
               <div className={"tlfnummer__container"}>
                 <Select
-                  label={"Type"}
                   value={fields.type}
+                  label={intl.messages["felter.type.label"]}
                   onChange={e => setField({ type: e.target.value })}
                   bredde={"s"}
                   feil={
@@ -149,23 +149,31 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                       : undefined
                   }
                 >
-                  <option>Velg type</option>
+                  <option>
+                    <FormattedMessage id="felter.type.velg" />
+                  </option>
                   {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                    <option value="MOBIL">Mobil</option>
+                    <option value="MOBIL">
+                      <FormattedMessage id="personalia.tlfnr.mobil" />
+                    </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                    <option value="ARBEID">Arbeid</option>
+                    <option value="ARBEID">
+                      <FormattedMessage id="personalia.tlfnr.arbeid" />
+                    </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                    <option value="HJEM">Hjem</option>
+                    <option value="HJEM">
+                      <FormattedMessage id="personalia.tlfnr.hjem" />
+                    </option>
                   )}
                 </Select>
               </div>
               <div className={"tlfnummer__input-container"}>
                 <div className={"tlfnummer__input input--s"}>
                   <SelectLandskode
-                    label={"Landkode"}
                     option={fields.landskode}
+                    label={intl.messages["felter.landkode.label"]}
                     onChange={option => setField({ landskode: option })}
                     error={errors.landskode}
                     submitted={submitted}
@@ -175,9 +183,9 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   <Input
                     type={"tel"}
                     bredde={"M"}
-                    label={"Telefonnummer"}
                     value={fields.tlfnummer}
                     maxLength={tlfNummerMaxLength}
+                    label={intl.messages["felter.tlfnr.label"]}
                     onChange={e => setField({ tlfnummer: e.target.value })}
                     feil={sjekkForFeil(submitted, errors.tlfnummer)}
                   />
