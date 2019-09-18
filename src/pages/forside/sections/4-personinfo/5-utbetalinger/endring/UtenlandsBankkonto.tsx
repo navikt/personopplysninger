@@ -19,7 +19,11 @@ import InputMedHjelpetekst from "../../../../../../components/felter/input-med-h
 import { UNKNOWN } from "../../../../../../utils/text";
 import { useStore } from "../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../types/personInfo";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import {
+  InjectedIntlProps,
+  injectIntl,
+  FormattedHTMLMessage
+} from "react-intl";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -50,7 +54,7 @@ export interface OutboundUtenlandsbankonto {
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { onChangeSuccess, utenlandskbank } = props;
+  const { onChangeSuccess, utenlandskbank, intl } = props;
   const [, dispatch] = useStore();
 
   const initialValues = utenlandskbank
@@ -70,27 +74,27 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
 
   const formConfig = {
     iban: {
-      isRequired: "Kontonummer / IBAN er påkrevd",
-      isIBAN: "Et gyldig IBAN er påkrevd"
+      isRequired: intl.messages["validation.kontonummer.iban.pakrevd"],
+      isIBAN: intl.messages["validation.iban.pakrevd"]
     },
     bankkode: {
-      isRequired: "Bankkode er påkrevd"
+      isRequired: intl.messages["validation.bankkode.pakrevd"]
     },
     banknavn: {
-      isRequired: "Banknavn er påkrevd"
+      isRequired: intl.messages["validation.banknavn.pakrevd"]
     },
     land: {
-      isRequired: "Land er påkrevd"
+      isRequired: intl.messages["validation.land.pakrevd"]
     },
     swiftkode: {
-      isRequired: "Swift / BIC kode er påkrevd",
-      isBIC: "En gyldig SWIFT / BIC-kode er påkrevd"
+      isRequired: intl.messages["validation.swift.pakrevd"],
+      isBIC: intl.messages["validation.swift.gyldig"]
     },
     valuta: {
-      isRequired: "Valuta er påkrevd"
+      isRequired: intl.messages["validation.valuta.pakrevd"]
     },
     adresse1: {
-      isRequired: "Feltet er påkrevd"
+      isRequired: intl.messages["validation.adresse.pakrevd"]
     },
     adresse2: {},
     adresse3: {}
@@ -149,83 +153,76 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
           <>
             <div className="utbetalinger__alert">
               <AlertStripeInfo>
-                Vær nøye med utfylling av bankinformasjon for utenlandsk konto
-                slik at betalingen kommer frem til riktig sted. NAV er ikke
-                ansvarlig for at opplysningene er riktige. Gebyrer kan påløpe.
-                Les mer om krav til{" "}
-                <a href="https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
-                  utenlandsk kontonummer
-                </a>
-                .
+                <FormattedHTMLMessage id="felter.utenlandskkonto.info" />
               </AlertStripeInfo>
             </div>
             <div className="utbetalinger__input-container">
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
-                  label={"Kontonummer / IBAN"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.iban"}
-                  value={fields.iban}
                   submitted={submitted}
+                  value={fields.iban}
+                  hjelpetekst={"utbetalinger.hjelpetekster.iban"}
+                  label={intl.messages["felter.kontonummer.iban.label"]}
                   onChange={value => setField({ iban: value })}
                   error={errors.iban}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
-                  label={"Swift / BIC-kode"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-                  value={fields.swiftkode}
                   submitted={submitted}
+                  value={fields.swiftkode}
+                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
+                  label={intl.messages["felter.swift.bic.label"]}
                   onChange={value => setField({ swiftkode: value })}
                   error={errors.swiftkode}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <SelectLand
-                  label={"Bankens land"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.land"}
-                  option={fields.land}
                   submitted={submitted}
+                  option={fields.land}
+                  hjelpetekst={"utbetalinger.hjelpetekster.land"}
+                  label={intl.messages["felter.bankensland.label"]}
                   onChange={value => setField({ land: value })}
                   error={errors.land}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <SelectValuta
-                  label={"Valuta"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
-                  option={fields.valuta}
                   submitted={submitted}
+                  option={fields.valuta}
+                  label={intl.messages["felter.valuta.label"]}
+                  hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
                   onChange={value => setField({ valuta: value })}
                   error={errors.valuta}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
-                  label={"Bankkode"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
-                  value={fields.bankkode}
                   submitted={submitted}
+                  value={fields.bankkode}
+                  label={intl.messages["felter.bankkode.label"]}
+                  hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                   onChange={value => setField({ bankkode: value })}
                   error={errors.bankkode}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
-                  label={"Bankens navn"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.banknavn"}
-                  value={fields.banknavn}
                   submitted={submitted}
+                  value={fields.banknavn}
+                  label={intl.messages["felter.banknavn.label"]}
+                  hjelpetekst={"utbetalinger.hjelpetekster.banknavn"}
                   onChange={value => setField({ banknavn: value })}
                   error={errors.banknavn}
                 />
               </div>
               <div className="utbetalinger__adressefelter">
                 <InputMedHjelpetekst
-                  label={"Adresse"}
-                  hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
-                  value={fields.adresse1}
                   submitted={submitted}
+                  value={fields.adresse1}
+                  label={intl.messages["felter.adresse.label"]}
+                  hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
                   onChange={value => setField({ adresse1: value })}
                   error={errors.adresse1}
                 />

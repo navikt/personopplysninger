@@ -20,7 +20,7 @@ interface Props {
 }
 
 const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
-  const { kontonr, utenlandskbank } = props;
+  const { kontonr, utenlandskbank, intl } = props;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
     kontonr ? "NORSK" : utenlandskbank ? "UTENLANDSK" : undefined
@@ -28,11 +28,11 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
 
   const radioButtons = [
     {
-      label: "Norsk kontonummer",
+      label: intl.messages["felter.kontonummervalg.norsk"],
       value: "NORSK"
     },
     {
-      label: "Utenlandsk kontonummer",
+      label: intl.messages["felter.kontonummervalg.utenlandsk"],
       value: "UTENLANDSK"
     }
   ];
