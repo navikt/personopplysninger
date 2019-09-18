@@ -130,7 +130,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
                 onChange={({ target }) => {
-                  if (target.value.length <= 6) {
+                  if (target.value.length <= 4) {
                     setField({ postboksnummer: target.value });
                   }
                 }}
