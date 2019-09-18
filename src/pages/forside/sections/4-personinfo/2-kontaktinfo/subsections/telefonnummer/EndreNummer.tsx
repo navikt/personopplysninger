@@ -15,12 +15,18 @@ import { HTTPError } from "../../../../../../../components/error/Error";
 import endreIkon from "../../../../../../../assets/img/Pencil.svg";
 import avbrytIkon from "../../../../../../../assets/img/Back.svg";
 import slettIkon from "../../../../../../../assets/img/Slett.svg";
-import { baseFormConfig } from "./Utils";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "../../../../../../../utils/formattering";
 import { OptionType } from "../../../../../../../types/option";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+
+export interface OutboundTlfnummer {
+  type: string;
+  landskode: string;
+  nummer: string;
+}
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";
@@ -36,8 +42,8 @@ interface Alert {
   melding: string;
 }
 
-const EndreTelefonnummer = (props: Props) => {
-  const { type, titleId, currentLandskode, currentTlfnummer } = props;
+const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
+  const { type, titleId, currentLandskode, currentTlfnummer, intl } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -47,6 +53,21 @@ const EndreTelefonnummer = (props: Props) => {
   const initialValues = {
     tlfnummer: currentTlfnummer,
     landskode: currentLandskode
+  };
+
+  const formConfig = {
+    landskode: {
+      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+    },
+    tlfnummer: {
+      isRequired: intl.messages["validation.tlfnr.pakrevd"],
+      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isNorwegianTelephoneNumber: intl.messages["validation.tlfnr.norske"],
+      isMaxLength: {
+        message: intl.messages["validation.tlfnr.makslengde"],
+        length: 16
+      }
+    }
   };
 
   const onChangeSuccess = () => {
@@ -117,8 +138,8 @@ const EndreTelefonnummer = (props: Props) => {
 
   return currentTlfnummer ? (
     <FormValidation
+      config={formConfig}
       onSubmit={submitEndre}
-      config={baseFormConfig}
       className={"tlfnummer__rad"}
       initialValues={initialValues}
     >
@@ -248,4 +269,4 @@ const EndreTelefonnummer = (props: Props) => {
   ) : null;
 };
 
-export default EndreTelefonnummer;
+export default injectIntl(EndreTelefonnummer);

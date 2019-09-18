@@ -75,10 +75,11 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, ...equalFields } = fields;
+      const { datoTilOgMed, postboksnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
+        postboksnummer: postboksnummer.toString(),
         gyldigTom: datoTilOgMed
       } as OutboundPostboksadresse;
 
