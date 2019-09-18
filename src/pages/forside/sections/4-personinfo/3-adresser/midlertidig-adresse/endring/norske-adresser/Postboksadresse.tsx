@@ -109,8 +109,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   label={intl.messages["felter.tillegslinje.label"]}
@@ -120,16 +120,16 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
+            <div className="adresse__rad">
               <Input
                 min={1}
                 bredde={"S"}
                 type={"number"}
                 label={intl.messages["felter.postboksnummer.label"]}
                 value={visDersomInteger(fields.postboksnummer)}
-                className="addresse__input-avstand"
+                className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
                 onChange={({ target }) =>
                   setField({ postboksnummer: settDersomInteger(target.value) })
@@ -140,12 +140,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 value={fields.postboksanlegg}
                 label={intl.messages["felter.postboksanlegg.label"]}
                 onChange={e => setField({ postboksanlegg: e.target.value })}
-                className="addresse__input-avstand"
+                className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksanlegg)}
               />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <InputPostnummer
                   submitted={submitted}
                   value={fields.postnummer}
@@ -156,8 +156,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 />
               </div>
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
                   value={fields.datoTilOgMed}
@@ -168,9 +168,9 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}

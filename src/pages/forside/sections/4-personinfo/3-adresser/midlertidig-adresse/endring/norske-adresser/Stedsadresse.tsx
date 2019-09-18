@@ -91,8 +91,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, isValid, submitted, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   value={fields.tilleggslinje}
@@ -102,10 +102,10 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   value={fields.eiendomsnavn}
@@ -114,10 +114,10 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <InputPostnummer
                   submitted={submitted}
                   value={fields.postnummer}
@@ -128,8 +128,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                 />
               </div>
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
                   value={fields.datoTilOgMed}
@@ -140,9 +140,9 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}

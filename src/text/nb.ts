@@ -197,6 +197,7 @@ export default {
   "validation.valuta.pakrevd": "Valuta er påkrevd",
   "validation.adresse.pakrevd": "Adresse er påkrevd",
   "validation.svarteliste.felles": `Kan ikke inneholde ord som "ukjent" og "vet ikke"`,
+  "validation.husnymmer.ugyldig": `Bolignummer består av en bokstav (L, H, U eller K) og fire siffer.`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

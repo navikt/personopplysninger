@@ -96,7 +96,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     bolignummer: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isHouseNumber: intl.messages["validation.husnymmer.ugyldig"]
     },
     postnummer: {
       isRequired: intl.messages["validation.postnummer.pakrevd"]
@@ -149,8 +150,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   label={intl.messages["felter.tillegslinje.label"]}
@@ -160,10 +161,10 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   value={fields.gatenavn}
@@ -172,34 +173,36 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   feil={sjekkForFeil(submitted, errors.gatenavn)}
                 />
               </div>
-              <div className="addresse__kolonne">
-                <div className="addresse__rad">
+              <div className="adresse__kolonne">
+                <div className="adresse__rad">
                   <Input
                     min={1}
                     bredde={"XS"}
                     type={"number"}
                     label={intl.messages["felter.gatenummer.label"]}
                     value={visDersomInteger(fields.husnummer)}
-                    className="addresse__input-avstand"
+                    className="adresse__input-avstand"
                     feil={sjekkForFeil(submitted, errors.husnummer)}
                     onChange={({ target }) =>
                       setField({ husnummer: settDersomInteger(target.value) })
                     }
                   />
                   <Input
+                    bredde={"XS"}
+                    maxLength={1}
                     value={fields.husbokstav}
-                    className="addresse__input-avstand"
+                    className="adresse__input-avstand"
                     label={intl.messages["felter.gatebokstav.label"]}
                     onChange={e => setField({ husbokstav: e.target.value })}
-                    bredde={"XS"}
                     feil={sjekkForFeil(submitted, errors.husbokstav)}
                   />
                 </div>
               </div>
             </div>
-            <div className="addresse__rad">
+            <div className="adresse__rad">
               <Input
-                className="addresse__input-avstand"
+                maxLength={5}
+                className="adresse__input-avstand adresse__input-bolignummer"
                 value={fields.bolignummer}
                 label={intl.messages["felter.bolignummer.label"]}
                 onChange={e => setField({ bolignummer: e.target.value })}
@@ -215,8 +218,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                 onErrors={error => setError({ postnummer: error })}
               />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
                   value={fields.datoTilOgMed}
@@ -227,9 +230,9 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}

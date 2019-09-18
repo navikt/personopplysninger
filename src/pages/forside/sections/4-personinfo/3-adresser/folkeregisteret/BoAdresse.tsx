@@ -41,7 +41,7 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
             kommune ||
             formattedDate) && (
             <Lesmerpanel
-              className="addresse__lesmer"
+              className="adresse__lesmer"
               apneTekst={props.intl.formatMessage({
                 id: "adresse.bostedsadresse.apneTekst"
               })}

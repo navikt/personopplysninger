@@ -105,8 +105,8 @@ const OpprettEllerEndreUtenlandskAdresse = (
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   value={fields.adresse1}
@@ -115,10 +115,10 @@ const OpprettEllerEndreUtenlandskAdresse = (
                   feil={sjekkForFeil(submitted, errors.adresse1)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   label={""}
                   bredde={"XXL"}
@@ -127,10 +127,10 @@ const OpprettEllerEndreUtenlandskAdresse = (
                   feil={sjekkForFeil(submitted, errors.adresse2)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   label={""}
                   bredde={"XXL"}
@@ -139,9 +139,9 @@ const OpprettEllerEndreUtenlandskAdresse = (
                   feil={sjekkForFeil(submitted, errors.adresse3)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__land-select">
+            <div className="adresse__land-select">
               <SelectLand
                 submitted={submitted}
                 option={fields.land}
@@ -150,8 +150,8 @@ const OpprettEllerEndreUtenlandskAdresse = (
                 onChange={land => setField({ land })}
               />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
                   value={fields.datoTilOgMed}
@@ -162,9 +162,9 @@ const OpprettEllerEndreUtenlandskAdresse = (
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}

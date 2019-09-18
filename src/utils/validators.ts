@@ -18,6 +18,7 @@ export interface ExtraFieldConfig {
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
   isNorwegianTelephoneNumber?: SimpleValidator;
+  isHouseNumber?: SimpleValidator;
 }
 
 export const extraValidators = {
@@ -40,7 +41,10 @@ export const extraValidators = {
 
   isNorwegianTelephoneNumber: (config: SimpleValidatorConfig) => (
     value: string
-  ) => (value.length !== 8 || !erInteger(value) ? config.message : null)
+  ) => (value.length !== 8 || !erInteger(value) ? config.message : null),
+
+  isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null
 };
 
 /*

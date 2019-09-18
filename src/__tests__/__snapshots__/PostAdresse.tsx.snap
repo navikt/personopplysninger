@@ -2,13 +2,13 @@
 
 exports[`render Postadresse with content 1`] = `
 <div
-  className="addresse__box"
+  className="adresse__box"
 >
   <hr
     className="box__linje-bred"
   />
   <div
-    className="addresse__tittel"
+    className="adresse__tittel"
   >
     <h2
       className="typo-undertittel"
@@ -52,7 +52,7 @@ exports[`render Postadresse with content 1`] = `
       className="typo-normal"
     >
       9913
-       
+
     </p>
   </div>
   <div

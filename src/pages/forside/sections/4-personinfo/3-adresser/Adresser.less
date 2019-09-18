@@ -1,6 +1,6 @@
-.addresse {
+.adresse {
   &__box {
-    .addresse__lesmer {
+    .adresse__lesmer {
       .lesMerPanel__toggle {
         justify-content: flex-start;
       }
@@ -44,6 +44,11 @@
   }
   &__input-avstand {
     padding-right: 0.5rem;
+  }
+  &__input-bolignummer {
+    @media @minMobile {
+      max-width: 148px;
+    }
   }
   &__kolonne:first-child {
     @media @minMobile {

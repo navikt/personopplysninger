@@ -21,8 +21,8 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
 
   return (
     <>
-      <div className="addresse__rad">
-        <div className="addresse__kolonne">
+      <div className="adresse__rad">
+        <div className="adresse__kolonne">
           <Select label={"Type adresse"} onChange={onSelectChange}>
             <option value="GATEADRESSE">
               {intl.messages["felter.adressetype.gateadresse"]}
@@ -35,7 +35,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
             </option>
           </Select>
         </div>
-        <div className="addresse__kolonne" />
+        <div className="adresse__kolonne" />
       </div>
       {
         {
