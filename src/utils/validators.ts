@@ -35,7 +35,9 @@ export const extraValidators = {
     value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
 
   isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    value && ["ukjent", "vet ikke"].some(substring => value.includes(substring))
+    ["ukjent", "vet ikke"].some(substring =>
+      value.toLowerCase().includes(substring)
+    )
       ? config.message
       : null,
 

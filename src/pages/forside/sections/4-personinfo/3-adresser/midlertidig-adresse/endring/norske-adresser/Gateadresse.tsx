@@ -15,11 +15,7 @@ import {
 } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
-import {
-  RADIX_DECIMAL,
-  settDersomInteger,
-  visDersomInteger
-} from "../../../../../../../../utils/formattering";
+import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
@@ -180,11 +176,11 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     bredde={"XS"}
                     type={"number"}
                     label={intl.messages["felter.gatenummer.label"]}
-                    value={visDersomInteger(fields.husnummer)}
+                    value={fields.husnummer || ""}
                     className="adresse__input-avstand"
                     feil={sjekkForFeil(submitted, errors.husnummer)}
                     onChange={({ target }) =>
-                      setField({ husnummer: settDersomInteger(target.value) })
+                      setField({ husnummer: target.value })
                     }
                   />
                   <Input
@@ -193,8 +189,10 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     value={fields.husbokstav}
                     className="adresse__input-avstand"
                     label={intl.messages["felter.gatebokstav.label"]}
-                    onChange={e => setField({ husbokstav: e.target.value })}
                     feil={sjekkForFeil(submitted, errors.husbokstav)}
+                    onChange={({ target }) =>
+                      setField({ husbokstav: target.value.toUpperCase() })
+                    }
                   />
                 </div>
               </div>

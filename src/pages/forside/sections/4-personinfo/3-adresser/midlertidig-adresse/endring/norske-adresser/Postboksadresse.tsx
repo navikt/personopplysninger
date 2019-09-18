@@ -5,10 +5,6 @@ import {
   ExtraFieldsConfig,
   sjekkForFeil
 } from "../../../../../../../../utils/validators";
-import {
-  settDersomInteger,
-  visDersomInteger
-} from "../../../../../../../../utils/formattering";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
@@ -128,11 +124,11 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 bredde={"S"}
                 type={"number"}
                 label={intl.messages["felter.postboksnummer.label"]}
-                value={visDersomInteger(fields.postboksnummer)}
+                value={fields.postboksnummer}
                 className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
                 onChange={({ target }) =>
-                  setField({ postboksnummer: settDersomInteger(target.value) })
+                  setField({ postboksnummer: target.value })
                 }
               />
               <Input

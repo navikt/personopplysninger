@@ -1,5 +1,3 @@
-import { erInteger } from "./validators";
-
 export const normalizeNummer = (input: string) => {
   return input.replace(/\D/g, "");
 };
@@ -53,11 +51,5 @@ export const formatTelefonnummer = (
 
   return input;
 };
-
-export const visDersomInteger = (value?: string) =>
-  value ? parseInt(value, RADIX_DECIMAL) : undefined;
-
-export const settDersomInteger = (value: string) =>
-  erInteger(value) ? parseInt(value, RADIX_DECIMAL) : undefined;
 
 export const RADIX_DECIMAL = 10;
