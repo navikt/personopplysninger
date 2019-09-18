@@ -19,6 +19,7 @@ import InputMedHjelpetekst from "../../../../../../components/felter/input-med-h
 import { UNKNOWN } from "../../../../../../utils/text";
 import { useStore } from "../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../types/personInfo";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -46,7 +47,7 @@ export interface OutboundUtenlandsbankonto {
   };
 }
 
-const OpprettEllerEndreUtenlandsbank = (props: Props) => {
+const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
   const { onChangeSuccess, utenlandskbank } = props;
@@ -269,4 +270,4 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreUtenlandsbank;
+export default injectIntl(OpprettEllerEndreUtenlandsbank);

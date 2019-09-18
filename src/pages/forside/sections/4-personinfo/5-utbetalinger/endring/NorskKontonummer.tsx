@@ -11,6 +11,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../types/personInfo";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   kontonummer?: string;
@@ -26,10 +27,10 @@ export interface OutboundNorskKontonummer {
   value: string;
 }
 
-const OpprettEllerEndreNorskKontonr = (props: Props) => {
+const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { onChangeSuccess, kontonummer } = props;
+  const { onChangeSuccess, kontonummer, intl } = props;
   const [, dispatch] = useStore();
 
   const initialValues = kontonummer
@@ -40,10 +41,10 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
 
   const formConfig = {
     kontonummer: {
-      isNumber: "Kontonummer må kun inneholde siffer",
-      isRequired: "Kontonummer er påkrevd",
+      isRequired: intl.messages["validation.kontonummer.pakrevd"],
+      isNumber: intl.messages["validation.kontonummer.siffer"],
       isExactLength: {
-        message: "Kontonummeret må være 11 siffer",
+        message: intl.messages["validation.kontonummer.elleve"],
         length: 11
       }
     }
@@ -92,11 +93,11 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
             <div className="utbetalinger__rad">
               <div className="utbetalinger__input input--m">
                 <Input
-                  label={"Kontonummer"}
-                  value={fields.kontonummer}
-                  onChange={e => setField({ kontonummer: e.target.value })}
-                  maxLength={11}
                   bredde={"M"}
+                  maxLength={11}
+                  value={fields.kontonummer}
+                  label={intl.messages["felter.kontonummer.label"]}
+                  onChange={e => setField({ kontonummer: e.target.value })}
                   feil={
                     submitted && errors.kontonummer
                       ? { feilmelding: errors.kontonummer }
@@ -130,4 +131,4 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreNorskKontonr;
+export default injectIntl(OpprettEllerEndreNorskKontonr);

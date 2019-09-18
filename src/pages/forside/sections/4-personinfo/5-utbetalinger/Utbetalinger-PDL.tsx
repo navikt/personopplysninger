@@ -12,13 +12,14 @@ import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
 import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
 import { RadioPanelGruppe } from "nav-frontend-skjema";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   kontonr?: string;
 }
 
-const UtbetalingerPDL = (props: Props) => {
+const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
   const { kontonr, utenlandskbank } = props;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
@@ -95,4 +96,4 @@ const UtbetalingerPDL = (props: Props) => {
   );
 };
 
-export default UtbetalingerPDL;
+export default injectIntl(UtbetalingerPDL);
