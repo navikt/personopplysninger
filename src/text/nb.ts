@@ -196,6 +196,7 @@ export default {
   "validation.swift.gyldig": "En gyldig SWIFT / BIC-kode er påkrevd",
   "validation.valuta.pakrevd": "Valuta er påkrevd",
   "validation.adresse.pakrevd": "Adresse er påkrevd",
+  "validation.svarteliste.felles": `Kan ikke inneholde ord som "ukjent" og "vet ikke"`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

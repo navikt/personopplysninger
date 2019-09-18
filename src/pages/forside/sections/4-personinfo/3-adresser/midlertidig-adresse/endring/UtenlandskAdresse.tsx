@@ -5,10 +5,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
-import {
-  blacklistedWords,
-  sjekkForFeil
-} from "../../../../../../../utils/validators";
+import { sjekkForFeil } from "../../../../../../../utils/validators";
 import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
 import {
@@ -54,21 +51,14 @@ const OpprettEllerEndreUtenlandskAdresse = (
 
   const formConfig = {
     adresse1: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.gateadresse.pakrevd"]
     },
-    adresse2: {
-      isBlacklisted: blacklistedWords
-    },
-    adresse3: {
-      isBlacklisted: blacklistedWords
-    },
+    adresse2: {},
+    adresse3: {},
     land: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.land.pakrevd"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };

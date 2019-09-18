@@ -4,7 +4,7 @@ import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
   fetchPersonInfo,
@@ -62,7 +62,11 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     tlfnummer: {
       isRequired: intl.messages["validation.tlfnr.pakrevd"],
       isNumber: intl.messages["validation.tlfnr.siffer"],
-      isNorwegianTelephoneNumber: intl.messages["validation.tlfnr.norske"],
+      isNorwegianTelephoneNumber: {
+        message: intl.messages["validation.tlfnr.norske"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.landskode && fields.landskode.value === "+47"
+      },
       isMaxLength: {
         message: intl.messages["validation.tlfnr.makslengde"],
         length: 16

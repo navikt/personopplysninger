@@ -2,7 +2,7 @@ import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
   fetchPersonInfo,
@@ -59,7 +59,11 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
     tlfnummer: {
       isRequired: intl.messages["validation.tlfnr.pakrevd"],
       isNumber: intl.messages["validation.tlfnr.siffer"],
-      isNorwegianTelephoneNumber: intl.messages["validation.tlfnr.norske"],
+      isNorwegianTelephoneNumber: {
+        message: intl.messages["validation.tlfnr.norske"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.landskode && fields.landskode.value === "+47"
+      },
       isMaxLength: {
         message: intl.messages["validation.tlfnr.makslengde"],
         length: 16
@@ -149,22 +153,20 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                       : undefined
                   }
                 >
-                  <option>
-                    <FormattedMessage id="felter.type.velg" />
-                  </option>
+                  <option>{intl.messages["felter.type.velg"]}</option>
                   {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
                     <option value="MOBIL">
-                      <FormattedMessage id="personalia.tlfnr.mobil" />
+                      {intl.messages["personalia.tlfnr.mobil"]}
                     </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
                     <option value="ARBEID">
-                      <FormattedMessage id="personalia.tlfnr.arbeid" />
+                      {intl.messages["personalia.tlfnr.arbeid"]}
                     </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
                     <option value="HJEM">
-                      <FormattedMessage id="personalia.tlfnr.hjem" />
+                      {intl.messages["personalia.tlfnr.hjem"]}
                     </option>
                   )}
                 </Select>

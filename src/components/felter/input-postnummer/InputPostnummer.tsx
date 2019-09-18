@@ -4,7 +4,7 @@ import { HTTPError } from "../../error/Error";
 import { Input } from "nav-frontend-skjema";
 
 interface Props {
-  value: string;
+  value?: number;
   submitted: boolean;
   label: string;
   error: string | null;
@@ -38,7 +38,9 @@ const SelectPostnummer = React.memo((props: Props) => {
   }, []);
 
   const poststed = postnummer
-    .filter(postnummer => postnummer.kode === props.value)
+    .filter(
+      postnummer => props.value && postnummer.kode === props.value.toString()
+    )
     .shift();
 
   useEffect(() => {
@@ -51,15 +53,20 @@ const SelectPostnummer = React.memo((props: Props) => {
   return (
     <div className="input-postnummer__container">
       <Input
+        bredde={"S"}
+        type={"number"}
         value={props.value}
         label={props.label}
-        bredde={"S"}
         feil={
           props.submitted && props.error
             ? { feilmelding: props.error }
             : undefined
         }
-        onChange={e => props.onChange(e.target.value)}
+        onChange={e => {
+          if (e.target.value.length <= 4) {
+            props.onChange(e.target.value);
+          }
+        }}
       />
       <div className="input-postnummer__poststed">
         {poststed && !fetchError && <>{poststed.tekst}</>}

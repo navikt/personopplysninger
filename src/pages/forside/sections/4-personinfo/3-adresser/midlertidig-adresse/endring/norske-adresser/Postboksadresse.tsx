@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
 import {
-  blacklistedWords,
+  ExtraFieldsConfig,
   sjekkForFeil
 } from "../../../../../../../../utils/validators";
 import {
@@ -47,22 +47,22 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
     ...tilleggsadresse
   };
 
-  const formConfig = {
+  const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     postboksnummer: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isNumber: intl.messages["validation.only.digits"]
     },
     postboksanlegg: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     postnummer: {
-      isBlacklisted: blacklistedWords,
-      isRequired: intl.messages["validation.postnummer.pakrevd"]
+      isRequired: intl.messages["validation.postnummer.pakrevd"],
+      isNumber: intl.messages["validation.only.digits"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };

@@ -7,10 +7,7 @@ import {
 } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Input } from "nav-frontend-skjema";
-import {
-  blacklistedWords,
-  sjekkForFeil
-} from "../../../../../../../../utils/validators";
+import { sjekkForFeil } from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -43,18 +40,12 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   };
 
   const formConfig = {
-    tilleggslinje: {
-      isBlacklisted: blacklistedWords
-    },
-    eiendomsnavn: {
-      isBlacklisted: blacklistedWords
-    },
+    tilleggslinje: {},
+    eiendomsnavn: {},
     postnummer: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.postnummer.pakrevd"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };

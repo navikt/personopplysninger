@@ -5,7 +5,7 @@ import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import AlertStripe from "nav-frontend-alertstriper";
 import {
-  blacklistedWords,
+  ExtraFieldsConfig,
   sjekkForFeil
 } from "../../../../../../../../utils/validators";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
@@ -80,31 +80,28 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       }
     : {};
 
-  const formConfig = {
+  const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     gatenavn: {
-      isBlacklisted: blacklistedWords,
-      isRequired: intl.messages["validation.gatenavn.pakrevd"],
-      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"],
+      isRequired: intl.messages["validation.gatenavn.pakrevd"]
     },
     husnummer: {
-      isBlacklisted: blacklistedWords,
       isNumber: intl.messages["validation.only.digits"]
     },
     husbokstav: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     bolignummer: {
-      isBlacklisted: blacklistedWords
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     postnummer: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.postnummer.pakrevd"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords,
       isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };
