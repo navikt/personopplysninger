@@ -18,6 +18,7 @@ import AlertStripe from "nav-frontend-alertstriper";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -31,8 +32,8 @@ export interface OutboundStedsadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreStedsadresse = (props: Props) => {
-  const { tilleggsadresse, onChangeSuccess } = props;
+const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
+  const { tilleggsadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -49,10 +50,12 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
       isBlacklisted: blacklistedWords
     },
     postnummer: {
-      isBlacklisted: blacklistedWords
+      isBlacklisted: blacklistedWords,
+      isRequired: intl.messages["validation.postnummer.pakrevd"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords
+      isBlacklisted: blacklistedWords,
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };
 
@@ -101,9 +104,9 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <Input
                   bredde={"XXL"}
-                  placeholder={"C/O"}
-                  label={"Person som eier adressen (valgfri)"}
                   value={fields.tilleggslinje}
+                  label={intl.messages["felter.tillegslinje.label"]}
+                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
@@ -114,8 +117,8 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <Input
                   bredde={"XXL"}
-                  label={"Stedsadresse"}
                   value={fields.eiendomsnavn}
+                  label={intl.messages["felter.stedsadresse.label"]}
                   onChange={e => setField({ eiendomsnavn: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
@@ -125,10 +128,10 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <InputPostnummer
-                  label={"Postnummer"}
-                  value={fields.postnummer}
                   submitted={submitted}
+                  value={fields.postnummer}
                   error={errors.postnummer}
+                  label={intl.messages["felter.postnummer.label"]}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
@@ -137,10 +140,10 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -172,4 +175,4 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreStedsadresse;
+export default injectIntl(OpprettEllerEndreStedsadresse);

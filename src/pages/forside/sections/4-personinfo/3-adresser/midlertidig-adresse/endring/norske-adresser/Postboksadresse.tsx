@@ -22,6 +22,7 @@ import {
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -36,8 +37,8 @@ export interface OutboundPostboksadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndrePostboksadresse = (props: Props) => {
-  const { tilleggsadresse, onChangeSuccess } = props;
+const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
+  const { tilleggsadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -57,10 +58,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       isBlacklisted: blacklistedWords
     },
     postnummer: {
-      isBlacklisted: blacklistedWords
+      isBlacklisted: blacklistedWords,
+      isRequired: intl.messages["validation.postnummer.pakrevd"]
     },
     datoTilOgMed: {
-      isBlacklisted: blacklistedWords
+      isBlacklisted: blacklistedWords,
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };
 
@@ -110,8 +113,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <Input
                   bredde={"XXL"}
-                  placeholder={"C/O"}
-                  label={"Person som eier adressen (valgfri)"}
+                  label={intl.messages["felter.tillegslinje.label"]}
+                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
                   value={fields.tilleggslinje}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
@@ -124,7 +127,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 min={1}
                 bredde={"S"}
                 type={"number"}
-                label={"Postboksnummer"}
+                label={intl.messages["felter.postboksnummer.label"]}
                 value={visDersomInteger(fields.postboksnummer)}
                 className="addresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
@@ -134,8 +137,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               />
               <Input
                 bredde={"M"}
-                label={"Postboksanlegg"}
                 value={fields.postboksanlegg}
+                label={intl.messages["felter.postboksanlegg.label"]}
                 onChange={e => setField({ postboksanlegg: e.target.value })}
                 className="addresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksanlegg)}
@@ -144,10 +147,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <InputPostnummer
-                  label={"Postnummer"}
-                  value={fields.postnummer}
                   submitted={submitted}
+                  value={fields.postnummer}
                   error={errors.postnummer}
+                  label={intl.messages["felter.postnummer.label"]}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
@@ -156,10 +159,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -191,4 +194,4 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndrePostboksadresse;
+export default injectIntl(OpprettEllerEndrePostboksadresse);
