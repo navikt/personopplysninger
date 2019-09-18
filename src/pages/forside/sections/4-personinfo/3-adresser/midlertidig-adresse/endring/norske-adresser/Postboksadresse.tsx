@@ -163,6 +163,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
                   label={intl.messages["felter.gyldigtom.label"]}
+                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />

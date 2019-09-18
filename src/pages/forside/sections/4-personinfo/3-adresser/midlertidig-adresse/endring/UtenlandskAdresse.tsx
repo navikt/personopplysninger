@@ -19,6 +19,7 @@ import { HTTPError } from "../../../../../../../components/error/Error";
 import { UNKNOWN } from "../../../../../../../utils/text";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   utenlandskadresse?: UtenlandskAdresseType;
@@ -33,8 +34,10 @@ export interface OutboundUtenlandskAdresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
-  const { utenlandskadresse, onChangeSuccess } = props;
+const OpprettEllerEndreUtenlandskAdresse = (
+  props: Props & InjectedIntlProps
+) => {
+  const { utenlandskadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -52,7 +55,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const formConfig = {
     adresse1: {
       isBlacklisted: blacklistedWords,
-      isRequired: "Gateadresse er påkrevd"
+      isRequired: intl.messages["validation.gateadresse.pakrevd"]
     },
     adresse2: {
       isBlacklisted: blacklistedWords
@@ -62,11 +65,11 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
     },
     land: {
       isBlacklisted: blacklistedWords,
-      isRequired: "Land er påkrevd"
+      isRequired: intl.messages["validation.land.pakrevd"]
     },
     datoTilOgMed: {
       isBlacklisted: blacklistedWords,
-      isRequired: "Gyldig til er påkrevd"
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };
 
@@ -115,10 +118,10 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <Input
-                  label={"Adresse"}
-                  value={fields.adresse1}
-                  onChange={e => setField({ adresse1: e.target.value })}
                   bredde={"XXL"}
+                  value={fields.adresse1}
+                  label={intl.messages["felter.adresse.label"]}
+                  onChange={e => setField({ adresse1: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.adresse1)}
                 />
               </div>
@@ -128,9 +131,9 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <Input
                   label={""}
+                  bredde={"XXL"}
                   value={fields.adresse2}
                   onChange={e => setField({ adresse2: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.adresse2)}
                 />
               </div>
@@ -140,9 +143,9 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
               <div className="addresse__kolonne">
                 <Input
                   label={""}
+                  bredde={"XXL"}
                   value={fields.adresse3}
                   onChange={e => setField({ adresse3: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.adresse3)}
                 />
               </div>
@@ -150,20 +153,21 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
             </div>
             <div className="addresse__land-select">
               <SelectLand
-                option={fields.land}
                 submitted={submitted}
-                label={"Land"}
+                option={fields.land}
                 error={errors.land}
+                label={intl.messages["felter.land.label"]}
                 onChange={land => setField({ land })}
               />
             </div>
             <div className="addresse__rad">
               <div className="addresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
+                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -195,4 +199,4 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreUtenlandskAdresse;
+export default injectIntl(OpprettEllerEndreUtenlandskAdresse);
