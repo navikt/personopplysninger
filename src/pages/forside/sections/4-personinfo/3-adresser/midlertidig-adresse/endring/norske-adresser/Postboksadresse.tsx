@@ -52,7 +52,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       isNumber: intl.messages["validation.only.digits"]
     },
     postboksanlegg: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
     },
     postnummer: {
       isRequired: intl.messages["validation.postnummer.pakrevd"],
@@ -109,6 +110,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   label={intl.messages["felter.tillegslinje.label"]}
                   placeholder={intl.messages["felter.tillegslinje.placeholder"]}
                   value={fields.tilleggslinje}
@@ -127,12 +129,15 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 value={fields.postboksnummer}
                 className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
-                onChange={({ target }) =>
-                  setField({ postboksnummer: target.value })
-                }
+                onChange={({ target }) => {
+                  if (target.value.length <= 6) {
+                    setField({ postboksnummer: target.value });
+                  }
+                }}
               />
               <Input
                 bredde={"M"}
+                maxLength={30}
                 value={fields.postboksanlegg}
                 label={intl.messages["felter.postboksanlegg.label"]}
                 onChange={e => setField({ postboksanlegg: e.target.value })}
@@ -151,6 +156,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   onErrors={error => setError({ postnummer: error })}
                 />
               </div>
+              <div className="adresse__kolonne" />
             </div>
             <div className="adresse__rad">
               <div className="adresse__kolonne">

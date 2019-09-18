@@ -7,7 +7,10 @@ import {
 } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import {
+  ExtraFieldsConfig,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -39,9 +42,11 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
     ...tilleggsadresse
   };
 
-  const formConfig = {
+  const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {},
-    eiendomsnavn: {},
+    eiendomsnavn: {
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
+    },
     postnummer: {
       isRequired: intl.messages["validation.postnummer.pakrevd"]
     },
@@ -95,6 +100,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.tilleggslinje}
                   label={intl.messages["felter.tillegslinje.label"]}
                   placeholder={intl.messages["felter.tillegslinje.placeholder"]}
@@ -127,6 +133,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   onErrors={error => setError({ postnummer: error })}
                 />
               </div>
+              <div className="adresse__kolonne" />
             </div>
             <div className="adresse__rad">
               <div className="adresse__kolonne">

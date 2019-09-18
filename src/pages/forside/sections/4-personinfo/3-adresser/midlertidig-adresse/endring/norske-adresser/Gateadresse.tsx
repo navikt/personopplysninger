@@ -89,7 +89,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       isNumber: intl.messages["validation.only.digits"]
     },
     husbokstav: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isLetters: intl.messages["validation.only.letters"]
     },
     bolignummer: {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
@@ -150,6 +151,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   label={intl.messages["felter.tillegslinje.label"]}
                   placeholder={intl.messages["felter.tillegslinje.placeholder"]}
                   value={fields.tilleggslinje}
@@ -163,6 +165,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.gatenavn}
                   label={intl.messages["felter.gatenavn.label"]}
                   onChange={e => setField({ gatenavn: e.target.value })}
@@ -179,9 +182,11 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     value={fields.husnummer || ""}
                     className="adresse__input-avstand"
                     feil={sjekkForFeil(submitted, errors.husnummer)}
-                    onChange={({ target }) =>
-                      setField({ husnummer: target.value })
-                    }
+                    onChange={({ target }) => {
+                      if (target.value.length <= 6) {
+                        setField({ husnummer: target.value });
+                      }
+                    }}
                   />
                   <Input
                     bredde={"XS"}

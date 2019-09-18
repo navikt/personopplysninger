@@ -109,6 +109,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.adresse1}
                   label={intl.messages["felter.adresse.label"]}
                   onChange={e => setField({ adresse1: e.target.value })}
@@ -122,6 +123,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
                 <Input
                   label={""}
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.adresse2}
                   onChange={e => setField({ adresse2: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.adresse2)}
@@ -134,6 +136,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
                 <Input
                   label={""}
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.adresse3}
                   onChange={e => setField({ adresse3: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.adresse3)}
