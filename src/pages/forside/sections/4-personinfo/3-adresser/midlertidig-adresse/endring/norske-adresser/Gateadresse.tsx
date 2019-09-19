@@ -52,31 +52,31 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     bolignummer: string = ""
   ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
 
-  const initialValues = tilleggsadresse
-    ? {
-        datoTilOgMed: dateOneYearAhead,
-        ...tilleggsadresse,
-        ...(tilleggsadresse.husnummer && {
-          husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
-        }),
-        ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
-          ? {
-              tilleggslinje: tilleggsadresse.adresse1,
-              gatenavn: trimAdresse(
-                tilleggsadresse.adresse2,
-                tilleggsadresse.husbokstav,
-                tilleggsadresse.bolignummer
-              )
-            }
-          : tilleggsadresse.adresse1 && {
-              gatenavn: trimAdresse(
-                tilleggsadresse.adresse1,
-                tilleggsadresse.husbokstav,
-                tilleggsadresse.bolignummer
-              )
-            })
-      }
-    : {};
+  const initialValues = {
+    datoTilOgMed: dateOneYearAhead,
+    ...(tilleggsadresse && {
+      ...tilleggsadresse,
+      ...(tilleggsadresse.husnummer && {
+        husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
+      }),
+      ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
+        ? {
+            tilleggslinje: tilleggsadresse.adresse1,
+            gatenavn: trimAdresse(
+              tilleggsadresse.adresse2,
+              tilleggsadresse.husbokstav,
+              tilleggsadresse.bolignummer
+            )
+          }
+        : tilleggsadresse.adresse1 && {
+            gatenavn: trimAdresse(
+              tilleggsadresse.adresse1,
+              tilleggsadresse.husbokstav,
+              tilleggsadresse.bolignummer
+            )
+          })
+    })
+  };
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
