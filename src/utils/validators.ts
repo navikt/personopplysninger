@@ -28,6 +28,9 @@ export const extraValidators = {
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
 
+  isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
+    isValidIBAN(value) ? config.message : null,
+
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
 
