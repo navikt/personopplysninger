@@ -111,6 +111,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
         message: intl.messages["validation.iban.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
           fields.swiftkode && !brukerBankkode(fields.land)
+      },
+      isNotIBAN: {
+        message: intl.messages["validation.ikke.iban"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && fields.land.value === "USA"
       }
     },
     swiftkode: {
@@ -130,6 +135,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
           isValidIBAN(fields.kontonummer) &&
           fields.land &&
           fields.land.value !== "USA"
+      }
+    },
+    retningsnummer: {
+      isRequired: {
+        message: "*",
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && fields.land.value === "USA"
       }
     },
     bankkode: {
@@ -213,11 +225,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField }) => {
-        const { land, kontonummer, swiftkode } = fields;
+        const { land, kontonummer, swiftkode, retningsnummer } = fields;
+
+        // Spesialtilfelle for USA
+        const valgtUSA = land && land.value !== "USA";
 
         const deaktiverBankkode =
-          !brukerBankkode(land) &&
-          (isValidIBAN(kontonummer) || fields.swiftkode);
+          valgtUSA &&
+          (!brukerBankkode(land) ||
+            isValidIBAN(kontonummer) ||
+            fields.swiftkode);
 
         return (
           <>
@@ -274,13 +291,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <div className="utbetalinger__bankkode-rad">
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
-                      value={(land && BANKKODER[land.value]) || ``}
+                      value={(land && BANKKODER[land.value]) || retningsnummer}
                       submitted={submitted}
                       disabled={true}
                       label={intl.messages["felter.bankkode.label"]}
                       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                       error={errors.bankkode ? " " : null}
-                      onChange={value => {}}
+                      onChange={value => setField({ retningsnummer: value })}
                     />
                   </div>
                   <div className="utbetalinger__bankkode-kolonne">
@@ -293,7 +310,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                       error={errors.bankkode}
                       onChange={value => {
                         const maksLengde =
-                          BANKKODE_MAX_LENGTH[land.value] || 16;
+                          (land && BANKKODE_MAX_LENGTH[land.value]) || 16;
 
                         if (value.length <= maksLengde) {
                           setField({ bankkode: value });
