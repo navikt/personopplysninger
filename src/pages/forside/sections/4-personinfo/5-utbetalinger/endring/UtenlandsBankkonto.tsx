@@ -157,7 +157,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
         validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
       },
       isNumber: {
-        message: intl.messages["validation.only.digits"]
+        message: intl.messages["validation.only.digits"],
+        validateIf: ({ fields }: ValidatorContext) => fields.bankkode
       }
     },
     banknavn: {
