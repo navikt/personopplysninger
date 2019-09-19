@@ -13,6 +13,8 @@
       visibility: hidden;
     }
   }
+  &__verdi {
+  }
   &__rad:last-child {
     border-bottom: 0;
   }
@@ -20,7 +22,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start;
+    @media @maxMobile {
+      align-items: center;
+    }
+    @media @minMobile {
+      align-items: flex-start;
+    }
   }
   &__input-container {
     display: flex;
@@ -48,6 +55,9 @@
   &__knapper {
     display: flex;
     padding-top: 0.15rem;
+    @media @maxMobile {
+      flex-direction: column;
+    }
   }
   &__knapp {
     display: flex;

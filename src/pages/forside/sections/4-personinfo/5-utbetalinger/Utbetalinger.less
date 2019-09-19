@@ -1,6 +1,9 @@
 .utbetalinger {
   &__rad {
     display: flex;
+    @media @maxMobile {
+      flex-direction: column;
+    }
   }
   &__type {
     margin-bottom: 1rem;
@@ -18,7 +21,9 @@
     }
   }
   &__knapp {
-    margin: 2rem 0 0 1rem;
+    @media @minMobile {
+      margin: 2rem 0 0 1rem;
+    }
   }
   &__input-container {
     display: flex;

@@ -154,7 +154,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
         return (
           <>
             <div className={"tlfnummer__container"}>
-              <div>
+              <div className={"tlfnummer__verdi"}>
                 <Element>
                   <FormattedMessage id={titleId} />
                 </Element>
