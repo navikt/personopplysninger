@@ -75,6 +75,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       }
     : {};
 
+  /*
+    Validering av kontonummer: Det har blitt lagt inn spesialhåndtering av amerikanske
+    kontonummer. Ta kontakt med økonomiavdelingen for ytterligere informasjon.
+   */
   const formConfig = {
     land: {
       isRequired: intl.messages["validation.land.pakrevd"]
@@ -108,14 +112,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isBIC: {
         message: intl.messages["validation.swift.gyldig"],
         validateIf: ({ fields }: ValidatorContext) =>
-          isValidIBAN(fields.kontonummer)
+          isValidIBAN(fields.kontonummer) &&
+          fields.land &&
+          fields.land.value !== "USA"
       }
     },
     bankkode: {
       isRequired: {
         message: intl.messages["validation.bankkode.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.swiftkode && brukerBankkode(fields.land)
+          !fields.swiftkode || (fields.land && fields.land.value === "USA")
       }
     },
     banknavn: {
@@ -143,6 +149,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     if (isValid) {
       const sendSwiftKode =
         fields.swiftkode && fields.land && fields.land.value !== "USA";
+      const sendBankkode = fields.bankkode && !fields.swiftkode;
+      const sendAdresse = !fields.swiftkode;
 
       const outbound = {
         landkode: fields.land.value,
@@ -153,12 +161,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
         }),
         utenlandskKontoInformasjon: {
           bank: {
-            ...(!fields.swiftkode && {
+            ...(sendAdresse && {
               adresseLinje1: fields.adresse1,
               adresseLinje2: fields.adresse2,
               adresseLinje3: fields.adresse3
             }),
-            ...(!fields.swiftkode && {
+            ...(sendBankkode && {
               kode: fields.bankkode
             }),
             navn: fields.banknavn
@@ -195,7 +203,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     NZL: 6,
     AUS: 6,
     ZAF: 6,
-    CAN: 6
+    CAN: 6,
+    default: 12
   };
 
   const brukerBankkode = (land: OptionType) =>
@@ -209,6 +218,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     >
       {({ errors, fields, submitted, isValid, setField }) => {
         const { land, kontonummer, swiftkode } = fields;
+
+        const deaktiverBankkode =
+          !brukerBankkode(land) &&
+          (isValidIBAN(kontonummer) || fields.swiftkode);
+
         return (
           <>
             <div className="utbetalinger__alert">
@@ -278,18 +292,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                       label={``}
                       type={"number"}
                       submitted={submitted}
-                      disabled={!brukerBankkode(land) && fields.swiftkode}
+                      disabled={deaktiverBankkode}
+                      value={deaktiverBankkode ? `` : fields.bankkode}
+                      error={errors.bankkode}
                       onChange={value => {
-                        if (value.length <= bankkodeMaxLength[land.value]) {
+                        const maksLengde = bankkodeMaxLength[land.value] || 16;
+                        if (value.length <= maksLengde) {
                           setField({ bankkode: value });
                         }
                       }}
-                      error={errors.bankkode}
-                      value={
-                        !brukerBankkode(land) && swiftkode
-                          ? ``
-                          : fields.bankkode
-                      }
                     />
                   </div>
                 </div>
