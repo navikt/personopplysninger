@@ -52,7 +52,22 @@ export interface OutboundUtenlandsbankonto {
   };
 }
 
-const FEDWIRE = ["USA", "IOT", "NZL", "AUS", "ZAF", "CAN"];
+const FEDWIRE = ["USA", "NZL", "AUS", "ZAF", "CAN"];
+const BANKKODER: { [key: string]: string } = {
+  USA: "FW",
+  NZL: "NZ",
+  AUS: "AU",
+  ZAF: "ZA",
+  CAN: "CC"
+};
+
+const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
+  USA: 9,
+  NZL: 6,
+  AUS: 6,
+  ZAF: 6,
+  CAN: 6
+};
 
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
@@ -188,25 +203,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     }
   };
 
-  const bankkoder: { [key: string]: string } = {
-    USA: "FW",
-    IOT: UNKNOWN,
-    NZL: UNKNOWN,
-    AUS: "AU",
-    ZAF: UNKNOWN,
-    CAN: "CC"
-  };
-
-  const bankkodeMaxLength: { [key: string]: number } = {
-    USA: 9,
-    IOT: 11,
-    NZL: 6,
-    AUS: 6,
-    ZAF: 6,
-    CAN: 6,
-    default: 12
-  };
-
   const brukerBankkode = (land: OptionType) =>
     land && FEDWIRE.includes(land.value);
 
@@ -278,7 +274,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <div className="utbetalinger__bankkode-rad">
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
-                      value={(land && bankkoder[land.value]) || ``}
+                      value={(land && BANKKODER[land.value]) || ``}
                       submitted={submitted}
                       disabled={true}
                       label={intl.messages["felter.bankkode.label"]}
@@ -296,7 +292,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                       value={deaktiverBankkode ? `` : fields.bankkode}
                       error={errors.bankkode}
                       onChange={value => {
-                        const maksLengde = bankkodeMaxLength[land.value] || 16;
+                        const maksLengde =
+                          BANKKODE_MAX_LENGTH[land.value] || 16;
+
                         if (value.length <= maksLengde) {
                           setField({ bankkode: value });
                         }
