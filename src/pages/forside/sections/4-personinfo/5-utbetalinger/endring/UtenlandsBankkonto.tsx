@@ -307,7 +307,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                       submitted={submitted}
                       label={intl.messages["felter.bankkode.label"]}
                       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
-                      error={errors.bankkode ? " " : null}
+                      error={errors.retningsnummer}
                       onChange={value => setField({ retningsnummer: value })}
                     />
                   </div>
