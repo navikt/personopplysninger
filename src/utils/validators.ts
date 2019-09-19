@@ -86,6 +86,7 @@ export const sjekkForFeil = (submitted: boolean, error: string | null) =>
 /*
   Overridden types
  */
+
 export type SimpleValidators = Dictionary<
   (config: SimpleValidatorConfig) => (value: any) => string | null
 >;
