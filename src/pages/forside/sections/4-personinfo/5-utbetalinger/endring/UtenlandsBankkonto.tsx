@@ -319,9 +319,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                       value={deaktiverBankkode ? `` : fields.bankkode}
                       error={errors.bankkode}
                       onChange={value => setField({ bankkode: value })}
-                      maxLength={
-                        (land && BANKKODE_MAX_LENGTH[land.value]) || 16
-                      }
+                      maxLength={land && BANKKODE_MAX_LENGTH[land.value]}
                     />
                   </div>
                 </div>
