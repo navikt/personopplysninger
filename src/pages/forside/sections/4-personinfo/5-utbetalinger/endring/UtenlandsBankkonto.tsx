@@ -105,12 +105,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.bankkode || brukerBankkode(fields.land)
+          !fields.bankkode || landetBrukerBankkode(fields.land)
       },
       isIBAN: {
         message: intl.messages["validation.iban.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.swiftkode && !brukerBankkode(fields.land)
+          fields.swiftkode && fields.land && fields.land.value !== "USA"
       },
       isNotIBAN: {
         message: intl.messages["validation.ikke.iban"],
@@ -127,7 +127,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.bankkode || brukerBankkode(fields.land)
+          !fields.bankkode || landetBrukerBankkode(fields.land)
       },
       isBIC: {
         message: intl.messages["validation.swift.gyldig"],
@@ -215,7 +215,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     }
   };
 
-  const brukerBankkode = (land: OptionType) =>
+  const landetBrukerBankkode = (land: OptionType) =>
     land && FEDWIRE.includes(land.value);
 
   return (
@@ -227,14 +227,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField }) => {
         const { land, kontonummer, swiftkode, retningsnummer } = fields;
 
-        // Spesialtilfelle for USA
-        const valgtUSA = land && land.value !== "USA";
-
+        /*
+           Bankkode er et spesialtilfelle
+           for USA og noen få andre land.
+         */
+        const valgtUSA = land && land.value === "USA";
         const deaktiverBankkode =
-          valgtUSA &&
-          (!brukerBankkode(land) ||
+          (!landetBrukerBankkode(land) ||
             isValidIBAN(kontonummer) ||
-            fields.swiftkode);
+            fields.swiftkode) &&
+          !valgtUSA;
 
         return (
           <>
