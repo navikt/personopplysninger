@@ -39,15 +39,20 @@ const OpprettEllerEndreUtenlandskAdresse = (
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
 
-  const initialValues = utenlandskadresse
-    ? {
-        ...utenlandskadresse,
-        land: {
-          label: utenlandskadresse.land,
-          value: UNKNOWN
-        }
+  const dateOneYearAhead = new Date(
+    new Date().setFullYear(new Date().getFullYear() + 1)
+  );
+
+  const initialValues = {
+    datoTilOgMed: dateOneYearAhead,
+    ...(utenlandskadresse && {
+      ...utenlandskadresse,
+      land: {
+        label: utenlandskadresse.land,
+        value: UNKNOWN
       }
-    : {};
+    })
+  };
 
   const formConfig = {
     adresse1: {

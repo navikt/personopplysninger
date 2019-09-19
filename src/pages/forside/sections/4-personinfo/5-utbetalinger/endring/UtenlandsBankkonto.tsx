@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import {
   fetchPersonInfo,
   postKontonummer
@@ -51,6 +51,8 @@ export interface OutboundUtenlandsbankonto {
   };
 }
 
+const FEDWIRE = ["USA", "IOT", "NZL", "AUS", "ZAF", "CAN"];
+
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
@@ -73,9 +75,42 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     : {};
 
   const formConfig = {
+    land: {
+      isRequired: intl.messages["validation.land.pakrevd"]
+    },
     iban: {
-      isRequired: intl.messages["validation.kontonummer.iban.pakrevd"],
-      isIBAN: intl.messages["validation.iban.pakrevd"]
+      isRequired: {
+        message: intl.messages["validation.kontonummer.iban.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      },
+      isLettersOrDigits: {
+        message: intl.messages["validation.only.letters.and.digits"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      },
+      isIBAN: {
+        message: intl.messages["validation.iban.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      }
+    },
+    swiftkode: {
+      isRequired: {
+        message: intl.messages["validation.swift.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      },
+      isLettersOrDigits: {
+        message: intl.messages["validation.only.letters.and.digits"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      },
+      isBIC: {
+        message: intl.messages["validation.swift.gyldig"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && !FEDWIRE.includes(fields.land.value)
+      }
     },
     bankkode: {
       isRequired: intl.messages["validation.bankkode.pakrevd"]
@@ -83,18 +118,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     banknavn: {
       isRequired: intl.messages["validation.banknavn.pakrevd"]
     },
-    land: {
-      isRequired: intl.messages["validation.land.pakrevd"]
-    },
-    swiftkode: {
-      isRequired: intl.messages["validation.swift.pakrevd"],
-      isBIC: intl.messages["validation.swift.gyldig"]
-    },
     valuta: {
       isRequired: intl.messages["validation.valuta.pakrevd"]
     },
     adresse1: {
-      isRequired: intl.messages["validation.adresse.pakrevd"]
+      isRequired: {
+        message: intl.messages["validation.adresse.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.land && fields.land.value === "USA"
+      }
     },
     adresse2: {},
     adresse3: {}
@@ -149,6 +181,18 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField }) => {
+        const iban =
+          fields.bankkode ||
+          (fields.land && FEDWIRE.includes(fields.land.value))
+            ? ``
+            : fields.iban;
+
+        const swift =
+          fields.bankkode ||
+          (fields.land && FEDWIRE.includes(fields.land.value))
+            ? ``
+            : fields.swiftkode;
+
         return (
           <>
             <div className="utbetalinger__alert">
@@ -158,33 +202,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             </div>
             <div className="utbetalinger__input-container">
               <div className="utbetalinger__input-box input--m">
-                <InputMedHjelpetekst
-                  submitted={submitted}
-                  value={fields.iban}
-                  hjelpetekst={"utbetalinger.hjelpetekster.iban"}
-                  label={intl.messages["felter.kontonummer.iban.label"]}
-                  onChange={value => setField({ iban: value })}
-                  error={errors.iban}
-                />
-              </div>
-              <div className="utbetalinger__input-box input--m">
-                <InputMedHjelpetekst
-                  submitted={submitted}
-                  value={fields.swiftkode}
-                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-                  label={intl.messages["felter.swift.bic.label"]}
-                  onChange={value => setField({ swiftkode: value })}
-                  error={errors.swiftkode}
-                />
-              </div>
-              <div className="utbetalinger__input-box input--m">
                 <SelectLand
                   submitted={submitted}
                   option={fields.land}
                   hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   label={intl.messages["felter.bankensland.label"]}
-                  onChange={value => setField({ land: value })}
                   error={errors.land}
+                  onChange={value => {
+                    console.log(value);
+                    setField({ land: value });
+                  }}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
@@ -200,7 +227,37 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
                   submitted={submitted}
+                  value={iban}
+                  disabled={
+                    fields.bankkode ||
+                    (fields.land && FEDWIRE.includes(fields.land.value))
+                  }
+                  hjelpetekst={"utbetalinger.hjelpetekster.iban"}
+                  label={intl.messages["felter.kontonummer.iban.label"]}
+                  onChange={value => setField({ iban: value })}
+                  error={errors.iban}
+                />
+              </div>
+              <div className="utbetalinger__input-box input--m">
+                <InputMedHjelpetekst
+                  submitted={submitted}
+                  value={swift}
+                  disabled={
+                    fields.bankkode ||
+                    (fields.land && FEDWIRE.includes(fields.land.value))
+                  }
+                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
+                  label={intl.messages["felter.swift.bic.label"]}
+                  onChange={value => setField({ swiftkode: value })}
+                  error={errors.swiftkode}
+                />
+              </div>
+
+              <div className="utbetalinger__input-box input--m">
+                <InputMedHjelpetekst
+                  submitted={submitted}
                   value={fields.bankkode}
+                  disabled={fields.iban && fields.swiftkode}
                   label={intl.messages["felter.bankkode.label"]}
                   hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                   onChange={value => setField({ bankkode: value })}
@@ -219,8 +276,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="utbetalinger__adressefelter">
                 <InputMedHjelpetekst
+                  maxLength={34}
                   submitted={submitted}
-                  value={fields.adresse1}
+                  disabled={fields.iban && fields.swiftkode}
+                  value={fields.iban && fields.swiftkode ? `` : fields.adresse1}
                   label={intl.messages["felter.adresse.label"]}
                   hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
                   onChange={value => setField({ adresse1: value })}
@@ -228,14 +287,18 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 />
                 <InputMedHjelpetekst
                   label={""}
-                  value={fields.adresse2}
+                  maxLength={34}
+                  disabled={fields.iban && fields.swiftkode}
+                  value={fields.iban && fields.swiftkode ? `` : fields.adresse2}
                   submitted={submitted}
                   onChange={value => setField({ adresse2: value })}
                   error={errors.adresse2}
                 />
                 <InputMedHjelpetekst
                   label={""}
-                  value={fields.adresse3}
+                  maxLength={34}
+                  disabled={fields.iban && fields.swiftkode}
+                  value={fields.iban && fields.swiftkode ? `` : fields.adresse3}
                   submitted={submitted}
                   onChange={value => setField({ adresse3: value })}
                   error={errors.adresse3}
