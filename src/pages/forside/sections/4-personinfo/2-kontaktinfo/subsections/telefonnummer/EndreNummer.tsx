@@ -4,7 +4,7 @@ import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
   fetchPersonInfo,
@@ -15,12 +15,18 @@ import { HTTPError } from "../../../../../../../components/error/Error";
 import endreIkon from "../../../../../../../assets/img/Pencil.svg";
 import avbrytIkon from "../../../../../../../assets/img/Back.svg";
 import slettIkon from "../../../../../../../assets/img/Slett.svg";
-import { baseFormConfig } from "./Utils";
 import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "../../../../../../../utils/formattering";
 import { OptionType } from "../../../../../../../types/option";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+
+export interface OutboundTlfnummer {
+  type: string;
+  landskode: string;
+  nummer: string;
+}
 
 interface Props {
   type: "MOBIL" | "HJEM" | "ARBEID";
@@ -36,8 +42,8 @@ interface Alert {
   melding: string;
 }
 
-const EndreTelefonnummer = (props: Props) => {
-  const { type, titleId, currentLandskode, currentTlfnummer } = props;
+const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
+  const { type, titleId, currentLandskode, currentTlfnummer, intl } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -47,6 +53,25 @@ const EndreTelefonnummer = (props: Props) => {
   const initialValues = {
     tlfnummer: currentTlfnummer,
     landskode: currentLandskode
+  };
+
+  const formConfig = {
+    landskode: {
+      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+    },
+    tlfnummer: {
+      isRequired: intl.messages["validation.tlfnr.pakrevd"],
+      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isNorwegianTelephoneNumber: {
+        message: intl.messages["validation.tlfnr.norske"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.landskode && fields.landskode.value === "+47"
+      },
+      isMaxLength: {
+        message: intl.messages["validation.tlfnr.makslengde"],
+        length: 16
+      }
+    }
   };
 
   const onChangeSuccess = () => {
@@ -117,12 +142,15 @@ const EndreTelefonnummer = (props: Props) => {
 
   return currentTlfnummer ? (
     <FormValidation
+      config={formConfig}
       onSubmit={submitEndre}
-      config={baseFormConfig}
       className={"tlfnummer__rad"}
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField }) => {
+        const tlfNummerMaxLength =
+          fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
+
         return (
           <>
             <div className={"tlfnummer__container"}>
@@ -137,7 +165,7 @@ const EndreTelefonnummer = (props: Props) => {
                 )}
                 {!endre && (
                   <Normaltekst>
-                    {`${fields.landskode.value} ${formatTelefonnummer(
+                    {`${currentLandskode.value} ${formatTelefonnummer(
                       type,
                       currentLandskode,
                       currentTlfnummer
@@ -194,8 +222,8 @@ const EndreTelefonnummer = (props: Props) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
-                      label={"Landkode"}
                       option={fields.landskode}
+                      label={intl.messages["felter.landkode.label"]}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -203,16 +231,12 @@ const EndreTelefonnummer = (props: Props) => {
                   </div>
                   <div className={"tlfnummer__input input--m"}>
                     <Input
-                      label={"Telefonnummer"}
-                      value={fields.tlfnummer}
-                      bredde={"M"}
                       type={"tel"}
-                      maxLength={
-                        fields.landskode && fields.landskode.value === "+47"
-                          ? 8
-                          : 16
-                      }
+                      bredde={"M"}
+                      value={fields.tlfnummer}
+                      label={intl.messages["felter.tlfnr.label"]}
                       onChange={e => setField({ tlfnummer: e.target.value })}
+                      maxLength={tlfNummerMaxLength}
                       feil={
                         submitted && errors.tlfnummer
                           ? { feilmelding: errors.tlfnummer }
@@ -248,4 +272,4 @@ const EndreTelefonnummer = (props: Props) => {
   ) : null;
 };
 
-export default EndreTelefonnummer;
+export default injectIntl(EndreTelefonnummer);

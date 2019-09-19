@@ -21,7 +21,8 @@ interface Props {
 }
 
 const AdresserPDL = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, utenlandskAdresse } = props.adresser;
+  const { intl, adresser } = props;
+  const { tilleggsadresse, utenlandskAdresse } = adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
@@ -34,11 +35,11 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
 
   const radioButtons = [
     {
-      label: "Norsk adresse",
+      label: intl.messages["felter.adressevalg.norsk"],
       value: "NORSK"
     },
     {
-      label: "Utenlandsk adresse",
+      label: intl.messages["felter.adressevalg.utenlandsk"],
       value: "UTENLANDSK"
     }
   ];

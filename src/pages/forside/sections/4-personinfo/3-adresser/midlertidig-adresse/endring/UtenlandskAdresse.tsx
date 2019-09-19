@@ -16,6 +16,7 @@ import { HTTPError } from "../../../../../../../components/error/Error";
 import { UNKNOWN } from "../../../../../../../utils/text";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   utenlandskadresse?: UtenlandskAdresseType;
@@ -30,33 +31,40 @@ export interface OutboundUtenlandskAdresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
-  const { utenlandskadresse, onChangeSuccess } = props;
+const OpprettEllerEndreUtenlandskAdresse = (
+  props: Props & InjectedIntlProps
+) => {
+  const { utenlandskadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
 
-  const initialValues = utenlandskadresse
-    ? {
-        ...utenlandskadresse,
-        land: {
-          label: utenlandskadresse.land,
-          value: UNKNOWN
-        }
+  const dateOneYearAhead = new Date(
+    new Date().setFullYear(new Date().getFullYear() + 1)
+  );
+
+  const initialValues = {
+    datoTilOgMed: dateOneYearAhead,
+    ...(utenlandskadresse && {
+      ...utenlandskadresse,
+      land: {
+        label: utenlandskadresse.land,
+        value: UNKNOWN
       }
-    : {};
+    })
+  };
 
   const formConfig = {
     adresse1: {
-      isRequired: "Gateadresse er påkrevd"
+      isRequired: intl.messages["validation.gateadresse.pakrevd"]
     },
     adresse2: {},
     adresse3: {},
     land: {
-      isRequired: "Land er påkrevd"
+      isRequired: intl.messages["validation.land.pakrevd"]
     },
     datoTilOgMed: {
-      isRequired: "Gyldig til er påkrevd"
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
     }
   };
 
@@ -102,65 +110,69 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
-                  label={"Adresse"}
-                  value={fields.adresse1}
-                  onChange={e => setField({ adresse1: e.target.value })}
                   bredde={"XXL"}
+                  maxLength={30}
+                  value={fields.adresse1}
+                  label={intl.messages["felter.adresse.label"]}
+                  onChange={e => setField({ adresse1: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.adresse1)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   label={""}
+                  bredde={"XXL"}
+                  maxLength={30}
                   value={fields.adresse2}
                   onChange={e => setField({ adresse2: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.adresse2)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
                   label={""}
+                  bredde={"XXL"}
+                  maxLength={30}
                   value={fields.adresse3}
                   onChange={e => setField({ adresse3: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.adresse3)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__land-select">
+            <div className="adresse__land-select">
               <SelectLand
-                option={fields.land}
                 submitted={submitted}
-                label={"Land"}
+                option={fields.land}
                 error={errors.land}
+                label={intl.messages["felter.land.label"]}
                 onChange={land => setField({ land })}
               />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
+                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}
@@ -185,4 +197,4 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreUtenlandskAdresse;
+export default injectIntl(OpprettEllerEndreUtenlandskAdresse);

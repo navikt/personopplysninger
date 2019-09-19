@@ -7,7 +7,6 @@ import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
-import { inString } from "./utils";
 
 interface Props {
   option: OptionType;
@@ -62,10 +61,12 @@ const NAVSelect = React.memo((props: Props) => {
     ? props.options
         .filter(
           (option: OptionType) =>
-            inString(option.label, props.option.value) ||
-            inString(option.label, props.option.label) ||
-            inString(option.value, props.option.value) ||
-            inString(option.value, props.option.label)
+            // Find closest match
+            option.value === props.option.value ||
+            option.label
+              .replace(`(${option.value})`, ``)
+              .toUpperCase()
+              .trim() === props.option.label.trim().toUpperCase()
         )
         .shift()
     : null;

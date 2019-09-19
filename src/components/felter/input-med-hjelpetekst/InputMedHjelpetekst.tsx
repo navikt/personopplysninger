@@ -5,8 +5,8 @@ import { FormattedHTMLMessage } from "react-intl";
 
 type InputProps = Omit<NavFrontendInputProps, "onChange">;
 interface Props extends InputProps {
-  value: string;
-  error: string | null;
+  value?: string;
+  error?: string | null;
   submitted: boolean;
   onChange: (value: string) => void;
   hjelpetekst?: string;

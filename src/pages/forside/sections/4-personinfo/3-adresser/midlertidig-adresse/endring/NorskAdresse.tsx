@@ -4,6 +4,7 @@ import { Tilleggsadresse } from "../../../../../../../types/adresser/tilleggsadr
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -11,23 +12,30 @@ interface Props {
 }
 
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
-const OpprettEllerEndreNorskAdresse = (props: Props) => {
+const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
   const [type, settType] = useState("GATEADRESSE" as Adresser);
+  const { intl } = props;
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
     settType(e.target.value as Adresser);
 
   return (
     <>
-      <div className="addresse__rad">
-        <div className="addresse__kolonne">
+      <div className="adresse__rad">
+        <div className="adresse__kolonne">
           <Select label={"Type adresse"} onChange={onSelectChange}>
-            <option value="GATEADRESSE">Gateadresse</option>
-            <option value="POSTBOKSADRESSE">Postboksadresse</option>
-            <option value="STEDSADRESSE">Stedsadresse</option>
+            <option value="GATEADRESSE">
+              {intl.messages["felter.adressetype.gateadresse"]}
+            </option>
+            <option value="POSTBOKSADRESSE">
+              {intl.messages["felter.adressetype.postboksadresse"]}
+            </option>
+            <option value="STEDSADRESSE">
+              {intl.messages["felter.adressetype.stedsadresse"]}
+            </option>
           </Select>
         </div>
-        <div className="addresse__kolonne" />
+        <div className="adresse__kolonne" />
       </div>
       {
         {
@@ -40,4 +48,4 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreNorskAdresse;
+export default injectIntl(OpprettEllerEndreNorskAdresse);

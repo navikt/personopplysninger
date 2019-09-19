@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
 import {
-  settDersomInteger,
-  visDersomInteger
-} from "../../../../../../../../utils/formattering";
+  ExtraFieldsConfig,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
@@ -19,6 +18,7 @@ import {
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -33,8 +33,8 @@ export interface OutboundPostboksadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndrePostboksadresse = (props: Props) => {
-  const { tilleggsadresse, onChangeSuccess } = props;
+const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
+  const { tilleggsadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -43,12 +43,25 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
     ...tilleggsadresse
   };
 
-  const formConfig = {
-    tilleggslinje: {},
-    postboksnummer: {},
-    postboksanlegg: {},
-    postnummer: {},
-    datoTilOgMed: {}
+  const formConfig: ExtraFieldsConfig = {
+    tilleggslinje: {
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+    },
+    postboksnummer: {
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isNumber: intl.messages["validation.only.digits"]
+    },
+    postboksanlegg: {
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
+    },
+    postnummer: {
+      isRequired: intl.messages["validation.postnummer.pakrevd"],
+      isNumber: intl.messages["validation.only.digits"]
+    },
+    datoTilOgMed: {
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
+    }
   };
 
   const getUpdatedData = () =>
@@ -62,10 +75,11 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, ...equalFields } = fields;
+      const { datoTilOgMed, postboksnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
+        postboksnummer: postboksnummer.toString(),
         gyldigTom: datoTilOgMed
       } as OutboundPostboksadresse;
 
@@ -92,66 +106,73 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
-                  label={"Person som eier adressen (valgfri)"}
+                  bredde={"XXL"}
+                  maxLength={30}
+                  label={intl.messages["felter.tillegslinje.label"]}
+                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
                   value={fields.tilleggslinje}
                   onChange={e => setField({ tilleggslinje: e.target.value })}
-                  bredde={"XXL"}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
+            <div className="adresse__rad">
               <Input
                 min={1}
                 bredde={"S"}
                 type={"number"}
-                label={"Postboksnummer"}
-                value={visDersomInteger(fields.postboksnummer)}
-                className="addresse__input-avstand"
+                label={intl.messages["felter.postboksnummer.label"]}
+                value={fields.postboksnummer}
+                className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
-                onChange={({ target }) =>
-                  setField({ postboksnummer: settDersomInteger(target.value) })
-                }
+                onChange={({ target }) => {
+                  if (target.value.length <= 4) {
+                    setField({ postboksnummer: target.value });
+                  }
+                }}
               />
               <Input
                 bredde={"M"}
-                label={"Postboksanlegg"}
+                maxLength={30}
                 value={fields.postboksanlegg}
+                label={intl.messages["felter.postboksanlegg.label"]}
                 onChange={e => setField({ postboksanlegg: e.target.value })}
-                className="addresse__input-avstand"
+                className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksanlegg)}
               />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <InputPostnummer
-                  label={"Postnummer"}
-                  value={fields.postnummer}
                   submitted={submitted}
+                  value={fields.postnummer}
                   error={errors.postnummer}
+                  label={intl.messages["felter.postnummer.label"]}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
               </div>
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
+                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}
@@ -176,4 +197,4 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndrePostboksadresse;
+export default injectIntl(OpprettEllerEndrePostboksadresse);

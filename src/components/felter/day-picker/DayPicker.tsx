@@ -14,12 +14,13 @@ interface Props {
   locale: string;
   submitted: boolean;
   placeholder: string;
+  ugyldigTekst: string;
   onChange: (value: string) => void;
   onErrors: (value: string) => void;
 }
 
 const DayPicker = (props: Props) => {
-  const { label, onErrors, submitted, error } = props;
+  const { label, onErrors, submitted, error, ugyldigTekst } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
   const dateNow = new Date(Date.now());
 
@@ -46,7 +47,7 @@ const DayPicker = (props: Props) => {
       props.onChange(moment(nyValgtDag).format("YYYY-MM-DD"));
     }
     if (!nyValgtDag && !isEmpty) {
-      onErrors("Ugyldig dato");
+      onErrors(ugyldigTekst);
     }
   };
 

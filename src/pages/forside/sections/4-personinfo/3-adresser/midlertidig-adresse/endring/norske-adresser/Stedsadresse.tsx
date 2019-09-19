@@ -7,7 +7,10 @@ import {
 } from "../../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../../components/error/Error";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "../../../../../../../../utils/validators";
+import {
+  ExtraFieldsConfig,
+  sjekkForFeil
+} from "../../../../../../../../utils/validators";
 import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -15,6 +18,7 @@ import AlertStripe from "nav-frontend-alertstriper";
 import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -28,8 +32,8 @@ export interface OutboundStedsadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreStedsadresse = (props: Props) => {
-  const { tilleggsadresse, onChangeSuccess } = props;
+const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
+  const { tilleggsadresse, onChangeSuccess, intl } = props;
   const [loading, settLoading] = useState();
   const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
@@ -38,11 +42,17 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
     ...tilleggsadresse
   };
 
-  const formConfig = {
+  const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {},
-    eiendomsnavn: {},
-    postnummer: {},
-    datoTilOgMed: {}
+    eiendomsnavn: {
+      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
+    },
+    postnummer: {
+      isRequired: intl.messages["validation.postnummer.pakrevd"]
+    },
+    datoTilOgMed: {
+      isRequired: intl.messages["validation.tomdato.pakrevd"]
+    }
   };
 
   const getUpdatedData = () =>
@@ -86,56 +96,60 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
       {({ errors, fields, isValid, submitted, setField, setError }) => {
         return (
           <>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
-                  label={"Person som eier adressen (valgfri)"}
-                  value={fields.tilleggslinje}
-                  onChange={e => setField({ tilleggslinje: e.target.value })}
                   bredde={"XXL"}
+                  maxLength={30}
+                  value={fields.tilleggslinje}
+                  label={intl.messages["felter.tillegslinje.label"]}
+                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+                  onChange={e => setField({ tilleggslinje: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.tilleggslinje)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <Input
-                  label={"Stedsadresse"}
-                  value={fields.eiendomsnavn}
-                  onChange={e => setField({ eiendomsnavn: e.target.value })}
                   bredde={"XXL"}
+                  value={fields.eiendomsnavn}
+                  label={intl.messages["felter.stedsadresse.label"]}
+                  onChange={e => setField({ eiendomsnavn: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <InputPostnummer
-                  label={"Postnummer"}
-                  value={fields.postnummer}
                   submitted={submitted}
+                  value={fields.postnummer}
                   error={errors.postnummer}
+                  label={intl.messages["felter.postnummer.label"]}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
               </div>
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__rad">
-              <div className="addresse__kolonne">
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
                 <DayPicker
-                  value={fields.datoTilOgMed}
-                  label={"Gyldig til"}
                   submitted={submitted}
+                  value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
+                  label={intl.messages["felter.gyldigtom.label"]}
+                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
               </div>
-              <div className="addresse__kolonne" />
+              <div className="adresse__kolonne" />
             </div>
-            <div className="addresse__submit-container">
+            <div className="adresse__submit-container">
               <Knapp
                 type={"hoved"}
                 htmlType={"submit"}
@@ -160,4 +174,4 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreStedsadresse;
+export default injectIntl(OpprettEllerEndreStedsadresse);

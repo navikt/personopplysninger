@@ -8,7 +8,7 @@ interface Props {
 }
 
 const AdressePanel = (props: Props) => (
-  <div className="addresse__box">
+  <div className="adresse__box">
     <div className="underseksjon__header">
       <Undertittel>
         <FormattedMessage id={props.tittel} />

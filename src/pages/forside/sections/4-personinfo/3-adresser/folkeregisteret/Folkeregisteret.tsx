@@ -15,7 +15,7 @@ const Folkeregisteret = (props: Props) => (
       <BoAdresse boadresse={props.adresser.boadresse} />
     )}
     {props.adresser.boadresse && props.adresser.postadresse && (
-      <div className="addresse__divider" />
+      <div className="adresse__divider" />
     )}
     {props.adresser.postadresse && (
       <PostAdresse postadresse={props.adresser.postadresse} />

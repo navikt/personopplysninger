@@ -2,14 +2,13 @@ import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
-import { Form, FormContext, Validation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
   fetchPersonInfo,
   postTlfnummer
 } from "../../../../../../../clients/apiClient";
 import { HTTPError } from "../../../../../../../components/error/Error";
-import { baseFormConfig, typeFormConfig } from "./Utils";
 import avbrytIkon from "../../../../../../../assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
@@ -18,6 +17,7 @@ import SelectLandskode from "../../../../../../../components/felter/kodeverk/Sel
 import { sjekkForFeil } from "../../../../../../../utils/validators";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
+import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   onCancelClick: () => void;
@@ -30,16 +30,44 @@ interface Alert {
   melding: string;
 }
 
-const OpprettTelefonnummer = (props: Props) => {
+const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
   const [endreLoading, settEndreLoading] = useState(false);
   const [alert, settAlert] = useState<Alert | undefined>();
-  const { tlfnr, onChangeSuccess } = props;
+  const { tlfnr, onChangeSuccess, intl } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
     landskode: {
       label: "Norge",
       value: "+47"
+    }
+  };
+
+  const formConfig = {
+    type: {
+      isRequired: {
+        message: intl.messages["validation.type.pakrevd"]
+      },
+      isWhitelisted: {
+        message: intl.messages["validation.type.pakrevd"],
+        whitelist: ["MOBIL", "ARBEID", "HJEM"]
+      }
+    },
+    landskode: {
+      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+    },
+    tlfnummer: {
+      isRequired: intl.messages["validation.tlfnr.pakrevd"],
+      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isNorwegianTelephoneNumber: {
+        message: intl.messages["validation.tlfnr.norske"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.landskode && fields.landskode.value === "+47"
+      },
+      isMaxLength: {
+        message: intl.messages["validation.tlfnr.makslengde"],
+        length: 16
+      }
     }
   };
 
@@ -79,36 +107,44 @@ const OpprettTelefonnummer = (props: Props) => {
   return (
     <>
       <div className="tlfnummer__divider" />
-      <Form onSubmit={submit} className={"tlfnummer__rad-leggtil"}>
-        <div className={"tlfnummer__container"}>
-          <div>
-            <Element>
-              <FormattedMessage id="side.leggtil" />
-            </Element>
-            <div className={"tlfnummer__chevron"}>
-              <NedChevron />
-            </div>
-          </div>
-          <button
-            type={"button"}
-            onClick={props.onCancelClick}
-            className={"kilde__lenke lenke"}
-          >
-            <Normaltekst>
-              <FormattedHTMLMessage id="side.avbryt" />
-              <span className="kilde__icon">
-                <img src={avbrytIkon} alt="Ekstern lenke" />
-              </span>
-            </Normaltekst>
-          </button>
-        </div>
-        <div className={"tlfnummer__container"}>
-          <Validation config={typeFormConfig}>
-            {({ errors, fields, submitted, setField }) => {
-              return (
+      <FormValidation
+        onSubmit={submit}
+        config={formConfig}
+        initialValues={initialValues}
+        className={"tlfnummer__rad-leggtil"}
+      >
+        {({ errors, fields, submitted, isValid, setField }) => {
+          const tlfNummerMaxLength =
+            fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
+
+          return (
+            <>
+              <div className={"tlfnummer__container"}>
+                <div>
+                  <Element>
+                    <FormattedMessage id="side.leggtil" />
+                  </Element>
+                  <div className={"tlfnummer__chevron"}>
+                    <NedChevron />
+                  </div>
+                </div>
+                <button
+                  type={"button"}
+                  onClick={props.onCancelClick}
+                  className={"kilde__lenke lenke"}
+                >
+                  <Normaltekst>
+                    <FormattedHTMLMessage id="side.avbryt" />
+                    <span className="kilde__icon">
+                      <img src={avbrytIkon} alt="Ekstern lenke" />
+                    </span>
+                  </Normaltekst>
+                </button>
+              </div>
+              <div className={"tlfnummer__container"}>
                 <Select
-                  label={"Type"}
                   value={fields.type}
+                  label={intl.messages["felter.type.label"]}
                   onChange={e => setField({ type: e.target.value })}
                   bredde={"s"}
                   feil={
@@ -117,75 +153,70 @@ const OpprettTelefonnummer = (props: Props) => {
                       : undefined
                   }
                 >
-                  <option>Velg type</option>
+                  <option>{intl.messages["felter.type.velg"]}</option>
                   {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                    <option value="MOBIL">Mobil</option>
+                    <option value="MOBIL">
+                      {intl.messages["personalia.tlfnr.mobil"]}
+                    </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                    <option value="ARBEID">Arbeid</option>
+                    <option value="ARBEID">
+                      {intl.messages["personalia.tlfnr.arbeid"]}
+                    </option>
                   )}
                   {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                    <option value="HJEM">Hjem</option>
+                    <option value="HJEM">
+                      {intl.messages["personalia.tlfnr.hjem"]}
+                    </option>
                   )}
                 </Select>
-              );
-            }}
-          </Validation>
-        </div>
-        <div className={"tlfnummer__input-container"}>
-          <Validation config={baseFormConfig} initialValues={initialValues}>
-            {({ errors, fields, isValid, submitted, setField }) => {
-              const tlfNummerMaxLength =
-                fields.landskode && fields.landskode.value === "+47" ? 8 : 16;
-
-              return (
-                <>
-                  <div className={"tlfnummer__input input--s"}>
-                    <SelectLandskode
-                      label={"Landkode"}
-                      option={fields.landskode}
-                      onChange={option => setField({ landskode: option })}
-                      error={errors.landskode}
-                      submitted={submitted}
-                    />
-                  </div>
-                  <div className={"tlfnummer__input input--m"}>
-                    <Input
-                      type={"tel"}
-                      bredde={"M"}
-                      label={"Telefonnummer"}
-                      value={fields.tlfnummer}
-                      maxLength={tlfNummerMaxLength}
-                      onChange={e => setField({ tlfnummer: e.target.value })}
-                      feil={sjekkForFeil(submitted, errors.tlfnummer)}
-                    />
-                  </div>
-                  <div className={"tlfnummer__submit"}>
-                    <Knapp
-                      type={"hoved"}
-                      htmlType={"submit"}
-                      disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={endreLoading}
-                    >
-                      <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
-                  </div>
-                </>
-              );
-            }}
-          </Validation>
-        </div>
-        {alert && (
-          <div className={"tlfnummer__alert"}>
-            <AlertStripe type={alert.type}>
-              <span>{alert.melding}</span>
-            </AlertStripe>
-          </div>
-        )}
-      </Form>
+              </div>
+              <div className={"tlfnummer__input-container"}>
+                <div className={"tlfnummer__input input--s"}>
+                  <SelectLandskode
+                    option={fields.landskode}
+                    label={intl.messages["felter.landkode.label"]}
+                    onChange={option => setField({ landskode: option })}
+                    error={errors.landskode}
+                    submitted={submitted}
+                  />
+                </div>
+                <div className={"tlfnummer__input input--m"}>
+                  <Input
+                    type={"tel"}
+                    bredde={"M"}
+                    value={fields.tlfnummer}
+                    maxLength={tlfNummerMaxLength}
+                    label={intl.messages["felter.tlfnr.label"]}
+                    onChange={e => setField({ tlfnummer: e.target.value })}
+                    feil={sjekkForFeil(submitted, errors.tlfnummer)}
+                  />
+                </div>
+                <div className={"tlfnummer__submit"}>
+                  <Knapp
+                    type={"hoved"}
+                    htmlType={"submit"}
+                    disabled={submitted && !isValid}
+                    autoDisableVedSpinner={true}
+                    spinner={endreLoading}
+                  >
+                    <FormattedMessage id={"side.lagre"} />
+                  </Knapp>
+                </div>
+              </div>
+              {alert && (
+                <div className={"tlfnummer__alert"}>
+                  <AlertStripe type={alert.type}>
+                    <span>{alert.melding}</span>
+                  </AlertStripe>
+                </div>
+              )}
+            </>
+          );
+        }}
+      </FormValidation>
     </>
   );
 };
 
-export default OpprettTelefonnummer;
+export default injectIntl(OpprettTelefonnummer);
