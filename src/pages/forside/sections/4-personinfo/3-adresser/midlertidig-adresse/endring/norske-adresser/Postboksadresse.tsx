@@ -19,6 +19,7 @@ import { HTTPError } from "../../../../../../../../components/error/Error";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import { dateOneYearAhead } from "../../../../../../../../utils/date";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -40,6 +41,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
+    datoTilOgMed: dateOneYearAhead,
     ...tilleggsadresse
   };
 

@@ -5,6 +5,7 @@ import { formatDate, parseDate } from "./utils";
 import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
+import { dateOneYearAhead } from "../../../utils/date";
 
 interface Props {
   label?: string;
@@ -23,10 +24,6 @@ const DayPicker = (props: Props) => {
   const { label, onErrors, submitted, error, ugyldigTekst } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
   const dateNow = new Date(Date.now());
-
-  const dateOneYearAhead = new Date(
-    new Date().setFullYear(new Date().getFullYear() + 1)
-  );
 
   useEffect(() => {
     if (props.value) {

@@ -20,6 +20,7 @@ import InputPostnummer from "../../../../../../../../components/felter/input-pos
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import { dateOneYearAhead } from "../../../../../../../../utils/date";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -53,6 +54,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
 
   const initialValues = tilleggsadresse
     ? {
+        datoTilOgMed: dateOneYearAhead,
         ...tilleggsadresse,
         ...(tilleggsadresse.husnummer && {
           husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
