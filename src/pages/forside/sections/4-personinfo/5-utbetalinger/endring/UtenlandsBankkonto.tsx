@@ -231,12 +231,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
            Bankkode er et spesialtilfelle
            for USA og noen få andre land.
          */
-        const valgtUSA = land && land.value === "USA";
+        const harValgtUSA = land && land.value === "USA";
         const deaktiverBankkode =
           (!landetBrukerBankkode(land) ||
             isValidIBAN(kontonummer) ||
             fields.swiftkode) &&
-          !valgtUSA;
+          !harValgtUSA;
 
         return (
           <>
@@ -290,8 +290,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
                   submitted={submitted}
-                  value={land && land.value === "USA" ? `` : swiftkode}
-                  disabled={land && land.value === "USA"}
+                  value={harValgtUSA ? `` : swiftkode}
+                  disabled={harValgtUSA}
                   hjelpetekst={"utbetalinger.hjelpetekster.bic"}
                   label={intl.messages["felter.swift.bic.label"]}
                   onChange={value => setField({ swiftkode: value })}
