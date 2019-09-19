@@ -8,17 +8,15 @@ import * as serviceWorker from "./service-worker";
 import { initialState, reducer } from "./providers/Store";
 import nb from "react-intl/locale-data/nb";
 import nbMessages from "./text/nb";
-
 import withMenu from "./clients/apiMock/decorator/decorator-header-withmenu";
 import megamenu from "./clients/apiMock/decorator/decorator-megamenu";
 import footer from "./clients/apiMock/decorator/decorator-footer";
 import scripts from "./clients/apiMock/decorator/decorator-scripts";
 import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
 import styles from "./clients/apiMock/decorator/decorator-styles";
-
-import App from "./App";
 import { ValidatorsProvider } from "calidation";
-import { extraValidators } from "./utils/validators";
+import { extraValidators, SimpleValidators } from "./utils/validators";
+import App from "./App";
 
 // Intl polyfill
 global.Intl = require("intl");
@@ -61,7 +59,7 @@ const init = async () => {
 
   ReactDOM.render(
     <IntlProvider locale={browserLanguage} messages={messages[browserLanguage]}>
-      <ValidatorsProvider validators={extraValidators}>
+      <ValidatorsProvider validators={extraValidators as SimpleValidators}>
         <StoreProvider initialState={initialState} reducer={reducer}>
           <App />
         </StoreProvider>
