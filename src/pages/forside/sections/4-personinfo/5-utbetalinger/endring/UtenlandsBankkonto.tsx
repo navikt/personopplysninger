@@ -108,20 +108,19 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
         validateIf: ({ fields }: ValidatorContext) =>
           !fields.bankkode || landetBrukerBankkode(fields.land)
       },
+      isNotIBAN: {
+        message: intl.messages["validation.ikke.iban"],
+        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
+      },
       isIBAN: {
         message: intl.messages["validation.iban.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.bickode && fields.land && fields.land.value !== "USA"
+          fields.bickode && !harValgtUSA(fields.land)
       },
       isIBANCountryCompliant: {
         message: intl.messages["validation.iban.country"],
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer)
-      },
-      isNotIBAN: {
-        message: intl.messages["validation.ikke.iban"],
-        validateIf: ({ fields }: ValidatorContext) =>
-          fields.land && fields.land.value === "USA"
       }
     },
     bickode: {
@@ -133,26 +132,23 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.bankkode || landetBrukerBankkode(fields.land)
+          isValidIBAN(fields.kontonummer) && !harValgtUSA(fields.land)
       },
       isBIC: {
         message: intl.messages["validation.bic.gyldig"],
         validateIf: ({ fields }: ValidatorContext) =>
-          isValidIBAN(fields.kontonummer) &&
-          fields.land &&
-          fields.land.value !== "USA"
+          isValidIBAN(fields.kontonummer) && !harValgtUSA(fields.land)
       },
       isBICCountryCompliant: {
         message: intl.messages["validation.bic.country"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.bickode && isValidBIC(fields.bickode)
+          isValidBIC(fields.bickode) && !harValgtUSA(fields.land)
       }
     },
     retningsnummer: {
       isRequired: {
         message: "*",
-        validateIf: ({ fields }: ValidatorContext) =>
-          fields.land && fields.land.value === "USA"
+        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
       }
     },
     bankkode: {
@@ -186,7 +182,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     const { isValid } = c;
 
     if (isValid) {
-      const sendBICKode = bickode && fields.land && fields.land.value !== "USA";
+      const sendBICKode = bickode && !harValgtUSA(fields.land);
       const sendBankkode = fields.bankkode && !sendBICKode;
       const sendAdresse = !bickode;
 
@@ -226,6 +222,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     }
   };
 
+  // Utils
+  const harValgtUSA = (land?: OptionType) =>
+    land && land.value === "USA" ? true : false;
   const landetBrukerBankkode = (land: OptionType) =>
     land && FEDWIRE.includes(land.value);
 
@@ -242,12 +241,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
            Bankkode er et spesialtilfelle
            for USA og noen få andre land.
          */
-        const harValgtUSA = land && land.value === "USA";
         const deaktiverBankkode =
           (!landetBrukerBankkode(land) ||
             isValidIBAN(kontonummer) ||
             bickode) &&
-          !harValgtUSA;
+          !harValgtUSA(land);
 
         return (
           <>
@@ -300,9 +298,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
+                  maxLength={11}
                   submitted={submitted}
-                  value={harValgtUSA ? `` : bickode}
-                  disabled={harValgtUSA}
+                  value={harValgtUSA(fields.land) ? `` : bickode}
+                  disabled={harValgtUSA(fields.land)}
                   hjelpetekst={"utbetalinger.hjelpetekster.bic"}
                   label={intl.messages["felter.bic.bic.label"]}
                   onChange={value => setField({ bickode: value })}
