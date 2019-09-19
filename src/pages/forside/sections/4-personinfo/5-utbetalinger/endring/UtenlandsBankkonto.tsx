@@ -176,7 +176,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     if (isValid) {
       const sendSwiftKode =
         fields.swiftkode && fields.land && fields.land.value !== "USA";
-      const sendBankkode = fields.bankkode && !fields.swiftkode;
+      const sendBankkode = fields.bankkode && !sendSwiftKode;
       const sendAdresse = !fields.swiftkode;
 
       const outbound = {
@@ -253,8 +253,17 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   label={intl.messages["felter.bankensland.label"]}
                   error={errors.land}
-                  onChange={value => {
-                    setField({ land: value });
+                  onChange={option => {
+                    const bankkodeRetningsnummer = option
+                      ? BANKKODER[option.value]
+                      : null;
+
+                    setField({
+                      land: option,
+                      ...(bankkodeRetningsnummer && {
+                        retningsnummer: bankkodeRetningsnummer
+                      })
+                    });
                   }}
                 />
               </div>
@@ -293,9 +302,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <div className="utbetalinger__bankkode-rad">
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
-                      value={(land && BANKKODER[land.value]) || retningsnummer}
-                      submitted={submitted}
                       disabled={true}
+                      value={retningsnummer}
+                      submitted={submitted}
                       label={intl.messages["felter.bankkode.label"]}
                       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
                       error={errors.bankkode ? " " : null}
@@ -305,19 +314,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
                       label={``}
-                      type={"number"}
                       submitted={submitted}
                       disabled={deaktiverBankkode}
                       value={deaktiverBankkode ? `` : fields.bankkode}
                       error={errors.bankkode}
-                      onChange={value => {
-                        const maksLengde =
-                          (land && BANKKODE_MAX_LENGTH[land.value]) || 16;
-
-                        if (value.length <= maksLengde) {
-                          setField({ bankkode: value });
-                        }
-                      }}
+                      onChange={value => setField({ bankkode: value })}
+                      maxLength={
+                        (land && BANKKODE_MAX_LENGTH[land.value]) || 16
+                      }
                     />
                   </div>
                 </div>
