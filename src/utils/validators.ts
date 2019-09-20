@@ -55,7 +55,7 @@ export const extraValidators: Validators = {
   isBankkode: (config: CustomValidator, { fields }: ValidatorContext) => (
     value: string
   ) =>
-    value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
+    value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
       ? config.message({
           land: fields.land.label,
           siffer: BANKKODE_MAX_LENGTH[fields.land.value]

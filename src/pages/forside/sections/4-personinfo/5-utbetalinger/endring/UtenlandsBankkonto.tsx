@@ -163,15 +163,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             { id: "validation.bankkode.lengde" },
             { land, siffer }
           ),
-        validateIf: ({ fields }: ValidatorContext) => {
-          return (
-            (landetBrukerBankkode(fields.land) &&
-              !isValidIBAN(fields.kontonummer) &&
-              !fields.bickode &&
-              fields.bankkode) ||
-            harValgtUSA(fields.land)
-          );
-        }
+        validateIf: ({ fields }: ValidatorContext) =>
+          (landetBrukerBankkode(fields.land) &&
+            !isValidIBAN(fields.kontonummer) &&
+            !fields.bickode &&
+            fields.bankkode) ||
+          harValgtUSA(fields.land)
       }
     },
     banknavn: {
