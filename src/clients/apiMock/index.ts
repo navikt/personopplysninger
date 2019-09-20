@@ -1,13 +1,14 @@
 import fetchMock from "fetch-mock";
-import personInformasjon from "./data/personInfo.json";
-import kontaktInformasjon from "./data/kontaktInfo.json";
-import featureToggles from "./data/featureToggles.json";
-import authInfo from "./data/authInfo.json";
-import dsopInfo from "./data/dsopInfo.json";
-import retningsnumre from "./data/retningsnumre.json";
-import valutaer from "./data/valutaer.json";
-import postnummer from "./data/postnummer.json";
-import land from "./data/land.json";
+import personInformasjon from "./app/fetch/person-info.json";
+import kontaktInformasjon from "./app/fetch/kontakt-info.json";
+import featureToggles from "./app/fetch/feature-toggles.json";
+import authInfo from "./app/fetch/auth-info.json";
+import dsopInfo from "./app/fetch/dsop-info.json";
+import retningsnumre from "./app/fetch/retningsnumre.json";
+import valutaer from "./app/fetch/valutaer.json";
+import postnummer from "./app/fetch/postnummer.json";
+import endrePostnummer from "./app/post/endre-postnummer.json";
+import land from "./app/fetch/land.json";
 import Environment from "../../Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
@@ -24,8 +25,10 @@ const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
 const mockFetchValutaer = true;
 const mockFetchPostnummer = true;
-const mockPostgateadresse = true;
+
+const mockPostGateadresse = true;
 const mockPostSlettTlfnr = true;
+const mockPostEndrePostnummer = true;
 
 export const setUpMock = async () => {
   /*
@@ -68,7 +71,7 @@ export const setUpMock = async () => {
   /*
     POST
    */
-  mockPostgateadresse &&
+  mockPostGateadresse &&
     fetchMock.post(
       `${apiUrl}/endreGateadresse`,
       delay(10, 50).then(() => ({ statusType: "OK" }))
@@ -77,6 +80,11 @@ export const setUpMock = async () => {
     fetchMock.post(
       `${apiUrl}/slettTelefonnummer`,
       delay(10, 50).then(() => ({ statusType: "OK" }))
+    );
+  mockPostEndrePostnummer &&
+    fetchMock.post(
+      `${apiUrl}/endreKontonummer`,
+      delay(10, 50).then(() => endrePostnummer)
     );
 };
 

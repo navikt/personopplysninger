@@ -9,6 +9,7 @@ import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinf
 import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
+import { TPSResponse } from "../types/tps-response";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
@@ -24,7 +25,7 @@ const hentJsonOgSjekkAuth = (url: string) =>
     credentials: "include"
   })
     .then(sjekkAuth)
-    .then(sjekkForFeil)
+    .then(sjekkHttpFeil)
     .then(parseJson)
     .catch((err: string & HTTPError) => {
       const error = {
@@ -79,8 +80,9 @@ const sendJson = (url: string, data: Outbound) => {
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json;charset=UTF-8" }
   })
-    .then(sjekkForFeil)
+    .then(sjekkHttpFeil)
     .then(parseJson)
+    .then(sjekkTPSFeil)
     .catch((err: string & HTTPError) => {
       const error = {
         code: err.code || 404,
@@ -133,7 +135,7 @@ export const sendTilLogin = () => {
   }
 };
 
-const sjekkForFeil = (response: Response) => {
+const sjekkHttpFeil = (response: Response) => {
   if (response.ok) {
     return response;
   } else {
@@ -142,6 +144,23 @@ const sjekkForFeil = (response: Response) => {
       text: response.statusText
     };
     throw error;
+  }
+};
+
+const sjekkTPSFeil = (response: TPSResponse) => {
+  console.log(response);
+  switch (response.statusType) {
+    case "ERROR":
+      const error = {
+        code: response.validationError.message,
+        text: response.validationError.details
+          .map(detail => detail.message)
+          .join()
+      };
+      throw error;
+    case "OK":
+    default:
+      return response;
   }
 };
 

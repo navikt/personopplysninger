@@ -21,6 +21,7 @@ import { OptionType } from "../../../../../../../types/option";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import { isNorwegianNumber } from "../../../../../../../utils/validators";
 
 export interface OutboundTlfnummer {
   type: string;
@@ -62,10 +63,10 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     tlfnummer: {
       isRequired: intl.messages["validation.tlfnr.pakrevd"],
       isNumber: intl.messages["validation.tlfnr.siffer"],
-      isNorwegianTelephoneNumber: {
+      isValidNorwegianNumber: {
         message: intl.messages["validation.tlfnr.norske"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.landskode && fields.landskode.value === "+47"
+          isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
         message: intl.messages["validation.tlfnr.makslengde"],

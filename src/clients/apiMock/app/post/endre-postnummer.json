@@ -1,0 +1,12 @@
+{
+  "statusType": "ERROR",
+  "validationError": {
+    "message": "Kontonummer feilet validering",
+    "details": [
+      {
+        "name": "kontonummer.value",
+        "message": "Norske kontonummer må være 11 tegn."
+      }
+    ]
+  }
+}

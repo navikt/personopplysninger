@@ -9,6 +9,7 @@ import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
 import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
+import { OptionType } from "../types/option";
 
 /*
   Form validators
@@ -20,10 +21,11 @@ export interface ExtraFieldConfig {
   isIBAN?: SimpleValidator;
   isIBANCountryCompliant?: SimpleValidator;
   isBankkode?: CustomValidator;
+  isMod11?: SimpleValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
-  isNorwegianTelephoneNumber?: SimpleValidator;
+  isValidNorwegianNumber?: SimpleValidator;
   isHouseNumber?: SimpleValidator;
 }
 
@@ -79,9 +81,8 @@ export const extraValidators: Validators = {
       ? config.message
       : null,
 
-  isNorwegianTelephoneNumber: (config: SimpleValidatorConfig) => (
-    value: string
-  ) => (value.length !== 8 || !erInteger(value) ? config.message : null),
+  isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
+    value.length !== 8 || !erInteger(value) ? config.message : null,
 
   isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null
@@ -98,6 +99,9 @@ export const erInteger = (str: string) => {
 
 export const sjekkForFeil = (submitted: boolean, error: string | null) =>
   submitted && error ? { feilmelding: error } : undefined;
+
+export const isNorwegianNumber = (landskode: OptionType) =>
+  landskode && landskode.value === "+47";
 
 /*
   Overridden types
