@@ -7,6 +7,7 @@ import Kilde from "../../../../../../components/kilde/Kilde";
 import Melding from "../../../../../../components/melding/Melding";
 import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
+import { fjernMellorom } from "../../../../../../utils/formattering";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -43,7 +44,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
               type={"MOBIL"}
               titleId="personalia.tlfnr.mobil"
               currentLandskode={tempLandskode}
-              currentTlfnummer={tlfnr.mobil}
+              currentTlfnummer={fjernMellorom(tlfnr.mobil)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -53,7 +54,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
               type={"HJEM"}
               titleId="personalia.tlfnr.hjem"
               currentLandskode={tempLandskode}
-              currentTlfnummer={tlfnr.privat}
+              currentTlfnummer={fjernMellorom(tlfnr.privat)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -63,7 +64,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
               type={"ARBEID"}
               titleId="personalia.tlfnr.arbeid"
               currentLandskode={tempLandskode}
-              currentTlfnummer={tlfnr.jobb}
+              currentTlfnummer={fjernMellorom(tlfnr.jobb)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />

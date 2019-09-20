@@ -12,12 +12,18 @@ export const formatKontonummer = (input: string) => {
   return input;
 };
 
+export const fjernMellorom = (value: string) => {
+  if (value) {
+    return value.replace(/\s+/g, ``);
+  }
+  return value;
+};
+
 export const formatTelefonnummer = (
   type: string,
   landskode: { label: string; value: string },
   input: string
 ) => {
-  input = input.replace(/\s+/g, ``);
   if (landskode.value === "+47") {
     switch (type) {
       case "MOBIL":

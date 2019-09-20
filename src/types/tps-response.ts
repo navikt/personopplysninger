@@ -5,7 +5,7 @@ interface ValidationDetail {
 
 interface ValidationError {
   message: string;
-  details: ValidationDetail[];
+  details?: ValidationDetail[];
 }
 
 export type TPSResponse =

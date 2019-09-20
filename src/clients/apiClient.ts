@@ -150,11 +150,16 @@ const sjekkHttpFeil = (response: Response) => {
 const sjekkTPSFeil = (response: TPSResponse) => {
   switch (response.statusType) {
     case "ERROR":
+      const { validationError } = response;
       const error = {
-        code: response.validationError.message,
-        text: response.validationError.details
-          .map(detail => detail.message)
-          .join()
+        code: 400,
+        text: `${validationError.message}${
+          validationError.details
+            ? `: ${validationError.details
+                .map(detail => detail.message || ``)
+                .join()}`
+            : ``
+        }`
       };
       throw error;
     case "OK":
