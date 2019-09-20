@@ -7,6 +7,7 @@ import {
 } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
+import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
 
 /*
   Form validators
@@ -17,6 +18,7 @@ export interface ExtraFieldConfig {
   isBIC?: SimpleValidator;
   isIBAN?: SimpleValidator;
   isIBANCountryCompliant?: SimpleValidator;
+  isBankkode?: CustomValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
@@ -50,6 +52,16 @@ export const extraValidators: Validators = {
   isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     isValidIBAN(value) ? config.message : null,
 
+  isBankkode: (config: CustomValidator, { fields }: ValidatorContext) => (
+    value: string
+  ) =>
+    value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
+      ? config.message({
+          land: fields.land.label,
+          siffer: BANKKODE_MAX_LENGTH[fields.land.value]
+        })
+      : null,
+
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
 
@@ -69,7 +81,7 @@ export const extraValidators: Validators = {
 
   isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null
-} as any;
+};
 
 /*
   Utils
@@ -91,9 +103,14 @@ export type SimpleValidators = Dictionary<
   (config: SimpleValidatorConfig) => (value: any) => string | null
 >;
 
+export interface CustomValidator {
+  message: (values: object) => string;
+  validateIf?: ((context: ValidatorContext) => boolean) | boolean;
+}
+
 export type Validators = Dictionary<
   (
-    config: SimpleValidatorConfig,
+    config: SimpleValidatorConfig & CustomValidator,
     context: ValidatorContext
   ) => (value: any) => string | null
 >;

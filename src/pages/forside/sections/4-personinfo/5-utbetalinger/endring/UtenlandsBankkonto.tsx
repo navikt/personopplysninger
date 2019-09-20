@@ -58,7 +58,7 @@ const BANKKODER: { [key: string]: string } = {
   CAN: "CC"
 };
 
-const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
+export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   USA: 9,
   NZL: 6,
   AUS: 6,
@@ -156,6 +156,22 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isNumber: {
         message: intl.messages["validation.only.digits"],
         validateIf: ({ fields }: ValidatorContext) => fields.bankkode
+      },
+      isBankkode: {
+        message: ({ land, siffer }: { land: string; siffer: number }) =>
+          intl.formatMessage(
+            { id: "validation.bankkode.lengde" },
+            { land, siffer }
+          ),
+        validateIf: ({ fields }: ValidatorContext) => {
+          return (
+            (landetBrukerBankkode(fields.land) &&
+              !isValidIBAN(fields.kontonummer) &&
+              !fields.bickode &&
+              fields.bankkode) ||
+            harValgtUSA(fields.land)
+          );
+        }
       }
     },
     banknavn: {
@@ -226,7 +242,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const harValgtUSA = (land?: OptionType) =>
     land && land.value === "USA" ? true : false;
   const landetBrukerBankkode = (land: OptionType) =>
-    land && FEDWIRE.includes(land.value);
+    land && FEDWIRE.includes(land.value) ? true : false;
 
   return (
     <FormValidation

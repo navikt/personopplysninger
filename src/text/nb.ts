@@ -193,6 +193,7 @@ export default {
   "validation.iban.country": `Du må taste inn et IBAN-nummer fra det landet du har valgt.`,
   "validation.banknavn.pakrevd": "Banknavn er påkrevd",
   "validation.bankkode.pakrevd": "Bankkode er påkrevd",
+  "validation.bankkode.lengde": `Bankkoder fra {land} må bestå av {siffer} siffer`,
   "validation.bic.pakrevd": "Swift / BIC kode er påkrevd",
   "validation.bic.gyldig": "En gyldig SWIFT / BIC-kode er påkrevd",
   "validation.bic.country": `Du må taste inn en gyldig SWIFT / BIC-kode fra det landet du har valgt.`,
