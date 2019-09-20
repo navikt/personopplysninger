@@ -17,7 +17,7 @@ import { UNKNOWN } from "../../../../../../../utils/text";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { dateOneYearAhead } from "../../../../../../../utils/date";
+import { oneYearAhead } from "../../../../../../../utils/date";
 
 interface Props {
   utenlandskadresse?: UtenlandskAdresseType;
@@ -41,7 +41,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: dateOneYearAhead,
+    datoTilOgMed: oneYearAhead,
     ...(utenlandskadresse && {
       ...utenlandskadresse,
       land: {

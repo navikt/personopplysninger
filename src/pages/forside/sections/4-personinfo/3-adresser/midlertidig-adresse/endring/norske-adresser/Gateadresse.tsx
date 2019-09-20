@@ -20,7 +20,7 @@ import InputPostnummer from "../../../../../../../../components/felter/input-pos
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { dateOneYearAhead } from "../../../../../../../../utils/date";
+import { oneYearAhead } from "../../../../../../../../utils/date";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -53,7 +53,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
 
   const initialValues = {
-    datoTilOgMed: dateOneYearAhead,
+    datoTilOgMed: oneYearAhead,
     ...(tilleggsadresse && {
       ...tilleggsadresse,
       ...(tilleggsadresse.husnummer && {

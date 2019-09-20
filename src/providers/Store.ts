@@ -100,9 +100,8 @@ export const reducer = (state: Store, action: Action) => {
         } as FetchFeatureToggles
       };
     case "SETT_PERSON_INFO_RESULT":
-      const { personInfo, ...restState } = state;
       return {
-        ...restState,
+        ...state,
         personInfo: {
           status: "RESULT",
           data: action.payload

@@ -19,7 +19,7 @@ import DayPicker from "../../../../../../../../components/felter/day-picker/DayP
 import { useStore } from "../../../../../../../../providers/Provider";
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { dateOneYearAhead } from "../../../../../../../../utils/date";
+import { oneYearAhead } from "../../../../../../../../utils/date";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -40,7 +40,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: dateOneYearAhead,
+    datoTilOgMed: oneYearAhead,
     ...tilleggsadresse
   };
 
