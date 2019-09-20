@@ -215,7 +215,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             ...(sendBankkode && {
               kode: fields.bankkode
             }),
-            navn: fields.banknavn
+            navn: fields.banknavn,
           }
         }
       };

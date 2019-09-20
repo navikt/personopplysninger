@@ -20,6 +20,7 @@ import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { oneYearAhead } from "../../../../../../../../utils/date";
+import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -29,7 +30,7 @@ interface Props {
 export interface OutboundPostboksadresse {
   tilleggslinje: string;
   tilleggslinjeType: string;
-  postboksnummer: string;
+  postboksnummer: number;
   postboksanlegg: string;
   postnummer: string;
   gyldigTom: string;
@@ -87,7 +88,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
 
       const outbound = {
         ...equalFields,
-        postboksnummer: postboksnummer.toString(),
+        postboksnummer: parseInt(postboksnummer, RADIX_DECIMAL),
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
           tilleggslinjeType: "C/O",
