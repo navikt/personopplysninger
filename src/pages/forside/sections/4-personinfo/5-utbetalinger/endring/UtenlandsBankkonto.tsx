@@ -1,30 +1,27 @@
 import React, { useState } from "react";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import {
-  fetchPersonInfo,
-  postKontonummer
-} from "../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../components/error/Error";
+import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { HTTPError } from "components/error/Error";
 import AlertStripe, {
   AlertStripeInfo,
   AlertStripeType
 } from "nav-frontend-alertstriper";
-import { Knapp } from "nav-frontend-knapper";
-import { FormattedMessage } from "react-intl";
-import { UtenlandskBankkonto } from "../../../../../../types/personalia";
-import { electronicFormatIBAN, isValidBIC, isValidIBAN } from "ibantools";
-import SelectLand from "../../../../../../components/felter/kodeverk/SelectLand";
-import SelectValuta from "../../../../../../components/felter/kodeverk/SelectValuta";
-import InputMedHjelpetekst from "../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { UNKNOWN } from "../../../../../../utils/text";
-import { useStore } from "../../../../../../providers/Provider";
-import { PersonInfo } from "../../../../../../types/personInfo";
 import {
   InjectedIntlProps,
   injectIntl,
   FormattedHTMLMessage
 } from "react-intl";
-import { OptionType } from "../../../../../../types/option";
+import { OptionType } from "types/option";
+import { Knapp } from "nav-frontend-knapper";
+import { FormattedMessage } from "react-intl";
+import { UtenlandskBankkonto } from "types/personalia";
+import { electronicFormatIBAN, isValidBIC, isValidIBAN } from "ibantools";
+import SelectLand from "components/felter/kodeverk/SelectLand";
+import SelectValuta from "components/felter/kodeverk/SelectValuta";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { UNKNOWN } from "utils/text";
+import { useStore } from "providers/Provider";
+import { PersonInfo } from "types/personInfo";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
