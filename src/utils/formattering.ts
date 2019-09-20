@@ -17,7 +17,7 @@ export const formatTelefonnummer = (
   landskode: { label: string; value: string },
   input: string
 ) => {
-  input = input.trim();
+  input = input.replace(/\s+/g, ``);
   if (landskode.value === "+47") {
     switch (type) {
       case "MOBIL":

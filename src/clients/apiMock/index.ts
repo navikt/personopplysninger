@@ -25,6 +25,7 @@ const mockFetchLand = true;
 const mockFetchValutaer = true;
 const mockFetchPostnummer = true;
 const mockPostgateadresse = true;
+const mockPostSlettTlfnr = true;
 
 export const setUpMock = async () => {
   /*
@@ -70,6 +71,11 @@ export const setUpMock = async () => {
   mockPostgateadresse &&
     fetchMock.post(
       `${apiUrl}/endreGateadresse`,
+      delay(10, 50).then(() => ({ statusType: "OK" }))
+    );
+  mockPostSlettTlfnr &&
+    fetchMock.post(
+      `${apiUrl}/slettTelefonnummer`,
       delay(10, 50).then(() => ({ statusType: "OK" }))
     );
 };
