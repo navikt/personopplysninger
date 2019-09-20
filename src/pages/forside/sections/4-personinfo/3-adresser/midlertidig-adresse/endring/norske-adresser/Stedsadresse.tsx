@@ -28,6 +28,7 @@ interface Props {
 
 export interface OutboundStedsadresse {
   tilleggslinje: string;
+  tilleggslinjeType: string;
   eiendomsnavn: string;
   postnummer: string;
   gyldigTom: string;
@@ -68,11 +69,15 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, ...equalFields } = fields;
+      const { datoTilOgMed, tilleggslinje, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
-        gyldigTom: datoTilOgMed
+        gyldigTom: datoTilOgMed,
+        ...(tilleggslinje && {
+          tilleggslinjeType: "C/O",
+          tilleggslinje
+        })
       } as OutboundStedsadresse;
 
       settLoading(true);

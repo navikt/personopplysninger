@@ -28,6 +28,7 @@ interface Props {
 
 export interface OutboundPostboksadresse {
   tilleggslinje: string;
+  tilleggslinjeType: string;
   postboksnummer: string;
   postboksanlegg: string;
   postnummer: string;
@@ -77,12 +78,21 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, postboksnummer, ...equalFields } = fields;
+      const {
+        datoTilOgMed,
+        postboksnummer,
+        tilleggslinje,
+        ...equalFields
+      } = fields;
 
       const outbound = {
         ...equalFields,
         postboksnummer: postboksnummer.toString(),
-        gyldigTom: datoTilOgMed
+        gyldigTom: datoTilOgMed,
+        ...(tilleggslinje && {
+          tilleggslinjeType: "C/O",
+          tilleggslinje
+        })
       } as OutboundPostboksadresse;
 
       settLoading(true);

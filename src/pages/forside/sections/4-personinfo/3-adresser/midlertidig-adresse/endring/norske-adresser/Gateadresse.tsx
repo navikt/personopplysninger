@@ -117,12 +117,16 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, ...equalFields } = fields;
+      const { datoTilOgMed, tilleggslinje, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
         gatekode: 1,
-        gyldigTom: datoTilOgMed
+        gyldigTom: datoTilOgMed,
+        ...(tilleggslinje && {
+          tilleggslinjeType: "C/O",
+          tilleggslinje
+        })
       } as OutboundGateadresse;
 
       settLoading(true);
