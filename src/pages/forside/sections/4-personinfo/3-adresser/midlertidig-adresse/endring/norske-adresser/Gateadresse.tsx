@@ -20,6 +20,7 @@ import InputPostnummer from "../../../../../../../../components/felter/input-pos
 import { PersonInfo } from "../../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import { dateOneYearAhead } from "../../../../../../../../utils/date";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -51,30 +52,31 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     bolignummer: string = ""
   ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
 
-  const initialValues = tilleggsadresse
-    ? {
-        ...tilleggsadresse,
-        ...(tilleggsadresse.husnummer && {
-          husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
-        }),
-        ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
-          ? {
-              tilleggslinje: tilleggsadresse.adresse1,
-              gatenavn: trimAdresse(
-                tilleggsadresse.adresse2,
-                tilleggsadresse.husbokstav,
-                tilleggsadresse.bolignummer
-              )
-            }
-          : tilleggsadresse.adresse1 && {
-              gatenavn: trimAdresse(
-                tilleggsadresse.adresse1,
-                tilleggsadresse.husbokstav,
-                tilleggsadresse.bolignummer
-              )
-            })
-      }
-    : {};
+  const initialValues = {
+    datoTilOgMed: dateOneYearAhead,
+    ...(tilleggsadresse && {
+      ...tilleggsadresse,
+      ...(tilleggsadresse.husnummer && {
+        husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
+      }),
+      ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
+        ? {
+            tilleggslinje: tilleggsadresse.adresse1,
+            gatenavn: trimAdresse(
+              tilleggsadresse.adresse2,
+              tilleggsadresse.husbokstav,
+              tilleggsadresse.bolignummer
+            )
+          }
+        : tilleggsadresse.adresse1 && {
+            gatenavn: trimAdresse(
+              tilleggsadresse.adresse1,
+              tilleggsadresse.husbokstav,
+              tilleggsadresse.bolignummer
+            )
+          })
+    })
+  };
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {

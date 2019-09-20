@@ -1,30 +1,27 @@
 import React, { useState } from "react";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import {
-  fetchPersonInfo,
-  postKontonummer
-} from "../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../components/error/Error";
+import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { HTTPError } from "components/error/Error";
 import AlertStripe, {
   AlertStripeInfo,
   AlertStripeType
 } from "nav-frontend-alertstriper";
-import { Knapp } from "nav-frontend-knapper";
-import { FormattedMessage } from "react-intl";
-import { UtenlandskBankkonto } from "../../../../../../types/personalia";
-import { electronicFormatIBAN, isValidIBAN } from "ibantools";
-import SelectLand from "../../../../../../components/felter/kodeverk/SelectLand";
-import SelectValuta from "../../../../../../components/felter/kodeverk/SelectValuta";
-import InputMedHjelpetekst from "../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { UNKNOWN } from "../../../../../../utils/text";
-import { useStore } from "../../../../../../providers/Provider";
-import { PersonInfo } from "../../../../../../types/personInfo";
 import {
   InjectedIntlProps,
   injectIntl,
   FormattedHTMLMessage
 } from "react-intl";
-import { OptionType } from "../../../../../../types/option";
+import { OptionType } from "types/option";
+import { Knapp } from "nav-frontend-knapper";
+import { FormattedMessage } from "react-intl";
+import { UtenlandskBankkonto } from "types/personalia";
+import { electronicFormatIBAN, isValidBIC, isValidIBAN } from "ibantools";
+import SelectLand from "components/felter/kodeverk/SelectLand";
+import SelectValuta from "components/felter/kodeverk/SelectValuta";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { UNKNOWN } from "utils/text";
+import { useStore } from "providers/Provider";
+import { PersonInfo } from "types/personInfo";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -47,7 +44,7 @@ export interface OutboundUtenlandsbankonto {
       navn: string;
     };
     landkode: string;
-    swift: string;
+    swiftkode: string;
     valuta: string;
   };
 }
@@ -61,7 +58,7 @@ const BANKKODER: { [key: string]: string } = {
   CAN: "CC"
 };
 
-const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
+export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   USA: 9,
   NZL: 6,
   AUS: 6,
@@ -78,6 +75,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const initialValues = utenlandskbank
     ? {
         ...utenlandskbank,
+        bickode: utenlandskbank.swiftkode,
         kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
         land: {
           label: utenlandskbank.land.toUpperCase(),
@@ -105,50 +103,71 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.bankkode || brukerBankkode(fields.land)
+          !fields.bankkode || landetBrukerBankkode(fields.land)
+      },
+      isNotIBAN: {
+        message: intl.messages["validation.ikke.iban"],
+        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
       },
       isIBAN: {
         message: intl.messages["validation.iban.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.swiftkode && !brukerBankkode(fields.land)
+          fields.bickode && !harValgtUSA(fields.land)
       },
-      isNotIBAN: {
-        message: intl.messages["validation.ikke.iban"],
+      isIBANCountryCompliant: {
+        message: intl.messages["validation.iban.country"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.land && fields.land.value === "USA"
+          isValidIBAN(fields.kontonummer)
       }
     },
-    swiftkode: {
+    bickode: {
       isRequired: {
-        message: intl.messages["validation.swift.pakrevd"],
+        message: intl.messages["validation.bic.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer)
       },
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          !fields.bankkode || brukerBankkode(fields.land)
+          isValidIBAN(fields.kontonummer) && !harValgtUSA(fields.land)
       },
       isBIC: {
-        message: intl.messages["validation.swift.gyldig"],
+        message: intl.messages["validation.bic.gyldig"],
         validateIf: ({ fields }: ValidatorContext) =>
-          isValidIBAN(fields.kontonummer) &&
-          fields.land &&
-          fields.land.value !== "USA"
+          isValidIBAN(fields.kontonummer) && !harValgtUSA(fields.land)
+      },
+      isBICCountryCompliant: {
+        message: intl.messages["validation.bic.country"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          isValidBIC(fields.bickode) && !harValgtUSA(fields.land)
       }
     },
     retningsnummer: {
       isRequired: {
         message: "*",
-        validateIf: ({ fields }: ValidatorContext) =>
-          fields.land && fields.land.value === "USA"
+        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
       }
     },
     bankkode: {
       isRequired: {
         message: intl.messages["validation.bankkode.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
+      },
+      isNumber: {
+        message: intl.messages["validation.only.digits"],
+        validateIf: ({ fields }: ValidatorContext) => fields.bankkode
+      },
+      isBankkode: {
+        message: ({ land, siffer }: { land: string; siffer: number }) =>
+          intl.formatMessage(
+            { id: "validation.bankkode.lengde" },
+            { land, siffer }
+          ),
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.land && fields.land.value === "USA"
+          (landetBrukerBankkode(fields.land) &&
+            !isValidIBAN(fields.kontonummer) &&
+            !fields.bickode) ||
+          harValgtUSA(fields.land)
       }
     },
     banknavn: {
@@ -171,20 +190,20 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     });
 
   const submitEndre = (c: FormContext) => {
-    const { isValid, fields } = c;
+    const { bickode, ...fields } = c.fields;
+    const { isValid } = c;
 
     if (isValid) {
-      const sendSwiftKode =
-        fields.swiftkode && fields.land && fields.land.value !== "USA";
-      const sendBankkode = fields.bankkode && !fields.swiftkode;
-      const sendAdresse = !fields.swiftkode;
+      const sendBICKode = bickode && !harValgtUSA(fields.land);
+      const sendBankkode = fields.bankkode && !sendBICKode;
+      const sendAdresse = !bickode;
 
       const outbound = {
         landkode: fields.land.value,
         value: electronicFormatIBAN(fields.kontonummer),
         valuta: fields.valuta.value,
-        ...(sendSwiftKode && {
-          swift: fields.swiftkode
+        ...(sendBICKode && {
+          swiftkode: bickode
         }),
         utenlandskKontoInformasjon: {
           bank: {
@@ -215,8 +234,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     }
   };
 
-  const brukerBankkode = (land: OptionType) =>
-    land && FEDWIRE.includes(land.value);
+  // Utils
+  const harValgtUSA = (land?: OptionType) =>
+    land && land.value === "USA" ? true : false;
+  const landetBrukerBankkode = (land: OptionType) =>
+    land && FEDWIRE.includes(land.value) ? true : false;
 
   return (
     <FormValidation
@@ -225,16 +247,17 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField }) => {
-        const { land, kontonummer, swiftkode, retningsnummer } = fields;
+        const { land, kontonummer, bickode, retningsnummer } = fields;
 
-        // Spesialtilfelle for USA
-        const valgtUSA = land && land.value !== "USA";
-
+        /*
+           Bankkode er et spesialtilfelle
+           for USA og noen få andre land.
+         */
         const deaktiverBankkode =
-          valgtUSA &&
-          (!brukerBankkode(land) ||
+          (!landetBrukerBankkode(land) ||
             isValidIBAN(kontonummer) ||
-            fields.swiftkode);
+            bickode) &&
+          !harValgtUSA(land);
 
         return (
           <>
@@ -251,8 +274,17 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   label={intl.messages["felter.bankensland.label"]}
                   error={errors.land}
-                  onChange={value => {
-                    setField({ land: value });
+                  onChange={option => {
+                    const bankkodeRetningsnummer = option
+                      ? BANKKODER[option.value]
+                      : null;
+
+                    setField({
+                      land: option,
+                      ...(bankkodeRetningsnummer && {
+                        retningsnummer: bankkodeRetningsnummer
+                      })
+                    });
                   }}
                 />
               </div>
@@ -278,44 +310,38 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
+                  maxLength={11}
                   submitted={submitted}
-                  value={land && land.value === "USA" ? `` : swiftkode}
-                  disabled={land && land.value === "USA"}
+                  value={harValgtUSA(fields.land) ? `` : bickode}
+                  disabled={harValgtUSA(fields.land)}
                   hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-                  label={intl.messages["felter.swift.bic.label"]}
-                  onChange={value => setField({ swiftkode: value })}
-                  error={errors.swiftkode}
+                  label={intl.messages["felter.bic.bic.label"]}
+                  onChange={value => setField({ bickode: value })}
+                  error={errors.bickode}
                 />
               </div>
               <div className="utbetalinger__input-box input--m">
                 <div className="utbetalinger__bankkode-rad">
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
-                      value={(land && BANKKODER[land.value]) || retningsnummer}
-                      submitted={submitted}
                       disabled={true}
+                      value={retningsnummer}
+                      submitted={submitted}
                       label={intl.messages["felter.bankkode.label"]}
                       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
-                      error={errors.bankkode ? " " : null}
+                      error={errors.retningsnummer}
                       onChange={value => setField({ retningsnummer: value })}
                     />
                   </div>
                   <div className="utbetalinger__bankkode-kolonne">
                     <InputMedHjelpetekst
                       label={``}
-                      type={"number"}
                       submitted={submitted}
                       disabled={deaktiverBankkode}
                       value={deaktiverBankkode ? `` : fields.bankkode}
                       error={errors.bankkode}
-                      onChange={value => {
-                        const maksLengde =
-                          (land && BANKKODE_MAX_LENGTH[land.value]) || 16;
-
-                        if (value.length <= maksLengde) {
-                          setField({ bankkode: value });
-                        }
-                      }}
+                      onChange={value => setField({ bankkode: value })}
+                      maxLength={land && BANKKODE_MAX_LENGTH[land.value]}
                     />
                   </div>
                 </div>
@@ -334,8 +360,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <InputMedHjelpetekst
                   maxLength={34}
                   submitted={submitted}
-                  disabled={fields.swiftkode}
-                  value={fields.swiftkode ? `` : fields.adresse1}
+                  disabled={fields.bickode}
+                  value={fields.bickode ? `` : fields.adresse1}
                   label={intl.messages["felter.adresse.label"]}
                   hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
                   onChange={value => setField({ adresse1: value })}
@@ -344,8 +370,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <InputMedHjelpetekst
                   label={""}
                   maxLength={34}
-                  disabled={fields.swiftkode}
-                  value={fields.swiftkode ? `` : fields.adresse2}
+                  disabled={fields.bickode}
+                  value={fields.bickode ? `` : fields.adresse2}
                   submitted={submitted}
                   onChange={value => setField({ adresse2: value })}
                   error={errors.adresse2}
@@ -353,8 +379,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <InputMedHjelpetekst
                   label={""}
                   maxLength={34}
-                  disabled={fields.swiftkode}
-                  value={fields.swiftkode ? `` : fields.adresse3}
+                  disabled={fields.bickode}
+                  value={fields.bickode ? `` : fields.adresse3}
                   submitted={submitted}
                   onChange={value => setField({ adresse3: value })}
                   error={errors.adresse3}

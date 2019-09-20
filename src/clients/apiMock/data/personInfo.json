@@ -12,9 +12,9 @@
       "adresse3": "",
       "bankkode": "",
       "banknavn": "Nordax Bank AB",
-      "iban": "NO9297224925961",
+      "iban": "SE7280000810340009783242",
       "land": "Sverige",
-      "swiftkode": "DNBANOKK",
+      "swiftkode": "SWEDSESS",
       "valuta": "Svenske kroner"
     },
     "tlfnr": {
@@ -217,8 +217,8 @@
       "adresse3": "",
       "bolignummer": "H0402",
       "bydel": "",
-      "datoFraOgMed": "2019-01-12",
-      "datoTilOgMed": "2023-01-11",
+      "datoFraOgMed": "2019-09-19",
+      "datoTilOgMed": "2020-09-19",
       "gateKode": "0270",
       "husbokstav": "A",
       "husnummer": "0020",

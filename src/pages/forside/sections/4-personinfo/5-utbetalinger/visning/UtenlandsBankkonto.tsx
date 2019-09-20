@@ -50,7 +50,7 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
         content={utenlandskBankkonto.valuta}
       />
       <ListElement
-        titleId="personalia.swiftkode"
+        titleId="personalia.bickode"
         content={utenlandskBankkonto.swiftkode}
       />
     </ul>

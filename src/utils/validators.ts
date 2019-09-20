@@ -2,9 +2,12 @@ import {
   Dictionary,
   FieldConfig,
   SimpleValidator,
-  SimpleValidatorConfig
+  SimpleValidatorConfig,
+  ValidatorContext
 } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
+import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
+import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
 
 /*
   Form validators
@@ -14,6 +17,8 @@ export type ExtraFieldsConfig = Dictionary<FieldConfig & ExtraFieldConfig>;
 export interface ExtraFieldConfig {
   isBIC?: SimpleValidator;
   isIBAN?: SimpleValidator;
+  isIBANCountryCompliant?: SimpleValidator;
+  isBankkode?: CustomValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
@@ -21,15 +26,41 @@ export interface ExtraFieldConfig {
   isHouseNumber?: SimpleValidator;
 }
 
-export const extraValidators = {
+export const extraValidators: Validators = {
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
+
+  isBICCountryCompliant: (
+    config: SimpleValidatorConfig,
+    { fields }: ValidatorContext
+  ) => (value: string) =>
+    fields.land && value.substring(4, 6) !== getCountryISO2(fields.land.value)
+      ? config.message
+      : null,
 
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
 
+  isIBANCountryCompliant: (
+    config: SimpleValidatorConfig,
+    { fields }: ValidatorContext
+  ) => (value: string) =>
+    fields.land && value.substring(0, 2) !== getCountryISO2(fields.land.value)
+      ? config.message
+      : null,
+
   isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     isValidIBAN(value) ? config.message : null,
+
+  isBankkode: (config: CustomValidator, { fields }: ValidatorContext) => (
+    value: string
+  ) =>
+    value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
+      ? config.message({
+          land: fields.land.label,
+          siffer: BANKKODE_MAX_LENGTH[fields.land.value]
+        })
+      : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
@@ -63,3 +94,23 @@ export const erInteger = (str: string) => {
 
 export const sjekkForFeil = (submitted: boolean, error: string | null) =>
   submitted && error ? { feilmelding: error } : undefined;
+
+/*
+  Overridden types
+ */
+
+export type SimpleValidators = Dictionary<
+  (config: SimpleValidatorConfig) => (value: any) => string | null
+>;
+
+export interface CustomValidator {
+  message: (values: object) => string;
+  validateIf?: ((context: ValidatorContext) => boolean) | boolean;
+}
+
+export type Validators = Dictionary<
+  (
+    config: SimpleValidatorConfig & CustomValidator,
+    context: ValidatorContext
+  ) => (value: any) => string | null
+>;

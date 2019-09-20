@@ -120,7 +120,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
           return (
             <>
               <div className={"tlfnummer__container"}>
-                <div>
+                <div className={"tlfnummer__verdi"}>
                   <Element>
                     <FormattedMessage id="side.leggtil" />
                   </Element>
