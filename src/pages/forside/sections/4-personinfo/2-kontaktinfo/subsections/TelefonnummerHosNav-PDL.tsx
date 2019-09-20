@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
