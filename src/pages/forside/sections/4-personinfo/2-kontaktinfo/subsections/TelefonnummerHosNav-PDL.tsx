@@ -14,7 +14,12 @@ interface Props {
 
 const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
-  const [tlfnr, settTlfnr] = useState();
+  const { tlfnr } = props;
+
+  const tempLandskode = {
+    value: "+47",
+    label: "Norge"
+  };
 
   const onChangeSuccess = () => {
     settOpprett(false);
@@ -23,36 +28,6 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   const onDeleteSuccess = () => {
     settOpprett(false);
   };
-
-  useEffect(() => {
-    const tempLandskode = {
-      value: "+47",
-      label: "Norge"
-    };
-
-    if (props.tlfnr) {
-      settTlfnr({
-        ...(props.tlfnr.mobil && {
-          mobil: {
-            landskode: tempLandskode,
-            nummer: props.tlfnr.mobil
-          }
-        }),
-        ...(props.tlfnr.privat && {
-          privat: {
-            landskode: tempLandskode,
-            nummer: props.tlfnr.privat
-          }
-        }),
-        ...(props.tlfnr.jobb && {
-          jobb: {
-            landskode: tempLandskode,
-            nummer: props.tlfnr.jobb
-          }
-        })
-      });
-    }
-  }, [props.tlfnr]);
 
   return (
     <>
@@ -67,8 +42,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"MOBIL"}
               titleId="personalia.tlfnr.mobil"
-              currentLandskode={tlfnr.mobil.landskode}
-              currentTlfnummer={tlfnr.mobil.nummer}
+              currentLandskode={tempLandskode}
+              currentTlfnummer={tlfnr.mobil}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -77,8 +52,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"HJEM"}
               titleId="personalia.tlfnr.hjem"
-              currentLandskode={tlfnr.privat.landskode}
-              currentTlfnummer={tlfnr.privat.nummer}
+              currentLandskode={tempLandskode}
+              currentTlfnummer={tlfnr.privat}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -87,8 +62,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"ARBEID"}
               titleId="personalia.tlfnr.arbeid"
-              currentLandskode={tlfnr.jobb.landskode}
-              currentTlfnummer={tlfnr.jobb.nummer}
+              currentLandskode={tempLandskode}
+              currentTlfnummer={tlfnr.jobb}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
