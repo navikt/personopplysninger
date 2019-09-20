@@ -79,11 +79,6 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     settEndre(false);
   };
 
-  const onDeleteSuccess = () => {
-    props.onDeleteSuccess();
-    settEndre(false);
-  };
-
   const getUpdatedData = () =>
     fetchPersonInfo().then(personInfo => {
       dispatch({
@@ -130,7 +125,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     settSlettLoading(true);
     slettTlfnummer(outbound)
       .then(getUpdatedData)
-      .then(onDeleteSuccess)
+      .then(props.onDeleteSuccess)
       .catch((error: HTTPError) => {
         settSlettLoading(false);
         settAlert({
