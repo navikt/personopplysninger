@@ -8,7 +8,7 @@ import {
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
 import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
-import { validerKontonummer } from "./kontonummer";
+import { isMod11 } from "./kontonummer";
 
 /*
   Form validators
@@ -63,8 +63,8 @@ export const extraValidators: Validators = {
         })
       : null,
 
-  isKontonummer: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !validerKontonummer(value) ? config.message : null,
+  isMod11: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !isMod11(value) ? config.message : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,

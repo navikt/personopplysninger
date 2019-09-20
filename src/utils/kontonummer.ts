@@ -15,16 +15,6 @@ const mod11OfNumberWithControlDigit = (input: string) => {
   return result === 11 ? 0 : result;
 };
 
-export const validerKontonummer = (accountNumber: string) => {
-  if (!accountNumber) {
-    return false;
-  }
-  accountNumber = accountNumber.toString().replace(/\./g, "");
-  if (accountNumber.length !== 11) {
-    return false;
-  }
-  return (
-    parseInt(accountNumber.charAt(accountNumber.length - 1), 10) ===
-    mod11OfNumberWithControlDigit(accountNumber)
-  );
-};
+export const isMod11 = (accountNumber: string) =>
+  parseInt(accountNumber.charAt(accountNumber.length - 1), 10) ===
+  mod11OfNumberWithControlDigit(accountNumber);
