@@ -12,7 +12,6 @@ const mod11OfNumberWithControlDigit = (input: string) => {
     }
   }
   var result = 11 - (sumForMod % 11);
-
   return result === 11 ? 0 : result;
 };
 
