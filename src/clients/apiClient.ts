@@ -148,7 +148,6 @@ const sjekkHttpFeil = (response: Response) => {
 };
 
 const sjekkTPSFeil = (response: TPSResponse) => {
-  console.log(response);
   switch (response.statusType) {
     case "ERROR":
       const error = {
