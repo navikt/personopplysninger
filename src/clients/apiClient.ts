@@ -151,13 +151,12 @@ const sjekkTPSFeil = (response: TPSResponse) => {
   switch (response.statusType) {
     case "ERROR":
       const { validationError } = response;
+      const { message, details } = validationError;
       const error = {
         code: 400,
-        text: `${validationError.message}${
-          validationError.details
-            ? `: ${validationError.details
-                .map(detail => detail.message || ``)
-                .join()}`
+        text: `${message}${
+          details
+            ? `: ${details.map(detail => detail.message || ``).join()}`
             : ``
         }`
       };
