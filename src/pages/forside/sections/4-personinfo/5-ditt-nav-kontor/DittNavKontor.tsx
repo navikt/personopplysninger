@@ -11,10 +11,11 @@ import ListElement from "../../../../../components/listelement/ListElement";
 import Apningstid from "./apningstid/Apningstid";
 import { print } from "../../../../../utils/text";
 import Kilde from "../../../../../components/kilde/Kilde";
+import { RADIX_DECIMAL } from "../../../../../utils/formattering";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
-  geografiskTilknytning: GeografiskTilknytning;
+  geografiskTilknytning?: GeografiskTilknytning;
 }
 
 const DittNavKontor = (props: Props & InjectedIntlProps) => {
@@ -23,7 +24,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
     enhet && enhet.publikumsmottak.length > 1 ? -1 : 0
   );
 
-  if (!enhet) {
+  if (!enhet || !props.geografiskTilknytning) {
     return null;
   }
 
@@ -47,9 +48,11 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
         </div>
         {publikumsmottak.length > 1 && (
           <Select
-            label=""
+            label={``}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
-              settValgtMottakId(parseInt(event.currentTarget.value));
+              settValgtMottakId(
+                parseInt(event.currentTarget.value, RADIX_DECIMAL)
+              );
             }}
           >
             <option value="-1">
