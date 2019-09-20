@@ -201,11 +201,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       const outbound = {
         landkode: fields.land.value,
         value: electronicFormatIBAN(fields.kontonummer),
-        valuta: fields.valuta.value,
         ...(sendBICKode && {
           swiftkode: bickode
         }),
         utenlandskKontoInformasjon: {
+          valuta: fields.valuta.value,
           bank: {
             ...(sendAdresse && {
               adresseLinje1: fields.adresse1,

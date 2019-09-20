@@ -188,6 +188,7 @@ export default {
   "validation.kontonummer.pakrevd": "Kontonummer er påkrevd",
   "validation.kontonummer.siffer": "Kontonummer må kun inneholde siffer",
   "validation.kontonummer.elleve": `Norske kontonummer må bestå av nøyaktig 11 siffer`,
+  "validation.kontonummer.mod11": `Skriv inn et gyldig kontonummer`,
   "validation.ikke.iban": `Amerikanske kontonummer kan ikke være IBAN`,
   "validation.iban.pakrevd": "Et gyldig IBAN er påkrevd",
   "validation.iban.country": `Du må taste inn et IBAN-nummer fra det landet du har valgt.`,

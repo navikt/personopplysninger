@@ -8,6 +8,7 @@ import {
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
 import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
+import { validerKontonummer } from "./kontonummer";
 
 /*
   Form validators
@@ -61,6 +62,9 @@ export const extraValidators: Validators = {
           siffer: BANKKODE_MAX_LENGTH[fields.land.value]
         })
       : null,
+
+  isKontonummer: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !validerKontonummer(value) ? config.message : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,

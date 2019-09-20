@@ -46,6 +46,9 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       isExactLength: {
         message: intl.messages["validation.kontonummer.elleve"],
         length: 11
+      },
+      isKontonummer: {
+        message: intl.messages["validation.kontonummer.mod11"]
       }
     }
   };
