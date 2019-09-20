@@ -122,8 +122,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       const outbound = {
         ...equalFields,
         gatekode: 1,
-        gyldigTom: datoTilOgMed,
-        tilleggslinjeType: "V"
+        gyldigTom: datoTilOgMed
       } as OutboundGateadresse;
 
       settLoading(true);
