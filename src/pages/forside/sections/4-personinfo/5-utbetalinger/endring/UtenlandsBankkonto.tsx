@@ -200,14 +200,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
 
       const outbound = {
         value: electronicFormatIBAN(fields.kontonummer),
-        ...(sendBICKode && {
-          swiftkode: bickode
-        }),
         utenlandskKontoInformasjon: {
           landkode: fields.land.value,
           valuta: fields.valuta.value,
+          ...(sendBICKode && {
+            swift: bickode
+          }),
           bank: {
-            navn: fields.banknavn,
             ...(sendAdresse && {
               adresseLinje1: fields.adresse1,
               adresseLinje2: fields.adresse2,
@@ -215,7 +214,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             }),
             ...(sendBankkode && {
               kode: fields.bankkode
-            })
+            }),
+            navn: fields.banknavn
           }
         }
       };
