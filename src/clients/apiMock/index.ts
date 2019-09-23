@@ -74,7 +74,7 @@ export const setUpMock = async () => {
   mockPostGateadresse &&
     fetchMock.post(
       `${apiUrl}/endreGateadresse`,
-      delay(10, 50).then(() => ({ statusType: "OK" }))
+      delay(10, 50).then(() => ({ statusType: "PENDING" }))
     );
   mockPostSlettTlfnr &&
     fetchMock.post(
