@@ -18,5 +18,5 @@ export type TPSResponse =
     }
   | {
       statusType: "ERROR";
-      error: TPSError;
+      error?: TPSError;
     };

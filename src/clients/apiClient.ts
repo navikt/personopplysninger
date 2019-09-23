@@ -150,35 +150,27 @@ const sjekkHttpFeil = (response: Response) => {
 };
 
 const sjekkTPSFeil = (response: TPSResponse) => {
-  switch (response.statusType) {
-    case "OK":
-      return response;
-    case "PENDING": {
-      const { error } = response;
-      const alert = {
-        code: `534`,
-        text: `${(error && error.message) ||
-          `Vi har sendt inn endringen din.`}`,
-        type: `info`
-      };
-      throw alert;
-    }
-    case "ERROR": {
-      const { error } = response;
-      const { message, details } = error;
-      const alert = {
-        code: `400`,
-        text: `${message || ``}${
-          details ? `: ${details.map(d => d.message || ``).join()}` : ``
+  if (response.statusType === "OK") {
+    return response;
+  } else {
+    const error = {
+      PENDING: {
+        code: 534,
+        type: `info`,
+        text: `${(response.error && response.error.message) ||
+          `Vi har sendt inn endringen din.`}`
+      },
+      ERROR: {
+        code: 400,
+        type: `feil`,
+        text: `${response.error && response.error.message}${
+          response.error && response.error.details
+            ? `: ${response.error.details.map(d => d.message || ``).join()}`
+            : ``
         }`
-      };
-      throw alert;
-    }
-    default:
-      const alert = {
-        text: `Ukjent feil`
-      };
-      throw alert;
+      }
+    }[response.statusType];
+    throw error;
   }
 };
 
