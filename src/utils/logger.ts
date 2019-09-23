@@ -4,8 +4,7 @@ const { frontendlogger } = window as any;
 
 export const logApiError = (url: string, err: AlertType) => {
   switch (err.type) {
-    case "info":
-    case "suksess":
+    default:
       console.log(url, err);
       break;
     case "advarsel":
