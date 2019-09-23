@@ -33,7 +33,6 @@ const hentJsonOgSjekkAuth = (url: string) =>
         type: err.type || "feil",
         text: err.text || err
       };
-      console.error(url, error);
       logApiError(url, error);
       throw error;
     });
@@ -160,7 +159,7 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       const alert = {
         code: `534`,
         type: `info`,
-        text: message
+        text: `${message}`
       };
       throw alert;
     }
