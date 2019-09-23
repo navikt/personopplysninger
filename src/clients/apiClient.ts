@@ -1,7 +1,6 @@
 import Environment from "../Environments";
 import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
-import { HTTPError } from "../components/error/Error";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/UtenlandsBankkonto";
@@ -10,6 +9,7 @@ import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-ad
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
+import { AlertType } from "../components/alert/Alert";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
@@ -27,9 +27,10 @@ const hentJsonOgSjekkAuth = (url: string) =>
     .then(sjekkAuth)
     .then(sjekkHttpFeil)
     .then(parseJson)
-    .catch((err: string & HTTPError) => {
+    .catch((err: string & AlertType) => {
       const error = {
         code: err.code || 404,
+        type: err.type || "feil",
         text: err.text || err
       };
       logApiError(url, error);
@@ -83,9 +84,10 @@ const sendJson = (url: string, data: Outbound) => {
     .then(sjekkHttpFeil)
     .then(parseJson)
     .then(sjekkTPSFeil)
-    .catch((err: string & HTTPError) => {
+    .catch((err: string & AlertType) => {
       const error = {
         code: err.code || 404,
+        type: err.type || "feil",
         text: err.text || err
       };
       logApiError(url, error);
@@ -148,22 +150,27 @@ const sjekkHttpFeil = (response: Response) => {
 };
 
 const sjekkTPSFeil = (response: TPSResponse) => {
-  switch (response.statusType) {
-    case "ERROR":
-      const { validationError } = response;
-      const { message, details } = validationError;
-      const error = {
+  if (response.statusType === "OK") {
+    return response;
+  } else {
+    const error = {
+      PENDING: {
+        code: 534,
+        type: `info`,
+        text: `${(response.error && response.error.message) ||
+          `Vi har sendt inn endringen din.`}`
+      },
+      ERROR: {
         code: 400,
-        text: `${message}${
-          details
-            ? `: ${details.map(detail => detail.message || ``).join()}`
+        type: `feil`,
+        text: `${response.error && response.error.message}${
+          response.error && response.error.details
+            ? `: ${response.error.details.map(d => d.message || ``).join()}`
             : ``
         }`
-      };
-      throw error;
-    case "OK":
-    default:
-      return response;
+      }
+    }[response.statusType];
+    throw error;
   }
 };
 

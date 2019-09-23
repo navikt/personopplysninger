@@ -3,24 +3,17 @@ import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
-import {
-  fetchPersonInfo,
-  postTlfnummer
-} from "../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../components/error/Error";
-import avbrytIkon from "../../../../../../../assets/img/Back.svg";
+import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
+import avbrytIkon from "assets/img/Back.svg";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
-import { Tlfnr } from "../../../../../../../types/personalia";
-import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
-import {
-  isNorwegianNumber,
-  sjekkForFeil
-} from "../../../../../../../utils/validators";
-import { PersonInfo } from "../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../providers/Provider";
+import { Tlfnr } from "types/personalia";
+import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
+import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   onCancelClick: () => void;
@@ -28,14 +21,9 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-interface Alert {
-  type: AlertStripeType;
-  melding: string;
-}
-
 const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
   const [endreLoading, settEndreLoading] = useState(false);
-  const [alert, settAlert] = useState<Alert | undefined>();
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const { tlfnr, onChangeSuccess, intl } = props;
   const [, dispatch] = useStore();
 
@@ -97,12 +85,9 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((alert: AlertType) => {
           settEndreLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -207,13 +192,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   </Knapp>
                 </div>
               </div>
-              {alert && (
-                <div className={"tlfnummer__alert"}>
-                  <AlertStripe type={alert.type}>
-                    <span>{alert.melding}</span>
-                  </AlertStripe>
-                </div>
-              )}
+              {alert && <Alert {...alert} />}
             </>
           );
         }}
