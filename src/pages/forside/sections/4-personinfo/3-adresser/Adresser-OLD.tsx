@@ -1,18 +1,15 @@
 import React from "react";
-import {
-  FormattedHTMLMessage,
-  InjectedIntlProps,
-  injectIntl
-} from "react-intl";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 import NorskMidlertidigAdresse from "./midlertidig-adresse/visning/NorskAdresse";
-import { Adresser } from "../../../../../types/adresser";
-import Box from "../../../../../components/box/Box";
-import adresseIkon from "../../../../../assets/img/Adresse.svg";
-import Kilde from "../../../../../components/kilde/Kilde";
-import Environment from "../../../../../Environments";
-import endreIkon from "../../../../../assets/img/Pencil.svg";
-import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
+import { Adresser } from "types/adresser";
+import Box from "components/box/Box";
+import adresseIkon from "assets/img/Adresse.svg";
+import Kilde from "components/kilde/Kilde";
+import Environment from "Environments";
+import endreIkon from "assets/img/Pencil.svg";
+import leggTilIkon from "assets/img/LeggTil.svg";
 import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";

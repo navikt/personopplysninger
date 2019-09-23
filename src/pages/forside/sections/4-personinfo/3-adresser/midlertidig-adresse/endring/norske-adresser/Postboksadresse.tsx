@@ -1,25 +1,19 @@
 import React, { useState } from "react";
-import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
+import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
-import {
-  ExtraFieldsConfig,
-  sjekkForFeil
-} from "../../../../../../../../utils/validators";
-import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
-import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
+import { ExtraFieldsConfig, sjekkForFeil } from "utils/validators";
+import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
+import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import AlertStripe from "nav-frontend-alertstriper";
 import { FormContext, FormValidation } from "calidation";
-import {
-  fetchPersonInfo,
-  postPostboksadresse
-} from "../../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../../components/error/Error";
-import { PersonInfo } from "../../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../../providers/Provider";
+import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "../../../../../../../../utils/date";
+import { oneYearAhead } from "utils/date";
+import { RADIX_DECIMAL } from "utils/formattering";
+import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -28,7 +22,8 @@ interface Props {
 
 export interface OutboundPostboksadresse {
   tilleggslinje: string;
-  postboksnummer: string;
+  tilleggslinjeType: string;
+  postboksnummer: number;
   postboksanlegg: string;
   postnummer: string;
   gyldigTom: string;
@@ -36,8 +31,8 @@ export interface OutboundPostboksadresse {
 
 const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const { tilleggsadresse, onChangeSuccess, intl } = props;
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
-  const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -77,24 +72,30 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, postboksnummer, ...equalFields } = fields;
+      const {
+        datoTilOgMed,
+        postboksnummer,
+        tilleggslinje,
+        ...equalFields
+      } = fields;
 
       const outbound = {
         ...equalFields,
-        postboksnummer: postboksnummer.toString(),
-        gyldigTom: datoTilOgMed
+        postboksnummer: parseInt(postboksnummer, RADIX_DECIMAL),
+        gyldigTom: datoTilOgMed,
+        ...(tilleggslinje && {
+          tilleggslinjeType: "C/O",
+          tilleggslinje
+        })
       } as OutboundPostboksadresse;
 
       settLoading(true);
       postPostboksadresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((alert: AlertType) => {
           settLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -185,13 +186,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 <FormattedMessage id={"side.lagre"} />
               </Knapp>
             </div>
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}

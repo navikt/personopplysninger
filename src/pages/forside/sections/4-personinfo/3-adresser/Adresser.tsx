@@ -1,6 +1,6 @@
 import React from "react";
-import { useStore } from "../../../../../providers/Provider";
-import { Adresser } from "../../../../../types/adresser";
+import { useStore } from "providers/Provider";
+import { Adresser } from "types/adresser";
 import AdresserPDL from "./Adresser-PDL";
 import AdresserOLD from "./Adresser-OLD";
 

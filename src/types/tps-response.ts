@@ -1,11 +1,11 @@
-interface ValidationDetail {
+interface TPSErrorDetail {
   name: string;
   message: string;
 }
 
-interface ValidationError {
+interface TPSError {
   message: string;
-  details: ValidationDetail[];
+  details?: TPSErrorDetail[];
 }
 
 export type TPSResponse =
@@ -13,6 +13,10 @@ export type TPSResponse =
       statusType: "OK";
     }
   | {
+      statusType: "PENDING";
+      error?: TPSError;
+    }
+  | {
       statusType: "ERROR";
-      validationError: ValidationError;
+      error?: TPSError;
     };

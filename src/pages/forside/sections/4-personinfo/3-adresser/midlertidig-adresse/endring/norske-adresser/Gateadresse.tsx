@@ -3,24 +3,17 @@ import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
-import AlertStripe from "nav-frontend-alertstriper";
-import {
-  ExtraFieldsConfig,
-  sjekkForFeil
-} from "../../../../../../../../utils/validators";
-import DayPicker from "../../../../../../../../components/felter/day-picker/DayPicker";
-import {
-  fetchPersonInfo,
-  postGateadresse
-} from "../../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../../components/error/Error";
-import { Tilleggsadresse } from "../../../../../../../../types/adresser/tilleggsadresse";
-import { RADIX_DECIMAL } from "../../../../../../../../utils/formattering";
-import InputPostnummer from "../../../../../../../../components/felter/input-postnummer/InputPostnummer";
-import { PersonInfo } from "../../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../../providers/Provider";
+import { ExtraFieldsConfig, sjekkForFeil } from "utils/validators";
+import DayPicker from "components/felter/day-picker/DayPicker";
+import { fetchPersonInfo, postGateadresse } from "clients/apiClient";
+import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
+import { RADIX_DECIMAL } from "utils/formattering";
+import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "../../../../../../../../utils/date";
+import { oneYearAhead } from "utils/date";
+import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -42,8 +35,8 @@ export interface OutboundGateadresse {
 
 const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   const { tilleggsadresse, onChangeSuccess, intl } = props;
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
-  const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
 
   const trimAdresse = (
@@ -117,24 +110,25 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, ...equalFields } = fields;
+      const { datoTilOgMed, tilleggslinje, husnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
-        gatekode: 1,
-        gyldigTom: datoTilOgMed
+        husnummer: parseInt(husnummer, RADIX_DECIMAL),
+        gyldigTom: datoTilOgMed,
+        ...(tilleggslinje && {
+          tilleggslinjeType: "C/O",
+          tilleggslinje
+        })
       } as OutboundGateadresse;
 
       settLoading(true);
       postGateadresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((postAlert: AlertType) => {
           settLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(postAlert);
         });
     }
   };
@@ -247,13 +241,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                 <FormattedMessage id={"side.lagre"} />
               </Knapp>
             </div>
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}

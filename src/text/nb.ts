@@ -148,7 +148,7 @@ export default {
   "felter.adressevalg.norsk": "Norsk adresse",
   "felter.adressevalg.utenlandsk": "Utenlandsk adresse",
   "felter.tillegslinje.label": "Person som eier adressen (valgfri)",
-  "felter.tillegslinje.placeholder": "C/O",
+  "felter.tillegslinje.placeholder": "",
   "felter.gatenavn.label": "Gatenavn",
   "felter.gatenummer.label": "Nummer",
   "felter.gatebokstav.label": "Bokstav",

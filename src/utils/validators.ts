@@ -6,8 +6,8 @@ import {
   ValidatorContext
 } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
-import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/utils";
-import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/5-utbetalinger/endring/UtenlandsBankkonto";
+import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
+import { BANKKODE_MAX_LENGTH } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "../types/option";
 

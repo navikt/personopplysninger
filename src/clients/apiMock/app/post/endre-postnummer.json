@@ -1,6 +1,6 @@
 {
   "statusType": "ERROR",
-  "validationError": {
+  "error": {
     "message": "Kontonummer feilet validering",
     "details": [
       {

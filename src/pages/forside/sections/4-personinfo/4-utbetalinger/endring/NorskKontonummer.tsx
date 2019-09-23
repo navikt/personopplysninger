@@ -1,26 +1,17 @@
 import React, { useState } from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, FormValidation } from "calidation";
-import {
-  fetchPersonInfo,
-  postKontonummer
-} from "../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../components/error/Error";
-import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
+import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { useStore } from "../../../../../../providers/Provider";
-import { PersonInfo } from "../../../../../../types/personInfo";
+import { useStore } from "providers/Provider";
+import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
+import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   kontonummer?: string;
   onChangeSuccess: () => void;
-}
-
-interface Alert {
-  type: AlertStripeType;
-  melding: string;
 }
 
 export interface OutboundNorskKontonummer {
@@ -29,7 +20,7 @@ export interface OutboundNorskKontonummer {
 
 const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
-  const [alert, settAlert] = useState<Alert | undefined>();
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const { onChangeSuccess, kontonummer, intl } = props;
   const [, dispatch] = useStore();
 
@@ -74,12 +65,9 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       postKontonummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((alert: AlertType) => {
           settLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -120,13 +108,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
                 </Knapp>
               </div>
             </div>
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}
