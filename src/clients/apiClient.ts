@@ -153,7 +153,6 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       return response;
     case "PENDING": {
       const error = {
-        code: 202,
         type: `info`,
         text: `Det eksisterer en pågående endring 
         for person med samme opplysningstype.`
@@ -167,14 +166,12 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         ? `: ${details.map(detail => detail.message || ``).join()}`
         : ``;
       const error = {
-        code: 400,
         text: `${message}${errorDetails}`
       };
       throw error;
     }
     default:
       const error = {
-        code: 520,
         text: `Ukjent feil`
       };
       throw error;

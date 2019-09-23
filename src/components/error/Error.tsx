@@ -3,7 +3,7 @@ import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 
 export interface HTTPError {
   type?: AlertStripeType;
-  code: number;
+  code?: number;
   text: string;
 }
 
@@ -18,7 +18,8 @@ const Error = (props: Props) => {
       <AlertStripe type={error.type || "feil"}>
         Oisann, noe gikk galt ved henting av data!
         <br />
-        <span>{` ${error.code}: ${error.text}`}</span>
+        {error.code && <span>{`${error.code}: `}</span>}
+        {error.text && <span>{`${error.text}`}</span>}
       </AlertStripe>
     </div>
   );
