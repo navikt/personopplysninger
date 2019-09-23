@@ -153,7 +153,8 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       return response;
     case "PENDING": {
       const error = {
-        code: 423,
+        code: 202,
+        type: `info`,
         text: `Det eksisterer en pågående endring 
         for person med samme opplysningstype.`
       };
