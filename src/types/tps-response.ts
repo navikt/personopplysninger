@@ -14,7 +14,7 @@ export type TPSResponse =
     }
   | {
       statusType: "PENDING";
-      error: TPSError;
+      error?: TPSError;
     }
   | {
       statusType: "ERROR";

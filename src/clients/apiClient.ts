@@ -155,10 +155,10 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       return response;
     case "PENDING": {
       const { error } = response;
-      const { message } = error;
       const alert = {
         code: `534`,
-        text: `${message || `Vi har sendt inn endringen din.`}`,
+        text: `${(error && error.message) ||
+          `Vi har sendt inn endringen din.`}`,
         type: `info`
       };
       throw alert;
@@ -168,7 +168,7 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       const { message, details } = error;
       const alert = {
         code: `400`,
-        text: `${message}${
+        text: `${message || ``}${
           details ? `: ${details.map(d => d.message || ``).join()}` : ``
         }`
       };
