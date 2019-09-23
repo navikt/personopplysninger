@@ -158,20 +158,19 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       const { message } = error;
       const alert = {
         code: `534`,
-        type: `info`,
-        text: `${message}`
+        text: `${message || `Vi har sendt inn endringen din.`}`,
+        type: `info`
       };
       throw alert;
     }
     case "ERROR": {
       const { error } = response;
       const { message, details } = error;
-      const errorDetails = details
-        ? `: ${details.map(detail => detail.message || ``).join()}`
-        : ``;
       const alert = {
         code: `400`,
-        text: `${message}${errorDetails}`
+        text: `${message}${
+          details ? `: ${details.map(d => d.message || ``).join()}` : ``
+        }`
       };
       throw alert;
     }
