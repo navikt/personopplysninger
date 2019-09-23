@@ -152,12 +152,12 @@ const sjekkTPSFeil = (response: TPSResponse) => {
     case "OK":
       return response;
     case "PENDING": {
-      const error = {
+      const alert = {
         type: `info`,
-        text: `Det eksisterer en pågående endring 
+        message: `Det eksisterer en pågående endring 
         for person med samme opplysningstype.`
       };
-      throw error;
+      throw alert;
     }
     case "ERROR": {
       const { validationError } = response;
@@ -165,16 +165,16 @@ const sjekkTPSFeil = (response: TPSResponse) => {
       const errorDetails = details
         ? `: ${details.map(detail => detail.message || ``).join()}`
         : ``;
-      const error = {
-        text: `${message}${errorDetails}`
+      const alert = {
+        message: `${message}${errorDetails}`
       };
-      throw error;
+      throw alert;
     }
     default:
-      const error = {
-        text: `Ukjent feil`
+      const alert = {
+        message: `Ukjent feil`
       };
-      throw error;
+      throw alert;
   }
 };
 

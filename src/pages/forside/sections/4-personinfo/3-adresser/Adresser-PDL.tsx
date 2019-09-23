@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
-import { Adresser } from "../../../../../types/adresser";
-import Box from "../../../../../components/box/Box";
-import adresseIkon from "../../../../../assets/img/Adresse.svg";
-import Kilde from "../../../../../components/kilde/Kilde";
-import endreIkon from "../../../../../assets/img/Pencil.svg";
-import leggTilIkon from "../../../../../assets/img/LeggTil.svg";
+import { Adresser } from "types/adresser";
+import Box from "components/box/Box";
+import adresseIkon from "assets/img/Adresse.svg";
+import Kilde from "components/kilde/Kilde";
+import endreIkon from "assets/img/Pencil.svg";
+import leggTilIkon from "assets/img/LeggTil.svg";
 import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";

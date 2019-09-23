@@ -5,23 +5,22 @@ import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import {
   fetchPersonInfo,
   postTlfnummer,
   slettTlfnummer
-} from "../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../components/error/Error";
-import endreIkon from "../../../../../../../assets/img/Pencil.svg";
-import avbrytIkon from "../../../../../../../assets/img/Back.svg";
-import slettIkon from "../../../../../../../assets/img/Slett.svg";
-import SelectLandskode from "../../../../../../../components/felter/kodeverk/SelectLandskode";
-import { formatTelefonnummer } from "../../../../../../../utils/formattering";
-import { OptionType } from "../../../../../../../types/option";
-import { PersonInfo } from "../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../providers/Provider";
+} from "clients/apiClient";
+import endreIkon from "assets/img/Pencil.svg";
+import avbrytIkon from "assets/img/Back.svg";
+import slettIkon from "assets/img/Slett.svg";
+import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
+import { formatTelefonnummer } from "utils/formattering";
+import { OptionType } from "types/option";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { isNorwegianNumber } from "../../../../../../../utils/validators";
+import { isNorwegianNumber } from "utils/validators";
+import Alert, { AlertType } from "components/alert/Alert";
 
 export interface OutboundTlfnummer {
   type: string;
@@ -38,17 +37,12 @@ interface Props {
   currentTlfnummer?: string;
 }
 
-interface Alert {
-  type: AlertStripeType;
-  melding: string;
-}
-
 const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
   const { type, titleId, currentLandskode, currentTlfnummer, intl } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
-  const [alert, settAlert] = useState<Alert | undefined>();
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -102,12 +96,9 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((alert: AlertType) => {
           settEndreLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -127,12 +118,9 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     slettTlfnummer(outbound)
       .then(getUpdatedData)
       .then(props.onDeleteSuccess)
-      .catch((error: HTTPError) => {
+      .catch((alert: AlertType) => {
         settSlettLoading(false);
-        settAlert({
-          type: "feil",
-          melding: `${error.code} - ${error.text}`
-        });
+        settAlert(alert);
       });
   };
 
@@ -254,13 +242,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 </div>
               </div>
             )}
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}

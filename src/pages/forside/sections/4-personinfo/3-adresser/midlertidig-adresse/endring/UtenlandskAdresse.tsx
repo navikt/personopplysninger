@@ -4,7 +4,6 @@ import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
-import AlertStripe from "nav-frontend-alertstriper";
 import { sjekkForFeil } from "../../../../../../../utils/validators";
 import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
 import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
@@ -18,6 +17,7 @@ import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { oneYearAhead } from "../../../../../../../utils/date";
+import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   utenlandskadresse?: UtenlandskAdresseType;
@@ -36,8 +36,8 @@ const OpprettEllerEndreUtenlandskAdresse = (
   props: Props & InjectedIntlProps
 ) => {
   const { utenlandskadresse, onChangeSuccess, intl } = props;
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
-  const [alert, settAlert] = useState();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -90,10 +90,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
         .then(onChangeSuccess)
         .catch((error: HTTPError) => {
           settLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -180,13 +177,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
                 <FormattedMessage id={"side.lagre"} />
               </Knapp>
             </div>
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}

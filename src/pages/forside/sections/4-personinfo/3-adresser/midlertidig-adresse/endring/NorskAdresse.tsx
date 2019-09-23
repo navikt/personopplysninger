@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useState } from "react";
 import { Select } from "nav-frontend-skjema";
-import { Tilleggsadresse } from "../../../../../../../types/adresser/tilleggsadresse";
+import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";

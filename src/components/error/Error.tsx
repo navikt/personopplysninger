@@ -1,9 +1,8 @@
 import React from "react";
-import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
+import { AlertStripeFeil } from "nav-frontend-alertstriper";
 
 export interface HTTPError {
-  type?: AlertStripeType;
-  code?: number;
+  code: number;
   text: string;
 }
 
@@ -15,12 +14,12 @@ const Error = (props: Props) => {
   const { error } = props;
   return (
     <div className="error__container">
-      <AlertStripe type={error.type || "feil"}>
+      <AlertStripeFeil>
         Oisann, noe gikk galt ved henting av data!
         <br />
         {error.code && <span>{`${error.code}: `}</span>}
         {error.text && <span>{`${error.text}`}</span>}
-      </AlertStripe>
+      </AlertStripeFeil>
     </div>
   );
 };

@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
-import { HTTPError } from "components/error/Error";
-import AlertStripe, {
-  AlertStripeInfo,
-  AlertStripeType
-} from "nav-frontend-alertstriper";
-import {
-  InjectedIntlProps,
-  injectIntl,
-  FormattedHTMLMessage
-} from "react-intl";
+import { AlertStripeInfo } from "nav-frontend-alertstriper";
+import { InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import { OptionType } from "types/option";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -22,15 +15,11 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { UNKNOWN } from "utils/text";
 import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
+import Alert, { AlertType } from "../../../../../../components/alert/Alert";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   onChangeSuccess: () => void;
-}
-
-interface Alert {
-  type: AlertStripeType;
-  melding: string;
 }
 
 export interface OutboundUtenlandsbankonto {
@@ -68,7 +57,7 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
 
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
-  const [alert, settAlert] = useState<Alert | undefined>();
+  const [alert, settAlert] = useState<AlertType | undefined>();
   const { onChangeSuccess, utenlandskbank, intl } = props;
   const [, dispatch] = useStore();
 
@@ -215,7 +204,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             ...(sendBankkode && {
               kode: fields.bankkode
             }),
-            navn: fields.banknavn,
+            navn: fields.banknavn
           }
         }
       };
@@ -224,12 +213,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       postKontonummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((alert: AlertType) => {
           settLoading(false);
-          settAlert({
-            type: "feil",
-            melding: `${error.code} - ${error.text}`
-          });
+          settAlert(alert);
         });
     }
   };
@@ -398,13 +384,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <FormattedMessage id={"side.lagre"} />
               </Knapp>
             </div>
-            {alert && (
-              <div className={"tlfnummer__alert"}>
-                <AlertStripe type={alert.type}>
-                  <span>{alert.melding}</span>
-                </AlertStripe>
-              </div>
-            )}
+            {alert && <Alert {...alert} />}
           </>
         );
       }}
