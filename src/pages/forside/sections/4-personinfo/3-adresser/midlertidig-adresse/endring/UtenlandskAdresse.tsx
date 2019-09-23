@@ -11,7 +11,6 @@ import {
   fetchPersonInfo,
   postUtenlandskAdresse
 } from "../../../../../../../clients/apiClient";
-import { HTTPError } from "../../../../../../../components/error/Error";
 import { UNKNOWN } from "../../../../../../../utils/text";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
@@ -88,9 +87,9 @@ const OpprettEllerEndreUtenlandskAdresse = (
       postUtenlandskAdresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: HTTPError) => {
+        .catch((error: AlertType) => {
           settLoading(false);
-          settAlert(alert);
+          settAlert(error);
         });
     }
   };

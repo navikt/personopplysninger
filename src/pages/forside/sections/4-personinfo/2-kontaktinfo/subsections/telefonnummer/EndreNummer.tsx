@@ -96,9 +96,9 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((alert: AlertType) => {
+        .catch((error: AlertType) => {
           settEndreLoading(false);
-          settAlert(alert);
+          settAlert(error);
         });
     }
   };
@@ -118,9 +118,9 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     slettTlfnummer(outbound)
       .then(getUpdatedData)
       .then(props.onDeleteSuccess)
-      .catch((alert: AlertType) => {
+      .catch((error: AlertType) => {
         settSlettLoading(false);
-        settAlert(alert);
+        settAlert(error);
       });
   };
 

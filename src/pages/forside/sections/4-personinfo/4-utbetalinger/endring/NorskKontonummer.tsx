@@ -65,9 +65,9 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       postKontonummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((alert: AlertType) => {
+        .catch((error: AlertType) => {
           settLoading(false);
-          settAlert(alert);
+          settAlert(error);
         });
     }
   };

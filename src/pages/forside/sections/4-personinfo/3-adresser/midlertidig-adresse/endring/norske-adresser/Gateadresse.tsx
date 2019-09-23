@@ -126,9 +126,9 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       postGateadresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((postAlert: AlertType) => {
+        .catch((error: AlertType) => {
           settLoading(false);
-          settAlert(postAlert);
+          settAlert(error);
         });
     }
   };

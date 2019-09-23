@@ -77,9 +77,9 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       postStedsadresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((alert: AlertType) => {
+        .catch((error: AlertType) => {
           settLoading(false);
-          settAlert(alert);
+          settAlert(error);
         });
     }
   };
