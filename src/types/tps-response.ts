@@ -13,6 +13,10 @@ export type TPSResponse =
       statusType: "OK";
     }
   | {
+      statusType: "PENDING";
+      message: string;
+    }
+  | {
       statusType: "ERROR";
       validationError: ValidationError;
     };

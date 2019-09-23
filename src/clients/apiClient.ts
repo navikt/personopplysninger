@@ -149,21 +149,34 @@ const sjekkHttpFeil = (response: Response) => {
 
 const sjekkTPSFeil = (response: TPSResponse) => {
   switch (response.statusType) {
-    case "ERROR":
-      const { validationError } = response;
-      const { message, details } = validationError;
+    case "OK":
+      return response;
+    case "PENDING": {
       const error = {
-        code: 400,
-        text: `${message}${
-          details
-            ? `: ${details.map(detail => detail.message || ``).join()}`
-            : ``
-        }`
+        code: 423,
+        text: `Det eksisterer en pågående endring 
+        for person med samme opplysningstype.`
       };
       throw error;
-    case "OK":
+    }
+    case "ERROR": {
+      const { validationError } = response;
+      const { message, details } = validationError;
+      const errorDetails = details
+        ? `: ${details.map(detail => detail.message || ``).join()}`
+        : ``;
+      const error = {
+        code: 400,
+        text: `${message}${errorDetails}`
+      };
+      throw error;
+    }
     default:
-      return response;
+      const error = {
+        code: 520,
+        text: `Ukjent feil`
+      };
+      throw error;
   }
 };
 
