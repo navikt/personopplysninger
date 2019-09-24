@@ -1,5 +1,4 @@
-import "react-app-polyfill/ie9";
-import "core-js/fn/array/includes";
+import "./polyfills";
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
@@ -17,9 +16,6 @@ import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
 import { extraValidators, SimpleValidators } from "./utils/validators";
 import App from "./App";
-
-// Intl polyfill
-global.Intl = require("intl");
 
 const browserLanguage = "nb";
 const messages = {
