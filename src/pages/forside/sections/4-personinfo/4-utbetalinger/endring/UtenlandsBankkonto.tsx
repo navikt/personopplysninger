@@ -257,7 +257,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <SelectLand
                   submitted={submitted}
                   option={fields.land}
-                  hjelpetekst={"utbetalinger.hjelpetekster.land"}
                   label={intl.messages["felter.bankensland.label"]}
                   error={errors.land}
                   onChange={option => {
@@ -337,7 +336,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.banknavn}
                   label={intl.messages["felter.banknavn.label"]}
-                  hjelpetekst={"utbetalinger.hjelpetekster.banknavn"}
                   onChange={value => setField({ banknavn: value })}
                   error={errors.banknavn}
                 />
@@ -348,8 +346,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   disabled={fields.bickode}
                   value={fields.bickode ? `` : fields.adresse1}
-                  label={intl.messages["felter.adresse.label"]}
-                  hjelpetekst={"utbetalinger.hjelpetekster.adresse"}
+                  label={intl.messages["felter.bankens.adresse.label"]}
                   onChange={value => setField({ adresse1: value })}
                   error={errors.adresse1}
                 />
