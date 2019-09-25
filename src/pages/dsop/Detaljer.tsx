@@ -38,11 +38,14 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
       return (
         <div>
           <div className="detaljer__tittel">
-            <Undertittel>
-              <FormattedMessage id="dsop.mottaker" />
-            </Undertittel>
+            <Undertittel>{dsopInnslag.mottakernavn}</Undertittel>
+            <Normaltekst>
+              <FormattedMessage
+                id="side.organisasjonsnummer"
+                values={{ orgnr: dsopInnslag.mottaker }}
+              />
+            </Normaltekst>
           </div>
-          <Normaltekst>{dsopInnslag.mottaker}</Normaltekst>
           <hr className="box__linje-bred" />
           <div className="box">
             <div className="box__content">
@@ -65,12 +68,6 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
               </ul>
             </div>
             <div className="detaljer__container">
-              <div className="detaljer__header">
-                <Undertittel>
-                  <FormattedMessage id="dsop.levertedata" />
-                </Undertittel>
-              </div>
-              <hr className="box__linje-bred" />
               <Hovedknapp onClick={onClick}>
                 <FormattedMessage id="dsop.lastned" />
               </Hovedknapp>

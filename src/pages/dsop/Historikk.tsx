@@ -95,7 +95,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
                             to={`${props.location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >
-                            {dsopInnslag.mottaker}
+                            {dsopInnslag.mottakernavn}
                           </Link>
                         </div>
                       </div>
