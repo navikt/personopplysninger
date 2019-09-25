@@ -17,11 +17,6 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const { tlfnr } = props;
 
-  const tempLandskode = {
-    value: "+47",
-    label: "Norge"
-  };
-
   const onChangeSuccess = () => {
     settOpprett(false);
   };
@@ -43,8 +38,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"MOBIL"}
               titleId="personalia.tlfnr.mobil"
-              currentLandskode={tempLandskode}
-              currentTlfnummer={fjernMellorom(tlfnr.mobil)}
+              landskode={tlfnr.landkodeMobil}
+              tlfnummer={fjernMellorom(tlfnr.mobil)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -53,8 +48,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"HJEM"}
               titleId="personalia.tlfnr.hjem"
-              currentLandskode={tempLandskode}
-              currentTlfnummer={fjernMellorom(tlfnr.privat)}
+              landskode={tlfnr.landkodePrivat}
+              tlfnummer={fjernMellorom(tlfnr.privat)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -63,8 +58,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               type={"ARBEID"}
               titleId="personalia.tlfnr.arbeid"
-              currentLandskode={tempLandskode}
-              currentTlfnummer={fjernMellorom(tlfnr.jobb)}
+              landskode={tlfnr.landkodeJobb}
+              tlfnummer={fjernMellorom(tlfnr.jobb)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />

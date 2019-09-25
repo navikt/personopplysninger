@@ -15,16 +15,16 @@ import avbrytIkon from "assets/img/Back.svg";
 import slettIkon from "assets/img/Slett.svg";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
-import { OptionType } from "types/option";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";
+import { UNKNOWN } from "../../../../../../../utils/text";
 
 export interface OutboundTlfnummer {
   type: string;
-  landskode: string;
+  landskode?: string;
   nummer: string;
 }
 
@@ -33,12 +33,12 @@ interface Props {
   titleId: string;
   onDeleteSuccess: () => void;
   onChangeSuccess: () => void;
-  currentLandskode: OptionType;
-  currentTlfnummer?: string;
+  landskode?: string;
+  tlfnummer?: string;
 }
 
 const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
-  const { type, titleId, currentLandskode, currentTlfnummer, intl } = props;
+  const { type, titleId, landskode, tlfnummer, intl, onDeleteSuccess } = props;
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -46,8 +46,11 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
-    tlfnummer: currentTlfnummer,
-    landskode: currentLandskode
+    tlfnummer: tlfnummer,
+    landskode: {
+      label: UNKNOWN,
+      value: landskode
+    }
   };
 
   const formConfig = {
@@ -96,35 +99,31 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => {
-          settEndreLoading(false);
-          settAlert(error);
-        });
+        .catch((error: AlertType) => settAlert(error))
+        .then(() => settEndreLoading(false));
     }
   };
 
   const submitSlett = () => {
-    if (!currentTlfnummer) {
+    if (!tlfnummer) {
       return;
     }
 
     const outbound = {
       type,
-      landskode: currentLandskode.value,
-      nummer: currentTlfnummer
+      landskode: landskode,
+      nummer: tlfnummer
     };
 
     settSlettLoading(true);
     slettTlfnummer(outbound)
       .then(getUpdatedData)
-      .then(props.onDeleteSuccess)
-      .catch((error: AlertType) => {
-        settSlettLoading(false);
-        settAlert(error);
-      });
+      .then(onDeleteSuccess)
+      .catch((error: AlertType) => settAlert(error))
+      .then(() => settSlettLoading(false));
   };
 
-  return currentTlfnummer ? (
+  return tlfnummer ? (
     <FormValidation
       config={formConfig}
       onSubmit={submitEndre}
@@ -149,11 +148,8 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 )}
                 {!endre && (
                   <Normaltekst>
-                    {`${currentLandskode.value} ${formatTelefonnummer(
-                      type,
-                      currentLandskode,
-                      currentTlfnummer
-                    )}`}
+                    {landskode && <span>{landskode} </span>}
+                    {formatTelefonnummer(type, tlfnummer, landskode)}
                   </Normaltekst>
                 )}
               </div>

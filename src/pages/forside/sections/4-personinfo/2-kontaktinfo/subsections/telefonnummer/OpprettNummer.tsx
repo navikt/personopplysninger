@@ -22,7 +22,7 @@ interface Props {
 }
 
 const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
-  const [endreLoading, settEndreLoading] = useState(false);
+  const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
   const { tlfnr, onChangeSuccess, intl } = props;
   const [, dispatch] = useStore();
@@ -81,14 +81,12 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
         nummer: tlfnummer
       };
 
-      settEndreLoading(true);
+      settLoading(true);
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => {
-          settEndreLoading(false);
-          settAlert(error);
-        });
+        .catch((error: AlertType) => settAlert(error))
+        .then(() => settLoading(false));
     }
   };
 
@@ -186,7 +184,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                     htmlType={"submit"}
                     disabled={submitted && !isValid}
                     autoDisableVedSpinner={true}
-                    spinner={endreLoading}
+                    spinner={loading}
                   >
                     <FormattedMessage id={"side.lagre"} />
                   </Knapp>

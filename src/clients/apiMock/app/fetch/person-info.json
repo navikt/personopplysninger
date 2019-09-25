@@ -20,6 +20,7 @@
     "tlfnr": {
       "jobb": "12121212",
       "mobil": "942 42 424",
+      "landkodeMobil": "+47",
       "datakilder": [{}, {}]
     },
     "spraak": "NB",

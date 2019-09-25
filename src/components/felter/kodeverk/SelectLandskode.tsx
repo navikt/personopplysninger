@@ -61,6 +61,7 @@ const SelectLandskode = (props: Props) => {
 
   return (
     <NAVSelect
+      loading={loading}
       label={props.label}
       error={props.error}
       options={options}

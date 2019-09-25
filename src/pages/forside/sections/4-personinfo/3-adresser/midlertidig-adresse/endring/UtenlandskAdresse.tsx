@@ -87,10 +87,8 @@ const OpprettEllerEndreUtenlandskAdresse = (
       postUtenlandskAdresse(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => {
-          settLoading(false);
-          settAlert(error);
-        });
+        .catch((error: AlertType) => settAlert(error))
+        .then(() => settLoading(false));
     }
   };
 

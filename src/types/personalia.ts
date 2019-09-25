@@ -2,6 +2,9 @@ export interface Tlfnr {
   jobb?: string;
   mobil?: string;
   privat?: string;
+  landkodeJobb?: string;
+  landkodeMobil?: string;
+  landkodePrivat?: string;
 }
 
 export interface UtenlandskBankkonto {

@@ -21,10 +21,10 @@ export const fjernMellorom = (value: string) => {
 
 export const formatTelefonnummer = (
   type: string,
-  landskode: { label: string; value: string },
-  input: string
+  input: string,
+  landskode?: string
 ) => {
-  if (landskode.value === "+47") {
+  if (landskode === "+47") {
     switch (type) {
       case "MOBIL":
         if (input.length > 8) {
