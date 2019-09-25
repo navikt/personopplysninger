@@ -119,8 +119,10 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     slettTlfnummer(outbound)
       .then(getUpdatedData)
       .then(onDeleteSuccess)
-      .catch((error: AlertType) => settAlert(error))
-      .then(() => settSlettLoading(false));
+      .catch((error: AlertType) => {
+        settSlettLoading(false);
+        settAlert(error);
+      });
   };
 
   return tlfnummer ? (
