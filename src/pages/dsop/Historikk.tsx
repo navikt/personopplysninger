@@ -47,10 +47,14 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
         <>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
-              <Element>Uthentingstidspunkt</Element>
+              <Element>
+                <FormattedMessage id="dsop.uthentingstidspunkt" />
+              </Element>
             </div>
             <div className="historikk__flex-kolonne">
-              <Element>Mottaker</Element>
+              <Element>
+                <FormattedMessage id="dsop.mottaker" />
+              </Element>
             </div>
           </div>
           {Object.keys(data)
