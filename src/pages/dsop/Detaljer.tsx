@@ -3,8 +3,10 @@ import { DsopInfo } from "../../types/dsop";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
-import ReactJson from "react-json-view";
+import { FormattedMessage } from "react-intl";
+import fileDownload from "js-file-download";
 import moment from "moment";
+import { Hovedknapp } from "nav-frontend-knapper";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -28,14 +30,22 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
 
   return dsopInnslag ? (
     (() => {
-      const dsopUtleverteData = JSON.parse(atob(dsopInnslag.leverteData));
-
+      const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        const leverteData = JSON.parse(atob(dsopInnslag.leverteData));
+        const fileName = "utleverte-data.json";
+        fileDownload(JSON.stringify(leverteData, null, 2), fileName);
+      };
       return (
         <div>
           <div className="detaljer__tittel">
-            <Undertittel>Mottaker</Undertittel>
+            <Undertittel>{dsopInnslag.mottakernavn}</Undertittel>
+            <Normaltekst>
+              <FormattedMessage
+                id="side.organisasjonsnummer"
+                values={{ orgnr: dsopInnslag.mottaker }}
+              />
+            </Normaltekst>
           </div>
-          <Normaltekst>{dsopInnslag.mottaker}</Normaltekst>
           <hr className="box__linje-bred" />
           <div className="box">
             <div className="box__content">
@@ -58,18 +68,18 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
               </ul>
             </div>
             <div className="detaljer__container">
-              <div className="detaljer__header">
-                <Undertittel>Leverte data</Undertittel>
-              </div>
-              <hr className="box__linje-bred" />
-              <ReactJson src={dsopUtleverteData} />
+              <Hovedknapp onClick={onClick}>
+                <FormattedMessage id="dsop.lastned" />
+              </Hovedknapp>
             </div>
           </div>
         </div>
       );
     })()
   ) : (
-    <div>Fant ikke innslag</div>
+    <div>
+      <FormattedMessage id="dsop.ingendata" />
+    </div>
   );
 };
 
