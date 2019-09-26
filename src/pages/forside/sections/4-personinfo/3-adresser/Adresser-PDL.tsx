@@ -51,64 +51,62 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       beskrivelse="adresse.beskrivelse"
       icon={adresseIkon}
     >
-      <hr className="box__linje-bred" />
       <Folkeregisteret adresser={props.adresser} />
+      <hr className="box__linje-bred" />
       <AdressePanel tittel="adresse.midlertidigadresse">
-        <div className="underseksjon__divider">
-          {opprettEllerEndre ? (
-            <>
-              <div className="utbetalinger__type">
-                <RadioPanelGruppe
-                  name="type"
-                  legend=""
-                  radios={radioButtons}
-                  checked={norskEllerUtenlandsk}
-                  onChange={(e, value) => settNorskEllerUtenlandsk(value)}
-                />
-              </div>
-              {norskEllerUtenlandsk === "NORSK" && (
-                <OpprettEllerEndreNorskMidlertidigAdresse
-                  tilleggsadresse={props.adresser.tilleggsadresse}
-                  onChangeSuccess={() => settOpprettEllerEndre(false)}
-                />
-              )}
-              {norskEllerUtenlandsk === "UTENLANDSK" && (
-                <OpprettEllerEndreUtenlandskAdresse
-                  onChangeSuccess={() => settOpprettEllerEndre(false)}
-                  utenlandskadresse={props.adresser.utenlandskAdresse}
-                />
-              )}
-              <Kilde
-                kilde="personalia.source.nav"
-                onClick={() => settOpprettEllerEndre(false)}
-                lenkeTekst="side.avbryt"
-                lenkeType={"KNAPP"}
-                ikon={endreIkon}
+        {opprettEllerEndre ? (
+          <>
+            <div className="utbetalinger__type">
+              <RadioPanelGruppe
+                name="type"
+                legend=""
+                radios={radioButtons}
+                checked={norskEllerUtenlandsk}
+                onChange={(e, value) => settNorskEllerUtenlandsk(value)}
               />
-            </>
-          ) : (
-            <>
-              {tilleggsadresse && (
-                <MidlertidigNorskAdresse tilleggsadresse={tilleggsadresse} />
-              )}
-              {utenlandskAdresse && (
-                <UtenlandskAdresse utenlandskadresse={utenlandskAdresse} />
-              )}
-              {!tilleggsadresse && !utenlandskAdresse && (
-                <Normaltekst>
-                  <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
-                </Normaltekst>
-              )}
-              <Kilde
-                kilde="personalia.source.nav"
-                onClick={() => settOpprettEllerEndre(true)}
-                ikon={harMidlertidigAdr ? endreIkon : leggTilIkon}
-                lenkeTekst={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
-                lenkeType={"KNAPP"}
+            </div>
+            {norskEllerUtenlandsk === "NORSK" && (
+              <OpprettEllerEndreNorskMidlertidigAdresse
+                tilleggsadresse={props.adresser.tilleggsadresse}
+                onChangeSuccess={() => settOpprettEllerEndre(false)}
               />
-            </>
-          )}
-        </div>
+            )}
+            {norskEllerUtenlandsk === "UTENLANDSK" && (
+              <OpprettEllerEndreUtenlandskAdresse
+                onChangeSuccess={() => settOpprettEllerEndre(false)}
+                utenlandskadresse={props.adresser.utenlandskAdresse}
+              />
+            )}
+            <Kilde
+              kilde="personalia.source.nav"
+              onClick={() => settOpprettEllerEndre(false)}
+              lenkeTekst="side.avbryt"
+              lenkeType={"KNAPP"}
+              ikon={endreIkon}
+            />
+          </>
+        ) : (
+          <>
+            {tilleggsadresse && (
+              <MidlertidigNorskAdresse tilleggsadresse={tilleggsadresse} />
+            )}
+            {utenlandskAdresse && (
+              <UtenlandskAdresse utenlandskadresse={utenlandskAdresse} />
+            )}
+            {!tilleggsadresse && !utenlandskAdresse && (
+              <Normaltekst>
+                <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
+              </Normaltekst>
+            )}
+            <Kilde
+              kilde="personalia.source.nav"
+              onClick={() => settOpprettEllerEndre(true)}
+              ikon={harMidlertidigAdr ? endreIkon : leggTilIkon}
+              lenkeTekst={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
+              lenkeType={"KNAPP"}
+            />
+          </>
+        )}
       </AdressePanel>
     </Box>
   );

@@ -1,42 +1,13 @@
 .kilde {
-  &__container {
-    width: 100%;
-    display: flex;
-    align-items: baseline;
-    margin: 1rem 0;
-    @media @maxMobile {
-      flex-direction: column;
-    }
-    > :first-child {
-      padding-right: 2rem;
-    }
-  }
-  &__seksjon {
-    width: 50%;
-    display: flex;
-    align-items: center;
-    color: #78706a;
-    @media @maxMobile {
-      width: 100%;
-      padding-bottom: 0.25rem;
-    }
-  }
-  &__lenke-container {
-    @media @minDesktop {
-      display: flex;
-      justify-content: flex-end;
-    }
-  }
   &__lenke {
     display: flex;
     align-items: center;
+    margin: 1rem 0;
     border: 0;
-    @media @maxMobile {
-      padding: 0;
-    }
+    padding-left: 0;
   }
   &__icon {
-    margin-left: 0.5rem;
+    margin-right: 0.5rem;
   }
   &__linje {
     border: 0.5px solid black;

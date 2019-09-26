@@ -7,6 +7,23 @@
     padding-top: 1rem;
   }
 
+  &__title {
+    flex-shrink: 0;
+  }
+
+  &__line {
+    border-bottom: 1px solid #979797;
+    width: 100%;
+  }
+
+  &__line:first-child {
+    margin-right: 2rem;
+  }
+
+  &__line:last-child {
+    margin-left: 2rem;
+  }
+
   &__container {
     @media @minDesktop {
       padding: 0 3rem 1rem 3rem;
@@ -48,7 +65,7 @@
   }
 
   &__header > * {
-    margin-bottom: 0.4rem;
+    margin-bottom: 1.5rem;
   }
 
   &__linje-smal {

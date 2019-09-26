@@ -22,7 +22,6 @@ class UtbetalingerOLD extends Component<Props> {
 
     return (
       <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
-        <hr className="box__linje-bred" />
         {kontonr || utenlandskbank ? (
           <>
             <NorskKontonummer kontonummer={kontonr} />

@@ -29,12 +29,14 @@ const Box = (props: Props & InjectedIntlProps) => {
           <div className="box__container">
             <div className="box__header">
               <div className="box__title-container">
+                <div className="box__line" />
                 {tittel && (
-                  <Systemtittel>
+                  <Systemtittel className="box__title">
                     <FormattedMessage id={tittel} />
                   </Systemtittel>
                 )}
                 {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
+                <div className="box__line" />
               </div>
             </div>
             <div className="box__content">{children}</div>

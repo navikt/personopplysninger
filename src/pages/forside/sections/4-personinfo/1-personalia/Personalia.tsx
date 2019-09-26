@@ -48,7 +48,6 @@ class Personalia extends Component<Props> {
         beskrivelse="personalia.beskrivelse"
         icon={personaliaIkon}
       >
-        <hr className="box__linje-bred" />
         <ul className="list-column-2">
           <ListElement titleId={fornavnHeader} content={fornavn} />
           <ListElement

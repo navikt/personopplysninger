@@ -39,7 +39,6 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
 
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
-      <hr className="box__linje-bred" />
       {opprettEllerEndre ? (
         <>
           <div className="utbetalinger__type">
