@@ -3,7 +3,6 @@ import Box from "components/box/Box";
 import kontonummerIkon from "assets/img/Kontonummer.svg";
 import { UtenlandskBankkonto } from "types/personalia";
 import Kilde from "components/kilde/Kilde";
-import avbrytIkon from "assets/img/Back.svg";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/Pencil.svg";
 import Melding from "components/melding/Melding";
