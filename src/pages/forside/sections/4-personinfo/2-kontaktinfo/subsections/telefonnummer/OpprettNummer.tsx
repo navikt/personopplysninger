@@ -166,7 +166,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
               <div className={"tlfnummer__knapper"}>
                 <div className={"tlfnummer__submit"}>
                   <Knapp
-                    type={"hoved"}
+                    type={"standard"}
                     htmlType={"submit"}
                     disabled={submitted && !isValid}
                     autoDisableVedSpinner={true}
