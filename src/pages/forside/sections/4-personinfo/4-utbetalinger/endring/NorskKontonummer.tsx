@@ -11,7 +11,7 @@ import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   kontonummer?: string;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundNorskKontonummer {
@@ -21,7 +21,7 @@ export interface OutboundNorskKontonummer {
 const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { onChangeSuccess, kontonummer, intl } = props;
+  const { settOpprettEllerEndre, kontonummer, intl } = props;
   const [, dispatch] = useStore();
 
   const initialValues = kontonummer
@@ -52,6 +52,10 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       });
     });
 
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
+
   const submitEndre = (e: FormContext) => {
     const { isValid, fields } = e;
     const { kontonummer } = fields;
@@ -64,7 +68,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       settLoading(true);
       postKontonummer(outbound)
         .then(getUpdatedData)
-        .then(onChangeSuccess)
+        .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
         .then(() => settLoading(false));
     }
@@ -79,21 +83,21 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField }) => {
         return (
           <>
-            <div className="utbetalinger__rad">
-              <div className="utbetalinger__input input--m">
-                <Input
-                  bredde={"M"}
-                  maxLength={11}
-                  value={fields.kontonummer}
-                  label={intl.messages["felter.kontonummer.label"]}
-                  onChange={e => setField({ kontonummer: e.target.value })}
-                  feil={
-                    submitted && errors.kontonummer
-                      ? { feilmelding: errors.kontonummer }
-                      : undefined
-                  }
-                />
-              </div>
+            <div className="utbetalinger__input input--m">
+              <Input
+                bredde={"M"}
+                maxLength={11}
+                value={fields.kontonummer}
+                label={intl.messages["felter.kontonummer.label"]}
+                onChange={e => setField({ kontonummer: e.target.value })}
+                feil={
+                  submitted && errors.kontonummer
+                    ? { feilmelding: errors.kontonummer }
+                    : undefined
+                }
+              />
+            </div>
+            <div className="utbetalinger__knapper">
               <div className="utbetalinger__knapp">
                 <Knapp
                   type={"hoved"}
@@ -103,6 +107,16 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
                   spinner={loading}
                 >
                   <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={submitted && !isValid}
+                  onClick={() => settOpprettEllerEndre(false)}
+                >
+                  <FormattedMessage id={"side.avbryt"} />
                 </Knapp>
               </div>
             </div>

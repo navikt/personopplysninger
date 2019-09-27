@@ -19,7 +19,7 @@ import Alert, { AlertType } from "../../../../../../components/alert/Alert";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundUtenlandsbankonto {
@@ -58,7 +58,7 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { onChangeSuccess, utenlandskbank, intl } = props;
+  const { settOpprettEllerEndre, utenlandskbank, intl } = props;
   const [, dispatch] = useStore();
 
   const initialValues = utenlandskbank
@@ -178,6 +178,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       });
     });
 
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
+
   const submitEndre = (c: FormContext) => {
     const { bickode, ...fields } = c.fields;
     const { isValid } = c;
@@ -212,7 +216,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       settLoading(true);
       postKontonummer(outbound)
         .then(getUpdatedData)
-        .then(onChangeSuccess)
+        .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
         .then(() => settLoading(false));
     }
@@ -368,16 +372,28 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 />
               </div>
             </div>
-            <div className="utbetalinger__sentrert-knapp">
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                disabled={submitted && !isValid}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="utbetalinger__knapper">
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"hoved"}
+                  htmlType={"submit"}
+                  disabled={submitted && !isValid}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={submitted && !isValid}
+                  onClick={() => settOpprettEllerEndre(false)}
+                >
+                  <FormattedMessage id={"side.avbryt"} />
+                </Knapp>
+              </div>
             </div>
             {alert && <Alert {...alert} />}
           </>
