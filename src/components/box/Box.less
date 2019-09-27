@@ -8,7 +8,9 @@
   }
 
   &__title {
-    flex-shrink: 0;
+    @media @minMobile {
+      flex-shrink: 0;
+    }
   }
 
   &__line {
@@ -17,11 +19,21 @@
   }
 
   &__line:first-child {
-    margin-right: 2rem;
+    @media @minMobile {
+      margin-right: 2rem;
+    }
+    @media @maxMobile {
+      margin-right: 1rem;
+    }
   }
 
   &__line:last-child {
-    margin-left: 2rem;
+    @media @minMobile {
+      margin-left: 2rem;
+    }
+    @media @maxMobile {
+      margin-left: 1rem;
+    }
   }
 
   &__container {

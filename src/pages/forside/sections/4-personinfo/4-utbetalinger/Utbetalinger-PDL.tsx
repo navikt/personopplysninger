@@ -9,59 +9,131 @@ import Melding from "components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
+import { setOutboundNorskKontonummer } from "./endring/NorskKontonummer";
+import { OutboundNorskKontonummer } from "./endring/NorskKontonummer";
 import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
-import { RadioPanelGruppe } from "nav-frontend-skjema";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { setOutboundUtenlandsbankonto } from "./endring/UtenlandsBankkonto";
+import { OutboundUtenlandsbankonto } from "./endring/UtenlandsBankkonto";
+import { SkjemaGruppe, Radio } from "nav-frontend-skjema";
+import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import { Knapp } from "nav-frontend-knapper";
+import Alert, { AlertType } from "components/alert/Alert";
+import { Form, FormContext, Validation } from "calidation";
+import { sjekkForFeil } from "utils/validators";
+import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   kontonr?: string;
 }
 
+const NORSK = "NORSK";
+const UTENLANDSK = "UTENLANDSK";
+
 const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
   const { kontonr, utenlandskbank, intl } = props;
+  const [loading, settLoading] = useState(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    kontonr ? "NORSK" : utenlandskbank ? "UTENLANDSK" : undefined
-  );
+  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [, dispatch] = useStore();
 
-  const radioButtons = [
-    {
-      label: intl.messages["felter.kontonummervalg.norsk"],
-      value: "NORSK"
-    },
-    {
-      label: intl.messages["felter.kontonummervalg.utenlandsk"],
-      value: "UTENLANDSK"
+  const initialValues = {
+    type: kontonr ? NORSK : utenlandskbank ? UTENLANDSK : undefined
+  };
+
+  const config = {
+    type: {
+      isRequired: intl.messages["felter.type.velg"]
     }
-  ];
+  };
+
+  const submitEndre = (context: FormContext) => {
+    const { isValid, fields } = context;
+    if (isValid) {
+      type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
+      const outbound: { [key: string]: () => Outbound } = {
+        NORSK: () => setOutboundNorskKontonummer(context),
+        UTENLANDSK: () => setOutboundUtenlandsbankonto(context)
+      };
+
+      settLoading(true);
+      postKontonummer(outbound[fields.type]())
+        .then(getUpdatedData)
+        .then(onSuccess)
+        .catch((error: AlertType) => settAlert(error))
+        .then(() => settLoading(false));
+    }
+  };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
 
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
       {opprettEllerEndre ? (
-        <>
-          <div className="utbetalinger__type">
-            <RadioPanelGruppe
-              name="type"
-              legend=""
-              radios={radioButtons}
-              checked={norskEllerUtenlandsk}
-              onChange={(e, value) => settNorskEllerUtenlandsk(value)}
-            />
-          </div>
-          {norskEllerUtenlandsk === "NORSK" && (
-            <OpprettEllerEndreNorskKontonr
-              kontonummer={kontonr}
-              settOpprettEllerEndre={settOpprettEllerEndre}
-            />
-          )}
-          {norskEllerUtenlandsk === "UTENLANDSK" && (
-            <OpprettEllerEndreUtenlandsbank
-              utenlandskbank={utenlandskbank}
-              settOpprettEllerEndre={settOpprettEllerEndre}
-            />
-          )}
-        </>
+        <Form onSubmit={submitEndre}>
+          <Validation config={config} initialValues={initialValues}>
+            {({ submitted, isValid, errors, setField, fields }) => (
+              <SkjemaGruppe feil={sjekkForFeil(submitted, errors.type)}>
+                <Radio
+                  name={NORSK}
+                  checked={fields.type === NORSK}
+                  label={intl.messages["felter.kontonummervalg.norsk"]}
+                  onChange={e => setField({ type: e.target.name })}
+                />
+                {fields.type === NORSK && (
+                  <OpprettEllerEndreNorskKontonr kontonummer={kontonr} />
+                )}
+                <Radio
+                  name={UTENLANDSK}
+                  checked={fields.type === UTENLANDSK}
+                  label={intl.messages["felter.kontonummervalg.utenlandsk"]}
+                  onChange={e => setField({ type: e.target.name })}
+                />
+                {fields.type === UTENLANDSK && (
+                  <OpprettEllerEndreUtenlandsbank
+                    utenlandskbank={utenlandskbank}
+                  />
+                )}
+                <div className="utbetalinger__knapper">
+                  <div className="utbetalinger__knapp">
+                    <Knapp
+                      type={"hoved"}
+                      htmlType={"submit"}
+                      disabled={submitted && !isValid}
+                      autoDisableVedSpinner={true}
+                      spinner={loading}
+                    >
+                      <FormattedMessage id={"side.lagre"} />
+                    </Knapp>
+                  </div>
+                  <div className="utbetalinger__knapp">
+                    <Knapp
+                      type={"flat"}
+                      htmlType={"button"}
+                      disabled={loading}
+                      onClick={() => settOpprettEllerEndre(false)}
+                    >
+                      <FormattedMessage id={"side.avbryt"} />
+                    </Knapp>
+                  </div>
+                </div>
+                {alert && <Alert {...alert} />}
+              </SkjemaGruppe>
+            )}
+          </Validation>
+        </Form>
       ) : (
         <>
           {kontonr || utenlandskbank ? (

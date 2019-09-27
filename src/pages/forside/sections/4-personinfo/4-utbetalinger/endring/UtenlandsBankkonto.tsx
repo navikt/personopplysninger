@@ -1,40 +1,34 @@
-import React, { useState } from "react";
-import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import React from "react";
+import { FormContext, Validation, ValidatorContext } from "calidation";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { OptionType } from "types/option";
-import { Knapp } from "nav-frontend-knapper";
-import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidBIC, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/kodeverk/SelectLand";
 import SelectValuta from "components/felter/kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
-import { useStore } from "providers/Provider";
-import { PersonInfo } from "types/personInfo";
-import Alert, { AlertType } from "../../../../../../components/alert/Alert";
+import { harValgtUSA } from "./utils";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
-  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundUtenlandsbankonto {
   value: string;
   utenlandskKontoInformasjon: {
+    landkode: string;
+    valuta: string;
+    swift?: string;
     bank: {
-      adresseLinje1: string;
-      adresseLinje2: string;
-      adresseLinje3: string;
-      kode: string;
+      adresseLinje1?: string;
+      adresseLinje2?: string;
+      adresseLinje3?: string;
+      kode?: string;
       navn: string;
     };
-    landkode: string;
-    swiftkode: string;
-    valuta: string;
   };
 }
 
@@ -56,11 +50,11 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
 };
 
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
-  const [loading, settLoading] = useState(false);
-  const [alert, settAlert] = useState<AlertType | undefined>();
-  const { settOpprettEllerEndre, utenlandskbank, intl } = props;
-  const [, dispatch] = useStore();
+  const { utenlandskbank, intl } = props;
 
+  /*
+    Initiate form
+   */
   const initialValues = utenlandskbank
     ? {
         ...utenlandskbank,
@@ -170,71 +164,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     adresse3: {}
   };
 
-  const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
-      dispatch({
-        type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
-      });
-    });
-
-  const onSuccess = () => {
-    settOpprettEllerEndre(false);
-  };
-
-  const submitEndre = (c: FormContext) => {
-    const { bickode, ...fields } = c.fields;
-    const { isValid } = c;
-
-    if (isValid) {
-      const sendBICKode = bickode && !harValgtUSA(fields.land);
-      const sendBankkode = fields.bankkode && !sendBICKode;
-      const sendAdresse = !bickode;
-
-      const outbound = {
-        value: electronicFormatIBAN(fields.kontonummer),
-        utenlandskKontoInformasjon: {
-          landkode: fields.land.value,
-          valuta: fields.valuta.value,
-          ...(sendBICKode && {
-            swift: bickode
-          }),
-          bank: {
-            ...(sendAdresse && {
-              adresseLinje1: fields.adresse1,
-              adresseLinje2: fields.adresse2,
-              adresseLinje3: fields.adresse3
-            }),
-            ...(sendBankkode && {
-              kode: fields.bankkode
-            }),
-            navn: fields.banknavn
-          }
-        }
-      };
-
-      settLoading(true);
-      postKontonummer(outbound)
-        .then(getUpdatedData)
-        .then(onSuccess)
-        .catch((error: AlertType) => settAlert(error))
-        .then(() => settLoading(false));
-    }
-  };
-
   // Utils
-  const harValgtUSA = (land?: OptionType) =>
-    land && land.value === "USA" ? true : false;
   const landetBrukerBankkode = (land: OptionType) =>
     land && FEDWIRE.includes(land.value) ? true : false;
 
   return (
-    <FormValidation
-      onSubmit={submitEndre}
-      config={formConfig}
-      initialValues={initialValues}
-    >
-      {({ errors, fields, submitted, isValid, setField }) => {
+    <Validation config={formConfig} initialValues={initialValues}>
+      {({ errors, fields, submitted, setField }) => {
         const { land, kontonummer, bickode, retningsnummer } = fields;
 
         /*
@@ -372,35 +308,40 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 />
               </div>
             </div>
-            <div className="utbetalinger__knapper">
-              <div className="utbetalinger__knapp">
-                <Knapp
-                  type={"hoved"}
-                  htmlType={"submit"}
-                  disabled={submitted && !isValid}
-                  autoDisableVedSpinner={true}
-                  spinner={loading}
-                >
-                  <FormattedMessage id={"side.lagre"} />
-                </Knapp>
-              </div>
-              <div className="utbetalinger__knapp">
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  disabled={loading}
-                  onClick={() => settOpprettEllerEndre(false)}
-                >
-                  <FormattedMessage id={"side.avbryt"} />
-                </Knapp>
-              </div>
-            </div>
-            {alert && <Alert {...alert} />}
           </>
         );
       }}
-    </FormValidation>
+    </Validation>
   );
+};
+
+export const setOutboundUtenlandsbankonto = (c: FormContext) => {
+  const { bickode, ...fields } = c.fields;
+  const sendBICKode = bickode && !harValgtUSA(fields.land);
+  const sendBankkode = fields.bankkode && !sendBICKode;
+  const sendAdresse = !bickode;
+
+  return {
+    value: electronicFormatIBAN(fields.kontonummer),
+    utenlandskKontoInformasjon: {
+      landkode: fields.land.value,
+      valuta: fields.valuta.value,
+      ...(sendBICKode && {
+        swift: bickode
+      }),
+      bank: {
+        ...(sendAdresse && {
+          adresseLinje1: fields.adresse1,
+          adresseLinje2: fields.adresse2,
+          adresseLinje3: fields.adresse3
+        }),
+        ...(sendBankkode && {
+          kode: fields.bankkode
+        }),
+        navn: fields.banknavn
+      }
+    }
+  };
 };
 
 export default injectIntl(OpprettEllerEndreUtenlandsbank);

@@ -1,3 +1,5 @@
+import { OptionType } from "../../../../../../types/option";
+
 const countryISOMapping: { [key: string]: string } = {
   AFG: "AF",
   ALA: "AX",
@@ -247,6 +249,9 @@ const countryISOMapping: { [key: string]: string } = {
   ZMB: "ZM",
   ZWE: "ZW"
 };
+
+export const harValgtUSA = (land?: OptionType) =>
+  land && land.value === "USA" ? true : false;
 
 export const getCountryISO2 = (countryCode: string) =>
   countryISOMapping[countryCode];
