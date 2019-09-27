@@ -53,13 +53,13 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
           {norskEllerUtenlandsk === "NORSK" && (
             <OpprettEllerEndreNorskKontonr
               kontonummer={kontonr}
-              onChangeSuccess={() => settOpprettEllerEndre(false)}
+              settOpprettEllerEndre={settOpprettEllerEndre}
             />
           )}
           {norskEllerUtenlandsk === "UTENLANDSK" && (
             <OpprettEllerEndreUtenlandsbank
               utenlandskbank={utenlandskbank}
-              onChangeSuccess={() => settOpprettEllerEndre(false)}
+              settOpprettEllerEndre={settOpprettEllerEndre}
             />
           )}
           <Kilde
