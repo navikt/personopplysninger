@@ -8,6 +8,7 @@ import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
+import { sjekkForFeil } from "../../../../../../utils/validators";
 
 interface Props {
   kontonummer?: string;
@@ -90,11 +91,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
                 value={fields.kontonummer}
                 label={intl.messages["felter.kontonummer.label"]}
                 onChange={e => setField({ kontonummer: e.target.value })}
-                feil={
-                  submitted && errors.kontonummer
-                    ? { feilmelding: errors.kontonummer }
-                    : undefined
-                }
+                feil={sjekkForFeil(submitted, errors.kontonummer)}
               />
             </div>
             <div className="utbetalinger__knapper">
@@ -113,7 +110,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props & InjectedIntlProps) => {
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}
-                  disabled={submitted && !isValid}
+                  disabled={loading}
                   onClick={() => settOpprettEllerEndre(false)}
                 >
                   <FormattedMessage id={"side.avbryt"} />

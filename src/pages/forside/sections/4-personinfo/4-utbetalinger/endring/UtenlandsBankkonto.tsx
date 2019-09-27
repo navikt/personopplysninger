@@ -388,7 +388,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}
-                  disabled={submitted && !isValid}
+                  disabled={loading}
                   onClick={() => settOpprettEllerEndre(false)}
                 >
                   <FormattedMessage id={"side.avbryt"} />
