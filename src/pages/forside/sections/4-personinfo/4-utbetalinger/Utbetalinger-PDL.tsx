@@ -62,13 +62,6 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
               settOpprettEllerEndre={settOpprettEllerEndre}
             />
           )}
-          <Kilde
-            kilde="personalia.source.nav"
-            onClick={() => settOpprettEllerEndre(false)}
-            lenkeTekst="side.avbryt"
-            lenkeType={"KNAPP"}
-            ikon={avbrytIkon}
-          />
         </>
       ) : (
         <>
