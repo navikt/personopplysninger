@@ -109,7 +109,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
                 <div className="utbetalinger__knapper">
                   <div className="utbetalinger__knapp">
                     <Knapp
-                      type={"hoved"}
+                      type={"standard"}
                       htmlType={"submit"}
                       disabled={submitted && !isValid}
                       autoDisableVedSpinner={true}

@@ -28,19 +28,29 @@ const SelectLand = (props: Props) => {
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
+    let didCancel = false;
     if (!loading) {
       settLoading(true);
       fetchLand()
         .then(v => {
-          settValutaer(v);
+          if (!didCancel) {
+            settValutaer(v);
+          }
         })
         .catch((error: HTTPError) => {
-          settFetchError(error);
+          if (!didCancel) {
+            settFetchError(error);
+          }
         })
         .then(() => {
-          settLoading(false);
+          if (!didCancel) {
+            settLoading(false);
+          }
         });
     }
+    return () => {
+      didCancel = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

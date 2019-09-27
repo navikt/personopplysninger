@@ -5,11 +5,8 @@ import React, { useState } from "react";
 import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import {
-  fetchPersonInfo,
-  postTlfnummer,
-  slettTlfnummer
-} from "clients/apiClient";
+import { fetchPersonInfo } from "clients/apiClient";
+import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
 import endreIkon from "assets/img/Pencil.svg";
 import avbrytIkon from "assets/img/Back.svg";
 import slettIkon from "assets/img/Slett.svg";
@@ -20,7 +17,7 @@ import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";
-import { UNKNOWN } from "../../../../../../../utils/text";
+import { UNKNOWN } from "utils/text";
 
 export interface OutboundTlfnummer {
   type: string;
@@ -155,49 +152,38 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                   </Normaltekst>
                 )}
               </div>
-              <div className={"tlfnummer__knapper"}>
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  className={"tlfnummer__knapp"}
-                  onClick={() => settEndre(!endre)}
-                >
-                  {endre ? (
-                    <>
-                      <div className={"tlfnummer__knapp-tekst"}>
-                        <FormattedMessage id={"side.avbryt"} />
-                      </div>
-                      <div className={"tlfnummer__knapp-ikon"}>
-                        <img alt={"Avbryt"} src={avbrytIkon} />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className={"tlfnummer__knapp-tekst"}>
-                        <FormattedMessage id={"side.endre"} />
-                      </div>
-                      <div className={"tlfnummer__knapp-ikon"}>
-                        <img alt={"Endre telefonnummer"} src={endreIkon} />
-                      </div>
-                    </>
-                  )}
-                </Knapp>
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  className={"tlfnummer__knapp"}
-                  autoDisableVedSpinner={true}
-                  spinner={slettLoading}
-                  onClick={() => submitSlett()}
-                >
-                  <div className={"tlfnummer__knapp-tekst"}>
-                    <FormattedMessage id={"side.slett"} />
-                  </div>
-                  <div className={"tlfnummer__knapp-ikon"}>
-                    <img alt={"Slett telefonnummer"} src={slettIkon} />
-                  </div>
-                </Knapp>
-              </div>
+              {!endre && (
+                <div className={"tlfnummer__knapper"}>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp"}
+                    onClick={() => settEndre(!endre)}
+                  >
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.endre"} />
+                    </div>
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Endre telefonnummer"} src={endreIkon} />
+                    </div>
+                  </Knapp>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp"}
+                    autoDisableVedSpinner={true}
+                    spinner={slettLoading}
+                    onClick={() => submitSlett()}
+                  >
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.slett"} />
+                    </div>
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                    </div>
+                  </Knapp>
+                </div>
+              )}
             </div>
             {endre && (
               <div>
@@ -226,9 +212,11 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                       }
                     />
                   </div>
+                </div>
+                <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
                     <Knapp
-                      type={"hoved"}
+                      type={"standard"}
                       htmlType={"submit"}
                       disabled={submitted && !isValid}
                       autoDisableVedSpinner={true}
@@ -237,6 +225,19 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                       <FormattedMessage id={"side.lagre"} />
                     </Knapp>
                   </div>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp"}
+                    onClick={() => settEndre(!endre)}
+                  >
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.avbryt"} />
+                    </div>
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Avbryt"} src={avbrytIkon} />
+                    </div>
+                  </Knapp>
                 </div>
               </div>
             )}

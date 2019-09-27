@@ -85,9 +85,9 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Kilde
           kilde="personalia.source.nav"
           onClick={() => settOpprett(!opprett)}
-          lenkeTekst={opprett ? "side.avbryt" : "side.leggtil"}
+          lenkeTekst={"side.leggtil"}
           lenkeType={"KNAPP"}
-          ikon={!opprett ? leggTilIkon : undefined}
+          ikon={leggTilIkon}
         />
       )}
     </>

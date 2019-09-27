@@ -1,11 +1,11 @@
-import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import avbrytIkon from "assets/img/Back.svg";
-import { Element, Normaltekst } from "nav-frontend-typografi";
+import { Element } from "nav-frontend-typografi";
 import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "types/personalia";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
@@ -114,18 +114,6 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                     <NedChevron />
                   </div>
                 </div>
-                <button
-                  type={"button"}
-                  onClick={props.onCancelClick}
-                  className={"kilde__lenke lenke"}
-                >
-                  <Normaltekst>
-                    <FormattedHTMLMessage id="side.avbryt" />
-                    <span className="kilde__icon">
-                      <img src={avbrytIkon} alt="Ekstern lenke" />
-                    </span>
-                  </Normaltekst>
-                </button>
               </div>
               <div className={"tlfnummer__container"}>
                 <Select
@@ -133,11 +121,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   label={intl.messages["felter.type.label"]}
                   onChange={e => setField({ type: e.target.value })}
                   bredde={"s"}
-                  feil={
-                    submitted && errors.type
-                      ? { feilmelding: errors.type }
-                      : undefined
-                  }
+                  feil={sjekkForFeil(submitted, errors.type)}
                 >
                   <option>{intl.messages["felter.type.velg"]}</option>
                   {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
@@ -178,6 +162,8 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                     feil={sjekkForFeil(submitted, errors.tlfnummer)}
                   />
                 </div>
+              </div>
+              <div className={"tlfnummer__knapper"}>
                 <div className={"tlfnummer__submit"}>
                   <Knapp
                     type={"hoved"}
@@ -189,6 +175,20 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                     <FormattedMessage id={"side.lagre"} />
                   </Knapp>
                 </div>
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={loading}
+                  className={"tlfnummer__knapp"}
+                  onClick={props.onCancelClick}
+                >
+                  <div className={"tlfnummer__knapp-tekst"}>
+                    <FormattedMessage id={"side.avbryt"} />
+                  </div>
+                  <div className={"tlfnummer__knapp-ikon"}>
+                    <img alt={"Avbryt"} src={avbrytIkon} />
+                  </div>
+                </Knapp>
               </div>
               {alert && <Alert {...alert} />}
             </>

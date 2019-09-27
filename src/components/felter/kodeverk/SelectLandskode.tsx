@@ -28,19 +28,29 @@ const SelectLandskode = (props: Props) => {
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
+    let didCancel = false;
     if (!loading) {
       settLoading(true);
       fetchRetningsnumre()
         .then(landskoder => {
-          settRetningsnumre(landskoder);
+          if (!didCancel) {
+            settRetningsnumre(landskoder);
+          }
         })
         .catch((error: HTTPError) => {
-          settFetchError(error);
+          if (!didCancel) {
+            settFetchError(error);
+          }
         })
         .then(() => {
-          settLoading(false);
+          if (!didCancel) {
+            settLoading(false);
+          }
         });
     }
+    return () => {
+      didCancel = true;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
