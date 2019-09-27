@@ -17,7 +17,7 @@ import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundPostboksadresse {
@@ -30,7 +30,7 @@ export interface OutboundPostboksadresse {
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, onChangeSuccess, intl } = props;
+  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
@@ -69,6 +69,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       });
     });
 
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -92,7 +96,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       settLoading(true);
       postPostboksadresse(outbound)
         .then(getUpdatedData)
-        .then(onChangeSuccess)
+        .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
         .then(() => settLoading(false));
     }
@@ -173,16 +177,28 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
-            <div className="adresse__submit-container">
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                disabled={submitted && !isValid}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="adresse__knapper">
+              <div className="adresse__knapp">
+                <Knapp
+                  type={"standard"}
+                  htmlType={"submit"}
+                  disabled={submitted && !isValid}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
+              <div className="utbetalinger__knapp">
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={loading}
+                  onClick={() => settOpprettEllerEndre(false)}
+                >
+                  <FormattedMessage id={"side.avbryt"} />
+                </Knapp>
+              </div>
             </div>
             {alert && <Alert {...alert} />}
           </>

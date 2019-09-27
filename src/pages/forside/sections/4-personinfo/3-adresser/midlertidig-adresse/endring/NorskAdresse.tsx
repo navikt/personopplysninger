@@ -8,7 +8,7 @@ import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";

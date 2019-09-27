@@ -4,9 +4,7 @@ import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
-import avbrytIkon from "assets/img/Back.svg";
 import { Element } from "nav-frontend-typografi";
-import { NedChevron } from "nav-frontend-chevron";
 import { Tlfnr } from "types/personalia";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
@@ -92,7 +90,6 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
 
   return (
     <>
-      <div className="tlfnummer__divider" />
       <FormValidation
         onSubmit={submit}
         config={formConfig}
@@ -110,12 +107,9 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   <Element>
                     <FormattedMessage id="side.leggtil" />
                   </Element>
-                  <div className={"tlfnummer__chevron"}>
-                    <NedChevron />
-                  </div>
                 </div>
               </div>
-              <div className={"tlfnummer__container"}>
+              <div className={"tlfnummer__container tlfnummer__form"}>
                 <Select
                   value={fields.type}
                   label={intl.messages["felter.type.label"]}
@@ -182,12 +176,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   className={"tlfnummer__knapp"}
                   onClick={props.onCancelClick}
                 >
-                  <div className={"tlfnummer__knapp-tekst"}>
-                    <FormattedMessage id={"side.avbryt"} />
-                  </div>
-                  <div className={"tlfnummer__knapp-ikon"}>
-                    <img alt={"Avbryt"} src={avbrytIkon} />
-                  </div>
+                  <FormattedMessage id={"side.avbryt"} />
                 </Knapp>
               </div>
               {alert && <Alert {...alert} />}

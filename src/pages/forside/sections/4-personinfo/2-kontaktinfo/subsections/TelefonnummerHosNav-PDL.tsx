@@ -69,14 +69,12 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {opprett ? (
+      {opprett && (
         <OpprettNummer
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
           tlfnr={tlfnr}
         />
-      ) : (
-        <div className="tlfnummer__divider-hidden" />
       )}
 
       {opprett || (tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) ? (

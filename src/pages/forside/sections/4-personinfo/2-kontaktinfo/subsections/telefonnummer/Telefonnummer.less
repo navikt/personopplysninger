@@ -4,7 +4,7 @@
     padding: 0.75rem 0;
   }
   &__rad {
-    border-bottom: 1px solid #979797;
+    border-bottom: 1px solid #c6c2bf;
   }
   &__divider {
     height: 1px;
@@ -17,12 +17,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    @media @maxMobile {
-      align-items: center;
-    }
-    @media @minMobile {
-      align-items: flex-start;
-    }
+    align-items: center;
+  }
+  &__form {
+    margin-top: 0.5rem;
   }
   &__input-container {
     display: flex;
@@ -38,12 +36,14 @@
   }
   &__knapper {
     display: flex;
-    padding: 0.5rem 0;
     @media @maxMobile {
       flex-direction: column;
     }
   }
   &__knapp {
+    margin-left: 0.25rem;
+  }
+  &__knapp-med-ikon {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -51,9 +51,9 @@
     &:last-child {
       margin-left: 0.25rem;
     }
-    &-tekst {
-      padding: 0 0.25rem;
-    }
+  }
+  &__knapp-tekst {
+    padding: 0 0.25rem;
   }
   &__chevron {
     margin: 0.5rem 0;

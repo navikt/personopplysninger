@@ -2,13 +2,11 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { NedChevron } from "nav-frontend-chevron";
 import { Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
 import endreIkon from "assets/img/Pencil.svg";
-import avbrytIkon from "assets/img/Back.svg";
 import slettIkon from "assets/img/Slett.svg";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
@@ -140,11 +138,6 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 <Element>
                   <FormattedMessage id={titleId} />
                 </Element>
-                {endre && (
-                  <div className={"tlfnummer__chevron"}>
-                    <NedChevron />
-                  </div>
-                )}
                 {!endre && (
                   <Normaltekst>
                     {landskode && <span>{landskode} </span>}
@@ -157,36 +150,38 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
-                    className={"tlfnummer__knapp"}
+                    className={"tlfnummer__knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
                   >
-                    <div className={"tlfnummer__knapp-tekst"}>
-                      <FormattedMessage id={"side.endre"} />
-                    </div>
                     <div className={"tlfnummer__knapp-ikon"}>
                       <img alt={"Endre telefonnummer"} src={endreIkon} />
+                    </div>
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.endre"} />
                     </div>
                   </Knapp>
                   <Knapp
                     type={"flat"}
                     htmlType={"button"}
-                    className={"tlfnummer__knapp"}
+                    className={"tlfnummer__knapp-med-ikon"}
                     autoDisableVedSpinner={true}
                     spinner={slettLoading}
                     onClick={() => submitSlett()}
                   >
+                    {!slettLoading && (
+                      <div className={"tlfnummer__knapp-ikon"}>
+                        <img alt={"Slett telefonnummer"} src={slettIkon} />
+                      </div>
+                    )}
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.slett"} />
-                    </div>
-                    <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Slett telefonnummer"} src={slettIkon} />
                     </div>
                   </Knapp>
                 </div>
               )}
             </div>
             {endre && (
-              <div>
+              <div className={"tlfnummer__form"}>
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
@@ -231,14 +226,10 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                     className={"tlfnummer__knapp"}
                     onClick={() => settEndre(!endre)}
                   >
-                    <div className={"tlfnummer__knapp-tekst"}>
-                      <FormattedMessage id={"side.avbryt"} />
-                    </div>
-                    <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Avbryt"} src={avbrytIkon} />
-                    </div>
+                    <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
                 </div>
+                <div className="underseksjon__divider" />
               </div>
             )}
             {alert && <Alert {...alert} />}

@@ -10,7 +10,7 @@ import leggTilIkon from "assets/img/LeggTil.svg";
 import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst } from "nav-frontend-typografi";
-import { RadioPanelGruppe } from "nav-frontend-skjema";
+import { Radio } from "nav-frontend-skjema";
 import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
 import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
 import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
@@ -19,6 +19,9 @@ import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 interface Props {
   adresser: Adresser;
 }
+
+const NORSK = "NORSK";
+const UTENLANDSK = "UTENLANDSK";
 
 const AdresserPDL = (props: Props & InjectedIntlProps) => {
   const { intl, adresser } = props;
@@ -33,17 +36,6 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       : undefined
   );
 
-  const radioButtons = [
-    {
-      label: intl.messages["felter.adressevalg.norsk"],
-      value: "NORSK"
-    },
-    {
-      label: intl.messages["felter.adressevalg.utenlandsk"],
-      value: "UTENLANDSK"
-    }
-  ];
-
   return (
     <Box
       id="adresser"
@@ -55,36 +47,33 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       <hr className="box__linje-bred" />
       <AdressePanel tittel="adresse.midlertidigadresse">
         {opprettEllerEndre ? (
-          <>
-            <div className="utbetalinger__type">
-              <RadioPanelGruppe
-                name="type"
-                legend=""
-                radios={radioButtons}
-                checked={norskEllerUtenlandsk}
-                onChange={(e, value) => settNorskEllerUtenlandsk(value)}
-              />
-            </div>
+          <div className="adresse__form">
+            <Radio
+              name={NORSK}
+              checked={norskEllerUtenlandsk === NORSK}
+              label={intl.messages["felter.adressevalg.norsk"]}
+              onChange={e => settNorskEllerUtenlandsk(e.target.name)}
+            />
+            <Radio
+              name={UTENLANDSK}
+              checked={norskEllerUtenlandsk === UTENLANDSK}
+              label={intl.messages["felter.adressevalg.utenlandsk"]}
+              onChange={e => settNorskEllerUtenlandsk(e.target.name)}
+            />
             {norskEllerUtenlandsk === "NORSK" && (
               <OpprettEllerEndreNorskMidlertidigAdresse
                 tilleggsadresse={props.adresser.tilleggsadresse}
-                onChangeSuccess={() => settOpprettEllerEndre(false)}
+                settOpprettEllerEndre={settOpprettEllerEndre}
               />
             )}
             {norskEllerUtenlandsk === "UTENLANDSK" && (
               <OpprettEllerEndreUtenlandskAdresse
-                onChangeSuccess={() => settOpprettEllerEndre(false)}
                 utenlandskadresse={props.adresser.utenlandskAdresse}
+                settOpprettEllerEndre={settOpprettEllerEndre}
               />
             )}
-            <Kilde
-              kilde="personalia.source.nav"
-              onClick={() => settOpprettEllerEndre(false)}
-              lenkeTekst="side.avbryt"
-              lenkeType={"KNAPP"}
-              ikon={endreIkon}
-            />
-          </>
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+          </div>
         ) : (
           <>
             {tilleggsadresse && (
