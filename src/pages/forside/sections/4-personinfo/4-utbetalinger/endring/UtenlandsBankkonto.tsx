@@ -210,14 +210,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   ? BANKKODER[option.value]
                   : null;
 
-                const resetBankidentifier =
+                const resetValgAvBankIdentifier =
                   (harValgtBankkode(fields.bankidentifier) &&
                     !landetBrukerBankkode(option)) ||
                   harValgtUSA(option);
 
                 setField({
                   land: option,
-                  ...(resetBankidentifier && {
+                  ...(resetValgAvBankIdentifier && {
                     bankidentifier: undefined
                   }),
                   ...(bankkodeRetningsnummer && {
