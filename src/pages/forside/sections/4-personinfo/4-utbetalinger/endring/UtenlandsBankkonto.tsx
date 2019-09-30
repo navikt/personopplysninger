@@ -1,7 +1,10 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import {
+  AlertStripeAdvarsel,
+  AlertStripeInfo
+} from "nav-frontend-alertstriper";
+import { InjectedIntlProps, injectIntl, FormattedMessage } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { OptionType } from "types/option";
 import { UtenlandskBankkonto } from "types/personalia";
@@ -11,6 +14,8 @@ import SelectValuta from "components/felter/kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
 import { harValgtUSA } from "./utils";
+import { Radio, SkjemaGruppe } from "nav-frontend-skjema";
+import { sjekkForFeil } from "../../../../../../utils/validators";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -31,6 +36,10 @@ export interface OutboundUtenlandsbankonto {
     };
   };
 }
+
+export const BIC = "BIC";
+export const BANKKODE = "BANKKODE";
+export const HVERKEN_BANKKODE_BIC = "HVERKEN_BANKKODE_BIC";
 
 const FEDWIRE = ["USA", "NZL", "AUS", "ZAF", "CAN"];
 const BANKKODER: { [key: string]: string } = {
@@ -95,7 +104,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isIBAN: {
         message: intl.messages["validation.iban.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.bickode && !harValgtUSA(fields.land)
+          !harValgtUSA(fields.land) &&
+          fields.bankidentifier === BIC &&
+          fields.bickode
       },
       isIBANCountryCompliant: {
         message: intl.messages["validation.iban.country"],
@@ -103,11 +114,18 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
           isValidIBAN(fields.kontonummer)
       }
     },
+    bankidentifier: {
+      isRequired: intl.messages["validation.bankidentifier.pakrevd"],
+      isValidBankIdentifier: {
+        message: intl.messages["validation.bankidentifier.valid"],
+        validateIf: ({ fields }: ValidatorContext) => !harValgtUSA(fields.land)
+      }
+    },
     bickode: {
       isRequired: {
         message: intl.messages["validation.bic.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          isValidIBAN(fields.kontonummer)
+          fields.bankidentifier === BIC
       },
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
@@ -127,8 +145,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     },
     retningsnummer: {
       isRequired: {
-        message: "*",
-        validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
+        message: "*"
       }
     },
     bankkode: {
@@ -159,7 +176,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     valuta: {
       isRequired: intl.messages["validation.valuta.pakrevd"]
     },
-    adresse1: {},
+    adresse1: {
+      isRequired: {
+        message: intl.messages["validation.adresse.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.bankidentifier !== BIC
+      }
+    },
     adresse2: {},
     adresse3: {}
   };
@@ -172,17 +195,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     <Validation config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => {
         const { land, kontonummer, bickode, retningsnummer } = fields;
-
-        /*
-           Bankkode er et spesialtilfelle
-           for USA og noen få andre land.
-         */
-        const deaktiverBankkode =
-          (!landetBrukerBankkode(land) ||
-            isValidIBAN(kontonummer) ||
-            bickode) &&
-          !harValgtUSA(land);
-
+        console.log(errors.adresse1);
         return (
           <>
             <div className="utbetalinger__alert">
@@ -190,28 +203,27 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <FormattedHTMLMessage id="felter.utenlandskkonto.info" />
               </AlertStripeInfo>
             </div>
-            <div className="utbetalinger__input-container">
-              <div className="utbetalinger__input-box input--m">
-                <SelectLand
-                  submitted={submitted}
-                  option={fields.land}
-                  label={intl.messages["felter.bankensland.label"]}
-                  error={errors.land}
-                  onChange={option => {
-                    const bankkodeRetningsnummer = option
-                      ? BANKKODER[option.value]
-                      : null;
+            <SelectLand
+              submitted={submitted}
+              option={fields.land}
+              label={intl.messages["felter.bankensland.label"]}
+              error={errors.land}
+              onChange={option => {
+                const bankkodeRetningsnummer = option
+                  ? BANKKODER[option.value]
+                  : null;
 
-                    setField({
-                      land: option,
-                      ...(bankkodeRetningsnummer && {
-                        retningsnummer: bankkodeRetningsnummer
-                      })
-                    });
-                  }}
-                />
-              </div>
-              <div className="utbetalinger__input-box input--m">
+                setField({
+                  land: option,
+                  bankidentifier: undefined,
+                  ...(bankkodeRetningsnummer && {
+                    retningsnummer: bankkodeRetningsnummer
+                  })
+                });
+              }}
+            />
+            {fields.land && (
+              <>
                 <SelectValuta
                   submitted={submitted}
                   option={fields.valuta}
@@ -220,9 +232,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   onChange={value => setField({ valuta: value })}
                   error={errors.valuta}
                 />
-              </div>
-              <div className="utbetalinger__input-box input--m">
                 <InputMedHjelpetekst
+                  bredde={"L"}
+                  submitted={submitted}
+                  value={fields.banknavn}
+                  label={intl.messages["felter.banknavn.label"]}
+                  onChange={value => setField({ banknavn: value })}
+                  error={errors.banknavn}
+                />
+                <InputMedHjelpetekst
+                  bredde={"L"}
                   submitted={submitted}
                   value={kontonummer}
                   hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
@@ -230,84 +249,151 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   onChange={value => setField({ kontonummer: value })}
                   error={errors.kontonummer}
                 />
-              </div>
-              <div className="utbetalinger__input-box input--m">
-                <InputMedHjelpetekst
-                  maxLength={11}
-                  submitted={submitted}
-                  value={harValgtUSA(fields.land) ? `` : bickode}
-                  disabled={harValgtUSA(fields.land)}
-                  hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-                  label={intl.messages["felter.bic.bic.label"]}
-                  onChange={value => setField({ bickode: value })}
-                  error={errors.bickode}
-                />
-              </div>
-              <div className="utbetalinger__input-box input--m">
-                <div className="utbetalinger__bankkode-rad">
-                  <div className="utbetalinger__bankkode-kolonne">
-                    <InputMedHjelpetekst
-                      disabled={true}
-                      value={retningsnummer}
-                      submitted={submitted}
-                      label={intl.messages["felter.bankkode.label"]}
-                      hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
-                      error={errors.retningsnummer}
-                      onChange={value => setField({ retningsnummer: value })}
-                    />
+                {harValgtUSA(fields.land) ? (
+                  <div className="utbetalinger__bankkode-rad">
+                    <div className="utbetalinger__bankkode-kolonne">
+                      <InputMedHjelpetekst
+                        disabled={true}
+                        value={retningsnummer}
+                        submitted={submitted}
+                        label={intl.messages["felter.bankkode.label"]}
+                        hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
+                        error={errors.retningsnummer}
+                        onChange={value => setField({ retningsnummer: value })}
+                      />
+                    </div>
+                    <div className="utbetalinger__bankkode-kolonne">
+                      <InputMedHjelpetekst
+                        label={``}
+                        bredde={"M"}
+                        submitted={submitted}
+                        value={fields.bankkode}
+                        error={errors.bankkode}
+                        onChange={value => setField({ bankkode: value })}
+                        maxLength={land && BANKKODE_MAX_LENGTH[land.value]}
+                      />
+                    </div>
                   </div>
-                  <div className="utbetalinger__bankkode-kolonne">
-                    <InputMedHjelpetekst
-                      label={``}
-                      submitted={submitted}
-                      disabled={deaktiverBankkode}
-                      value={deaktiverBankkode ? `` : fields.bankkode}
-                      error={errors.bankkode}
-                      onChange={value => setField({ bankkode: value })}
-                      maxLength={land && BANKKODE_MAX_LENGTH[land.value]}
-                    />
+                ) : (
+                  <div className="utbetalinger__bankidentifier">
+                    <SkjemaGruppe
+                      feil={sjekkForFeil(submitted, errors.bankidentifier)}
+                    >
+                      <Radio
+                        name={BIC}
+                        checked={fields.bankidentifier === BIC}
+                        label={intl.messages["felter.bankidentifier.bic"]}
+                        onChange={e =>
+                          setField({ bankidentifier: e.target.name })
+                        }
+                      />
+                      {fields.bankidentifier === BIC && (
+                        <InputMedHjelpetekst
+                          bredde={"M"}
+                          maxLength={11}
+                          submitted={submitted}
+                          value={bickode}
+                          hjelpetekst={"utbetalinger.hjelpetekster.bic"}
+                          label={intl.messages["felter.bic.label"]}
+                          onChange={value => setField({ bickode: value })}
+                          error={errors.bickode}
+                        />
+                      )}
+                      {landetBrukerBankkode(fields.land) && (
+                        <Radio
+                          name={BANKKODE}
+                          checked={fields.bankidentifier === BANKKODE}
+                          label={
+                            intl.messages["felter.bankidentifier.bankkode"]
+                          }
+                          onChange={e =>
+                            setField({ bankidentifier: e.target.name })
+                          }
+                        />
+                      )}
+                      {fields.bankidentifier === BANKKODE && (
+                        <div className="utbetalinger__bankkode-rad">
+                          <div className="utbetalinger__bankkode-kolonne">
+                            <InputMedHjelpetekst
+                              disabled={true}
+                              value={retningsnummer}
+                              submitted={submitted}
+                              label={intl.messages["felter.bankkode.label"]}
+                              error={errors.retningsnummer}
+                              hjelpetekst={
+                                "utbetalinger.hjelpetekster.bankkode"
+                              }
+                              onChange={value =>
+                                setField({ retningsnummer: value })
+                              }
+                            />
+                          </div>
+                          <div className="utbetalinger__bankkode-kolonne">
+                            <InputMedHjelpetekst
+                              label={``}
+                              bredde={"M"}
+                              submitted={submitted}
+                              value={fields.bankkode}
+                              error={errors.bankkode}
+                              onChange={value => setField({ bankkode: value })}
+                              maxLength={
+                                land && BANKKODE_MAX_LENGTH[land.value]
+                              }
+                            />
+                          </div>
+                        </div>
+                      )}
+                      <Radio
+                        name={HVERKEN_BANKKODE_BIC}
+                        checked={fields.bankidentifier === HVERKEN_BANKKODE_BIC}
+                        label={intl.messages["felter.bankidentifier.harikke"]}
+                        onChange={e =>
+                          setField({ bankidentifier: e.target.name })
+                        }
+                      />
+                    </SkjemaGruppe>
+                    {fields.bankidentifier === HVERKEN_BANKKODE_BIC && (
+                      <div className="utbetalinger__alert">
+                        <AlertStripeAdvarsel>
+                          <FormattedMessage id="felter.bankidentifier.harikke.advarsel" />
+                        </AlertStripeAdvarsel>
+                      </div>
+                    )}
+                    {fields.bankidentifier && fields.bankidentifier !== BIC && (
+                      <div className="utbetalinger__adressefelter">
+                        <InputMedHjelpetekst
+                          bredde={"L"}
+                          maxLength={34}
+                          submitted={submitted}
+                          value={fields.adresse1}
+                          onChange={value => setField({ adresse1: value })}
+                          error={errors.adresse1}
+                          label={intl.messages["felter.bankens.adresse.label"]}
+                        />
+                        <InputMedHjelpetekst
+                          label={""}
+                          bredde={"L"}
+                          maxLength={34}
+                          value={fields.adresse2}
+                          submitted={submitted}
+                          onChange={value => setField({ adresse2: value })}
+                          error={errors.adresse2}
+                        />
+                        <InputMedHjelpetekst
+                          label={""}
+                          bredde={"L"}
+                          maxLength={34}
+                          value={fields.adresse3}
+                          submitted={submitted}
+                          onChange={value => setField({ adresse3: value })}
+                          error={errors.adresse3}
+                        />
+                      </div>
+                    )}
                   </div>
-                </div>
-              </div>
-              <div className="utbetalinger__input-box input--m">
-                <InputMedHjelpetekst
-                  submitted={submitted}
-                  value={fields.banknavn}
-                  label={intl.messages["felter.banknavn.label"]}
-                  onChange={value => setField({ banknavn: value })}
-                  error={errors.banknavn}
-                />
-              </div>
-              <div className="utbetalinger__adressefelter">
-                <InputMedHjelpetekst
-                  maxLength={34}
-                  submitted={submitted}
-                  disabled={fields.bickode}
-                  value={fields.bickode ? `` : fields.adresse1}
-                  label={intl.messages["felter.bankens.adresse.label"]}
-                  onChange={value => setField({ adresse1: value })}
-                  error={errors.adresse1}
-                />
-                <InputMedHjelpetekst
-                  label={""}
-                  maxLength={34}
-                  disabled={fields.bickode}
-                  value={fields.bickode ? `` : fields.adresse2}
-                  submitted={submitted}
-                  onChange={value => setField({ adresse2: value })}
-                  error={errors.adresse2}
-                />
-                <InputMedHjelpetekst
-                  label={""}
-                  maxLength={34}
-                  disabled={fields.bickode}
-                  value={fields.bickode ? `` : fields.adresse3}
-                  submitted={submitted}
-                  onChange={value => setField({ adresse3: value })}
-                  error={errors.adresse3}
-                />
-              </div>
-            </div>
+                )}
+              </>
+            )}
           </>
         );
       }}

@@ -40,11 +40,15 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
-    type: kontonr ? NORSK : utenlandskbank ? UTENLANDSK : undefined
+    norskEllerUtenlandsk: kontonr
+      ? NORSK
+      : utenlandskbank
+      ? UTENLANDSK
+      : undefined
   };
 
   const config = {
-    type: {
+    norskEllerUtenlandsk: {
       isRequired: intl.messages["felter.type.velg"]
     }
   };
@@ -59,7 +63,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
       };
 
       settLoading(true);
-      postKontonummer(outbound[fields.type]())
+      postKontonummer(outbound[fields.norskEllerUtenlandsk]())
         .then(getUpdatedData)
         .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
@@ -84,54 +88,61 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
       {opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
-            {({ submitted, isValid, errors, setField, fields }) => (
-              <SkjemaGruppe feil={sjekkForFeil(submitted, errors.type)}>
-                <Radio
-                  name={NORSK}
-                  checked={fields.type === NORSK}
-                  label={intl.messages["felter.kontonummervalg.norsk"]}
-                  onChange={e => setField({ type: e.target.name })}
-                />
-                {fields.type === NORSK && (
-                  <OpprettEllerEndreNorskKontonr kontonummer={kontonr} />
-                )}
-                <Radio
-                  name={UTENLANDSK}
-                  checked={fields.type === UTENLANDSK}
-                  label={intl.messages["felter.kontonummervalg.utenlandsk"]}
-                  onChange={e => setField({ type: e.target.name })}
-                />
-                {fields.type === UTENLANDSK && (
-                  <OpprettEllerEndreUtenlandsbank
-                    utenlandskbank={utenlandskbank}
+            {({ submitted, isValid, errors, setField, fields }) => {
+              const feil = sjekkForFeil(submitted, errors.norskEllerUtenlandsk);
+              return (
+                <SkjemaGruppe feil={feil}>
+                  <Radio
+                    name={NORSK}
+                    checked={fields.norskEllerUtenlandsk === NORSK}
+                    label={intl.messages["felter.kontonummervalg.norsk"]}
+                    onChange={e =>
+                      setField({ norskEllerUtenlandsk: e.target.name })
+                    }
                   />
-                )}
-                <div className="utbetalinger__knapper">
-                  <div className="utbetalinger__knapp">
-                    <Knapp
-                      type={"standard"}
-                      htmlType={"submit"}
-                      disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={loading}
-                    >
-                      <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
+                  {fields.norskEllerUtenlandsk === NORSK && (
+                    <OpprettEllerEndreNorskKontonr kontonummer={kontonr} />
+                  )}
+                  <Radio
+                    name={UTENLANDSK}
+                    checked={fields.norskEllerUtenlandsk === UTENLANDSK}
+                    label={intl.messages["felter.kontonummervalg.utenlandsk"]}
+                    onChange={e =>
+                      setField({ norskEllerUtenlandsk: e.target.name })
+                    }
+                  />
+                  {fields.norskEllerUtenlandsk === UTENLANDSK && (
+                    <OpprettEllerEndreUtenlandsbank
+                      utenlandskbank={utenlandskbank}
+                    />
+                  )}
+                  <div className="utbetalinger__knapper">
+                    <div className="utbetalinger__knapp">
+                      <Knapp
+                        type={"standard"}
+                        htmlType={"submit"}
+                        disabled={submitted && !isValid}
+                        autoDisableVedSpinner={true}
+                        spinner={loading}
+                      >
+                        <FormattedMessage id={"side.lagre"} />
+                      </Knapp>
+                    </div>
+                    <div className="utbetalinger__knapp">
+                      <Knapp
+                        type={"flat"}
+                        htmlType={"button"}
+                        disabled={loading}
+                        onClick={() => settOpprettEllerEndre(false)}
+                      >
+                        <FormattedMessage id={"side.avbryt"} />
+                      </Knapp>
+                    </div>
                   </div>
-                  <div className="utbetalinger__knapp">
-                    <Knapp
-                      type={"flat"}
-                      htmlType={"button"}
-                      disabled={loading}
-                      onClick={() => settOpprettEllerEndre(false)}
-                    >
-                      <FormattedMessage id={"side.avbryt"} />
-                    </Knapp>
-                  </div>
-                </div>
-                {alert && <Alert {...alert} />}
-              </SkjemaGruppe>
-            )}
+                  {alert && <Alert {...alert} />}
+                </SkjemaGruppe>
+              );
+            }}
           </Validation>
         </Form>
       ) : (
