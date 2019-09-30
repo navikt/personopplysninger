@@ -193,7 +193,7 @@ export default {
   "validation.tomdato.ugyldig": "Ugyldig dato",
   "validation.gateadresse.pakrevd": "Gateadresse er nødvendig",
   "validation.land.pakrevd": "Land er nødvendig",
-  "validation.bankidentifier.pakrevd": "Påkrevd",
+  "validation.bankidentifier.pakrevd": "Du må velge et alternativ",
   "validation.bankidentifier.valid": `Dersom du fyller ut IBAN-nummer, må du også fylle ut BIC/Swift-kode`,
   "validation.kontonummer.pakrevd": "Kontonummer er nødvendig",
   "validation.kontonummer.siffer": "Kontonummer må være tall",

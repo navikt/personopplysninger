@@ -114,7 +114,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       }
     },
     bankidentifier: {
-      isRequired: intl.messages["validation.bankidentifier.pakrevd"],
+      isRequired: {
+        message: intl.messages["validation.bankidentifier.pakrevd"],
+        validateIf: ({ fields }: ValidatorContext) => !harValgtUSA(fields.land)
+      },
       isValidBankIdentifier: {
         message: intl.messages["validation.bankidentifier.valid"],
         validateIf: ({ fields }: ValidatorContext) => !harValgtUSA(fields.land)
@@ -189,6 +192,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     <Validation config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => {
         const { land, kontonummer, bickode, retningsnummer } = fields;
+        console.log(errors);
         return (
           <>
             <div className="utbetalinger__alert">
@@ -207,8 +211,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   : null;
 
                 const resetBankidentifier =
-                  harValgtBankkode(fields.bankidentifier) &&
-                  !landetBrukerBankkode(option);
+                  (harValgtBankkode(fields.bankidentifier) &&
+                    !landetBrukerBankkode(option)) ||
+                  harValgtUSA(option);
 
                 setField({
                   land: option,
