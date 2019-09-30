@@ -22,6 +22,12 @@
   &__form {
     margin-top: 0.5rem;
   }
+  &__verdi {
+    @media @maxMobile {
+      margin-bottom: 0.5rem;
+      width: 100%;
+    }
+  }
   &__input-container {
     display: flex;
     flex-wrap: wrap;
@@ -36,9 +42,6 @@
   }
   &__knapper {
     display: flex;
-    @media @maxMobile {
-      flex-direction: column;
-    }
   }
   &__knapp {
     margin-left: 0.25rem;
