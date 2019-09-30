@@ -1,9 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
-import {
-  AlertStripeAdvarsel,
-  AlertStripeInfo
-} from "nav-frontend-alertstriper";
+import { AlertStripeInfo } from "nav-frontend-alertstriper";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { InjectedIntlProps, injectIntl, FormattedMessage } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { OptionType } from "types/option";
@@ -37,12 +35,7 @@ export interface OutboundUtenlandsbankonto {
   };
 }
 
-export const BIC = "BIC";
-export const BANKKODE = "BANKKODE";
-export const HVERKEN_BANKKODE_BIC = "HVERKEN_BANKKODE_BIC";
-
-const FEDWIRE = ["USA", "NZL", "AUS", "ZAF", "CAN"];
-const BANKKODER: { [key: string]: string } = {
+export const BANKKODER: { [key: string]: string } = {
   USA: "FW",
   NZL: "NZ",
   AUS: "AU",
@@ -57,6 +50,11 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   ZAF: 6,
   CAN: 6
 };
+
+export const BIC = "BIC";
+export const BANKKODE = "BANKKODE";
+export const HVERKEN_BANKKODE_BIC = "HVERKEN_BANKKODE_BIC";
+export const LAND_MED_BANKKODE = ["USA", "NZL", "AUS", "ZAF", "CAN"];
 
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   const { utenlandskbank, intl } = props;
@@ -185,7 +183,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
 
   // Utils
   const landetBrukerBankkode = (land?: OptionType) =>
-    land && FEDWIRE.includes(land.value) ? true : false;
+    land && LAND_MED_BANKKODE.includes(land.value) ? true : false;
 
   return (
     <Validation config={formConfig} initialValues={initialValues}>
@@ -370,33 +368,36 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                     )}
                     {fields.bankidentifier && fields.bankidentifier !== BIC && (
                       <div className="utbetalinger__adressefelter">
-                        <InputMedHjelpetekst
-                          bredde={"L"}
-                          maxLength={34}
-                          submitted={submitted}
-                          value={fields.adresse1}
-                          onChange={value => setField({ adresse1: value })}
-                          error={errors.adresse1}
-                          label={intl.messages["felter.bankens.adresse.label"]}
-                        />
-                        <InputMedHjelpetekst
-                          label={""}
-                          bredde={"L"}
-                          maxLength={34}
-                          value={fields.adresse2}
-                          submitted={submitted}
-                          onChange={value => setField({ adresse2: value })}
-                          error={errors.adresse2}
-                        />
-                        <InputMedHjelpetekst
-                          label={""}
-                          bredde={"L"}
-                          maxLength={34}
-                          value={fields.adresse3}
-                          submitted={submitted}
-                          onChange={value => setField({ adresse3: value })}
-                          error={errors.adresse3}
-                        />
+                        <SkjemaGruppe
+                          feil={sjekkForFeil(submitted, errors.adresse1)}
+                        >
+                          <InputMedHjelpetekst
+                            bredde={"L"}
+                            maxLength={34}
+                            submitted={submitted}
+                            value={fields.adresse1}
+                            onChange={value => setField({ adresse1: value })}
+                            label={
+                              intl.messages["felter.bankens.adresse.label"]
+                            }
+                          />
+                          <InputMedHjelpetekst
+                            label={""}
+                            bredde={"L"}
+                            maxLength={34}
+                            value={fields.adresse2}
+                            submitted={submitted}
+                            onChange={value => setField({ adresse2: value })}
+                          />
+                          <InputMedHjelpetekst
+                            label={""}
+                            bredde={"L"}
+                            maxLength={34}
+                            value={fields.adresse3}
+                            submitted={submitted}
+                            onChange={value => setField({ adresse3: value })}
+                          />
+                        </SkjemaGruppe>
                       </div>
                     )}
                   </div>
