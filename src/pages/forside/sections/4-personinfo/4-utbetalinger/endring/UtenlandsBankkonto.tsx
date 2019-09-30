@@ -8,7 +8,7 @@ import { InjectedIntlProps, injectIntl, FormattedMessage } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { OptionType } from "types/option";
 import { UtenlandskBankkonto } from "types/personalia";
-import { electronicFormatIBAN, isValidBIC, isValidIBAN } from "ibantools";
+import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/kodeverk/SelectLand";
 import SelectValuta from "components/felter/kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
@@ -88,6 +88,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     land: {
       isRequired: intl.messages["validation.land.pakrevd"]
     },
+    valuta: {
+      isRequired: intl.messages["validation.valuta.pakrevd"]
+    },
+    banknavn: {
+      isRequired: intl.messages["validation.banknavn.pakrevd"]
+    },
     kontonummer: {
       isRequired: {
         message: intl.messages["validation.kontonummer.pakrevd"]
@@ -95,9 +101,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isLettersOrDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) =>
-          harValgtUSA(fields.land) ||
+          harValgtBankkode(fields.bankidentifier) ||
           harValgtBic(fields.bankidentifier) ||
-          harValgtBankkode(fields.bankidentifier)
+          harValgtUSA(fields.land)
       },
       isNotIBAN: {
         message: intl.messages["validation.ikke.iban"],
@@ -135,14 +141,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isBICCountryCompliant: {
         message: intl.messages["validation.bic.country"],
         validateIf: ({ fields }: ValidatorContext) =>
-          harValgtBic(fields.bankidentifier) && isValidBIC(fields.bickode)
+          harValgtBic(fields.bankidentifier)
       }
     },
     retningsnummer: {
       isRequired: {
         message: "*",
         validateIf: ({ fields }: ValidatorContext) =>
-          harValgtBankkode(fields.bankidentifier)
+          harValgtBankkode(fields.bankidentifier) || harValgtUSA(fields.land)
       }
     },
     bankkode: {
@@ -153,7 +159,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       },
       isNumber: {
         message: intl.messages["validation.only.digits"],
-        validateIf: ({ fields }: ValidatorContext) => fields.bankkode
+        validateIf: ({ fields }: ValidatorContext) =>
+          harValgtBankkode(fields.bankidentifier) || harValgtUSA(fields.land)
       },
       isBankkode: {
         message: ({ land, siffer }: { land: string; siffer: number }) =>
@@ -162,20 +169,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             { land, siffer }
           ),
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.bankidentifier === BANKKODE || harValgtUSA(fields.land)
+          harValgtBankkode(fields.bankidentifier) || harValgtUSA(fields.land)
       }
-    },
-    banknavn: {
-      isRequired: intl.messages["validation.banknavn.pakrevd"]
-    },
-    valuta: {
-      isRequired: intl.messages["validation.valuta.pakrevd"]
     },
     adresse1: {
       isRequired: {
         message: intl.messages["validation.adresse.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.bankidentifier !== BIC
+          !harValgtBic(fields.bankidentifier) && !harValgtUSA(fields.land)
       }
     },
     adresse2: {},
@@ -183,7 +184,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
   };
 
   // Utils
-  const landetBrukerBankkode = (land: OptionType) =>
+  const landetBrukerBankkode = (land?: OptionType) =>
     land && FEDWIRE.includes(land.value) ? true : false;
 
   return (
@@ -208,9 +209,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   ? BANKKODER[option.value]
                   : null;
 
+                const resetBankidentifier =
+                  harValgtBankkode(fields.bankidentifier) &&
+                  !landetBrukerBankkode(option);
+
                 setField({
                   land: option,
-                  bankidentifier: undefined,
+                  ...(resetBankidentifier && {
+                    bankidentifier: undefined
+                  }),
                   ...(bankkodeRetningsnummer && {
                     retningsnummer: bankkodeRetningsnummer
                   })
@@ -406,9 +413,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
 
 export const setOutboundUtenlandsbankonto = (c: FormContext) => {
   const { bickode, ...fields } = c.fields;
-  const sendBICKode = fields.bankidentifier === BIC;
-  const sendBankkode = fields.bankidentifier === BANKKODE;
-  const sendAdresse = fields.bankidentifier !== BIC;
+  const sendBICKode = harValgtBic(fields.bankidentifier);
+  const sendBankkode = harValgtBankkode(fields.bankidentifier);
+  const sendAdresse = !harValgtBic(fields.bankidentifier);
 
   return {
     value: electronicFormatIBAN(fields.kontonummer),
