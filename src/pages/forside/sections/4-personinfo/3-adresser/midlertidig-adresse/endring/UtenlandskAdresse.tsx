@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../../types/adresser/utenlandskadresse";
-import { Input } from "nav-frontend-skjema";
+import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
@@ -105,68 +105,45 @@ const OpprettEllerEndreUtenlandskAdresse = (
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  bredde={"XXL"}
-                  maxLength={30}
-                  value={fields.adresse1}
-                  label={intl.messages["felter.adresse.label"]}
-                  onChange={e => setField({ adresse1: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.adresse1)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  label={""}
-                  bredde={"XXL"}
-                  maxLength={30}
-                  value={fields.adresse2}
-                  onChange={e => setField({ adresse2: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.adresse2)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  label={""}
-                  bredde={"XXL"}
-                  maxLength={30}
-                  value={fields.adresse3}
-                  onChange={e => setField({ adresse3: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.adresse3)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
-            <div className="adresse__land-select">
-              <SelectLand
-                submitted={submitted}
-                option={fields.land}
-                error={errors.land}
-                label={intl.messages["felter.land.label"]}
-                onChange={land => setField({ land })}
+            <SkjemaGruppe feil={sjekkForFeil(submitted, errors.adresse1)}>
+              <Input
+                bredde={"L"}
+                maxLength={30}
+                value={fields.adresse1}
+                label={intl.messages["felter.adresse.label"]}
+                onChange={e => setField({ adresse1: e.target.value })}
               />
-            </div>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <DayPicker
-                  submitted={submitted}
-                  value={fields.datoTilOgMed}
-                  error={errors.datoTilOgMed}
-                  label={intl.messages["felter.gyldigtom.label"]}
-                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
-                  onChange={value => setField({ datoTilOgMed: value })}
-                  onErrors={error => setError({ datoTilOgMed: error })}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
+              <Input
+                label={""}
+                bredde={"L"}
+                maxLength={30}
+                value={fields.adresse2}
+                onChange={e => setField({ adresse2: e.target.value })}
+              />
+              <Input
+                label={""}
+                bredde={"L"}
+                maxLength={30}
+                value={fields.adresse3}
+                onChange={e => setField({ adresse3: e.target.value })}
+              />
+            </SkjemaGruppe>
+            <SelectLand
+              submitted={submitted}
+              option={fields.land}
+              error={errors.land}
+              label={intl.messages["felter.land.label"]}
+              onChange={land => setField({ land })}
+            />
+            <DayPicker
+              submitted={submitted}
+              value={fields.datoTilOgMed}
+              error={errors.datoTilOgMed}
+              label={intl.messages["felter.gyldigtom.label"]}
+              ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
+              onChange={value => setField({ datoTilOgMed: value })}
+              onErrors={error => setError({ datoTilOgMed: error })}
+            />
             <div className="adresse__knapper">
               <div className="adresse__knapp">
                 <Knapp
@@ -179,7 +156,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
                   <FormattedMessage id={"side.lagre"} />
                 </Knapp>
               </div>
-              <div className="utbetalinger__knapp">
+              <div className="adresse__knapp">
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}

@@ -11,7 +11,6 @@ import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "utils/date";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 
@@ -36,8 +35,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
-    ...tilleggsadresse
+    ...(tilleggsadresse && {
+      ...tilleggsadresse,
+      ...(tilleggsadresse.postboksnummer && {
+        postboksnummer: parseInt(tilleggsadresse.postboksnummer, RADIX_DECIMAL)
+      })
+    })
   };
 
   const formConfig: ExtraFieldsConfig = {
@@ -45,7 +48,6 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     postboksnummer: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
       isNumber: intl.messages["validation.only.digits"]
     },
     postboksanlegg: {
@@ -189,7 +191,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   <FormattedMessage id={"side.lagre"} />
                 </Knapp>
               </div>
-              <div className="utbetalinger__knapp">
+              <div className="adresse__knapp">
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}

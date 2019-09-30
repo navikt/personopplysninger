@@ -189,6 +189,7 @@ export default {
   "validation.tlfnr.makslengde": "Telefonnummeret kan ha maksimalt 16 tall",
   "validation.retningsnr.pakrevd": "Retningsnummer er nødvendig",
   "validation.postnummer.pakrevd": "Bolignummer er nødvendig",
+  "validation.postboksnummer.pakrevd": "Postboksnummer er nødvendig",
   "validation.tomdato.pakrevd": "Gyldig dato er nødvendig",
   "validation.tomdato.ugyldig": "Ugyldig dato",
   "validation.gateadresse.pakrevd": "Gateadresse er nødvendig",

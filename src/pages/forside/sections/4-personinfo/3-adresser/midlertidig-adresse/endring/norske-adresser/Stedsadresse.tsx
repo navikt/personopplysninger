@@ -11,7 +11,6 @@ import DayPicker from "components/felter/day-picker/DayPicker";
 import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "utils/date";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -34,8 +33,9 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
-    ...tilleggsadresse
+    ...(tilleggsadresse && {
+      ...tilleggsadresse
+    })
   };
 
   const formConfig: ExtraFieldsConfig = {
@@ -160,7 +160,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   <FormattedMessage id={"side.lagre"} />
                 </Knapp>
               </div>
-              <div className="utbetalinger__knapp">
+              <div className="adresse__knapp">
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}

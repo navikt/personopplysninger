@@ -12,7 +12,6 @@ import InputPostnummer from "components/felter/input-postnummer/InputPostnummer"
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "utils/date";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -39,35 +38,12 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
 
-  const trimAdresse = (
-    adresse: string = "",
-    husbokstav: string = "",
-    bolignummer: string = ""
-  ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
-
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
     ...(tilleggsadresse && {
       ...tilleggsadresse,
       ...(tilleggsadresse.husnummer && {
         husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
-      }),
-      ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
-        ? {
-            tilleggslinje: tilleggsadresse.adresse1,
-            gatenavn: trimAdresse(
-              tilleggsadresse.adresse2,
-              tilleggsadresse.husbokstav,
-              tilleggsadresse.bolignummer
-            )
-          }
-        : tilleggsadresse.adresse1 && {
-            gatenavn: trimAdresse(
-              tilleggsadresse.adresse1,
-              tilleggsadresse.husbokstav,
-              tilleggsadresse.bolignummer
-            )
-          })
+      })
     })
   };
 
@@ -77,7 +53,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     },
     gatenavn: {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"],
+      isLetters: intl.messages["validation.only.letters"],
       isRequired: intl.messages["validation.gatenavn.pakrevd"]
     },
     husnummer: {
@@ -244,7 +220,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   <FormattedMessage id={"side.lagre"} />
                 </Knapp>
               </div>
-              <div className="utbetalinger__knapp">
+              <div className="adresse__knapp">
                 <Knapp
                   type={"flat"}
                   htmlType={"button"}
