@@ -1,4 +1,5 @@
 import { OptionType } from "../../../../../../types/option";
+import { BANKKODE, BIC } from "./UtenlandsBankkonto";
 
 const countryISOMapping: { [key: string]: string } = {
   AFG: "AF",
@@ -249,6 +250,12 @@ const countryISOMapping: { [key: string]: string } = {
   ZMB: "ZM",
   ZWE: "ZW"
 };
+
+export const harValgtBic = (bankidentifier?: string) =>
+  bankidentifier && bankidentifier === BIC ? true : false;
+
+export const harValgtBankkode = (bankidentifier?: string) =>
+  bankidentifier && bankidentifier === BANKKODE ? true : false;
 
 export const harValgtUSA = (land?: OptionType) =>
   land && land.value === "USA" ? true : false;
