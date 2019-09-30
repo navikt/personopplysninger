@@ -191,7 +191,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     <Validation config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => {
         const { land, kontonummer, bickode, retningsnummer } = fields;
-        console.log(errors);
         return (
           <>
             <div className="utbetalinger__alert">
