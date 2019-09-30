@@ -120,20 +120,15 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  bredde={"XXL"}
-                  maxLength={30}
-                  label={intl.messages["felter.tillegslinje.label"]}
-                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
-                  value={fields.tilleggslinje}
-                  onChange={e => setField({ tilleggslinje: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.tilleggslinje)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
+            <Input
+              bredde={"L"}
+              maxLength={30}
+              label={intl.messages["felter.tillegslinje.label"]}
+              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              value={fields.tilleggslinje}
+              onChange={e => setField({ tilleggslinje: e.target.value })}
+              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+            />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input

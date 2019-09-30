@@ -28,6 +28,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
         <div className="adresse__kolonne">
           <Select
             label={"Type adresse"}
+            className="input--l"
             onChange={onSelectChange}
             defaultValue={type}
           >
