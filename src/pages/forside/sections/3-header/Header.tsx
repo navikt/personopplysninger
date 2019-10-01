@@ -1,12 +1,12 @@
 import React from "react";
 import { FormattedHTMLMessage } from "react-intl";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import veilederIkon from "../../../../assets/img/Veileder.svg";
+import veilederIkon from "assets/img/Veileder.svg";
 import Veilederpanel from "nav-frontend-veilederpanel";
-import Error from "../../../../components/error/Error";
+import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
-import { formatName } from "../../../../utils/text";
-import { useStore } from "../../../../providers/Provider";
+import { formatName } from "utils/text";
+import { useStore } from "providers/Provider";
 
 const Header = () => {
   const [{ auth }] = useStore();
@@ -19,15 +19,12 @@ const Header = () => {
       if (auth.data.authenticated) {
         const { name } = auth.data;
         const fornavn = name.split(" ")[0];
+        const Veileder = (
+          <img src={veilederIkon} className="header__ikon" alt="Veileder" />
+        );
 
         return (
-          <Veilederpanel
-            svg={
-              <img src={veilederIkon} className="header__ikon" alt="Veileder" />
-            }
-            type={"plakat"}
-            kompakt
-          >
+          <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
             <div className="box__container">
               <Systemtittel>
                 <FormattedHTMLMessage
@@ -45,6 +42,7 @@ const Header = () => {
                   <FormattedHTMLMessage id="header.description" />
                 </Normaltekst>
               </div>
+              <div className="underseksjon__divider" />
             </div>
           </Veilederpanel>
         );

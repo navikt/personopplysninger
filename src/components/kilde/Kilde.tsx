@@ -76,11 +76,13 @@ const Kilde = (props: Props) => {
     <>
       <div className="kilde__container">
         <Knapp {...props} />
-        {props.kilde && (
-          <EtikettLiten>
-            <FormattedHTMLMessage id={props.kilde} />
-          </EtikettLiten>
-        )}
+        <div className="kilde__tekst">
+          {props.kilde && (
+            <EtikettLiten>
+              <FormattedHTMLMessage id={props.kilde} />
+            </EtikettLiten>
+          )}
+        </div>
       </div>
     </>
   );
