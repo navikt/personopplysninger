@@ -90,7 +90,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
         postboksnummer: parseInt(postboksnummer, RADIX_DECIMAL),
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
-          tilleggslinjeType: "C/O",
+          tilleggslinjeType: "CO",
           tilleggslinje
         })
       } as OutboundPostboksadresse;

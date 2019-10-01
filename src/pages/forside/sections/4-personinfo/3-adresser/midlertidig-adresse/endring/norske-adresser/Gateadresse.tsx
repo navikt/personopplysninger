@@ -97,7 +97,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
         husnummer: parseInt(husnummer, RADIX_DECIMAL),
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
-          tilleggslinjeType: "C/O",
+          tilleggslinjeType: "CO",
           tilleggslinje
         })
       } as OutboundGateadresse;

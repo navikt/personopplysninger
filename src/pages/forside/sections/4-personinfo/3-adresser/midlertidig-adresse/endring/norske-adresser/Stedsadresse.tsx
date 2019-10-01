@@ -72,7 +72,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
         ...equalFields,
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
-          tilleggslinjeType: "C/O",
+          tilleggslinjeType: "CO",
           tilleggslinje
         })
       } as OutboundStedsadresse;
