@@ -25,7 +25,7 @@ const Header = () => {
 
         return (
           <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
-            <div className="box__container">
+            <div className="box__container header__content">
               <Systemtittel>
                 <FormattedHTMLMessage
                   id="header.hello"
@@ -42,7 +42,6 @@ const Header = () => {
                   <FormattedHTMLMessage id="header.description" />
                 </Normaltekst>
               </div>
-              <div className="underseksjon__divider" />
             </div>
           </Veilederpanel>
         );

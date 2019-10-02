@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Message = (props: Props) => (
-  <div className="message">
+  <div className="underseksjon__beskrivelse">
     <Normaltekst>
       {props.bold ? (
         <b>
