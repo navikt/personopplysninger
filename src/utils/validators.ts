@@ -10,7 +10,7 @@ import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/4-utbetal
 import {
   BANKKODE_MAX_LENGTH,
   BIC
-} from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/UtenlandsBankkonto";
+} from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "../types/option";
 
