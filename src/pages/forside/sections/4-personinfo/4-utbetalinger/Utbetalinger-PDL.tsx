@@ -144,6 +144,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
               );
             }}
           </Validation>
+          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
         </Form>
       ) : (
         <>

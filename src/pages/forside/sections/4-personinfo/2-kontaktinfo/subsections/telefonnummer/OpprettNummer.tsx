@@ -109,77 +109,79 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   </Element>
                 </div>
               </div>
-              <div className={"tlfnummer__container tlfnummer__form"}>
-                <Select
-                  value={fields.type}
-                  label={intl.messages["felter.type.label"]}
-                  onChange={e => setField({ type: e.target.value })}
-                  bredde={"s"}
-                  feil={sjekkForFeil(submitted, errors.type)}
-                >
-                  <option>{intl.messages["felter.type.velg"]}</option>
-                  {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                    <option value="MOBIL">
-                      {intl.messages["personalia.tlfnr.mobil"]}
-                    </option>
-                  )}
-                  {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                    <option value="ARBEID">
-                      {intl.messages["personalia.tlfnr.arbeid"]}
-                    </option>
-                  )}
-                  {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                    <option value="HJEM">
-                      {intl.messages["personalia.tlfnr.hjem"]}
-                    </option>
-                  )}
-                </Select>
-              </div>
-              <div className={"tlfnummer__input-container"}>
-                <div className={"tlfnummer__input input--s"}>
-                  <SelectLandskode
-                    option={fields.landskode}
-                    label={intl.messages["felter.landkode.label"]}
-                    onChange={option => setField({ landskode: option })}
-                    error={errors.landskode}
-                    submitted={submitted}
-                  />
-                </div>
-                <div className={"tlfnummer__input input--m"}>
-                  <Input
-                    type={"tel"}
-                    bredde={"M"}
-                    value={fields.tlfnummer}
-                    maxLength={tlfNummerMaxLength}
-                    label={intl.messages["felter.tlfnr.label"]}
-                    onChange={e => setField({ tlfnummer: e.target.value })}
-                    feil={sjekkForFeil(submitted, errors.tlfnummer)}
-                  />
-                </div>
-              </div>
-              <div className={"tlfnummer__knapper"}>
-                <div className={"tlfnummer__submit"}>
-                  <Knapp
-                    type={"standard"}
-                    htmlType={"submit"}
-                    disabled={submitted && !isValid}
-                    autoDisableVedSpinner={true}
-                    spinner={loading}
+              <div className="tlfnummer__form">
+                <div className={"tlfnummer__container"}>
+                  <Select
+                    value={fields.type}
+                    label={intl.messages["felter.type.label"]}
+                    onChange={e => setField({ type: e.target.value })}
+                    bredde={"s"}
+                    feil={sjekkForFeil(submitted, errors.type)}
                   >
-                    <FormattedMessage id={"side.lagre"} />
+                    <option>{intl.messages["felter.type.velg"]}</option>
+                    {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
+                      <option value="MOBIL">
+                        {intl.messages["personalia.tlfnr.mobil"]}
+                      </option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
+                      <option value="ARBEID">
+                        {intl.messages["personalia.tlfnr.arbeid"]}
+                      </option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
+                      <option value="HJEM">
+                        {intl.messages["personalia.tlfnr.hjem"]}
+                      </option>
+                    )}
+                  </Select>
+                </div>
+                <div className={"tlfnummer__input-container"}>
+                  <div className={"tlfnummer__input input--s"}>
+                    <SelectLandskode
+                      option={fields.landskode}
+                      label={intl.messages["felter.landkode.label"]}
+                      onChange={option => setField({ landskode: option })}
+                      error={errors.landskode}
+                      submitted={submitted}
+                    />
+                  </div>
+                  <div className={"tlfnummer__input input--m"}>
+                    <Input
+                      type={"tel"}
+                      bredde={"M"}
+                      value={fields.tlfnummer}
+                      maxLength={tlfNummerMaxLength}
+                      label={intl.messages["felter.tlfnr.label"]}
+                      onChange={e => setField({ tlfnummer: e.target.value })}
+                      feil={sjekkForFeil(submitted, errors.tlfnummer)}
+                    />
+                  </div>
+                </div>
+                <div className={"tlfnummer__knapper"}>
+                  <div className={"tlfnummer__submit"}>
+                    <Knapp
+                      type={"standard"}
+                      htmlType={"submit"}
+                      disabled={submitted && !isValid}
+                      autoDisableVedSpinner={true}
+                      spinner={loading}
+                    >
+                      <FormattedMessage id={"side.lagre"} />
+                    </Knapp>
+                  </div>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    disabled={loading}
+                    className={"tlfnummer__knapp"}
+                    onClick={props.onCancelClick}
+                  >
+                    <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
                 </div>
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  disabled={loading}
-                  className={"tlfnummer__knapp"}
-                  onClick={props.onCancelClick}
-                >
-                  <FormattedMessage id={"side.avbryt"} />
-                </Knapp>
+                {alert && <Alert {...alert} />}
               </div>
-              {alert && <Alert {...alert} />}
             </>
           );
         }}

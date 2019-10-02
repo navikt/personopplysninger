@@ -229,7 +229,6 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
                 </div>
-                <div className="underseksjon__divider" />
               </div>
             )}
             {alert && <Alert {...alert} />}
