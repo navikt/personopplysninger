@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { Adresser } from "types/adresser";
 import Box from "components/box/Box";
@@ -7,9 +7,8 @@ import adresseIkon from "assets/img/Adresse.svg";
 import Kilde from "components/kilde/Kilde";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/LeggTil.svg";
-import AdressePanel from "./komponenter/AdressePanel";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
-import { Normaltekst } from "nav-frontend-typografi";
+import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { Radio } from "nav-frontend-skjema";
 import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
 import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
@@ -44,8 +43,12 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       icon={adresseIkon}
     >
       <Folkeregisteret adresser={props.adresser} />
-      <hr className="box__linje-bred" />
-      <AdressePanel tittel="adresse.midlertidigadresse">
+      <div className="adresse__box">
+        <div className="underseksjon__header underseksjon__divider">
+          <Undertittel>
+            <FormattedMessage id={"adresse.midlertidigadresse"} />
+          </Undertittel>
+        </div>
         {opprettEllerEndre ? (
           <div className="adresse__form">
             <Radio
@@ -96,7 +99,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
             />
           </>
         )}
-      </AdressePanel>
+      </div>
     </Box>
   );
 };

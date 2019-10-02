@@ -20,7 +20,6 @@ const KontaktInfo = (props: Props) => {
       ) : (
         <TelefonnummerHosNavOLD tlfnr={props.tlfnr} />
       )}
-      <div className="underseksjon__divider" />
       <DKIF />
     </Box>
   );

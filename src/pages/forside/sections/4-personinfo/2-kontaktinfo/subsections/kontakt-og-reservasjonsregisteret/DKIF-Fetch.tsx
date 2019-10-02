@@ -40,11 +40,7 @@ const DKIF = (props: InjectedIntlProps) => {
         <Undertittel>
           <FormattedMessage id="personalia.dkif.overskrift" />
         </Undertittel>
-        <Infotekst
-          beskrivelse={props.intl.formatMessage({
-            id: "personalia.dkif.beskrivelse"
-          })}
-        />
+        <Infotekst beskrivelse={"personalia.dkif.beskrivelse"} />
       </div>
       {(() => {
         switch (kontaktInfo.status) {

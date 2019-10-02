@@ -80,6 +80,7 @@ export default {
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
+  "adresse.overskrift": `Adresser som er registert i Folkeregisteret.`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret.`,
   "adresse.midlertidig.alert": `Frem til og med {dato} sender vi deg post til din midlertidige adresse.`,
   "arbeidsforhold.tittel": `Arbeidsforhold`,
