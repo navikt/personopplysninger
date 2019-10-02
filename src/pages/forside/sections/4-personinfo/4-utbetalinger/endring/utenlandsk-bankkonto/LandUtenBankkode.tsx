@@ -1,6 +1,6 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { BIC, HVERKEN_BANKKODE_BIC } from "./UtenlandsBankkonto";
+import { BIC, UTEN_BIC } from "./UtenlandsBankkonto";
 import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
@@ -39,13 +39,13 @@ const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
           />
         )}
         <Radio
-          name={HVERKEN_BANKKODE_BIC}
-          checked={fields.bankidentifier === HVERKEN_BANKKODE_BIC}
+          name={UTEN_BIC}
+          checked={fields.bankidentifier === UTEN_BIC}
           label={intl.messages["felter.bankidentifier.harikke.bic"]}
           onChange={e => setField({ bankidentifier: e.target.name })}
         />
       </SkjemaGruppe>
-      {fields.bankidentifier === HVERKEN_BANKKODE_BIC && (
+      {fields.bankidentifier === UTEN_BIC && (
         <div className="utbetalinger__alert">
           <AlertStripeAdvarsel>
             <FormattedMessage id="felter.bankidentifier.harikke.bic.advarsel" />
