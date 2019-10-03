@@ -85,7 +85,7 @@ export default {
   "adresse.overskrift": `Adresser som er registert i Folkeregisteret`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
   "adresse.midlertidig.alert": `Frem til og med {dato} sender vi deg post til din midlertidige adresse.`,
-  "adresse.slett.alert": `Vil du opphøre den midlertidige adressen og bruke folkeregistrert </br> adresse til å motta post fra NAV?`,
+  "adresse.slett.alert": `Vil du slette den midlertidige adressen og bruke folkeregistrert </br> adresse til å motta post fra NAV?`,
   "arbeidsforhold.tittel": `Arbeidsforhold`,
   "arbeidsforhold.beskrivelse": `<p>NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br/><a href="https://www.nav.no/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</a>.</p>`,
   "arbeidsforhold.kilde": `Kilde: Arbeidsgiver- og arbeidstakerregisteret</br><span style="text-transform: none;">Dataene er rapportert av arbeidsgiver</span>`,
