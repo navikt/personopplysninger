@@ -203,7 +203,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
-            <div className="adresse__knapper">
+            <div className="adresse__form-knapper">
               <div className="adresse__knapp">
                 <Knapp
                   type={"standard"}

@@ -7,6 +7,7 @@ import adresseIkon from "assets/img/Adresse.svg";
 import Kilde from "components/kilde/Kilde";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/LeggTil.svg";
+import slettIkon from "assets/img/Slett.svg";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { Radio } from "nav-frontend-skjema";
@@ -14,6 +15,16 @@ import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endr
 import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
 import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
+import Modal from "nav-frontend-modal";
+import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
+import Alert, { AlertType } from "../../../../../components/alert/Alert";
+import {
+  fetchPersonInfo,
+  slettMidlertidigAdresse,
+  slettUtenlandsAdresse
+} from "../../../../../clients/apiClient";
+import { PersonInfo } from "../../../../../types/personInfo";
+import { useStore } from "../../../../../providers/Provider";
 
 interface Props {
   adresser: Adresser;
@@ -26,7 +37,11 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
   const { intl, adresser } = props;
   const { tilleggsadresse, utenlandskAdresse } = adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
+  const [, dispatch] = useStore();
+  const [slettLoading, settSlettLoading] = useState();
+  const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
+  const [visSlettModal, settVisSlettModal] = useState(false);
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
     props.adresser.tilleggsadresse
       ? "NORSK"
@@ -35,6 +50,40 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       : undefined
   );
 
+  const visEndreOpprett = () => settOpprettEllerEndre(true);
+  const apneSlettModal = () => settVisSlettModal(true);
+  const lukkSlettModal = () => settVisSlettModal(false);
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
+  const onSlettSuccess = () => {
+    lukkSlettModal();
+  };
+
+  const slettAdresse = () => {
+    settSlettLoading(true);
+
+    if (utenlandskAdresse) {
+      slettUtenlandsAdresse(utenlandskAdresse)
+        .then(getUpdatedData)
+        .then(onSlettSuccess)
+        .catch((error: AlertType) => settSlettAlert(error))
+        .then(() => settSlettLoading(false));
+    }
+    if (tilleggsadresse) {
+      slettMidlertidigAdresse(tilleggsadresse)
+        .then(getUpdatedData)
+        .then(onSlettSuccess)
+        .catch((error: AlertType) => settSlettAlert(error))
+        .then(() => settSlettLoading(false));
+    }
+  };
   return (
     <Box
       id="adresser"
@@ -90,13 +139,57 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                 <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
               </Normaltekst>
             )}
-            <Kilde
-              kilde="personalia.source.nav"
-              onClick={() => settOpprettEllerEndre(true)}
-              ikon={harMidlertidigAdr ? endreIkon : leggTilIkon}
-              lenkeTekst={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
-              lenkeType={"KNAPP"}
-            />
+            <div className="adresse__endre-knapper">
+              <button onClick={visEndreOpprett} className="kilde__lenke lenke">
+                <span className="kilde__icon">
+                  <img
+                    src={harMidlertidigAdr ? endreIkon : leggTilIkon}
+                    alt="Ekstern lenke"
+                  />
+                </span>
+                <Normaltekst>
+                  <FormattedHTMLMessage
+                    id={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
+                  />
+                </Normaltekst>
+              </button>
+              {(tilleggsadresse || utenlandskAdresse) && (
+                <button onClick={apneSlettModal} className="kilde__lenke lenke">
+                  <span className="kilde__icon">
+                    <img src={slettIkon} alt="Ekstern lenke" />
+                  </span>
+                  <Normaltekst>
+                    <FormattedHTMLMessage id={"side.opphor"} />
+                  </Normaltekst>
+                </button>
+              )}
+              {visSlettModal && (
+                <Modal
+                  closeButton={false}
+                  isOpen={visSlettModal}
+                  onRequestClose={lukkSlettModal}
+                  contentLabel={intl.messages["side.opphør"]}
+                >
+                  <div style={{ padding: "2rem 2.5rem" }}>
+                    <FormattedMessage id="adresse.slett.alert" />
+                    <div className="adresse__modal-knapper">
+                      <Fareknapp
+                        onClick={slettAdresse}
+                        spinner={slettLoading}
+                        disabled={slettLoading}
+                      >
+                        <FormattedHTMLMessage id={"side.opphor"} />
+                      </Fareknapp>
+                      <Flatknapp onClick={lukkSlettModal}>
+                        <FormattedMessage id="side.avbryt" />
+                      </Flatknapp>
+                    </div>
+                    {slettAlert && <Alert {...slettAlert} />}
+                  </div>
+                </Modal>
+              )}
+            </div>
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
           </>
         )}
       </div>
