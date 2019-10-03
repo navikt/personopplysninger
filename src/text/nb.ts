@@ -10,7 +10,6 @@ export default {
   "side.lagre": "Lagre",
   "side.avbryt": "Avbryt",
   "side.leggtil": "Legg til",
-  "side.opphor": "Opphør",
   "side.valgfritt": " (valgfritt)",
   "side.organisasjonsnummer": "Organisasjonsnummer {orgnr}",
   "brodsmulesti.dittnav": `Ditt NAV`,

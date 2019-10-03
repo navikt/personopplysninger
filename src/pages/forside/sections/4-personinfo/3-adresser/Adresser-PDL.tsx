@@ -165,7 +165,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                     <img src={slettIkon} alt="Ekstern lenke" />
                   </span>
                   <Normaltekst>
-                    <FormattedHTMLMessage id={"side.opphor"} />
+                    <FormattedHTMLMessage id={"side.slett"} />
                   </Normaltekst>
                 </button>
               )}
@@ -174,7 +174,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                   closeButton={false}
                   isOpen={visSlettModal}
                   onRequestClose={lukkSlettModal}
-                  contentLabel={intl.messages["side.opphør"]}
+                  contentLabel={intl.messages["side.slett"]}
                 >
                   <div style={{ padding: "2rem 2.5rem" }}>
                     <FormattedHTMLMessage id="adresse.slett.alert" />
@@ -184,7 +184,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                         spinner={slettLoading}
                         autoDisableVedSpinner={true}
                       >
-                        <FormattedHTMLMessage id={"side.opphor"} />
+                        <FormattedHTMLMessage id={"side.slett"} />
                       </Fareknapp>
                       <Flatknapp onClick={lukkSlettModal}>
                         <FormattedMessage id="side.avbryt" />
