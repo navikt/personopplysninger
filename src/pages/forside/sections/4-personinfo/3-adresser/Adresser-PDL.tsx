@@ -17,14 +17,12 @@ import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse"
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "../../../../../components/alert/Alert";
-import {
-  fetchPersonInfo,
-  slettMidlertidigAdresse,
-  slettUtenlandsAdresse
-} from "../../../../../clients/apiClient";
-import { PersonInfo } from "../../../../../types/personInfo";
-import { useStore } from "../../../../../providers/Provider";
+import Alert, { AlertType } from "components/alert/Alert";
+import { slettUtenlandsAdresse } from "clients/apiClient";
+import { slettMidlertidigAdresse } from "clients/apiClient";
+import { fetchPersonInfo } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 
 interface Props {
   adresser: Adresser;
@@ -34,10 +32,10 @@ const NORSK = "NORSK";
 const UTENLANDSK = "UTENLANDSK";
 
 const AdresserPDL = (props: Props & InjectedIntlProps) => {
+  const [, dispatch] = useStore();
   const { intl, adresser } = props;
   const { tilleggsadresse, utenlandskAdresse } = adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
-  const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState();
   const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
@@ -50,9 +48,17 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
       : undefined
   );
 
-  const visEndreOpprett = () => settOpprettEllerEndre(true);
-  const apneSlettModal = () => settVisSlettModal(true);
-  const lukkSlettModal = () => settVisSlettModal(false);
+  const visEndreOpprett = () => {
+    settOpprettEllerEndre(true);
+  };
+
+  const apneSlettModal = () => {
+    settVisSlettModal(true);
+  };
+
+  const lukkSlettModal = () => {
+    settVisSlettModal(false);
+  };
 
   const getUpdatedData = () =>
     fetchPersonInfo().then(personInfo => {
@@ -112,13 +118,13 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
               label={intl.messages["felter.adressevalg.utenlandsk"]}
               onChange={e => settNorskEllerUtenlandsk(e.target.name)}
             />
-            {norskEllerUtenlandsk === "NORSK" && (
+            {norskEllerUtenlandsk === NORSK && (
               <OpprettEllerEndreNorskMidlertidigAdresse
                 tilleggsadresse={props.adresser.tilleggsadresse}
                 settOpprettEllerEndre={settOpprettEllerEndre}
               />
             )}
-            {norskEllerUtenlandsk === "UTENLANDSK" && (
+            {norskEllerUtenlandsk === UTENLANDSK && (
               <OpprettEllerEndreUtenlandskAdresse
                 utenlandskadresse={props.adresser.utenlandskAdresse}
                 settOpprettEllerEndre={settOpprettEllerEndre}
@@ -176,7 +182,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                       <Fareknapp
                         onClick={slettAdresse}
                         spinner={slettLoading}
-                        disabled={slettLoading}
+                        autoDisableVedSpinner={true}
                       >
                         <FormattedHTMLMessage id={"side.opphor"} />
                       </Fareknapp>

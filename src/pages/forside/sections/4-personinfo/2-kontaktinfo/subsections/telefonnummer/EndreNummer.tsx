@@ -1,8 +1,8 @@
 import { Element, Normaltekst } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { Knapp } from "nav-frontend-knapper";
+import { Fareknapp, Flatknapp, Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
@@ -16,6 +16,7 @@ import { InjectedIntlProps, injectIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";
 import { UNKNOWN } from "utils/text";
+import Modal from "nav-frontend-modal";
 
 export interface OutboundTlfnummer {
   type: string;
@@ -33,7 +34,8 @@ interface Props {
 }
 
 const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
-  const { type, titleId, landskode, tlfnummer, intl, onDeleteSuccess } = props;
+  const { type, titleId, landskode, tlfnummer, intl } = props;
+  const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -67,9 +69,21 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     }
   };
 
+  const apneSlettModal = () => {
+    settVisSlettModal(true);
+  };
+  const lukkSlettModal = () => {
+    settVisSlettModal(false);
+  };
+
   const onChangeSuccess = () => {
     props.onChangeSuccess();
     settEndre(false);
+  };
+
+  const onDeleteSuccess = () => {
+    props.onDeleteSuccess();
+    settVisSlettModal(false);
   };
 
   const getUpdatedData = () =>
@@ -164,15 +178,11 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                     type={"flat"}
                     htmlType={"button"}
                     className={"tlfnummer__knapp-med-ikon"}
-                    autoDisableVedSpinner={true}
-                    spinner={slettLoading}
-                    onClick={() => submitSlett()}
+                    onClick={apneSlettModal}
                   >
-                    {!slettLoading && (
-                      <div className={"tlfnummer__knapp-ikon"}>
-                        <img alt={"Slett telefonnummer"} src={slettIkon} />
-                      </div>
-                    )}
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                    </div>
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.slett"} />
                     </div>
@@ -180,6 +190,31 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 </div>
               )}
             </div>
+            {visSlettModal && (
+              <Modal
+                closeButton={false}
+                isOpen={visSlettModal}
+                onRequestClose={lukkSlettModal}
+                contentLabel={intl.messages["side.opphør"]}
+              >
+                <div style={{ padding: "2rem 2.5rem" }}>
+                  <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  <div className="adresse__modal-knapper">
+                    <Fareknapp
+                      onClick={submitSlett}
+                      spinner={slettLoading}
+                      autoDisableVedSpinner={true}
+                    >
+                      <FormattedHTMLMessage id={"side.slett"} />
+                    </Fareknapp>
+                    <Flatknapp onClick={lukkSlettModal}>
+                      <FormattedMessage id="side.avbryt" />
+                    </Flatknapp>
+                  </div>
+                  {alert && <Alert {...alert} />}
+                </div>
+              </Modal>
+            )}
             {endre && (
               <div className={"tlfnummer__form"}>
                 <div className={"tlfnummer__input-container"}>
