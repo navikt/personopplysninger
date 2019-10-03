@@ -177,7 +177,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                   contentLabel={intl.messages["side.opphør"]}
                 >
                   <div style={{ padding: "2rem 2.5rem" }}>
-                    <FormattedMessage id="adresse.slett.alert" />
+                    <FormattedHTMLMessage id="adresse.slett.alert" />
                     <div className="adresse__modal-knapper">
                       <Fareknapp
                         onClick={slettAdresse}
