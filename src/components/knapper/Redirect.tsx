@@ -1,6 +1,9 @@
 import React from "react";
 import redirectsJson from "utils/redirects.json";
-import tilbakeIkon from "assets/img/Back.svg";
+import veilederIkon from "assets/img/VeilederGul.svg";
+import naturIkon from "assets/img/Natur.svg";
+import { FormattedMessage } from "react-intl";
+import { VenstreChevron } from "nav-frontend-chevron";
 
 const redirects: {
   [key: string]: { knapp: string; url: string };
@@ -14,12 +17,25 @@ const RedirectKnapp = (props: Props) => {
   const redirect = redirects[props.tjeneste] as any;
   return (
     <div className="redirect__container">
-      <a href={redirect.url} className="redirect__wrapper">
-        <span className="kilde__icon">
-          <img src={tilbakeIkon} alt="Ekstern lenke" />
+      <div
+        className="redirect__wrapper"
+        style={{ backgroundImage: `url(${naturIkon})` }}
+      >
+        <span className="redirect__ikon-container">
+          <img src={veilederIkon} className="redirect__ikon" alt="Veileder" />
         </span>
-        {redirect.knapp}
-      </a>
+        <div className="redirect__content">
+          <div>
+            <FormattedMessage id="redirect.alert" />
+          </div>
+          <div className="redirect__lenke">
+            <div className="redirect__chevron">
+              <VenstreChevron />
+            </div>
+            <a href={redirect.url}>{redirect.knapp}</a>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
