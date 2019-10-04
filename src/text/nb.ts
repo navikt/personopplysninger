@@ -53,7 +53,7 @@ export default {
   "personalia.bickode": `BIC / SWIFT-kode`,
   "personalia.bankkode": `Bankkode`,
   "personalia.tlfnr": `Telefon`,
-  "personalia.tlfnr.oveskrift": `Telefonnummer registrert hos NAV`,
+  "personalia.tlfnr.oveskrift": `Telefonnummer registrert hos&nbsp;NAV`,
   "personalia.tlfnr.ingenData": `Vi har ikke registrert telefonnummer på deg i våre registre. <br>Har du et telefonummer vi kan kontakte deg på?`,
   "personalia.tlfnr.arbeid": `Arbeid`,
   "personalia.tlfnr.mobil": `Mobil`,
