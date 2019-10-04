@@ -55,7 +55,7 @@ const SelectLandskode = (props: Props) => {
   }, []);
 
   const mapKoderToOptions = (koder: Kode[]): any =>
-    koder.map(k => ({
+    koder.map((k, i) => ({
       label: `${k.land} (${k.landskode})`,
       value: k.landskode
     }));
@@ -80,7 +80,7 @@ const SelectLandskode = (props: Props) => {
       option={props.option}
       submitted={props.submitted}
       onChange={props.onChange}
-      borderUnderFirst={true}
+      borderUnderNth={0}
     />
   );
 };

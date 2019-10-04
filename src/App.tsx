@@ -38,6 +38,11 @@ const App = () => {
               />
               <Route
                 exact={true}
+                path={`${basePath}/sendt-fra/:tjeneste`}
+                component={Forside}
+              />
+              <Route
+                exact={true}
                 path={`${basePath}/arbeidsforhold`}
                 render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
               />
