@@ -3,13 +3,16 @@ import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
-import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/UtenlandsBankkonto";
+import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
 import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
+import { Tilleggsadresse } from "../types/adresser/tilleggsadresse";
+import { RADIX_DECIMAL } from "../utils/formattering";
+import { UtenlandskAdresse } from "../types/adresser/utenlandskadresse";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
@@ -98,12 +101,12 @@ const sendJson = (url: string, data: Outbound) => {
 export const postTlfnummer = (data: OutboundTlfnummer) =>
   sendJson(`${apiUrl}/endreTelefonnummer`, data);
 
+export const slettTlfnummer = (data: OutboundTlfnummer) =>
+  sendJson(`${apiUrl}/slettTelefonnummer`, data);
+
 export const postKontonummer = (
   data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
 ) => sendJson(`${apiUrl}/endreKontonummer`, data);
-
-export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
-  sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
 
 export const postGateadresse = (data: OutboundGateadresse) =>
   sendJson(`${apiUrl}/endreGateadresse`, data);
@@ -114,8 +117,48 @@ export const postPostboksadresse = (data: OutboundPostboksadresse) =>
 export const postStedsadresse = (data: OutboundStedsadresse) =>
   sendJson(`${apiUrl}/endreStedsadresse`, data);
 
-export const slettTlfnummer = (data: OutboundTlfnummer) =>
-  sendJson(`${apiUrl}/slettTelefonnummer`, data);
+export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
+  sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
+
+export const slettGateadresse = (data: OutboundGateadresse) =>
+  sendJson(`${apiUrl}/slettGateadresse`, data);
+
+export const slettPostboksadresse = (data: OutboundPostboksadresse) =>
+  sendJson(`${apiUrl}/slettPostboksadresse`, data);
+
+export const slettStedsadresse = (data: OutboundStedsadresse) =>
+  sendJson(`${apiUrl}/slettStedsadresse`, data);
+
+export const slettUtenlandsAdresse = (data: UtenlandskAdresse) =>
+  sendJson(`${apiUrl}/slettUtenlandskadresse`, {
+    ...data
+  } as OutboundUtenlandskAdresse);
+
+export const slettMidlertidigAdresse = (data: Tilleggsadresse) => {
+  const { type, ...adresse } = data;
+  const outbound = {
+    GATEADRESSE: () =>
+      slettGateadresse({
+        ...adresse,
+        ...(adresse.husnummer && {
+          husnummer: parseInt(adresse.husnummer, RADIX_DECIMAL)
+        })
+      } as OutboundGateadresse),
+    POSTBOKSADRESSE: () =>
+      slettPostboksadresse({
+        ...adresse,
+        ...(adresse.postboksnummer && {
+          postboksnummer: parseInt(adresse.postboksnummer, RADIX_DECIMAL)
+        })
+      } as OutboundPostboksadresse),
+    STEDSADRESSE: () =>
+      slettStedsadresse({
+        ...adresse
+      } as OutboundStedsadresse)
+  };
+
+  return outbound[type]();
+};
 
 /*
     UTILS

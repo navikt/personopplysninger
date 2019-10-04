@@ -20,17 +20,25 @@
       }
     }
   }
-  &__knapp {
-    @media @minMobile {
-      margin: 2rem 0 0 1rem;
-    }
+  &__bank-identifier {
+    margin: 1rem 0;
+  }
+  &__bic-bankkode {
+    padding: 1.5rem 0;
+  }
+  &__knapper {
+    display: flex;
+    padding: 1rem 0;
+  }
+  &__knapp:last-child {
+    margin-left: 0.5rem;
   }
   &__input-container {
     display: flex;
     flex-wrap: wrap;
   }
   &__alert {
-    margin-bottom: 2rem;
+    padding: 0.5rem 0 1rem 0;
   }
   &__input-box {
     @media @minMobile {
@@ -49,11 +57,6 @@
 
   &__adressefelter {
     width: 100%;
-  }
-  &__sentrert-knapp {
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   &__bankkode {
     &-rad {

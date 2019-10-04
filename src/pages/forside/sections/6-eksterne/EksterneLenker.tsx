@@ -1,6 +1,6 @@
 import React from "react";
 import eksterneLenker from "./EksterneLenkerData";
-import LinkBox from "../../../../components/linkbox/LinkBox";
+import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "../../../../assets/img/DSOP.svg";
@@ -12,9 +12,11 @@ const LinksContainer = () => {
   return (
     <PanelBase border={true} className="el__panel">
       <div className="el__content">
-        <Systemtittel>
-          <FormattedMessage id="eksternelenker.tittel" />
-        </Systemtittel>
+        <div className="el__overskrift">
+          <Systemtittel>
+            <FormattedMessage id="eksternelenker.tittel" />
+          </Systemtittel>
+        </div>
         <div className="el__info">
           <Normaltekst>
             <FormattedMessage id="eksternelenker.beskrivelse" />

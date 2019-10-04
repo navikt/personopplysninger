@@ -1,17 +1,12 @@
 import { Element, Normaltekst } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { NedChevron } from "nav-frontend-chevron";
-import { Knapp } from "nav-frontend-knapper";
+import { Fareknapp, Flatknapp, Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import {
-  fetchPersonInfo,
-  postTlfnummer,
-  slettTlfnummer
-} from "clients/apiClient";
+import { fetchPersonInfo } from "clients/apiClient";
+import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
 import endreIkon from "assets/img/Pencil.svg";
-import avbrytIkon from "assets/img/Back.svg";
 import slettIkon from "assets/img/Slett.svg";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
@@ -20,7 +15,8 @@ import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";
-import { UNKNOWN } from "../../../../../../../utils/text";
+import { UNKNOWN } from "utils/text";
+import Modal from "nav-frontend-modal";
 
 export interface OutboundTlfnummer {
   type: string;
@@ -38,7 +34,8 @@ interface Props {
 }
 
 const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
-  const { type, titleId, landskode, tlfnummer, intl, onDeleteSuccess } = props;
+  const { type, titleId, landskode, tlfnummer, intl } = props;
+  const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
@@ -72,9 +69,21 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
     }
   };
 
+  const apneSlettModal = () => {
+    settVisSlettModal(true);
+  };
+  const lukkSlettModal = () => {
+    settVisSlettModal(false);
+  };
+
   const onChangeSuccess = () => {
     props.onChangeSuccess();
     settEndre(false);
+  };
+
+  const onDeleteSuccess = () => {
+    props.onDeleteSuccess();
+    settVisSlettModal(false);
   };
 
   const getUpdatedData = () =>
@@ -143,11 +152,6 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 <Element>
                   <FormattedMessage id={titleId} />
                 </Element>
-                {endre && (
-                  <div className={"tlfnummer__chevron"}>
-                    <NedChevron />
-                  </div>
-                )}
                 {!endre && (
                   <Normaltekst>
                     {landskode && <span>{landskode} </span>}
@@ -155,52 +159,64 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                   </Normaltekst>
                 )}
               </div>
-              <div className={"tlfnummer__knapper"}>
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  className={"tlfnummer__knapp"}
-                  onClick={() => settEndre(!endre)}
-                >
-                  {endre ? (
-                    <>
-                      <div className={"tlfnummer__knapp-tekst"}>
-                        <FormattedMessage id={"side.avbryt"} />
-                      </div>
-                      <div className={"tlfnummer__knapp-ikon"}>
-                        <img alt={"Avbryt"} src={avbrytIkon} />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className={"tlfnummer__knapp-tekst"}>
-                        <FormattedMessage id={"side.endre"} />
-                      </div>
-                      <div className={"tlfnummer__knapp-ikon"}>
-                        <img alt={"Endre telefonnummer"} src={endreIkon} />
-                      </div>
-                    </>
-                  )}
-                </Knapp>
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  className={"tlfnummer__knapp"}
-                  autoDisableVedSpinner={true}
-                  spinner={slettLoading}
-                  onClick={() => submitSlett()}
-                >
-                  <div className={"tlfnummer__knapp-tekst"}>
-                    <FormattedMessage id={"side.slett"} />
-                  </div>
-                  <div className={"tlfnummer__knapp-ikon"}>
-                    <img alt={"Slett telefonnummer"} src={slettIkon} />
-                  </div>
-                </Knapp>
-              </div>
+              {!endre && (
+                <div className={"tlfnummer__knapper"}>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp-med-ikon"}
+                    onClick={() => settEndre(!endre)}
+                  >
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Endre telefonnummer"} src={endreIkon} />
+                    </div>
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.endre"} />
+                    </div>
+                  </Knapp>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp-med-ikon"}
+                    onClick={apneSlettModal}
+                  >
+                    <div className={"tlfnummer__knapp-ikon"}>
+                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                    </div>
+                    <div className={"tlfnummer__knapp-tekst"}>
+                      <FormattedMessage id={"side.slett"} />
+                    </div>
+                  </Knapp>
+                </div>
+              )}
             </div>
+            {visSlettModal && (
+              <Modal
+                closeButton={false}
+                isOpen={visSlettModal}
+                onRequestClose={lukkSlettModal}
+                contentLabel={intl.messages["side.opphør"]}
+              >
+                <div style={{ padding: "2rem 2.5rem" }}>
+                  <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  <div className="adresse__modal-knapper">
+                    <Fareknapp
+                      onClick={submitSlett}
+                      spinner={slettLoading}
+                      autoDisableVedSpinner={true}
+                    >
+                      <FormattedHTMLMessage id={"side.slett"} />
+                    </Fareknapp>
+                    <Flatknapp onClick={lukkSlettModal}>
+                      <FormattedMessage id="side.avbryt" />
+                    </Flatknapp>
+                  </div>
+                  {alert && <Alert {...alert} />}
+                </div>
+              </Modal>
+            )}
             {endre && (
-              <div>
+              <div className={"tlfnummer__form"}>
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
@@ -226,9 +242,11 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                       }
                     />
                   </div>
+                </div>
+                <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
                     <Knapp
-                      type={"hoved"}
+                      type={"standard"}
                       htmlType={"submit"}
                       disabled={submitted && !isValid}
                       autoDisableVedSpinner={true}
@@ -237,6 +255,14 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                       <FormattedMessage id={"side.lagre"} />
                     </Knapp>
                   </div>
+                  <Knapp
+                    type={"flat"}
+                    htmlType={"button"}
+                    className={"tlfnummer__knapp"}
+                    onClick={() => settEndre(!endre)}
+                  >
+                    <FormattedMessage id={"side.avbryt"} />
+                  </Knapp>
                 </div>
               </div>
             )}

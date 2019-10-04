@@ -11,12 +11,11 @@ import DayPicker from "components/felter/day-picker/DayPicker";
 import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "utils/date";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundStedsadresse {
@@ -28,14 +27,15 @@ export interface OutboundStedsadresse {
 }
 
 const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, onChangeSuccess, intl } = props;
+  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
-    ...tilleggsadresse
+    ...(tilleggsadresse && {
+      ...tilleggsadresse
+    })
   };
 
   const formConfig: ExtraFieldsConfig = {
@@ -59,6 +59,10 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       });
     });
 
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -68,7 +72,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
         ...equalFields,
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
-          tilleggslinjeType: "C/O",
+          tilleggslinjeType: "CO",
           tilleggslinje
         })
       } as OutboundStedsadresse;
@@ -76,7 +80,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       settLoading(true);
       postStedsadresse(outbound)
         .then(getUpdatedData)
-        .then(onChangeSuccess)
+        .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
         .then(() => settLoading(false));
     }
@@ -91,20 +95,15 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, isValid, submitted, setField, setError }) => {
         return (
           <>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  bredde={"XXL"}
-                  maxLength={30}
-                  value={fields.tilleggslinje}
-                  label={intl.messages["felter.tillegslinje.label"]}
-                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
-                  onChange={e => setField({ tilleggslinje: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.tilleggslinje)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
+            <Input
+              bredde={"L"}
+              maxLength={30}
+              label={intl.messages["felter.tillegslinje.label"]}
+              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              value={fields.tilleggslinje}
+              onChange={e => setField({ tilleggslinje: e.target.value })}
+              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+            />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input
@@ -144,16 +143,28 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
-            <div className="adresse__submit-container">
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                disabled={submitted && !isValid}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="adresse__form-knapper">
+              <div className="adresse__knapp">
+                <Knapp
+                  type={"standard"}
+                  htmlType={"submit"}
+                  disabled={submitted && !isValid}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
+              <div className="adresse__knapp">
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={loading}
+                  onClick={() => settOpprettEllerEndre(false)}
+                >
+                  <FormattedMessage id={"side.avbryt"} />
+                </Knapp>
+              </div>
             </div>
             {alert && <Alert {...alert} />}
           </>

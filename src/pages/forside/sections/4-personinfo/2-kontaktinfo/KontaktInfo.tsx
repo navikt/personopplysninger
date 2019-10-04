@@ -15,7 +15,6 @@ const KontaktInfo = (props: Props) => {
   const [{ featureToggles }] = useStore();
   return (
     <Box id="kontaktinformasjon" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
-      <hr className="box__linje-bred" />
       {featureToggles.data["personopplysninger.pdl"] ? (
         <TelefonnummerHosNavPDL tlfnr={props.tlfnr} />
       ) : (

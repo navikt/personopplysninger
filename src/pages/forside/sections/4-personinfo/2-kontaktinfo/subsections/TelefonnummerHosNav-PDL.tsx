@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Undertittel } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { Normaltekst, Undertittel } from "nav-frontend-typografi";
+import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import Kilde from "../../../../../../components/kilde/Kilde";
@@ -24,6 +24,8 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   const onDeleteSuccess = () => {
     settOpprett(false);
   };
+
+  const onLeggTil = () => settOpprett(!opprett);
 
   return (
     <>
@@ -69,26 +71,29 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {opprett ? (
+      {!opprett && (
+        <button onClick={onLeggTil} className="tlfnummer__leggtil lenke">
+          <span className="kilde__icon">
+            <img src={leggTilIkon} alt="Ekstern lenke" />
+          </span>
+          <Normaltekst>
+            <FormattedHTMLMessage id={"side.leggtil"} />
+          </Normaltekst>
+        </button>
+      )}
+
+      {opprett && (
         <OpprettNummer
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
           tlfnr={tlfnr}
         />
-      ) : (
-        <div className="tlfnummer__divider-hidden" />
       )}
 
       {opprett || (tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) ? (
         <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
       ) : (
-        <Kilde
-          kilde="personalia.source.nav"
-          onClick={() => settOpprett(!opprett)}
-          lenkeTekst={opprett ? "side.avbryt" : "side.leggtil"}
-          lenkeType={"KNAPP"}
-          ikon={!opprett ? leggTilIkon : undefined}
-        />
+        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
       )}
     </>
   );

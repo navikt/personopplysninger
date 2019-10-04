@@ -95,7 +95,7 @@ const NAVSelect = React.memo((props: Props) => {
           </HjelpetekstHoyre>
         )}
       </div>
-      <div className={cls("KodeverkSelect--select-wrapper")}>
+      <div className={cls("KodeverkSelect--select-wrapper input--l")}>
         <Select
           value={value}
           label={props.label}

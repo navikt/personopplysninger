@@ -12,12 +12,11 @@ import InputPostnummer from "components/felter/input-postnummer/InputPostnummer"
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "utils/date";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 export interface OutboundGateadresse {
@@ -34,40 +33,17 @@ export interface OutboundGateadresse {
 }
 
 const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, onChangeSuccess, intl } = props;
+  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
 
-  const trimAdresse = (
-    adresse: string = "",
-    husbokstav: string = "",
-    bolignummer: string = ""
-  ) => adresse.replace(` ${husbokstav} ${bolignummer}`, ``);
-
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
     ...(tilleggsadresse && {
       ...tilleggsadresse,
       ...(tilleggsadresse.husnummer && {
         husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
-      }),
-      ...(tilleggsadresse.adresse1 && tilleggsadresse.adresse2
-        ? {
-            tilleggslinje: tilleggsadresse.adresse1,
-            gatenavn: trimAdresse(
-              tilleggsadresse.adresse2,
-              tilleggsadresse.husbokstav,
-              tilleggsadresse.bolignummer
-            )
-          }
-        : tilleggsadresse.adresse1 && {
-            gatenavn: trimAdresse(
-              tilleggsadresse.adresse1,
-              tilleggsadresse.husbokstav,
-              tilleggsadresse.bolignummer
-            )
-          })
+      })
     })
   };
 
@@ -77,7 +53,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     },
     gatenavn: {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"],
+      isLetters: intl.messages["validation.only.letters"],
       isRequired: intl.messages["validation.gatenavn.pakrevd"]
     },
     husnummer: {
@@ -107,6 +83,10 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       });
     });
 
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
+
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
@@ -117,7 +97,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
         husnummer: parseInt(husnummer, RADIX_DECIMAL),
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
-          tilleggslinjeType: "C/O",
+          tilleggslinjeType: "CO",
           tilleggslinje
         })
       } as OutboundGateadresse;
@@ -125,7 +105,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       settLoading(true);
       postGateadresse(outbound)
         .then(getUpdatedData)
-        .then(onChangeSuccess)
+        .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
         .then(() => settLoading(false));
     }
@@ -140,20 +120,15 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="adresse__rad">
-              <div className="adresse__kolonne">
-                <Input
-                  bredde={"XXL"}
-                  maxLength={30}
-                  label={intl.messages["felter.tillegslinje.label"]}
-                  placeholder={intl.messages["felter.tillegslinje.placeholder"]}
-                  value={fields.tilleggslinje}
-                  onChange={e => setField({ tilleggslinje: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.tilleggslinje)}
-                />
-              </div>
-              <div className="adresse__kolonne" />
-            </div>
+            <Input
+              bredde={"L"}
+              maxLength={30}
+              label={intl.messages["felter.tillegslinje.label"]}
+              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              value={fields.tilleggslinje}
+              onChange={e => setField({ tilleggslinje: e.target.value })}
+              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+            />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input
@@ -228,16 +203,28 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
-            <div className="adresse__submit-container">
-              <Knapp
-                type={"hoved"}
-                htmlType={"submit"}
-                disabled={submitted && !isValid}
-                autoDisableVedSpinner={true}
-                spinner={loading}
-              >
-                <FormattedMessage id={"side.lagre"} />
-              </Knapp>
+            <div className="adresse__form-knapper">
+              <div className="adresse__knapp">
+                <Knapp
+                  type={"standard"}
+                  htmlType={"submit"}
+                  disabled={submitted && !isValid}
+                  autoDisableVedSpinner={true}
+                  spinner={loading}
+                >
+                  <FormattedMessage id={"side.lagre"} />
+                </Knapp>
+              </div>
+              <div className="adresse__knapp">
+                <Knapp
+                  type={"flat"}
+                  htmlType={"button"}
+                  disabled={loading}
+                  onClick={() => settOpprettEllerEndre(false)}
+                >
+                  <FormattedMessage id={"side.avbryt"} />
+                </Knapp>
+              </div>
             </div>
             {alert && <Alert {...alert} />}
           </>

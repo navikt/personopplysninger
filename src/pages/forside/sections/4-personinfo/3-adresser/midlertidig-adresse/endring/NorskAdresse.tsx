@@ -8,13 +8,16 @@ import { InjectedIntlProps, injectIntl } from "react-intl";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
-  onChangeSuccess: () => void;
+  settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
 const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
-  const [type, settType] = useState("GATEADRESSE" as Adresser);
-  const { intl } = props;
+  const { intl, tilleggsadresse } = props;
+  const [type, settType] = useState((tilleggsadresse &&
+  tilleggsadresse.postboksnummer
+    ? "POSTBOKSADRESSE"
+    : "GATEADRESSE") as Adresser);
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
     settType(e.target.value as Adresser);
@@ -23,7 +26,12 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
     <>
       <div className="adresse__rad">
         <div className="adresse__kolonne">
-          <Select label={"Type adresse"} onChange={onSelectChange}>
+          <Select
+            label={"Type adresse"}
+            className="input--l"
+            onChange={onSelectChange}
+            defaultValue={type}
+          >
             <option value="GATEADRESSE">
               {intl.messages["felter.adressetype.gateadresse"]}
             </option>

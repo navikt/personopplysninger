@@ -1,4 +1,5 @@
 export interface Tilleggsadresse {
+  type: "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
   adresse1?: string;
   adresse2?: string;
   adresse3?: string;

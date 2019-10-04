@@ -7,9 +7,38 @@
     padding-top: 1rem;
   }
 
+  &__title {
+    @media @minMobile {
+      flex-shrink: 0;
+    }
+  }
+
+  &__line {
+    border-bottom: 1px solid #979797;
+    width: 100%;
+  }
+
+  &__line:first-child {
+    @media @minMobile {
+      margin-right: 2rem;
+    }
+    @media @maxMobile {
+      margin-right: 1rem;
+    }
+  }
+
+  &__line:last-child {
+    @media @minMobile {
+      margin-left: 2rem;
+    }
+    @media @maxMobile {
+      margin-left: 1rem;
+    }
+  }
+
   &__container {
     @media @minDesktop {
-      padding: 0 3rem 1rem 3rem;
+      padding: 0 3rem;
     }
   }
 
@@ -48,7 +77,7 @@
   }
 
   &__header > * {
-    margin-bottom: 0.4rem;
+    margin-bottom: 1.5rem;
   }
 
   &__linje-smal {

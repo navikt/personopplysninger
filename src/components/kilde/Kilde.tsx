@@ -28,40 +28,40 @@ const Knapp = (props: Props) => {
   switch (props.lenkeType) {
     case "INTERN":
       return (
-        <Link to={props.lenke}>
-          <Normaltekst className="kilde__lenke lenke">
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+        <Link to={props.lenke} className="kilde__lenke lenke">
+          <Normaltekst>
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
+            <FormattedHTMLMessage id={props.lenkeTekst} />
           </Normaltekst>
         </Link>
       );
     case "EKSTERN":
       return (
-        <Lenke href={props.lenke}>
-          <Normaltekst className="kilde__lenke">
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+        <Lenke href={props.lenke} className="kilde__lenke lenke">
+          <Normaltekst>
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
+            <FormattedHTMLMessage id={props.lenkeTekst} />
           </Normaltekst>
         </Lenke>
       );
     case "KNAPP":
       return (
         <button onClick={props.onClick} className="kilde__lenke lenke">
+          {props.ikon && (
+            <span className="kilde__icon">
+              <img src={props.ikon} alt="Ekstern lenke" />
+            </span>
+          )}
           <Normaltekst>
             <FormattedHTMLMessage id={props.lenkeTekst} />
-            {props.ikon && (
-              <span className="kilde__icon">
-                <img src={props.ikon} alt="Ekstern lenke" />
-              </span>
-            )}
           </Normaltekst>
         </button>
       );
@@ -75,18 +75,15 @@ const Kilde = (props: Props) => {
   return (
     <>
       <div className="kilde__container">
-        <div className="kilde__seksjon">
+        <Knapp {...props} />
+        <div className="kilde__tekst">
           {props.kilde && (
             <EtikettLiten>
               <FormattedHTMLMessage id={props.kilde} />
             </EtikettLiten>
           )}
         </div>
-        <div className="kilde__seksjon kilde__lenke-container">
-          <Knapp {...props} />
-        </div>
       </div>
-      <hr className="kilde__linje" />
     </>
   );
 };

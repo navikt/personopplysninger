@@ -70,7 +70,6 @@ const DayPicker = (props: Props) => {
           selectedDays: valgtDag,
           locale: props.locale,
           localeUtils: MomentLocaleUtils,
-          month: dateOneYearAhead,
           fromMonth: dateNow,
           toMonth: dateOneYearAhead,
           disabledDays: [

@@ -3,74 +3,149 @@ import Box from "components/box/Box";
 import kontonummerIkon from "assets/img/Kontonummer.svg";
 import { UtenlandskBankkonto } from "types/personalia";
 import Kilde from "components/kilde/Kilde";
-import avbrytIkon from "assets/img/Back.svg";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/Pencil.svg";
 import Melding from "components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
 import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
-import OpprettEllerEndreUtenlandsbank from "./endring/UtenlandsBankkonto";
-import { RadioPanelGruppe } from "nav-frontend-skjema";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { setOutboundNorskKontonummer } from "./endring/NorskKontonummer";
+import { OutboundNorskKontonummer } from "./endring/NorskKontonummer";
+import OpprettEllerEndreUtenlandsbank from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { SkjemaGruppe, Radio } from "nav-frontend-skjema";
+import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import { Knapp } from "nav-frontend-knapper";
+import Alert, { AlertType } from "components/alert/Alert";
+import { Form, FormContext, Validation } from "calidation";
+import { sjekkForFeil } from "utils/validators";
+import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   kontonr?: string;
 }
 
+const NORSK = "NORSK";
+const UTENLANDSK = "UTENLANDSK";
+
 const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
   const { kontonr, utenlandskbank, intl } = props;
+  const [loading, settLoading] = useState(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    kontonr ? "NORSK" : utenlandskbank ? "UTENLANDSK" : undefined
-  );
+  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [, dispatch] = useStore();
 
-  const radioButtons = [
-    {
-      label: intl.messages["felter.kontonummervalg.norsk"],
-      value: "NORSK"
-    },
-    {
-      label: intl.messages["felter.kontonummervalg.utenlandsk"],
-      value: "UTENLANDSK"
+  const initialValues = {
+    norskEllerUtenlandsk: kontonr
+      ? NORSK
+      : utenlandskbank
+      ? UTENLANDSK
+      : undefined
+  };
+
+  const config = {
+    norskEllerUtenlandsk: {
+      isRequired: intl.messages["felter.type.velg"]
     }
-  ];
+  };
+
+  const submitEndre = (context: FormContext) => {
+    const { isValid, fields } = context;
+    if (isValid) {
+      type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
+      const outbound: { [key: string]: () => Outbound } = {
+        NORSK: () => setOutboundNorskKontonummer(context),
+        UTENLANDSK: () => setOutboundUtenlandsbankonto(context)
+      };
+
+      settLoading(true);
+      postKontonummer(outbound[fields.norskEllerUtenlandsk]())
+        .then(getUpdatedData)
+        .then(onSuccess)
+        .catch((error: AlertType) => settAlert(error))
+        .then(() => settLoading(false));
+    }
+  };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then(personInfo => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo
+      });
+    });
+
+  const onSuccess = () => {
+    settOpprettEllerEndre(false);
+  };
 
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
-      <hr className="box__linje-bred" />
       {opprettEllerEndre ? (
-        <>
-          <div className="utbetalinger__type">
-            <RadioPanelGruppe
-              name="type"
-              legend=""
-              radios={radioButtons}
-              checked={norskEllerUtenlandsk}
-              onChange={(e, value) => settNorskEllerUtenlandsk(value)}
-            />
-          </div>
-          {norskEllerUtenlandsk === "NORSK" && (
-            <OpprettEllerEndreNorskKontonr
-              kontonummer={kontonr}
-              onChangeSuccess={() => settOpprettEllerEndre(false)}
-            />
-          )}
-          {norskEllerUtenlandsk === "UTENLANDSK" && (
-            <OpprettEllerEndreUtenlandsbank
-              utenlandskbank={utenlandskbank}
-              onChangeSuccess={() => settOpprettEllerEndre(false)}
-            />
-          )}
-          <Kilde
-            kilde="personalia.source.nav"
-            onClick={() => settOpprettEllerEndre(false)}
-            lenkeTekst="side.avbryt"
-            lenkeType={"KNAPP"}
-            ikon={avbrytIkon}
-          />
-        </>
+        <Form onSubmit={submitEndre}>
+          <Validation config={config} initialValues={initialValues}>
+            {({ submitted, isValid, errors, setField, fields }) => {
+              const feil = sjekkForFeil(submitted, errors.norskEllerUtenlandsk);
+              return (
+                <SkjemaGruppe feil={feil}>
+                  <Radio
+                    name={NORSK}
+                    checked={fields.norskEllerUtenlandsk === NORSK}
+                    label={intl.messages["felter.kontonummervalg.norsk"]}
+                    onChange={e =>
+                      setField({ norskEllerUtenlandsk: e.target.name })
+                    }
+                  />
+                  {fields.norskEllerUtenlandsk === NORSK && (
+                    <OpprettEllerEndreNorskKontonr kontonummer={kontonr} />
+                  )}
+                  <Radio
+                    name={UTENLANDSK}
+                    checked={fields.norskEllerUtenlandsk === UTENLANDSK}
+                    label={intl.messages["felter.kontonummervalg.utenlandsk"]}
+                    onChange={e =>
+                      setField({ norskEllerUtenlandsk: e.target.name })
+                    }
+                  />
+                  {fields.norskEllerUtenlandsk === UTENLANDSK && (
+                    <OpprettEllerEndreUtenlandsbank
+                      utenlandskbank={utenlandskbank}
+                    />
+                  )}
+                  <div className="utbetalinger__knapper">
+                    <div className="utbetalinger__knapp">
+                      <Knapp
+                        type={"standard"}
+                        htmlType={"submit"}
+                        disabled={submitted && !isValid}
+                        autoDisableVedSpinner={true}
+                        spinner={loading}
+                      >
+                        <FormattedMessage id={"side.lagre"} />
+                      </Knapp>
+                    </div>
+                    <div className="utbetalinger__knapp">
+                      <Knapp
+                        type={"flat"}
+                        htmlType={"button"}
+                        disabled={loading}
+                        onClick={() => settOpprettEllerEndre(false)}
+                      >
+                        <FormattedMessage id={"side.avbryt"} />
+                      </Knapp>
+                    </div>
+                  </div>
+                  {alert && <Alert {...alert} />}
+                </SkjemaGruppe>
+              );
+            }}
+          </Validation>
+          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+        </Form>
       ) : (
         <>
           {kontonr || utenlandskbank ? (

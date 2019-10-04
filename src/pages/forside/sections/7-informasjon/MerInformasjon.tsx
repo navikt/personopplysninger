@@ -15,7 +15,6 @@ const AlternativListe = () => (
       </div>
       {merInformasjon.map((info, i) => (
         <Fragment key={i}>
-          <hr className="mi__line" />
           <MerInformasjonPanel
             key={info.id}
             tittel={info.tittel}
@@ -23,7 +22,6 @@ const AlternativListe = () => (
           />
         </Fragment>
       ))}
-      <hr className="mi__line" />
     </div>
   </PanelBase>
 );

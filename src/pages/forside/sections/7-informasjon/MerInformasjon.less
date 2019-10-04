@@ -1,38 +1,36 @@
 .mi {
   &__content {
     @media @minDesktop {
-      padding: 0 3rem 1rem 3rem;
+      padding: 1rem 3rem;
+    }
+    @media @maxDesktop {
+      padding: 1rem 0rem;
     }
     display: flex;
     flex-direction: column;
   }
 
-  &__line {
-    border: none;
-    border-top: 1px solid;
-    background: none;
-    height: 0;
-    width: 100%;
-    margin: 0;
-  }
-
   &__button {
+    display: flex;
+    justify-content: left;
+    text-align: left;
     background: none;
-    border: none;
+    border: 0;
     padding: 1rem 0;
     width: 100%;
+    border-bottom: 1px solid @navGra60;
     &:focus {
       background: @fokusFarge;
       .mi__lenke {
         color: white;
       }
     }
-    display: flex;
-    justify-content: left;
-    text-align: left;
+    &:last-child {
+      border-bottom: 0;
+    }
   }
 
   &__overskrift {
-    margin-bottom: 2rem;
+    margin: 1rem 0;
   }
 }

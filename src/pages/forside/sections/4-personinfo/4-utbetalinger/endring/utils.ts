@@ -1,3 +1,10 @@
+import { OptionType } from "types/option";
+import { Fields } from "calidation";
+import {
+  LAND_MED_BANKKODE,
+  BIC
+} from "./utenlandsk-bankkonto/UtenlandsBankkonto";
+
 const countryISOMapping: { [key: string]: string } = {
   AFG: "AF",
   ALA: "AX",
@@ -247,6 +254,50 @@ const countryISOMapping: { [key: string]: string } = {
   ZMB: "ZM",
   ZWE: "ZW"
 };
-
 export const getCountryISO2 = (countryCode: string) =>
   countryISOMapping[countryCode];
+
+export const harValgtBic = (bankidentifier?: string) =>
+  !!(bankidentifier && bankidentifier === BIC);
+
+export const harValgtUSA = (land?: OptionType) =>
+  !!(land && land.value === "USA");
+
+export const brukerBankkode = (land?: OptionType) =>
+  !!(land && LAND_MED_BANKKODE.includes(land.value));
+
+export const validerBic = (fields: Fields) => {
+  if (harValgtUSA(fields.land)) {
+    return false;
+  }
+
+  if (brukerBankkode(fields.land)) {
+    if (harUtfylt(fields.bickode) || !harUtfylt(fields.bankkode)) {
+      return true;
+    }
+  }
+
+  if (!brukerBankkode(fields.land)) {
+    if (harValgtBic(fields.bankidentifier)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+export const validerBankkode = (fields: Fields) => {
+  if (harValgtUSA(fields.land)) {
+    return true;
+  }
+
+  if (brukerBankkode(fields.land)) {
+    if (harUtfylt(fields.bankkode) || !harUtfylt(fields.bickode)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+export const harUtfylt = (value?: string) => (value ? true : false);

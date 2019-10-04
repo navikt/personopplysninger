@@ -213,6 +213,7 @@
     },
     "prioritertAdresse": "TIAD",
     "tilleggsadresse": {
+      "type": "GATEADRESSE",
       "adresse1": "C/O Per Vikane",
       "adresse2": "Per Vikens Gate A H0402",
       "adresse3": "",
