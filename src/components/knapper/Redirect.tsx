@@ -2,11 +2,14 @@ import React from "react";
 import redirectsJson from "utils/redirects.json";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
-import { FormattedMessage } from "react-intl";
 import { VenstreChevron } from "nav-frontend-chevron";
 
 const redirects: {
-  [key: string]: { knapp: string; url: string };
+  [key: string]: {
+    beskrivelse: string;
+    knapp: string;
+    url: string;
+  };
 } = redirectsJson;
 
 interface Props {
@@ -25,9 +28,7 @@ const RedirectKnapp = (props: Props) => {
           <img src={veilederIkon} className="redirect__ikon" alt="Veileder" />
         </span>
         <div className="redirect__content">
-          <div>
-            <FormattedMessage id="redirect.alert" />
-          </div>
+          <div>{redirect.beskrivelse}</div>
           <div className="redirect__lenke">
             <div className="redirect__chevron">
               <VenstreChevron />

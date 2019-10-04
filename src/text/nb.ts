@@ -15,7 +15,6 @@ export default {
   "brodsmulesti.dittnav": `Ditt NAV`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
-  "redirect.alert": `Klikk på lenken under når opplysningene er ferdig utfylt`,
   "header.hello": `Hei {name}!`,
   "header.description": `<a href='https://www.nav.no/personvern' target='blank' rel='noopener noreferrer' class='lenke'>Les om personvern i Arbeids- og velferdsetaten her.</a>`,
   "header.obs": `Her kan du se opplysninger som NAV har registrert om deg. Du har rett til innsyn i personopplysninger NAV har registrert om deg, men det er ikke sikkert du finner alle personopplysninger her. Det kan skyldes både tekniske og juridiske begrensninger.`,
