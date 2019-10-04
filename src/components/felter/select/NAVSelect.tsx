@@ -84,20 +84,24 @@ const NAVSelect = React.memo((props: Props) => {
     }
   };
 
+  // Legg til border på option
+  // TODO: Forenkling
   const Option = (optionProps: OptionProps<any>) => {
-    const { innerProps } = optionProps;
-    const matches = innerProps.id.match(/\d+$/);
-    if (matches) {
-      const num = matches[0];
-      const id = parseInt(num, RADIX_DECIMAL);
-      if (id === props.borderUnderNth) {
-        const { className, ...restOptionProps } = optionProps;
-        return (
-          <components.Option
-            className={`${className} KodeverkSelect__option-border`}
-            {...restOptionProps}
-          />
-        );
+    if (props.borderUnderNth) {
+      const { innerProps } = optionProps;
+      const matches = innerProps.id.match(/\d+$/);
+      if (matches) {
+        const num = matches[0];
+        const id = parseInt(num, RADIX_DECIMAL);
+        if (id === props.borderUnderNth) {
+          const { className, ...restOptionProps } = optionProps;
+          return (
+            <components.Option
+              className={`${className} KodeverkSelect__option-border`}
+              {...restOptionProps}
+            />
+          );
+        }
       }
     }
     return <components.Option {...optionProps} />;
