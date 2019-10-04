@@ -14,6 +14,7 @@ import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
+import redirectsJson from "utils/redirects.json";
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -24,6 +25,10 @@ const App = () => {
     scrollDuration: 0,
     keepLastAnchorHash: true
   });
+
+  const gyldigeRedirects = Object.keys(redirectsJson)
+    .map(key => key)
+    .join("|");
 
   return (
     <div className="pagecontent">
@@ -38,7 +43,7 @@ const App = () => {
               />
               <Route
                 exact={true}
-                path={`${basePath}/sendt-fra/:tjeneste`}
+                path={`${basePath}/sendt-fra/:tjeneste(${gyldigeRedirects})`}
                 component={Forside}
               />
               <Route
