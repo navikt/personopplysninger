@@ -207,7 +207,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                     >
                       <FormattedHTMLMessage id={"side.slett"} />
                     </Fareknapp>
-                    <Flatknapp onClick={lukkSlettModal}>
+                    <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
                       <FormattedMessage id="side.avbryt" />
                     </Flatknapp>
                   </div>
