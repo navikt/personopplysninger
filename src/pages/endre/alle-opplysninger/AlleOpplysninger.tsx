@@ -13,9 +13,9 @@ interface Routes {
   tjeneste?: string;
 }
 
-const EndreKontaktInformasjon = (props: RouteComponentProps<Routes>) => (
+const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => (
   <MedPersonInfo>
-    {({ personalia }) => (
+    {({ personalia, adresser }) => (
       <div className="endreOpplysninger__container">
         <Brodsmulesti hierarki={[{ title: "side.endre.alle.opplysninger" }]} />
         {personalia && (
@@ -27,6 +27,13 @@ const EndreKontaktInformasjon = (props: RouteComponentProps<Routes>) => (
             <PDLTelefonnummerHosNav tlfnr={personalia.tlfnr} />
           </Box>
         )}
+        {adresser && <Adresser adresser={adresser} />}
+        {personalia && (
+          <Utbetalinger
+            kontonr={personalia.kontonr}
+            utenlandskbank={personalia.utenlandskbank}
+          />
+        )}
         {props.match.params.tjeneste && (
           <RedirectKnapp tjeneste={props.match.params.tjeneste} />
         )}
@@ -35,4 +42,4 @@ const EndreKontaktInformasjon = (props: RouteComponentProps<Routes>) => (
   </MedPersonInfo>
 );
 
-export default withRouter(EndreKontaktInformasjon);
+export default withRouter(EndreAlleOpplysninger);

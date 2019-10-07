@@ -8,7 +8,7 @@ interface Props {
   adresser: Adresser;
 }
 
-const Utbetalinger = (props: Props) => {
+const VisAdresser = (props: Props) => {
   const [{ featureToggles }] = useStore();
   return featureToggles.data["personopplysninger.pdl"] ? (
     <AdresserPDL adresser={props.adresser} />
@@ -17,4 +17,4 @@ const Utbetalinger = (props: Props) => {
   );
 };
 
-export default Utbetalinger;
+export default VisAdresser;

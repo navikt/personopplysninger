@@ -9,7 +9,7 @@ import MedPersonInfo from "../../../../providers/personinfo/PersinInfo";
 const VisPersonInfo = () => (
   <MedPersonInfo>
     {({ personalia, adresser, enhetKontaktInformasjon }) => (
-      <div>
+      <>
         {personalia && <Personalia personalia={personalia} />}
         {personalia && <KontaktInfo tlfnr={personalia.tlfnr} />}
         {adresser && <Adresser adresser={adresser} />}
@@ -25,7 +25,7 @@ const VisPersonInfo = () => (
             geografiskTilknytning={adresser.geografiskTilknytning}
           />
         )}
-      </div>
+      </>
     )}
   </MedPersonInfo>
 );
