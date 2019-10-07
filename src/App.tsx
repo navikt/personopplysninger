@@ -98,7 +98,7 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/endre-kontonummer/sendt-fra/:tjeneste(${gyldigeRedirects})`}
-                  component={EndreAdresser}
+                  component={EndreKontonummer}
                 />
               )}
               {featureToggles.status === "RESULT" && (

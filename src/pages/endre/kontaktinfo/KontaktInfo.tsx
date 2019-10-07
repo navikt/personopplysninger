@@ -1,6 +1,4 @@
 import React from "react";
-import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser-PDL";
-import Utbetalinger from "../../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import Box from "components/box/Box";
 import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
