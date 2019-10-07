@@ -73,7 +73,7 @@ const App = () => {
               {featureToggles.data["personopplysninger.pdl"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/endre/kontaktinformasjon`}
+                  path={`${basePath}/endre/sendt-fra/:tjeneste(${gyldigeRedirects})`}
                   component={KontaktInfo}
                 />
               )}

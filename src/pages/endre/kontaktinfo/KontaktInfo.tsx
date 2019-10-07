@@ -1,14 +1,25 @@
 import React, { useEffect } from "react";
-import PageContainer from "../../../components/pagecontainer/PageContainer";
-import arbeidsforholdIkon from "../../../assets/img/Arbeidsforhold.svg";
-import { useStore } from "../../../providers/Provider";
-import { fetchPersonInfo } from "../../../clients/apiClient";
-import { PersonInfo } from "../../../types/personInfo";
-import Error, { HTTPError } from "../../../components/error/Error";
-import Spinner from "../../../components/spinner/Spinner";
+import { useStore } from "providers/Provider";
+import { fetchPersonInfo } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import Error, { HTTPError } from "components/error/Error";
+import Spinner from "components/spinner/Spinner";
+import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser-PDL";
+import Utbetalinger from "../../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
+import Box from "components/box/Box";
+import kontaktIkon from "assets/img/Kontakt.svg";
+import RedirectKnapp from "components/knapper/Redirect";
+import { withRouter, RouteComponentProps } from "react-router";
+import PDLTelefonnummerHosNav from "../../forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
+import Brodsmulesti from "../../forside/sections/2-brodsmulesti/Brodsmulesti";
 
-const KontaktInfo = () => {
+interface Routes {
+  tjeneste?: string;
+}
+
+const KontaktInformasjon = (props: RouteComponentProps<Routes>) => {
   const [{ personInfo }, dispatch] = useStore();
+  const { params } = props.match;
 
   useEffect(() => {
     if (personInfo.status === "LOADING") {
@@ -29,39 +40,34 @@ const KontaktInfo = () => {
   switch (personInfo.status) {
     default:
     case "LOADING":
-      return (
-        <PageContainer
-          tittelId="arbeidsforhold.tittel"
-          brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
-          icon={arbeidsforholdIkon}
-          backTo={"/"}
-        >
-          <Spinner />
-        </PageContainer>
-      );
+      return <Spinner />;
     case "RESULT":
+      const { personalia, adresser } = personInfo.data;
       return (
-        <PageContainer
-          tittelId="arbeidsforhold.tittel"
-          brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
-          icon={arbeidsforholdIkon}
-          backTo={"/"}
-        >
-          <div>Hello</div>
-        </PageContainer>
+        <div className="kontaktInfo__container">
+          <Brodsmulesti hierarki={[{ title: "side.endre" }]} />
+          {personalia && (
+            <Box
+              id="kontaktinformasjon"
+              tittel="kontaktinfo.tittel"
+              icon={kontaktIkon}
+            >
+              <PDLTelefonnummerHosNav tlfnr={personalia.tlfnr} />
+            </Box>
+          )}
+          {adresser && <Adresser adresser={adresser} />}
+          {personalia && (
+            <Utbetalinger
+              kontonr={personalia.kontonr}
+              utenlandskbank={personalia.utenlandskbank}
+            />
+          )}
+          {params.tjeneste && <RedirectKnapp tjeneste={params.tjeneste} />}
+        </div>
       );
     case "ERROR":
-      return (
-        <PageContainer
-          tittelId="arbeidsforhold.tittel"
-          brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
-          icon={arbeidsforholdIkon}
-          backTo={"/"}
-        >
-          <Error error={personInfo.error} />
-        </PageContainer>
-      );
+      return <Error error={personInfo.error} />;
   }
 };
 
-export default KontaktInfo;
+export default withRouter(KontaktInformasjon);
