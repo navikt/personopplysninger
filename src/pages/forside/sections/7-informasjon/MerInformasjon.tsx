@@ -6,7 +6,7 @@ import merInformasjon from "./MerInformasjonData";
 import PanelBase from "nav-frontend-paneler";
 
 const AlternativListe = () => (
-  <PanelBase border={true} className="el__panel">
+  <PanelBase className="el__panel">
     <div className="mi__content">
       <div className="mi__overskrift">
         <Systemtittel>

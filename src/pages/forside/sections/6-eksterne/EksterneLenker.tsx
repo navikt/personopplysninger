@@ -10,7 +10,7 @@ import { useStore } from "../../../../providers/Provider";
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
   return (
-    <PanelBase border={true} className="el__panel">
+    <PanelBase className="el__panel">
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>

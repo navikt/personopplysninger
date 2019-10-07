@@ -6,8 +6,15 @@ import EksterneLenker from "./sections/6-eksterne/EksterneLenker";
 import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import Header from "./sections/3-header/Header";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
+import { withRouter, RouteComponentProps } from "react-router";
+import RedirectKnapp from "../../components/knapper/Redirect";
 
-const Forside = () => {
+interface Routes {
+  tjeneste?: string;
+}
+
+const Forside = ({ match }: RouteComponentProps<Routes>) => {
+  const params = match.params;
   return (
     <>
       <Brodsmulesti />
@@ -17,8 +24,9 @@ const Forside = () => {
       <Arbeidsforhold />
       <EksterneLenker />
       <MerInformasjon />
+      {params.tjeneste && <RedirectKnapp tjeneste={params.tjeneste} />}
     </>
   );
 };
 
-export default Forside;
+export default withRouter(Forside);

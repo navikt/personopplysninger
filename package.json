@@ -98,7 +98,7 @@
     "@types/react-intl": "^2.3.18",
     "@types/react-router-dom": "^4.3.4",
     "@types/react-scrollable-anchor": "^0.6.0",
-    "@types/react-select": "^3.0.4",
+    "@types/react-select": "^3.0.5",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
     "less": "^3.9.0",

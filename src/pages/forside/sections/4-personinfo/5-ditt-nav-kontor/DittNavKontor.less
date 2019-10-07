@@ -1,6 +1,11 @@
 .dittnavkontor {
   &__header {
-    margin: 0 0 2rem 0;
+    @media @minMobile {
+      margin: 0 0 2rem 0;
+    }
+    @media @maxMobile {
+      margin: 0 0 1rem 0;
+    }
   }
   &__ingress {
     display: flex;

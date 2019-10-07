@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Select from "react-select";
+import Select, { components } from "react-select";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
@@ -7,6 +7,8 @@ import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
+import { OptionProps } from "react-select/src/components/Option";
+import { RADIX_DECIMAL } from "../../../utils/formattering";
 
 interface Props {
   option: OptionType;
@@ -18,7 +20,7 @@ interface Props {
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
   onChange: (value?: OptionType) => void;
-  borderUnderFirst?: boolean;
+  borderUnderNth?: number;
   loading?: boolean;
   defineLabel?: (
     option: OptionType,
@@ -53,8 +55,7 @@ const NAVSelect = React.memo((props: Props) => {
 
   const containerClasses = cls({
     skjemaelement: true,
-    KodeverkSelect: true,
-    KodeverkSelect__borderUnderFirst: props.borderUnderFirst
+    KodeverkSelect: true
   });
 
   const value = props.option
@@ -81,6 +82,29 @@ const NAVSelect = React.memo((props: Props) => {
     if (option) {
       props.onChange(option);
     }
+  };
+
+  // Legg til border på option
+  // TODO: Forenkling
+  const Option = (optionProps: OptionProps<any>) => {
+    if (props.borderUnderNth) {
+      const { innerProps } = optionProps;
+      const matches = innerProps.id.match(/\d+$/);
+      if (matches) {
+        const num = matches[0];
+        const id = parseInt(num, RADIX_DECIMAL);
+        if (id === props.borderUnderNth) {
+          const { className, ...restOptionProps } = optionProps;
+          return (
+            <components.Option
+              className={`${className} KodeverkSelect__option-border`}
+              {...restOptionProps}
+            />
+          );
+        }
+      }
+    }
+    return <components.Option {...optionProps} />;
   };
 
   return !props.fetchError ? (
@@ -110,7 +134,7 @@ const NAVSelect = React.memo((props: Props) => {
           options={props.options}
           formatOptionLabel={props.defineLabel}
           onMenuOpen={() => props.onChange(undefined)}
-          components={{ LoadingIndicator, DropdownIndicator }}
+          components={{ LoadingIndicator, DropdownIndicator, Option }}
           onChange={onChange as any}
         />
       </div>

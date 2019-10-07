@@ -42,9 +42,7 @@ const PageContainer = (props: Props & RouteComponentProps) => {
         </div>
         <div className="da__filler" />
       </div>
-      <PanelBase border={true} className="da__innhold">
-        {props.children}
-      </PanelBase>
+      <PanelBase className="da__innhold">{props.children}</PanelBase>
     </div>
   );
 };

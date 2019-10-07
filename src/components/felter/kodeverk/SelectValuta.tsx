@@ -60,9 +60,11 @@ const SelectValuta = (props: Props) => {
       value: k.kode
     }));
 
-  const options = mapKoderToOptions(valutaer).sort(
-    (a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1)
-  );
+  const options = mapKoderToOptions(valutaer)
+    .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1))
+    .sort((a: OptionType) => (a.value === "SEK" ? -1 : 1))
+    .sort((a: OptionType) => (a.value === "EUR" ? -1 : 1))
+    .sort((a: OptionType) => (a.value === "USD" ? -1 : 1));
 
   return (
     <NAVSelect
@@ -75,6 +77,7 @@ const SelectValuta = (props: Props) => {
       submitted={props.submitted}
       onChange={props.onChange}
       hjelpetekst={props.hjelpetekst}
+      borderUnderNth={2}
     />
   );
 };

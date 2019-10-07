@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import { Tlfnr } from "../../../../../../types/personalia";
 import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
 import Kilde from "../../../../../../components/kilde/Kilde";
@@ -31,7 +31,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
     <>
       <div className="underseksjon__header">
         <Undertittel>
-          <FormattedMessage id="personalia.tlfnr.oveskrift" />
+          <FormattedHTMLMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
       {tlfnr && (tlfnr.mobil || tlfnr.privat || tlfnr.jobb) ? (
