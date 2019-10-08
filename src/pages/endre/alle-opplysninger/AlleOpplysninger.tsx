@@ -8,6 +8,7 @@ import { withRouter, RouteComponentProps } from "react-router";
 import PDLTelefonnummerHosNav from "../../forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import Brodsmulesti from "../../forside/sections/2-brodsmulesti/Brodsmulesti";
 import MedPersonInfo from "../../../providers/personinfo/PersinInfo";
+import RedirectPanel from "../../../components/paneler/Redirect";
 
 interface Routes {
   tjeneste?: string;
@@ -18,6 +19,9 @@ const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => (
     {({ personalia, adresser }) => (
       <div className="endreOpplysninger__container">
         <Brodsmulesti hierarki={[{ title: "side.endre.alle.opplysninger" }]} />
+        {props.match.params.tjeneste && (
+          <RedirectPanel tjeneste={props.match.params.tjeneste} />
+        )}
         {personalia && (
           <Box
             id="kontaktinformasjon"
