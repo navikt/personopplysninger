@@ -4,6 +4,7 @@ import { useStore } from "../Provider";
 import { fetchPersonInfo } from "../../clients/apiClient";
 import Spinner from "../../components/spinner/Spinner";
 import { PersonInfo } from "../../types/personInfo";
+import Box from "../../components/box/Box";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -35,7 +36,11 @@ const MedPersonInfo = (props: Props) => {
 
   switch (personInfo.status) {
     case "LOADING":
-      return <Spinner />;
+      return (
+        <Box id={"loader"} loading={true}>
+          <Spinner />
+        </Box>
+      );
     case "RESULT":
       return props.children(personInfo.data);
     case "ERROR":
