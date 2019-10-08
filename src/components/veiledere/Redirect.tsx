@@ -19,13 +19,15 @@ interface Props {
 const RedirectPanel = (props: Props) => {
   const redirect = redirects[props.tjeneste];
   return (
-    <Veilederpanel
-      fargetema="advarsel"
-      svg={<img src={veilederIkon} alt={"Veileder"} />}
-      kompakt={true}
-    >
-      <div dangerouslySetInnerHTML={{ __html: redirect.veileder }} />
-    </Veilederpanel>
+    <div className="redirect__veileder-container">
+      <Veilederpanel
+        fargetema="advarsel"
+        svg={<img src={veilederIkon} alt={"Veileder"} />}
+        kompakt={true}
+      >
+        <div dangerouslySetInnerHTML={{ __html: redirect.veileder }} />
+      </Veilederpanel>
+    </div>
   );
 };
 

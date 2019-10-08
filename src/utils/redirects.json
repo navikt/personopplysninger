@@ -1,6 +1,6 @@
 {
   "pensjon": {
-    "veileder": "Hei, du har blitt sendt fra pensjonsøknaden. Her kan du legg til eller endre <b>kontaktinformasjon, adresse og kontonummer</b>. Klikk på lenken nederst på siden når du er ferdig.",
+    "veileder": "Hei, du har blitt sendt fra pensjonsøknaden. Her kan du legg til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>. Klikk på lenken nederst på siden når du er ferdig.",
     "knappBeskrivelse": "Klikk på lenken under når opplysningene er ferdig utfylt",
     "knapp": "Tilbake til pensjon",
     "url": "https://www.nav.no/no/Person/Pensjon/Hva+kan+jeg+fa+i+pensjon"

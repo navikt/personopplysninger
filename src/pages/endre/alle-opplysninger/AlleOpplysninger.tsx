@@ -8,7 +8,7 @@ import { withRouter, RouteComponentProps } from "react-router";
 import PDLTelefonnummerHosNav from "../../forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import Brodsmulesti from "../../forside/sections/2-brodsmulesti/Brodsmulesti";
 import MedPersonInfo from "../../../providers/personinfo/PersinInfo";
-import RedirectPanel from "../../../components/paneler/Redirect";
+import RedirectPanel from "../../../components/veiledere/Redirect";
 
 interface Routes {
   tjeneste?: string;
