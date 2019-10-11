@@ -17,7 +17,7 @@ interface Props {
 }
 
 const RedirectKnapp = (props: Props) => {
-  const redirect = redirects[props.tjeneste] as any;
+  const redirect = redirects[props.tjeneste];
   return (
     <div className="redirect__container">
       <div
@@ -28,7 +28,7 @@ const RedirectKnapp = (props: Props) => {
           <img src={veilederIkon} className="redirect__ikon" alt="Veileder" />
         </span>
         <div className="redirect__content">
-          <div>{redirect.beskrivelse}</div>
+          <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
           <div className="redirect__lenke">
             <div className="redirect__chevron">
               <VenstreChevron />
