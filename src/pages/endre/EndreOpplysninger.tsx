@@ -12,35 +12,39 @@ interface Routes {
   tjeneste?: string;
 }
 
-const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => (
-  <MedPersonInfo>
-    {({ personalia, adresser }) => {
-      const { tjeneste } = props.match.params;
-      return (
-        <div className="endreOpplysninger__page">
-          <div className="endreOpplysninger__container pagecontent">
-            {tjeneste && <RedirectKnapp tjeneste={tjeneste} />}
-            {personalia && (
-              <Box
-                id="kontaktinformasjon"
-                tittel="kontaktinfo.tittel"
-                icon={kontaktIkon}
-              >
-                <PDLTelefonnummerHosNav tlfnr={personalia.tlfnr} />
-              </Box>
-            )}
-            {adresser && <Adresser adresser={adresser} />}
-            {personalia && (
-              <Utbetalinger
-                kontonr={personalia.kontonr}
-                utenlandskbank={personalia.utenlandskbank}
-              />
-            )}
-          </div>
-        </div>
-      );
-    }}
-  </MedPersonInfo>
-);
+const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => {
+  const { tjeneste } = props.match.params;
+  return (
+    <div className="endreOpplysninger__page">
+      <div className="endreOpplysninger__container pagecontent">
+        {tjeneste && <RedirectKnapp tjeneste={tjeneste} />}
+        <MedPersonInfo>
+          {({ personalia, adresser }) => {
+            return (
+              <>
+                {personalia && (
+                  <Box
+                    id="kontaktinformasjon"
+                    tittel="kontaktinfo.tittel"
+                    icon={kontaktIkon}
+                  >
+                    <PDLTelefonnummerHosNav tlfnr={personalia.tlfnr} />
+                  </Box>
+                )}
+                {adresser && <Adresser adresser={adresser} />}
+                {personalia && (
+                  <Utbetalinger
+                    kontonr={personalia.kontonr}
+                    utenlandskbank={personalia.utenlandskbank}
+                  />
+                )}
+              </>
+            );
+          }}
+        </MedPersonInfo>
+      </div>
+    </div>
+  );
+};
 
 export default withRouter(EndreAlleOpplysninger);
