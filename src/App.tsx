@@ -10,7 +10,7 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./providers/auth/Auth";
 import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
-import KontaktInfo from "./pages/endre/kontaktinfo/KontaktInfo";
+import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
@@ -73,8 +73,8 @@ const App = () => {
               {featureToggles.data["personopplysninger.pdl"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/endre/kontaktinformasjon`}
-                  component={KontaktInfo}
+                  path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${gyldigeRedirects})`}
+                  component={EndreOpplysninger}
                 />
               )}
               {featureToggles.status === "RESULT" && (

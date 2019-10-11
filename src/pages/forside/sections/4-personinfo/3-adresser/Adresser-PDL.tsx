@@ -76,14 +76,14 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
     settSlettLoading(true);
 
     if (utenlandskAdresse) {
-      slettUtenlandsAdresse(utenlandskAdresse)
+      slettUtenlandsAdresse()
         .then(getUpdatedData)
         .then(onSlettSuccess)
         .catch((error: AlertType) => settSlettAlert(error))
         .then(() => settSlettLoading(false));
     }
     if (tilleggsadresse) {
-      slettMidlertidigAdresse(tilleggsadresse)
+      slettMidlertidigAdresse()
         .then(getUpdatedData)
         .then(onSlettSuccess)
         .catch((error: AlertType) => settSlettAlert(error))

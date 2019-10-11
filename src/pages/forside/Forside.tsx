@@ -14,7 +14,6 @@ interface Routes {
 }
 
 const Forside = ({ match }: RouteComponentProps<Routes>) => {
-  const params = match.params;
   return (
     <>
       <Brodsmulesti />
@@ -24,7 +23,9 @@ const Forside = ({ match }: RouteComponentProps<Routes>) => {
       <Arbeidsforhold />
       <EksterneLenker />
       <MerInformasjon />
-      {params.tjeneste && <RedirectKnapp tjeneste={params.tjeneste} />}
+      {match.params.tjeneste && (
+        <RedirectKnapp tjeneste={match.params.tjeneste} />
+      )}
     </>
   );
 };

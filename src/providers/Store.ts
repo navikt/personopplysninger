@@ -1,5 +1,4 @@
 import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import { FetchPersonInfo } from "../pages/forside/sections/4-personinfo/PersonInfo";
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
@@ -8,6 +7,7 @@ import { FetchAuthInfo } from "./auth/Auth";
 import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
 import { FetchDsopInfo } from "../pages/dsop/DSOP";
 import { DsopInfo } from "../types/dsop";
+import { FetchPersonInfo } from "./personinfo/PersinInfo";
 
 export interface FeatureToggles {
   [key: string]: boolean;
