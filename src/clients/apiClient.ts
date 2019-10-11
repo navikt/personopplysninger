@@ -77,7 +77,7 @@ type Outbound =
   | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
-const sendJson = (url: string, data: Outbound) => {
+const postJson = (url: string, data: Outbound) => {
   console.log(url, data);
   return fetch(url, {
     method: "POST",
@@ -99,66 +99,54 @@ const sendJson = (url: string, data: Outbound) => {
 };
 
 export const postTlfnummer = (data: OutboundTlfnummer) =>
-  sendJson(`${apiUrl}/endreTelefonnummer`, data);
+  postJson(`${apiUrl}/endreTelefonnummer`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
-  sendJson(`${apiUrl}/slettTelefonnummer`, data);
+  postJson(`${apiUrl}/slettTelefonnummer`, data);
 
 export const postKontonummer = (
   data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
-) => sendJson(`${apiUrl}/endreKontonummer`, data);
+) => postJson(`${apiUrl}/endreKontonummer`, data);
 
 export const postGateadresse = (data: OutboundGateadresse) =>
-  sendJson(`${apiUrl}/endreGateadresse`, data);
+  postJson(`${apiUrl}/endreGateadresse`, data);
 
 export const postPostboksadresse = (data: OutboundPostboksadresse) =>
-  sendJson(`${apiUrl}/endrePostboksadresse`, data);
+  postJson(`${apiUrl}/endrePostboksadresse`, data);
 
 export const postStedsadresse = (data: OutboundStedsadresse) =>
-  sendJson(`${apiUrl}/endreStedsadresse`, data);
+  postJson(`${apiUrl}/endreStedsadresse`, data);
 
 export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
-  sendJson(`${apiUrl}/endreUtenlandsadresse`, data);
+  postJson(`${apiUrl}/endreUtenlandsadresse`, data);
 
-export const slettGateadresse = (data: OutboundGateadresse) =>
-  sendJson(`${apiUrl}/slettGateadresse`, data);
+/*
+    PUT
+ */
 
-export const slettPostboksadresse = (data: OutboundPostboksadresse) =>
-  sendJson(`${apiUrl}/slettPostboksadresse`, data);
+const putJson = (url: string) =>
+  fetch(url, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json;charset=UTF-8" }
+  })
+    .then(sjekkHttpFeil)
+    .then(parseJson)
+    .then(sjekkTPSFeil)
+    .catch((err: string & AlertType) => {
+      const error = {
+        code: err.code || 404,
+        type: err.type || "feil",
+        text: err.text || err
+      };
+      logApiError(url, error);
+      throw error;
+    });
 
-export const slettStedsadresse = (data: OutboundStedsadresse) =>
-  sendJson(`${apiUrl}/slettStedsadresse`, data);
+export const slettUtenlandsAdresse = () =>
+  putJson(`${apiUrl}/opphoerUtenlandskKontaktadresse`);
 
-export const slettUtenlandsAdresse = (data: UtenlandskAdresse) =>
-  sendJson(`${apiUrl}/slettUtenlandskadresse`, {
-    ...data
-  } as OutboundUtenlandskAdresse);
-
-export const slettMidlertidigAdresse = (data: Tilleggsadresse) => {
-  const { type, ...adresse } = data;
-  const outbound = {
-    GATEADRESSE: () =>
-      slettGateadresse({
-        ...adresse,
-        ...(adresse.husnummer && {
-          husnummer: parseInt(adresse.husnummer, RADIX_DECIMAL)
-        })
-      } as OutboundGateadresse),
-    POSTBOKSADRESSE: () =>
-      slettPostboksadresse({
-        ...adresse,
-        ...(adresse.postboksnummer && {
-          postboksnummer: parseInt(adresse.postboksnummer, RADIX_DECIMAL)
-        })
-      } as OutboundPostboksadresse),
-    STEDSADRESSE: () =>
-      slettStedsadresse({
-        ...adresse
-      } as OutboundStedsadresse)
-  };
-
-  return outbound[type]();
-};
+export const slettMidlertidigAdresse = () =>
+  putJson(`${apiUrl}/opphoerNorskKontaktadresse`);
 
 /*
     UTILS
