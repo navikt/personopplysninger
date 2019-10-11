@@ -10,9 +10,6 @@ import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
-import { Tilleggsadresse } from "../types/adresser/tilleggsadresse";
-import { RADIX_DECIMAL } from "../utils/formattering";
-import { UtenlandskAdresse } from "../types/adresser/utenlandskadresse";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
