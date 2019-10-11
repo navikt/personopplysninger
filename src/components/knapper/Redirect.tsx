@@ -6,7 +6,7 @@ import { VenstreChevron } from "nav-frontend-chevron";
 
 const redirects: {
   [key: string]: {
-    knappBeskrivelse: string;
+    beskrivelse: string;
     knapp: string;
     url: string;
   };
@@ -28,7 +28,7 @@ const RedirectKnapp = (props: Props) => {
           <img src={veilederIkon} className="redirect__ikon" alt="Veileder" />
         </span>
         <div className="redirect__content">
-          <div>{redirect.knappBeskrivelse}</div>
+          <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
           <div className="redirect__lenke">
             <div className="redirect__chevron">
               <VenstreChevron />

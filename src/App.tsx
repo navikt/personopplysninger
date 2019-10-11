@@ -10,10 +10,7 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./providers/auth/Auth";
 import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
-import EndreAlleOpplysninger from "./pages/endre/alle-opplysninger/AlleOpplysninger";
-import EndreKontaktInformasjon from "./pages/endre/kontaktinfo/KontaktInfo";
-import EndreAdresser from "./pages/endre/adresser/Adresser";
-import EndreKontonummer from "./pages/endre/kontonummer/Kontonummer";
+import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
@@ -77,28 +74,7 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${gyldigeRedirects})`}
-                  component={EndreAlleOpplysninger}
-                />
-              )}
-              {featureToggles.data["personopplysninger.pdl"] && (
-                <Route
-                  exact={true}
-                  path={`${basePath}/endre-kontaktinformasjon/sendt-fra/:tjeneste(${gyldigeRedirects})`}
-                  component={EndreKontaktInformasjon}
-                />
-              )}
-              {featureToggles.data["personopplysninger.pdl"] && (
-                <Route
-                  exact={true}
-                  path={`${basePath}/endre-adresser/sendt-fra/:tjeneste(${gyldigeRedirects})`}
-                  component={EndreAdresser}
-                />
-              )}
-              {featureToggles.data["personopplysninger.pdl"] && (
-                <Route
-                  exact={true}
-                  path={`${basePath}/endre-kontonummer/sendt-fra/:tjeneste(${gyldigeRedirects})`}
-                  component={EndreKontonummer}
+                  component={EndreOpplysninger}
                 />
               )}
               {featureToggles.status === "RESULT" && (
