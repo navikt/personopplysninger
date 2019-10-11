@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import Error, { HTTPError } from "../../components/error/Error";
 import { useStore } from "../Provider";
 import { fetchPersonInfo } from "../../clients/apiClient";
-import Spinner from "../../components/spinner/Spinner";
 import { PersonInfo } from "../../types/personInfo";
 
 export type FetchPersonInfo =
@@ -11,6 +10,7 @@ export type FetchPersonInfo =
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
+  loader: JSX.Element;
   children: (data: PersonInfo) => JSX.Element;
 }
 
@@ -35,7 +35,7 @@ const MedPersonInfo = (props: Props) => {
 
   switch (personInfo.status) {
     case "LOADING":
-      return <Spinner />;
+      return props.loader;
     case "RESULT":
       return props.children(personInfo.data);
     case "ERROR":

@@ -7,6 +7,7 @@ import RedirectKnapp from "components/knapper/Redirect";
 import { withRouter, RouteComponentProps } from "react-router";
 import PDLTelefonnummerHosNav from "../forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import MedPersonInfo from "../../providers/personinfo/PersinInfo";
+import Spinner from "../../components/spinner/Spinner";
 
 interface Routes {
   tjeneste?: string;
@@ -18,7 +19,7 @@ const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => {
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
         {tjeneste && <RedirectKnapp tjeneste={tjeneste} />}
-        <MedPersonInfo>
+        <MedPersonInfo loader={<Spinner />}>
           {({ personalia, adresser }) => {
             return (
               <>
