@@ -15,7 +15,6 @@ import { UNKNOWN } from "../../../../../../../utils/text";
 import { PersonInfo } from "../../../../../../../types/personInfo";
 import { useStore } from "../../../../../../../providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { oneYearAhead } from "../../../../../../../utils/date";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -40,7 +39,6 @@ const OpprettEllerEndreUtenlandskAdresse = (
   const [, dispatch] = useStore();
 
   const initialValues = {
-    datoTilOgMed: oneYearAhead,
     ...(utenlandskadresse && {
       ...utenlandskadresse,
       land: {
