@@ -5,7 +5,7 @@ const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
-const baseUrl = "/person/personopplysninger/";
+const baseUrl = "/person/personopplysninger";
 const server = express();
 
 server.set("views", `${__dirname}/../build`);
