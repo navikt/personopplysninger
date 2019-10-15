@@ -4,14 +4,15 @@ const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
-const server = express();
+const buildPath = path.resolve(__dirname, "../build");
 const baseUrl = "/person/personopplysninger/";
+const server = express();
 
 server.set("views", `${__dirname}/../build`);
 server.set("view engine", "mustache");
 server.engine("html", mustacheExpress());
 
-// parse application/json
+// Parse application/json
 server.use(express.json());
 
 server.use((req, res, next) => {
@@ -28,21 +29,18 @@ const renderApp = decoratorFragments =>
   );
 
 const startServer = html => {
-  server.use(
-    `${baseUrl}`,
-    express.static(path.resolve(`${__dirname}/..`, "build"), { index: false })
-  );
+  // Static files
+  server.use(baseUrl, express.static(buildPath, { index: false }));
 
+  // Nais functions
   server.get(`${baseUrl}/internal/isAlive|isReady`, (req, res) =>
     res.sendStatus(200)
   );
 
+  // Match everything except internal og static
   server.use(
     /\/(person\/personopplysninger)\/*(?:(?!static|internal).)*$/,
-    (req, res) => {
-      // matcher alt bortsett fra internal og static
-      res.send(html);
-    }
+    (req, res) => res.send(html)
   );
 
   const port = process.env.PORT || 8080;
