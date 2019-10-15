@@ -24,26 +24,28 @@ const Header = () => {
         );
 
         return (
-          <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
-            <div className="box__container header__content">
-              <Systemtittel>
-                <FormattedHTMLMessage
-                  id="header.hello"
-                  values={{ name: formatName(fornavn) || "" }}
-                />
-              </Systemtittel>
-              <div className="header__seksjon">
-                <Normaltekst>
-                  <FormattedHTMLMessage id="header.obs" />
-                </Normaltekst>
+          <div className="header">
+            <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
+              <div className="box__container header__content">
+                <Systemtittel>
+                  <FormattedHTMLMessage
+                    id="header.hello"
+                    values={{ name: formatName(fornavn) || "" }}
+                  />
+                </Systemtittel>
+                <div className="header__seksjon">
+                  <Normaltekst>
+                    <FormattedHTMLMessage id="header.obs" />
+                  </Normaltekst>
+                </div>
+                <div className="header__seksjon">
+                  <Normaltekst>
+                    <FormattedHTMLMessage id="header.description" />
+                  </Normaltekst>
+                </div>
               </div>
-              <div className="header__seksjon">
-                <Normaltekst>
-                  <FormattedHTMLMessage id="header.description" />
-                </Normaltekst>
-              </div>
-            </div>
-          </Veilederpanel>
+            </Veilederpanel>
+          </div>
         );
       } else {
         return null;
