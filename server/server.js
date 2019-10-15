@@ -5,6 +5,7 @@ const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
 const server = express();
+const baseUrl = "/person/personopplysninger/";
 
 server.set("views", `${__dirname}/../build`);
 server.set("view engine", "mustache");
@@ -28,38 +29,21 @@ const renderApp = decoratorFragments =>
 
 const startServer = html => {
   server.use(
-    "/person/personopplysninger/static/js",
-    express.static(path.resolve(`${__dirname}/..`, "build/static/js"))
+    `${baseUrl}`,
+    express.static(path.resolve(`${__dirname}/..`, "build"), { index: false })
+  );
+
+  server.get(`${baseUrl}/internal/isAlive|isReady`, (req, res) =>
+    res.sendStatus(200)
   );
 
   server.use(
-    "/person/personopplysninger/static/media",
-    express.static(path.resolve(`${__dirname}/..`, "build/static/media"))
+    /\/(person\/personopplysninger)\/*(?:(?!static|internal).)*$/,
+    (req, res) => {
+      // matcher alt bortsett fra internal og static
+      res.send(html);
+    }
   );
-
-  server.use(
-    "/person/personopplysninger/index.css",
-    express.static(path.resolve(`${__dirname}/..`, "build/index.css"))
-  );
-
-  server.use(
-    "/person/personopplysninger/manifest.json",
-    express.static(path.resolve(`${__dirname}/..`, "build/manifest.json"))
-  );
-
-  server.use(
-    "/person/personopplysninger/favicon.ico",
-    express.static(path.resolve(`${__dirname}/..`, "build/favicon.ico"))
-  );
-
-  server.get(
-    "/person/personopplysninger/internal/isAlive|isReady",
-    (req, res) => res.sendStatus(200)
-  );
-
-  server.use("/person/personopplysninger", (req, res) => {
-    res.send(html);
-  });
 
   const port = process.env.PORT || 8080;
   server.listen(port, () => console.log(`App listening on port: ${port}`));
