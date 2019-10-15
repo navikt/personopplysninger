@@ -45,7 +45,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
     },
     postboksnummer: {
       isRequired: intl.messages["validation.postboksnummer.pakrevd"],

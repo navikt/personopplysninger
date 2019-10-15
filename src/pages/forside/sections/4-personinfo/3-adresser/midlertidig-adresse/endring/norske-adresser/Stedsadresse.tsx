@@ -39,8 +39,12 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   };
 
   const formConfig: ExtraFieldsConfig = {
-    tilleggslinje: {},
+    tilleggslinje: {
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
+    },
     eiendomsnavn: {
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
       isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
     },
     postnummer: {

@@ -25,6 +25,7 @@ export interface ExtraFieldConfig {
   isIBANCountryCompliant?: SimpleValidator;
   isBankkode?: CustomValidator;
   isMod11?: SimpleValidator;
+  isFirstCharNotSpace?: SimpleValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
@@ -76,6 +77,9 @@ export const extraValidators: Validators = {
 
   isMod11: (config: SimpleValidatorConfig) => (value: string) =>
     value && !isMod11(value) ? config.message : null,
+
+  isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
+    !value.match(/^[^\s].*/) ? config.message : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,

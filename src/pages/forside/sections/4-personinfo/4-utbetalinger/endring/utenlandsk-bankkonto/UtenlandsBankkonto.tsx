@@ -88,7 +88,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isRequired: intl.messages["validation.valuta.pakrevd"]
     },
     banknavn: {
-      isRequired: intl.messages["validation.banknavn.pakrevd"]
+      isRequired: intl.messages["validation.banknavn.pakrevd"],
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     kontonummer: {
       isRequired: {

@@ -49,12 +49,14 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
+      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
     },
     gatenavn: {
+      isRequired: intl.messages["validation.gatenavn.pakrevd"],
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLetters: intl.messages["validation.only.letters"],
-      isRequired: intl.messages["validation.gatenavn.pakrevd"]
+      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"],
+      isLetters: intl.messages["validation.only.letters"]
     },
     husnummer: {
       isNumber: intl.messages["validation.only.digits"]
@@ -163,9 +165,11 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     className="adresse__input-avstand"
                     label={intl.messages["felter.gatebokstav.label"]}
                     feil={sjekkForFeil(submitted, errors.husbokstav)}
-                    onChange={({ target }) =>
-                      setField({ husbokstav: target.value.toUpperCase() })
-                    }
+                    onChange={({ target }) => {
+                      if (target.value !== " ") {
+                        setField({ husbokstav: target.value.toUpperCase() });
+                      }
+                    }}
                   />
                 </div>
               </div>
