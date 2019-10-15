@@ -71,7 +71,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {!opprett && (
+      {!opprett && !(tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) && (
         <button onClick={onLeggTil} className="tlfnummer__leggtil lenke">
           <span className="kilde__icon">
             <img src={leggTilIkon} alt="Ekstern lenke" />
@@ -90,11 +90,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         />
       )}
 
-      {opprett || (tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) ? (
-        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-      ) : (
-        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-      )}
+      <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
     </>
   );
 };
