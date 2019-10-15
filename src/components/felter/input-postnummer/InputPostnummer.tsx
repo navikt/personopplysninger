@@ -53,6 +53,8 @@ const SelectPostnummer = React.memo((props: Props) => {
   return (
     <div className="input-postnummer__container">
       <Input
+        min={0}
+        maxLength={4}
         bredde={"S"}
         type={"number"}
         value={props.value}
