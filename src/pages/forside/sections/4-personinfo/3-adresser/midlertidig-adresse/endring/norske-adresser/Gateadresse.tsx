@@ -59,7 +59,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       isLetters: intl.messages["validation.only.letters"]
     },
     husnummer: {
-      isRequired: intl.messages["validation.gatenavn.pakrevd"],
+      isRequired: intl.messages["validation.husnummer.pakrevd"],
       isNumber: intl.messages["validation.only.digits"]
     },
     husbokstav: {
@@ -68,7 +68,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     },
     bolignummer: {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isHouseNumber: intl.messages["validation.husnymmer.ugyldig"]
+      isHouseNumber: intl.messages["validation.bolignummer.ugyldig"]
     },
     postnummer: {
       isRequired: intl.messages["validation.postnummer.pakrevd"]
