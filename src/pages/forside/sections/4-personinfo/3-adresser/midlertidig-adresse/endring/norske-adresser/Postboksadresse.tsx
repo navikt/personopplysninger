@@ -48,6 +48,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     postboksnummer: {
+      isRequired: intl.messages["validation.postboksnummer.pakrevd"],
       isNumber: intl.messages["validation.only.digits"]
     },
     postboksanlegg: {
