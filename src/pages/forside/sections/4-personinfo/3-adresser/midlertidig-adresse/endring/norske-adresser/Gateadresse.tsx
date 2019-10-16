@@ -9,6 +9,7 @@ import { fetchPersonInfo, postGateadresse } from "clients/apiClient";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { RADIX_DECIMAL } from "utils/formattering";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
@@ -123,14 +124,16 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <Input
+            <InputMedHjelpetekst
               bredde={"L"}
+              submitted={submitted}
               maxLength={30}
+              hjelpetekst={"adresse.hjelpetekster.co"}
               label={intl.messages["felter.tillegslinje.label"]}
               placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
-              onChange={e => setField({ tilleggslinje: e.target.value })}
-              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+              error={errors.tilleggslinje}
             />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
@@ -176,13 +179,15 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               </div>
             </div>
             <div className="adresse__rad">
-              <Input
+              <InputMedHjelpetekst
                 maxLength={5}
-                className="adresse__input-avstand adresse__input-bolignummer"
+                submitted={submitted}
                 value={fields.bolignummer}
+                hjelpetekst={"adresse.hjelpetekster.bolignummer"}
+                className="adresse__input-avstand adresse__input-bolignummer"
                 label={intl.messages["felter.bolignummer.label"]}
-                onChange={e => setField({ bolignummer: e.target.value })}
-                feil={sjekkForFeil(submitted, errors.bolignummer)}
+                onChange={value => setField({ bolignummer: value })}
+                error={errors.bolignummer}
                 bredde={"S"}
               />
               <InputPostnummer

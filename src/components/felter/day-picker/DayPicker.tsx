@@ -6,6 +6,8 @@ import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
 import { dateOneYearAhead } from "../../../utils/date";
+import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
+import { FormattedHTMLMessage } from "react-intl";
 
 interface Props {
   label?: string;
@@ -55,7 +57,12 @@ const DayPicker = (props: Props) => {
 
   return (
     <div className="skjemaelement">
-      {label && <div className="skjemaelement__label">{label}</div>}
+      <div className="ekf__header">
+        {label && <div className="skjemaelement__label">{label}</div>}
+        <HjelpetekstHoyre id={"hjelpetekst"}>
+          <FormattedHTMLMessage id={"adresse.hjelpetekster.gyldigtil"} />
+        </HjelpetekstHoyre>
+      </div>
       <DayPickerInput
         value={valgtDag}
         format={props.format}

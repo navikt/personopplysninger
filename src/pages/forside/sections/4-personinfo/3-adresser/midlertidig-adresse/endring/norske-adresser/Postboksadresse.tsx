@@ -13,6 +13,7 @@ import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
+import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -115,14 +116,16 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <Input
+            <InputMedHjelpetekst
               bredde={"L"}
+              submitted={submitted}
               maxLength={30}
+              hjelpetekst={"adresse.hjelpetekster.co"}
               label={intl.messages["felter.tillegslinje.label"]}
               placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
-              onChange={e => setField({ tilleggslinje: e.target.value })}
-              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+              error={errors.tilleggslinje}
             />
             <div className="adresse__rad">
               <Input

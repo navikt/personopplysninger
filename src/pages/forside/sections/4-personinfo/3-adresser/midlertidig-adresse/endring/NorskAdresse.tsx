@@ -4,7 +4,10 @@ import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { injectIntl, FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage, InjectedIntlProps } from "react-intl";
+import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
+import cls from "classnames";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -26,22 +29,30 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
     <>
       <div className="adresse__rad">
         <div className="adresse__kolonne">
-          <Select
-            label={"Type adresse"}
-            className="input--l"
-            onChange={onSelectChange}
-            defaultValue={type}
-          >
-            <option value="GATEADRESSE">
-              {intl.messages["felter.adressetype.gateadresse"]}
-            </option>
-            <option value="POSTBOKSADRESSE">
-              {intl.messages["felter.adressetype.postboksadresse"]}
-            </option>
-            <option value="STEDSADRESSE">
-              {intl.messages["felter.adressetype.stedsadresse"]}
-            </option>
-          </Select>
+          <div className="adresse__select-header">
+            <FormattedMessage id={"felter.adressetype"} />
+            <HjelpetekstHoyre id={"hjelpetekst"}>
+              <FormattedHTMLMessage id={"adresse.hjelpetekster.adressetyper"} />
+            </HjelpetekstHoyre>
+          </div>
+          <div className={cls("KodeverkSelect--select-wrapper input--l")}>
+            <Select
+              label={""}
+              className="input--l"
+              onChange={onSelectChange}
+              defaultValue={type}
+            >
+              <option value="GATEADRESSE">
+                {intl.messages["felter.adressetype.gateadresse"]}
+              </option>
+              <option value="POSTBOKSADRESSE">
+                {intl.messages["felter.adressetype.postboksadresse"]}
+              </option>
+              <option value="STEDSADRESSE">
+                {intl.messages["felter.adressetype.stedsadresse"]}
+              </option>
+            </Select>
+          </div>
         </div>
         <div className="adresse__kolonne" />
       </div>

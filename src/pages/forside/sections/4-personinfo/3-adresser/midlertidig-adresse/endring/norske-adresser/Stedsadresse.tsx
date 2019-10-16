@@ -12,6 +12,7 @@ import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
+import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -99,14 +100,16 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       {({ errors, fields, isValid, submitted, setField, setError }) => {
         return (
           <>
-            <Input
+            <InputMedHjelpetekst
               bredde={"L"}
+              submitted={submitted}
               maxLength={30}
+              hjelpetekst={"adresse.hjelpetekster.co"}
               label={intl.messages["felter.tillegslinje.label"]}
               placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
-              onChange={e => setField({ tilleggslinje: e.target.value })}
-              feil={sjekkForFeil(submitted, errors.tilleggslinje)}
+              error={errors.tilleggslinje}
             />
             <div className="adresse__rad">
               <div className="adresse__kolonne">

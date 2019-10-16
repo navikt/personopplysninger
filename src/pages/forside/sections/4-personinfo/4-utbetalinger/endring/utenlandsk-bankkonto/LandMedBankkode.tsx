@@ -1,7 +1,11 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { BANKKODE_MAX_LENGTH } from "./UtenlandsBankkonto";
-import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import {
+  FormattedHTMLMessage,
+  InjectedIntlProps,
+  injectIntl
+} from "react-intl";
 import { Errors, Fields } from "calidation";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
@@ -19,7 +23,10 @@ const LandMedBankkode = (props: Props & InjectedIntlProps) => {
       <div className="utbetalinger__bic-bankkode">
         <div className="utbetalinger__alert">
           <AlertStripeAdvarsel>
-            <FormattedMessage id="felter.landetbrukerbankkode.advarsel" />
+            <FormattedHTMLMessage
+              id="felter.landetbrukerbankkode.advarsel"
+              values={{ land: fields.land.label.toLowerCase() }}
+            />
           </AlertStripeAdvarsel>
         </div>
         <InputMedHjelpetekst

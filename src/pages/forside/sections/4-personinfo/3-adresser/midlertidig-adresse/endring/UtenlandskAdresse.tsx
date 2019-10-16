@@ -1,19 +1,17 @@
 import React, { useState } from "react";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../../types/adresser/utenlandskadresse";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
-import { sjekkForFeil } from "../../../../../../../utils/validators";
-import SelectLand from "../../../../../../../components/felter/kodeverk/SelectLand";
-import DayPicker from "../../../../../../../components/felter/day-picker/DayPicker";
-import {
-  fetchPersonInfo,
-  postUtenlandskAdresse
-} from "../../../../../../../clients/apiClient";
-import { UNKNOWN } from "../../../../../../../utils/text";
-import { PersonInfo } from "../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../providers/Provider";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { sjekkForFeil } from "utils/validators";
+import SelectLand from "components/felter/kodeverk/SelectLand";
+import DayPicker from "components/felter/day-picker/DayPicker";
+import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
+import { UNKNOWN } from "utils/text";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
@@ -104,12 +102,14 @@ const OpprettEllerEndreUtenlandskAdresse = (
         return (
           <>
             <SkjemaGruppe feil={sjekkForFeil(submitted, errors.adresse1)}>
-              <Input
+              <InputMedHjelpetekst
                 bredde={"L"}
+                submitted={submitted}
                 maxLength={30}
                 value={fields.adresse1}
+                hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
                 label={intl.messages["felter.adresse.label"]}
-                onChange={e => setField({ adresse1: e.target.value })}
+                onChange={value => setField({ adresse1: value })}
               />
               <Input
                 label={""}

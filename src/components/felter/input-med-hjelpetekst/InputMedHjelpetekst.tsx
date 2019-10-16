@@ -22,7 +22,7 @@ const EndreKontonummerFelt = ({
   ...restProps
 }: Props) => {
   return (
-    <>
+    <div>
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
@@ -40,7 +40,7 @@ const EndreKontonummerFelt = ({
           {...restProps}
         />
       </div>
-    </>
+    </div>
   );
 };
 
