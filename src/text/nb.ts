@@ -207,6 +207,7 @@ export default {
   "validation.tomdato.pakrevd": "Gyldig dato er nødvendig",
   "validation.tomdato.ugyldig": "Ugyldig dato",
   "validation.gateadresse.pakrevd": "Gateadresse er nødvendig",
+  "validation.stedsadresse.pakrevd": "Stedsadresse er nødvendig",
   "validation.land.pakrevd": "Land er nødvendig",
   "validation.bankidentifier.pakrevd": "Du må velge et alternativ",
   "validation.bankidentifier.valid": `Dersom du fyller ut IBAN-nummer, må du også fylle ut BIC / Swift-kode`,

@@ -45,6 +45,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
       isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
     },
     eiendomsnavn: {
+      isRequired: intl.messages["validation.stedsadresse.pakrevd"],
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
       isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
     },
