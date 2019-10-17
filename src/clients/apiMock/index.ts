@@ -7,7 +7,7 @@ import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";
 import postnummer from "./app/fetch/postnummer.json";
-import endrePostnummer from "./app/post/endre-postnummer.json";
+import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
 import Environment from "../../Environments";
 
@@ -29,7 +29,7 @@ const mockFetchPostnummer = true;
 const mockPostGateadresse = true;
 const mockPostSlettTlfnr = true;
 const mockPostEndreTelefonnr = true;
-const mockPostEndrePostnummer = true;
+const mockPostEndreKontonummer = true;
 
 export const setUpMock = async () => {
   /*
@@ -87,9 +87,9 @@ export const setUpMock = async () => {
     fetchMock.post(`${apiUrl}/slettTelefonnummer`, () =>
       delay(2000, 3000).then(() => ({ statusType: "OK" }))
     );
-  mockPostEndrePostnummer &&
+  mockPostEndreKontonummer &&
     fetchMock.post(`${apiUrl}/endreKontonummer`, () =>
-      delay(2000, 3000).then(() => endrePostnummer)
+      delay(2000, 3000).then(() => endreKontonr)
     );
 };
 

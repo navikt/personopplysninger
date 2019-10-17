@@ -193,7 +193,9 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         type: `feil`,
         text: `${response.error && response.error.message}${
           response.error && response.error.details
-            ? `: ${response.error.details.map(d => d.message || ``).join()}`
+            ? `\n${Object.values(response.error.details)
+                .map(details => details.join("\n"))
+                .join("\n")}`
             : ``
         }`
       }

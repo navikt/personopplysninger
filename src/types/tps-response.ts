@@ -1,11 +1,10 @@
 interface TPSErrorDetail {
-  name: string;
-  message: string;
+  [key: string]: string[];
 }
 
 interface TPSError {
   message: string;
-  details?: TPSErrorDetail[];
+  details?: TPSErrorDetail;
 }
 
 export type TPSResponse =
