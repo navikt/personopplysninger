@@ -25,6 +25,7 @@ export interface ExtraFieldConfig {
   isIBANCountryCompliant?: SimpleValidator;
   isBankkode?: CustomValidator;
   isMod11?: SimpleValidator;
+  isPositive?: SimpleValidator;
   isFirstCharNotSpace?: SimpleValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
@@ -74,6 +75,13 @@ export const extraValidators: Validators = {
           siffer: BANKKODE_MAX_LENGTH[fields.land.value]
         })
       : null,
+
+  isPositive: (config: SimpleValidatorConfig) => (value: string) => {
+    var n = Math.floor(Number(value));
+    return !(n !== Infinity && String(n) === value && n >= 0)
+      ? config.message
+      : null;
+  },
 
   isMod11: (config: SimpleValidatorConfig) => (value: string) =>
     value && !isMod11(value) ? config.message : null,

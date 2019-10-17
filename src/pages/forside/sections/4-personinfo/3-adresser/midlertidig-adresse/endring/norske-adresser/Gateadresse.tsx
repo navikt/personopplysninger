@@ -61,7 +61,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
     },
     husnummer: {
       isRequired: intl.messages["validation.husnummer.pakrevd"],
-      isNumber: intl.messages["validation.only.digits"]
+      isNumber: intl.messages["validation.only.digits"],
+      isPositive: intl.messages["validation.husnummer.positive"]
     },
     husbokstav: {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
