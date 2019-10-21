@@ -25,7 +25,9 @@ interface Props {
 const DayPicker = (props: Props) => {
   const { label, onErrors, submitted, error, ugyldigTekst } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
-  const dateNow = new Date(Date.now());
+  const iMorgen = moment(new Date())
+    .add(1, "days")
+    .toDate();
 
   useEffect(() => {
     if (props.value) {
@@ -45,15 +47,15 @@ const DayPicker = (props: Props) => {
 
     // Reset til kl 12 for sammenligning
     const klTolvValgtDag = new Date(new Date(nyValgtDag).setHours(12, 0, 0, 0));
-    const klTolvIDag = new Date(new Date(dateNow).setHours(12, 0, 0, 0));
+    const klTolvIMorgen = new Date(new Date(iMorgen).setHours(12, 0, 0, 0));
     const klTolvEtArFrem = new Date(
       new Date(klTolvValgtDag).setFullYear(
-        new Date(klTolvIDag).getFullYear() + 1
+        new Date(klTolvIMorgen).getFullYear() + 1
       )
     );
 
     if (klTolvValgtDag && !isDisabled) {
-      if (klTolvValgtDag >= klTolvIDag && klTolvValgtDag <= klTolvEtArFrem) {
+      if (klTolvValgtDag >= klTolvIMorgen && klTolvValgtDag <= klTolvEtArFrem) {
         props.onChange(moment(klTolvValgtDag).format("YYYY-MM-DD"));
       } else {
         onErrors(ugyldigTekst);
@@ -91,11 +93,11 @@ const DayPicker = (props: Props) => {
           selectedDays: valgtDag,
           locale: props.locale,
           localeUtils: MomentLocaleUtils,
-          fromMonth: dateNow,
+          fromMonth: iMorgen,
           toMonth: dateOneYearAhead,
           disabledDays: [
             {
-              before: dateNow,
+              before: iMorgen,
               after: dateOneYearAhead
             }
           ]
