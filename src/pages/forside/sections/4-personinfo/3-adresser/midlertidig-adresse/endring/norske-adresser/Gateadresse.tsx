@@ -57,7 +57,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       isRequired: intl.messages["validation.gatenavn.pakrevd"],
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
       isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"],
-      isValidStreetName: intl.messages["validation.only.letters"]
+      isValidStreetName: intl.messages["validation.gatenavn.valid"]
     },
     husnummer: {
       isRequired: intl.messages["validation.husnummer.pakrevd"],
