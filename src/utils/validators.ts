@@ -29,7 +29,9 @@ export interface ExtraFieldConfig {
   isFirstCharNotSpace?: SimpleValidator;
   isValidStreetName?: SimpleValidator;
   isLetters?: SimpleValidator;
-  isLettersOrDigits?: SimpleValidator;
+  isLettersAndSpace?: SimpleValidator;
+  isLettersAndDigits?: SimpleValidator;
+  isLettersSpaceAndDigits?: SimpleValidator;
   isMinOneLetter?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
   isValidNorwegianNumber?: SimpleValidator;
@@ -37,6 +39,44 @@ export interface ExtraFieldConfig {
 }
 
 export const extraValidators: Validators = {
+  /*
+    General validators
+   */
+
+  isMod11: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !isMod11(value) ? config.message : null,
+
+  isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
+    !value.match(/^[^\s].*/) ? config.message : null,
+
+  isLetters: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z]+/g) ? config.message : null,
+
+  isLettersAndSpace: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
+
+  isLettersAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z0-9]+/g) ? config.message : null,
+
+  isLettersSpaceAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
+
+  isMinOneLetter: (config: SimpleValidatorConfig) => (value: string) =>
+    !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
+
+  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
+
+  isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
+    ["ukjent", "vet ikke"].some(substring =>
+      value.toLowerCase().includes(substring)
+    )
+      ? config.message
+      : null,
+
+  /*
+  Special validators
+ */
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
 
@@ -84,31 +124,6 @@ export const extraValidators: Validators = {
       ? config.message
       : null;
   },
-
-  isMod11: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !isMod11(value) ? config.message : null,
-
-  isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    !value.match(/^[^\s].*/) ? config.message : null,
-
-  isLetters: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
-
-  isMinOneLetter: (config: SimpleValidatorConfig) => (value: string) =>
-    !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
-
-  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
-
-  isLettersOrDigits: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
-
-  isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    ["ukjent", "vet ikke"].some(substring =>
-      value.toLowerCase().includes(substring)
-    )
-      ? config.message
-      : null,
 
   isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value.length !== 8 || !erInteger(value) ? config.message : null,

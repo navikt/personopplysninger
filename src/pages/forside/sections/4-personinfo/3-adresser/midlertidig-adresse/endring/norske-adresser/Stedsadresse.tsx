@@ -47,7 +47,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
     eiendomsnavn: {
       isRequired: intl.messages["validation.stedsadresse.pakrevd"],
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLettersOrDigits: intl.messages["validation.only.letters.and.digits"]
+      isLettersSpaceAndDigits:
+        intl.messages["validation.only.letters.space.and.digits"]
     },
     postnummer: {
       isRequired: intl.messages["validation.postnummer.pakrevd"]

@@ -37,13 +37,14 @@ export interface OutboundUtenlandsbankonto {
 
 export const BIC = "BIC";
 export const UTEN_BIC = "UTEN_BIC";
-export const LAND_MED_BANKKODE = ["USA", "NZL", "AUS", "ZAF", "CAN"];
+export const LAND_MED_BANKKODE = ["USA", "NZL", "AUS", "ZAF", "CAN", "RUS"];
 export const BANKKODER: { [key: string]: string } = {
   USA: "FW",
   NZL: "NZ",
   AUS: "AU",
   ZAF: "ZA",
-  CAN: "CC"
+  CAN: "CC",
+  RUS: "RU"
 };
 
 export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
@@ -92,14 +93,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
     },
     kontonummer: {
-      isRequired: {
-        message: intl.messages["validation.kontonummer.pakrevd"]
-      },
-      isLettersOrDigits: {
-        message: intl.messages["validation.only.letters.and.digits"],
-        validateIf: ({ fields }: ValidatorContext) =>
-          harValgtBic(fields.bankidentifier) || harValgtUSA(fields.land)
-      },
+      isRequired: intl.messages["validation.kontonummer.pakrevd"],
+      isLettersAndDigits: intl.messages["validation.only.letters.and.digits"],
       isNotIBAN: {
         message: intl.messages["validation.ikke.iban"],
         validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
@@ -127,7 +122,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
         message: intl.messages["validation.bic.pakrevd"],
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       },
-      isLettersOrDigits: {
+      isLettersAndDigits: {
         message: intl.messages["validation.only.letters.and.digits"],
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       },
