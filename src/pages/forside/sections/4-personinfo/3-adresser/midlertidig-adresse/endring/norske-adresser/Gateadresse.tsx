@@ -42,8 +42,9 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   const initialValues = {
     ...(tilleggsadresse && {
       ...tilleggsadresse,
+      // Fjern nuller foran f.eks husnummer 002
       ...(tilleggsadresse.husnummer && {
-        husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL)
+        husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL).toString()
       })
     })
   };
@@ -123,6 +124,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField, setError }) => {
+        console.log(fields);
+        console.log(errors);
         return (
           <>
             <InputMedHjelpetekst

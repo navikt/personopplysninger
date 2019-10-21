@@ -38,8 +38,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   const initialValues = {
     ...(tilleggsadresse && {
       ...tilleggsadresse,
+      // Fjern nuller foran f.eks postnr 0024
       ...(tilleggsadresse.postboksnummer && {
-        postboksnummer: parseInt(tilleggsadresse.postboksnummer, RADIX_DECIMAL)
+        postboksnummer: parseInt(
+          tilleggsadresse.postboksnummer,
+          RADIX_DECIMAL
+        ).toString()
       })
     })
   };
