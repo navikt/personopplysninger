@@ -66,6 +66,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     ? {
         ...utenlandskbank,
         bickode: utenlandskbank.swiftkode,
+        bankidentifier: utenlandskbank.swiftkode ? BIC : undefined,
         kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
         land: {
           label: utenlandskbank.land.toUpperCase(),

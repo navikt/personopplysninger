@@ -31,7 +31,7 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
       </li>
       {utenlandskBankkonto.kontonummer ? (
         <ListElement
-          titleId="personalia.kontonr"
+          titleId="personalia.kontonrelleriban"
           content={utenlandskBankkonto.kontonummer}
         />
       ) : utenlandskBankkonto.iban ? (
