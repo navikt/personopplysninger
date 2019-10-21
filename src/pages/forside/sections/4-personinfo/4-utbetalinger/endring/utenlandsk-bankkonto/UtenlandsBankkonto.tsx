@@ -52,7 +52,8 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   NZL: 6,
   AUS: 6,
   ZAF: 6,
-  CAN: 6
+  CAN: 6,
+  RUS: 9
 };
 
 const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
