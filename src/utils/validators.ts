@@ -76,7 +76,7 @@ export const extraValidators: Validators = {
 
   isPositive: (config: SimpleValidatorConfig) => (value: string) => {
     var n = Math.floor(Number(value));
-    return !(n !== Infinity && String(n) === value && n >= 0)
+    return !(n !== Infinity && String(n) === value && n > 0)
       ? config.message
       : null;
   },
