@@ -221,6 +221,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 />
                 <InputMedHjelpetekst
                   bredde={"L"}
+                  maxLength={36}
                   submitted={submitted}
                   value={fields.kontonummer}
                   hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
