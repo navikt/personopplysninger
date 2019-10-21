@@ -103,8 +103,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
           <>
             <InputMedHjelpetekst
               bredde={"L"}
+              maxLength={26}
               submitted={submitted}
-              maxLength={30}
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={intl.messages["felter.tillegslinje.label"]}
               placeholder={intl.messages["felter.tillegslinje.placeholder"]}

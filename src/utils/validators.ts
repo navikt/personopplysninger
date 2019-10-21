@@ -27,6 +27,7 @@ export interface ExtraFieldConfig {
   isMod11?: SimpleValidator;
   isPositive?: SimpleValidator;
   isFirstCharNotSpace?: SimpleValidator;
+  isValidStreetName?: SimpleValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
@@ -91,6 +92,9 @@ export const extraValidators: Validators = {
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
+
+  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
 
   isLettersOrDigits: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,

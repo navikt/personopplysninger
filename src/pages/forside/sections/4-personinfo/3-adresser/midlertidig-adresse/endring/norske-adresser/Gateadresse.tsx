@@ -57,7 +57,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       isRequired: intl.messages["validation.gatenavn.pakrevd"],
       isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
       isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"],
-      isLetters: intl.messages["validation.only.letters"]
+      isValidStreetName: intl.messages["validation.only.letters"]
     },
     husnummer: {
       isRequired: intl.messages["validation.husnummer.pakrevd"],
@@ -127,8 +127,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
           <>
             <InputMedHjelpetekst
               bredde={"L"}
+              maxLength={26}
               submitted={submitted}
-              maxLength={30}
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={intl.messages["felter.tillegslinje.label"]}
               placeholder={intl.messages["felter.tillegslinje.placeholder"]}

@@ -195,6 +195,7 @@ export default {
   "validation.only.digits": "Skriv bare tall",
   "validation.only.letters.and.digits": "Skriv bare bokstaver og tall",
   "validation.gatenavn.pakrevd": "Gatenavn er nødvendig",
+  "validation.gatenavn.valid": "Skriv bare bostaver og punktum",
   "validation.husnummer.pakrevd": "Nødvendig",
   "validation.husnummer.positive": "Ugyldig",
   "validation.type.pakrevd": "Type er nødvendig",

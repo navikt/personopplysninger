@@ -1,10 +1,10 @@
 import React from "react";
-import Box from "../../../../../components/box/Box";
-import kontaktIkon from "../../../../../assets/img/Kontakt.svg";
+import Box from "components/box/Box";
+import kontaktIkon from "assets/img/Kontakt.svg";
 import TelefonnummerHosNavPDL from "./subsections/TelefonnummerHosNav-PDL";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import { Tlfnr } from "../../../../../types/personalia";
-import { useStore } from "../../../../../providers/Provider";
+import { Tlfnr } from "types/personalia";
+import { useStore } from "providers/Provider";
 import TelefonnummerHosNavOLD from "./subsections/TelefonnummerHosNav-OLD";
 
 interface Props {
