@@ -74,9 +74,17 @@ export const extraValidators: Validators = {
       ? config.message
       : null,
 
+  isPositive: (config: SimpleValidatorConfig) => (value: string) => {
+    var n = Math.floor(Number(value));
+    return !(n !== Infinity && String(n) === value && n >= 0)
+      ? config.message
+      : null;
+  },
+
   /*
-  Special validators
- */
+    Special validators
+  */
+
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
 
@@ -117,13 +125,6 @@ export const extraValidators: Validators = {
           siffer: BANKKODE_MAX_LENGTH[fields.land.value]
         })
       : null,
-
-  isPositive: (config: SimpleValidatorConfig) => (value: string) => {
-    var n = Math.floor(Number(value));
-    return !(n !== Infinity && String(n) === value && n >= 0)
-      ? config.message
-      : null;
-  },
 
   isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value.length !== 8 || !erInteger(value) ? config.message : null,
