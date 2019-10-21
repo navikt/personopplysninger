@@ -30,6 +30,7 @@ export interface ExtraFieldConfig {
   isValidStreetName?: SimpleValidator;
   isLetters?: SimpleValidator;
   isLettersOrDigits?: SimpleValidator;
+  isMinOneLetter?: SimpleValidator;
   isBlacklistedCommon?: SimpleValidator;
   isValidNorwegianNumber?: SimpleValidator;
   isHouseNumber?: SimpleValidator;
@@ -92,6 +93,9 @@ export const extraValidators: Validators = {
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
+
+  isMinOneLetter: (config: SimpleValidatorConfig) => (value: string) =>
+    !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
 
   isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
