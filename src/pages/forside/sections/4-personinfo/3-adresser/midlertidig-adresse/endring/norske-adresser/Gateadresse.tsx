@@ -124,8 +124,6 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField, setError }) => {
-        console.log(fields);
-        console.log(errors);
         return (
           <>
             <InputMedHjelpetekst
