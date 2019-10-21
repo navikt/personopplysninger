@@ -42,10 +42,24 @@ const DayPicker = (props: Props) => {
     const input = dayPickerInput.getInput();
     const isEmpty = input.value && !input.value.trim();
     const isDisabled = modifiers.disabled === true;
-    if (nyValgtDag && !isDisabled) {
-      props.onChange(moment(nyValgtDag).format("YYYY-MM-DD"));
+
+    // Reset til kl 12 for sammenligning
+    const klTolvValgtDag = new Date(new Date(nyValgtDag).setHours(12, 0, 0, 0));
+    const klTolvIDag = new Date(new Date(dateNow).setHours(12, 0, 0, 0));
+    const klTolvEtArFrem = new Date(
+      new Date(klTolvValgtDag).setFullYear(
+        new Date(klTolvIDag).getFullYear() + 1
+      )
+    );
+
+    if (klTolvValgtDag && !isDisabled) {
+      if (klTolvValgtDag >= klTolvIDag && klTolvValgtDag <= klTolvEtArFrem) {
+        props.onChange(moment(klTolvValgtDag).format("YYYY-MM-DD"));
+      } else {
+        onErrors(ugyldigTekst);
+      }
     }
-    if (!nyValgtDag && !isEmpty) {
+    if (!klTolvValgtDag && !isEmpty) {
       onErrors(ugyldigTekst);
     }
   };
