@@ -17,10 +17,9 @@ interface Props {
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
 const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
   const { intl, tilleggsadresse } = props;
-  const [type, settType] = useState((tilleggsadresse &&
-  tilleggsadresse.postboksnummer
-    ? "POSTBOKSADRESSE"
-    : "GATEADRESSE") as Adresser);
+  const [type, settType] = useState(
+    (tilleggsadresse && tilleggsadresse.type) || ("GATEADRESSE" as Adresser)
+  );
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
     settType(e.target.value as Adresser);
