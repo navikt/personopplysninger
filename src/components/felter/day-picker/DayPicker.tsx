@@ -5,7 +5,6 @@ import { formatDate, parseDate } from "./utils";
 import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
-import { dateOneYearAhead } from "../../../utils/date";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
 
@@ -25,8 +24,12 @@ interface Props {
 const DayPicker = (props: Props) => {
   const { label, onErrors, submitted, error, ugyldigTekst } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
+
   const iMorgen = moment(new Date())
     .add(1, "days")
+    .toDate();
+  const etArFrem = moment(new Date())
+    .add(1, "year")
     .toDate();
 
   useEffect(() => {
@@ -94,13 +97,8 @@ const DayPicker = (props: Props) => {
           locale: props.locale,
           localeUtils: MomentLocaleUtils,
           fromMonth: iMorgen,
-          toMonth: dateOneYearAhead,
-          disabledDays: [
-            {
-              before: iMorgen,
-              after: dateOneYearAhead
-            }
-          ]
+          toMonth: etArFrem,
+          disabledDays: [{ before: iMorgen, after: etArFrem }]
         }}
       />
       {submitted && error && (
