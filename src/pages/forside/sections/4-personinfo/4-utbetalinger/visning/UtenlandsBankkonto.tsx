@@ -29,18 +29,17 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
           <Normaltekst>{utenlandskBankkonto.land}</Normaltekst>
         )}
       </li>
-      {utenlandskBankkonto.kontonummer && (
+      {utenlandskBankkonto.kontonummer ? (
         <ListElement
-          titleId="personalia.kontonrelleriban"
+          titleId="personalia.kontonr"
           content={utenlandskBankkonto.kontonummer}
         />
-      )}
-      {utenlandskBankkonto.iban && (
+      ) : utenlandskBankkonto.iban ? (
         <ListElement
-          titleId="personalia.kontonrelleriban"
+          titleId="personalia.iban"
           content={friendlyFormatIBAN(utenlandskBankkonto.iban)}
         />
-      )}
+      ) : null}
       <ListElement
         titleId="personalia.bankkode"
         content={utenlandskBankkonto.bankkode}
