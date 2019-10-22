@@ -1,4 +1,7 @@
 const Environment = () => {
+  var host = window.location.host;
+  var subdomain = host.split(".")[0];
+
   if (process.env.NODE_ENV === "development") {
     return {
       miljo: "LOCAL",
@@ -11,30 +14,22 @@ const Environment = () => {
       logoutUrl: "#"
     };
   }
-  if (window.location.hostname.indexOf("www-q1") > -1) {
+
+  if (subdomain !== "www") {
+    // Q0, Q1 etc
+    const env = subdomain.split("-")[1];
     return {
-      miljo: "Q1",
-      baseUrl: "https://www-q1.nav.no",
-      appUrl: "https://www-q1.nav.no/person/personopplysninger",
-      apiUrl: "https://www-q1.nav.no/person/personopplysninger-api",
-      dsopUrl: "https://www-q1.nav.no/person/dsop-api",
-      tjenesteUrl: "https://tjenester-q1.nav.no",
+      miljo: env.toUpperCase(),
+      baseUrl: `https://www-${env}.nav.no`,
+      appUrl: `https://www-${env}.nav.no/person/personopplysninger`,
+      apiUrl: `https://www-${env}.nav.no/person/personopplysninger-api`,
+      dsopUrl: `https://www-${env}.nav.no/person/dsop-api`,
+      tjenesteUrl: `https://tjenester-${env}.nav.no`,
       loginUrl: "https://loginservice-q.nav.no/login",
       logoutUrl: "https://loginservice-q.nav.no/slo"
     };
   }
-  if (window.location.hostname.indexOf("www-q0") > -1) {
-    return {
-      miljo: "Q0",
-      baseUrl: "https://www-q0.nav.no",
-      appUrl: "https://www-q0.nav.no/person/personopplysninger",
-      apiUrl: "https://www-q0.nav.no/person/personopplysninger-api",
-      dsopUrl: "https://www-q0.nav.no/person/dsop-api",
-      tjenesteUrl: "https://tjenester-q0.nav.no",
-      loginUrl: "https://loginservice-q.nav.no/login",
-      logoutUrl: "https://loginservice-q.nav.no/slo"
-    };
-  }
+
   return {
     miljo: "PROD",
     baseUrl: "https://www.nav.no",
