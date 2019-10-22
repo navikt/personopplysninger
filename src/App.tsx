@@ -14,7 +14,8 @@ import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import redirectsJson from "utils/redirects.json";
+import Test from "utils/Redirects";
+const redirects = Test();
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
     keepLastAnchorHash: true
   });
 
-  const gyldigeRedirects = Object.keys(redirectsJson)
+  const gyldigeRedirects = Object.keys(redirects)
     .map(key => key)
     .join("|");
 

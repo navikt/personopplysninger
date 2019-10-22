@@ -1,5 +1,5 @@
 import React from "react";
-import redirectsJson from "utils/redirects.json";
+import Test from "utils/Redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
 import { VenstreChevron } from "nav-frontend-chevron";
@@ -10,7 +10,7 @@ const redirects: {
     knapp: string;
     url: string;
   };
-} = redirectsJson;
+} = Test();
 
 interface Props {
   tjeneste: string;
