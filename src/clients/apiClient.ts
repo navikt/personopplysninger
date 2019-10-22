@@ -75,8 +75,8 @@ type Outbound =
   | OutboundUtenlandsbankonto;
 
 const postJson = (url: string, data: Outbound) => {
-  logEvent({ url });
   console.log(url, data);
+  logEvent({ url });
   return fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
