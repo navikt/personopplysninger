@@ -124,7 +124,7 @@ export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
 
 const putJson = (url: string) => {
   logEvent({ url });
-  fetch(url, {
+  return fetch(url, {
     method: "PUT",
     headers: { "Content-Type": "application/json;charset=UTF-8" }
   })
