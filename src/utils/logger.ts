@@ -33,6 +33,6 @@ export const logApiError = (url: string, err: AlertType) => {
 export const logEvent = (fields: object, tags?: object) => {
   const title = "personopplysninger.apiclient";
   if (frontendlogger) {
-    frontendlogger.event(title, fields, tags);
+    frontendlogger.event(title, fields, tags || {});
   }
 };
