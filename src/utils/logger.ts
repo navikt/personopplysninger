@@ -1,5 +1,4 @@
 import { AlertType } from "../components/alert/Alert";
-
 const { frontendlogger } = window as any;
 
 export const logApiError = (url: string, err: AlertType) => {
@@ -17,6 +16,7 @@ export const logApiError = (url: string, err: AlertType) => {
 
   const error = `Feil ved henting av data: ${url} - ${err.code} ${err.text}`;
   const title = "personopplysninger.apiclient.error";
+
   const tags = {};
   const fields = {
     status: err.code,
@@ -26,6 +26,13 @@ export const logApiError = (url: string, err: AlertType) => {
 
   if (frontendlogger) {
     frontendlogger.error(error);
+    frontendlogger.event(title, fields, tags);
+  }
+};
+
+export const logEvent = (fields: object, tags?: object) => {
+  const title = "personopplysninger.apiclient";
+  if (frontendlogger) {
     frontendlogger.event(title, fields, tags);
   }
 };

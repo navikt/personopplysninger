@@ -1,5 +1,5 @@
 import Environment from "../Environments";
-import { logApiError } from "../utils/logger";
+import { logApiError, logEvent } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
@@ -75,6 +75,7 @@ type Outbound =
   | OutboundUtenlandsbankonto;
 
 const postJson = (url: string, data: Outbound) => {
+  logEvent({ url });
   console.log(url, data);
   return fetch(url, {
     method: "POST",
@@ -121,7 +122,8 @@ export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
     PUT
  */
 
-const putJson = (url: string) =>
+const putJson = (url: string) => {
+  logEvent({ url });
   fetch(url, {
     method: "PUT",
     headers: { "Content-Type": "application/json;charset=UTF-8" }
@@ -138,6 +140,7 @@ const putJson = (url: string) =>
       logApiError(url, error);
       throw error;
     });
+};
 
 export const slettUtenlandsAdresse = () =>
   putJson(`${apiUrl}/opphoerUtenlandskKontaktadresse`);
