@@ -80,7 +80,8 @@ const postJson = (url: string, data: Outbound) => {
   return fetch(url, {
     method: "POST",
     body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json;charset=UTF-8" }
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include"
   })
     .then(sjekkHttpFeil)
     .then(parseJson)
@@ -126,7 +127,8 @@ const putJson = (url: string) => {
   logEvent({ url });
   return fetch(url, {
     method: "PUT",
-    headers: { "Content-Type": "application/json;charset=UTF-8" }
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include"
   })
     .then(sjekkHttpFeil)
     .then(parseJson)
