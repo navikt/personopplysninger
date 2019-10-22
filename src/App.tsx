@@ -14,8 +14,8 @@ import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import Test from "utils/Redirects";
-const redirects = Test();
+import Redirects from "utils/Redirects";
+const redirects = Redirects();
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
