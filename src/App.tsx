@@ -42,8 +42,6 @@ const App = () => {
     .map(key => redirects[key].allowed)
     .join("|");
 
-  console.log(tillatteUrler);
-
   return (
     <div className="pagecontent">
       <Router>
