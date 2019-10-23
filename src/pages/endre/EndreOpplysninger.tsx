@@ -11,14 +11,17 @@ import Spinner from "../../components/spinner/Spinner";
 
 interface Routes {
   tjeneste?: string;
+  redirectUrl?: string;
 }
 
 const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => {
-  const { tjeneste } = props.match.params;
+  const { tjeneste, redirectUrl } = props.match.params;
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
-        {tjeneste && <RedirectKnapp tjeneste={tjeneste} />}
+        {tjeneste && redirectUrl && (
+          <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
+        )}
         <MedPersonInfo loader={<Spinner />}>
           {({ personalia, adresser }) => {
             return (

@@ -14,8 +14,15 @@ import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
 import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import Redirects from "utils/Redirects";
-const redirects = Redirects();
+import redirectsRaw from "./utils/redirects";
+
+const redirects: {
+  [key: string]: {
+    beskrivelse: string;
+    knapp: string;
+    allowed: string;
+  };
+} = redirectsRaw;
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
@@ -27,9 +34,15 @@ const App = () => {
     keepLastAnchorHash: true
   });
 
-  const gyldigeRedirects = Object.keys(redirects)
+  const tillatteTjenester = Object.keys(redirects)
     .map(key => key)
     .join("|");
+
+  const tillatteUrler = Object.keys(redirects)
+    .map(key => redirects[key].allowed)
+    .join("|");
+
+  console.log(tillatteUrler);
 
   return (
     <div className="pagecontent">
@@ -44,7 +57,7 @@ const App = () => {
               />
               <Route
                 exact={true}
-                path={`${basePath}/sendt-fra/:tjeneste(${gyldigeRedirects})`}
+                path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
                 component={Forside}
               />
               <Route
@@ -74,7 +87,7 @@ const App = () => {
               {featureToggles.data["personopplysninger.pdl"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${gyldigeRedirects})`}
+                  path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
                   component={EndreOpplysninger}
                 />
               )}

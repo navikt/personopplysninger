@@ -11,9 +11,11 @@ import RedirectKnapp from "../../components/knapper/Redirect";
 
 interface Routes {
   tjeneste?: string;
+  redirectUrl?: string;
 }
 
 const Forside = ({ match }: RouteComponentProps<Routes>) => {
+  const { tjeneste, redirectUrl } = match.params;
   return (
     <>
       <Brodsmulesti />
@@ -23,8 +25,8 @@ const Forside = ({ match }: RouteComponentProps<Routes>) => {
       <Arbeidsforhold />
       <EksterneLenker />
       <MerInformasjon />
-      {match.params.tjeneste && (
-        <RedirectKnapp tjeneste={match.params.tjeneste} />
+      {tjeneste && redirectUrl && (
+        <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
       )}
     </>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Test from "utils/Redirects";
+import redirectsRaw from "utils/redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
 import { VenstreChevron } from "nav-frontend-chevron";
@@ -8,12 +8,13 @@ const redirects: {
   [key: string]: {
     beskrivelse: string;
     knapp: string;
-    url: string;
+    allowed: string;
   };
-} = Test();
+} = redirectsRaw;
 
 interface Props {
   tjeneste: string;
+  redirectUrl: string;
 }
 
 const RedirectKnapp = (props: Props) => {
@@ -33,7 +34,7 @@ const RedirectKnapp = (props: Props) => {
             <div className="redirect__chevron">
               <VenstreChevron />
             </div>
-            <a href={redirect.url}>{redirect.knapp}</a>
+            <a href={decodeURIComponent(props.redirectUrl)}>{redirect.knapp}</a>
           </div>
         </div>
       </div>
