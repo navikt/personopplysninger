@@ -1,4 +1,9 @@
 export default {
+  "publisering/dinpensjon": {
+    allowed: `https%3A%2F%2Ftjenester?.?.?..nav.no%2Fpselv%2Fpublisering%2Fdinpensjon.jsf.*`,
+    beskrivelse: `Du har blitt sendt fra din pensjon. Her kan du legg til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    knapp: "Gå tilbake til din pensjon"
+  },
   "skjema/alderspensjon": {
     allowed: `https%3A%2F%2Ftjenester?.?.?..nav.no%2Fpselv%2Fskjema%2Fdinpensjon.jsf.*`,
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legg til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
