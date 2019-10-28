@@ -6,9 +6,11 @@ const { JSDOM } = jsdom;
 
 const requestDecorator = callback =>
   request(
-    process.env.NAIS_CLUSTER_NAME === "dev-sbs"
-      ? "https://www-q0.nav.no/person/nav-dekoratoren/"
-      : "https://www.nav.no/person/nav-dekoratoren/",
+    `${
+      process.env.NAIS_CLUSTER_NAME === "dev-sbs"
+        ? "https://www-q0.nav.no/person/nav-dekoratoren/"
+        : "https://appres.nav.no"
+    }/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true`,
     callback
   );
 
