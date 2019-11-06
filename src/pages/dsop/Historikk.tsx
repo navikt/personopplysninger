@@ -45,6 +45,11 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
     <div className="historikk__tabs-innhold historikk__flex-table">
       {Object.keys(data).length > 0 ? (
         <>
+          <div className={"historikk__info"}>
+            <AlertStripeInfo>
+              <FormattedMessage id={"eksternelenker.dsop.info"} />
+            </AlertStripeInfo>
+          </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
               <Element>
