@@ -153,7 +153,7 @@ export default {
   "eksternelenker.dsop.tittel": `Utlevering av personopplysninger`,
   "eksternelenker.dsop.beskrivelse": `Oversikt over personopplysninger som du har samtykket til at NAV kan utlevere til forsikringsselskap`,
   "eksternelenker.dsop.lenkeTekst": `Gå til utlevering av persondata`,
-  "eksternelenker.dsop.info": `Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Se samtykket i Altinn.`,
+  "eksternelenker.dsop.info": `Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. <a href="https://altinn.no">Se samtykket i Altinn.</a>`,
   "felter.type.label": "Type",
   "felter.type.velg": "Velg type",
   "felter.landkode.label": "Landkode",
