@@ -15,9 +15,7 @@ export default {
     Lenken tilbake settes ut ifra [REDIRECT_URL] (må være URL encoded).
 
     --
-
     Tillatte tjenester med redirect tilbake:
-
    */
   "publisering/dinpensjon": {
     allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fpublisering%2Fdinpensjon.jsf.*`,
