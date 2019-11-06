@@ -16,7 +16,7 @@ const Environment = () => {
   }
 
   if (subdomain !== "www") {
-    // Q0, Q1 etc
+    // Preprod - Q0, Q1 etc
     const env = subdomain.split("-")[1];
     return {
       miljo: env.toUpperCase(),
