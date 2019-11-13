@@ -116,7 +116,8 @@ export default {
   "dsop.tema": "Tema",
   "dsop.behanglingsGrunnlag": "Behandlingsgrunnlag",
   "dsop.lastned": "Last ned leverte data",
-  "dsop.ingendata": "Ingen personopplysninger har blitt utlevert",
+  "dsop.ingendata":
+    "Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Ingen personopplysninger har blitt utlevert.",
   "dittnavkontor.tittel": `Ditt NAV&#8209;kontor`,
   "dittnavkontor.beskrivelse": `Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Ditt kontor er `,
