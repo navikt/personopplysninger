@@ -21,7 +21,7 @@ jobs:
       - name: Define environment variables
         run: |
           echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com
-          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_REF:10})
+          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_SHA})
           echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY})
       - name: Build docker image
         run: |
