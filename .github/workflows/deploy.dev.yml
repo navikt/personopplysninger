@@ -1,8 +1,7 @@
 name: Deploy to dev-sbs
 on:
   push:
-    branches:
-      - *
+    branches
     tags:
       - v*-dev
 jobs:
