@@ -12,22 +12,22 @@ jobs:
         uses: actions/checkout@v1
       - name: Define environment variables
         run: |
-          echo ::set-env name=REGISTRY::docker.pkg.github.com
-          echo ::set-env name=VERSION::$(echo ${GITHUB_REF:10})
-          echo ::set-env name=IMAGE::$(echo ${GITHUB_REPOSITORY})
+          echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com
+          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_REF:10})
+          echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY})
       - name: Build docker image
         run: |
-          echo ${GITHUB_ACCESS_TOKEN} | docker login ${REGISTRY} -u "x-access-token" --password-stdin
-          docker build -t $IMAGE:$VERSION .
+          echo ${GITHUB_ACCESS_TOKEN} | docker login ${IMAGE_REGISTRY} -u "x-access-token" --password-stdin
+          docker build -t $IMAGE_NAME:$IMAGE_VERSION .
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
       - name: Push docker image
         run: |
-          docker push $REGISTRY/$IMAGE:$VERSION
+          docker push $REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
       - name: Define variables for navikt/deployment-cli
         run: |
-          echo $IMAGE > .docker_image
-          echo $VERSION > .docker_tag
+          echo $IMAGE_NAME > .docker_image
+          echo $IMAGE_VERSION > .docker_tag
       - name: Deploy
         uses: navikt/deployment-cli/action@0.4.1
         env:
