@@ -1,0 +1,35 @@
+name: Deploy to prod-sbs
+on:
+  push:
+    tags:
+      - v*-prod
+jobs:
+  deploy:
+    name: Deploy til prod-sbs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Define environment variables
+        run: |
+          echo ::set-env name=VERSION::$(echo ${GITHUB_REF:10})
+          echo ::set-env name=IMAGE::$(echo ${GITHUB_REPOSITORY})
+      - name: Build docker image
+        run: |
+          echo ${{ secrets.DOCKER_PASS }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
+          docker build -t $IMAGE:$VERSION .
+      - name: Push docker image
+        run: |
+          docker push $IMAGE:$VERSION
+      - name: Define variables for navikt/deployment-cli
+        run: |
+          echo $IMAGE > .docker_image
+          echo $VERSION > .docker_tag
+      - name: Deploy
+        uses: navikt/deployment-cli/action@0.4.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          cluster: prod-sbs
+          team: personbruker
+          resources: .nais/config.prod.yaml
