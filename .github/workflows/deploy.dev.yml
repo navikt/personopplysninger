@@ -13,6 +13,7 @@ jobs:
 
   deploy:
     name: Deploy til dev-sbs
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
