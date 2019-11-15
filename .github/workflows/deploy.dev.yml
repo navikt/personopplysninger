@@ -1,9 +1,5 @@
 name: Deploy to dev-sbs
-on:
-  push:
-    branches
-    tags:
-      - v*-dev
+on: [push]
 jobs:
   build:
     name: Build react app
