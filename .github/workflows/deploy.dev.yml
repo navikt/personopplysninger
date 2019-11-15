@@ -16,7 +16,7 @@ jobs:
           echo ::set-env name=IMAGE::$(echo ${GITHUB_REPOSITORY})
       - name: Build docker image
         run: |
-          echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u ${GITHUB_REPOSITORY} --password-stdin
+          echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u "x-access-token" --password-stdin
           docker build -t $IMAGE:$VERSION .
       - name: Push docker image
         run: |
