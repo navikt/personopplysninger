@@ -23,7 +23,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Push docker image
         run: |
-          docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+          docker push $IMAGE_NAME:$IMAGE_VERSION
       - name: Define variables for navikt/deployment-cli
         run: |
           echo $IMAGE_NAME > .docker_image
