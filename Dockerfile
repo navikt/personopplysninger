@@ -2,12 +2,11 @@ FROM node:11-alpine
 # RUN apk add --no-cache bash
 ENV NODE_ENV production
 
-RUN npm install
-RUN npm build
+COPY . usr/src/app
 
 WORKDIR usr/src/app
-COPY server server/
-COPY build build/
+RUN npm install
+RUN npm build
 
 WORKDIR server
 RUN npm install
