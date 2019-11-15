@@ -6,7 +6,7 @@ COPY . usr/src/app
 
 WORKDIR usr/src/app
 RUN npm ci
-RUN npm build
+RUN npm run build
 
 WORKDIR server
 RUN npm ci
