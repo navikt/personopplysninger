@@ -1,9 +1,21 @@
 name: Deploy to dev-sbs
 on:
   push:
+    branches:
+      - *
     tags:
       - v*-dev
 jobs:
+  build:
+    name: Build react app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+      - run: npm install
+      - run: npm run build --if-present
+      - run: npm test --if-present
+
   deploy:
     name: Deploy til dev-sbs
     runs-on: ubuntu-latest
