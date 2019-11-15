@@ -12,15 +12,18 @@ jobs:
         uses: actions/checkout@v1
       - name: Define environment variables
         run: |
+          echo ::set-env name=REGISTRY::docker.pkg.github.com
           echo ::set-env name=VERSION::$(echo ${GITHUB_REF:10})
           echo ::set-env name=IMAGE::$(echo ${GITHUB_REPOSITORY})
       - name: Build docker image
         run: |
-          echo ${GITHUB_TOKEN} | docker login docker.pkg.github.com -u "x-access-token" --password-stdin
+          echo ${GITHUB_ACCESS_TOKEN} | docker login ${REGISTRY} -u "x-access-token" --password-stdin
           docker build -t $IMAGE:$VERSION .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_ACCESS_TOKEN }}
       - name: Push docker image
         run: |
-          docker push $IMAGE:$VERSION
+          docker push $REGISTRY/$IMAGE:$VERSION
       - name: Define variables for navikt/deployment-cli
         run: |
           echo $IMAGE > .docker_image
