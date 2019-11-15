@@ -3,6 +3,9 @@ FROM node:11-alpine
 ENV NODE_ENV production
 
 WORKDIR usr/src/app
+RUN npm install
+RUN npm build
+
 COPY server server/
 COPY build build/
 
