@@ -8,6 +8,8 @@ import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
 import { FetchDsopInfo } from "../pages/dsop/DSOP";
 import { DsopInfo } from "../types/dsop";
 import { FetchPersonInfo } from "./personinfo/PersinInfo";
+import { InstInfo } from "../types/inst";
+import { FetchInstInfo } from "../pages/institusjonsopphold/INST";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -23,6 +25,7 @@ export const initialState = {
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
+  instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
 };
@@ -32,6 +35,7 @@ export interface Store {
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
+  instInfo: FetchInstInfo;
   kontaktInfo: FetchKontaktInfo;
 }
 
@@ -70,6 +74,14 @@ export type Action =
     }
   | {
       type: "SETT_DSOP_INFO_ERROR";
+      payload: HTTPError;
+    }
+  | {
+      type: "SETT_INST_INFO_RESULT";
+      payload: InstInfo;
+    }
+  | {
+      type: "SETT_INST_INFO_ERROR";
       payload: HTTPError;
     };
 
@@ -146,6 +158,22 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload
         } as FetchDsopInfo
+      };
+    case "SETT_INST_INFO_RESULT":
+      return {
+        ...state,
+        instInfo: {
+          status: "RESULT",
+          data: action.payload
+        } as FetchInstInfo
+      };
+    case "SETT_INST_INFO_ERROR":
+      return {
+        ...state,
+        instInfo: {
+          status: "ERROR",
+          error: action.payload
+        } as FetchInstInfo
       };
     default:
       return state;

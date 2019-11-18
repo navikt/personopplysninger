@@ -15,6 +15,7 @@ import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
 import redirectsRaw from "./utils/redirects";
+import { InstHistorik } from "./pages/institusjonsopphold/Wrapper";
 
 const redirects: {
   [key: string]: {
@@ -80,6 +81,13 @@ const App = () => {
                   exact={true}
                   path={`${basePath}/dsop/:id`}
                   component={DsopDetaljer}
+                />
+              )}
+              {featureToggles.data["personopplysninger.inst"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/institusjonsopphold`}
+                  component={InstHistorik}
                 />
               )}
               {featureToggles.data["personopplysninger.pdl"] && (

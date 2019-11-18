@@ -9,6 +9,7 @@ import valutaer from "./app/fetch/valutaer.json";
 import postnummer from "./app/fetch/postnummer.json";
 import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
+import instInfo from "./app/fetch/inst-info.json";
 import Environment from "../../Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
@@ -25,6 +26,7 @@ const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
 const mockFetchValutaer = true;
 const mockFetchPostnummer = true;
+const mockFetchInst = true;
 
 const mockPostGateadresse = true;
 const mockPostSlettTlfnr = true;
@@ -71,7 +73,10 @@ export const setUpMock = async () => {
     fetchMock.get(`${apiUrl}/land`, () =>
       delay(1000, 2000).then(() => landInfo)
     );
-
+  mockFetchInst &&
+    fetchMock.get(`${apiUrl}/hentInstitusjonsopphold`, () =>
+      delay(1000, 2000).then(() => instInfo)
+    );
   /*
     POST
    */
