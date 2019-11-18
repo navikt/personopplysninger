@@ -32,11 +32,12 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
     (() => {
       const onClick = () => {
         const leverteData = JSON.parse(atob(dsopInnslag.leverteData));
-        const fileContent = new Blob([leverteData], {
+        const fileContent = JSON.stringify(leverteData, null, 2);
+        const fileBlob = new Blob([fileContent], {
           type: "application/json"
         });
         const fileName = "utleverte-data.json";
-        FileSaver.saveAs(fileContent, fileName);
+        FileSaver.saveAs(fileBlob, fileName);
       };
       return (
         <div>
