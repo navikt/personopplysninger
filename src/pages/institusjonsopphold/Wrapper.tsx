@@ -13,3 +13,14 @@ export const InstHistorik = () => (
     <WithINST />
   </PageContainer>
 );
+
+export const InstDetaljer = () => (
+  <PageContainer
+    tittelId={"dsop.tittel"}
+    icon={DSOPIkon}
+    backTo={"/"}
+    brodsmulesti={[{ title: "dsop.tittel" }]}
+  >
+    <WithINST />
+  </PageContainer>
+);

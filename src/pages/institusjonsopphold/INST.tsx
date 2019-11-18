@@ -6,6 +6,7 @@ import Spinner from "components/spinner/Spinner";
 import { RouteComponentProps, withRouter } from "react-router";
 import { InstInfo } from "types/inst";
 import InstHistorikk from "./Historikk";
+import InstDetaljer from "./Detaljer";
 
 export type FetchInstInfo =
   | { status: "LOADING" }
@@ -18,7 +19,7 @@ interface Routes {
 
 const WithINST = (props: RouteComponentProps<Routes>) => {
   const [{ instInfo }, dispatch] = useStore();
-  // const { id } = props.match.params;
+  const { id } = props.match.params;
 
   useEffect(() => {
     if (instInfo.status === "LOADING") {
@@ -36,12 +37,15 @@ const WithINST = (props: RouteComponentProps<Routes>) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(instInfo);
   switch (instInfo.status) {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return <InstHistorikk instInfo={instInfo.data} />;
+      return id ? (
+        <InstDetaljer instInfo={instInfo.data} />
+      ) : (
+        <InstHistorikk instInfo={instInfo.data} />
+      );
     case "ERROR":
       return <Error error={instInfo.error} />;
   }

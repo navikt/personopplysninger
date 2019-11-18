@@ -93,9 +93,15 @@ const InstHistorikk = (props: Props & RouteComponentProps) => {
                     value.instInnslag.map((instInnslag, i) => (
                       <div className="historikk__flex-rad" key={i}>
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM - hh:mm">
-                            {instInnslag.registreringstidspunkt}
+                          <Moment format="DD.MM">
+                            {instInnslag.startdato}
                           </Moment>
+                          {` - `}
+                          {instInnslag.faktiskSluttdato && (
+                            <Moment format="DD.MM">
+                              {instInnslag.faktiskSluttdato}
+                            </Moment>
+                          )}
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
