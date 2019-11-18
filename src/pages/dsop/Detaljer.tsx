@@ -4,7 +4,7 @@ import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
-import fileDownload from "js-file-download";
+import FileSaver from "file-saver";
 import moment from "moment";
 import { Hovedknapp } from "nav-frontend-knapper";
 
@@ -30,10 +30,13 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
 
   return dsopInnslag ? (
     (() => {
-      const onClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+      const onClick = () => {
         const leverteData = JSON.parse(atob(dsopInnslag.leverteData));
+        const fileContent = new Blob([leverteData], {
+          type: "application/json"
+        });
         const fileName = "utleverte-data.json";
-        fileDownload(JSON.stringify(leverteData, null, 2), fileName);
+        FileSaver.saveAs(fileContent, fileName);
       };
       return (
         <div>
