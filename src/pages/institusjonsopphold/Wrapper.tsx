@@ -1,14 +1,14 @@
 import React from "react";
-import PageContainer from "../../components/pagecontainer/PageContainer";
-import DSOPIkon from "../../assets/img/DSOP.svg";
+import PageContainer from "components/pagecontainer/PageContainer";
+import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithINST from "./INST";
 
 export const InstHistorik = () => (
   <PageContainer
-    tittelId={"dsop.tittel"}
-    icon={DSOPIkon}
+    tittelId={"inst.tittel"}
+    icon={INSTIkon}
     backTo={"/"}
-    brodsmulesti={[{ title: "dsop.tittel" }]}
+    brodsmulesti={[{ title: "inst.tittel" }]}
   >
     <WithINST />
   </PageContainer>
@@ -16,10 +16,10 @@ export const InstHistorik = () => (
 
 export const InstDetaljer = () => (
   <PageContainer
-    tittelId={"dsop.tittel"}
-    icon={DSOPIkon}
+    tittelId={"inst.tittel"}
+    icon={INSTIkon}
     backTo={"/"}
-    brodsmulesti={[{ title: "dsop.tittel" }]}
+    brodsmulesti={[{ title: "inst.tittel" }]}
   >
     <WithINST />
   </PageContainer>

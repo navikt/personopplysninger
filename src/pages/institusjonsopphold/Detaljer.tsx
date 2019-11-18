@@ -42,7 +42,7 @@ const InstDetaljer = (props: Props & RouteComponentProps<Routes>) => {
         <div className="box__content">
           <ul className="list-column-2">
             <ListElement
-              titleId={"instInnslag.periode"}
+              titleId={"inst.periode"}
               content={`${moment(instInnslag.startdato).format(
                 "DD.MM.YYYY"
               )} - ${
@@ -52,26 +52,18 @@ const InstDetaljer = (props: Props & RouteComponentProps<Routes>) => {
               }`}
             />
             <ListElement
-              titleId={"instInnslag.registreringstidspunkt"}
+              titleId={"inst.registreringstidspunkt"}
               content={moment(instInnslag.registreringstidspunkt).format(
                 "DD.MM.YYYY hh:mm"
               )}
             />
             <ListElement
-              titleId={"instInnslag.institusjonsnavn"}
+              titleId={"inst.institusjonsnavn"}
               content={instInnslag.institusjonsnavn}
             />
             <ListElement
-              titleId={"instInnslag.institusjonstype"}
+              titleId={"inst.institusjonstype"}
               content={instInnslag.institusjonstype}
-            />
-            <ListElement
-              titleId={"instInnslag.startdato"}
-              content={instInnslag.startdato}
-            />
-            <ListElement
-              titleId={"instInnslag.faktiskSluttdato"}
-              content={instInnslag.faktiskSluttdato}
             />
           </ul>
         </div>

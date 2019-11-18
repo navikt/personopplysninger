@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="80px" viewBox="0 0 80 80" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>Group 5</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="80" height="80"></rect>
+        <circle id="path-3" cx="40" cy="40" r="40"></circle>
+    </defs>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="GDPR-flere-Institusjonsopphold" transform="translate(-600.000000, -212.000000)">
+            <g id="Group-5" transform="translate(600.000000, 212.000000)">
+                <g id="Group-5-Copy-2">
+                    <g id="spotlight/-gjenstand-">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="Background"></g>
+                        <g id="spotlight/-element" mask="url(#mask-2)" fill-rule="evenodd" stroke-width="1">
+                            <g id="🌈-60">
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="Mask"></g>
+                                <g id="NAV-Brand/farge/-Dyp-blå/-60" mask="url(#mask-4)" fill="#99C2E8">
+                                    <polygon id="Fill-22" points="0 80 80 80 80 0 0 0"></polygon>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+                <g id="Color/26-places/building-2" transform="translate(18.000000, 18.000000)">
+                    <g id="Group-19" transform="translate(5.400000, 0.000000)">
+                        <path d="M0,3.6 L3.44950035,0.264600001 C3.58941536,0.129240001 3.76862565,0.0411120002 3.96141067,0.0112752 L4.1081428,0 L28.2955782,0 C28.4935432,0 28.6843634,0.0610560003 28.8413659,0.172108801 L28.9523602,0.264600001 L32.4,3.6 L0,3.6 Z" id="Path" fill="#669DB4"></path>
+                        <path d="M32.4,3.6 L32.4,42.3 C32.4,42.7416002 32.0814223,43.1092445 31.6617087,43.1854914 L31.5,43.2 L19.8,43.2 L19.8,35.1 C19.8,34.6584001 19.4814223,34.2907556 19.0617087,34.2145086 L18.9,34.2 L13.5,34.2 C13.0584,34.2 12.6907556,34.5185779 12.6145086,34.9382914 L12.6,35.1 L12.6,43.2 L0.9,43.2 C0.458400001,43.2 0.0907555559,42.8814224 0.014508642,42.4617087 L0,42.3 L0,3.6 L32.4,3.6 Z M9.00000001,25.2000001 L3.60000001,25.2000001 L3.60000001,30.6000001 L9.00000001,30.6000001 L9.00000001,25.2000001 Z M19.8000001,25.2000001 L12.6000001,25.2000001 L12.6000001,30.6000001 L19.8000001,30.6000001 L19.8000001,25.2000001 Z M28.8000001,25.2000001 L23.4000001,25.2000001 L23.4000001,30.6000001 L28.8000001,30.6000001 L28.8000001,25.2000001 Z M9.00000001,16.2000001 L3.60000001,16.2000001 L3.60000001,21.6000001 L9.00000001,21.6000001 L9.00000001,16.2000001 Z M19.8000001,16.2000001 L12.6000001,16.2000001 L12.6000001,21.6000001 L19.8000001,21.6000001 L19.8000001,16.2000001 Z M28.8000001,16.2000001 L23.4000001,16.2000001 L23.4000001,21.6000001 L28.8000001,21.6000001 L28.8000001,16.2000001 Z M9.00000001,7.20000002 L3.60000001,7.20000002 L3.60000001,12.6 L9.00000001,12.6 L9.00000001,7.20000002 Z M19.8000001,7.20000002 L12.6000001,7.20000002 L12.6000001,12.6 L19.8000001,12.6 L19.8000001,7.20000002 Z M28.8000001,7.20000002 L23.4000001,7.20000002 L23.4000001,12.6 L28.8000001,12.6 L28.8000001,7.20000002 Z" id="Shape" fill="#0C5472"></path>
+                        <rect id="Rectangle" fill="#FFD399" x="3.6" y="7.2" width="5.4" height="5.4"></rect>
+                        <rect id="Rectangle-Copy" fill="#FFD399" x="23.4" y="7.2" width="5.4" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-2" fill="#FFD399" x="23.4" y="16.2" width="5.4" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-5" fill="#FFD399" x="3.6" y="16.2" width="5.4" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-7" fill="#FFD399" x="12.6" y="16.2" width="7.2" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-8" fill="#FFD399" x="12.6" y="25.2" width="7.2" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-9" fill="#FFD399" x="12.6" y="7.2" width="7.2" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-4" fill="#FFD399" x="23.4" y="25.2" width="5.4" height="5.4"></rect>
+                        <rect id="Rectangle-Copy-6" fill="#FFD399" x="3.6" y="25.2" width="5.4" height="5.4"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

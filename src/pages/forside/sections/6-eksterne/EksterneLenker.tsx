@@ -4,6 +4,7 @@ import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "../../../../assets/img/DSOP.svg";
+import INSTIkon from "../../../../assets/img/Institusjonsopphold.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "../../../../providers/Provider";
 
@@ -34,6 +35,17 @@ const LinksContainer = () => {
             component={"a"}
           />
         ))}
+        {featureToggles.data["personopplysninger.inst"] && (
+          <LinkBox
+            id={"inst"}
+            icon={INSTIkon}
+            tittel={"eksternelenker.inst.tittel"}
+            beskrivelse={"eksternelenker.inst.beskrivelse"}
+            lenkeTekst={"eksternelenker.inst.lenkeTekst"}
+            to={"/person/personopplysninger/institusjonsopphold"}
+            component={"Link"}
+          />
+        )}
         {featureToggles.data["personopplysninger.dsop"] && (
           <LinkBox
             id={"dsop"}

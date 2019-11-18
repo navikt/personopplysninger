@@ -55,7 +55,7 @@ const InstHistorikk = (props: Props & RouteComponentProps) => {
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
               <Element>
-                <FormattedMessage id="dsop.uthentingstidspunkt" />
+                <FormattedMessage id="inst.periode" />
               </Element>
             </div>
             <div className="historikk__flex-kolonne">
