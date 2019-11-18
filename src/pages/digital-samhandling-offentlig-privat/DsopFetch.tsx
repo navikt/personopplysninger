@@ -4,9 +4,9 @@ import Error, { HTTPError } from "../../components/error/Error";
 import { useStore } from "../../providers/Provider";
 import { DsopInfo } from "../../types/dsop";
 import Spinner from "../../components/spinner/Spinner";
-import DsopHistorikk from "./Historikk";
+import DsopHistorikk from "./DsopHistorikk";
 import { RouteComponentProps, withRouter } from "react-router";
-import DsopDetaljer from "./Detaljer";
+import DsopDetaljer from "./DsopDetaljer";
 
 export type FetchDsopInfo =
   | { status: "LOADING" }

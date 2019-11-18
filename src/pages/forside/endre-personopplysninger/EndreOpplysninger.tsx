@@ -1,13 +1,13 @@
 import React from "react";
 import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser-PDL";
-import Utbetalinger from "../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
+import Utbetalinger from "../sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import Box from "components/box/Box";
 import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
 import { withRouter, RouteComponentProps } from "react-router";
-import PDLTelefonnummerHosNav from "../forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
-import MedPersonInfo from "../../providers/personinfo/PersinInfo";
-import Spinner from "../../components/spinner/Spinner";
+import PDLTelefonnummerHosNav from "../sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
+import MedPersonInfo from "providers/personinfo/PersinInfo";
+import Spinner from "components/spinner/Spinner";
 
 interface Routes {
   tjeneste?: string;

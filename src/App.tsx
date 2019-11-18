@@ -10,15 +10,14 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./providers/auth/Auth";
 import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
-import EndreOpplysninger from "./pages/endre/EndreOpplysninger";
-import { DsopDetaljer, DsopHistorik } from "./pages/dsop/Wrapper";
+import EndreOpplysninger from "./pages/forside/endre-personopplysninger/EndreOpplysninger";
+import { DsopHistorik } from "./pages/digital-samhandling-offentlig-privat/DsopWrapper";
+import { DsopDetaljer } from "./pages/digital-samhandling-offentlig-privat/DsopWrapper";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
 import redirectsRaw from "./utils/redirects";
-import {
-  InstDetaljer,
-  InstHistorik
-} from "./pages/institusjonsopphold/Wrapper";
+import { InstHistorik } from "./pages/institusjonsopphold/InstWrapper";
+import { InstDetaljer } from "./pages/institusjonsopphold/InstWrapper";
 
 const redirects: {
   [key: string]: {

@@ -5,8 +5,8 @@ import { useStore } from "providers/Provider";
 import Spinner from "components/spinner/Spinner";
 import { RouteComponentProps, withRouter } from "react-router";
 import { InstInfo } from "types/inst";
-import InstHistorikk from "./Historikk";
-import InstDetaljer from "./Detaljer";
+import InstHistorikk from "./InstHistorikk";
+import InstDetaljer from "./InstDetaljer";
 
 export type FetchInstInfo =
   | { status: "LOADING" }

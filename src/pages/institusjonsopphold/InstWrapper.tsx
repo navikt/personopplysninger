@@ -1,7 +1,7 @@
 import React from "react";
 import PageContainer from "components/pagecontainer/PageContainer";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
-import WithINST from "./INST";
+import WithINST from "./InstFetch";
 
 export const InstHistorik = () => (
   <PageContainer
