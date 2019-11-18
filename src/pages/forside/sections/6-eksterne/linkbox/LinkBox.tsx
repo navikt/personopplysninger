@@ -30,9 +30,11 @@ const Box = (props: Props & InjectedIntlProps) => {
               </Element>
             </div>
           </div>
-          <Normaltekst>
-            <FormattedMessage id={props.beskrivelse} />
-          </Normaltekst>
+          <div className="linkbox__beskrivelse">
+            <Normaltekst>
+              <FormattedMessage id={props.beskrivelse} />
+            </Normaltekst>
+          </div>
         </div>
       </div>
       <HoyreChevron />
