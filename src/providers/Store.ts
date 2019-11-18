@@ -21,7 +21,8 @@ export const initialState = {
     status: "LOADING",
     data: {
       "personopplysninger.dsop": false,
-      "personopplysninger.pdl": false
+      "personopplysninger.pdl": false,
+      "personopplysninger.inst": false
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
