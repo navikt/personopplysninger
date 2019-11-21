@@ -10,6 +10,7 @@ import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
+import allowedLoginUrls from "utils/loginurls";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
@@ -162,11 +163,9 @@ const sjekkAuth = (response: Response): any => {
 };
 
 export const sendTilLogin = () => {
-  const { pathname } = window.location;
-  if (pathname.includes("arbeidsforhold")) {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}/arbeidsforhold`);
-  } else {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
+  const { href } = window.location;
+  if (allowedLoginUrls.includes(href)) {
+    window.location.assign(`${loginUrl}?redirect=${href}`);
   }
 };
 
