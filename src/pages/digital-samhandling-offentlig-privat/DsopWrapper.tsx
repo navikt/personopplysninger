@@ -1,7 +1,7 @@
 import React from "react";
 import PageContainer from "../../components/pagecontainer/PageContainer";
 import DSOPIkon from "../../assets/img/DSOP.svg";
-import WithDSOP from "./DSOP";
+import WithDSOP from "./DsopFetch";
 
 export const DsopHistorik = () => (
   <PageContainer
