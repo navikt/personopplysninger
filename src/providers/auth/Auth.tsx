@@ -1,13 +1,9 @@
 import React, { useEffect } from "react";
-import Error, { HTTPError } from "../../components/error/Error";
+import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "../Provider";
-import {
-  fetchAuth,
-  fetchAuthInfo,
-  sendTilLogin
-} from "../../clients/apiClient";
-import { AuthInfo } from "../../types/authInfo";
-import Spinner from "../../components/spinner/Spinner";
+import { fetchAuth, fetchAuthInfo, sendTilLogin } from "clients/apiClient";
+import { AuthInfo } from "types/authInfo";
+import Spinner from "components/spinner/Spinner";
 
 export type FetchAuthInfo =
   | { status: "LOADING" }
@@ -21,15 +17,16 @@ interface Props {
 const Auth = (props: Props) => {
   const [{ auth }, dispatch] = useStore();
 
+  const checkAuthInfo = (authInfo: AuthInfo) =>
+    authInfo.authenticated && authInfo.securityLevel === "4"
+      ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
+      : sendTilLogin();
+
   useEffect(() => {
     if (auth.status === "LOADING") {
       fetchAuth()
         .then(fetchAuthInfo)
-        .then((authInfo: AuthInfo) =>
-          authInfo.authenticated && authInfo.securityLevel === "4"
-            ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
-            : sendTilLogin()
-        )
+        .then(checkAuthInfo)
         .catch((error: HTTPError) =>
           dispatch({ type: "SETT_AUTH_ERROR", payload: error })
         );
