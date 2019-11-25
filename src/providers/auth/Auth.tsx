@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "../Provider";
-import { fetchAuth, fetchAuthInfo, sendTilLogin } from "clients/apiClient";
-import { AuthInfo } from "types/authInfo";
+import { fetchAuthOidc, fetchAuthInfo, sendTilLogin } from "clients/apiClient";
+import { AuthInfo, AuthOidc } from "types/authInfo";
 import Spinner from "components/spinner/Spinner";
 
 export type FetchAuthInfo =
@@ -17,6 +17,12 @@ interface Props {
 const Auth = (props: Props) => {
   const [{ auth }, dispatch] = useStore();
 
+  const checkAuthOidc = (oidc: AuthOidc) => {
+    if (!oidc.authenticated) {
+      sendTilLogin();
+    }
+  };
+
   const checkAuthInfo = (authInfo: AuthInfo) =>
     authInfo.authenticated && authInfo.securityLevel === "4"
       ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
@@ -24,7 +30,8 @@ const Auth = (props: Props) => {
 
   useEffect(() => {
     if (auth.status === "LOADING") {
-      fetchAuth()
+      fetchAuthOidc()
+        .then(checkAuthOidc)
         .then(fetchAuthInfo)
         .then(checkAuthInfo)
         .catch((error: HTTPError) =>

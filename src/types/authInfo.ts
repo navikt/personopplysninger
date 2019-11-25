@@ -7,3 +7,7 @@ export type AuthInfo =
       name: string;
       securityLevel: string;
     };
+
+export interface AuthOidc {
+  authenticated: true | false;
+}
