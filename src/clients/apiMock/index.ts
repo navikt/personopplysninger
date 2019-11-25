@@ -3,6 +3,7 @@ import personInformasjon from "./app/fetch/person-info.json";
 import kontaktInformasjon from "./app/fetch/kontakt-info.json";
 import featureToggles from "./app/fetch/feature-toggles.json";
 import authInfo from "./app/fetch/auth-info.json";
+import authOidc from "./app/fetch/auth-oidc.json";
 import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";
@@ -20,6 +21,7 @@ fetchMock.config.fallbackToNetwork = true;
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;
 const mockFetchFeatureToggles = true;
+const mockFetchAuthOidc = true;
 const mockFetchAuthInfo = true;
 const mockFetchDsopInfo = true;
 const mockFetchRetningsnumre = true;
@@ -77,6 +79,8 @@ export const setUpMock = async () => {
     fetchMock.get(`${apiUrl}/hentInstitusjonsopphold`, () =>
       delay(1000, 2000).then(() => instInfo)
     );
+  mockFetchAuthOidc &&
+    fetchMock.get(`${apiUrl}/auth`, () => delay(50, 100).then(() => authOidc));
   /*
     POST
    */
