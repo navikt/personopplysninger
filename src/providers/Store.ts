@@ -2,7 +2,7 @@ import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { NameInfo } from "../types/authInfo";
+import { NameInfo } from "../types/nameInfo";
 import { FetchNameInfo } from "./auth/Auth";
 import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
@@ -16,7 +16,7 @@ export interface FeatureToggles {
 }
 
 export const initialState = {
-  auth: { status: "LOADING" } as FetchNameInfo,
+  nameInfo: { status: "LOADING" } as FetchNameInfo,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -32,7 +32,7 @@ export const initialState = {
 };
 
 export interface Store {
-  auth: FetchNameInfo;
+  nameInfo: FetchNameInfo;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -87,7 +87,7 @@ export const reducer = (state: Store, action: Action) => {
     case "SETT_NAME_RESULT":
       return {
         ...state,
-        auth: {
+        nameInfo: {
           status: "RESULT",
           data: action.payload
         } as FetchNameInfo

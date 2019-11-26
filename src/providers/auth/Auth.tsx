@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "../Provider";
 import { fetchName, sendTilLogin } from "clients/apiClient";
-import { NameInfo } from "types/authInfo";
+import { NameInfo } from "types/nameInfo";
 import Spinner from "components/spinner/Spinner";
 
 export type FetchNameInfo =
@@ -15,10 +15,10 @@ interface Props {
 }
 
 const Auth = (props: Props) => {
-  const [{ auth }, dispatch] = useStore();
+  const [{ nameInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (auth.status === "LOADING") {
+    if (nameInfo.status === "LOADING") {
       fetchName()
         .then((result: NameInfo) => {
           dispatch({ type: "SETT_NAME_RESULT", payload: result });
@@ -30,13 +30,13 @@ const Auth = (props: Props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  switch (auth.status) {
+  switch (nameInfo.status) {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
       return <>{props.children}</>;
     case "ERROR":
-      return <Error error={auth.error} />;
+      return <Error error={nameInfo.error} />;
   }
 };
 

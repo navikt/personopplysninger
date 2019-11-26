@@ -9,14 +9,14 @@ import { formatName } from "utils/text";
 import { useStore } from "providers/Provider";
 
 const Header = () => {
-  const [{ auth }] = useStore();
+  const [{ nameInfo }] = useStore();
 
-  switch (auth.status) {
+  switch (nameInfo.status) {
     default:
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      const { name } = auth.data;
+      const { name } = nameInfo.data;
       const fornavn = name.split(" ")[0];
       const Veileder = (
         <img src={veilederIkon} className="header__ikon" alt="Veileder" />
@@ -47,7 +47,7 @@ const Header = () => {
         </div>
       );
     case "ERROR":
-      return <Error error={auth.error} />;
+      return <Error error={nameInfo.error} />;
   }
 };
 export default Header;
