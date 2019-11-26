@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "../Provider";
-import { fetchAuthOidc, fetchAuthInfo, sendTilLogin } from "clients/apiClient";
-import { AuthInfo, AuthOidc } from "types/authInfo";
+import { fetchName, sendTilLogin } from "clients/apiClient";
+import { NameInfo } from "types/authInfo";
 import Spinner from "components/spinner/Spinner";
 
-export type FetchAuthInfo =
+export type FetchNameInfo =
   | { status: "LOADING" }
-  | { status: "RESULT"; data: AuthInfo }
+  | { status: "RESULT"; data: NameInfo }
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
@@ -17,29 +17,15 @@ interface Props {
 const Auth = (props: Props) => {
   const [{ auth }, dispatch] = useStore();
 
-  const checkAuthOidc = (oidc: AuthOidc) => {
-    if (!oidc.authenticated) {
-      sendTilLogin();
-    }
-  };
-
-  const checkAuthInfo = (authInfo: AuthInfo) => {
-    if (authInfo.authenticated && authInfo.securityLevel === "4") {
-      dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo });
-    } else {
-      sendTilLogin();
-    }
-  };
-
   useEffect(() => {
     if (auth.status === "LOADING") {
-      fetchAuthOidc()
-        .then(checkAuthOidc)
-        .then(fetchAuthInfo)
-        .then(checkAuthInfo)
-        .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_AUTH_ERROR", payload: error })
-        );
+      fetchName()
+        .then((result: NameInfo) => {
+          dispatch({ type: "SETT_NAME_RESULT", payload: result });
+        })
+        .catch(() => {
+          sendTilLogin();
+        });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

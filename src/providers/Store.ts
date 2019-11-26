@@ -2,8 +2,8 @@ import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { AuthInfo } from "../types/authInfo";
-import { FetchAuthInfo } from "./auth/Auth";
+import { NameInfo } from "../types/authInfo";
+import { FetchNameInfo } from "./auth/Auth";
 import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
 import { DsopInfo } from "../types/dsop";
@@ -16,7 +16,7 @@ export interface FeatureToggles {
 }
 
 export const initialState = {
-  auth: { status: "LOADING" } as FetchAuthInfo,
+  auth: { status: "LOADING" } as FetchNameInfo,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -32,7 +32,7 @@ export const initialState = {
 };
 
 export interface Store {
-  auth: FetchAuthInfo;
+  auth: FetchNameInfo;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -42,12 +42,8 @@ export interface Store {
 
 export type Action =
   | {
-      type: "SETT_AUTH_RESULT";
-      payload: AuthInfo;
-    }
-  | {
-      type: "SETT_AUTH_ERROR";
-      payload: HTTPError;
+      type: "SETT_NAME_RESULT";
+      payload: NameInfo;
     }
   | {
       type: "SETT_FEATURE_TOGGLES";
@@ -88,21 +84,13 @@ export type Action =
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
-    case "SETT_AUTH_RESULT":
+    case "SETT_NAME_RESULT":
       return {
         ...state,
         auth: {
           status: "RESULT",
           data: action.payload
-        } as FetchAuthInfo
-      };
-    case "SETT_AUTH_ERROR":
-      return {
-        ...state,
-        auth: {
-          status: "ERROR",
-          error: action.payload
-        } as FetchAuthInfo
+        } as FetchNameInfo
       };
     case "SETT_FEATURE_TOGGLES":
       return {

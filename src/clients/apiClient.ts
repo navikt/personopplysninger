@@ -1,4 +1,3 @@
-import Environment from "../Environments";
 import { logApiError, logEvent } from "../utils/logger";
 import { FeatureToggles } from "../providers/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
@@ -11,8 +10,8 @@ import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-a
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import loginservice from "utils/loginservice";
-
-const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
+import Environment from "../Environments";
+const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
 /*
@@ -44,9 +43,6 @@ export const fetchPersonInfo = () =>
 export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
 
-export const fetchAuthInfo = () =>
-  hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
-
 export const fetchRetningsnumre = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
@@ -61,7 +57,7 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
 export const fetchInstInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/hentInstitusjonsopphold`);
 
-export const fetchAuthOidc = () => hentJsonOgSjekkAuth(`${apiUrl}/auth`);
+export const fetchName = () => hentJsonOgSjekkAuth(`${apiUrl}/name`);
 export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
 export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
