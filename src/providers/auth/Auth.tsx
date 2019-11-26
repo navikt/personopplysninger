@@ -23,10 +23,13 @@ const Auth = (props: Props) => {
     }
   };
 
-  const checkAuthInfo = (authInfo: AuthInfo) =>
-    authInfo.authenticated && authInfo.securityLevel === "4"
-      ? dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo })
-      : sendTilLogin();
+  const checkAuthInfo = (authInfo: AuthInfo) => {
+    if (authInfo.authenticated && authInfo.securityLevel === "4") {
+      dispatch({ type: "SETT_AUTH_RESULT", payload: authInfo });
+    } else {
+      sendTilLogin();
+    }
+  };
 
   useEffect(() => {
     if (auth.status === "LOADING") {
