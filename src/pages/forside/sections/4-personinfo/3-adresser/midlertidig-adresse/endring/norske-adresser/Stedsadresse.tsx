@@ -117,6 +117,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.eiendomsnavn}
                   label={intl.messages["felter.stedsadresse.label"]}
                   onChange={e => setField({ eiendomsnavn: e.target.value })}
