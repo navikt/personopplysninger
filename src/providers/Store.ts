@@ -46,6 +46,10 @@ export type Action =
       payload: NameInfo;
     }
   | {
+      type: "SETT_NAME_ERROR";
+      payload: HTTPError;
+    }
+  | {
       type: "SETT_FEATURE_TOGGLES";
       payload: FeatureToggles;
     }
@@ -90,6 +94,14 @@ export const reducer = (state: Store, action: Action) => {
         nameInfo: {
           status: "RESULT",
           data: action.payload
+        } as FetchNameInfo
+      };
+    case "SETT_NAME_ERROR":
+      return {
+        ...state,
+        nameInfo: {
+          status: "ERROR",
+          error: action.payload
         } as FetchNameInfo
       };
     case "SETT_FEATURE_TOGGLES":
