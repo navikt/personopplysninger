@@ -1,5 +1,5 @@
 // Functions
-const { _babelPolyfill } = window as any;
+export const { _babelPolyfill } = window as any;
 if (!_babelPolyfill) {
   require("babel-polyfill");
 }
