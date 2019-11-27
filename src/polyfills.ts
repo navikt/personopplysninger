@@ -5,7 +5,7 @@ if (!_babelPolyfill) {
 }
 
 // Browsers
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/ie11";
+require("react-app-polyfill/ie9");
+require("react-app-polyfill/ie11");
 
 global.Intl = require("intl");
