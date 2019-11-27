@@ -1,5 +1,8 @@
 // Functions
-import "babel-polyfill";
+const { _babelPolyfill } = window as any;
+if (!_babelPolyfill) {
+  require("babel-polyfill");
+}
 
 // Browsers
 import "react-app-polyfill/ie9";
