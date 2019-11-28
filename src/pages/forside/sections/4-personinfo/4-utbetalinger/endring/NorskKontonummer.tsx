@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, Validation } from "calidation";
 import { InjectedIntlProps, injectIntl } from "react-intl";
-import { sjekkForFeil } from "../../../../../../utils/validators";
+import { sjekkForFeil } from "utils/validators";
 
 interface Props {
   kontonummer?: string;

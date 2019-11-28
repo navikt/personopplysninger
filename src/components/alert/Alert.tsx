@@ -1,6 +1,6 @@
 import React from "react";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
-import { HTTPError } from "../error/Error";
+import { HTTPError } from "components/error/Error";
 
 export interface AlertType extends HTTPError {
   type: AlertStripeType;

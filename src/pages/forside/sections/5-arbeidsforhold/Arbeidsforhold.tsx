@@ -4,17 +4,16 @@ import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import { FormattedHTMLMessage } from "react-intl";
 import Environment from "Environments";
-import { withRouter, RouteComponentProps } from "react-router";
 import { injectIntl, InjectedIntlProps } from "react-intl";
 import { Link } from "react-router-dom";
 import { basePath } from "App";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import Kilde from "../../../../components/kilde/Kilde";
+import Kilde from "components/kilde/Kilde";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
 
-const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
+const Arbeidsforhold = (props: InjectedIntlProps) => {
   const { intl } = props;
 
   const onClick = {
@@ -46,4 +45,4 @@ const Arbeidsforhold = (props: RouteComponentProps & InjectedIntlProps) => {
     </Box>
   );
 };
-export default injectIntl(withRouter(Arbeidsforhold));
+export default injectIntl(Arbeidsforhold);

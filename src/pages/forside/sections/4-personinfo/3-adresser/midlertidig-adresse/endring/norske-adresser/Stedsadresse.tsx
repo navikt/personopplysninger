@@ -12,7 +12,7 @@ import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
-import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;

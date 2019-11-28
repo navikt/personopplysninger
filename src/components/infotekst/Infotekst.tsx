@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import Modal from "nav-frontend-modal";
-import infoIkon from "../../assets/img/Informasjonstekst.svg";
-import infoIkonFylt from "../../assets/img/Informasjonstekst-fylt.svg";
+import infoIkon from "assets/img/Informasjonstekst.svg";
+import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedHTMLMessage } from "react-intl";
 
 interface HjelpetekstProps {

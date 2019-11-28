@@ -4,15 +4,15 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
-import INSTIkon from "assets/img/Institusjonsopphold.svg";
-import WithInst from "./InstFetch";
+import SkattIkon from "assets/img/Skattekort.svg";
+import WithSkatt from "./SkattFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
 
 interface Routes {
   id: string;
 }
 
-const InstDetaljer = () => {
+const SkattekortDetaljer = () => {
   const params = useParams<Routes>();
   const { id } = params;
 
@@ -22,15 +22,12 @@ const InstDetaljer = () => {
 
   return (
     <PageContainer
-      tittelId={"inst.tittel"}
-      icon={INSTIkon}
+      tittelId={"skattetreksmeldinger.tittel"}
+      icon={SkattIkon}
       backTo={"/"}
-      brodsmulesti={[
-        { title: "inst.tittel", path: "/institusjonsopphold" },
-        { title: "inst.detaljer" }
-      ]}
+      brodsmulesti={[{ title: "skattetreksmeldinger.tittel" }]}
     >
-      <WithInst>
+      <WithSkatt>
         {({ data }) => {
           const instInnslag = data
             .filter(d => d.registreringstidspunkt === id)
@@ -83,13 +80,13 @@ const InstDetaljer = () => {
             </div>
           ) : (
             <div>
-              <FormattedMessage id="inst.ingendata" />
+              <FormattedMessage id="skattetreksmeldinger.ingendata" />
             </div>
           );
         }}
-      </WithInst>
+      </WithSkatt>
     </PageContainer>
   );
 };
 
-export default InstDetaljer;
+export default SkattekortDetaljer;

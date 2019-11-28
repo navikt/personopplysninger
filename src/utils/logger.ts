@@ -1,4 +1,4 @@
-import { AlertType } from "../components/alert/Alert";
+import { AlertType } from "components/alert/Alert";
 const { frontendlogger } = window as any;
 
 export const logApiError = (url: string, err: AlertType) => {

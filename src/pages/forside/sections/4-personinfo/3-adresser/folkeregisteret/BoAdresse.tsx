@@ -4,8 +4,8 @@ import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
 import { Normaltekst } from "nav-frontend-typografi";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
 import AdressePanel from "../komponenter/AdressePanel";
-import ListElement from "../../../../../../components/listelement/ListElement";
-import { Boadresse } from "../../../../../../types/adresser/boadresse";
+import ListElement from "components/listelement/ListElement";
+import { Boadresse } from "types/adresser/boadresse";
 import "moment/locale/nb";
 
 moment.locale("nb");

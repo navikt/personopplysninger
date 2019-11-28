@@ -10,7 +10,7 @@ import postnummer from "./app/fetch/postnummer.json";
 import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
 import instInfo from "./app/fetch/inst-info.json";
-import Environment from "../../Environments";
+import Environment from "Environments";
 
 const { apiUrl, baseUrl, dsopUrl } = Environment();
 

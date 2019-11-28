@@ -1,6 +1,6 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "../../../../../../../types/adresser/utenlandskadresse";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
 import GateAdresse from "../../komponenter/GateAdresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";

@@ -1,11 +1,11 @@
 import React from "react";
 import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser-PDL";
-import Utbetalinger from "../sections/4-personinfo/4-utbetalinger/Utbetalinger";
+import Utbetalinger from "pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import Box from "components/box/Box";
+import { useParams } from "react-router-dom";
 import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
-import { withRouter, RouteComponentProps } from "react-router";
-import PDLTelefonnummerHosNav from "../sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
+import PDLTelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import MedPersonInfo from "providers/personinfo/PersinInfo";
 import Spinner from "components/spinner/Spinner";
 
@@ -14,8 +14,10 @@ interface Routes {
   redirectUrl?: string;
 }
 
-const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => {
-  const { tjeneste, redirectUrl } = props.match.params;
+const EndreAlleOpplysninger = () => {
+  const params = useParams<Routes>();
+  const { tjeneste, redirectUrl } = params;
+
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
@@ -51,4 +53,4 @@ const EndreAlleOpplysninger = (props: RouteComponentProps<Routes>) => {
   );
 };
 
-export default withRouter(EndreAlleOpplysninger);
+export default EndreAlleOpplysninger;

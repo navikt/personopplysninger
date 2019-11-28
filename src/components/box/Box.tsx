@@ -4,7 +4,7 @@ import { injectIntl, InjectedIntlProps } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
-import Infotekst from "../infotekst/Infotekst";
+import Infotekst from "components/infotekst/Infotekst";
 import ScrollableAnchor from "react-scrollable-anchor";
 
 interface Props {

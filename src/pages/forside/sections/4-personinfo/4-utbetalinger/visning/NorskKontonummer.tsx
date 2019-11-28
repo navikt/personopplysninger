@@ -1,5 +1,5 @@
 import React from "react";
-import ListElement from "../../../../../../components/listelement/ListElement";
+import ListElement from "components/listelement/ListElement";
 import { formatterKontonr } from "../utils";
 
 interface Props {

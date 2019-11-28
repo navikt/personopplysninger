@@ -1,7 +1,7 @@
 import React from "react";
 import GateAdresse from "../../komponenter/GateAdresse";
 import Postnummer from "../../komponenter/Postnummer";
-import { Tilleggsadresse } from "../../../../../../../types/adresser/tilleggsadresse";
+import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";

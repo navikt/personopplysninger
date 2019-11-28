@@ -3,7 +3,7 @@ import { Normaltekst } from "nav-frontend-typografi";
 import AdressePanel from "../komponenter/AdressePanel";
 import GateAdresse from "../komponenter/GateAdresse";
 import Postnummer from "../komponenter/Postnummer";
-import { Postadresse } from "../../../../../../types/adresser/postadresse";
+import { Postadresse } from "types/adresser/postadresse";
 
 interface Props {
   postadresse: Postadresse;

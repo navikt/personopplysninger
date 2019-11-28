@@ -1,18 +1,39 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { DsopInfo } from "../../types/dsop";
+import { DsopInfo } from "types/dsop";
 import { Element } from "nav-frontend-typografi";
 import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
-import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import PageContainer from "components/pagecontainer/PageContainer";
+import DSOPIkon from "assets/img/DSOP.svg";
+import WithDSOP from "./DsopFetch";
 
 interface Props {
   dsopInfo: DsopInfo;
 }
 
-const DsopHistorikk = (props: Props & RouteComponentProps) => {
+/*
+  Hent data
+*/
+const DsopHistorikk = () => (
+  <PageContainer
+    tittelId={"dsop.tittel"}
+    icon={DSOPIkon}
+    backTo={"/dsop"}
+    brodsmulesti={[{ title: "inst.tittel" }]}
+  >
+    <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>
+  </PageContainer>
+);
+
+/*
+  Visning
+*/
+const Tabell = (props: Props) => {
+  const location = useLocation();
   const { dsopInfo } = props;
 
   useEffect(() => {
@@ -20,7 +41,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
   }, []);
 
   const initState: {
-    [key: string]: {
+    [år: string]: {
       dsopInnslag: DsopInfo;
       ekspandert: boolean;
     };
@@ -32,7 +53,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
     if (!initState[year]) {
       initState[year] = {
         dsopInnslag: [dsopInnslag],
-        ekspandert: !i ? true : false
+        ekspandert: !i
       };
     } else {
       initState[year].dsopInnslag.push(dsopInnslag);
@@ -47,7 +68,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
         <>
           <div className={"historikk__info"}>
             <AlertStripeInfo>
-              <FormattedHTMLMessage id={"eksternelenker.dsop.info"} />
+              <FormattedHTMLMessage id={"lenker.dsop.info"} />
             </AlertStripeInfo>
           </div>
           <div className="historikk__flex-rad historikk__head">
@@ -97,7 +118,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
-                            to={`${props.location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
+                            to={`${location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >
                             {dsopInnslag.mottakernavn}
@@ -120,4 +141,4 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(DsopHistorikk);
+export default DsopHistorikk;
