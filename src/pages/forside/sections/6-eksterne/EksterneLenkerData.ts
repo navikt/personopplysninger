@@ -37,7 +37,7 @@ export default [
     tittel: "eksternelenker.cv.tittel",
     beskrivelse: "eksternelenker.cv.beskrivelse",
     lenkeTekst: "eksternelenker.cv.lenkeTekst",
-    url: "https://arbeidsplassen.nav.no/minside",
+    url: "https://arbeidsplassen.nav.no/personinnstillinger",
     icon: jobbsok
   },
   {
