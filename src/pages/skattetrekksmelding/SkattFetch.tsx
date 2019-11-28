@@ -15,13 +15,8 @@ interface Props {
   children: (data: { data: InstInfo; id?: string }) => JSX.Element;
 }
 
-interface Routes {
-  id: string;
-}
-
 const WithSkattetreksmelding = ({ children }: Props) => {
   const [{ instInfo }, dispatch] = useStore();
-  const { id } = useParams();
 
   useEffect(() => {
     if (instInfo.status === "LOADING") {
@@ -43,7 +38,7 @@ const WithSkattetreksmelding = ({ children }: Props) => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return children({ data: instInfo.data, id });
+      return children({ data: instInfo.data });
     case "ERROR":
       return <Error error={instInfo.error} />;
   }

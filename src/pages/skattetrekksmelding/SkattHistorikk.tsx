@@ -7,16 +7,30 @@ import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
+import PageContainer from "../../components/pagecontainer/PageContainer";
+import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import WithSkatt from "./SkattFetch";
 
-interface Props {
-  instInfo: InstInfo;
-}
+/*
+  Hent data
+*/
+const SkattkortHistorikk = () => (
+  <PageContainer
+    tittelId={"inst.tittel"}
+    icon={INSTIkon}
+    backTo={"/"}
+    brodsmulesti={[{ title: "inst.tittel" }]}
+  >
+    <WithSkatt>{({ data }) => <Tabell instInfo={data} />}</WithSkatt>
+  </PageContainer>
+);
 
-const InstHistorikk = (props: Props) => {
+/*
+  Visning
+*/
+const Tabell = (props: { instInfo: InstInfo }) => {
   const location = useLocation();
   const { instInfo } = props;
-
-  console.log(instInfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -129,4 +143,4 @@ const InstHistorikk = (props: Props) => {
   );
 };
 
-export default InstHistorikk;
+export default SkattkortHistorikk;

@@ -18,7 +18,8 @@ import { configureAnchors } from "react-scrollable-anchor";
 import redirectsRaw from "./utils/redirects";
 import { InstHistorik } from "./pages/institusjonsopphold/Inst";
 import { InstDetaljer } from "./pages/institusjonsopphold/Inst";
-import { SkattkortDetaljer } from "./pages/skattetrekksmelding/Skatt";
+import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
+import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 
 const redirects: {
   [key: string]: {
@@ -107,11 +108,20 @@ const App = () => {
                   component={EndreOpplysninger}
                 />
               )}
-              <Route
-                exact={true}
-                path={`${basePath}/skattetreksmelding/:id`}
-                component={SkattkortDetaljer}
-              />
+              {featureToggles.data["personopplysninger.skatt"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/skattetreksmelding`}
+                  component={SkattkortHistorikk}
+                />
+              )}
+              {featureToggles.data["personopplysninger.skatt"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/skattetreksmelding/:id`}
+                  component={SkattekortDetaljer}
+                />
+              )}
               {featureToggles.status === "RESULT" && (
                 <Route component={PageNotFound} />
               )}

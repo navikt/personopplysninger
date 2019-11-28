@@ -1,5 +1,5 @@
 import React from "react";
-import eksterneLenker from "./EksterneLenkerData";
+import eksterneLenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
@@ -54,6 +54,17 @@ const LinksContainer = () => {
             beskrivelse={"eksternelenker.dsop.beskrivelse"}
             lenkeTekst={"eksternelenker.dsop.lenkeTekst"}
             to={"/person/personopplysninger/dsop"}
+            component={"Link"}
+          />
+        )}
+        {featureToggles.data["personopplysninger.skatt"] && (
+          <LinkBox
+            id={"dsop"}
+            icon={DSOPIkon}
+            tittel={"skattetreksmelding.dsop.tittel"}
+            beskrivelse={"skattetreksmelding.dsop.beskrivelse"}
+            lenkeTekst={"skattetreksmelding.dsop.lenkeTekst"}
+            to={"/person/personopplysninger/skattetreksmelding"}
             component={"Link"}
           />
         )}
