@@ -1,24 +1,23 @@
-import { FetchKontaktInfo } from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import { PersonInfo } from "types/personInfo";
-import { KontaktInfo } from "types/kontaktInfo";
-import { HTTPError } from "components/error/Error";
-import { AuthInfo } from "types/authInfo";
-import { FetchAuthInfo } from "./auth/Auth";
+import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
+import { PersonInfo } from "../types/personInfo";
+import { KontaktInfo } from "../types/kontaktInfo";
+import { HTTPError } from "../components/error/Error";
+import { NameInfo } from "../types/nameInfo";
+import { FetchNameInfo } from "./auth/Auth";
 import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
-import { FetchDsopInfo } from "pages/digital-samhandling-offentlig-privat/DsopFetch";
-import { DsopInfo } from "types/dsop";
+import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
+import { DsopInfo } from "../types/dsop";
 import { FetchPersonInfo } from "./personinfo/PersinInfo";
-import { InstInfo } from "types/inst";
-import { FetchInstInfo } from "pages/institusjonsopphold/InstFetch";
-import { Skattetreksmeldinger } from "types/skattetreksmeldinger";
-import { FetchSkattetreksmeldinger } from "pages/skattetrekksmelding/SkattFetch";
+import { InstInfo } from "../types/inst";
+import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
+import { FetchSkattetreksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
 export const initialState = {
-  auth: { status: "LOADING" } as FetchAuthInfo,
+  nameInfo: { status: "LOADING" } as FetchNameInfo,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -35,7 +34,7 @@ export const initialState = {
 };
 
 export interface Store {
-  auth: FetchAuthInfo;
+  nameInfo: FetchNameInfo;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -46,11 +45,11 @@ export interface Store {
 
 export type Action =
   | {
-      type: "SETT_AUTH_RESULT";
-      payload: AuthInfo;
+      type: "SETT_NAME_RESULT";
+      payload: NameInfo;
     }
   | {
-      type: "SETT_AUTH_ERROR";
+      type: "SETT_NAME_ERROR";
       payload: HTTPError;
     }
   | {
@@ -91,7 +90,7 @@ export type Action =
     }
   | {
       type: "SETT_SKATT_RESULT";
-      payload: Skattetreksmeldinger;
+      payload: InstInfo;
     }
   | {
       type: "SETT_SKATT_ERROR";
@@ -100,21 +99,21 @@ export type Action =
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
-    case "SETT_AUTH_RESULT":
+    case "SETT_NAME_RESULT":
       return {
         ...state,
-        auth: {
+        nameInfo: {
           status: "RESULT",
           data: action.payload
-        } as FetchAuthInfo
+        } as FetchNameInfo
       };
-    case "SETT_AUTH_ERROR":
+    case "SETT_NAME_ERROR":
       return {
         ...state,
-        auth: {
+        nameInfo: {
           status: "ERROR",
           error: action.payload
-        } as FetchAuthInfo
+        } as FetchNameInfo
       };
     case "SETT_FEATURE_TOGGLES":
       return {

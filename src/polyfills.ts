@@ -1,9 +1,12 @@
 // Functions
-import "babel-polyfill";
+export const { _babelPolyfill } = window as any;
+if (!_babelPolyfill) {
+  require("babel-polyfill");
+}
 
 // Browsers
-import "react-app-polyfill/ie9";
-import "react-app-polyfill/ie11";
+require("react-app-polyfill/ie9");
+require("react-app-polyfill/ie11");
 
 // Language
 global.Intl = require("intl");

@@ -1,18 +1,17 @@
-import Environment from "Environments";
-import { logApiError, logEvent } from "utils/logger";
-import { FeatureToggles } from "providers/Store";
-import { OutboundTlfnummer } from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
-import { OutboundNorskKontonummer } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
-import { OutboundUtenlandsbankonto } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandskAdresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
-import { OutboundGateadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
-import { OutboundPostboksadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
-import { OutboundStedsadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
-import { TPSResponse } from "types/tps-response";
-import { AlertType } from "components/alert/Alert";
+import { logApiError, logEvent } from "../utils/logger";
+import { FeatureToggles } from "../providers/Store";
+import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
+import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
+import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
+import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
+import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
+import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
+import { TPSResponse } from "../types/tps-response";
+import { AlertType } from "../components/alert/Alert";
 import loginservice from "utils/loginservice";
-
-const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();
+import Environment from "../Environments";
+const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
 /*
@@ -44,9 +43,6 @@ export const fetchPersonInfo = () =>
 export const fetchKontaktInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
 
-export const fetchAuthInfo = () =>
-  hentJsonOgSjekkAuth(`${baseUrl}/innloggingslinje-api/auth`);
-
 export const fetchRetningsnumre = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
 
@@ -64,6 +60,7 @@ export const fetchInstInfo = () =>
 export const fetchSkattetreksmeldinger = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/skattetreksmeldinger`);
 
+export const fetchName = () => hentJsonOgSjekkAuth(`${apiUrl}/name`);
 export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
 export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);

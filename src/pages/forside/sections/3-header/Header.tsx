@@ -9,49 +9,45 @@ import { formatName } from "utils/text";
 import { useStore } from "providers/Provider";
 
 const Header = () => {
-  const [{ auth }] = useStore();
+  const [{ nameInfo }] = useStore();
 
-  switch (auth.status) {
+  switch (nameInfo.status) {
     default:
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      if (auth.data.authenticated) {
-        const { name } = auth.data;
-        const fornavn = name.split(" ")[0];
-        const Veileder = (
-          <img src={veilederIkon} className="header__ikon" alt="Veileder" />
-        );
+      const { name } = nameInfo.data;
+      const fornavn = name.split(" ")[0];
+      const Veileder = (
+        <img src={veilederIkon} className="header__ikon" alt="Veileder" />
+      );
 
-        return (
-          <div className="header">
-            <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
-              <div className="box__container header__content">
-                <Systemtittel>
-                  <FormattedHTMLMessage
-                    id="header.hello"
-                    values={{ name: formatName(fornavn) || "" }}
-                  />
-                </Systemtittel>
-                <div className="header__seksjon">
-                  <Normaltekst>
-                    <FormattedHTMLMessage id="header.obs" />
-                  </Normaltekst>
-                </div>
-                <div className="header__seksjon">
-                  <Normaltekst>
-                    <FormattedHTMLMessage id="header.description" />
-                  </Normaltekst>
-                </div>
+      return (
+        <div className="header">
+          <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
+            <div className="box__container header__content">
+              <Systemtittel>
+                <FormattedHTMLMessage
+                  id="header.hello"
+                  values={{ name: formatName(fornavn) || "" }}
+                />
+              </Systemtittel>
+              <div className="header__seksjon">
+                <Normaltekst>
+                  <FormattedHTMLMessage id="header.obs" />
+                </Normaltekst>
               </div>
-            </Veilederpanel>
-          </div>
-        );
-      } else {
-        return null;
-      }
+              <div className="header__seksjon">
+                <Normaltekst>
+                  <FormattedHTMLMessage id="header.description" />
+                </Normaltekst>
+              </div>
+            </div>
+          </Veilederpanel>
+        </div>
+      );
     case "ERROR":
-      return <Error error={auth.error} />;
+      return <Error error={nameInfo.error} />;
   }
 };
 export default Header;

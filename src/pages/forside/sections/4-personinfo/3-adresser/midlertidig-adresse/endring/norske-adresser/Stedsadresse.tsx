@@ -119,6 +119,7 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
+                  maxLength={30}
                   value={fields.eiendomsnavn}
                   label={msg({ id: "felter.stedsadresse.label" })}
                   onChange={e => setField({ eiendomsnavn: e.target.value })}

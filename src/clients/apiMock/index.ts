@@ -2,7 +2,7 @@ import fetchMock from "fetch-mock";
 import personInformasjon from "./app/fetch/person-info.json";
 import kontaktInformasjon from "./app/fetch/kontakt-info.json";
 import featureToggles from "./app/fetch/feature-toggles.json";
-import authInfo from "./app/fetch/auth-info.json";
+import name from "./app/fetch/name-info.json";
 import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";
@@ -12,7 +12,7 @@ import landInfo from "./app/fetch/land.json";
 import instInfo from "./app/fetch/inst-info.json";
 import Environment from "Environments";
 
-const { apiUrl, baseUrl, dsopUrl } = Environment();
+const { apiUrl, dsopUrl } = Environment();
 
 // Config
 fetchMock.config.fallbackToNetwork = true;
@@ -20,7 +20,7 @@ fetchMock.config.fallbackToNetwork = true;
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;
 const mockFetchFeatureToggles = true;
-const mockFetchAuthInfo = true;
+const mockFetchName = true;
 const mockFetchDsopInfo = true;
 const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
@@ -49,10 +49,6 @@ export const setUpMock = async () => {
     fetchMock.get(`begin:${apiUrl}/feature-toggles`, () =>
       delay(200, 750).then(() => featureToggles)
     );
-  mockFetchAuthInfo &&
-    fetchMock.get(`${baseUrl}/innloggingslinje-api/auth`, () =>
-      delay(50, 100).then(() => authInfo)
-    );
   mockFetchRetningsnumre &&
     fetchMock.get(`${apiUrl}/retningsnumre`, () =>
       delay(400, 500).then(() => retningsnumre)
@@ -77,6 +73,8 @@ export const setUpMock = async () => {
     fetchMock.get(`${apiUrl}/hentInstitusjonsopphold`, () =>
       delay(1000, 2000).then(() => instInfo)
     );
+  mockFetchName &&
+    fetchMock.get(`${apiUrl}/name`, () => delay(50, 100).then(() => name));
   /*
     POST
    */

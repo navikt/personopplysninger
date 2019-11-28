@@ -16,7 +16,9 @@ const cache = new NodeCache({
 const getUrl = namespace => {
   if (namespace !== "p") {
     // Q0, Q1, Q6 etc ..
-    return `https://appres-${namespace}.nav.no/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true`;
+    // Gammel dekoratør:
+    // https://appres-${namespace}.nav.no/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true
+    return `https://www-q0.nav.no/person/nav-dekoratoren`;
   } else {
     // Produksjon
     return `https://appres.nav.no/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true`;
