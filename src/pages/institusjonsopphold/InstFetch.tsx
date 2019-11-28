@@ -27,7 +27,10 @@ const WithSkattetreksmelding = ({ children }: Props) => {
           })
         )
         .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_INST_INFO_ERROR", payload: error })
+          dispatch({
+            type: "SETT_INST_INFO_ERROR",
+            payload: error
+          })
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -61,6 +61,9 @@ export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
 export const fetchInstInfo = () =>
   hentJsonOgSjekkAuth(`${apiUrl}/hentInstitusjonsopphold`);
 
+export const fetchSkattetreksmeldinger = () =>
+  hentJsonOgSjekkAuth(`${apiUrl}/skattetreksmeldinger`);
+
 export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
 export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
 export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);

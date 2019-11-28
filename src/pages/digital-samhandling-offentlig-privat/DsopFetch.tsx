@@ -32,7 +32,10 @@ const WithDSOP = (props: Props) => {
           })
         )
         .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_DSOP_INFO_ERROR", payload: error })
+          dispatch({
+            type: "SETT_DSOP_INFO_ERROR",
+            payload: error
+          })
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -44,7 +44,7 @@ const Tabell = (props: Props) => {
   }, []);
 
   const initState: {
-    [key: string]: {
+    [år: string]: {
       dsopInnslag: DsopInfo;
       ekspandert: boolean;
     };

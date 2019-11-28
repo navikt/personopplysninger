@@ -1,45 +1,48 @@
 import React, { useEffect } from "react";
-import { fetchInstInfo } from "clients/apiClient";
+import { fetchSkattetreksmeldinger } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "providers/Provider";
 import Spinner from "components/spinner/Spinner";
-import { InstInfo } from "types/inst";
+import { Skattetreksmeldinger } from "types/skattetreksmeldinger";
 
-export type FetchInstInfo =
+export type FetchSkattetreksmeldinger =
   | { status: "LOADING" }
-  | { status: "RESULT"; data: InstInfo }
+  | { status: "RESULT"; data: Skattetreksmeldinger }
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
-  children: (data: { data: InstInfo; id?: string }) => JSX.Element;
+  children: (data: { data: Skattetreksmeldinger; id?: string }) => JSX.Element;
 }
 
 const WithSkattetreksmelding = ({ children }: Props) => {
-  const [{ instInfo }, dispatch] = useStore();
+  const [{ skattetreksmeldinger }, dispatch] = useStore();
 
   useEffect(() => {
-    if (instInfo.status === "LOADING") {
-      fetchInstInfo()
-        .then(instInfo =>
+    if (skattetreksmeldinger.status === "LOADING") {
+      fetchSkattetreksmeldinger()
+        .then(result =>
           dispatch({
-            type: "SETT_INST_INFO_RESULT",
-            payload: instInfo as InstInfo
+            type: "SETT_SKATT_RESULT",
+            payload: result as Skattetreksmeldinger
           })
         )
         .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_INST_INFO_ERROR", payload: error })
+          dispatch({
+            type: "SETT_SKATT_ERROR",
+            payload: error
+          })
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  switch (instInfo.status) {
+  switch (skattetreksmeldinger.status) {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return children({ data: instInfo.data });
+      return children({ data: skattetreksmeldinger.data });
     case "ERROR":
-      return <Error error={instInfo.error} />;
+      return <Error error={skattetreksmeldinger.error} />;
   }
 };
 
