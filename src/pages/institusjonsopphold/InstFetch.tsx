@@ -3,7 +3,7 @@ import { fetchInstInfo } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "providers/Provider";
 import Spinner from "components/spinner/Spinner";
-import { RouteComponentProps, withRouter } from "react-router";
+import { useParams } from "react-router-dom";
 import { InstInfo } from "types/inst";
 import InstHistorikk from "./InstHistorikk";
 import InstDetaljer from "./InstDetaljer";
@@ -17,9 +17,10 @@ interface Routes {
   id: string;
 }
 
-const WithINST = (props: RouteComponentProps<Routes>) => {
+const WithINST = () => {
   const [{ instInfo }, dispatch] = useStore();
-  const { id } = props.match.params;
+  const params = useParams<Routes>();
+  const { id } = params;
 
   useEffect(() => {
     if (instInfo.status === "LOADING") {
@@ -51,4 +52,4 @@ const WithINST = (props: RouteComponentProps<Routes>) => {
   }
 };
 
-export default withRouter(WithINST);
+export default WithINST;

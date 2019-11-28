@@ -1,6 +1,6 @@
 import Environment from "../Environments";
 
-const {  appUrl } = Environment();
+const { appUrl } = Environment();
 
 /*
   Redirect url-er lagt inn i navikt/loginservice
@@ -12,8 +12,4 @@ const {  appUrl } = Environment();
   Alle andre undersider sendes brukeren til forsiden etter innlogging.
 */
 
-export default [
-  `${appUrl}/`,
-  `${appUrl}/arbeidsforhold`,
-  `${appUrl}/dsop`,
-]
+export default [`${appUrl}/`, `${appUrl}/arbeidsforhold`, `${appUrl}/dsop`];

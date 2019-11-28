@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { fetchDsopInfo } from "../../clients/apiClient";
-import Error, { HTTPError } from "../../components/error/Error";
-import { useStore } from "../../providers/Provider";
-import { DsopInfo } from "../../types/dsop";
-import Spinner from "../../components/spinner/Spinner";
+import { fetchDsopInfo } from "clients/apiClient";
+import Error, { HTTPError } from "components/error/Error";
+import { useStore } from "providers/Provider";
+import { DsopInfo } from "types/dsop";
+import { useParams } from "react-router-dom";
+import Spinner from "components/spinner/Spinner";
 import DsopHistorikk from "./DsopHistorikk";
-import { RouteComponentProps, withRouter } from "react-router";
 import DsopDetaljer from "./DsopDetaljer";
 
 export type FetchDsopInfo =
@@ -17,9 +17,10 @@ interface Routes {
   id: string;
 }
 
-const WithDSOP = (props: RouteComponentProps<Routes>) => {
+const WithDSOP = () => {
+  const params = useParams<Routes>();
   const [{ dsopInfo }, dispatch] = useStore();
-  const { id } = props.match.params;
+  const { id } = params;
 
   useEffect(() => {
     if (dsopInfo.status === "LOADING") {
@@ -51,4 +52,4 @@ const WithDSOP = (props: RouteComponentProps<Routes>) => {
   }
 };
 
-export default withRouter(WithDSOP);
+export default WithDSOP;

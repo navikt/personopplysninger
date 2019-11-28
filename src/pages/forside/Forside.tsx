@@ -6,7 +6,7 @@ import EksterneLenker from "./sections/6-eksterne/EksterneLenker";
 import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import Header from "./sections/3-header/Header";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
-import { withRouter, RouteComponentProps } from "react-router";
+import { useParams } from "react-router-dom";
 import RedirectKnapp from "../../components/knapper/Redirect";
 
 interface Routes {
@@ -14,8 +14,9 @@ interface Routes {
   redirectUrl?: string;
 }
 
-const Forside = ({ match }: RouteComponentProps<Routes>) => {
-  const { tjeneste, redirectUrl } = match.params;
+const Forside = () => {
+  const params = useParams<Routes>();
+  const { tjeneste, redirectUrl } = params;
   return (
     <>
       <Brodsmulesti />
@@ -32,4 +33,4 @@ const Forside = ({ match }: RouteComponentProps<Routes>) => {
   );
 };
 
-export default withRouter(Forside);
+export default Forside;

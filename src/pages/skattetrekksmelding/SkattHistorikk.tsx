@@ -5,14 +5,15 @@ import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
-import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "../../types/inst";
 
 interface Props {
   instInfo: InstInfo;
 }
 
-const InstHistorikk = (props: Props & RouteComponentProps) => {
+const InstHistorikk = (props: Props) => {
+  const location = useLocation();
   const { instInfo } = props;
 
   console.log(instInfo);
@@ -105,7 +106,7 @@ const InstHistorikk = (props: Props & RouteComponentProps) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
-                            to={`${props.location.pathname}/${instInnslag.registreringstidspunkt}`}
+                            to={`${location.pathname}/${instInnslag.registreringstidspunkt}`}
                             className="lenke"
                           >
                             {instInnslag.institusjonsnavn}
@@ -128,4 +129,4 @@ const InstHistorikk = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(InstHistorikk);
+export default InstHistorikk;

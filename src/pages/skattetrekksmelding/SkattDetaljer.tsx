@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import { RouteComponentProps, withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import ListElement from "../../components/listelement/ListElement";
+import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
-import { InstInfo } from "../../types/inst";
+import { InstInfo } from "types/inst";
 
 interface Props {
   instInfo: InstInfo;
@@ -14,9 +14,11 @@ interface Routes {
   id: string;
 }
 
-const SkattDetaljer = (props: Props & RouteComponentProps<Routes>) => {
+const SkattDetaljer = (props: Props) => {
+  const params = useParams<Routes>();
+
   const { instInfo } = props;
-  const { id } = props.match.params;
+  const { id } = params;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -76,4 +78,4 @@ const SkattDetaljer = (props: Props & RouteComponentProps<Routes>) => {
   );
 };
 
-export default withRouter(SkattDetaljer);
+export default SkattDetaljer;

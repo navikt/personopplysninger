@@ -1,18 +1,19 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { DsopInfo } from "../../types/dsop";
+import { DsopInfo } from "types/dsop";
 import { Element } from "nav-frontend-typografi";
 import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
-import { Link, RouteComponentProps, withRouter } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface Props {
   dsopInfo: DsopInfo;
 }
 
-const DsopHistorikk = (props: Props & RouteComponentProps) => {
+const DsopHistorikk = (props: Props) => {
+  const location = useLocation();
   const { dsopInfo } = props;
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
     if (!initState[year]) {
       initState[year] = {
         dsopInnslag: [dsopInnslag],
-        ekspandert: !i ? true : false
+        ekspandert: !i
       };
     } else {
       initState[year].dsopInnslag.push(dsopInnslag);
@@ -97,7 +98,7 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
-                            to={`${props.location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
+                            to={`${location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >
                             {dsopInnslag.mottakernavn}
@@ -120,4 +121,4 @@ const DsopHistorikk = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(DsopHistorikk);
+export default DsopHistorikk;
