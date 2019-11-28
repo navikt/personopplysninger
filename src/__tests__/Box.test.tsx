@@ -1,8 +1,8 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
 import wrapIntl from "./__utils__/IntlTestHelper";
-import Box from "../components/box/Box";
-import adresse from "../assets/img/Adresse.svg";
+import Box from "components/box/Box";
+import adresse from "assets/img/Adresse.svg";
 
 test("render Header with content", () => {
   const component = ReactTestRenderer.create(

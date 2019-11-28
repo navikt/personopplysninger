@@ -1,15 +1,15 @@
-import Environment from "../Environments";
-import { logApiError, logEvent } from "../utils/logger";
-import { FeatureToggles } from "../providers/Store";
-import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
-import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
-import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
-import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
-import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
-import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
-import { TPSResponse } from "../types/tps-response";
-import { AlertType } from "../components/alert/Alert";
+import Environment from "Environments";
+import { logApiError, logEvent } from "utils/logger";
+import { FeatureToggles } from "providers/Store";
+import { OutboundTlfnummer } from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
+import { OutboundNorskKontonummer } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
+import { OutboundUtenlandsbankonto } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { OutboundUtenlandskAdresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
+import { OutboundGateadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
+import { OutboundPostboksadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
+import { OutboundStedsadresse } from "pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
+import { TPSResponse } from "types/tps-response";
+import { AlertType } from "components/alert/Alert";
 import loginservice from "utils/loginservice";
 
 const { apiUrl, loginUrl, baseUrl, dsopUrl, appUrl } = Environment();

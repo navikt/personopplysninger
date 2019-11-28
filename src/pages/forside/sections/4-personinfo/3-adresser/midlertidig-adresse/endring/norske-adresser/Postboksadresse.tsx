@@ -13,7 +13,7 @@ import { useStore } from "providers/Provider";
 import { InjectedIntlProps, injectIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
-import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;

@@ -7,7 +7,7 @@ import MerInformasjon from "./sections/7-informasjon/MerInformasjon";
 import Header from "./sections/3-header/Header";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
 import { useParams } from "react-router-dom";
-import RedirectKnapp from "../../components/knapper/Redirect";
+import RedirectKnapp from "components/knapper/Redirect";
 
 interface Routes {
   tjeneste?: string;

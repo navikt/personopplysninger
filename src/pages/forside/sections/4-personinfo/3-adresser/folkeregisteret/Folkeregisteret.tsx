@@ -1,9 +1,9 @@
 import React from "react";
 import BoAdresse from "./BoAdresse";
 import PostAdresse from "./PostAdresse";
-import Kilde from "../../../../../../components/kilde/Kilde";
-import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
-import { Adresser } from "../../../../../../types/adresser";
+import Kilde from "components/kilde/Kilde";
+import eksternLenkeIkon from "assets/img/Link.svg";
+import { Adresser } from "types/adresser";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 

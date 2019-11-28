@@ -3,10 +3,10 @@ import eksterneLenker from "./EksterneLenkerData";
 import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import DSOPIkon from "../../../../assets/img/DSOP.svg";
-import INSTIkon from "../../../../assets/img/Institusjonsopphold.svg";
+import DSOPIkon from "assets/img/DSOP.svg";
+import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import { FormattedMessage } from "react-intl";
-import { useStore } from "../../../../providers/Provider";
+import { useStore } from "providers/Provider";
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();

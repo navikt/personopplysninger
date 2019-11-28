@@ -1,17 +1,17 @@
 import React, { ChangeEvent, useState } from "react";
-import Box from "../../../../../components/box/Box";
-import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
-import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
-import { GeografiskTilknytning } from "../../../../../types/adresser";
+import Box from "components/box/Box";
+import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
+import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
+import { GeografiskTilknytning } from "types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { injectIntl, InjectedIntlProps } from "react-intl";
-import ListElement from "../../../../../components/listelement/ListElement";
+import ListElement from "components/listelement/ListElement";
 import Apningstid from "./apningstid/Apningstid";
-import { print } from "../../../../../utils/text";
-import Kilde from "../../../../../components/kilde/Kilde";
-import { RADIX_DECIMAL } from "../../../../../utils/formattering";
+import { print } from "utils/text";
+import Kilde from "components/kilde/Kilde";
+import { RADIX_DECIMAL } from "utils/formattering";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;

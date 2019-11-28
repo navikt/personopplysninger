@@ -1,11 +1,11 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
-import ListElement from "../../../../../../../components/listelement/ListElement";
-import Melding from "../../../../../../../components/melding/Melding";
-import { KontaktInfo } from "../../../../../../../types/kontaktInfo";
-import Kilde from "../../../../../../../components/kilde/Kilde";
-import eksternLenkeIkon from "../../../../../../../assets/img/Link.svg";
+import ListElement from "components/listelement/ListElement";
+import Melding from "components/melding/Melding";
+import { KontaktInfo } from "types/kontaktInfo";
+import Kilde from "components/kilde/Kilde";
+import eksternLenkeIkon from "assets/img/Link.svg";
 
 interface Props {
   info: KontaktInfo;

@@ -1,7 +1,7 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
 import wrapIntl from "./__utils__/IntlTestHelper";
-import PostAdresse from "../pages/forside/sections/4-personinfo/3-adresser/folkeregisteret/PostAdresse";
+import PostAdresse from "pages/forside/sections/4-personinfo/3-adresser/folkeregisteret/PostAdresse";
 
 test("render Postadresse with content", () => {
   const postadresse = {

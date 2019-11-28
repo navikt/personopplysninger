@@ -1,8 +1,8 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import LinkBox from "../pages/forside/sections/6-eksterne/linkbox/LinkBox";
+import LinkBox from "pages/forside/sections/6-eksterne/linkbox/LinkBox";
 import wrapIntl from "./__utils__/IntlTestHelper";
-import pensjon from "../assets/img/pensjon.svg";
+import pensjon from "assets/img/pensjon.svg";
 
 test("render LinkBox with content", () => {
   const link = {

@@ -1,9 +1,9 @@
-import jobbsok from "../../../../assets/img/LedigeStillinger.svg";
-import pensjon from "../../../../assets/img/Pensjon.svg";
-import utbetalinger from "../../../../assets/img/Utbetalinger.svg";
-import sykefravaer from "../../../../assets/img/Sykepenger.svg";
-import dineSaker from "../../../../assets/img/DineSaker.svg";
-import Environment from "../../../../Environments";
+import jobbsok from "assets/img/LedigeStillinger.svg";
+import pensjon from "assets/img/Pensjon.svg";
+import utbetalinger from "assets/img/Utbetalinger.svg";
+import sykefravaer from "assets/img/Sykepenger.svg";
+import dineSaker from "assets/img/DineSaker.svg";
+import Environment from "Environments";
 
 const { tjenesteUrl } = Environment();
 

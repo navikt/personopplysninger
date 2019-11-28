@@ -3,7 +3,7 @@ import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
-import Tilbake from "../tilbake/Tilbake";
+import Tilbake from "components/tilbake/Tilbake";
 import { useHistory } from "react-router-dom";
 import Brodsmulesti, {
   BrodsmuleLenke

@@ -1,4 +1,4 @@
-import Environment from "../Environments";
+import Environment from "Environments";
 
 const { appUrl } = Environment();
 

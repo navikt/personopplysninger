@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import Error, { HTTPError } from "../../components/error/Error";
-import { useStore } from "../Provider";
-import { fetchPersonInfo } from "../../clients/apiClient";
-import { PersonInfo } from "../../types/personInfo";
+import Error, { HTTPError } from "components/error/Error";
+import { useStore } from "providers/Provider";
+import { fetchPersonInfo } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }

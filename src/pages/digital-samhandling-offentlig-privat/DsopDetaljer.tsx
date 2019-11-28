@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { DsopInfo } from "../../types/dsop";
+import { DsopInfo } from "types/dsop";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import ListElement from "../../components/listelement/ListElement";
+import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import { useParams } from "react-router-dom";
 import FileSaver from "file-saver";

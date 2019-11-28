@@ -6,7 +6,7 @@ import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
-import { InstInfo } from "../../types/inst";
+import { InstInfo } from "types/inst";
 
 interface Props {
   instInfo: InstInfo;

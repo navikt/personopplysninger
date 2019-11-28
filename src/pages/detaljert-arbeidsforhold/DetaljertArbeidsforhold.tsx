@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
-import Environment from "../../Environments";
+import Environment from "Environments";
 import { injectIntl, InjectedIntlProps } from "react-intl";
-import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
-import PageContainer from "../../components/pagecontainer/PageContainer";
+import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
+import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
 
 const environment = Environment();

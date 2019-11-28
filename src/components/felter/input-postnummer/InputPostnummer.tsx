@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { fetchPostnummer } from "../../../clients/apiClient";
-import { HTTPError } from "../../error/Error";
+import { fetchPostnummer } from "clients/apiClient";
+import { HTTPError } from "components/error/Error";
 import { Input } from "nav-frontend-skjema";
 
 interface Props {

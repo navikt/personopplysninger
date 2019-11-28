@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import Environment from "../../../../Environments";
-import konto from "../../../../assets/img/Konto.svg";
+import Environment from "Environments";
+import konto from "assets/img/Konto.svg";
 import { Link, useLocation } from "react-router-dom";
-import { basePath } from "../../../../App";
+import { basePath } from "App";
 
 const { tjenesteUrl } = Environment();
 

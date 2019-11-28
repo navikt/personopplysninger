@@ -1,15 +1,15 @@
-import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import { PersonInfo } from "../types/personInfo";
-import { KontaktInfo } from "../types/kontaktInfo";
-import { HTTPError } from "../components/error/Error";
-import { AuthInfo } from "../types/authInfo";
+import { FetchKontaktInfo } from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
+import { PersonInfo } from "types/personInfo";
+import { KontaktInfo } from "types/kontaktInfo";
+import { HTTPError } from "components/error/Error";
+import { AuthInfo } from "types/authInfo";
 import { FetchAuthInfo } from "./auth/Auth";
 import { FetchFeatureToggles } from "./featuretoggles/FeatureToggles";
-import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
-import { DsopInfo } from "../types/dsop";
+import { FetchDsopInfo } from "pages/digital-samhandling-offentlig-privat/DsopFetch";
+import { DsopInfo } from "types/dsop";
 import { FetchPersonInfo } from "./personinfo/PersinInfo";
-import { InstInfo } from "../types/inst";
-import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
+import { InstInfo } from "types/inst";
+import { FetchInstInfo } from "pages/institusjonsopphold/InstFetch";
 
 export interface FeatureToggles {
   [key: string]: boolean;
