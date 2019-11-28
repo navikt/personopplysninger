@@ -3,10 +3,7 @@ import { fetchDsopInfo } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "providers/Provider";
 import { DsopInfo } from "types/dsop";
-import { useParams } from "react-router-dom";
 import Spinner from "components/spinner/Spinner";
-import DsopHistorikk from "./DsopHistorikk";
-import DsopDetaljer from "./DsopDetaljer";
 
 export type FetchDsopInfo =
   | { status: "LOADING" }
@@ -17,10 +14,13 @@ interface Routes {
   id: string;
 }
 
-const WithDSOP = () => {
-  const params = useParams<Routes>();
+interface Props {
+  children: (data: { data: DsopInfo; id?: string }) => JSX.Element;
+}
+
+const WithDSOP = (props: Props) => {
   const [{ dsopInfo }, dispatch] = useStore();
-  const { id } = params;
+  const { children } = props;
 
   useEffect(() => {
     if (dsopInfo.status === "LOADING") {
@@ -42,11 +42,7 @@ const WithDSOP = () => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return id ? (
-        <DsopDetaljer dsopInfo={dsopInfo.data} />
-      ) : (
-        <DsopHistorikk dsopInfo={dsopInfo.data} />
-      );
+      return children({ data: dsopInfo.data });
     case "ERROR":
       return <Error error={dsopInfo.error} />;
   }

@@ -7,16 +7,30 @@ import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
+import PageContainer from "../../components/pagecontainer/PageContainer";
+import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import WithInst from "./InstFetch";
 
-interface Props {
-  instInfo: InstInfo;
-}
+/*
+  Hent data
+*/
+const InstHistorikk = () => (
+  <PageContainer
+    tittelId={"inst.tittel"}
+    icon={INSTIkon}
+    backTo={"/"}
+    brodsmulesti={[{ title: "inst.tittel" }]}
+  >
+    <WithInst>{({ data }) => <Tabell instInfo={data} />}</WithInst>
+  </PageContainer>
+);
 
-const InstHistorikk = (props: Props) => {
+/*
+  Visning
+*/
+const Tabell = (props: { instInfo: InstInfo }) => {
   const location = useLocation();
   const { instInfo } = props;
-
-  console.log(instInfo);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +49,7 @@ const InstHistorikk = (props: Props) => {
     if (!initState[year]) {
       initState[year] = {
         instInnslag: [instInnslag],
-        ekspandert: !i
+        ekspandert: !i ? true : false
       };
     } else {
       initState[year].instInnslag.push(instInnslag);

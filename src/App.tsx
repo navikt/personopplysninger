@@ -11,15 +11,15 @@ import Forside from "./pages/forside/Forside";
 import WithAuth from "./providers/auth/Auth";
 import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
 import EndreOpplysninger from "./pages/forside/endre-personopplysninger/EndreOpplysninger";
-import { DsopHistorik } from "./pages/digital-samhandling-offentlig-privat/Dsop";
-import { DsopDetaljer } from "./pages/digital-samhandling-offentlig-privat/Dsop";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
 import redirectsRaw from "./utils/redirects";
-import { InstHistorik } from "./pages/institusjonsopphold/Inst";
-import { InstDetaljer } from "./pages/institusjonsopphold/Inst";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
+import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
+import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
+import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
+import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 
 const redirects: {
   [key: string]: {
@@ -77,7 +77,7 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/dsop`}
-                  component={DsopHistorik}
+                  component={DsopHistorikk}
                 />
               )}
               {featureToggles.data["personopplysninger.dsop"] && (
@@ -91,7 +91,7 @@ const App = () => {
                 <Route
                   exact={true}
                   path={`${basePath}/institusjonsopphold`}
-                  component={InstHistorik}
+                  component={InstHistorikk}
                 />
               )}
               {featureToggles.data["personopplysninger.inst"] && (

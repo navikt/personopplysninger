@@ -7,12 +7,35 @@ import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
+import PageContainer from "components/pagecontainer/PageContainer";
+import DSOPIkon from "assets/img/DSOP.svg";
+import WithDSOP from "./DsopFetch";
 
 interface Props {
   dsopInfo: DsopInfo;
 }
 
-const DsopHistorikk = (props: Props) => {
+/*
+  Hent data
+*/
+const DsopHistorikk = () => (
+  <PageContainer
+    tittelId={"dsop.tittel"}
+    icon={DSOPIkon}
+    backTo={"/dsop"}
+    brodsmulesti={[
+      { title: "dsop.tittel", path: "/dsop" },
+      { title: "dsop.levertedata" }
+    ]}
+  >
+    <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>
+  </PageContainer>
+);
+
+/*
+  Visning
+*/
+const Tabell = (props: Props) => {
   const location = useLocation();
   const { dsopInfo } = props;
 

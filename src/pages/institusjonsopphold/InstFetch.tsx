@@ -3,24 +3,19 @@ import { fetchInstInfo } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "providers/Provider";
 import Spinner from "components/spinner/Spinner";
-import { useParams } from "react-router-dom";
 import { InstInfo } from "types/inst";
-import InstHistorikk from "./InstHistorikk";
-import InstDetaljer from "./InstDetaljer";
 
 export type FetchInstInfo =
   | { status: "LOADING" }
   | { status: "RESULT"; data: InstInfo }
   | { status: "ERROR"; error: HTTPError };
 
-interface Routes {
-  id: string;
+interface Props {
+  children: (data: { data: InstInfo; id?: string }) => JSX.Element;
 }
 
-const WithINST = () => {
-  const params = useParams<Routes>();
+const WithSkattetreksmelding = ({ children }: Props) => {
   const [{ instInfo }, dispatch] = useStore();
-  const { id } = params;
 
   useEffect(() => {
     if (instInfo.status === "LOADING") {
@@ -42,14 +37,10 @@ const WithINST = () => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return id ? (
-        <InstDetaljer instInfo={instInfo.data} />
-      ) : (
-        <InstHistorikk instInfo={instInfo.data} />
-      );
+      return children({ data: instInfo.data });
     case "ERROR":
       return <Error error={instInfo.error} />;
   }
 };
 
-export default WithINST;
+export default WithSkattetreksmelding;
