@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./providers/Provider";
@@ -28,8 +28,11 @@ const redirects: {
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
-  Modal.setAppElement("app");
   const [{ featureToggles }] = useStore();
+
+  useEffect(() => {
+    Modal.setAppElement("app");
+  }, []);
 
   configureAnchors({
     offset: -65,
