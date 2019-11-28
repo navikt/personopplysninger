@@ -15,10 +15,39 @@ const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
 /*
-    FETCH
+  AUTH
+  Lettvekt kall for å sjekke autentisering
+  Logger ikke 401 eller 403 feil da det forventes
  */
 
-const hentJsonOgSjekkAuth = (url: string) =>
+export const sjekkAuthHentNavn = () => {
+  const url = `${apiUrl}/name`;
+  return fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include"
+  })
+    .then(sjekkAuth)
+    .then(sjekkHttpFeil)
+    .then(parseJson)
+    .catch((err: string & AlertType) => {
+      const error = {
+        code: err.code || 404,
+        type: err.type || "feil",
+        text: err.text || err
+      };
+      if (error.code !== 401 && error.code !== 403) {
+        logApiError(url, error);
+        throw error;
+      }
+    });
+};
+
+/*
+   FETCH
+ */
+
+const sjekkAuthHentJson = (url: string) =>
   fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
@@ -37,33 +66,28 @@ const hentJsonOgSjekkAuth = (url: string) =>
       throw error;
     });
 
-export const fetchPersonInfo = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/personalia`);
-
-export const fetchKontaktInfo = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/kontaktinformasjon`);
-
-export const fetchRetningsnumre = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/retningsnumre`);
-
-export const fetchPostnummer = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/postnummer`);
-
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
-  hentJsonOgSjekkAuth(
+  sjekkAuthHentJson(
     `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
   );
 
+export const fetchKontaktInfo = () =>
+  sjekkAuthHentJson(`${apiUrl}/kontaktinformasjon`);
+
+export const fetchRetningsnumre = () =>
+  sjekkAuthHentJson(`${apiUrl}/retningsnumre`);
+
 export const fetchInstInfo = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/hentInstitusjonsopphold`);
+  sjekkAuthHentJson(`${apiUrl}/hentInstitusjonsopphold`);
 
 export const fetchSkattetreksmeldinger = () =>
-  hentJsonOgSjekkAuth(`${apiUrl}/skattetreksmeldinger`);
+  sjekkAuthHentJson(`${apiUrl}/skattetreksmeldinger`);
 
-export const fetchName = () => hentJsonOgSjekkAuth(`${apiUrl}/name`);
-export const fetchLand = () => hentJsonOgSjekkAuth(`${apiUrl}/land`);
-export const fetchValutaer = () => hentJsonOgSjekkAuth(`${apiUrl}/valuta`);
-export const fetchDsopInfo = () => hentJsonOgSjekkAuth(`${dsopUrl}/get`);
+export const fetchPostnummer = () => sjekkAuthHentJson(`${apiUrl}/postnummer`);
+export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl}/personalia`);
+export const fetchLand = () => sjekkAuthHentJson(`${apiUrl}/land`);
+export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl}/valuta`);
+export const fetchDsopInfo = () => sjekkAuthHentJson(`${dsopUrl}/get`);
 
 /*
     POST
