@@ -15,12 +15,12 @@ const LinksContainer = () => {
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>
-            <FormattedMessage id="eksternelenker.tittel" />
+            <FormattedMessage id="lenker.tittel" />
           </Systemtittel>
         </div>
         <div className="el__info">
           <Normaltekst>
-            <FormattedMessage id="eksternelenker.beskrivelse" />
+            <FormattedMessage id="lenker.beskrivelse" />
           </Normaltekst>
         </div>
         {eksterneLenker.map(link => (
@@ -39,9 +39,9 @@ const LinksContainer = () => {
           <LinkBox
             id={"inst"}
             icon={INSTIkon}
-            tittel={"eksternelenker.inst.tittel"}
-            beskrivelse={"eksternelenker.inst.beskrivelse"}
-            lenkeTekst={"eksternelenker.inst.lenkeTekst"}
+            tittel={"lenker.inst.tittel"}
+            beskrivelse={"lenker.inst.beskrivelse"}
+            lenkeTekst={"lenker.inst.lenkeTekst"}
             to={"/person/personopplysninger/institusjonsopphold"}
             component={"Link"}
           />
@@ -50,9 +50,9 @@ const LinksContainer = () => {
           <LinkBox
             id={"dsop"}
             icon={DSOPIkon}
-            tittel={"eksternelenker.dsop.tittel"}
-            beskrivelse={"eksternelenker.dsop.beskrivelse"}
-            lenkeTekst={"eksternelenker.dsop.lenkeTekst"}
+            tittel={"lenker.dsop.tittel"}
+            beskrivelse={"lenker.dsop.beskrivelse"}
+            lenkeTekst={"lenker.dsop.lenkeTekst"}
             to={"/person/personopplysninger/dsop"}
             component={"Link"}
           />
@@ -61,9 +61,9 @@ const LinksContainer = () => {
           <LinkBox
             id={"dsop"}
             icon={DSOPIkon}
-            tittel={"skattetreksmelding.dsop.tittel"}
-            beskrivelse={"skattetreksmelding.dsop.beskrivelse"}
-            lenkeTekst={"skattetreksmelding.dsop.lenkeTekst"}
+            tittel={"lenker.skattetreksmelding.dsop.tittel"}
+            beskrivelse={"lenker.skattetreksmelding.dsop.beskrivelse"}
+            lenkeTekst={"lenker.skattetreksmelding.dsop.lenkeTekst"}
             to={"/person/personopplysninger/skattetreksmelding"}
             component={"Link"}
           />
