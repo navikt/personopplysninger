@@ -10,7 +10,7 @@ import { FormContext, FormValidation } from "calidation";
 import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
@@ -29,10 +29,11 @@ export interface OutboundPostboksadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
+const OpprettEllerEndrePostboksadresse = (props: Props) => {
+  const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
+  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -50,25 +51,26 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
     },
     postboksnummer: {
-      isRequired: intl.messages["validation.postboksnummer.pakrevd"],
-      isNumber: intl.messages["validation.only.digits"]
+      isRequired: msg({ id: "validation.postboksnummer.pakrevd" }),
+      isNumber: msg({ id: "validation.only.digits" })
     },
     postboksanlegg: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isMinOneLetter: intl.messages["validation.min.one.letter"],
-      isLettersSpaceAndDigits:
-        intl.messages["validation.only.letters.space.and.digits"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isMinOneLetter: msg({ id: "validation.min.one.letter" }),
+      isLettersSpaceAndDigits: msg({
+        id: "validation.only.letters.space.and.digits"
+      })
     },
     postnummer: {
-      isRequired: intl.messages["validation.postnummer.pakrevd"],
-      isNumber: intl.messages["validation.only.digits"]
+      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
+      isNumber: msg({ id: "validation.only.digits" })
     },
     datoTilOgMed: {
-      isRequired: intl.messages["validation.tomdato.pakrevd"]
+      isRequired: msg({ id: "validation.tomdato.pakrevd" })
     }
   };
 
@@ -127,8 +129,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
               maxLength={26}
               submitted={submitted}
               hjelpetekst={"adresse.hjelpetekster.co"}
-              label={intl.messages["felter.tillegslinje.label"]}
-              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              label={msg({ id: "felter.tillegslinje.label" })}
+              placeholder={msg({ id: "felter.tillegslinje.placeholder" })}
               onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
@@ -138,7 +140,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 min={1}
                 bredde={"S"}
                 type={"number"}
-                label={intl.messages["felter.postboksnummer.label"]}
+                label={msg({ id: "felter.postboksnummer.label" })}
                 value={fields.postboksnummer}
                 className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksnummer)}
@@ -152,7 +154,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                 bredde={"M"}
                 maxLength={30}
                 value={fields.postboksanlegg}
-                label={intl.messages["felter.postboksanlegg.label"]}
+                label={msg({ id: "felter.postboksanlegg.label" })}
                 onChange={e => setField({ postboksanlegg: e.target.value })}
                 className="adresse__input-avstand"
                 feil={sjekkForFeil(submitted, errors.postboksanlegg)}
@@ -164,7 +166,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.postnummer}
                   error={errors.postnummer}
-                  label={intl.messages["felter.postnummer.label"]}
+                  label={msg({ id: "felter.postnummer.label" })}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
@@ -177,8 +179,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
-                  label={intl.messages["felter.gyldigtom.label"]}
-                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
+                  label={msg({ id: "felter.gyldigtom.label" })}
+                  ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -216,4 +218,4 @@ const OpprettEllerEndrePostboksadresse = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettEllerEndrePostboksadresse);
+export default OpprettEllerEndrePostboksadresse;

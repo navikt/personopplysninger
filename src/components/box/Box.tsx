@@ -1,6 +1,5 @@
 import React from "react";
 import { Systemtittel } from "nav-frontend-typografi";
-import { injectIntl, InjectedIntlProps } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
@@ -16,7 +15,7 @@ interface Props {
 }
 
 Modal.setAppElement("#app");
-const Box = (props: Props & InjectedIntlProps) => {
+const Box = (props: Props) => {
   const { tittel, beskrivelse, icon, children, id } = props;
   const Veileder = <img src={icon} className="box__ikon" alt="Veileder" />;
 
@@ -45,4 +44,4 @@ const Box = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(Box);
+export default Box;

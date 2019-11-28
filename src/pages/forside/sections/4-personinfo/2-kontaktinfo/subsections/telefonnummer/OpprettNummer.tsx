@@ -10,7 +10,7 @@ import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -19,10 +19,11 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
+const OpprettTelefonnummer = (props: Props) => {
+  const intl = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { tlfnr, onChangeSuccess, intl } = props;
+  const { tlfnr, onChangeSuccess } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -35,26 +36,26 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
   const formConfig = {
     type: {
       isRequired: {
-        message: intl.messages["validation.type.pakrevd"]
+        message: intl.formatMessage({ id: "validation.type.pakrevd" })
       },
       isWhitelisted: {
-        message: intl.messages["validation.type.pakrevd"],
+        message: intl.formatMessage({ id: "validation.type.pakrevd" }),
         whitelist: ["MOBIL", "ARBEID", "HJEM"]
       }
     },
     landskode: {
-      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+      isRequired: intl.formatMessage({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
-      isRequired: intl.messages["validation.tlfnr.pakrevd"],
-      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isRequired: intl.formatMessage({ id: "validation.tlfnr.pakrevd" }),
+      isNumber: intl.formatMessage({ id: "validation.tlfnr.siffer" }),
       isValidNorwegianNumber: {
-        message: intl.messages["validation.tlfnr.norske"],
+        message: intl.formatMessage({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
-        message: intl.messages["validation.tlfnr.makslengde"],
+        message: intl.formatMessage({ id: "validation.tlfnr.makslengde" }),
         length: 16
       }
     }
@@ -139,8 +140,10 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
+                      label={intl.formatMessage({
+                        id: "felter.landkode.label"
+                      })}
                       option={fields.landskode}
-                      label={intl.messages["felter.landkode.label"]}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -190,4 +193,4 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettTelefonnummer);
+export default OpprettTelefonnummer;

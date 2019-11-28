@@ -10,7 +10,7 @@ import { FormattedMessage } from "react-intl";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { useStore } from "providers/Provider";
 import { PersonInfo } from "types/personInfo";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
@@ -27,8 +27,9 @@ export interface OutboundStedsadresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
+const OpprettEllerEndreStedsadresse = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
@@ -41,20 +42,21 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
     },
     eiendomsnavn: {
-      isRequired: intl.messages["validation.stedsadresse.pakrevd"],
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLettersSpaceAndDigits:
-        intl.messages["validation.only.letters.space.and.digits"]
+      isRequired: msg({ id: "validation.stedsadresse.pakrevd" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isLettersSpaceAndDigits: msg({
+        id: "validation.only.letters.space.and.digits"
+      })
     },
     postnummer: {
-      isRequired: intl.messages["validation.postnummer.pakrevd"]
+      isRequired: msg({ id: "validation.postnummer.pakrevd" })
     },
     datoTilOgMed: {
-      isRequired: intl.messages["validation.tomdato.pakrevd"]
+      isRequired: msg({ id: "validation.tomdato.pakrevd" })
     }
   };
 
@@ -107,8 +109,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
               maxLength={26}
               submitted={submitted}
               hjelpetekst={"adresse.hjelpetekster.co"}
-              label={intl.messages["felter.tillegslinje.label"]}
-              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              label={msg({ id: "felter.tillegslinje.label" })}
+              placeholder={msg({ id: "felter.tillegslinje.placeholder" })}
               onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
@@ -118,7 +120,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                 <Input
                   bredde={"XXL"}
                   value={fields.eiendomsnavn}
-                  label={intl.messages["felter.stedsadresse.label"]}
+                  label={msg({ id: "felter.stedsadresse.label" })}
                   onChange={e => setField({ eiendomsnavn: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
                 />
@@ -131,7 +133,7 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.postnummer}
                   error={errors.postnummer}
-                  label={intl.messages["felter.postnummer.label"]}
+                  label={msg({ id: "felter.postnummer.label" })}
                   onChange={postnummer => setField({ postnummer })}
                   onErrors={error => setError({ postnummer: error })}
                 />
@@ -144,8 +146,8 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
-                  label={intl.messages["felter.gyldigtom.label"]}
-                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
+                  label={msg({ id: "felter.gyldigtom.label" })}
+                  ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -183,4 +185,4 @@ const OpprettEllerEndreStedsadresse = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettEllerEndreStedsadresse);
+export default OpprettEllerEndreStedsadresse;

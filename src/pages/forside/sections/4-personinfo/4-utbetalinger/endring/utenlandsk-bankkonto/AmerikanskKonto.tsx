@@ -1,7 +1,7 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { BANKKODE_MAX_LENGTH } from "./UtenlandsBankkonto";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 
 interface Props {
@@ -11,8 +11,9 @@ interface Props {
   submitted: boolean;
 }
 
-const AmerikanskKonto = (props: Props & InjectedIntlProps) => {
-  const { errors, fields, setField, submitted, intl } = props;
+const AmerikanskKonto = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { errors, fields, setField, submitted } = props;
   return (
     <>
       <div className="utbetalinger__bankkode-rad">
@@ -21,7 +22,7 @@ const AmerikanskKonto = (props: Props & InjectedIntlProps) => {
             disabled={true}
             value={fields.retningsnummer}
             submitted={submitted}
-            label={intl.messages["felter.bankkode.label"]}
+            label={msg({ id: "felter.bankkode.label" })}
             hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
             error={errors.retningsnummer}
             onChange={value => setField({ retningsnummer: value })}
@@ -46,7 +47,7 @@ const AmerikanskKonto = (props: Props & InjectedIntlProps) => {
           submitted={submitted}
           value={fields.adresse1}
           onChange={value => setField({ adresse1: value })}
-          label={intl.messages["felter.bankens.adresse.label"]}
+          label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
           label={""}
@@ -69,4 +70,4 @@ const AmerikanskKonto = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(AmerikanskKonto);
+export default AmerikanskKonto;
