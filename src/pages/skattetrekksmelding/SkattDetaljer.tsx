@@ -4,9 +4,9 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
-import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
-import PageContainer from "../../components/pagecontainer/PageContainer";
+import PageContainer from "components/pagecontainer/PageContainer";
 
 interface Routes {
   id: string;
@@ -22,10 +22,10 @@ const SkattekortDetaljer = () => {
 
   return (
     <PageContainer
-      tittelId={"inst.tittel"}
-      icon={INSTIkon}
+      tittelId={"skattetreksmeldinger.tittel"}
+      icon={SkattIkon}
       backTo={"/"}
-      brodsmulesti={[{ title: "inst.tittel" }]}
+      brodsmulesti={[{ title: "skattetreksmeldinger.tittel" }]}
     >
       <WithSkatt>
         {({ data }) => {
@@ -80,7 +80,7 @@ const SkattekortDetaljer = () => {
             </div>
           ) : (
             <div>
-              <FormattedMessage id="dsop.ingendata" />
+              <FormattedMessage id="skattetreksmeldinger.ingendata" />
             </div>
           );
         }}

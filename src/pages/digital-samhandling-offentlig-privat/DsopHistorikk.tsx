@@ -23,10 +23,7 @@ const DsopHistorikk = () => (
     tittelId={"dsop.tittel"}
     icon={DSOPIkon}
     backTo={"/dsop"}
-    brodsmulesti={[
-      { title: "dsop.tittel", path: "/dsop" },
-      { title: "dsop.levertedata" }
-    ]}
+    brodsmulesti={[{ title: "inst.tittel" }]}
   >
     <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>
   </PageContainer>
@@ -71,7 +68,7 @@ const Tabell = (props: Props) => {
         <>
           <div className={"historikk__info"}>
             <AlertStripeInfo>
-              <FormattedHTMLMessage id={"eksternelenker.dsop.info"} />
+              <FormattedHTMLMessage id={"lenker.dsop.info"} />
             </AlertStripeInfo>
           </div>
           <div className="historikk__flex-rad historikk__head">

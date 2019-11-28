@@ -7,8 +7,8 @@ import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
-import PageContainer from "../../components/pagecontainer/PageContainer";
-import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import PageContainer from "components/pagecontainer/PageContainer";
+import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 
 /*
@@ -16,10 +16,10 @@ import WithSkatt from "./SkattFetch";
 */
 const SkattkortHistorikk = () => (
   <PageContainer
-    tittelId={"inst.tittel"}
-    icon={INSTIkon}
+    tittelId={"skattetreksmeldinger.tittel"}
+    icon={SkattIkon}
     backTo={"/"}
-    brodsmulesti={[{ title: "inst.tittel" }]}
+    brodsmulesti={[{ title: "skattetreksmeldinger.tittel" }]}
   >
     <WithSkatt>{({ data }) => <Tabell instInfo={data} />}</WithSkatt>
   </PageContainer>
@@ -64,7 +64,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
         <>
           <div className={"historikk__info"}>
             <AlertStripeInfo>
-              <FormattedHTMLMessage id={"eksternelenker.dsop.info"} />
+              <FormattedHTMLMessage id={"lenker.dsop.info"} />
             </AlertStripeInfo>
           </div>
           <div className="historikk__flex-rad historikk__head">
@@ -135,7 +135,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
       ) : (
         <div className="historikk__ingen-data">
           <AlertStripeInfo>
-            <FormattedMessage id="dsop.ingendata" />
+            <FormattedMessage id="skattetreksmeldinger.ingendata" />
           </AlertStripeInfo>
         </div>
       )}

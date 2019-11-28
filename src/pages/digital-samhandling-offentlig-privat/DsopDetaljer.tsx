@@ -27,7 +27,10 @@ const DsopDetaljer = () => {
       tittelId={"inst.tittel"}
       icon={INSTIkon}
       backTo={"/"}
-      brodsmulesti={[{ title: "inst.tittel" }]}
+      brodsmulesti={[
+        { title: "dsop.tittel", path: "/dsop" },
+        { title: "dsop.levertedata" }
+      ]}
     >
       <WithDSOP>
         {({ data }) => {

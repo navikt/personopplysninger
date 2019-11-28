@@ -62,11 +62,6 @@ const Tabell = (props: { instInfo: InstInfo }) => {
     <div className="historikk__tabs-innhold historikk__flex-table">
       {Object.keys(data).length > 0 ? (
         <>
-          <div className={"historikk__info"}>
-            <AlertStripeInfo>
-              <FormattedHTMLMessage id={"eksternelenker.dsop.info"} />
-            </AlertStripeInfo>
-          </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
               <Element>
@@ -135,7 +130,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
       ) : (
         <div className="historikk__ingen-data">
           <AlertStripeInfo>
-            <FormattedMessage id="dsop.ingendata" />
+            <FormattedMessage id="inst.ingendata" />
           </AlertStripeInfo>
         </div>
       )}

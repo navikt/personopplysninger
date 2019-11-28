@@ -1,10 +1,11 @@
 import React from "react";
-import eksterneLenker from "./LenkerData";
+import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
+import SkattIkon from "assets/img/Skattekort.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "providers/Provider";
 
@@ -23,7 +24,7 @@ const LinksContainer = () => {
             <FormattedMessage id="lenker.beskrivelse" />
           </Normaltekst>
         </div>
-        {eksterneLenker.map(link => (
+        {lenker.map(link => (
           <LinkBox
             id={link.id}
             key={link.id}
@@ -59,11 +60,11 @@ const LinksContainer = () => {
         )}
         {featureToggles.data["personopplysninger.skatt"] && (
           <LinkBox
-            id={"dsop"}
-            icon={DSOPIkon}
-            tittel={"lenker.skattetreksmelding.dsop.tittel"}
-            beskrivelse={"lenker.skattetreksmelding.dsop.beskrivelse"}
-            lenkeTekst={"lenker.skattetreksmelding.dsop.lenkeTekst"}
+            id={"skatt"}
+            icon={SkattIkon}
+            tittel={"lenker.skattetreksmelding.tittel"}
+            beskrivelse={"lenker.skattetreksmelding.beskrivelse"}
+            lenkeTekst={"lenker.skattetreksmelding.lenkeTekst"}
             to={"/person/personopplysninger/skattetreksmelding"}
             component={"Link"}
           />

@@ -25,7 +25,10 @@ const InstDetaljer = () => {
       tittelId={"inst.tittel"}
       icon={INSTIkon}
       backTo={"/"}
-      brodsmulesti={[{ title: "inst.tittel" }]}
+      brodsmulesti={[
+        { title: "inst.tittel", path: "/institusjonsopphold" },
+        { title: "inst.detaljer" }
+      ]}
     >
       <WithInst>
         {({ data }) => {
@@ -80,7 +83,7 @@ const InstDetaljer = () => {
             </div>
           ) : (
             <div>
-              <FormattedMessage id="dsop.ingendata" />
+              <FormattedMessage id="inst.ingendata" />
             </div>
           );
         }}
