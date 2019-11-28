@@ -1,6 +1,6 @@
 import React from "react";
 import { UtenlandskBankkonto } from "types/personalia";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import UtbetalingerPDL from "./Utbetalinger-PDL";
 import UtbetalingerOLD from "./Utbetalinger-OLD";
 

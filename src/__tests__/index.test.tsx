@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { IntlProvider, addLocaleData } from "react-intl";
-import { StoreProvider } from "providers/Provider";
-import { initialState, reducer } from "providers/Store";
+import { StoreProvider } from "store/Context";
+import { initialState, reducer } from "store/Store";
 import nb from "react-intl/locale-data/nb";
 import nbMessages from "text/nb";
 import App from "App";

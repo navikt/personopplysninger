@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
 import PDLTelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
-import MedPersonInfo from "providers/personinfo/PersinInfo";
+import MedPersonInfo from "store/providers/PersonInfo";
 import Spinner from "components/spinner/Spinner";
 
 interface Routes {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { Adresser } from "types/adresser";
 import AdresserPDL from "./Adresser-PDL";
 import AdresserOLD from "./Adresser-OLD";

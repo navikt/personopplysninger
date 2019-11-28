@@ -11,7 +11,7 @@ import slettIkon from "assets/img/Slett.svg";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";

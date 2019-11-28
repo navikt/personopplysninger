@@ -1,5 +1,5 @@
 import { logApiError, logEvent } from "../utils/logger";
-import { FeatureToggles } from "../providers/Store";
+import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";

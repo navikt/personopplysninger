@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchSkattetreksmeldinger } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import Spinner from "components/spinner/Spinner";
 import { Skattetreksmeldinger } from "types/skattetreksmeldinger";
 

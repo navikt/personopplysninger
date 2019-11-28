@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Error, { HTTPError } from "components/error/Error";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 

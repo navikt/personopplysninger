@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { fetchDsopInfo } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { DsopInfo } from "types/dsop";
 import Spinner from "components/spinner/Spinner";
 

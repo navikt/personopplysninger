@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Error, { HTTPError } from "components/error/Error";
-import { useStore } from "../Provider";
+import { useStore } from "../Context";
 import { fetchName } from "clients/apiClient";
 import { NameInfo } from "types/nameInfo";
 import Spinner from "components/spinner/Spinner";

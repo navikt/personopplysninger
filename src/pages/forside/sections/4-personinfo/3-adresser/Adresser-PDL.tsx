@@ -22,7 +22,7 @@ import { slettUtenlandsAdresse } from "clients/apiClient";
 import { slettMidlertidigAdresse } from "clients/apiClient";
 import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 
 interface Props {
   adresser: Adresser;

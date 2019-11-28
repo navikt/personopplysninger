@@ -6,7 +6,7 @@ import Spinner from "components/spinner/Spinner";
 import { fetchKontaktInfo } from "clients/apiClient";
 import { KontaktInfo } from "types/kontaktInfo";
 import KontaktInformasjon from "./DKIF";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import Infotekst from "components/infotekst/Infotekst";
 
 export type FetchKontaktInfo =

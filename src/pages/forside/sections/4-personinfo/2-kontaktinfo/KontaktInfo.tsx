@@ -4,7 +4,7 @@ import kontaktIkon from "assets/img/Kontakt.svg";
 import TelefonnummerHosNavPDL from "./subsections/TelefonnummerHosNav-PDL";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import { Tlfnr } from "types/personalia";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import TelefonnummerHosNavOLD from "./subsections/TelefonnummerHosNav-OLD";
 
 interface Props {

@@ -11,7 +11,7 @@ import { RADIX_DECIMAL } from "utils/formattering";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 

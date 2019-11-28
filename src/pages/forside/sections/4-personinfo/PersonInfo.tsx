@@ -4,7 +4,7 @@ import Adresser from "./3-adresser/Adresser";
 import DittNavKontor from "./5-ditt-nav-kontor/DittNavKontor";
 import KontaktInfo from "./2-kontaktinfo/KontaktInfo";
 import Utbetalinger from "./4-utbetalinger/Utbetalinger";
-import MedPersonInfo from "providers/personinfo/PersinInfo";
+import MedPersonInfo from "store/providers/PersonInfo";
 import personaliaIkon from "assets/img/Personalia.svg";
 import Box from "components/box/Box";
 import Spinner from "components/spinner/Spinner";

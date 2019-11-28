@@ -7,7 +7,7 @@ import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import SkattIkon from "assets/img/Skattekort.svg";
 import { FormattedMessage } from "react-intl";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();

@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { useStore } from "./providers/Provider";
+import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import WithAuth from "./providers/auth/Auth";
-import WithFeatureToggles from "./providers/featuretoggles/FeatureToggles";
+import WithAuth from "./store/providers/Auth";
+import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/forside/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";

@@ -6,7 +6,7 @@ import Veilederpanel from "nav-frontend-veilederpanel";
 import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 
 const Header = () => {
   const [{ nameInfo }] = useStore();

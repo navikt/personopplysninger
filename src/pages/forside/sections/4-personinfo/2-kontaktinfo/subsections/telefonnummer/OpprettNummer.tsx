@@ -9,7 +9,7 @@ import { Tlfnr } from "types/personalia";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 

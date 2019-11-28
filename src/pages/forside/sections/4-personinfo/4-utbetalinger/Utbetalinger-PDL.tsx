@@ -22,7 +22,7 @@ import { Form, FormContext, Validation } from "calidation";
 import { sjekkForFeil } from "utils/validators";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;

@@ -9,7 +9,7 @@ import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";

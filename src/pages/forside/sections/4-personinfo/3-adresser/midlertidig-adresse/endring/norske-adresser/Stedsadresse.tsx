@@ -8,7 +8,7 @@ import InputPostnummer from "components/felter/input-postnummer/InputPostnummer"
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import DayPicker from "components/felter/day-picker/DayPicker";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { PersonInfo } from "types/personInfo";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";

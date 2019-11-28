@@ -11,7 +11,7 @@ import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
 import { UNKNOWN } from "utils/text";
 import { PersonInfo } from "types/personInfo";
-import { useStore } from "providers/Provider";
+import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
