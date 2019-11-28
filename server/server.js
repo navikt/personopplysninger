@@ -3,12 +3,12 @@ const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
-const buildPath = path.resolve(__dirname, "build");
+const buildPath = path.resolve(__dirname, "../build");
 const baseUrl = "/person/personopplysninger";
 const logger = require("./logger");
 const server = express();
 
-server.set("views", `${__dirname}/build`);
+server.set("views", `${__dirname}/../build`);
 server.set("view engine", "mustache");
 server.engine("html", mustacheExpress());
 
