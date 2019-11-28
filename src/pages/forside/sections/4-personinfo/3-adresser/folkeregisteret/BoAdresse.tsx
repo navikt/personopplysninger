@@ -15,7 +15,7 @@ interface Props {
 }
 
 const BoAdresse = (props: Props) => {
-  const { formatMessage } = useIntl();
+  const { formatMessage: msg } = useIntl();
   const { adresse, postnummer, poststed } = props.boadresse;
   const { veiadresse, kommune, adressetillegg, datoFraOgMed } = props.boadresse;
 
@@ -36,12 +36,8 @@ const BoAdresse = (props: Props) => {
             formattedDate) && (
             <Lesmerpanel
               className="adresse__lesmer"
-              apneTekst={formatMessage({
-                id: "adresse.bostedsadresse.apneTekst"
-              })}
-              lukkTekst={formatMessage({
-                id: "adresse.bostedsadresse.lukkTekst"
-              })}
+              apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
+              lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
             >
               <ul className="list-column-2 address-columns">
                 {veiadresse && veiadresse.bolignummer && (

@@ -138,8 +138,8 @@ const OpprettTelefonnummer = (props: Props) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
-                      label={msg({ id: "felter.landkode.label" })}
                       option={fields.landskode}
+                      label={msg({ id: "felter.landkode.label" })}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
