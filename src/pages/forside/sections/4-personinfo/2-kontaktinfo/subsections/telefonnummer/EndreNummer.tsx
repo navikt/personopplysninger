@@ -12,7 +12,7 @@ import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
 import Alert, { AlertType } from "components/alert/Alert";
 import { UNKNOWN } from "utils/text";
@@ -33,13 +33,14 @@ interface Props {
   tlfnummer?: string;
 }
 
-const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
-  const { type, titleId, landskode, tlfnummer, intl } = props;
+const EndreTelefonnummer = (props: Props) => {
+  const { type, titleId, landskode, tlfnummer } = props;
   const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
+  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -52,18 +53,18 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
 
   const formConfig = {
     landskode: {
-      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
-      isRequired: intl.messages["validation.tlfnr.pakrevd"],
-      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
+      isNumber: msg({ id: "validation.tlfnr.siffer" }),
       isValidNorwegianNumber: {
-        message: intl.messages["validation.tlfnr.norske"],
+        message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
-        message: intl.messages["validation.tlfnr.makslengde"],
+        message: msg({ id: "validation.tlfnr.makslengde" }),
         length: 16
       }
     }
@@ -195,7 +196,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                 closeButton={false}
                 isOpen={visSlettModal}
                 onRequestClose={lukkSlettModal}
-                contentLabel={intl.messages["side.opphør"]}
+                contentLabel={msg({ id: "side.opphør" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
                   <FormattedMessage id="personalia.tlfnr.slett.alert" />
@@ -221,7 +222,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
                       option={fields.landskode}
-                      label={intl.messages["felter.landkode.label"]}
+                      label={msg({ id: "felter.landkode.label" })}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -232,7 +233,7 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
                       type={"tel"}
                       bredde={"M"}
                       value={fields.tlfnummer}
-                      label={intl.messages["felter.tlfnr.label"]}
+                      label={msg({ id: "felter.tlfnr.label" })}
                       onChange={e => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
                       feil={
@@ -274,4 +275,4 @@ const EndreTelefonnummer = (props: Props & InjectedIntlProps) => {
   ) : null;
 };
 
-export default injectIntl(EndreTelefonnummer);
+export default EndreTelefonnummer;

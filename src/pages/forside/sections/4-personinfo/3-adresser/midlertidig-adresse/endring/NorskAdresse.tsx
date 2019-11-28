@@ -4,8 +4,8 @@ import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
-import { injectIntl, FormattedMessage } from "react-intl";
-import { FormattedHTMLMessage, InjectedIntlProps } from "react-intl";
+import { useIntl, FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage } from "react-intl";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import cls from "classnames";
 
@@ -15,8 +15,9 @@ interface Props {
 }
 
 type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
-const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
-  const { intl, tilleggsadresse } = props;
+const OpprettEllerEndreNorskAdresse = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { tilleggsadresse } = props;
   const [type, settType] = useState(
     (tilleggsadresse && tilleggsadresse.type) || ("GATEADRESSE" as Adresser)
   );
@@ -42,13 +43,13 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
               defaultValue={type}
             >
               <option value="GATEADRESSE">
-                {intl.messages["felter.adressetype.gateadresse"]}
+                {msg({ id: "felter.adressetype.gateadresse" })}
               </option>
               <option value="POSTBOKSADRESSE">
-                {intl.messages["felter.adressetype.postboksadresse"]}
+                {msg({ id: "felter.adressetype.postboksadresse" })}
               </option>
               <option value="STEDSADRESSE">
-                {intl.messages["felter.adressetype.stedsadresse"]}
+                {msg({ id: "felter.adressetype.stedsadresse" })}
               </option>
             </Select>
           </div>
@@ -66,4 +67,4 @@ const OpprettEllerEndreNorskAdresse = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettEllerEndreNorskAdresse);
+export default OpprettEllerEndreNorskAdresse;

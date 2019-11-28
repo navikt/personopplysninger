@@ -1,11 +1,7 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { BANKKODE_MAX_LENGTH } from "./UtenlandsBankkonto";
-import {
-  FormattedHTMLMessage,
-  InjectedIntlProps,
-  injectIntl
-} from "react-intl";
+import { FormattedHTMLMessage, useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
@@ -16,8 +12,9 @@ interface Props {
   submitted: boolean;
 }
 
-const LandMedBankkode = (props: Props & InjectedIntlProps) => {
-  const { errors, fields, setField, submitted, intl } = props;
+const LandMedBankkode = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { errors, fields, setField, submitted } = props;
   return (
     <>
       <div className="utbetalinger__bic-bankkode">
@@ -35,7 +32,7 @@ const LandMedBankkode = (props: Props & InjectedIntlProps) => {
           submitted={submitted}
           value={fields.bickode}
           hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-          label={intl.messages["felter.bic.label"]}
+          label={msg({ id: "felter.bic.label" })}
           onChange={value => setField({ bickode: value })}
           error={errors.bickode}
         />
@@ -45,7 +42,7 @@ const LandMedBankkode = (props: Props & InjectedIntlProps) => {
               disabled={true}
               value={fields.retningsnummer}
               submitted={submitted}
-              label={intl.messages["felter.bankkode.label"]}
+              label={msg({ id: "felter.bankkode.label" })}
               error={errors.retningsnummer}
               hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
               onChange={value => setField({ retningsnummer: value })}
@@ -71,7 +68,7 @@ const LandMedBankkode = (props: Props & InjectedIntlProps) => {
           submitted={submitted}
           value={fields.adresse1}
           onChange={value => setField({ adresse1: value })}
-          label={intl.messages["felter.bankens.adresse.label"]}
+          label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
           label={""}
@@ -94,4 +91,4 @@ const LandMedBankkode = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(LandMedBankkode);
+export default LandMedBankkode;

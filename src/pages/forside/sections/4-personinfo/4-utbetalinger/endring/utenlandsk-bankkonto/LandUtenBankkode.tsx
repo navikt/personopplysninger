@@ -1,7 +1,7 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { BIC, UTEN_BIC } from "./UtenlandsBankkonto";
-import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { Radio, SkjemaGruppe } from "nav-frontend-skjema";
@@ -15,15 +15,16 @@ interface Props {
   submitted: boolean;
 }
 
-const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
-  const { errors, fields, setField, submitted, intl } = props;
+const LandUtenBankkode = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { errors, fields, setField, submitted } = props;
   return (
     <div className="utbetalinger__bank-identifier">
       <SkjemaGruppe feil={sjekkForFeil(submitted, errors.bankidentifier)}>
         <Radio
           name={BIC}
           checked={fields.bankidentifier === BIC}
-          label={intl.messages["felter.bankidentifier.bic"]}
+          label={msg({ id: "felter.bankidentifier.bic" })}
           onChange={e => setField({ bankidentifier: e.target.name })}
         />
         {harValgtBic(fields.bankidentifier) && (
@@ -33,7 +34,7 @@ const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
             submitted={submitted}
             value={fields.bickode}
             hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-            label={intl.messages["felter.bic.label"]}
+            label={msg({ id: "felter.bic.label" })}
             onChange={value => setField({ bickode: value })}
             error={errors.bickode}
           />
@@ -41,7 +42,7 @@ const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
         <Radio
           name={UTEN_BIC}
           checked={fields.bankidentifier === UTEN_BIC}
-          label={intl.messages["felter.bankidentifier.harikke.bic"]}
+          label={msg({ id: "felter.bankidentifier.harikke.bic" })}
           onChange={e => setField({ bankidentifier: e.target.name })}
         />
       </SkjemaGruppe>
@@ -60,7 +61,7 @@ const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
             submitted={submitted}
             value={fields.adresse1}
             onChange={value => setField({ adresse1: value })}
-            label={intl.messages["felter.bankens.adresse.label"]}
+            label={msg({ id: "felter.bankens.adresse.label" })}
           />
           <InputMedHjelpetekst
             label={""}
@@ -84,4 +85,4 @@ const LandUtenBankkode = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(LandUtenBankkode);
+export default LandUtenBankkode;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
+import { FormattedHTMLMessage, useIntl } from "react-intl";
 import { Adresser } from "types/adresser";
 import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
@@ -31,9 +31,10 @@ interface Props {
 const NORSK = "NORSK";
 const UTENLANDSK = "UTENLANDSK";
 
-const AdresserPDL = (props: Props & InjectedIntlProps) => {
+const AdresserPDL = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
-  const { intl, adresser } = props;
+  const { adresser } = props;
   const { tilleggsadresse, utenlandskAdresse } = adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
   const [slettLoading, settSlettLoading] = useState();
@@ -109,13 +110,13 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
             <Radio
               name={NORSK}
               checked={norskEllerUtenlandsk === NORSK}
-              label={intl.messages["felter.adressevalg.norsk"]}
+              label={msg({ id: "felter.adressevalg.norsk" })}
               onChange={e => settNorskEllerUtenlandsk(e.target.name)}
             />
             <Radio
               name={UTENLANDSK}
               checked={norskEllerUtenlandsk === UTENLANDSK}
-              label={intl.messages["felter.adressevalg.utenlandsk"]}
+              label={msg({ id: "felter.adressevalg.utenlandsk" })}
               onChange={e => settNorskEllerUtenlandsk(e.target.name)}
             />
             {norskEllerUtenlandsk === NORSK && (
@@ -174,7 +175,7 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
                   closeButton={false}
                   isOpen={visSlettModal}
                   onRequestClose={lukkSlettModal}
-                  contentLabel={intl.messages["side.slett"]}
+                  contentLabel={msg({ id: "side.slett" })}
                 >
                   <div style={{ padding: "2rem 2.5rem" }}>
                     <FormattedHTMLMessage id="adresse.slett.alert" />
@@ -206,4 +207,4 @@ const AdresserPDL = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(AdresserPDL);
+export default AdresserPDL;

@@ -14,7 +14,7 @@ interface Props {
   children: (data: { data: InstInfo; id?: string }) => JSX.Element;
 }
 
-const WithSkattetreksmelding = ({ children }: Props) => {
+const WithInst = ({ children }: Props) => {
   const [{ instInfo }, dispatch] = useStore();
 
   useEffect(() => {
@@ -46,4 +46,4 @@ const WithSkattetreksmelding = ({ children }: Props) => {
   }
 };
 
-export default WithSkattetreksmelding;
+export default WithInst;

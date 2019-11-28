@@ -8,14 +8,13 @@ import { KontaktInfo } from "types/kontaktInfo";
 import KontaktInformasjon from "./DKIF";
 import { useStore } from "providers/Provider";
 import Infotekst from "components/infotekst/Infotekst";
-import { injectIntl, InjectedIntlProps } from "react-intl";
 
 export type FetchKontaktInfo =
   | { status: "LOADING" }
   | { status: "RESULT"; data: KontaktInfo }
   | { status: "ERROR"; error: HTTPError };
 
-const DKIF = (props: InjectedIntlProps) => {
+const DKIF = () => {
   const [{ kontaktInfo }, dispatch] = useStore();
 
   useEffect(() => {
@@ -56,4 +55,4 @@ const DKIF = (props: InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(DKIF);
+export default DKIF;

@@ -12,7 +12,7 @@ import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
 import { UNKNOWN } from "utils/text";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -28,13 +28,12 @@ export interface OutboundUtenlandskAdresse {
   gyldigTom: string;
 }
 
-const OpprettEllerEndreUtenlandskAdresse = (
-  props: Props & InjectedIntlProps
-) => {
-  const { utenlandskadresse, settOpprettEllerEndre, intl } = props;
+const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
+  const { utenlandskadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
   const [, dispatch] = useStore();
+  const { formatMessage: msg } = useIntl();
 
   const initialValues = {
     ...(utenlandskadresse && {
@@ -48,15 +47,15 @@ const OpprettEllerEndreUtenlandskAdresse = (
 
   const formConfig = {
     adresse1: {
-      isRequired: intl.messages["validation.gateadresse.pakrevd"]
+      isRequired: msg({ id: "validation.gateadresse.pakrevd" })
     },
     adresse2: {},
     adresse3: {},
     land: {
-      isRequired: intl.messages["validation.land.pakrevd"]
+      isRequired: msg({ id: "validation.land.pakrevd" })
     },
     datoTilOgMed: {
-      isRequired: intl.messages["validation.tomdato.pakrevd"]
+      isRequired: msg({ id: "validation.tomdato.pakrevd" })
     }
   };
 
@@ -108,7 +107,7 @@ const OpprettEllerEndreUtenlandskAdresse = (
                 maxLength={30}
                 value={fields.adresse1}
                 hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
-                label={intl.messages["felter.adresse.label"]}
+                label={msg({ id: "felter.adresse.label" })}
                 onChange={value => setField({ adresse1: value })}
               />
               <Input
@@ -127,18 +126,18 @@ const OpprettEllerEndreUtenlandskAdresse = (
               />
             </SkjemaGruppe>
             <SelectLand
+              label={msg({ id: "felter.land.label" })}
               submitted={submitted}
               option={fields.land}
               error={errors.land}
-              label={intl.messages["felter.land.label"]}
               onChange={land => setField({ land })}
             />
             <DayPicker
               submitted={submitted}
               value={fields.datoTilOgMed}
               error={errors.datoTilOgMed}
-              label={intl.messages["felter.gyldigtom.label"]}
-              ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
+              label={msg({ id: "felter.gyldigtom.label" })}
+              ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
               onChange={value => setField({ datoTilOgMed: value })}
               onErrors={error => setError({ datoTilOgMed: error })}
             />
@@ -173,4 +172,4 @@ const OpprettEllerEndreUtenlandskAdresse = (
   );
 };
 
-export default injectIntl(OpprettEllerEndreUtenlandskAdresse);
+export default OpprettEllerEndreUtenlandskAdresse;
