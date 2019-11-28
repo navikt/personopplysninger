@@ -18,8 +18,8 @@ interface Routes {
 }
 
 const WithINST = () => {
-  const [{ instInfo }, dispatch] = useStore();
   const params = useParams<Routes>();
+  const [{ instInfo }, dispatch] = useStore();
   const { id } = params;
 
   useEffect(() => {

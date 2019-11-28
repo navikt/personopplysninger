@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { DsopInfo } from "../../types/dsop";
-import { RouteComponentProps, withRouter } from "react-router-dom";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
+import { useParams } from "react-router-dom";
 import FileSaver from "file-saver";
 import moment from "moment";
 import { Hovedknapp } from "nav-frontend-knapper";
@@ -16,9 +16,10 @@ interface Routes {
   id: string;
 }
 
-const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
+const DsopDetaljer = (props: Props) => {
+  const params = useParams<Routes>();
   const { dsopInfo } = props;
-  const { id } = props.match.params;
+  const { id } = params;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -87,4 +88,4 @@ const DsopDetaljer = (props: Props & RouteComponentProps<Routes>) => {
   );
 };
 
-export default withRouter(DsopDetaljer);
+export default DsopDetaljer;
