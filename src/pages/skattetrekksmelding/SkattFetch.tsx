@@ -3,7 +3,6 @@ import { fetchInstInfo } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "providers/Provider";
 import Spinner from "components/spinner/Spinner";
-import { useParams } from "react-router-dom";
 import { InstInfo } from "types/inst";
 
 export type FetchInstInfo =
