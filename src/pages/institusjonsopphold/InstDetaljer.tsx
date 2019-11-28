@@ -4,9 +4,9 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
-import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
-import PageContainer from "../../components/pagecontainer/PageContainer";
+import PageContainer from "components/pagecontainer/PageContainer";
 
 interface Routes {
   id: string;

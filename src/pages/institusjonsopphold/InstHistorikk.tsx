@@ -7,8 +7,8 @@ import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
-import PageContainer from "../../components/pagecontainer/PageContainer";
-import INSTIkon from "../../assets/img/Institusjonsopphold.svg";
+import PageContainer from "components/pagecontainer/PageContainer";
+import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 
 /*
