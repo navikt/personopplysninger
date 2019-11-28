@@ -20,7 +20,7 @@ interface Props {
 }
 
 const OpprettTelefonnummer = (props: Props) => {
-  const intl = useIntl();
+  const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
   const { tlfnr, onChangeSuccess } = props;
@@ -35,27 +35,25 @@ const OpprettTelefonnummer = (props: Props) => {
 
   const formConfig = {
     type: {
-      isRequired: {
-        message: intl.formatMessage({ id: "validation.type.pakrevd" })
-      },
+      isRequired: { message: msg({ id: "validation.type.pakrevd" }) },
       isWhitelisted: {
-        message: intl.formatMessage({ id: "validation.type.pakrevd" }),
+        message: msg({ id: "validation.type.pakrevd" }),
         whitelist: ["MOBIL", "ARBEID", "HJEM"]
       }
     },
     landskode: {
-      isRequired: intl.formatMessage({ id: "validation.retningsnr.pakrevd" })
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
-      isRequired: intl.formatMessage({ id: "validation.tlfnr.pakrevd" }),
-      isNumber: intl.formatMessage({ id: "validation.tlfnr.siffer" }),
+      isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
+      isNumber: msg({ id: "validation.tlfnr.siffer" }),
       isValidNorwegianNumber: {
-        message: intl.formatMessage({ id: "validation.tlfnr.norske" }),
+        message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
-        message: intl.formatMessage({ id: "validation.tlfnr.makslengde" }),
+        message: msg({ id: "validation.tlfnr.makslengde" }),
         length: 16
       }
     }
@@ -114,25 +112,25 @@ const OpprettTelefonnummer = (props: Props) => {
                 <div className={"tlfnummer__container"}>
                   <Select
                     value={fields.type}
-                    label={intl.messages["felter.type.label"]}
+                    label={msg({ id: "felter.type.label" })}
                     onChange={e => setField({ type: e.target.value })}
                     bredde={"s"}
                     feil={sjekkForFeil(submitted, errors.type)}
                   >
-                    <option>{intl.messages["felter.type.velg"]}</option>
+                    <option>{msg({ id: "felter.type.velg" })}</option>
                     {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
                       <option value="MOBIL">
-                        {intl.messages["personalia.tlfnr.mobil"]}
+                        {msg({ id: "personalia.tlfnr.mobil" })}
                       </option>
                     )}
                     {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
                       <option value="ARBEID">
-                        {intl.messages["personalia.tlfnr.arbeid"]}
+                        {msg({ id: "personalia.tlfnr.arbeid" })}
                       </option>
                     )}
                     {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
                       <option value="HJEM">
-                        {intl.messages["personalia.tlfnr.hjem"]}
+                        {msg({ id: "personalia.tlfnr.hjem" })}
                       </option>
                     )}
                   </Select>
@@ -140,9 +138,7 @@ const OpprettTelefonnummer = (props: Props) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
-                      label={intl.formatMessage({
-                        id: "felter.landkode.label"
-                      })}
+                      label={msg({ id: "felter.landkode.label" })}
                       option={fields.landskode}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
@@ -155,7 +151,7 @@ const OpprettTelefonnummer = (props: Props) => {
                       bredde={"M"}
                       value={fields.tlfnummer}
                       maxLength={tlfNummerMaxLength}
-                      label={intl.messages["felter.tlfnr.label"]}
+                      label={msg({ id: "felter.tlfnr.label" })}
                       onChange={e => setField({ tlfnummer: e.target.value })}
                       feil={sjekkForFeil(submitted, errors.tlfnummer)}
                     />

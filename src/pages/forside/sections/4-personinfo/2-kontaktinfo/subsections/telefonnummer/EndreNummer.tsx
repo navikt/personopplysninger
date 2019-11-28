@@ -40,8 +40,8 @@ const EndreTelefonnummer = (props: Props) => {
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
+  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
-  const intl = useIntl();
 
   const initialValues = {
     tlfnummer: tlfnummer,
@@ -53,18 +53,18 @@ const EndreTelefonnummer = (props: Props) => {
 
   const formConfig = {
     landskode: {
-      isRequired: intl.formatMessage({ id: "validation.retningsnr.pakrevd" })
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
-      isRequired: intl.formatMessage({ id: "validation.tlfnr.pakrevd" }),
-      isNumber: intl.formatMessage({ id: "validation.tlfnr.siffer" }),
+      isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
+      isNumber: msg({ id: "validation.tlfnr.siffer" }),
       isValidNorwegianNumber: {
-        message: intl.formatMessage({ id: "validation.tlfnr.norske" }),
+        message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
-        message: intl.formatMessage({ id: "validation.tlfnr.makslengde" }),
+        message: msg({ id: "validation.tlfnr.makslengde" }),
         length: 16
       }
     }
@@ -196,7 +196,7 @@ const EndreTelefonnummer = (props: Props) => {
                 closeButton={false}
                 isOpen={visSlettModal}
                 onRequestClose={lukkSlettModal}
-                contentLabel={intl.formatMessage({ id: "side.opphør" })}
+                contentLabel={msg({ id: "side.opphør" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
                   <FormattedMessage id="personalia.tlfnr.slett.alert" />
@@ -221,10 +221,8 @@ const EndreTelefonnummer = (props: Props) => {
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
-                      label={intl.formatMessage({
-                        id: "felter.landkode.label"
-                      })}
                       option={fields.landskode}
+                      label={msg({ id: "felter.landkode.label" })}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -232,12 +230,10 @@ const EndreTelefonnummer = (props: Props) => {
                   </div>
                   <div className={"tlfnummer__input input--m"}>
                     <Input
-                      label={intl.formatMessage({
-                        id: "felter.tlfnr.label"
-                      })}
                       type={"tel"}
                       bredde={"M"}
                       value={fields.tlfnummer}
+                      label={msg({ id: "felter.tlfnr.label" })}
                       onChange={e => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
                       feil={

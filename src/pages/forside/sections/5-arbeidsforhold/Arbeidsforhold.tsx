@@ -13,7 +13,7 @@ const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
 
 const Arbeidsforhold = () => {
-  const intl = useIntl();
+  const { locale } = useIntl();
 
   const onClick = {
     type: "REACT_ROUTER_LENKE",
@@ -30,7 +30,7 @@ const Arbeidsforhold = () => {
     >
       <div className="arbeidsforhold">
         <ListeMedArbeidsforhold
-          locale={intl.locale as "nb" | "en"}
+          locale={locale as "nb" | "en"}
           miljo={miljo}
           onClick={onClick}
         />
