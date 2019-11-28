@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { fetchLand } from "../../../clients/apiClient";
-import { HTTPError } from "../../error/Error";
-import NAVSelect from "../select/NAVSelect";
+import { fetchLand } from "clients/apiClient";
+import { HTTPError } from "components/error/Error";
+import NAVSelect from "components/felter/select/NAVSelect";
 
 interface Props {
   option: OptionType;

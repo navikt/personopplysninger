@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Box from "../../../../../components/box/Box";
-import personaliaIkon from "../../../../../assets/img/Personalia.svg";
-import { Personalia as PersonaliaType } from "../../../../../types/personalia";
-import ListElement from "../../../../../components/listelement/ListElement";
-import Kilde from "../../../../../components/kilde/Kilde";
-import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
+import Box from "components/box/Box";
+import personaliaIkon from "assets/img/Personalia.svg";
+import { Personalia as PersonaliaType } from "types/personalia";
+import ListElement from "components/listelement/ListElement";
+import Kilde from "components/kilde/Kilde";
+import eksternLenkeIkon from "assets/img/Link.svg";
 
 interface Props {
   personalia: PersonaliaType;

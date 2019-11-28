@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
-import { fetchDsopInfo } from "../../clients/apiClient";
-import Error, { HTTPError } from "../../components/error/Error";
-import { useStore } from "../../providers/Provider";
-import { DsopInfo } from "../../types/dsop";
-import Spinner from "../../components/spinner/Spinner";
-import DsopHistorikk from "./DsopHistorikk";
-import { RouteComponentProps, withRouter } from "react-router";
-import DsopDetaljer from "./DsopDetaljer";
+import { fetchDsopInfo } from "clients/apiClient";
+import Error, { HTTPError } from "components/error/Error";
+import { useStore } from "providers/Provider";
+import { DsopInfo } from "types/dsop";
+import Spinner from "components/spinner/Spinner";
 
 export type FetchDsopInfo =
   | { status: "LOADING" }
@@ -17,9 +14,13 @@ interface Routes {
   id: string;
 }
 
-const WithDSOP = (props: RouteComponentProps<Routes>) => {
+interface Props {
+  children: (data: { data: DsopInfo; id?: string }) => JSX.Element;
+}
+
+const WithDSOP = (props: Props) => {
   const [{ dsopInfo }, dispatch] = useStore();
-  const { id } = props.match.params;
+  const { children } = props;
 
   useEffect(() => {
     if (dsopInfo.status === "LOADING") {
@@ -31,7 +32,10 @@ const WithDSOP = (props: RouteComponentProps<Routes>) => {
           })
         )
         .catch((error: HTTPError) =>
-          dispatch({ type: "SETT_DSOP_INFO_ERROR", payload: error })
+          dispatch({
+            type: "SETT_DSOP_INFO_ERROR",
+            payload: error
+          })
         );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -41,14 +45,10 @@ const WithDSOP = (props: RouteComponentProps<Routes>) => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return id ? (
-        <DsopDetaljer dsopInfo={dsopInfo.data} />
-      ) : (
-        <DsopHistorikk dsopInfo={dsopInfo.data} />
-      );
+      return children({ data: dsopInfo.data });
     case "ERROR":
       return <Error error={dsopInfo.error} />;
   }
 };
 
-export default withRouter(WithDSOP);
+export default WithDSOP;

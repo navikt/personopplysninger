@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedHTMLMessage } from "react-intl";
-import { Tlfnr } from "../../../../../../types/personalia";
-import leggTilIkon from "../../../../../../assets/img/LeggTil.svg";
-import Kilde from "../../../../../../components/kilde/Kilde";
-import Melding from "../../../../../../components/melding/Melding";
+import { Tlfnr } from "types/personalia";
+import leggTilIkon from "assets/img/LeggTil.svg";
+import Kilde from "components/kilde/Kilde";
+import Melding from "components/melding/Melding";
 import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
-import { fjernMellorom } from "../../../../../../utils/formattering";
+import { fjernMellorom } from "utils/formattering";
 
 interface Props {
   tlfnr?: Tlfnr;

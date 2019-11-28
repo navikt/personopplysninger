@@ -1,11 +1,11 @@
 import React from "react";
 import moment from "moment";
-import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { Normaltekst } from "nav-frontend-typografi";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
 import AdressePanel from "../komponenter/AdressePanel";
-import ListElement from "../../../../../../components/listelement/ListElement";
-import { Boadresse } from "../../../../../../types/adresser/boadresse";
+import ListElement from "components/listelement/ListElement";
+import { Boadresse } from "types/adresser/boadresse";
 import "moment/locale/nb";
 
 moment.locale("nb");
@@ -14,16 +14,10 @@ interface Props {
   boadresse: Boadresse;
 }
 
-const BoAdresse = (props: Props & InjectedIntlProps) => {
-  const {
-    adresse,
-    postnummer,
-    poststed,
-    veiadresse,
-    kommune,
-    adressetillegg,
-    datoFraOgMed
-  } = props.boadresse;
+const BoAdresse = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { adresse, postnummer, poststed } = props.boadresse;
+  const { veiadresse, kommune, adressetillegg, datoFraOgMed } = props.boadresse;
 
   const formattedDate = datoFraOgMed ? moment(datoFraOgMed).format("L") : "";
   return (
@@ -42,12 +36,8 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
             formattedDate) && (
             <Lesmerpanel
               className="adresse__lesmer"
-              apneTekst={props.intl.formatMessage({
-                id: "adresse.bostedsadresse.apneTekst"
-              })}
-              lukkTekst={props.intl.formatMessage({
-                id: "adresse.bostedsadresse.lukkTekst"
-              })}
+              apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
+              lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
             >
               <ul className="list-column-2 address-columns">
                 {veiadresse && veiadresse.bolignummer && (
@@ -75,4 +65,4 @@ const BoAdresse = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(BoAdresse);
+export default BoAdresse;

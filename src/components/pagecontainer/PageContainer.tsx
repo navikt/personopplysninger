@@ -1,13 +1,13 @@
 import React, { MouseEvent } from "react";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Icon from "../../components/icon/Icon";
+import Icon from "components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
-import { withRouter, RouteComponentProps } from "react-router";
-import Tilbake from "../tilbake/Tilbake";
+import Tilbake from "components/tilbake/Tilbake";
+import { useHistory } from "react-router-dom";
 import Brodsmulesti, {
   BrodsmuleLenke
-} from "../../pages/forside/sections/2-brodsmulesti/Brodsmulesti";
+} from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -17,10 +17,12 @@ interface Props {
   brodsmulesti: BrodsmuleLenke[];
 }
 
-const PageContainer = (props: Props & RouteComponentProps) => {
+const PageContainer = (props: Props) => {
+  const history = useHistory();
+
   const goBack = (event: MouseEvent<HTMLAnchorElement>): void => {
     event.preventDefault();
-    props.history.goBack();
+    history.goBack();
   };
 
   return (
@@ -47,4 +49,4 @@ const PageContainer = (props: Props & RouteComponentProps) => {
   );
 };
 
-export default withRouter(PageContainer);
+export default PageContainer;

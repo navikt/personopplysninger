@@ -8,4 +8,6 @@ if (!_babelPolyfill) {
 require("react-app-polyfill/ie9");
 require("react-app-polyfill/ie11");
 
+// Language
 global.Intl = require("intl");
+require("intl/locale-data/jsonp/nb");

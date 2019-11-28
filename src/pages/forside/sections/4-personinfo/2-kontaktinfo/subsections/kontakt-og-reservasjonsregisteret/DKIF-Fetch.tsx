@@ -1,21 +1,20 @@
 import React, { useEffect } from "react";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Error, { HTTPError } from "../../../../../../../components/error/Error";
-import Spinner from "../../../../../../../components/spinner/Spinner";
-import { fetchKontaktInfo } from "../../../../../../../clients/apiClient";
-import { KontaktInfo } from "../../../../../../../types/kontaktInfo";
+import Error, { HTTPError } from "components/error/Error";
+import Spinner from "components/spinner/Spinner";
+import { fetchKontaktInfo } from "clients/apiClient";
+import { KontaktInfo } from "types/kontaktInfo";
 import KontaktInformasjon from "./DKIF";
-import { useStore } from "../../../../../../../providers/Provider";
-import Infotekst from "../../../../../../../components/infotekst/Infotekst";
-import { injectIntl, InjectedIntlProps } from "react-intl";
+import { useStore } from "providers/Provider";
+import Infotekst from "components/infotekst/Infotekst";
 
 export type FetchKontaktInfo =
   | { status: "LOADING" }
   | { status: "RESULT"; data: KontaktInfo }
   | { status: "ERROR"; error: HTTPError };
 
-const DKIF = (props: InjectedIntlProps) => {
+const DKIF = () => {
   const [{ kontaktInfo }, dispatch] = useStore();
 
   useEffect(() => {
@@ -56,4 +55,4 @@ const DKIF = (props: InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(DKIF);
+export default DKIF;

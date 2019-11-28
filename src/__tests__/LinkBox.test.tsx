@@ -1,15 +1,15 @@
 import * as React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import LinkBox from "../pages/forside/sections/6-eksterne/linkbox/LinkBox";
+import LinkBox from "pages/forside/sections/6-flere-opplysninger/linkbox/LinkBox";
 import wrapIntl from "./__utils__/IntlTestHelper";
-import pensjon from "../assets/img/pensjon.svg";
+import pensjon from "assets/img/pensjon.svg";
 
 test("render LinkBox with content", () => {
   const link = {
     id: "pensjonsopptjening",
-    tittel: "eksternelenker.pensjon.tittel",
-    beskrivelse: "eksternelenker.pensjon.beskrivelse",
-    lenkeTekst: "eksternelenker.pensjon.lenkeTekst",
+    tittel: "lenker.pensjon.tittel",
+    beskrivelse: "lenker.pensjon.beskrivelse",
+    lenkeTekst: "lenker.pensjon.lenkeTekst",
     url: "https://tjenester.nav.no/pselv/publisering/dinpensjon.jsf",
     icon: pensjon,
     visible: true

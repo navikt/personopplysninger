@@ -1,11 +1,10 @@
 import React, { Fragment } from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import Environment from "../../../../Environments";
-import konto from "../../../../assets/img/Konto.svg";
-import { withRouter, RouteComponentProps } from "react-router";
-import { Link } from "react-router-dom";
-import { basePath } from "../../../../App";
+import Environment from "Environments";
+import konto from "assets/img/Konto.svg";
+import { Link, useLocation } from "react-router-dom";
+import { basePath } from "App";
 
 const { tjenesteUrl } = Environment();
 
@@ -31,10 +30,9 @@ const Brodsmule = (props: BrodsmuleProps) => (
   <div className={`brodsmule ${props.className || ""}`}>{props.children}</div>
 );
 
-const Brodsmulesti = (
-  props: BrodsmulestiProps & RouteComponentProps<Routes>
-) => {
-  const allPaths = props.location.pathname.split("/");
+const Brodsmulesti = (props: BrodsmulestiProps) => {
+  const location = useLocation();
+  const allPaths = location.pathname.split("/");
   const relevantPaths = allPaths.splice(3, allPaths.length);
   return (
     <div className="brodsmulesti">
@@ -76,4 +74,4 @@ const Brodsmulesti = (
     </div>
   );
 };
-export default withRouter(Brodsmulesti);
+export default Brodsmulesti;

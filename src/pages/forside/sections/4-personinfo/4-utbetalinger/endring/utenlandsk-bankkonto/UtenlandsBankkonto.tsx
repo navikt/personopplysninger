@@ -1,7 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
@@ -56,8 +56,9 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   RUS: 9
 };
 
-const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
-  const { utenlandskbank, intl } = props;
+const OpprettEllerEndreUtenlandsbank = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { utenlandskbank } = props;
 
   /*
     Initiate form
@@ -85,55 +86,55 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
    */
   const formConfig = {
     land: {
-      isRequired: intl.messages["validation.land.pakrevd"]
+      isRequired: msg({ id: "validation.land.pakrevd" })
     },
     valuta: {
-      isRequired: intl.messages["validation.valuta.pakrevd"]
+      isRequired: msg({ id: "validation.valuta.pakrevd" })
     },
     banknavn: {
-      isRequired: intl.messages["validation.banknavn.pakrevd"],
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"]
+      isRequired: msg({ id: "validation.banknavn.pakrevd" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" })
     },
     kontonummer: {
-      isRequired: intl.messages["validation.kontonummer.pakrevd"],
-      isLettersAndDigits: intl.messages["validation.only.letters.and.digits"],
+      isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
+      isLettersAndDigits: msg({ id: "validation.only.letters.and.digits" }),
       isNotIBAN: {
-        message: intl.messages["validation.ikke.iban"],
+        message: msg({ id: "validation.ikke.iban" }),
         validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land)
       },
       isIBANCountryCompliant: {
-        message: intl.messages["validation.iban.country"],
+        message: msg({ id: "validation.iban.country" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer)
       }
     },
     bankidentifier: {
       isRequired: {
-        message: intl.messages["validation.bankidentifier.pakrevd"],
+        message: msg({ id: "validation.bankidentifier.pakrevd" }),
         validateIf: ({ fields }: ValidatorContext) =>
           !brukerBankkode(fields.land)
       },
       isValidBankIdentifier: {
-        message: intl.messages["validation.bankidentifier.valid"],
+        message: msg({ id: "validation.bankidentifier.valid" }),
         validateIf: ({ fields }: ValidatorContext) =>
           harUtfylt(fields.bankidentifier)
       }
     },
     bickode: {
       isRequired: {
-        message: intl.messages["validation.bic.pakrevd"],
+        message: msg({ id: "validation.bic.pakrevd" }),
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       },
       isLettersAndDigits: {
-        message: intl.messages["validation.only.letters.and.digits"],
+        message: msg({ id: "validation.only.letters.and.digits" }),
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       },
       isBIC: {
-        message: intl.messages["validation.bic.gyldig"],
+        message: msg({ id: "validation.bic.gyldig" }),
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       },
       isBICCountryCompliant: {
-        message: intl.messages["validation.bic.country"],
+        message: msg({ id: "validation.bic.country" }),
         validateIf: ({ fields }: ValidatorContext) => validerBic(fields)
       }
     },
@@ -145,19 +146,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
     },
     bankkode: {
       isRequired: {
-        message: intl.messages["validation.bankkode.pakrevd"],
+        message: msg({ id: "validation.bankkode.pakrevd" }),
         validateIf: ({ fields }: ValidatorContext) => validerBankkode(fields)
       },
       isNumber: {
-        message: intl.messages["validation.only.digits"],
+        message: msg({ id: "validation.only.digits" }),
         validateIf: ({ fields }: ValidatorContext) => validerBankkode(fields)
       },
       isBankkode: {
         message: ({ land, siffer }: { land: string; siffer: number }) =>
-          intl.formatMessage(
-            { id: "validation.bankkode.lengde" },
-            { land, siffer }
-          ),
+          msg({ id: "validation.bankkode.lengde" }, { land, siffer }),
         validateIf: ({ fields }: ValidatorContext) => validerBankkode(fields)
       }
     },
@@ -179,7 +177,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
             <SelectLand
               submitted={submitted}
               option={fields.land}
-              label={intl.messages["felter.bankensland.label"]}
+              label={msg({ id: "felter.bankensland.label" })}
               error={errors.land}
               onChange={option => {
                 const bankkodeRetningsnummer = option
@@ -202,7 +200,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                 <SelectValuta
                   submitted={submitted}
                   option={fields.valuta}
-                  label={intl.messages["felter.valuta.label"]}
+                  label={msg({ id: "felter.valuta.label" })}
                   hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
                   onChange={value => setField({ valuta: value })}
                   error={errors.valuta}
@@ -212,7 +210,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   maxLength={34}
                   submitted={submitted}
                   value={fields.banknavn}
-                  label={intl.messages["felter.banknavn.label"]}
+                  label={msg({ id: "felter.banknavn.label" })}
                   onChange={value => setField({ banknavn: value })}
                   error={errors.banknavn}
                 />
@@ -222,7 +220,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.kontonummer}
                   hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
-                  label={intl.messages["felter.kontonummer.kontonummer.label"]}
+                  label={msg({ id: "felter.kontonummer.kontonummer.label" })}
                   onChange={value => setField({ kontonummer: value })}
                   error={errors.kontonummer}
                 />
@@ -289,4 +287,4 @@ export const setOutboundUtenlandsbankonto = (c: FormContext) => {
   };
 };
 
-export default injectIntl(OpprettEllerEndreUtenlandsbank);
+export default OpprettEllerEndreUtenlandsbank;

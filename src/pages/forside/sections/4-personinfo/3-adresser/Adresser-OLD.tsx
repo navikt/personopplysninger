@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { FormattedHTMLMessage } from "react-intl";
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 import NorskMidlertidigAdresse from "./midlertidig-adresse/visning/NorskAdresse";
@@ -19,7 +19,7 @@ interface Props {
   adresser: Adresser;
 }
 
-const AdresserOLD = (props: Props & InjectedIntlProps) => {
+const AdresserOLD = (props: Props) => {
   const { adresser } = props;
   return (
     <Box
@@ -68,4 +68,4 @@ const AdresserOLD = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(AdresserOLD);
+export default AdresserOLD;

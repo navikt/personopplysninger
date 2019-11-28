@@ -1,6 +1,6 @@
 import React from "react";
 import ReactTestRenderer from "react-test-renderer";
-import Header from "../pages/forside/sections/3-header/Header";
+import Header from "pages/forside/sections/3-header/Header";
 import wrapIntl from "./__utils__/IntlTestHelper";
 
 test("render Header with content", () => {

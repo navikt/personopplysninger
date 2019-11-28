@@ -12,7 +12,7 @@ import InputPostnummer from "components/felter/input-postnummer/InputPostnummer"
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -33,10 +33,11 @@ export interface OutboundGateadresse {
   tilleggslinjeType: string;
 }
 
-const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
-  const { tilleggsadresse, settOpprettEllerEndre, intl } = props;
+const OpprettEllerEndreGateadresse = (props: Props) => {
+  const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState();
+  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -51,33 +52,33 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
 
   const formConfig: ExtraFieldsConfig = {
     tilleggslinje: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
     },
     gatenavn: {
-      isRequired: intl.messages["validation.gatenavn.pakrevd"],
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isFirstCharNotSpace: intl.messages["validation.firstchar.notspace"],
-      isValidStreetName: intl.messages["validation.gatenavn.valid"]
+      isRequired: msg({ id: "validation.gatenavn.pakrevd" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+      isValidStreetName: msg({ id: "validation.gatenavn.valid" })
     },
     husnummer: {
-      isRequired: intl.messages["validation.husnummer.pakrevd"],
-      isNumber: intl.messages["validation.only.digits"],
-      isPositive: intl.messages["validation.husnummer.positive"]
+      isRequired: msg({ id: "validation.husnummer.pakrevd" }),
+      isNumber: msg({ id: "validation.only.digits" }),
+      isPositive: msg({ id: "validation.husnummer.positive" })
     },
     husbokstav: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isLetters: intl.messages["validation.only.letters"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isLetters: msg({ id: "validation.only.letters" })
     },
     bolignummer: {
-      isBlacklistedCommon: intl.messages["validation.svarteliste.felles"],
-      isHouseNumber: intl.messages["validation.bolignummer.ugyldig"]
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isHouseNumber: msg({ id: "validation.bolignummer.ugyldig" })
     },
     postnummer: {
-      isRequired: intl.messages["validation.postnummer.pakrevd"]
+      isRequired: msg({ id: "validation.postnummer.pakrevd" })
     },
     datoTilOgMed: {
-      isRequired: intl.messages["validation.tomdato.pakrevd"]
+      isRequired: msg({ id: "validation.tomdato.pakrevd" })
     }
   };
 
@@ -131,8 +132,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
               maxLength={26}
               submitted={submitted}
               hjelpetekst={"adresse.hjelpetekster.co"}
-              label={intl.messages["felter.tillegslinje.label"]}
-              placeholder={intl.messages["felter.tillegslinje.placeholder"]}
+              label={msg({ id: "felter.tillegslinje.label" })}
+              placeholder={msg({ id: "felter.tillegslinje.placeholder" })}
               onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
@@ -143,7 +144,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   bredde={"XXL"}
                   maxLength={30}
                   value={fields.gatenavn}
-                  label={intl.messages["felter.gatenavn.label"]}
+                  label={msg({ id: "felter.gatenavn.label" })}
                   onChange={e => setField({ gatenavn: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.gatenavn)}
                 />
@@ -154,7 +155,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     min={1}
                     bredde={"XS"}
                     type={"number"}
-                    label={intl.messages["felter.gatenummer.label"]}
+                    label={msg({ id: "felter.gatenummer.label" })}
                     value={fields.husnummer || ""}
                     className="adresse__input-avstand"
                     feil={sjekkForFeil(submitted, errors.husnummer)}
@@ -169,7 +170,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                     maxLength={1}
                     value={fields.husbokstav}
                     className="adresse__input-avstand"
-                    label={intl.messages["felter.gatebokstav.label"]}
+                    label={msg({ id: "felter.gatebokstav.label" })}
                     feil={sjekkForFeil(submitted, errors.husbokstav)}
                     onChange={({ target }) => {
                       if (target.value !== " ") {
@@ -187,7 +188,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                 value={fields.bolignummer}
                 hjelpetekst={"adresse.hjelpetekster.bolignummer"}
                 className="adresse__input-avstand adresse__input-bolignummer"
-                label={intl.messages["felter.bolignummer.label"]}
+                label={msg({ id: "felter.bolignummer.label" })}
                 onChange={value => setField({ bolignummer: value })}
                 error={errors.bolignummer}
                 bredde={"S"}
@@ -196,7 +197,7 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                 submitted={submitted}
                 value={fields.postnummer}
                 error={errors.postnummer}
-                label={intl.messages["felter.postnummer.label"]}
+                label={msg({ id: "felter.postnummer.label" })}
                 onChange={postnummer => setField({ postnummer })}
                 onErrors={error => setError({ postnummer: error })}
               />
@@ -207,8 +208,8 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
                   submitted={submitted}
                   value={fields.datoTilOgMed}
                   error={errors.datoTilOgMed}
-                  label={intl.messages["felter.gyldigtom.label"]}
-                  ugyldigTekst={intl.messages["validation.tomdato.ugyldig"]}
+                  label={msg({ id: "felter.gyldigtom.label" })}
+                  ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
                   onChange={value => setField({ datoTilOgMed: value })}
                   onErrors={error => setError({ datoTilOgMed: error })}
                 />
@@ -246,4 +247,4 @@ const OpprettEllerEndreGateadresse = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettEllerEndreGateadresse);
+export default OpprettEllerEndreGateadresse;

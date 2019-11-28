@@ -15,7 +15,7 @@ import OpprettEllerEndreUtenlandsbank from "./endring/utenlandsk-bankkonto/Utenl
 import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { SkjemaGruppe, Radio } from "nav-frontend-skjema";
-import { FormattedMessage, InjectedIntlProps, injectIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { Knapp } from "nav-frontend-knapper";
 import Alert, { AlertType } from "components/alert/Alert";
 import { Form, FormContext, Validation } from "calidation";
@@ -32,8 +32,9 @@ interface Props {
 const NORSK = "NORSK";
 const UTENLANDSK = "UTENLANDSK";
 
-const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
-  const { kontonr, utenlandskbank, intl } = props;
+const UtbetalingerPDL = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const { kontonr, utenlandskbank } = props;
   const [loading, settLoading] = useState(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState();
   const [alert, settAlert] = useState<AlertType | undefined>();
@@ -49,7 +50,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
 
   const config = {
     norskEllerUtenlandsk: {
-      isRequired: intl.messages["felter.type.velg"]
+      isRequired: msg({ id: "felter.type.velg" })
     }
   };
 
@@ -95,7 +96,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
                   <Radio
                     name={NORSK}
                     checked={fields.norskEllerUtenlandsk === NORSK}
-                    label={intl.messages["felter.kontonummervalg.norsk"]}
+                    label={msg({ id: "felter.kontonummervalg.norsk" })}
                     onChange={e =>
                       setField({ norskEllerUtenlandsk: e.target.name })
                     }
@@ -106,7 +107,7 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
                   <Radio
                     name={UTENLANDSK}
                     checked={fields.norskEllerUtenlandsk === UTENLANDSK}
-                    label={intl.messages["felter.kontonummervalg.utenlandsk"]}
+                    label={msg({ id: "felter.kontonummervalg.utenlandsk" })}
                     onChange={e =>
                       setField({ norskEllerUtenlandsk: e.target.name })
                     }
@@ -171,4 +172,4 @@ const UtbetalingerPDL = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(UtbetalingerPDL);
+export default UtbetalingerPDL;

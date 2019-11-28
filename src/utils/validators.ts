@@ -6,13 +6,13 @@ import {
   ValidatorContext
 } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
-import { getCountryISO2 } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
+import { getCountryISO2 } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
 import {
   BANKKODE_MAX_LENGTH,
   BIC
-} from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+} from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
-import { OptionType } from "../types/option";
+import { OptionType } from "types/option";
 
 /*
   Form validators

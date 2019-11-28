@@ -1,12 +1,13 @@
 import React from "react";
-import eksterneLenker from "./EksterneLenkerData";
+import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
 import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
-import DSOPIkon from "../../../../assets/img/DSOP.svg";
-import INSTIkon from "../../../../assets/img/Institusjonsopphold.svg";
+import DSOPIkon from "assets/img/DSOP.svg";
+import INSTIkon from "assets/img/Institusjonsopphold.svg";
+import SkattIkon from "assets/img/Skattekort.svg";
 import { FormattedMessage } from "react-intl";
-import { useStore } from "../../../../providers/Provider";
+import { useStore } from "providers/Provider";
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
@@ -15,15 +16,15 @@ const LinksContainer = () => {
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>
-            <FormattedMessage id="eksternelenker.tittel" />
+            <FormattedMessage id="lenker.tittel" />
           </Systemtittel>
         </div>
         <div className="el__info">
           <Normaltekst>
-            <FormattedMessage id="eksternelenker.beskrivelse" />
+            <FormattedMessage id="lenker.beskrivelse" />
           </Normaltekst>
         </div>
-        {eksterneLenker.map(link => (
+        {lenker.map(link => (
           <LinkBox
             id={link.id}
             key={link.id}
@@ -39,9 +40,9 @@ const LinksContainer = () => {
           <LinkBox
             id={"inst"}
             icon={INSTIkon}
-            tittel={"eksternelenker.inst.tittel"}
-            beskrivelse={"eksternelenker.inst.beskrivelse"}
-            lenkeTekst={"eksternelenker.inst.lenkeTekst"}
+            tittel={"lenker.inst.tittel"}
+            beskrivelse={"lenker.inst.beskrivelse"}
+            lenkeTekst={"lenker.inst.lenkeTekst"}
             to={"/person/personopplysninger/institusjonsopphold"}
             component={"Link"}
           />
@@ -50,10 +51,21 @@ const LinksContainer = () => {
           <LinkBox
             id={"dsop"}
             icon={DSOPIkon}
-            tittel={"eksternelenker.dsop.tittel"}
-            beskrivelse={"eksternelenker.dsop.beskrivelse"}
-            lenkeTekst={"eksternelenker.dsop.lenkeTekst"}
+            tittel={"lenker.dsop.tittel"}
+            beskrivelse={"lenker.dsop.beskrivelse"}
+            lenkeTekst={"lenker.dsop.lenkeTekst"}
             to={"/person/personopplysninger/dsop"}
+            component={"Link"}
+          />
+        )}
+        {featureToggles.data["personopplysninger.skatt"] && (
+          <LinkBox
+            id={"skatt"}
+            icon={SkattIkon}
+            tittel={"lenker.skattetreksmelding.tittel"}
+            beskrivelse={"lenker.skattetreksmelding.beskrivelse"}
+            lenkeTekst={"lenker.skattetreksmelding.lenkeTekst"}
+            to={"/person/personopplysninger/skattetreksmelding"}
             component={"Link"}
           />
         )}

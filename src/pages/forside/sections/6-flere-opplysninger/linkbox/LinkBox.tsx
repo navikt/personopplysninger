@@ -1,7 +1,7 @@
 import React from "react";
 import { Element, Normaltekst } from "nav-frontend-typografi";
-import { injectIntl, InjectedIntlProps, FormattedMessage } from "react-intl";
-import Icon from "../../../../../components/icon/Icon";
+import { FormattedMessage } from "react-intl";
+import Icon from "components/icon/Icon";
 import { HoyreChevron } from "nav-frontend-chevron";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ export interface Props {
   component: "a" | "Link";
 }
 
-const Box = (props: Props & InjectedIntlProps) => {
+const Box = (props: Props) => {
   return (
     <>
       <div className="linkbox__icon-container icon__container">
@@ -42,7 +42,7 @@ const Box = (props: Props & InjectedIntlProps) => {
   );
 };
 
-const LinkBox = (props: Props & InjectedIntlProps) => {
+const LinkBox = (props: Props) => {
   switch (props.component) {
     case "Link":
       return (
@@ -61,4 +61,4 @@ const LinkBox = (props: Props & InjectedIntlProps) => {
   }
 };
 
-export default injectIntl(LinkBox);
+export default LinkBox;

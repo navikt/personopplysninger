@@ -10,7 +10,7 @@ import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "providers/Provider";
-import { InjectedIntlProps, injectIntl } from "react-intl";
+import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -19,10 +19,11 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
+const OpprettTelefonnummer = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { tlfnr, onChangeSuccess, intl } = props;
+  const { tlfnr, onChangeSuccess } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -34,27 +35,25 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
 
   const formConfig = {
     type: {
-      isRequired: {
-        message: intl.messages["validation.type.pakrevd"]
-      },
+      isRequired: { message: msg({ id: "validation.type.pakrevd" }) },
       isWhitelisted: {
-        message: intl.messages["validation.type.pakrevd"],
+        message: msg({ id: "validation.type.pakrevd" }),
         whitelist: ["MOBIL", "ARBEID", "HJEM"]
       }
     },
     landskode: {
-      isRequired: intl.messages["validation.retningsnr.pakrevd"]
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
-      isRequired: intl.messages["validation.tlfnr.pakrevd"],
-      isNumber: intl.messages["validation.tlfnr.siffer"],
+      isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
+      isNumber: msg({ id: "validation.tlfnr.siffer" }),
       isValidNorwegianNumber: {
-        message: intl.messages["validation.tlfnr.norske"],
+        message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isNorwegianNumber(fields.landskode)
       },
       isMaxLength: {
-        message: intl.messages["validation.tlfnr.makslengde"],
+        message: msg({ id: "validation.tlfnr.makslengde" }),
         length: 16
       }
     }
@@ -113,25 +112,25 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                 <div className={"tlfnummer__container"}>
                   <Select
                     value={fields.type}
-                    label={intl.messages["felter.type.label"]}
+                    label={msg({ id: "felter.type.label" })}
                     onChange={e => setField({ type: e.target.value })}
                     bredde={"s"}
                     feil={sjekkForFeil(submitted, errors.type)}
                   >
-                    <option>{intl.messages["felter.type.velg"]}</option>
+                    <option>{msg({ id: "felter.type.velg" })}</option>
                     {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
                       <option value="MOBIL">
-                        {intl.messages["personalia.tlfnr.mobil"]}
+                        {msg({ id: "personalia.tlfnr.mobil" })}
                       </option>
                     )}
                     {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
                       <option value="ARBEID">
-                        {intl.messages["personalia.tlfnr.arbeid"]}
+                        {msg({ id: "personalia.tlfnr.arbeid" })}
                       </option>
                     )}
                     {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
                       <option value="HJEM">
-                        {intl.messages["personalia.tlfnr.hjem"]}
+                        {msg({ id: "personalia.tlfnr.hjem" })}
                       </option>
                     )}
                   </Select>
@@ -140,7 +139,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
                       option={fields.landskode}
-                      label={intl.messages["felter.landkode.label"]}
+                      label={msg({ id: "felter.landkode.label" })}
                       onChange={option => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
@@ -152,7 +151,7 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
                       bredde={"M"}
                       value={fields.tlfnummer}
                       maxLength={tlfNummerMaxLength}
-                      label={intl.messages["felter.tlfnr.label"]}
+                      label={msg({ id: "felter.tlfnr.label" })}
                       onChange={e => setField({ tlfnummer: e.target.value })}
                       feil={sjekkForFeil(submitted, errors.tlfnummer)}
                     />
@@ -190,4 +189,4 @@ const OpprettTelefonnummer = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(OpprettTelefonnummer);
+export default OpprettTelefonnummer;

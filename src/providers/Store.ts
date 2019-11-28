@@ -10,6 +10,7 @@ import { DsopInfo } from "../types/dsop";
 import { FetchPersonInfo } from "./personinfo/PersinInfo";
 import { InstInfo } from "../types/inst";
 import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
+import { FetchSkattetreksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -28,7 +29,8 @@ export const initialState = {
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
   instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
-  kontaktInfo: { status: "LOADING" } as FetchKontaktInfo
+  kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
+  skattetreksmeldinger: { status: "LOADING" } as FetchSkattetreksmeldinger
 };
 
 export interface Store {
@@ -38,6 +40,7 @@ export interface Store {
   dsopInfo: FetchDsopInfo;
   instInfo: FetchInstInfo;
   kontaktInfo: FetchKontaktInfo;
+  skattetreksmeldinger: FetchSkattetreksmeldinger;
 }
 
 export type Action =
@@ -83,6 +86,14 @@ export type Action =
     }
   | {
       type: "SETT_INST_INFO_ERROR";
+      payload: HTTPError;
+    }
+  | {
+      type: "SETT_SKATT_RESULT";
+      payload: InstInfo;
+    }
+  | {
+      type: "SETT_SKATT_ERROR";
       payload: HTTPError;
     };
 
@@ -175,6 +186,22 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload
         } as FetchInstInfo
+      };
+    case "SETT_SKATT_RESULT":
+      return {
+        ...state,
+        skattetreksmeldinger: {
+          status: "RESULT",
+          data: action.payload
+        } as FetchSkattetreksmeldinger
+      };
+    case "SETT_SKATT_ERROR":
+      return {
+        ...state,
+        skattetreksmeldinger: {
+          status: "ERROR",
+          error: action.payload
+        } as FetchSkattetreksmeldinger
       };
     default:
       return state;

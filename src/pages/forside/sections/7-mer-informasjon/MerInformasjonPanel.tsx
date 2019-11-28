@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import {
-  FormattedHTMLMessage,
-  FormattedMessage,
-  injectIntl,
-  InjectedIntlProps
-} from "react-intl";
+import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
 
 interface Props {
   tittel: string;
   melding: string;
 }
-const Alternativ = (props: Props & InjectedIntlProps) => {
+const Alternativ = (props: Props) => {
   const { tittel, melding } = props;
   const [visBeskrivelse, settVisBeskrivelse] = useState(false);
   return (
@@ -34,4 +29,4 @@ const Alternativ = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(Alternativ);
+export default Alternativ;

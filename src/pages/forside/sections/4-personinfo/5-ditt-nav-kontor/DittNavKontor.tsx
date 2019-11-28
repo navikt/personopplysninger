@@ -1,24 +1,25 @@
 import React, { ChangeEvent, useState } from "react";
-import Box from "../../../../../components/box/Box";
-import dittNavKontorIkon from "../../../../../assets/img/DittNavKontor.svg";
-import { EnhetKontaktInfo } from "../../../../../types/enhetKontaktInfo";
-import { GeografiskTilknytning } from "../../../../../types/adresser";
+import Box from "components/box/Box";
+import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
+import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
+import { GeografiskTilknytning } from "types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
-import { injectIntl, InjectedIntlProps } from "react-intl";
-import ListElement from "../../../../../components/listelement/ListElement";
+import { useIntl } from "react-intl";
+import ListElement from "components/listelement/ListElement";
 import Apningstid from "./apningstid/Apningstid";
-import { print } from "../../../../../utils/text";
-import Kilde from "../../../../../components/kilde/Kilde";
-import { RADIX_DECIMAL } from "../../../../../utils/formattering";
+import { print } from "utils/text";
+import Kilde from "components/kilde/Kilde";
+import { RADIX_DECIMAL } from "utils/formattering";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
   geografiskTilknytning?: GeografiskTilknytning;
 }
 
-const DittNavKontor = (props: Props & InjectedIntlProps) => {
+const DittNavKontor = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
   const { enhet } = props.enhetKontaktInformasjon;
   const [valgtMottakId, settValgtMottakId] = useState(
     enhet && enhet.publikumsmottak.length > 1 ? -1 : 0
@@ -28,7 +29,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
     return null;
   }
 
-  const { geografiskTilknytning, intl } = props;
+  const { geografiskTilknytning } = props;
   const { publikumsmottak, postadresse } = enhet;
 
   return (
@@ -55,7 +56,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
             }}
           >
             <option value="-1">
-              {`${intl.formatMessage({
+              {`${msg({
                 id: "dittnavkontor.publikumsmottakfor"
               })} ${geografiskTilknytning.enhet}`}
             </option>
@@ -82,7 +83,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
                     postadresse.husnummer
                   )} ${print(postadresse.husbokstav)}`}
                 {postadresse.type === "postboksadresse" &&
-                  `${props.intl.formatMessage({
+                  `${msg({
                     id: "dittnavkontor.postboks"
                   })} ${print(postadresse.postboksnummer)} ${print(
                     postadresse.postboksanlegg
@@ -168,7 +169,7 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
         </ListElement>
         <ListElement
           titleId="dittnavkontor.kontaktinfo.apningstider.tittel"
-          content={intl.formatMessage({
+          content={msg({
             id: "dittnavkontor.kontaktinfo.apningstider.innhold"
           })}
         />
@@ -178,4 +179,4 @@ const DittNavKontor = (props: Props & InjectedIntlProps) => {
   );
 };
 
-export default injectIntl(DittNavKontor);
+export default DittNavKontor;

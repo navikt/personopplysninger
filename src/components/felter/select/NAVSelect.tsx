@@ -8,7 +8,7 @@ import { FormatOptionLabelMeta } from "react-select/base";
 import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
 import { FormattedHTMLMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
-import { RADIX_DECIMAL } from "../../../utils/formattering";
+import { RADIX_DECIMAL } from "utils/formattering";
 
 interface Props {
   option: OptionType;

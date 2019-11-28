@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
-import Environment from "../../Environments";
-import { withRouter, RouteComponentProps } from "react-router";
-import { injectIntl, InjectedIntlProps } from "react-intl";
-import arbeidsforholdIkon from "../../assets/img/Arbeidsforhold.svg";
-import PageContainer from "../../components/pagecontainer/PageContainer";
+import Environment from "Environments";
+import { useIntl } from "react-intl";
+import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
+import PageContainer from "components/pagecontainer/PageContainer";
+import { useParams } from "react-router-dom";
 
 const environment = Environment();
 const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
@@ -14,10 +14,10 @@ interface Routes {
 }
 
 const radix = 10;
-type MergedProps = RouteComponentProps<Routes> & InjectedIntlProps;
-const Arbeidsforhold = (props: MergedProps) => {
-  const { match, intl } = props;
-  const id: number = parseInt(match.params.id, radix);
+const Arbeidsforhold = () => {
+  const { locale } = useIntl();
+  const params = useParams<Routes>();
+  const id: number = parseInt(params.id, radix);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,7 +31,7 @@ const Arbeidsforhold = (props: MergedProps) => {
       backTo={"/"}
     >
       <DetaljertArbeidsforhold
-        locale={intl.locale as "nb" | "en"}
+        locale={locale as "nb" | "en"}
         miljo={miljo}
         navArbeidsforholdId={id}
       />
@@ -39,4 +39,4 @@ const Arbeidsforhold = (props: MergedProps) => {
   );
 };
 
-export default injectIntl(withRouter(Arbeidsforhold));
+export default Arbeidsforhold;

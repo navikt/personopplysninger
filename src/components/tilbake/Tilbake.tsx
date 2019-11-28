@@ -1,6 +1,6 @@
 import React, { MouseEvent } from "react";
 import { Link } from "react-router-dom";
-import { basePath } from "../../App";
+import { basePath } from "App";
 import { VenstreChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 
