@@ -1,10 +1,6 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./providers/Provider";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
@@ -20,6 +16,7 @@ import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
 import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
+import Modal from "react-modal";
 
 const redirects: {
   [key: string]: {
@@ -31,6 +28,7 @@ const redirects: {
 
 export const basePath = "/person/personopplysninger";
 const App = () => {
+  Modal.setAppElement("app");
   const [{ featureToggles }] = useStore();
 
   configureAnchors({
