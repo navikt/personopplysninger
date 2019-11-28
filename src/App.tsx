@@ -31,7 +31,7 @@ const App = () => {
   const [{ featureToggles }] = useStore();
 
   useEffect(() => {
-    Modal.setAppElement("app");
+    Modal.setAppElement("#app");
   }, []);
 
   configureAnchors({
