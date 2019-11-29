@@ -132,8 +132,8 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               maxLength={26}
               submitted={submitted}
               hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tillegslinje.label" })}
-              placeholder={msg({ id: "felter.tillegslinje.placeholder" })}
+              label={msg({ id: "felter.tilleggslinje.label" })}
+              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
               onChange={value => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
