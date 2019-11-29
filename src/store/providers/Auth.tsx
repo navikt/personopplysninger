@@ -12,7 +12,7 @@ export type FetchNameInfo =
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
-  children: any;
+  children: JSX.Element;
 }
 
 const Auth = (props: Props) => {

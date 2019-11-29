@@ -10,7 +10,7 @@ export type FetchFeatureToggles = { data: FeatureToggles } & (
   | { status: "ERROR"; error: HTTPError });
 
 interface Props {
-  children: any;
+  children: JSX.Element;
 }
 
 const FT = (props: Props) => {
