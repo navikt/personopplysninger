@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
@@ -139,25 +139,20 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
+  const history = useHistory();
   const [redirect, settRedirect] = useState();
+
   useEffect(() => {
     settRedirect(Cookies.get(redirectLoginCookie));
   }, []);
-  return redirect ? (
-    <RedirectAndClearStorage to={redirect} />
-  ) : (
-    <>{props.children}</>
-  );
-};
 
-const RedirectAndClearStorage = (props: { to: string }) => {
-  console.log(`Redirecter til ${props.to}`);
-  Cookies.remove(redirectLoginCookie);
-  return (
-    <Switch>
-      <Redirect to={props.to} />
-    </Switch>
-  );
+  if (redirect) {
+    console.log(`Redirecter til ${redirect}`);
+    Cookies.remove(redirectLoginCookie);
+    history.push(redirect);
+  }
+
+  return redirect ? null : <>{props.children}</>;
 };
 
 export default App;
