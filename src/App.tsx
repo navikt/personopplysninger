@@ -140,7 +140,7 @@ const App = () => {
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
   const redirectTo = Cookies.get(redirectAfterLoginCookie);
-  console.log(redirectTo);
+  console.log(`Cookie: ${redirectTo}`);
   return redirectTo ? (
     <RedirectAndClearStorage to={redirectTo} />
   ) : (
@@ -150,6 +150,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
 
 const RedirectAndClearStorage = (props: { to: string }) => {
   Cookies.remove(redirectAfterLoginCookie);
+  console.log("Cookie: Sletter cookie");
   return <Redirect to={props.to} />;
 };
 
