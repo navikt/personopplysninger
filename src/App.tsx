@@ -140,19 +140,18 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
-  const [redirect, settRedirect] = useState();
+  const [redirect, settRedirect] = useState<boolean>();
   const history = useHistory();
 
   useEffect(() => {
-    settRedirect(Cookies.get(redirectLoginCookie));
+    const to = Cookies.get(redirectLoginCookie);
+    if (to) {
+      Cookies.remove(redirectLoginCookie);
+      history.push(to);
+    } else {
+      settRedirect(false);
+    }
   }, []);
-
-  if (redirect) {
-    console.log(`Redirecter til ${redirect}`);
-    Cookies.remove(redirectLoginCookie);
-    settRedirect(undefined);
-    history.push(redirect);
-  }
 
   return redirect ? <Spinner /> : <>{props.children}</>;
 };
