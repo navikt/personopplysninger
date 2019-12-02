@@ -12,6 +12,7 @@ import { AlertType } from "../components/alert/Alert";
 import Environment from "../Environments";
 import Cookies from "js-cookie";
 import { basePath } from "../App";
+import { redirectAfterLoginCookie } from "../config";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
@@ -193,8 +194,8 @@ const sjekkAuth = (response: Response): any => {
 export const sendTilLogin = () => {
   const to = window.location.pathname + window.location.hash;
   const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
-  const options = { expires: inFiveMinutes, path: basePath };
-  Cookies.set("redirect-etter-login", to, options);
+  const options = { expires: inFiveMinutes };
+  Cookies.set(redirectAfterLoginCookie, to, options);
   window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 

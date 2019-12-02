@@ -18,6 +18,7 @@ import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHist
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
+import { redirectAfterLoginCookie } from "./config";
 
 const redirects: {
   [key: string]: {
@@ -138,7 +139,7 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
-  const redirectTo = Cookies.get("redirect-etter-login");
+  const redirectTo = Cookies.get(redirectAfterLoginCookie);
   return redirectTo ? (
     <RedirectAndClearStorage to={redirectTo} />
   ) : (
@@ -147,7 +148,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
 };
 
 const RedirectAndClearStorage = (props: { to: string }) => {
-  Cookies.remove("redirect-etter-login", { path: basePath });
+  Cookies.remove(redirectAfterLoginCookie);
   return <Redirect to={props.to} />;
 };
 
