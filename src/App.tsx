@@ -151,8 +151,8 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
 };
 
 const RedirectAndClearStorage = (props: { to: string }) => {
-  Cookies.remove(redirectLoginCookie);
   console.log(`Redirecter til ${props.to}`);
+  Cookies.remove(redirectLoginCookie);
   return <Redirect to={props.to} />;
 };
 
