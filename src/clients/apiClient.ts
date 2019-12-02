@@ -11,7 +11,6 @@ import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import Environment from "../Environments";
 import Cookies from "js-cookie";
-import { basePath } from "../App";
 import { redirectAfterLoginCookie } from "../config";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
