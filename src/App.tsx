@@ -150,6 +150,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
   if (redirect) {
     console.log(`Redirecter til ${redirect}`);
     Cookies.remove(redirectLoginCookie);
+    settRedirect(undefined);
     history.push(redirect);
   }
 
