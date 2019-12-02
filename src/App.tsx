@@ -30,6 +30,7 @@ export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
   const redirect = sessionStorage.getItem("redirect");
+  console.log(redirect);
 
   useEffect(() => {
     Modal.setAppElement("#app");
