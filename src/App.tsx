@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
@@ -19,6 +19,7 @@ import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetal
 import { redirectLoginCookie } from "./utils/cookies";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
+import Spinner from "./components/spinner/Spinner";
 
 const redirects: {
   [key: string]: {
@@ -139,15 +140,18 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
+  const [loading, settLoading] = useState<boolean>(true);
   const history = useHistory();
   useEffect(() => {
     const redirectTo = Cookies.get(redirectLoginCookie);
     if (redirectTo) {
       Cookies.remove(redirectLoginCookie);
-      history.push(redirectTo);
+      history.replace(redirectTo);
+    } else {
+      settLoading(false);
     }
   }, [history]);
-  return props.children;
+  return loading ? <Spinner /> : props.children;
 };
 
 export default App;
