@@ -140,15 +140,13 @@ const App = () => {
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
   const history = useHistory();
-
   useEffect(() => {
     const redirectTo = Cookies.get(redirectLoginCookie);
     if (redirectTo) {
       Cookies.remove(redirectLoginCookie);
       history.push(redirectTo);
     }
-  }, []);
-
+  }, [history]);
   return props.children;
 };
 
