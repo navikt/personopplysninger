@@ -29,8 +29,8 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
-  const redirect = sessionStorage.getItem("redirect");
-  console.log(redirect);
+  const redirectEtterLogin = sessionStorage.getItem("redirect-etter-login");
+  console.log(redirectEtterLogin);
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -50,8 +50,8 @@ const App = () => {
     .map(key => redirects[key].allowed)
     .join("|");
 
-  return redirect ? (
-    <RedirectAndClearSession to={redirect} />
+  return redirectEtterLogin ? (
+    <RedirectAndClearStorage to={redirectEtterLogin} />
   ) : (
     <div className="pagecontent">
       <Router>
@@ -138,8 +138,8 @@ const App = () => {
   );
 };
 
-const RedirectAndClearSession = (props: { to: string }) => {
-  sessionStorage.removeItem("redirect");
+const RedirectAndClearStorage = (props: { to: string }) => {
+  sessionStorage.removeItem("redirect-etter-login");
   return <Redirect to={props.to} />;
 };
 

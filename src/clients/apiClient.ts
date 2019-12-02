@@ -190,7 +190,7 @@ const sjekkAuth = (response: Response): any => {
 
 export const sendTilLogin = () => {
   const to = window.location.pathname + window.location.hash;
-  sessionStorage.setItem("redirect", to);
+  sessionStorage.setItem("redirect-etter-login", to);
   window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 
