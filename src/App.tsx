@@ -17,6 +17,7 @@ import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 import Modal from "react-modal";
+import Cookies from "js-cookie";
 
 const redirects: {
   [key: string]: {
@@ -29,7 +30,7 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
-  const redirectEtterLogin = sessionStorage.getItem("redirect-etter-login");
+  const redirectEtterLogin = Cookies.get("redirect-etter-login");
   console.log(redirectEtterLogin);
 
   useEffect(() => {
@@ -139,7 +140,7 @@ const App = () => {
 };
 
 const RedirectAndClearStorage = (props: { to: string }) => {
-  sessionStorage.removeItem("redirect-etter-login");
+  Cookies.remove("redirect-etter-login");
   return <Redirect to={props.to} />;
 };
 

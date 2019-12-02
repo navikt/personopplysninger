@@ -10,6 +10,8 @@ import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-a
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import Environment from "../Environments";
+import Cookies from "js-cookie";
+import { basePath } from "../App";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
@@ -190,7 +192,9 @@ const sjekkAuth = (response: Response): any => {
 
 export const sendTilLogin = () => {
   const to = window.location.pathname + window.location.hash;
-  sessionStorage.setItem("redirect-etter-login", to);
+  const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+  const options = { expires: inFiveMinutes, path: basePath };
+  Cookies.set("redirect-etter-login", to, options);
   window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 
