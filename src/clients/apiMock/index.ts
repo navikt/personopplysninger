@@ -2,6 +2,7 @@ import fetchMock from "fetch-mock";
 import personInformasjon from "./app/fetch/person-info.json";
 import kontaktInformasjon from "./app/fetch/kontakt-info.json";
 import featureToggles from "./app/fetch/feature-toggles.json";
+import name from "./app/fetch/name-info.json";
 import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";
@@ -73,7 +74,7 @@ export const setUpMock = async () => {
       delay(1000, 2000).then(() => instInfo)
     );
   mockFetchName &&
-    fetchMock.get(`${apiUrl}/name`, () => delay(50, 100).then(() => 403));
+    fetchMock.get(`${apiUrl}/name`, () => delay(50, 100).then(() => name));
   /*
     POST
    */
