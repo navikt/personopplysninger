@@ -9,7 +9,6 @@ import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
-import loginservice from "utils/loginservice";
 import Environment from "../Environments";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
