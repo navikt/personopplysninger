@@ -148,9 +148,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
       Cookies.remove(redirectLoginCookie);
       history.replace(redirectTo);
     }
-    return () => {
-      settLoading(false);
-    };
+    settLoading(false);
   }, [history]);
   return loading ? <Spinner /> : props.children;
 };
