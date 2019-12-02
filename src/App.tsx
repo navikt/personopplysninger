@@ -140,6 +140,7 @@ const App = () => {
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
   const redirectTo = Cookies.get(redirectAfterLoginCookie);
+  console.log(redirectTo);
   return redirectTo ? (
     <RedirectAndClearStorage to={redirectTo} />
   ) : (
