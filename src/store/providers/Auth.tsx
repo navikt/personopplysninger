@@ -25,7 +25,9 @@ const Auth = (props: Props) => {
           dispatch({ type: "SETT_NAME_RESULT", payload: result });
         })
         .catch((error: AlertType) => {
-          dispatch({ type: "SETT_NAME_ERROR", payload: error });
+          if (error.code !== 401 && error.code !== 403) {
+            dispatch({ type: "SETT_NAME_ERROR", payload: error });
+          }
         });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
