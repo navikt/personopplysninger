@@ -142,13 +142,13 @@ const LoginRedirect = (props: { children: JSX.Element }) => {
   console.log(redirectEtterLogin);
 
   return redirectEtterLogin ? (
-    <RedirectAndClearStorage to={redirectEtterLogin} />
+    <LoginRedirectAndClearStorage to={redirectEtterLogin} />
   ) : (
     <>{props.children}</>
   );
 };
 
-const RedirectAndClearStorage = (props: { to: string }) => {
+const LoginRedirectAndClearStorage = (props: { to: string }) => {
   Cookies.remove("redirect-etter-login");
   return <Redirect to={props.to} />;
 };
