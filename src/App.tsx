@@ -52,7 +52,7 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <LoginRedirect>
+        <RedirectAfterLogin>
           <WithAuth>
             <WithFeatureToggles>
               <Switch>
@@ -131,25 +131,23 @@ const App = () => {
               </Switch>
             </WithFeatureToggles>
           </WithAuth>
-        </LoginRedirect>
+        </RedirectAfterLogin>
       </Router>
     </div>
   );
 };
 
-const LoginRedirect = (props: { children: JSX.Element }) => {
-  const redirectEtterLogin = Cookies.get("redirect-etter-login");
-  console.log(redirectEtterLogin);
-
-  return redirectEtterLogin ? (
-    <LoginRedirectAndClearStorage to={redirectEtterLogin} />
+const RedirectAfterLogin = (props: { children: JSX.Element }) => {
+  const redirectTo = Cookies.get("redirect-etter-login");
+  return redirectTo ? (
+    <RedirectAndClearStorage to={redirectTo} />
   ) : (
     <>{props.children}</>
   );
 };
 
-const LoginRedirectAndClearStorage = (props: { to: string }) => {
-  Cookies.remove("redirect-etter-login");
+const RedirectAndClearStorage = (props: { to: string }) => {
+  Cookies.remove("redirect-etter-login", { path: basePath });
   return <Redirect to={props.to} />;
 };
 
