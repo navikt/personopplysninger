@@ -16,9 +16,9 @@ import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
 import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
+import { redirectLoginCookie } from "./utils/cookies";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
-import { redirectAfterLoginCookie } from "./config";
 
 const redirects: {
   [key: string]: {
@@ -139,7 +139,7 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
-  const redirectTo = Cookies.get(redirectAfterLoginCookie);
+  const redirectTo = Cookies.get(redirectLoginCookie);
   console.log(`Cookie: ${redirectTo}`);
   return redirectTo ? (
     <RedirectAndClearStorage to={redirectTo} />
@@ -149,7 +149,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
 };
 
 const RedirectAndClearStorage = (props: { to: string }) => {
-  Cookies.remove(redirectAfterLoginCookie);
+  Cookies.remove(redirectLoginCookie);
   console.log("Cookie: Sletter cookie");
   return <Redirect to={props.to} />;
 };

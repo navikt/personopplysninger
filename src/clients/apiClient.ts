@@ -11,7 +11,7 @@ import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import Environment from "../Environments";
 import Cookies from "js-cookie";
-import { redirectAfterLoginCookie } from "../config";
+import { redirectLoginCookie } from "../utils/cookies";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
@@ -194,7 +194,7 @@ export const sendTilLogin = () => {
   const to = window.location.pathname + window.location.hash;
   const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
   const options = { expires: inFiveMinutes };
-  Cookies.set(redirectAfterLoginCookie, to, options);
+  Cookies.set(redirectLoginCookie, to, options);
   window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 
