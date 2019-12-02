@@ -53,103 +53,99 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        <RedirectAfterLogin>
-          <WithAuth>
-            <WithFeatureToggles>
-              <Switch>
+        <WithAuth>
+          <WithFeatureToggles>
+            <Switch>
+              <RedirectAfterLogin />
+              <Route
+                exact={true}
+                path={`(/|${basePath})`}
+                component={Forside}
+              />
+              <Route
+                exact={true}
+                path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                component={Forside}
+              />
+              <Route
+                exact={true}
+                path={`${basePath}/arbeidsforhold`}
+                render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
+              />
+              <Route
+                exact={true}
+                path={`${basePath}/arbeidsforhold/:id`}
+                component={DetaljertArbeidsforhold}
+              />
+              {featureToggles.data["personopplysninger.dsop"] && (
                 <Route
                   exact={true}
-                  path={`(/|${basePath})`}
-                  component={Forside}
+                  path={`${basePath}/dsop`}
+                  component={DsopHistorikk}
                 />
+              )}
+              {featureToggles.data["personopplysninger.dsop"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                  component={Forside}
+                  path={`${basePath}/dsop/:id`}
+                  component={DsopDetaljer}
                 />
+              )}
+              {featureToggles.data["personopplysninger.inst"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/arbeidsforhold`}
-                  render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
+                  path={`${basePath}/institusjonsopphold`}
+                  component={InstHistorikk}
                 />
+              )}
+              {featureToggles.data["personopplysninger.inst"] && (
                 <Route
                   exact={true}
-                  path={`${basePath}/arbeidsforhold/:id`}
-                  component={DetaljertArbeidsforhold}
+                  path={`${basePath}/institusjonsopphold/:id`}
+                  component={InstDetaljer}
                 />
-                {featureToggles.data["personopplysninger.dsop"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/dsop`}
-                    component={DsopHistorikk}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.dsop"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/dsop/:id`}
-                    component={DsopDetaljer}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.inst"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/institusjonsopphold`}
-                    component={InstHistorikk}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.inst"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/institusjonsopphold/:id`}
-                    component={InstDetaljer}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.pdl"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                    component={EndreOpplysninger}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.skatt"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/skattetreksmelding`}
-                    component={SkattkortHistorikk}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.skatt"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/skattetreksmelding/:id`}
-                    component={SkattekortDetaljer}
-                  />
-                )}
-                {featureToggles.status === "RESULT" && (
-                  <Route component={PageNotFound} />
-                )}
-              </Switch>
-            </WithFeatureToggles>
-          </WithAuth>
-        </RedirectAfterLogin>
+              )}
+              {featureToggles.data["personopplysninger.pdl"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                  component={EndreOpplysninger}
+                />
+              )}
+              {featureToggles.data["personopplysninger.skatt"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/skattetreksmelding`}
+                  component={SkattkortHistorikk}
+                />
+              )}
+              {featureToggles.data["personopplysninger.skatt"] && (
+                <Route
+                  exact={true}
+                  path={`${basePath}/skattetreksmelding/:id`}
+                  component={SkattekortDetaljer}
+                />
+              )}
+              {featureToggles.status === "RESULT" && (
+                <Route component={PageNotFound} />
+              )}
+            </Switch>
+          </WithFeatureToggles>
+        </WithAuth>
       </Router>
     </div>
   );
 };
 
-const RedirectAfterLogin = (props: { children: JSX.Element }) => {
+const RedirectAfterLogin = () => {
   const history = useHistory();
-
   useEffect(() => {
     const redirectTo = Cookies.get(redirectLoginCookie);
     if (redirectTo) {
       Cookies.remove(redirectLoginCookie);
       history.push(redirectTo);
     }
-  }, []);
-
-  return props.children;
+  }, [history]);
 };
 
 export default App;
