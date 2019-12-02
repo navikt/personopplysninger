@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
@@ -139,10 +139,12 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
-  const redirectTo = Cookies.get(redirectLoginCookie);
-  console.log(`Cookie: ${redirectTo}`);
-  return redirectTo ? (
-    <RedirectAndClearStorage to={redirectTo} />
+  const [redirect, settRedirect] = useState();
+  useEffect(() => {
+    settRedirect(Cookies.get(redirectLoginCookie));
+  }, []);
+  return redirect ? (
+    <RedirectAndClearStorage to={redirect} />
   ) : (
     <>{props.children}</>
   );
