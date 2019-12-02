@@ -9,8 +9,9 @@ import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
-import loginservice from "utils/loginservice";
 import Environment from "../Environments";
+import Cookies from "js-cookie";
+import { redirectLoginCookie } from "../utils/cookies";
 const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
@@ -190,12 +191,11 @@ const sjekkAuth = (response: Response): any => {
 };
 
 export const sendTilLogin = () => {
-  const { href } = window.location;
-  if (loginservice.includes(href)) {
-    window.location.assign(`${loginUrl}?redirect=${href}`);
-  } else {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
-  }
+  const to = window.location.pathname + window.location.hash;
+  const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
+  const options = { expires: inFiveMinutes };
+  Cookies.set(redirectLoginCookie, to, options);
+  window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 
 const sjekkHttpFeil = (response: Response) => {

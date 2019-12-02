@@ -1,6 +1,11 @@
 @link-color: #4a90e2;
 @app-background: @navLysGra;
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   background-color: @app-background;
   margin: 0;
@@ -58,6 +63,10 @@ body {
 
 .pagewrapper {
   width: 100%;
+  height: auto;
+  min-height: 100%;
+  margin-bottom: -200px;
+  padding-bottom: 200px;
 }
 
 .pagecontent {
