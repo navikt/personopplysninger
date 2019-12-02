@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, useHistory } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
