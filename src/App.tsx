@@ -19,7 +19,6 @@ import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetal
 import { redirectLoginCookie } from "./utils/cookies";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
-import Spinner from "./components/spinner/Spinner";
 
 const redirects: {
   [key: string]: {
