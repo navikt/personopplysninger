@@ -19,6 +19,7 @@ import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetal
 import { redirectLoginCookie } from "./utils/cookies";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
+import Spinner from "./components/spinner/Spinner";
 
 const redirects: {
   [key: string]: {
@@ -139,8 +140,8 @@ const App = () => {
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {
-  const history = useHistory();
   const [redirect, settRedirect] = useState();
+  const history = useHistory();
 
   useEffect(() => {
     settRedirect(Cookies.get(redirectLoginCookie));
@@ -152,7 +153,7 @@ const RedirectAfterLogin = (props: { children: JSX.Element }) => {
     history.push(redirect);
   }
 
-  return redirect ? null : <>{props.children}</>;
+  return redirect ? <Spinner /> : <>{props.children}</>;
 };
 
 export default App;
