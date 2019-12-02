@@ -29,6 +29,7 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
+  const redirect = sessionStorage.getItem("redirect");
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -48,7 +49,9 @@ const App = () => {
     .map(key => redirects[key].allowed)
     .join("|");
 
-  return (
+  return redirect ? (
+    <RedirectAndClearSession to={redirect} />
+  ) : (
     <div className="pagecontent">
       <Router>
         <WithAuth>
@@ -132,6 +135,11 @@ const App = () => {
       </Router>
     </div>
   );
+};
+
+const RedirectAndClearSession = (props: { to: string }) => {
+  sessionStorage.removeItem("redirect");
+  return <Redirect to={props.to} />;
 };
 
 export default App;

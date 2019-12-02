@@ -190,12 +190,8 @@ const sjekkAuth = (response: Response): any => {
 };
 
 export const sendTilLogin = () => {
-  const { href } = window.location;
-  if (loginservice.includes(href)) {
-    window.location.assign(`${loginUrl}?redirect=${href}`);
-  } else {
-    window.location.assign(`${loginUrl}?redirect=${appUrl}`);
-  }
+  sessionStorage.setItem("redirect", window.location.pathname);
+  window.location.assign(`${loginUrl}?redirect=${appUrl}`);
 };
 
 const sjekkHttpFeil = (response: Response) => {
