@@ -30,8 +30,6 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
-  const redirectEtterLogin = Cookies.get("redirect-etter-login");
-  console.log(redirectEtterLogin);
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -54,9 +52,7 @@ const App = () => {
   return (
     <div className="pagecontent">
       <Router>
-        {redirectEtterLogin ? (
-          <RedirectAndClearStorage to={redirectEtterLogin} />
-        ) : (
+        <LoginRedirect>
           <WithAuth>
             <WithFeatureToggles>
               <Switch>
@@ -135,9 +131,20 @@ const App = () => {
               </Switch>
             </WithFeatureToggles>
           </WithAuth>
-        )}
+        </LoginRedirect>
       </Router>
     </div>
+  );
+};
+
+const LoginRedirect = (props: { children: JSX.Element }) => {
+  const redirectEtterLogin = Cookies.get("redirect-etter-login");
+  console.log(redirectEtterLogin);
+
+  return redirectEtterLogin ? (
+    <RedirectAndClearStorage to={redirectEtterLogin} />
+  ) : (
+    <>{props.children}</>
   );
 };
 
