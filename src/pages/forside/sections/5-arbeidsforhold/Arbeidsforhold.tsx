@@ -10,7 +10,7 @@ import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "components/kilde/Kilde";
 
 const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
+const miljo = environment.miljo as "LOCAL" | "Q6" | "Q2" | "Q1" | "Q0" | "PROD";
 
 const Arbeidsforhold = () => {
   const { locale } = useIntl();

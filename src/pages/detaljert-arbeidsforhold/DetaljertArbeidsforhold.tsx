@@ -7,7 +7,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
 
 const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "Q0" | "Q1" | "PROD";
+const miljo = environment.miljo as "LOCAL" | "Q6" | "Q2" | "Q1" | "Q0" | "PROD";
 
 interface Routes {
   id: string;
