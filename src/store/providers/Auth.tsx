@@ -37,7 +37,7 @@ const Auth = (props: Props) => {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return props.children;
+      return <>{props.children}</>;
     case "ERROR":
       return <Error error={nameInfo.error} />;
   }

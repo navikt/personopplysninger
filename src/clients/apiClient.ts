@@ -39,8 +39,8 @@ export const sjekkAuthHentNavn = () => {
       };
       if (error.code !== 401 && error.code !== 403) {
         logApiError(url, error);
-        throw error;
       }
+      throw error;
     });
 };
 
