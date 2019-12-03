@@ -17,6 +17,7 @@ interface Props {
 
 const Auth = (props: Props) => {
   const [{ nameInfo }, dispatch] = useStore();
+  console.log(nameInfo);
 
   useEffect(() => {
     if (nameInfo.status === "LOADING") {
