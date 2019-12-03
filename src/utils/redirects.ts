@@ -46,5 +46,10 @@ export default {
     allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fskjema%2Fskjemaoversikt.jsf.*`,
     beskrivelse: `Du har blitt sendt skjemaoversikt. Her kan du legg til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til skjemaoversikt"
+  },
+  minprofil: {
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf.*`,
+    beskrivelse: `Du har blitt sendt fra minprofil. Her kan du legg til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    knapp: "Gå tilbake til minprofil"
   }
 };
