@@ -1,10 +1,9 @@
-import React, { MouseEvent } from "react";
+import React from "react";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
 import Tilbake from "components/tilbake/Tilbake";
-import { useHistory } from "react-router-dom";
 import Brodsmulesti, {
   BrodsmuleLenke
 } from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
@@ -18,13 +17,6 @@ interface Props {
 }
 
 const PageContainer = (props: Props) => {
-  const history = useHistory();
-
-  const goBack = (event: MouseEvent<HTMLAnchorElement>): void => {
-    event.preventDefault();
-    history.goBack();
-  };
-
   return (
     <div className="da__container">
       <Brodsmulesti hierarki={props.brodsmulesti} />
@@ -35,7 +27,7 @@ const PageContainer = (props: Props) => {
       )}
       <div className="da__rad">
         <div className="da__back">
-          <Tilbake to={props.backTo} onClick={goBack} />
+          <Tilbake to={props.backTo} />
         </div>
         <div className="da__overskrift">
           <Systemtittel>
