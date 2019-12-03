@@ -23,7 +23,7 @@ const DsopHistorikk = () => (
     tittelId={"dsop.tittel"}
     icon={DSOPIkon}
     backTo={"/dsop"}
-    brodsmulesti={[{ title: "inst.tittel" }]}
+    brodsmulesti={[{ title: "dsop.tittel" }]}
   >
     <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>
   </PageContainer>
