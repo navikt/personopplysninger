@@ -39,7 +39,7 @@ export default {
   },
   minprofil: {
     allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf.*`,
-    beskrivelse: `Du har blitt sendt fra Min Profil. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til Min Profil"
+    beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    knapp: "Gå tilbake til Din Profil"
   }
 };
