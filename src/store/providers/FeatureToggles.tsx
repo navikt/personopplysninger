@@ -15,7 +15,6 @@ interface Props {
 
 const FT = (props: Props) => {
   const [{ featureToggles }, dispatch] = useStore();
-  console.log(featureToggles);
 
   useEffect(() => {
     if (featureToggles.status === "LOADING") {
