@@ -26,7 +26,7 @@ const DsopDetaljer = () => {
     <PageContainer
       tittelId={"inst.tittel"}
       icon={INSTIkon}
-      backTo={"/"}
+      backTo={"/dsop"}
       brodsmulesti={[
         { title: "dsop.tittel", path: "/dsop" },
         { title: "dsop.levertedata" }
