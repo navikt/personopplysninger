@@ -18,27 +18,27 @@ export default {
     Tillatte tjenester med redirect tilbake:
   */
   "skjema/alderspensjon": {
-    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fskjema%2Falderspensjon.jsf.*`,
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon"
   },
   "skjema/innledning": {
-    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fskjema%2Falderspensjon.jsf.*`,
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon"
   },
   "skjema/kvittering": {
-    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fskjema%2Falderspensjon.jsf.*`,
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til kvitteringen"
   },
   "skjema/uforetrygd": {
-    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Fskjema%2Fuforetrygd%2Finnledning.jsf.*`,
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til uføretrygd"
   },
   minprofil: {
-    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf.*`,
+    allowed: `https%3A%2F%2Ftjenester?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til Din Profil"
   }
