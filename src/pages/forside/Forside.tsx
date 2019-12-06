@@ -24,8 +24,7 @@ const Forside = () => {
       <AlertStripeAdvarsel>
         Vi opplever for tiden tregheter i systemet ved oppdatering av
         telefonnummer, kontonummer og midlertidig adresse. Oppdateringene blir
-        sendt inn, men det kan ta noe tid før de vises her. Vennligst prøv igjen
-        senere.
+        sendt inn, men det kan ta noe tid før de vises her.
       </AlertStripeAdvarsel>
       <Sidetittel />
       <Header />
