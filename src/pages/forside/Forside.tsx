@@ -8,7 +8,6 @@ import Header from "./sections/3-header/Header";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
 import { useParams } from "react-router-dom";
 import RedirectKnapp from "components/knapper/Redirect";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Routes {
   tjeneste?: string;
@@ -21,11 +20,6 @@ const Forside = () => {
   return (
     <>
       <Brodsmulesti />
-      <AlertStripeAdvarsel>
-        Vi opplever for tiden tregheter i systemet ved oppdatering av
-        telefonnummer, kontonummer og midlertidig adresse. Oppdateringene blir
-        sendt inn, men det kan ta noe tid før de vises her.
-      </AlertStripeAdvarsel>
       <Sidetittel />
       <Header />
       <PersonInfo />
