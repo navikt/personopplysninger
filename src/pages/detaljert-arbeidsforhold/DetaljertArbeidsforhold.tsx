@@ -31,6 +31,7 @@ const Arbeidsforhold = () => {
       backTo={"/"}
     >
       <DetaljertArbeidsforhold
+        rolle={"ARBEIDSTAKER"}
         locale={locale as "nb" | "en"}
         miljo={miljo}
         navArbeidsforholdId={id}
