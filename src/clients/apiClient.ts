@@ -220,11 +220,11 @@ const sjekkTPSFeil = (response: TPSResponse) => {
     const error = {
       PENDING: {
         type: `info`,
-        text: `Vi har sendt inn endringen din.`
+        text: `Vi har sendt inn endringen din`
       },
       REJECTED: {
         type: `info`,
-        text: `Det eksisterer en pågående endring.`
+        text: `Det eksisterer en pågående endring`
       },
       ERROR: {
         type: `feil`,
