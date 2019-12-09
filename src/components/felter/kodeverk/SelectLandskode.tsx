@@ -28,30 +28,20 @@ const SelectLandskode = (props: Props) => {
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
-    let didCancel = false;
-    if (!loading) {
+    if (!loading && !retningsnumre.length) {
       settLoading(true);
       fetchRetningsnumre()
         .then(landskoder => {
-          if (!didCancel) {
-            settRetningsnumre(landskoder);
-          }
+          settRetningsnumre(landskoder);
         })
         .catch((error: HTTPError) => {
-          if (!didCancel) {
-            settFetchError(error);
-          }
+          settFetchError(error);
         })
         .then(() => {
-          if (!didCancel) {
-            settLoading(false);
-          }
+          settLoading(false);
         });
     }
-    return () => {
-      didCancel = true;
-    };
-  }, [loading, settLoading, settRetningsnumre, settFetchError]);
+  }, [loading, retningsnumre]);
 
   const mapKoderToOptions = (koder: Kode[]): any =>
     koder.map((k, i) => ({
