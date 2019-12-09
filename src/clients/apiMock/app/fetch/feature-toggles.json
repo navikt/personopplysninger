@@ -1,6 +1,7 @@
 {
-  "personopplysninger.dsop": true,
   "personopplysninger.pdl": true,
+  "personopplysninger.dsop": true,
   "personopplysninger.inst": true,
-  "personopplysninger.skatt": true
+  "personopplysninger.skatt": true,
+  "personopplysninger.medl": true
 }

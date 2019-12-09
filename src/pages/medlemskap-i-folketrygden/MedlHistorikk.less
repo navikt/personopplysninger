@@ -1,0 +1,32 @@
+.historikk {
+  &__flex-table {
+    max-width: 100%;
+    border-collapse: collapse;
+  }
+  &__flex-rad {
+    border-bottom: 1px solid #979797;
+    display: flex;
+    padding: 0.25rem 0;
+    @media @minDesktop, @maxTablet {
+      flex-direction: row;
+    }
+    @media @maxMobile {
+      flex-direction: column;
+    }
+  }
+  &__flex-kolonne {
+    padding: 0.25rem 0;
+    flex-basis: 100%;
+  }
+  &__tabs-innhold {
+    @media @minMobile {
+      padding: 1rem 2rem;
+    }
+  }
+  &__ingen-data {
+    margin: 1rem 0;
+  }
+  &__info {
+    margin-bottom: 1rem;
+  }
+}

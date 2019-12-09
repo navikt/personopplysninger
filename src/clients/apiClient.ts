@@ -84,6 +84,9 @@ export const fetchInstInfo = () =>
 export const fetchSkattetreksmeldinger = () =>
   sjekkAuthHentJson(`${apiUrl}/skattetreksmeldinger`);
 
+export const fetchMedlInfo = () =>
+  sjekkAuthHentJson(`${apiUrl}/medlemskap-i-folketrygden`);
+
 export const fetchPostnummer = () => sjekkAuthHentJson(`${apiUrl}/postnummer`);
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl}/personalia`);
 export const fetchLand = () => sjekkAuthHentJson(`${apiUrl}/land`);

@@ -11,6 +11,8 @@ import { FetchPersonInfo } from "./providers/PersonInfo";
 import { InstInfo } from "../types/inst";
 import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
 import { FetchSkattetreksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
+import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
+import { MedlInfo } from "../types/medl";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -21,16 +23,19 @@ export const initialState = {
   featureToggles: {
     status: "LOADING",
     data: {
-      "personopplysninger.dsop": false,
       "personopplysninger.pdl": false,
-      "personopplysninger.inst": false
+      "personopplysninger.dsop": false,
+      "personopplysninger.inst": false,
+      "personopplysninger.skatt": false,
+      "personopplysninger.medl": false
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
   instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
-  skattetreksmeldinger: { status: "LOADING" } as FetchSkattetreksmeldinger
+  skattetreksmeldinger: { status: "LOADING" } as FetchSkattetreksmeldinger,
+  medlInfo: { status: "LOADING" } as FetchMedlInfo
 };
 
 export interface Store {
@@ -41,6 +46,7 @@ export interface Store {
   instInfo: FetchInstInfo;
   kontaktInfo: FetchKontaktInfo;
   skattetreksmeldinger: FetchSkattetreksmeldinger;
+  medlInfo: FetchMedlInfo;
 }
 
 export type Action =
@@ -94,6 +100,14 @@ export type Action =
     }
   | {
       type: "SETT_SKATT_ERROR";
+      payload: HTTPError;
+    }
+  | {
+      type: "SETT_MEDL_INFO_RESULT";
+      payload: MedlInfo;
+    }
+  | {
+      type: "SETT_MEDL_INFO_ERROR";
       payload: HTTPError;
     };
 
@@ -202,6 +216,22 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload
         } as FetchSkattetreksmeldinger
+      };
+    case "SETT_MEDL_INFO_RESULT":
+      return {
+        ...state,
+        medlInfo: {
+          status: "RESULT",
+          data: action.payload
+        } as FetchMedlInfo
+      };
+    case "SETT_MEDL_INFO_ERROR":
+      return {
+        ...state,
+        medlInfo: {
+          status: "ERROR",
+          error: action.payload
+        } as FetchMedlInfo
       };
     default:
       return state;
