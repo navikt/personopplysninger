@@ -33,8 +33,7 @@ const WithInst = ({ children }: Props) => {
           })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [instInfo, dispatch]);
 
   switch (instInfo.status) {
     case "LOADING":

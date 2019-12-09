@@ -33,8 +33,7 @@ const WithSkattetreksmelding = ({ children }: Props) => {
           })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [skattetreksmeldinger, dispatch]);
 
   switch (skattetreksmeldinger.status) {
     case "LOADING":

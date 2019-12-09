@@ -51,8 +51,7 @@ const SelectValuta = (props: Props) => {
     return () => {
       didCancel = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loading, settLoading, settValutaer, settFetchError]);
 
   const mapKoderToOptions = (koder: Valuta[]): any =>
     koder.map(k => ({

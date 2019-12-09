@@ -51,8 +51,7 @@ const SelectLandskode = (props: Props) => {
     return () => {
       didCancel = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loading, settLoading, settRetningsnumre, settFetchError]);
 
   const mapKoderToOptions = (koder: Kode[]): any =>
     koder.map((k, i) => ({

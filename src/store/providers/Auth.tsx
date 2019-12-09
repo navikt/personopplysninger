@@ -30,8 +30,7 @@ const Auth = (props: Props) => {
           }
         });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [nameInfo, dispatch]);
 
   switch (nameInfo.status) {
     case "LOADING":
