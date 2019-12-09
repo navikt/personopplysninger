@@ -10,6 +10,7 @@ import postnummer from "./app/fetch/postnummer.json";
 import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
 import instInfo from "./app/fetch/inst-info.json";
+import medlInfo from "./app/fetch/medl-info.json";
 import Environment from "Environments";
 
 const { apiUrl, dsopUrl } = Environment();
@@ -27,6 +28,7 @@ const mockFetchLand = true;
 const mockFetchValutaer = true;
 const mockFetchPostnummer = true;
 const mockFetchInst = true;
+const mockFetchMedl = true;
 
 const mockPostGateadresse = true;
 const mockPostSlettTlfnr = true;
@@ -72,6 +74,10 @@ export const setUpMock = async () => {
   mockFetchInst &&
     fetchMock.get(`${apiUrl}/hentInstitusjonsopphold`, () =>
       delay(1000, 2000).then(() => instInfo)
+    );
+  mockFetchMedl &&
+    fetchMock.get(`${apiUrl}/medlemskap-i-folketrygden`, () =>
+      delay(1000, 2000).then(() => medlInfo)
     );
   mockFetchName &&
     fetchMock.get(`${apiUrl}/name`, () => delay(50, 100).then(() => name));

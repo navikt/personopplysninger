@@ -69,6 +69,17 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
+        {featureToggles.data["personopplysninger.medl"] && (
+          <LinkBox
+            id={"medl"}
+            icon={SkattIkon}
+            tittel={"lenker.medl.tittel"}
+            beskrivelse={"lenker.medl.beskrivelse"}
+            lenkeTekst={"lenker.medl.lenkeTekst"}
+            to={"/person/personopplysninger/medlemskap-i-folketrygden"}
+            component={"Link"}
+          />
+        )}
       </div>
     </PanelBase>
   );

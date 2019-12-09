@@ -20,6 +20,8 @@ import { redirectLoginCookie } from "./utils/cookies";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
+import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
+import MedlDetaljer from "./pages/medlemskap-i-folketrygden/MedlDetaljer";
 
 const redirects: {
   [key: string]: {
@@ -125,6 +127,20 @@ const App = () => {
                     exact={true}
                     path={`${basePath}/skattetreksmelding/:id`}
                     component={SkattekortDetaljer}
+                  />
+                )}
+                {featureToggles.data["personopplysninger.medl"] && (
+                  <Route
+                    exact={true}
+                    path={`${basePath}/medlemskap-i-folketrygden`}
+                    component={MedlHistorikk}
+                  />
+                )}
+                {featureToggles.data["personopplysninger.medl"] && (
+                  <Route
+                    exact={true}
+                    path={`${basePath}/medlemskap-i-folketrygden/:id`}
+                    component={MedlDetaljer}
                   />
                 )}
                 {featureToggles.status === "RESULT" && (
