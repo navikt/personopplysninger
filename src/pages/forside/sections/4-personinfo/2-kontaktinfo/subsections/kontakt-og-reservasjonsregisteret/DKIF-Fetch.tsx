@@ -30,8 +30,7 @@ const DKIF = () => {
           dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [kontaktInfo, dispatch]);
 
   return (
     <>

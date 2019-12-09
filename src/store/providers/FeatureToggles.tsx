@@ -31,8 +31,7 @@ const FT = (props: Props) => {
           )
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [featureToggles, dispatch]);
 
   return <>{props.children}</>;
 };

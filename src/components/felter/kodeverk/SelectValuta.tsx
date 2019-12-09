@@ -28,31 +28,20 @@ const SelectValuta = (props: Props) => {
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
-    let didCancel = false;
-    if (!loading) {
+    if (!loading && !valutaer.length) {
       settLoading(true);
       fetchValutaer()
         .then(v => {
-          if (!didCancel) {
-            settValutaer(v);
-          }
+          settValutaer(v);
         })
         .catch((error: HTTPError) => {
-          if (!didCancel) {
-            settFetchError(error);
-          }
+          settFetchError(error);
         })
         .then(() => {
-          if (!didCancel) {
-            settLoading(false);
-          }
+          settLoading(false);
         });
     }
-    return () => {
-      didCancel = true;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loading, valutaer]);
 
   const mapKoderToOptions = (koder: Valuta[]): any =>
     koder.map(k => ({

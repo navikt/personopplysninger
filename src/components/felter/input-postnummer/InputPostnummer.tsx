@@ -34,8 +34,7 @@ const SelectPostnummer = React.memo((props: Props) => {
       .then(() => {
         settLoading(false);
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [settPostnummer, settFetchError, settLoading]);
 
   const poststed = postnummer
     .filter(

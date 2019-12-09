@@ -24,35 +24,24 @@ export interface Land {
 
 const SelectLand = (props: Props) => {
   const [loading, settLoading] = useState(false);
-  const [valutaer, settValutaer] = useState([] as Land[]);
+  const [land, settLand] = useState([] as Land[]);
   const [fetchError, settFetchError] = useState();
 
   useEffect(() => {
-    let didCancel = false;
-    if (!loading) {
+    if (!loading && !land.length) {
       settLoading(true);
       fetchLand()
         .then(v => {
-          if (!didCancel) {
-            settValutaer(v);
-          }
+          settLand(v);
         })
         .catch((error: HTTPError) => {
-          if (!didCancel) {
-            settFetchError(error);
-          }
+          settFetchError(error);
         })
         .then(() => {
-          if (!didCancel) {
-            settLoading(false);
-          }
+          settLoading(false);
         });
     }
-    return () => {
-      didCancel = true;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [loading, land]);
 
   const mapKoderToOptions = (koder: Land[]): any =>
     koder.map(k => ({
@@ -60,7 +49,7 @@ const SelectLand = (props: Props) => {
       value: k.kode
     }));
 
-  const options = mapKoderToOptions(valutaer)
+  const options = mapKoderToOptions(land)
     .filter((option: OptionType) => option.value !== "NOR")
     .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1));
 

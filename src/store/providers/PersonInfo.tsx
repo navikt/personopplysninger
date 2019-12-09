@@ -30,8 +30,7 @@ const MedPersonInfo = (props: Props) => {
           dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [personInfo, dispatch]);
 
   switch (personInfo.status) {
     case "LOADING":
