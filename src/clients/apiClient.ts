@@ -219,13 +219,14 @@ const sjekkTPSFeil = (response: TPSResponse) => {
   } else {
     const error = {
       PENDING: {
-        code: 534,
         type: `info`,
-        text: `${(response.error && response.error.message) ||
-          `Vi har sendt inn endringen din.`}`
+        text: `Vi har sendt inn endringen din.`
+      },
+      REJECTED: {
+        type: `info`,
+        text: `Det eksisterer en pågående endring.`
       },
       ERROR: {
-        code: 400,
         type: `feil`,
         text: `${response.error && response.error.message}${
           response.error && response.error.details
