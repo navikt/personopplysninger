@@ -14,7 +14,7 @@ interface Props {
   children: (data: { data: MedlInfo; id?: string }) => JSX.Element;
 }
 
-const WithDSOP = (props: Props) => {
+const WithMEDL = (props: Props) => {
   const [{ medlInfo }, dispatch] = useStore();
   const { children } = props;
 
@@ -34,8 +34,7 @@ const WithDSOP = (props: Props) => {
           })
         );
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [medlInfo, dispatch]);
 
   switch (medlInfo.status) {
     case "LOADING":
@@ -47,4 +46,4 @@ const WithDSOP = (props: Props) => {
   }
 };
 
-export default WithDSOP;
+export default WithMEDL;
