@@ -164,7 +164,7 @@ export default {
   "lenker.dsop.beskrivelse": `Se hvilke opplysninger NAV kan gi til forsikringsselskap, fordi du har gitt samtykke.`,
   "lenker.dsop.info": `Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. <a href="https://altinn.no">Se samtykket i Altinn.</a>`,
   "lenker.inst.tittel": `Institusjonsopphold`,
-  "lenker.inst.beskrivelse": `Sine institusjonsopphold`,
+  "lenker.inst.beskrivelse": `Se dine institusjonsopphold`,
   "lenker.inst.info": `Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. <a href="https://altinn.no">Se samtykket i Altinn.</a>`,
   "lenker.skattetreksmelding.tittel": `Skattetreksmeldinger`,
   "lenker.skattetreksmelding.beskrivelse": `Se dine skattetreksmeldinger`,
