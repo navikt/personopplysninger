@@ -22,10 +22,10 @@ const SkattekortDetaljer = () => {
 
   return (
     <PageContainer
-      tittelId={"skattetreksmeldinger.tittel"}
+      tittelId={"skattetrekksmeldinger.tittel"}
       icon={SkattIkon}
       backTo={"/"}
-      brodsmulesti={[{ title: "skattetreksmeldinger.tittel" }]}
+      brodsmulesti={[{ title: "skattetrekksmeldinger.tittel" }]}
     >
       <WithSkatt>
         {({ data }) => {
@@ -80,7 +80,7 @@ const SkattekortDetaljer = () => {
             </div>
           ) : (
             <div>
-              <FormattedMessage id="skattetreksmeldinger.ingendata" />
+              <FormattedMessage id="skattetrekksmeldinger.ingendata" />
             </div>
           );
         }}

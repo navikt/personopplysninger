@@ -1,29 +1,29 @@
 import React, { useEffect } from "react";
-import { fetchSkattetreksmeldinger } from "clients/apiClient";
+import { fetchskattetrekksmeldinger } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "store/Context";
 import Spinner from "components/spinner/Spinner";
-import { Skattetreksmeldinger } from "types/skattetreksmeldinger";
+import { skattetrekksmeldinger } from "types/skattetrekksmeldinger";
 
-export type FetchSkattetreksmeldinger =
+export type Fetchskattetrekksmeldinger =
   | { status: "LOADING" }
-  | { status: "RESULT"; data: Skattetreksmeldinger }
+  | { status: "RESULT"; data: skattetrekksmeldinger }
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
-  children: (data: { data: Skattetreksmeldinger; id?: string }) => JSX.Element;
+  children: (data: { data: skattetrekksmeldinger; id?: string }) => JSX.Element;
 }
 
-const WithSkattetreksmelding = ({ children }: Props) => {
-  const [{ skattetreksmeldinger }, dispatch] = useStore();
+const Withskattetrekksmelding = ({ children }: Props) => {
+  const [{ skattetrekksmeldinger }, dispatch] = useStore();
 
   useEffect(() => {
-    if (skattetreksmeldinger.status === "LOADING") {
-      fetchSkattetreksmeldinger()
+    if (skattetrekksmeldinger.status === "LOADING") {
+      fetchskattetrekksmeldinger()
         .then(result =>
           dispatch({
             type: "SETT_SKATT_RESULT",
-            payload: result as Skattetreksmeldinger
+            payload: result as skattetrekksmeldinger
           })
         )
         .catch((error: HTTPError) =>
@@ -33,16 +33,16 @@ const WithSkattetreksmelding = ({ children }: Props) => {
           })
         );
     }
-  }, [skattetreksmeldinger, dispatch]);
+  }, [skattetrekksmeldinger, dispatch]);
 
-  switch (skattetreksmeldinger.status) {
+  switch (skattetrekksmeldinger.status) {
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      return children({ data: skattetreksmeldinger.data });
+      return children({ data: skattetrekksmeldinger.data });
     case "ERROR":
-      return <Error error={skattetreksmeldinger.error} />;
+      return <Error error={skattetrekksmeldinger.error} />;
   }
 };
 
-export default WithSkattetreksmelding;
+export default Withskattetrekksmelding;

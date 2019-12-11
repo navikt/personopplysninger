@@ -16,10 +16,10 @@ import WithSkatt from "./SkattFetch";
 */
 const SkattkortHistorikk = () => (
   <PageContainer
-    tittelId={"skattetreksmeldinger.tittel"}
+    tittelId={"skattetrekksmeldinger.tittel"}
     icon={SkattIkon}
     backTo={"/"}
-    brodsmulesti={[{ title: "skattetreksmeldinger.tittel" }]}
+    brodsmulesti={[{ title: "skattetrekksmeldinger.tittel" }]}
   >
     <WithSkatt>{({ data }) => <Tabell instInfo={data} />}</WithSkatt>
   </PageContainer>
@@ -135,7 +135,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
       ) : (
         <div className="historikk__ingen-data">
           <AlertStripeInfo>
-            <FormattedMessage id="skattetreksmeldinger.ingendata" />
+            <FormattedMessage id="skattetrekksmeldinger.ingendata" />
           </AlertStripeInfo>
         </div>
       )}

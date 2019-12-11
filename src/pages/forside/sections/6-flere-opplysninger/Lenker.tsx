@@ -64,10 +64,10 @@ const LinksContainer = () => {
           <LinkBox
             id={"skatt"}
             icon={SkattIkon}
-            tittel={"lenker.skattetreksmelding.tittel"}
-            beskrivelse={"lenker.skattetreksmelding.beskrivelse"}
-            lenkeTekst={"lenker.skattetreksmelding.lenkeTekst"}
-            to={"/person/personopplysninger/skattetreksmelding"}
+            tittel={"lenker.skattetrekksmelding.tittel"}
+            beskrivelse={"lenker.skattetrekksmelding.beskrivelse"}
+            lenkeTekst={"lenker.skattetrekksmelding.lenkeTekst"}
+            to={"/person/personopplysninger/skattetrekksmelding"}
             component={"Link"}
           />
         )}

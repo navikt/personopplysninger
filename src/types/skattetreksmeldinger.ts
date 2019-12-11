@@ -1,4 +1,4 @@
-export interface Skattetreksmelding {
+export interface skattetrekksmelding {
   organisasjonsnummer: string;
   institusjonsnavn: string;
   institusjonstype: string;
@@ -8,4 +8,4 @@ export interface Skattetreksmelding {
   registreringstidspunkt: string;
 }
 
-export type Skattetreksmeldinger = Skattetreksmelding[];
+export type skattetrekksmeldinger = skattetrekksmelding[];

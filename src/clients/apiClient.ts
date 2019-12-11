@@ -81,8 +81,8 @@ export const fetchRetningsnumre = () =>
 export const fetchInstInfo = () =>
   sjekkAuthHentJson(`${apiUrl}/hentInstitusjonsopphold`);
 
-export const fetchSkattetreksmeldinger = () =>
-  sjekkAuthHentJson(`${apiUrl}/skattetreksmeldinger`);
+export const fetchskattetrekksmeldinger = () =>
+  sjekkAuthHentJson(`${apiUrl}/skattetrekksmeldinger`);
 
 export const fetchMedlInfo = () =>
   sjekkAuthHentJson(`${apiUrl}/medlemskap-i-folketrygden`);

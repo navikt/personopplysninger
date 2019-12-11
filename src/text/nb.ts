@@ -125,9 +125,9 @@ export default {
   "inst.institusjonstype": "Institusjonstype",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
-  "skattetreksmeldinger.tittel": `Skattetreksmeldinger`,
-  "skattetreksmeldinger.ingendata":
-    "Ingen skattetreksmeldinger har blitt innhentet",
+  "skattetrekksmeldinger.tittel": `skattetrekksmeldinger`,
+  "skattetrekksmeldinger.ingendata":
+    "Ingen skattetrekksmeldinger har blitt innhentet",
   "medl.tittel": `Medlemskap i folketrygden`,
   "medl.ingendata": "Ingen medlemskap i folketrygden",
   "dittnavkontor.tittel": `Ditt NAV&#8209;kontor`,
@@ -166,8 +166,8 @@ export default {
   "lenker.inst.tittel": `Institusjonsopphold`,
   "lenker.inst.beskrivelse": `Se dine institusjonsopphold`,
   "lenker.inst.info": `Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. <a href="https://altinn.no">Se samtykket i Altinn.</a>`,
-  "lenker.skattetreksmelding.tittel": `Skattetreksmeldinger`,
-  "lenker.skattetreksmelding.beskrivelse": `Se dine skattetreksmeldinger`,
+  "lenker.skattetrekksmelding.tittel": `skattetrekksmeldinger`,
+  "lenker.skattetrekksmelding.beskrivelse": `Se dine skattetrekksmeldinger`,
   "lenker.medl.tittel": `Medlemskap i folketrygden`,
   "lenker.medl.beskrivelse": `Se når du har vært medlem i folketrygden`,
   "lenker.fullmakt.tittel": `Fullmakter`,

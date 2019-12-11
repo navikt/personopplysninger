@@ -10,7 +10,7 @@ import { DsopInfo } from "../types/dsop";
 import { FetchPersonInfo } from "./providers/PersonInfo";
 import { InstInfo } from "../types/inst";
 import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
-import { FetchSkattetreksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
+import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
 
@@ -36,7 +36,7 @@ export const initialState = {
   instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
-  skattetreksmeldinger: { status: "LOADING" } as FetchSkattetreksmeldinger,
+  skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
   medlInfo: { status: "LOADING" } as FetchMedlInfo
 };
 
@@ -47,7 +47,7 @@ export interface Store {
   dsopInfo: FetchDsopInfo;
   instInfo: FetchInstInfo;
   kontaktInfo: FetchKontaktInfo;
-  skattetreksmeldinger: FetchSkattetreksmeldinger;
+  skattetrekksmeldinger: Fetchskattetrekksmeldinger;
   medlInfo: FetchMedlInfo;
 }
 
@@ -206,18 +206,18 @@ export const reducer = (state: Store, action: Action) => {
     case "SETT_SKATT_RESULT":
       return {
         ...state,
-        skattetreksmeldinger: {
+        skattetrekksmeldinger: {
           status: "RESULT",
           data: action.payload
-        } as FetchSkattetreksmeldinger
+        } as Fetchskattetrekksmeldinger
       };
     case "SETT_SKATT_ERROR":
       return {
         ...state,
-        skattetreksmeldinger: {
+        skattetrekksmeldinger: {
           status: "ERROR",
           error: action.payload
-        } as FetchSkattetreksmeldinger
+        } as Fetchskattetrekksmeldinger
       };
     case "SETT_MEDL_INFO_RESULT":
       return {

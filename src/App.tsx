@@ -118,14 +118,14 @@ const App = () => {
                 {featureToggles.data["personopplysninger.skatt"] && (
                   <Route
                     exact={true}
-                    path={`${basePath}/skattetreksmelding`}
+                    path={`${basePath}/skattetrekksmelding`}
                     component={SkattkortHistorikk}
                   />
                 )}
                 {featureToggles.data["personopplysninger.skatt"] && (
                   <Route
                     exact={true}
-                    path={`${basePath}/skattetreksmelding/:id`}
+                    path={`${basePath}/skattetrekksmelding/:id`}
                     component={SkattekortDetaljer}
                   />
                 )}
