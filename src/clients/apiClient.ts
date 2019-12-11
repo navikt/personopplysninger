@@ -79,14 +79,12 @@ export const fetchRetningsnumre = () =>
   sjekkAuthHentJson(`${apiUrl}/retningsnumre`);
 
 export const fetchInstInfo = () =>
-  sjekkAuthHentJson(`${apiUrl}/hentInstitusjonsopphold`);
+  sjekkAuthHentJson(`${apiUrl}/institusjonsopphold`);
 
 export const fetchskattetrekksmeldinger = () =>
   sjekkAuthHentJson(`${apiUrl}/skattetrekksmeldinger`);
 
-export const fetchMedlInfo = () =>
-  sjekkAuthHentJson(`${apiUrl}/medlemskap-i-folketrygden`);
-
+export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl}/medl`);
 export const fetchPostnummer = () => sjekkAuthHentJson(`${apiUrl}/postnummer`);
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl}/personalia`);
 export const fetchLand = () => sjekkAuthHentJson(`${apiUrl}/land`);
