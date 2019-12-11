@@ -81,16 +81,17 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
-        {featureToggles.data["personopplysninger.fullmakt"] && (
-          <LinkBox
-            id={"fullmakt"}
-            tittel={"lenker.fullmakt.tittel"}
-            beskrivelse={"lenker.fullmakt.beskrivelse"}
-            lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-            to={`${baseUrl}/person/pdl-fullmakt-ui`}
-            component={"a"}
-          />
-        )}
+        {featureToggles.data["personopplysninger.fullmakt"] &&
+          featureToggles.data["pdl-fullmakt"] && (
+            <LinkBox
+              id={"fullmakt"}
+              tittel={"lenker.fullmakt.tittel"}
+              beskrivelse={"lenker.fullmakt.beskrivelse"}
+              lenkeTekst={"lenker.fullmakt.lenkeTekst"}
+              to={`${baseUrl}/person/pdl-fullmakt-ui`}
+              component={"a"}
+            />
+          )}
       </div>
     </PanelBase>
   );

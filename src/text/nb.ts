@@ -169,7 +169,7 @@ export default {
   "lenker.skattetreksmelding.tittel": `Skattetreksmeldinger`,
   "lenker.skattetreksmelding.beskrivelse": `Se dine skattetreksmeldinger`,
   "lenker.medl.tittel": `Medlemskap i folketrygden`,
-  "lenker.medl.beskrivelse": `Oversikt over når du har vært medlem i folketrygden`,
+  "lenker.medl.beskrivelse": `Se når du har vært medlem i folketrygden`,
   "lenker.fullmakt.tittel": `Fullmakter`,
   "lenker.fullmakt.beskrivelse": `Se dine fullmakter`,
   "felter.type.label": "Type",
