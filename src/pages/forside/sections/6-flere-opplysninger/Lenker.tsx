@@ -8,6 +8,8 @@ import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import SkattIkon from "assets/img/Skattekort.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
+import Environment from "../../../../Environments";
+const { baseUrl } = Environment();
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
@@ -72,7 +74,6 @@ const LinksContainer = () => {
         {featureToggles.data["personopplysninger.medl"] && (
           <LinkBox
             id={"medl"}
-            icon={SkattIkon}
             tittel={"lenker.medl.tittel"}
             beskrivelse={"lenker.medl.beskrivelse"}
             lenkeTekst={"lenker.medl.lenkeTekst"}
@@ -80,6 +81,17 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
+        {featureToggles.data["personopplysninger.fullmakt"] &&
+          featureToggles.data["pdl-fullmakt"] && (
+            <LinkBox
+              id={"fullmakt"}
+              tittel={"lenker.fullmakt.tittel"}
+              beskrivelse={"lenker.fullmakt.beskrivelse"}
+              lenkeTekst={"lenker.fullmakt.lenkeTekst"}
+              to={`${baseUrl}/person/pdl-fullmakt-ui`}
+              component={"a"}
+            />
+          )}
       </div>
     </PanelBase>
   );

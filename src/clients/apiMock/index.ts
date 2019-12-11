@@ -72,11 +72,11 @@ export const setUpMock = async () => {
       delay(1000, 2000).then(() => landInfo)
     );
   mockFetchInst &&
-    fetchMock.get(`${apiUrl}/hentInstitusjonsopphold`, () =>
+    fetchMock.get(`${apiUrl}/institusjonsopphold`, () =>
       delay(1000, 2000).then(() => instInfo)
     );
   mockFetchMedl &&
-    fetchMock.get(`${apiUrl}/medlemskap-i-folketrygden`, () =>
+    fetchMock.get(`${apiUrl}/medl`, () =>
       delay(1000, 2000).then(() => medlInfo)
     );
   mockFetchName &&
