@@ -4,5 +4,5 @@
   "personopplysninger.inst": true,
   "personopplysninger.skatt": true,
   "personopplysninger.medl": true,
-  "pdl-fullmakt": true
+  "personopplysninger.fullmakt": true
 }

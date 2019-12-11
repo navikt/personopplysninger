@@ -81,7 +81,7 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
-        {featureToggles.data["pdl-fullmakt"] && (
+        {featureToggles.data["personopplysninger.fullmakt"] && (
           <LinkBox
             id={"fullmakt"}
             tittel={"lenker.fullmakt.tittel"}

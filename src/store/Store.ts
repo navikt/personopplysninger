@@ -28,7 +28,7 @@ export const initialState = {
       "personopplysninger.inst": false,
       "personopplysninger.skatt": false,
       "personopplysninger.medl": false,
-      "pdl-fullmakt": false
+      "personopplysninger.fullmakt": false
     }
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
