@@ -5,6 +5,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import WithMEDL from "./MedlFetch";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
+import MEDLIkon from "assets/img/MEDL.svg";
 import moment from "moment";
 
 interface Routes {
@@ -23,6 +24,7 @@ const MedlDetaljer = () => {
     <PageContainer
       tittelId={"medl.tittel"}
       backTo={"/medlemskap-i-folketrygden"}
+      icon={MEDLIkon}
       brodsmulesti={[
         { title: "medl.tittel", path: "/medlemskap-i-folketrygden" },
         { title: "medl.detaljer" }
@@ -51,6 +53,14 @@ const MedlDetaljer = () => {
                 <div className="box__content">
                   <ul className="list-column-2">
                     <ListElement
+                      titleId={"medl.status"}
+                      content={innslag.status}
+                    />
+                    <ListElement
+                      titleId={"medl.statusaarsak"}
+                      content={innslag.statusaarsak}
+                    />
+                    <ListElement
                       titleId={"medl.dekning"}
                       content={innslag.dekning}
                     />
@@ -70,10 +80,7 @@ const MedlDetaljer = () => {
                       titleId={"medl.medlem"}
                       content={innslag.medlem ? "Ja" : "Nei"}
                     />
-                    <ListElement
-                      titleId={"medl.statusaarsak"}
-                      content={innslag.statusaarsak}
-                    />
+
                     <ListElement
                       titleId={"medl.unntakId"}
                       content={innslag.unntakId.toString()}

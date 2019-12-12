@@ -3,7 +3,7 @@ export interface MedlInnslag {
   ident: string;
   fraOgMed: string;
   tilOgMed: string;
-  status: string;
+  status: "Avvist" | "Gyldig" | "Uavklart";
   statusaarsak: string;
   dekning: string;
   helsedel: boolean;

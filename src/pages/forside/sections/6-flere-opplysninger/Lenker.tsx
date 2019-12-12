@@ -6,6 +6,7 @@ import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import SkattIkon from "assets/img/Skattekort.svg";
+import MEDLIkon from "assets/img/MEDL.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import Environment from "../../../../Environments";
@@ -74,6 +75,7 @@ const LinksContainer = () => {
         {featureToggles.data["personopplysninger.medl"] && (
           <LinkBox
             id={"medl"}
+            icon={MEDLIkon}
             tittel={"lenker.medl.tittel"}
             beskrivelse={"lenker.medl.beskrivelse"}
             lenkeTekst={"lenker.medl.lenkeTekst"}

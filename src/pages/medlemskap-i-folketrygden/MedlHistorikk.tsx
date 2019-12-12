@@ -5,7 +5,14 @@ import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
+import MEDLIkon from "assets/img/MEDL.svg";
 import WithMEDL from "./MedlFetch";
+import {
+  EtikettAdvarsel,
+  EtikettInfo,
+  EtikettSuksess
+} from "nav-frontend-etiketter";
+import { Element } from "nav-frontend-typografi";
 
 interface Props {
   medlInfo: MedlInfo;
@@ -21,6 +28,7 @@ const MedlHistorikk = () => (
   <PageContainer
     tittelId={"medl.tittel"}
     backTo={"/"}
+    icon={MEDLIkon}
     brodsmulesti={[{ title: "medl.tittel" }]}
   >
     <WithMEDL>{({ data }) => <Tabell medlInfo={data} />}</WithMEDL>
@@ -44,18 +52,28 @@ const Tabell = (props: Props) => {
         medlInfo.map((innslag, i) => (
           <div className="historikk__flex-rad" key={i}>
             <div className="historikk__flex-kolonne historikk__heading">
+              <Element>
+                <Link
+                  to={`${location.pathname}/${innslag.unntakId}`}
+                  className="lenke"
+                >
+                  {innslag.grunnlag}
+                </Link>
+              </Element>
               <Moment format="DD.MM.YY">{innslag.fraOgMed}</Moment>
               {" - "}
               <Moment format="DD.MM.YY">{innslag.tilOgMed}</Moment>
             </div>
-            <div className="historikk__flex-kolonne">
-              <Link
-                to={`${location.pathname}/${innslag.unntakId}`}
-                className="lenke"
-              >
-                {innslag.grunnlag}
-                <div />
-              </Link>
+            <div className="historikk__flex-kolonne historikk__vertical-centered">
+              <span>
+                {
+                  {
+                    Avvist: <EtikettAdvarsel>Avvist</EtikettAdvarsel>,
+                    Gyldig: <EtikettSuksess>Gyldig</EtikettSuksess>,
+                    Uavklart: <EtikettInfo>Uavklart</EtikettInfo>
+                  }[innslag.status]
+                }
+              </span>
             </div>
           </div>
         ))
