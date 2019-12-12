@@ -64,7 +64,7 @@ const Tabell = (props: Props) => {
               {" - "}
               <Moment format="DD.MM.YY">{innslag.tilOgMed}</Moment>
             </div>
-            <div className="historikk__flex-kolonne historikk__vertical-centered">
+            <div className="historikk__flex-kolonne">
               <span>
                 {
                   {
