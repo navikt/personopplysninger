@@ -3,15 +3,15 @@ import { fetchskattetrekksmeldinger } from "clients/apiClient";
 import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "store/Context";
 import Spinner from "components/spinner/Spinner";
-import { skattetrekksmeldinger } from "types/skattetrekksmeldinger";
+import { Skattetrekksmeldinger } from "types/skattetrekksmeldinger";
 
 export type Fetchskattetrekksmeldinger =
   | { status: "LOADING" }
-  | { status: "RESULT"; data: skattetrekksmeldinger }
+  | { status: "RESULT"; data: Skattetrekksmeldinger }
   | { status: "ERROR"; error: HTTPError };
 
 interface Props {
-  children: (data: { data: skattetrekksmeldinger; id?: string }) => JSX.Element;
+  children: (data: { data: Skattetrekksmeldinger; id?: string }) => JSX.Element;
 }
 
 const Withskattetrekksmelding = ({ children }: Props) => {
@@ -23,7 +23,7 @@ const Withskattetrekksmelding = ({ children }: Props) => {
         .then(result =>
           dispatch({
             type: "SETT_SKATT_RESULT",
-            payload: result as skattetrekksmeldinger
+            payload: result as Skattetrekksmeldinger
           })
         )
         .catch((error: HTTPError) =>

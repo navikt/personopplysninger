@@ -32,18 +32,18 @@ const InstDetaljer = () => {
     >
       <WithInst>
         {({ data }) => {
-          const instInnslag = data
+          const innslag = data
             .filter(d => d.registreringstidspunkt === id)
             .shift();
 
-          return instInnslag ? (
+          return innslag ? (
             <div>
               <div className="detaljer__tittel">
-                <Undertittel>{instInnslag.institusjonsnavn}</Undertittel>
+                <Undertittel>{innslag.institusjonsnavn}</Undertittel>
                 <Normaltekst>
                   <FormattedMessage
                     id="side.organisasjonsnummer"
-                    values={{ orgnr: instInnslag.organisasjonsnummer }}
+                    values={{ orgnr: innslag.organisasjonsnummer }}
                   />
                 </Normaltekst>
               </div>
@@ -53,11 +53,11 @@ const InstDetaljer = () => {
                   <ul className="list-column-2">
                     <ListElement
                       titleId={"inst.periode"}
-                      content={`${moment(instInnslag.startdato).format(
+                      content={`${moment(innslag.startdato).format(
                         "DD.MM.YYYY"
                       )} - ${
-                        instInnslag.faktiskSluttdato
-                          ? moment(instInnslag.faktiskSluttdato).format(
+                        innslag.faktiskSluttdato
+                          ? moment(innslag.faktiskSluttdato).format(
                               "DD.MM.YYYY"
                             )
                           : ``
@@ -65,17 +65,17 @@ const InstDetaljer = () => {
                     />
                     <ListElement
                       titleId={"inst.registreringstidspunkt"}
-                      content={moment(
-                        instInnslag.registreringstidspunkt
-                      ).format("DD.MM.YYYY hh:mm")}
+                      content={moment(innslag.registreringstidspunkt).format(
+                        "DD.MM.YYYY hh:mm"
+                      )}
                     />
                     <ListElement
                       titleId={"inst.institusjonsnavn"}
-                      content={instInnslag.institusjonsnavn}
+                      content={innslag.institusjonsnavn}
                     />
                     <ListElement
                       titleId={"inst.institusjonstype"}
-                      content={instInnslag.institusjonstype}
+                      content={innslag.institusjonstype}
                     />
                   </ul>
                 </div>

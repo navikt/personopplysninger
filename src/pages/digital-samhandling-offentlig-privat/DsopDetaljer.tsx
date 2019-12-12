@@ -7,7 +7,7 @@ import FileSaver from "file-saver";
 import moment from "moment";
 import { Hovedknapp } from "nav-frontend-knapper";
 import PageContainer from "components/pagecontainer/PageContainer";
-import INSTIkon from "assets/img/Institusjonsopphold.svg";
+import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
 
 interface Routes {
@@ -24,8 +24,8 @@ const DsopDetaljer = () => {
 
   return (
     <PageContainer
-      tittelId={"inst.tittel"}
-      icon={INSTIkon}
+      tittelId={"dsop.tittel"}
+      icon={DSOPIkon}
       backTo={"/dsop"}
       brodsmulesti={[
         { title: "dsop.tittel", path: "/dsop" },
@@ -34,14 +34,14 @@ const DsopDetaljer = () => {
     >
       <WithDSOP>
         {({ data }) => {
-          const dsopInnslag = data
+          const innslag = data
             .filter(d => d.uthentingsTidspunkt === id)
             .shift();
 
-          return dsopInnslag ? (
+          return innslag ? (
             (() => {
               const onClick = () => {
-                const leverteData = JSON.parse(atob(dsopInnslag.leverteData));
+                const leverteData = JSON.parse(atob(innslag.leverteData));
                 const fileContent = JSON.stringify(leverteData, null, 2);
                 const fileBlob = new Blob([fileContent], {
                   type: "application/json"
@@ -52,11 +52,11 @@ const DsopDetaljer = () => {
               return (
                 <div>
                   <div className="detaljer__tittel">
-                    <Undertittel>{dsopInnslag.mottakernavn}</Undertittel>
+                    <Undertittel>{innslag.mottakernavn}</Undertittel>
                     <Normaltekst>
                       <FormattedMessage
                         id="side.organisasjonsnummer"
-                        values={{ orgnr: dsopInnslag.mottaker }}
+                        values={{ orgnr: innslag.mottaker }}
                       />
                     </Normaltekst>
                   </div>
@@ -66,21 +66,21 @@ const DsopDetaljer = () => {
                       <ul className="list-column-2">
                         <ListElement
                           titleId={"dsop.uthentingstidspunkt"}
-                          content={moment(
-                            dsopInnslag.uthentingsTidspunkt
-                          ).format("DD.MM.YYYY hh:mm")}
+                          content={moment(innslag.uthentingsTidspunkt).format(
+                            "DD.MM.YYYY hh:mm"
+                          )}
                         />
                         <ListElement
                           titleId={"dsop.personnummer"}
-                          content={dsopInnslag.person}
+                          content={innslag.person}
                         />
                         <ListElement
                           titleId={"dsop.tema"}
-                          content={dsopInnslag.tema}
+                          content={innslag.tema}
                         />
                         <ListElement
                           titleId={"dsop.behanglingsGrunnlag"}
-                          content={dsopInnslag.behandlingsGrunnlag}
+                          content={innslag.behandlingsGrunnlag}
                         />
                       </ul>
                     </div>

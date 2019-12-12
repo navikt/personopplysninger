@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { useParams } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
-import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithMEDL from "./MedlFetch";
+import { Normaltekst, Undertittel } from "nav-frontend-typografi";
+import ListElement from "../../components/listelement/ListElement";
+import moment from "moment";
 
 interface Routes {
   id: string;
@@ -19,26 +21,70 @@ const MedlDetaljer = () => {
 
   return (
     <PageContainer
-      tittelId={"inst.tittel"}
-      icon={INSTIkon}
-      backTo={"/dsop"}
+      tittelId={"medl.tittel"}
+      backTo={"/medlemskap-i-folketrygden"}
       brodsmulesti={[
-        { title: "dsop.tittel", path: "/dsop" },
-        { title: "dsop.levertedata" }
+        { title: "medl.tittel", path: "/medlemskap-i-folketrygden" },
+        { title: "medl.detaljer" }
       ]}
     >
       <WithMEDL>
         {({ data }) => {
-          const dsopInnslag = data
-            .filter(d => d.uthentingsTidspunkt === id)
+          const innslag = data
+            .filter(d => d.unntakId.toString() === id)
             .shift();
 
-          return dsopInnslag ? (
-            // Todo: Implementer visning
-            <div />
+          return innslag ? (
+            <div>
+              <div className="detaljer__tittel">
+                <Undertittel>{innslag.grunnlag}</Undertittel>
+                <Normaltekst>
+                  {`${moment(innslag.fraOgMed).format("DD.MM.YYYY")} - ${
+                    innslag.tilOgMed
+                      ? moment(innslag.tilOgMed).format("DD.MM.YYYY")
+                      : ``
+                  }`}
+                </Normaltekst>
+              </div>
+              <hr className="box__linje-bred" />
+              <div className="box">
+                <div className="box__content">
+                  <ul className="list-column-2">
+                    <ListElement
+                      titleId={"medl.dekning"}
+                      content={innslag.dekning}
+                    />
+                    <ListElement
+                      titleId={"medl.helsedel"}
+                      content={innslag.helsedel ? "Ja" : "Nei"}
+                    />
+                    <ListElement
+                      titleId={"medl.lovland"}
+                      content={innslag.lovvalg}
+                    />
+                    <ListElement
+                      titleId={"medl.lovvalgsland"}
+                      content={innslag.lovvalgsland}
+                    />
+                    <ListElement
+                      titleId={"medl.medlem"}
+                      content={innslag.medlem ? "Ja" : "Nei"}
+                    />
+                    <ListElement
+                      titleId={"medl.statusaarsak"}
+                      content={innslag.statusaarsak}
+                    />
+                    <ListElement
+                      titleId={"medl.unntakId"}
+                      content={innslag.unntakId.toString()}
+                    />
+                  </ul>
+                </div>
+              </div>
+            </div>
           ) : (
             <div>
-              <FormattedMessage id="dsop.ingendata" />
+              <FormattedMessage id="medl.ingendata" />
             </div>
           );
         }}

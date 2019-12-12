@@ -42,21 +42,21 @@ const Tabell = (props: Props) => {
 
   const initState: {
     [år: string]: {
-      dsopInnslag: DsopInfo;
+      innslag: DsopInfo;
       ekspandert: boolean;
     };
   } = {};
 
-  dsopInfo.forEach((dsopInnslag, i) => {
-    const year = moment(dsopInnslag.uthentingsTidspunkt).year();
+  dsopInfo.forEach((innslag, i) => {
+    const year = moment(innslag.uthentingsTidspunkt).year();
 
     if (!initState[year]) {
       initState[year] = {
-        dsopInnslag: [dsopInnslag],
+        innslag: [innslag],
         ekspandert: !i
       };
     } else {
-      initState[year].dsopInnslag.push(dsopInnslag);
+      initState[year].innslag.push(innslag);
     }
   });
 
@@ -109,19 +109,19 @@ const Tabell = (props: Props) => {
                     <div />
                   </div>
                   {value.ekspandert &&
-                    value.dsopInnslag.map((dsopInnslag, i) => (
+                    value.innslag.map((innslag, i) => (
                       <div className="historikk__flex-rad" key={i}>
                         <div className="historikk__flex-kolonne historikk__heading">
                           <Moment format="DD.MM - hh:mm">
-                            {dsopInnslag.uthentingsTidspunkt}
+                            {innslag.uthentingsTidspunkt}
                           </Moment>
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
-                            to={`${location.pathname}/${dsopInnslag.uthentingsTidspunkt}`}
+                            to={`${location.pathname}/${innslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >
-                            {dsopInnslag.mottakernavn}
+                            {innslag.mottakernavn}
                           </Link>
                         </div>
                       </div>

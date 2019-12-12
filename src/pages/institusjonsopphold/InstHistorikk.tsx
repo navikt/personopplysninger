@@ -38,21 +38,21 @@ const Tabell = (props: { instInfo: InstInfo }) => {
 
   const initState: {
     [key: string]: {
-      instInnslag: InstInfo;
+      innslag: InstInfo;
       ekspandert: boolean;
     };
   } = {};
 
-  instInfo.forEach((instInnslag, i) => {
-    const year = moment(instInnslag.registreringstidspunkt).year();
+  instInfo.forEach((innslag, i) => {
+    const year = moment(innslag.registreringstidspunkt).year();
 
     if (!initState[year]) {
       initState[year] = {
-        instInnslag: [instInnslag],
+        innslag: [innslag],
         ekspandert: !i ? true : false
       };
     } else {
-      initState[year].instInnslag.push(instInnslag);
+      initState[year].innslag.push(innslag);
     }
   });
 
@@ -100,25 +100,23 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                     <div />
                   </div>
                   {value.ekspandert &&
-                    value.instInnslag.map((instInnslag, i) => (
+                    value.innslag.map((innslag, i) => (
                       <div className="historikk__flex-rad" key={i}>
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM">
-                            {instInnslag.startdato}
-                          </Moment>
+                          <Moment format="DD.MM">{innslag.startdato}</Moment>
                           {` - `}
-                          {instInnslag.faktiskSluttdato && (
+                          {innslag.faktiskSluttdato && (
                             <Moment format="DD.MM">
-                              {instInnslag.faktiskSluttdato}
+                              {innslag.faktiskSluttdato}
                             </Moment>
                           )}
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
-                            to={`${location.pathname}/${instInnslag.registreringstidspunkt}`}
+                            to={`${location.pathname}/${innslag.registreringstidspunkt}`}
                             className="lenke"
                           >
-                            {instInnslag.institusjonsnavn}
+                            {innslag.institusjonsnavn}
                           </Link>
                         </div>
                       </div>
