@@ -113,7 +113,7 @@ export default {
   "dsop.kilde": `Kilde: Digital Sammhandling Offentlig og Privat`,
   "dsop.uthentingstidspunkt": "Uthentingstidspunkt",
   "dsop.personnummer": "Personnummer",
-  "dsop.mottaker": "Mottaker",
+  "dsop.mottaker": "Selskap",
   "dsop.tema": "Tema",
   "dsop.behanglingsGrunnlag": "Behandlingsgrunnlag",
   "dsop.lastned": "Last ned leverte data",

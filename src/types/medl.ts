@@ -9,7 +9,7 @@ export interface MedlInnslag {
   helsedel: boolean;
   medlem: boolean;
   lovvalgsland: string;
-  lovvalg: string;
+  lovvalg: "Endelig" | "Foreløpig" | "Under avklaring";
   grunnlag: string;
 }
 
