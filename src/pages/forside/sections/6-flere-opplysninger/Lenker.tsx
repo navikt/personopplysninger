@@ -7,6 +7,7 @@ import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import SkattIkon from "assets/img/Skattekort.svg";
 import MEDLIkon from "assets/img/MEDL.svg";
+import FullmaktIkon from "assets/img/Fullmakt.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import Environment from "../../../../Environments";
@@ -87,6 +88,7 @@ const LinksContainer = () => {
           featureToggles.data["pdl-fullmakt"] && (
             <LinkBox
               id={"fullmakt"}
+              icon={FullmaktIkon}
               tittel={"lenker.fullmakt.tittel"}
               beskrivelse={"lenker.fullmakt.beskrivelse"}
               lenkeTekst={"lenker.fullmakt.lenkeTekst"}
