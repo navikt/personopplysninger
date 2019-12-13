@@ -3,6 +3,8 @@ import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "store/Context";
 import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
+import Box from "../../components/box/Box";
+import personaliaIkon from "../../assets/img/Personalia.svg";
 
 export type FetchPersonInfo =
   | { status: "LOADING" }
@@ -11,6 +13,7 @@ export type FetchPersonInfo =
 
 interface Props {
   loader: JSX.Element;
+  error: (error: HTTPError) => JSX.Element;
   children: (data: PersonInfo) => JSX.Element;
 }
 
@@ -38,8 +41,19 @@ const MedPersonInfo = (props: Props) => {
     case "RESULT":
       return props.children(personInfo.data);
     case "ERROR":
-      return <Error error={personInfo.error} />;
+      return props.error(personInfo.error);
   }
 };
+
+export const PersonInfoErrorWithBox = (error: HTTPError) => (
+  <Box
+    id="personalia"
+    tittel="personalia.tittel"
+    beskrivelse="personalia.beskrivelse"
+    icon={personaliaIkon}
+  >
+    <Error error={error} />
+  </Box>
+);
 
 export default MedPersonInfo;

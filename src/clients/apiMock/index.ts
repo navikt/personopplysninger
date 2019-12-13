@@ -45,7 +45,7 @@ export const setUpMock = async () => {
     );
   mockFetchPersonalia &&
     fetchMock.get(`${apiUrl}/personalia`, () =>
-      delay(200, 750).then(() => personInformasjon)
+      delay(200, 750).then(() => 501)
     );
   mockFetchFeatureToggles &&
     fetchMock.get(`begin:${apiUrl}/feature-toggles`, () =>

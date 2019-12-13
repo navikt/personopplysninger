@@ -8,6 +8,7 @@ import MedPersonInfo from "store/providers/PersonInfo";
 import personaliaIkon from "assets/img/Personalia.svg";
 import Box from "components/box/Box";
 import Spinner from "components/spinner/Spinner";
+import Error, { HTTPError } from "components/error/Error";
 
 const Loader = () => (
   <Box
@@ -22,7 +23,7 @@ const Loader = () => (
 
 const VisPersonInfo = () => {
   return (
-    <MedPersonInfo loader={<Loader />}>
+    <MedPersonInfo loader={<Loader />} error={ErrorWithBox}>
       {({ personalia, adresser, enhetKontaktInformasjon }) => (
         <>
           {personalia && <Personalia personalia={personalia} />}
@@ -45,5 +46,16 @@ const VisPersonInfo = () => {
     </MedPersonInfo>
   );
 };
+
+export const ErrorWithBox = (error: HTTPError) => (
+  <Box
+    id="personalia"
+    tittel="personalia.tittel"
+    beskrivelse="personalia.beskrivelse"
+    icon={personaliaIkon}
+  >
+    <Error error={error} />
+  </Box>
+);
 
 export default VisPersonInfo;
