@@ -27,10 +27,14 @@ const Header = () => {
           <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
             <div className="box__container header__content">
               <Systemtittel>
-                <FormattedHTMLMessage
-                  id="header.hello"
-                  values={{ name: formatName(fornavn) || "" }}
-                />
+                {fornavn ? (
+                  <FormattedHTMLMessage
+                    id="header.hello.name"
+                    values={{ name: formatName(fornavn) }}
+                  />
+                ) : (
+                  <FormattedHTMLMessage id="header.hello" />
+                )}
               </Systemtittel>
               <div className="header__seksjon">
                 <Normaltekst>
