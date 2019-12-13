@@ -7,12 +7,15 @@ import { Link, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import MEDLIkon from "assets/img/MEDL.svg";
 import WithMEDL from "./MedlFetch";
-import {
-  EtikettAdvarsel,
-  EtikettInfo,
-  EtikettSuksess
-} from "nav-frontend-etiketter";
 import { Element } from "nav-frontend-typografi";
+
+/*
+  import {
+    EtikettAdvarsel,
+    EtikettInfo,
+    EtikettSuksess
+  } from "nav-frontend-etiketter";
+ */
 
 interface Props {
   medlInfo: MedlInfo;
@@ -64,17 +67,19 @@ const Tabell = (props: Props) => {
               {" - "}
               <Moment format="DD.MM.YY">{innslag.tilOgMed}</Moment>
             </div>
-            <div className="historikk__flex-kolonne">
-              <span>
-                {
+            {/*
+             <div className="historikk__flex-kolonne">
+                <span>
                   {
-                    Avvist: <EtikettAdvarsel>Avvist</EtikettAdvarsel>,
-                    Gyldig: <EtikettSuksess>Gyldig</EtikettSuksess>,
-                    Uavklart: <EtikettInfo>Uavklart</EtikettInfo>
-                  }[innslag.status]
-                }
-              </span>
-            </div>
+                    {
+                      Avvist: <EtikettAdvarsel>Avvist</EtikettAdvarsel>,
+                      Gyldig: <EtikettSuksess>Gyldig</EtikettSuksess>,
+                      Uavklart: <EtikettInfo>Uavklart</EtikettInfo>
+                    }[innslag.status]
+                  }
+                </span>
+              </div>
+               */}
           </div>
         ))
       ) : (
