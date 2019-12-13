@@ -8,8 +8,7 @@ import RedirectKnapp from "components/knapper/Redirect";
 import PDLTelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import MedPersonInfo from "store/providers/PersonInfo";
 import Spinner from "components/spinner/Spinner";
-import Error, { HTTPError } from "../../../components/error/Error";
-import personaliaIkon from "../../../assets/img/Personalia.svg";
+import Error, { HTTPError } from "components/error/Error";
 
 interface Routes {
   tjeneste?: string;
