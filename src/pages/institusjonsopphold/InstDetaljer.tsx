@@ -24,7 +24,7 @@ const InstDetaljer = () => {
     <PageContainer
       tittelId={"inst.tittel"}
       icon={INSTIkon}
-      backTo={"/"}
+      backTo={"/institusjonsopphold"}
       brodsmulesti={[
         { title: "inst.tittel", path: "/institusjonsopphold" },
         { title: "inst.detaljer" }
@@ -52,6 +52,14 @@ const InstDetaljer = () => {
                 <div className="box__content">
                   <ul className="list-column-2">
                     <ListElement
+                      titleId={"inst.institusjonstype"}
+                      content={innslag.institusjonstype}
+                    />
+                    <ListElement
+                      titleId={"inst.kategori"}
+                      content={innslag.kategori}
+                    />
+                    <ListElement
                       titleId={"inst.periode"}
                       content={`${moment(innslag.startdato).format(
                         "DD.MM.YYYY"
@@ -72,10 +80,6 @@ const InstDetaljer = () => {
                     <ListElement
                       titleId={"inst.institusjonsnavn"}
                       content={innslag.institusjonsnavn}
-                    />
-                    <ListElement
-                      titleId={"inst.institusjonstype"}
-                      content={innslag.institusjonstype}
                     />
                   </ul>
                 </div>

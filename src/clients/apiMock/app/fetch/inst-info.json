@@ -2,16 +2,16 @@
   {
     "organisasjonsnummer": "00974707330",
     "institusjonsnavn": "SAGENEHJEMMET AS",
-    "institusjonstype": "FO",
-    "kategori": "F",
+    "institusjonstype": "Alders- og sykehjem",
+    "kategori": "Opptreningsinstitusjon",
     "startdato": "2019-11-30",
     "faktiskSluttdato": "2019-11-30",
     "registreringstidspunkt": "2019-10-29T14:12:48.113"
   },
   {
     "institusjonsnavn": "PORSGRUNN LUTHERSKE SYKEH",
-    "institusjonstype": "FO",
-    "kategori": "R",
+    "institusjonstype": "Helseinstitusjon",
+    "kategori": "Opptreningsinstitusjon",
     "startdato": "2019-10-26",
     "faktiskSluttdato": "2019-10-29",
     "registreringstidspunkt": "2019-10-24T13:50:05.536"
@@ -19,8 +19,8 @@
   {
     "organisasjonsnummer": "00915668623",
     "institusjonsnavn": "ABERIA FMU AS",
-    "institusjonstype": "AS",
-    "kategori": "A",
+    "institusjonstype": "Alders- og sykehjem",
+    "kategori": "Alders- og sykehjem",
     "startdato": "2019-10-01",
     "faktiskSluttdato": "2019-10-31",
     "registreringstidspunkt": "2019-10-28T09:40:46.612"
@@ -28,8 +28,8 @@
   {
     "organisasjonsnummer": "00974705745",
     "institusjonsnavn": "ILA FENGSEL OG FORVARINGSANSTALT",
-    "institusjonstype": "FO",
-    "kategori": "S",
+    "institusjonstype": "Fengselsopphold",
+    "kategori": "Soningsfange",
     "startdato": "2017-09-30",
     "faktiskSluttdato": "2019-10-26",
     "forventetSluttdato": "2019-10-26",
@@ -38,8 +38,8 @@
   {
     "organisasjonsnummer": "00915668623",
     "institusjonsnavn": "ABERIA FMU AS",
-    "institusjonstype": "FO",
-    "kategori": "F",
+    "institusjonstype": "Helseinstitusjon",
+    "kategori": "Ferieopphold",
     "startdato": "2019-10-31",
     "faktiskSluttdato": "2019-10-31",
     "registreringstidspunkt": "2019-10-29T11:39:02.772"
@@ -47,8 +47,8 @@
   {
     "organisasjonsnummer": "00991651365",
     "institusjonsnavn": "ULSET SYKEHJEM",
-    "institusjonstype": "FO",
-    "kategori": "D",
+    "institusjonstype": "Alders- og sykehjem",
+    "kategori": "Dagpasient",
     "startdato": "2019-05-02",
     "faktiskSluttdato": "2019-05-03",
     "forventetSluttdato": "2020-05-03",
@@ -56,8 +56,8 @@
   },
   {
     "institusjonsnavn": "JÆREN DISTRIKTSPSYK. SENT",
-    "institusjonstype": "FO",
-    "kategori": "R",
+    "institusjonstype": "Helseinstitusjon",
+    "kategori": "Opptreningsinstituusjon",
     "startdato": "2019-09-25",
     "faktiskSluttdato": "2019-09-30",
     "registreringstidspunkt": "2019-09-24T09:54:18.678"
