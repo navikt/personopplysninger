@@ -5,11 +5,7 @@ on:
       - v*-dev
 jobs:
   deploy:
-    name: Deploy til q2
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [8.x, 10.x, 12.x]
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -27,10 +23,10 @@ jobs:
           echo ::set-env name=REACT_APP_TJENESTE_URL::https://tjenester-q2.nav.no
           echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice-q.nav.no/login
           echo ::set-env name=REACT_APP_LOGOUT_URL::https://loginservice-q.nav.no/slo
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: Use Node.js 10.x
         uses: actions/setup-node@v1
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 10.x
       - run: npm install
       - run: npm build
       - name: Build docker image
