@@ -2,28 +2,26 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: {{reponame}}
-  namespace: default
+  name: personopplysninger
+  namespace: {{namespace}}
   labels:
     team: {{team}}
 spec:
-  image: navikt/{{reponame}}:{{version}}
+  image: {{image}}:{{tag}}
   team: {{team}}
   port: 8080
   ingresses:
-  {{#each ingresses }}
-    - {{ this }}
-  {{/each}}
+    - https://personopplysninger.nais.oera-q.local
+    - https://www-{{namespace}}.nav.no/person/personopplysninger
   liveness:
-    path: {{baseurl}}/internal/isAlive
+    path: /person/personopplysninger/internal/isAlive
     initialDelay: 10
   readiness:
-    path: {{baseurl}}/internal/isReady
+    path: /person/personopplysninger/internal/isReady
     initialDelay: 10
   replicas:
     min: 2
-    max: 4
-  webproxy: true
+    max: 3
   resources:
     limits:
       cpu: '3'

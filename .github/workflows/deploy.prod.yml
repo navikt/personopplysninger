@@ -36,7 +36,7 @@ jobs:
           docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION -t $IMAGE_REGISTRY/$IMAGE_NAME:latest .
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:latest
-      - name: Define variables for navikt/deployment-cli
+      - name: Define navikt/deployment-cli environment
         run: |
           echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
           echo $IMAGE_VERSION > .docker_tag
