@@ -43,7 +43,7 @@ jobs:
           echo $IMAGE_VERSION > .docker_tag
       - name: Deploy
         uses: nais/deploy/actions/deploy@master
-        with:
+        env:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
