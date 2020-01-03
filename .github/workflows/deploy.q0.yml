@@ -28,7 +28,8 @@ jobs:
           echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice-q.nav.no/login
           echo ::set-env name=REACT_APP_LOGOUT_URL::https://loginservice-q.nav.no/slo
       - uses: actions/setup-node@v1
-      - run: npm install
+      - run: npm ci
+      - run: npm i @navikt/arbeidsforhold@latest
       - run: npm run build
       - name: Docker build and push
         run: |
@@ -45,7 +46,7 @@ jobs:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
-          VAR: |
+          VAR: >
             namespace=q0,
             team=personbruker,
             app=personopplysninger,
