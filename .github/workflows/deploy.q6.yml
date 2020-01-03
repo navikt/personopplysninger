@@ -1,4 +1,4 @@
-name: Deploy to 16
+name: Deploy to q6
 on:
   push:
     tags:
