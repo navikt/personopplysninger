@@ -10,9 +10,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Define build environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo ::set-env name=VERSION::$(echo ${GITHUB_REF:10})
-          echo ::set-env name=IMAGE::$(echo ${GITHUB_REPOSITORY})
+          echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})
+          echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY##*/})
+          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_SHA})
+          echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
       - name: Define client-side environment
         run: |
           echo ::set-env name=REACT_APP_MILJO::q2
@@ -23,22 +27,18 @@ jobs:
           echo ::set-env name=REACT_APP_TJENESTE_URL::https://tjenester-q2.nav.no
           echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice-q.nav.no/login
           echo ::set-env name=REACT_APP_LOGOUT_URL::https://loginservice-q.nav.no/slo
-      - name: Use Node.js 10.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 10.x
+      - uses: actions/setup-node@v1
       - run: npm install
-      - run: npm build
-      - name: Build docker image
+      - run: npm run build
+      - name: Docker build and push
         run: |
-          echo ${{ secrets.DOCKER_PASS }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-          docker build -t $IMAGE:$VERSION .
-      - name: Push docker image
-        run: docker push $IMAGE:$VERSION
+          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u "x-access-token" --password-stdin
+          docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
+          docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
       - name: Define variables for navikt/deployment-cli
         run: |
-          echo $IMAGE > .docker_image
-          echo $VERSION > .docker_tag
+          echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
+          echo $IMAGE_VERSION > .docker_tag
       - name: Deploy
         uses: navikt/deployment-cli/action@0.4.1
         env:
