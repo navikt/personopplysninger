@@ -41,7 +41,7 @@ jobs:
           echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
           echo $IMAGE_VERSION > .docker_tag
       - name: Deploy
-        uses: navikt/deployment-cli/action@0.4.1
+        uses: nais/deploy/actions/deployment-cli@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:

@@ -1,0 +1,29 @@
+---
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: personopplysninger
+  namespace: q1
+  labels:
+    team: {{team}}
+spec:
+  image: {{image}}:{{tag}}
+  team: {{team}}
+  port: 8080
+  ingresses:
+    - https://www-q1.nav.no/person/personopplysninger
+  liveness:
+    path: /person/personopplysninger/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /person/personopplysninger/internal/isReady
+    initialDelay: 10
+  replicas:
+    min: 2
+    max: 3
+  resources:
+    limits:
+      cpu: '3'
+      memory: 768Mi
+    requests:
+      memory: 512Mi
