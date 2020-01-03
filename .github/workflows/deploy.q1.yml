@@ -46,7 +46,7 @@ jobs:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
-          VAR: >
+          VAR: |
             namespace=q1,
             team=personbruker,
             app=personopplysninger,
