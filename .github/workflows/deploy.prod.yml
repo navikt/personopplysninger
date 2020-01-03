@@ -41,10 +41,15 @@ jobs:
           echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
           echo $IMAGE_VERSION > .docker_tag
       - name: Deploy
-        uses: nais/deploy/actions/deployment-cli@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: nais/deploy/actions/deploy@master
         with:
-          cluster: prod-sbs
-          team: personbruker
-          resources: .nais/config.prod.yaml
+          CLUSTER: dev-sbs
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          RESOURCE: .nais/config.yaml
+          VAR: |
+            namespace=default,
+            team=personbruker,
+            app=personopplysninger,
+            ingress=https://www.nav.no/person/personopplysninger,
+            image=$IMAGE_REGISTRY/$IMAGE_NAME,
+            tag=$IMAGE_VERSION

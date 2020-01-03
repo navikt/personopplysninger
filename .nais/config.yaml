@@ -2,8 +2,8 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: personopplysninger
-  namespace: q6
+  name: {{app}}
+  namespace: {{namespace}}
   labels:
     team: {{team}}
 spec:
@@ -11,7 +11,7 @@ spec:
   team: {{team}}
   port: 8080
   ingresses:
-    - https://www-q6.nav.no/person/personopplysninger
+    - {{ingress}}
   liveness:
     path: /person/personopplysninger/internal/isAlive
     initialDelay: 10
