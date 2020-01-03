@@ -5,7 +5,7 @@ on:
       - v*-dev
 jobs:
   deploy:
-    name: Deploy til 16
+    name: Deploy til q6
     runs-on: ubuntu-latest
     strategy:
       matrix:

@@ -53,7 +53,8 @@ const App = () => {
     .map(key => redirects[key].allowed)
     .join("|");
 
-  console.log(window.env.)
+  console.log(process.env.REACT_APP_MILJO);
+
   return (
     <div className="pagecontent">
       <Router>
