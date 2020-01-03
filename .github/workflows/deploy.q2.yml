@@ -46,12 +46,4 @@ jobs:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
-          VAR:
-            [
-              namespace=q2,
-              team=personbruker,
-              app=personopplysninger,
-              ingress=https://www-q2.nav.no/person/personopplysninger,
-              image=$IMAGE_REGISTRY/$IMAGE_NAME,
-              tag=$IMAGE_VERSION,
-            ]
+          VAR: "['namespace=q2','team=personbruker','app=personopplysninger','ingress=https://www-q2.nav.no/person/personopplysninger','image=$IMAGE_REGISTRY/$IMAGE_NAME','tag=$IMAGE_VERSION']"
