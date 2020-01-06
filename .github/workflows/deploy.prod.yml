@@ -46,9 +46,9 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: default
           team: personbruker
+          reponame: personopplysninger
           ingresses:
             - https://www.nav.no/person/personopplysninger
-          reponame: personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           EOF
