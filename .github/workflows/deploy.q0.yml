@@ -44,9 +44,8 @@ jobs:
         run: |
           cat > .nais/vars.yaml <<EOF
           namespace: q0
-          team: personbruker
-          reponame: personopplysninger
           ingresses:
+            - https://personopplysninger.nais.oera-q.no
             - https://www-q0.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION

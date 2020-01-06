@@ -45,7 +45,7 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: q2
           team: personbruker
-          reponame: personopplysninger
+          app: personopplysninger
           ingresses:
             - https://www-q2.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME

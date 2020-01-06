@@ -2,13 +2,13 @@
 apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
-  name: {{app}}
+  name: personopplysinger
   namespace: {{namespace}}
   labels:
-    team: {{team}}
+    team: personbruker
 spec:
   image: {{image}}:{{tag}}
-  team: {{team}}
+  team: personbruker
   port: 8080
   ingresses:
   {{#each ingresses }}
