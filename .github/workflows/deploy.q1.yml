@@ -1,0 +1,58 @@
+name: Deploy to q1
+on:
+  push:
+    tags:
+      - v*-dev
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Define build environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})
+          echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY##*/})
+          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_SHA})
+          echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
+      - name: Define client-side environment
+        run: |
+          echo ::set-env name=REACT_APP_MILJO::q1
+          echo ::set-env name=REACT_APP_BASE_URL::https://www-q1.nav.no
+          echo ::set-env name=REACT_APP_APP_URL::https://www-q1.nav.no/person/personopplysninger
+          echo ::set-env name=REACT_APP_API_URL::https://www-q1.nav.no/person/personopplysninger-api
+          echo ::set-env name=REACT_APP_DSOP_URL::https://www-q1.nav.no/person/dsop-api
+          echo ::set-env name=REACT_APP_TJENESTE_URL::https://tjenester-q1.nav.no
+          echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice-q.nav.no/login
+          echo ::set-env name=REACT_APP_LOGOUT_URL::https://loginservice-q.nav.no/slo
+      - uses: actions/setup-node@v1
+      - run: npm ci
+      - run: npm i @navikt/arbeidsforhold@latest
+      - run: npm run build
+      - name: Docker build and push
+        run: |
+          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u "x-access-token" --password-stdin
+          docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
+          docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+      - name: Define navikt/deployment-cli environment
+        run: |
+          echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
+          echo $IMAGE_VERSION > .docker_tag
+      - name: Generate nais variables
+        run: |
+          cat > .nais/vars.yaml <<EOF
+          namespace: q1
+          ingresses:
+            - https://www-q1.nav.no/person/personopplysninger
+          image: $IMAGE_REGISTRY/$IMAGE_NAME
+          version: $IMAGE_VERSION
+          EOF
+      - name: Deploy
+        uses: nais/deploy/actions/deploy@master
+        env:
+          CLUSTER: dev-sbs
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          RESOURCE: .nais/config.yaml
+          VARS: .nais/vars.yaml
