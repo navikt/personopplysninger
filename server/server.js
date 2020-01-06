@@ -4,7 +4,7 @@ const path = require("path");
 const mustacheExpress = require("mustache-express");
 const getDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
-const baseUrl = "/person/personopplysninger";
+const basePath = "/person/personopplysninger";
 const logger = require("./logger");
 const server = express();
 
@@ -20,10 +20,10 @@ server.use((req, res, next) => {
 });
 
 // Static files
-server.use(baseUrl, express.static(buildPath, { index: false }));
+server.use(basePath, express.static(buildPath, { index: false }));
 
 // Nais functions
-server.get(`${baseUrl}/internal/isAlive|isReady`, (req, res) =>
+server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
   res.sendStatus(200)
 );
 

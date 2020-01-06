@@ -1,6 +1,6 @@
 {
   "name": "personopplysninger",
-  "version": "1.1.67",
+  "version": "v1.1.67.31-dev",
   "private": true,
   "author": "NAV",
   "license": "MIT",
@@ -15,10 +15,10 @@
     "start:less": "less-watch-compiler",
     "start:lint": "tslint src/**/*.ts*",
     "start:ts": "react-scripts start",
-    "build:css": "less-watch-compiler --run-once",
-    "build:js": "react-scripts build",
     "build": "npm-run-all -p build:*",
-    "test:coverage": "npm test -- --coverage"
+    "build:js": "react-scripts build",
+    "build:css": "less-watch-compiler --run-once",
+    "test": "react-scripts test"
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
@@ -104,10 +104,12 @@
     "@types/react-select": "^3.0.5",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.6",
+    "jest": "^24.9.0",
     "less": "^3.9.0",
     "less-plugin-npm-import": "^2.1.0",
     "less-watch-compiler": "^1.13.0",
     "prettier": "^1.18.2",
+    "ts-jest": "^24.2.0",
     "tslint": "^5.17.0",
     "tslint-react": "^4.0.0"
   },

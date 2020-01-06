@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/navikt/personopplysninger.svg?style=svg)](https://circleci.com/gh/navikt/personopplysninger)
+[![Github](https://github.com/navikt/personopplysninger/workflows/Deploy%20to%20prod/badge.svg)](https://github.com/navikt/personopplysninger/actions)
 
 # Personopplysninger
 
@@ -32,20 +32,9 @@ Obs: Unleash er kun tilgjengelig i fagsystemsonen.
 
 ## Deployering
 
-Applikasjonen bygges automatisk til dev / https://www-q0.nav.no/person/personopplysninger ved merge til master eller ved manuell godkjenning i [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger). <br><br>
-For å lansere applikasjonen til produksjon / https://www.nav.no/person/personopplysninger, benytt [npm version](https://docs.npmjs.com/cli/version) til å oppdatere package.json og lage samsvarende Git-tag. Eks:
-
-```
-npm version patch -m "Din melding"
-```
-
-Push deretter den nye versjonen til GitHub og merge til master.
-
-```
-git push && git push --tags
-```
-
-Godkjenn produksjonssettingen i [CircleCI](https://circleci.com/gh/navikt/workflows/personopplysninger).
+- Q6: Tag på formatet `v*-test`.
+- Q1, Q2, Q6: Tag på formatet `v*-dev`.
+- Q0, PROD: Merge til master
 
 ## Logging
 

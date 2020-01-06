@@ -5,11 +5,10 @@ import ListElement from "components/listelement/ListElement";
 import Melding from "components/melding/Melding";
 import { Tlfnr } from "types/personalia";
 import Kilde from "components/kilde/Kilde";
-import Environment from "Environments";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/LeggTil.svg";
 
-const { tjenesteUrl } = Environment();
+const { REACT_APP_TJENESTER_URL } = process.env;
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -42,7 +41,7 @@ const TelefonnummerHosNavOLD = (props: Props) => {
           </ul>
           <Kilde
             kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenke={`${REACT_APP_TJENESTER_URL}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
             lenkeType={"EKSTERN"}
             ikon={endreIkon}
@@ -53,7 +52,7 @@ const TelefonnummerHosNavOLD = (props: Props) => {
           <Melding meldingId="personalia.tlfnr.ingenData" />
           <Kilde
             kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenke={`${REACT_APP_TJENESTER_URL}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
             lenkeType={"EKSTERN"}
             ikon={leggTilIkon}

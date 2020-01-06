@@ -7,13 +7,12 @@ import { Adresser } from "types/adresser";
 import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
 import Kilde from "components/kilde/Kilde";
-import Environment from "Environments";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 
-const { tjenesteUrl } = Environment();
+const { REACT_APP_TJENESTER_URL } = process.env;
 
 interface Props {
   adresser: Adresser;
@@ -49,7 +48,7 @@ const AdresserOLD = (props: Props) => {
         {adresser.tilleggsadresse || adresser.utenlandskAdresse ? (
           <Kilde
             kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenke={`${REACT_APP_TJENESTER_URL}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.endre"
             lenkeType={"EKSTERN"}
             ikon={endreIkon}
@@ -57,7 +56,7 @@ const AdresserOLD = (props: Props) => {
         ) : (
           <Kilde
             kilde="personalia.source.nav"
-            lenke={`${tjenesteUrl}/brukerprofil/`}
+            lenke={`${REACT_APP_TJENESTER_URL}/brukerprofil/`}
             lenkeTekst="personalia.link.brukerprofil.leggtil"
             lenkeType={"EKSTERN"}
             ikon={leggTilIkon}

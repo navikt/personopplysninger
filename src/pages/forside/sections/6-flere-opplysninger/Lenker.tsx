@@ -10,8 +10,8 @@ import MEDLIkon from "assets/img/MEDL.svg";
 import FullmaktIkon from "assets/img/Fullmakt.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
-import Environment from "../../../../Environments";
-const { baseUrl } = Environment();
+
+const { REACT_APP_PDL_URL } = process.env;
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
@@ -92,7 +92,7 @@ const LinksContainer = () => {
               tittel={"lenker.fullmakt.tittel"}
               beskrivelse={"lenker.fullmakt.beskrivelse"}
               lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-              to={`${baseUrl}/person/pdl-fullmakt-ui`}
+              to={`${REACT_APP_PDL_URL}`}
               component={"a"}
             />
           )}

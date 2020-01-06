@@ -9,12 +9,16 @@ import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
-import Environment from "../Environments";
 import Cookies from "js-cookie";
 import { redirectLoginCookie } from "../utils/cookies";
-const { apiUrl, loginUrl, dsopUrl, appUrl } = Environment();
 const parseJson = (data: Response) => data.json();
 
+const {
+  REACT_APP_API_URL,
+  REACT_APP_LOGIN_URL,
+  REACT_APP_DSOP_URL,
+  REACT_APP_URL
+} = process.env;
 /*
   AUTH
   Lettvekt kall for å sjekke autentisering
@@ -22,7 +26,7 @@ const parseJson = (data: Response) => data.json();
  */
 
 export const sjekkAuthHentNavn = () => {
-  const url = `${apiUrl}/name`;
+  const url = `${REACT_APP_API_URL}/name`;
   return fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
@@ -69,27 +73,32 @@ const sjekkAuthHentJson = (url: string) =>
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   sjekkAuthHentJson(
-    `${apiUrl}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
+    `${REACT_APP_API_URL}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
   );
 
 export const fetchKontaktInfo = () =>
-  sjekkAuthHentJson(`${apiUrl}/kontaktinformasjon`);
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/kontaktinformasjon`);
 
 export const fetchRetningsnumre = () =>
-  sjekkAuthHentJson(`${apiUrl}/retningsnumre`);
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/retningsnumre`);
 
 export const fetchInstInfo = () =>
-  sjekkAuthHentJson(`${apiUrl}/institusjonsopphold`);
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/institusjonsopphold`);
 
 export const fetchskattetrekksmeldinger = () =>
-  sjekkAuthHentJson(`${apiUrl}/skattetrekksmeldinger`);
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/skattetrekksmeldinger`);
 
-export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl}/medl`);
-export const fetchPostnummer = () => sjekkAuthHentJson(`${apiUrl}/postnummer`);
-export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl}/personalia`);
-export const fetchLand = () => sjekkAuthHentJson(`${apiUrl}/land`);
-export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl}/valuta`);
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${dsopUrl}/get`);
+export const fetchMedlInfo = () =>
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
+export const fetchPostnummer = () =>
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
+export const fetchPersonInfo = () =>
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
+export const fetchLand = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/land`);
+export const fetchValutaer = () =>
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/valuta`);
+export const fetchDsopInfo = () =>
+  sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`);
 
 /*
     POST
@@ -128,26 +137,26 @@ const postJson = (url: string, data: Outbound) => {
 };
 
 export const postTlfnummer = (data: OutboundTlfnummer) =>
-  postJson(`${apiUrl}/endreTelefonnummer`, data);
+  postJson(`${REACT_APP_API_URL}/endreTelefonnummer`, data);
 
 export const slettTlfnummer = (data: OutboundTlfnummer) =>
-  postJson(`${apiUrl}/slettTelefonnummer`, data);
+  postJson(`${REACT_APP_API_URL}/slettTelefonnummer`, data);
 
 export const postKontonummer = (
   data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
-) => postJson(`${apiUrl}/endreKontonummer`, data);
+) => postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
 
 export const postGateadresse = (data: OutboundGateadresse) =>
-  postJson(`${apiUrl}/endreGateadresse`, data);
+  postJson(`${REACT_APP_API_URL}/endreGateadresse`, data);
 
 export const postPostboksadresse = (data: OutboundPostboksadresse) =>
-  postJson(`${apiUrl}/endrePostboksadresse`, data);
+  postJson(`${REACT_APP_API_URL}/endrePostboksadresse`, data);
 
 export const postStedsadresse = (data: OutboundStedsadresse) =>
-  postJson(`${apiUrl}/endreStedsadresse`, data);
+  postJson(`${REACT_APP_API_URL}/endreStedsadresse`, data);
 
 export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
-  postJson(`${apiUrl}/endreUtenlandsadresse`, data);
+  postJson(`${REACT_APP_API_URL}/endreUtenlandsadresse`, data);
 
 /*
     PUT
@@ -175,10 +184,10 @@ const putJson = (url: string) => {
 };
 
 export const slettUtenlandsAdresse = () =>
-  putJson(`${apiUrl}/opphoerUtenlandskKontaktadresse`);
+  putJson(`${REACT_APP_API_URL}/opphoerUtenlandskKontaktadresse`);
 
 export const slettMidlertidigAdresse = () =>
-  putJson(`${apiUrl}/opphoerNorskKontaktadresse`);
+  putJson(`${REACT_APP_API_URL}/opphoerNorskKontaktadresse`);
 
 /*
     UTILS
@@ -196,7 +205,7 @@ export const sendTilLogin = () => {
   const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
   const options = { expires: inFiveMinutes };
   Cookies.set(redirectLoginCookie, to, options);
-  window.location.assign(`${loginUrl}?redirect=${appUrl}`);
+  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${REACT_APP_URL}`);
 };
 
 const sjekkHttpFeil = (response: Response) => {
