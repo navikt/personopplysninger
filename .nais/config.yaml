@@ -11,8 +11,8 @@ spec:
   team: personbruker
   port: 8080
   ingresses:
-  {{#each ingresses }}
-     - {{ this }}
+  {{#each ingresses as |url|}}
+     - {{url}}
   {{/each}}
   liveness:
     path: /person/personopplysninger/internal/isAlive
