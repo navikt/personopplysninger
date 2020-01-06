@@ -2,7 +2,7 @@ name: Deploy to q0
 on:
   push:
     tags:
-      - v*-prod
+      - v*-dev
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: q0
           ingresses:
-            - https://personopplysninger.nais.oera.no
+            - https://personopplysninger.nais.oera-q.no
             - https://www-q0.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
