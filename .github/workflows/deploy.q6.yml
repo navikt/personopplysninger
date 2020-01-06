@@ -29,6 +29,12 @@ jobs:
           echo ::set-env name=REACT_APP_TJENESTER_URL::https://tjenester-q6.nav.no
           echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice-q.nav.no/login
       - uses: actions/setup-node@v1
+      - uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache-
       - run: npm ci
       - run: npm i @navikt/arbeidsforhold@latest
       - run: npm test
@@ -38,10 +44,6 @@ jobs:
           echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u "x-access-token" --password-stdin
           docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
-      - name: Define navikt/deployment-cli environment
-        run: |
-          echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
-          echo $IMAGE_VERSION > .docker_tag
       - name: Generate nais variables
         run: |
           cat > .nais/vars.yaml <<EOF
