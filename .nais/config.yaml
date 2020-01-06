@@ -11,7 +11,9 @@ spec:
   team: {{team}}
   port: 8080
   ingresses:
-    - {{ingress}}
+  {{#each ingresses }}
+     - {{ this }}
+  {{/each}}
   liveness:
     path: /person/personopplysninger/internal/isAlive
     initialDelay: 10

@@ -46,10 +46,11 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: default
           team: personbruker
-          app: personopplysninger
-          ingress: https://www.nav.no/person/personopplysninger
+          ingresses:
+            - https://www.nav.no/person/personopplysninger
+          reponame: personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
-          tag: $IMAGE_VERSION
+          version: $IMAGE_VERSION
           EOF
       - name: Deploy
         uses: nais/deploy/actions/deploy@master
