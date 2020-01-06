@@ -40,16 +40,20 @@ jobs:
         run: |
           echo $IMAGE_REGISTRY/$IMAGE_NAME > .docker_image
           echo $IMAGE_VERSION > .docker_tag
+      - name: Generate nais variables
+        run: |
+          cat > .nais/vars.yaml <<EOF
+          namespace: q0
+          team: personbruker
+          app: personopplysninger
+          ingress: https://www-q0.nav.no/person/personopplysninger
+          image: $IMAGE_REGISTRY/$IMAGE_NAME
+          tag: $IMAGE_VERSION
+          EOF
       - name: Deploy
         uses: nais/deploy/actions/deploy@master
         with:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
-          VAR:
-            - namespace=q0
-            - team=personbruker
-            - app=personopplysninger
-            - ingress=https://www-q0.nav.no/person/personopplysninger
-            - image=$IMAGE_REGISTRY/$IMAGE_NAME
-            - tag=$IMAGE_VERSION
+          VARS: .nais/vars.yaml
