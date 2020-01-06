@@ -19,7 +19,7 @@ jobs:
           echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
       - name: Define client-side environment
         run: |
-          echo ::set-env name=REACT_APP_MILJO::prod
+          echo ::set-env name=REACT_APP_MILJO::PROD
           echo ::set-env name=REACT_APP_PDL_URL::https://www.nav.no/person/pdl-fullmakt-ui
           echo ::set-env name=REACT_APP_URL::https://www.nav.no/person/personopplysninger
           echo ::set-env name=REACT_APP_API_URL::https://www.nav.no/person/personopplysninger-api
