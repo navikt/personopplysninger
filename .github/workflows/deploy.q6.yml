@@ -8,8 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
+      - uses: actions/checkout@v1
       - name: Define build environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -19,7 +18,7 @@ jobs:
           echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY##*/})
           echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_SHA})
           echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
-      - name: Define client-side environment
+      - name: Define client-side environmen
         run: |
           echo ::set-env name=REACT_APP_MILJO::Q6
           echo ::set-env name=REACT_APP_URL::https://www-q6.nav.no/person/personopplysninger
@@ -52,8 +51,7 @@ jobs:
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           EOF
-      - name: Deploy
-        uses: nais/deploy/actions/deploy@master
+      - uses: nais/deploy/actions/deploy@master
         env:
           CLUSTER: dev-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
