@@ -4,17 +4,16 @@ import kontonummerIkon from "assets/img/Kontonummer.svg";
 import { UtenlandskBankkonto } from "types/personalia";
 import Kilde from "components/kilde/Kilde";
 import endreIkon from "assets/img/Pencil.svg";
-import Environment from "Environments";
 import Melding from "components/melding/Melding";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
+
+const { REACT_APP_TJENESTER_URL } = process.env;
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   kontonr?: string;
 }
-
-const { tjenesteUrl } = Environment();
 
 class UtbetalingerOLD extends Component<Props> {
   render() {
@@ -32,7 +31,7 @@ class UtbetalingerOLD extends Component<Props> {
         )}
         <Kilde
           kilde="personalia.source.nav"
-          lenke={`${tjenesteUrl}/brukerprofil/`}
+          lenke={`${REACT_APP_TJENESTER_URL}/brukerprofil/`}
           lenkeTekst="personalia.link.brukerprofil.endre"
           lenkeType={"EKSTERN"}
           ikon={endreIkon}

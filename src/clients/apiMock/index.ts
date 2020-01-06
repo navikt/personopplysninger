@@ -11,9 +11,8 @@ import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
 import instInfo from "./app/fetch/inst-info.json";
 import medlInfo from "./app/fetch/medl-info.json";
-import Environment from "Environments";
 
-const { apiUrl, dsopUrl } = Environment();
+const { REACT_APP_API_URL, REACT_APP_DSOP_URL } = process.env;
 
 // Config
 fetchMock.config.fallbackToNetwork = true;
@@ -40,64 +39,66 @@ export const setUpMock = async () => {
     Fetch
    */
   mockFetchKontaktinfo &&
-    fetchMock.get(`${apiUrl}/kontaktinformasjon`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/kontaktinformasjon`, () =>
       delay(200, 750).then(() => kontaktInformasjon)
     );
   mockFetchPersonalia &&
-    fetchMock.get(`${apiUrl}/personalia`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/personalia`, () =>
       delay(200, 750).then(() => personInformasjon)
     );
   mockFetchFeatureToggles &&
-    fetchMock.get(`begin:${apiUrl}/feature-toggles`, () =>
+    fetchMock.get(`begin:${REACT_APP_API_URL}/feature-toggles`, () =>
       delay(200, 750).then(() => featureToggles)
     );
   mockFetchRetningsnumre &&
-    fetchMock.get(`${apiUrl}/retningsnumre`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/retningsnumre`, () =>
       delay(400, 500).then(() => retningsnumre)
     );
   mockFetchPostnummer &&
-    fetchMock.get(`${apiUrl}/postnummer`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/postnummer`, () =>
       delay(10, 50).then(() => postnummer)
     );
   mockFetchValutaer &&
-    fetchMock.get(`${apiUrl}/valuta`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/valuta`, () =>
       delay(100, 200).then(() => valutaer)
     );
   mockFetchDsopInfo &&
-    fetchMock.get(`${dsopUrl}/get`, () =>
+    fetchMock.get(`${REACT_APP_DSOP_URL}/get`, () =>
       delay(1000, 1500).then(() => dsopInfo)
     );
   mockFetchLand &&
-    fetchMock.get(`${apiUrl}/land`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/land`, () =>
       delay(1000, 2000).then(() => landInfo)
     );
   mockFetchInst &&
-    fetchMock.get(`${apiUrl}/institusjonsopphold`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/institusjonsopphold`, () =>
       delay(1000, 2000).then(() => instInfo)
     );
   mockFetchMedl &&
-    fetchMock.get(`${apiUrl}/medl`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/medl`, () =>
       delay(1000, 2000).then(() => medlInfo)
     );
   mockFetchName &&
-    fetchMock.get(`${apiUrl}/name`, () => delay(50, 100).then(() => name));
+    fetchMock.get(`${REACT_APP_API_URL}/name`, () =>
+      delay(50, 100).then(() => name)
+    );
   /*
     POST
    */
   mockPostGateadresse &&
-    fetchMock.post(`${apiUrl}/endreGateadresse`, () =>
+    fetchMock.post(`${REACT_APP_API_URL}/endreGateadresse`, () =>
       delay(2000, 3000).then(() => ({ statusType: "PENDING" }))
     );
   mockPostEndreTelefonnr &&
-    fetchMock.post(`${apiUrl}/endreTelefonnummer`, () =>
+    fetchMock.post(`${REACT_APP_API_URL}/endreTelefonnummer`, () =>
       delay(2000, 3000).then(() => ({ statusType: "OK" }))
     );
   mockPostSlettTlfnr &&
-    fetchMock.post(`${apiUrl}/slettTelefonnummer`, () =>
+    fetchMock.post(`${REACT_APP_API_URL}/slettTelefonnummer`, () =>
       delay(2000, 3000).then(() => ({ statusType: "OK" }))
     );
   mockPostEndreKontonummer &&
-    fetchMock.post(`${apiUrl}/endreKontonummer`, () =>
+    fetchMock.post(`${REACT_APP_API_URL}/endreKontonummer`, () =>
       delay(2000, 3000).then(() => endreKontonr)
     );
 };

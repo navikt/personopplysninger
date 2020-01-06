@@ -1,12 +1,11 @@
 import React, { Fragment } from "react";
 import Lenke from "nav-frontend-lenker";
 import { FormattedMessage } from "react-intl";
-import Environment from "Environments";
 import konto from "assets/img/Konto.svg";
 import { Link, useLocation } from "react-router-dom";
 import { basePath } from "App";
 
-const { tjenesteUrl } = Environment();
+const { REACT_APP_TJENESTER_URL } = process.env;
 
 export interface BrodsmuleLenke {
   title: string;
@@ -40,7 +39,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
         <img alt="Brodsmulesti" className="brodsmulesti__account" src={konto} />
       </Brodsmule>
       <Brodsmule>
-        <Lenke href={`${tjenesteUrl}/dittnav`}>
+        <Lenke href={`${REACT_APP_TJENESTER_URL}/dittnav`}>
           <FormattedMessage id="brodsmulesti.dittnav" />
         </Lenke>
       </Brodsmule>

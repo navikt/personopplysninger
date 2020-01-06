@@ -3,9 +3,8 @@ import pensjon from "assets/img/Pensjon.svg";
 import utbetalinger from "assets/img/Utbetalinger.svg";
 import sykefravaer from "assets/img/Sykepenger.svg";
 import dineSaker from "assets/img/DineSaker.svg";
-import Environment from "Environments";
 
-const { tjenesteUrl } = Environment();
+const { REACT_APP_TJENESTER_URL } = process.env;
 
 export default [
   {
@@ -13,7 +12,7 @@ export default [
     tittel: "lenker.dinesaker.tittel",
     beskrivelse: "lenker.dinesaker.beskrivelse",
     lenkeTekst: "lenker.dinesaker.lenkeTekst",
-    url: `${tjenesteUrl}/saksoversikt/app`,
+    url: `${REACT_APP_TJENESTER_URL}/saksoversikt/app`,
     icon: dineSaker
   },
   {
@@ -21,7 +20,7 @@ export default [
     tittel: "lenker.utbetalinger.tittel",
     beskrivelse: "lenker.utbetalinger.beskrivelse",
     lenkeTekst: "lenker.utbetalinger.lenkeTekst",
-    url: `${tjenesteUrl}/utbetalingsoversikt`,
+    url: `${REACT_APP_TJENESTER_URL}/utbetalingsoversikt`,
     icon: utbetalinger
   },
   {
@@ -29,7 +28,7 @@ export default [
     tittel: "lenker.sykefravaer.tittel",
     beskrivelse: "lenker.sykefravaer.beskrivelse",
     lenkeTekst: "lenker.sykefravaer.lenkeTekst",
-    url: `${tjenesteUrl}/sykefravaer`,
+    url: `${REACT_APP_TJENESTER_URL}/sykefravaer`,
     icon: sykefravaer
   },
   {
@@ -45,7 +44,7 @@ export default [
     tittel: "lenker.pensjon.tittel",
     beskrivelse: "lenker.pensjon.beskrivelse",
     lenkeTekst: "lenker.pensjon.lenkeTekst",
-    url: `${tjenesteUrl}/pselv/publisering/dinpensjon.jsf`,
+    url: `${REACT_APP_TJENESTER_URL}/pselv/publisering/dinpensjon.jsf`,
     icon: pensjon
   }
 ];

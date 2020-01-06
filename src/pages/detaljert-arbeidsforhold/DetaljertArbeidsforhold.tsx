@@ -1,13 +1,17 @@
 import React, { useEffect } from "react";
 import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
-import Environment from "Environments";
 import { useIntl } from "react-intl";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
 
-const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "Q6" | "Q2" | "Q1" | "Q0" | "PROD";
+const miljo = process.env.REACT_APP_MILJO as
+  | "LOCAL"
+  | "Q6"
+  | "Q2"
+  | "Q1"
+  | "Q0"
+  | "PROD";
 
 interface Routes {
   id: string;

@@ -3,14 +3,19 @@ import Box from "components/box/Box";
 import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import { FormattedHTMLMessage, useIntl } from "react-intl";
-import Environment from "Environments";
+
 import { Link } from "react-router-dom";
 import { basePath } from "App";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "components/kilde/Kilde";
 
-const environment = Environment();
-const miljo = environment.miljo as "LOCAL" | "Q6" | "Q2" | "Q1" | "Q0" | "PROD";
+const miljo = process.env.REACT_APP_MILJO as
+  | "LOCAL"
+  | "Q6"
+  | "Q2"
+  | "Q1"
+  | "Q0"
+  | "PROD";
 
 const Arbeidsforhold = () => {
   const { locale } = useIntl();
