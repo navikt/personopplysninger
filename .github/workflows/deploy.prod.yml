@@ -1,8 +1,8 @@
 name: Deploy to prod
 on:
   push:
-    tags:
-      - v*-prod
+    branches:
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest

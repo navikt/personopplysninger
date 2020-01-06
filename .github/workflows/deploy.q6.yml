@@ -3,6 +3,7 @@ on:
   push:
     tags:
       - v*-dev
+      - v*-test
 jobs:
   deploy:
     runs-on: ubuntu-latest

@@ -1,8 +1,8 @@
 name: Deploy to q0
 on:
   push:
-    tags:
-      - v*-dev
+    branches:
+      - master
 jobs:
   deploy:
     runs-on: ubuntu-latest
