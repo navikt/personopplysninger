@@ -44,10 +44,10 @@ jobs:
         run: |
           cat > .nais/vars.yaml <<EOF
           namespace: q1
-          image: $IMAGE_REGISTRY/$IMAGE_NAME
-          version: $IMAGE_VERSION
           ingresses:
             - https://www-q1.nav.no/person/personopplysninger
+          image: $IMAGE_REGISTRY/$IMAGE_NAME
+          version: $IMAGE_VERSION
           EOF
       - name: Deploy
         uses: nais/deploy/actions/deploy@master
