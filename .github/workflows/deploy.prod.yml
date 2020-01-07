@@ -54,7 +54,7 @@ jobs:
           EOF
       - uses: nais/deploy/actions/deploy@master
         env:
-          CLUSTER: dev-sbs
+          CLUSTER: prod-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
           VARS: .nais/vars.yaml
