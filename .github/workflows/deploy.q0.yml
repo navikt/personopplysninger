@@ -15,7 +15,7 @@ jobs:
           echo ::set-env name=CI::true
           echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})
           echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY##*/})
-          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_SHA})
+          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_ACTION})
           echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
       - name: Define client-side environment
         run: |
