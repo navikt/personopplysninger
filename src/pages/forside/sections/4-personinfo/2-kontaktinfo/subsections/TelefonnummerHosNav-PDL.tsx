@@ -8,6 +8,8 @@ import Melding from "components/melding/Melding";
 import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
+import driftsmeldinger from "driftsmeldinger";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -29,6 +31,11 @@ const PDLTelefonnummerHosNav = (props: Props) => {
 
   return (
     <>
+      {driftsmeldinger.pdl && (
+        <div style={{ paddingBottom: "1rem" }}>
+          <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+        </div>
+      )}
       <div className="underseksjon__header">
         <Undertittel>
           <FormattedHTMLMessage id="personalia.tlfnr.oveskrift" />
