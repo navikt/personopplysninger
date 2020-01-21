@@ -23,6 +23,8 @@ import { slettMidlertidigAdresse } from "clients/apiClient";
 import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
+import driftsmeldinger from "driftsmeldinger";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
   adresser: Adresser;
@@ -105,6 +107,11 @@ const AdresserPDL = (props: Props) => {
             <FormattedMessage id={"adresse.midlertidigadresse"} />
           </Undertittel>
         </div>
+        {driftsmeldinger.pdl && (
+          <div style={{ padding: "1rem 0" }}>
+            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          </div>
+        )}
         {opprettEllerEndre ? (
           <div className="adresse__form">
             <Radio

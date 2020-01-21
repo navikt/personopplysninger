@@ -23,6 +23,8 @@ import { sjekkForFeil } from "utils/validators";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
+import driftsmeldinger from "driftsmeldinger";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -86,6 +88,13 @@ const UtbetalingerPDL = (props: Props) => {
 
   return (
     <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
+      <>
+        {driftsmeldinger.pdl && (
+          <div style={{ paddingBottom: "1rem" }}>
+            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          </div>
+        )}
+      </>
       {opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
