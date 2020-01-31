@@ -31,6 +31,7 @@ const redirects: {
   };
 } = redirectsRaw;
 
+// Test change
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
