@@ -2,8 +2,8 @@ name: Deploy-to-q6
 on:
   push:
     tags:
-      - v*-dev
       - v*-test
+      - v*-dev
 jobs:
   deploy:
     runs-on: ubuntu-latest
