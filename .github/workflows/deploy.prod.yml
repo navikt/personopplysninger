@@ -40,9 +40,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION -t $IMAGE_REGISTRY/$IMAGE_NAME:latest .
-          docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
-          docker push $IMAGE_REGISTRY/$IMAGE_NAME:latest
+          echo docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION -t $IMAGE_REGISTRY/$IMAGE_NAME:latest .
+          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME:latest
       - name: Generate nais variables
         run: |
           cat > .nais/vars.yaml <<EOF
