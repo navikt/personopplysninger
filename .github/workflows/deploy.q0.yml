@@ -1,8 +1,10 @@
 name: Deploy-to-q0
 on:
   push:
-    branches:
-      - master
+    tags:
+      - "v*"
+      - "!v*-test"
+      - "!v*-dev"
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -39,7 +41,7 @@ jobs:
       - run: npm run build
       - name: Docker build and push
         run: |
-          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u "x-access-token" --password-stdin
+          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u ${GITHUB_REPOSITORY} --password-stdin
           docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
       - name: Generate nais variables
