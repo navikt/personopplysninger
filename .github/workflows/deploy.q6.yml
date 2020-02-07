@@ -38,6 +38,8 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Docker build and push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
