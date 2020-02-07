@@ -38,8 +38,9 @@ jobs:
       - run: npm run build
       - name: Docker build and push
         run: |
-          echo docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
-          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u "x-access-token" --password-stdin
+          docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
+          docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
       - name: Generate nais variables
         run: |
           cat > .nais/vars.yaml <<EOF
