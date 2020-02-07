@@ -37,12 +37,9 @@ jobs:
       - run: npm test
       - run: npm run build
       - name: Docker build and push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION -t $IMAGE_REGISTRY/$IMAGE_NAME:latest .
-          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
-          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME:latest
+          echo docker push $IMAGE_REGISTRY/$IMAGE_NAME
       - name: Generate nais variables
         run: |
           cat > .nais/vars.yaml <<EOF
