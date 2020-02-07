@@ -2,7 +2,9 @@ name: Deploy-to-prod
 on:
   push:
     tags:
-      - v*-prod
+      - v*
+    tags-ignore:
+      - v*-dev
 jobs:
   deploy:
     runs-on: ubuntu-latest
