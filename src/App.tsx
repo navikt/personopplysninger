@@ -6,7 +6,7 @@ import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertA
 import Forside from "./pages/forside/Forside";
 import WithAuth from "./store/providers/Auth";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
-import EndreOpplysninger from "./pages/forside/endre-personopplysninger/EndreOpplysninger";
+import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
 import redirectsRaw from "./utils/redirects";
