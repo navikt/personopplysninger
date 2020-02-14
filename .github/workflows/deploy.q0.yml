@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Check for tag in master
-        env:
         run: |
           echo "$(git branch --contains ${GITHUB_REF##*/} | grep master)"
           if [ -z "$(git branch --contains ${GITHUB_REF##*/} | grep master)" ]; then
