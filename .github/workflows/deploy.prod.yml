@@ -7,8 +7,8 @@ on:
       - "!v*-dev"
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
+    if: git branch --contains ${GITHUB_REF##*/} | grep master
     steps:
       - uses: actions/checkout@v1
       - name: Define build environment
