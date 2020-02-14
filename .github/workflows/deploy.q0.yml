@@ -12,8 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check for tag in master
         run: |
-          echo "$(git branch --contains ${GITHUB_REF##*/} | grep master)"
-          if [! -n $(git branch --contains ${GITHUB_REF##*/} | grep master) ]; then
+          if [[ $(git branch --contains ${GITHUB_REF##*/} | grep master) ]]; then
             echo Tag ${GITHUB_REF##*/} was not tagged from master
             exit 1
           fi
