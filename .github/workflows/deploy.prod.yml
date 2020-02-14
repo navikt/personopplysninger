@@ -1,6 +1,8 @@
 name: Deploy-to-prod
 on:
   push:
+    branches:
+      - master
     tags:
       - "v*"
       - "!v*-test"
