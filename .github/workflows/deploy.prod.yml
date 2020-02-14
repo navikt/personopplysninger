@@ -1,14 +1,13 @@
 name: Deploy-to-prod
 on:
   push:
-    branches:
-      - master
     tags:
       - "v*"
       - "!v*-test"
       - "!v*-dev"
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
