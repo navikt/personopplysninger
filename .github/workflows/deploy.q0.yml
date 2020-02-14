@@ -7,10 +7,14 @@ on:
       - "!v*-dev"
 jobs:
   deploy:
-    if: git branch --contains ${GITHUB_REF##*/} | grep master
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Check for tag in master
+        run: |
+          if (-z $(git branch --contains ${GITHUB_REF##*/} | grep master)); then
+             exit 1
+          fi
       - name: Define build environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
