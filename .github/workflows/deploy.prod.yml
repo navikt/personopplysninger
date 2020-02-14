@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Check for tag in master
         run: |
-          if (-z $(git branch --contains ${GITHUB_REF##*/} | grep master)); then
+          if [ -z "$(git branch --contains ${GITHUB_REF##*/} | grep master)" ]; then
              exit 1
           fi
       - name: Define build environment
