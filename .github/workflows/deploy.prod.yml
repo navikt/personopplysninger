@@ -5,6 +5,7 @@ on:
       - "v*"
       - "!v*-test"
       - "!v*-dev"
+#Test pipeline
 jobs:
   deploy:
     runs-on: ubuntu-latest
