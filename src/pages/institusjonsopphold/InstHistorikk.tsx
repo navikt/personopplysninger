@@ -18,7 +18,7 @@ const InstHistorikk = () => (
   <PageContainer
     tittelId={"inst.tittel"}
     icon={INSTIkon}
-    backTo={"/"}
+    backTo={"/#flere-opplysninger"}
     brodsmulesti={[{ title: "inst.tittel" }]}
   >
     <WithInst>{({ data }) => <Tabell instInfo={data} />}</WithInst>

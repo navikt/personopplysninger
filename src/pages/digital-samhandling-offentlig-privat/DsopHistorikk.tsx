@@ -22,7 +22,7 @@ const DsopHistorikk = () => (
   <PageContainer
     tittelId={"dsop.tittel"}
     icon={DSOPIkon}
-    backTo={"/"}
+    backTo={"/#flere-opplysninger"}
     brodsmulesti={[{ title: "dsop.tittel" }]}
   >
     <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>

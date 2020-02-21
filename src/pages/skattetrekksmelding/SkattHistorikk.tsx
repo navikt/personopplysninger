@@ -18,7 +18,7 @@ const SkattkortHistorikk = () => (
   <PageContainer
     tittelId={"skattetrekksmeldinger.tittel"}
     icon={SkattIkon}
-    backTo={"/"}
+    backTo={"/#flere-opplysninger"}
     brodsmulesti={[{ title: "skattetrekksmeldinger.tittel" }]}
   >
     <WithSkatt>{({ data }) => <Tabell instInfo={data} />}</WithSkatt>

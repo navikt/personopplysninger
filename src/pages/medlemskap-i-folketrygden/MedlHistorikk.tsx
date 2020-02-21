@@ -30,8 +30,8 @@ interface Props {
 const MedlHistorikk = () => (
   <PageContainer
     tittelId={"medl.tittel"}
-    backTo={"/"}
     icon={MEDLIkon}
+    backTo={"/#flere-opplysninger"}
     brodsmulesti={[{ title: "medl.tittel" }]}
   >
     <WithMEDL>{({ data }) => <Tabell medlInfo={data} />}</WithMEDL>
