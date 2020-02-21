@@ -32,7 +32,7 @@ const Arbeidsforhold = () => {
       tittelId="arbeidsforhold.tittel"
       icon={arbeidsforholdIkon}
       brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
-      backTo={"/"}
+      backTo={"/#arbeidsforhold"}
     >
       <DetaljertArbeidsforhold
         rolle={"ARBEIDSTAKER"}
