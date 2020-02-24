@@ -29,9 +29,7 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 
 // Match everything except internal og static
 server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
-  const subdomain = req.headers.host.split(".")[0];
-  const namespace = subdomain !== "www" ? subdomain.split("-")[1] : "p";
-  getDecorator(namespace)
+  getDecorator()
     .then(fragments => {
       res.render("index.html", fragments);
     })

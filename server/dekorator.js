@@ -13,27 +13,13 @@ const cache = new NodeCache({
   checkperiod: SECONDS_PER_MINUTE
 });
 
-const getUrl = namespace => {
-  if (namespace !== "p") {
-    // Q0, Q1, Q6 etc ..
-    if (namespace === "q2") {
-      // TODO: Fjern Q2 -> Q4 overgang
-      namespace = "q4";
-    }
-    return `https://appres-${namespace}.nav.no/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true`;
-  } else {
-    // Produksjon
-    return `https://appres.nav.no/common-html/v4/navno?header-withmenu=true&styles=true&scripts=true&footer-withmenu=true&skiplinks=true&megamenu-resources=true`;
-  }
-};
-
-const getDecorator = namespace =>
+const getDecorator = () =>
   new Promise((resolve, reject) => {
-    const decorator = cache.get(namespace);
+    const decorator = cache.get("main-cache");
     if (decorator) {
       resolve(decorator);
     } else {
-      request(getUrl(namespace), (error, response, body) => {
+      request(process.env.DECORATOR_URL, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
           const { document } = new JSDOM(body).window;
           const prop = "innerHTML";
@@ -47,8 +33,8 @@ const getDecorator = namespace =>
               prop
             ]
           };
-          cache.set(namespace, data);
-          logger.info(`${namespace}: Creating cache`);
+          cache.set("main-cache", data);
+          logger.info(`Creating cache`);
           resolve(data);
         } else {
           reject(new Error(error));
