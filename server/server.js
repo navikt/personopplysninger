@@ -1,6 +1,4 @@
-require("dotenv").config({
-  path: "/var/run/secrets/nais.io/vault/environment.env"
-});
+require("dotenv").config({ path: "/var/run/secrets/nais.io/vault/.env" });
 const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
