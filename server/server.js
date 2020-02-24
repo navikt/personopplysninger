@@ -28,7 +28,7 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 );
 
 // Match everything except internal og static
-server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
+server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
   getDecorator()
     .then(fragments => {
       res.render("index.html", fragments);
@@ -37,8 +37,8 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) => {
       const error = `Failed to get decorator: ${e}`;
       logger.error(error);
       res.status(500).send(error);
-    });
-});
+    })
+);
 
 const port = process.env.PORT || 8080;
 server.listen(port, () => logger.info(`App listening on port: ${port}`));

@@ -20,6 +20,8 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
+  vault:
+    enabled: true
   replicas:
     min: 2
     max: 3
