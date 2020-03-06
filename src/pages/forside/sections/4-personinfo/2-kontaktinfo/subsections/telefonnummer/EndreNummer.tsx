@@ -196,7 +196,7 @@ const EndreTelefonnummer = (props: Props) => {
                 closeButton={false}
                 isOpen={visSlettModal}
                 onRequestClose={lukkSlettModal}
-                contentLabel={msg({ id: "side.opphør" })}
+                contentLabel={msg({ id: "side.opphor" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
                   <FormattedMessage id="personalia.tlfnr.slett.alert" />
