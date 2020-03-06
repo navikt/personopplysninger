@@ -19,9 +19,7 @@
     },
     "tlfnr": {
       "telefonHoved": "12121212",
-      "telefonAlternativ": "942 42 424",
-      "landskodeHoved": "+47",
-      "landskodeAlternativ": "+93"
+      "landskodeHoved": "+47"
     },
     "spraak": "NB",
     "epostadr": "TODO",
