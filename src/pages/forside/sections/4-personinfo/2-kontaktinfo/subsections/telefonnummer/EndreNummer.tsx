@@ -19,13 +19,13 @@ import { UNKNOWN } from "utils/text";
 import Modal from "nav-frontend-modal";
 
 export interface OutboundTlfnummer {
-  type: string;
+  prioritet: 1 | 2;
   landskode?: string;
   nummer: string;
 }
 
 interface Props {
-  type: "MOBIL" | "HJEM" | "ARBEID";
+  prioritet: 1 | 2;
   titleId: string;
   onDeleteSuccess: () => void;
   onChangeSuccess: () => void;
@@ -34,7 +34,7 @@ interface Props {
 }
 
 const EndreTelefonnummer = (props: Props) => {
-  const { type, titleId, landskode, tlfnummer } = props;
+  const { prioritet, titleId, landskode, tlfnummer } = props;
   const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
@@ -100,7 +100,7 @@ const EndreTelefonnummer = (props: Props) => {
 
     if (isValid) {
       const outbound = {
-        type,
+        prioritet,
         landskode: fields.landskode.value,
         nummer: fields.tlfnummer
       };
@@ -120,7 +120,7 @@ const EndreTelefonnummer = (props: Props) => {
     }
 
     const outbound = {
-      type,
+      prioritet,
       landskode: landskode,
       nummer: tlfnummer
     };
@@ -156,7 +156,7 @@ const EndreTelefonnummer = (props: Props) => {
                 {!endre && (
                   <Normaltekst>
                     {landskode && <span>{landskode} </span>}
-                    {formatTelefonnummer(type, tlfnummer, landskode)}
+                    {formatTelefonnummer(prioritet, tlfnummer, landskode)}
                   </Normaltekst>
                 )}
               </div>

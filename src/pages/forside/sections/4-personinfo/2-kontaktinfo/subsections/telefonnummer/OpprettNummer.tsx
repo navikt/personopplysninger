@@ -2,7 +2,12 @@ import { FormattedMessage } from "react-intl";
 import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
-import { FormContext, FormValidation, ValidatorContext } from "calidation";
+import {
+  FieldsConfig,
+  FormContext,
+  FormValidation,
+  ValidatorContext
+} from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import { Element } from "nav-frontend-typografi";
 import { Tlfnr } from "types/personalia";
@@ -12,6 +17,7 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
+import { RADIX_DECIMAL } from "../../../../../../../utils/formattering";
 
 interface Props {
   onCancelClick: () => void;
@@ -34,11 +40,11 @@ const OpprettTelefonnummer = (props: Props) => {
   };
 
   const formConfig = {
-    type: {
-      isRequired: { message: msg({ id: "validation.type.pakrevd" }) },
+    prioritet: {
+      isRequired: { message: msg({ id: "validation.prioritet.pakrevd" }) },
       isWhitelisted: {
-        message: msg({ id: "validation.type.pakrevd" }),
-        whitelist: ["MOBIL", "ARBEID", "HJEM"]
+        message: msg({ id: "validation.prioritet.pakrevd" }),
+        whitelist: ["1", "2"]
       }
     },
     landskode: {
@@ -69,11 +75,11 @@ const OpprettTelefonnummer = (props: Props) => {
 
   const submit = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { type, landskode, tlfnummer } = fields;
+    const { prioritet, landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
-        type,
+        prioritet: parseInt(prioritet, RADIX_DECIMAL) as 1 | 2,
         landskode: landskode.value,
         nummer: tlfnummer
       };
@@ -91,7 +97,7 @@ const OpprettTelefonnummer = (props: Props) => {
     <>
       <FormValidation
         onSubmit={submit}
-        config={formConfig}
+        config={formConfig as FieldsConfig}
         initialValues={initialValues}
         className={"tlfnummer__rad-leggtil"}
       >
@@ -111,26 +117,21 @@ const OpprettTelefonnummer = (props: Props) => {
               <div className="tlfnummer__form">
                 <div className={"tlfnummer__container"}>
                   <Select
-                    value={fields.type}
-                    label={msg({ id: "felter.type.label" })}
-                    onChange={e => setField({ type: e.target.value })}
+                    value={fields.prioritet}
+                    label={msg({ id: "felter.prioritet.label" })}
+                    onChange={e => setField({ prioritet: e.target.value })}
                     bredde={"s"}
-                    feil={sjekkForFeil(submitted, errors.type)}
+                    feil={sjekkForFeil(submitted, errors.prioritet)}
                   >
                     <option>{msg({ id: "felter.type.velg" })}</option>
-                    {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
-                      <option value="MOBIL">
-                        {msg({ id: "personalia.tlfnr.mobil" })}
+                    {(!tlfnr || (tlfnr && !tlfnr.telefonHoved)) && (
+                      <option value="1">
+                        {msg({ id: "personalia.tlfnr.hoved" })}
                       </option>
                     )}
-                    {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
-                      <option value="ARBEID">
-                        {msg({ id: "personalia.tlfnr.arbeid" })}
-                      </option>
-                    )}
-                    {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
-                      <option value="HJEM">
-                        {msg({ id: "personalia.tlfnr.hjem" })}
+                    {(!tlfnr || (tlfnr && !tlfnr.telefonAlternativ)) && (
+                      <option value="2">
+                        {msg({ id: "personalia.tlfnr.alternativ" })}
                       </option>
                     )}
                   </Select>

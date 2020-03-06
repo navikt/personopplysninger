@@ -18,10 +18,10 @@
       "valuta": "Svenske kroner"
     },
     "tlfnr": {
-      "jobb": "12121212",
-      "mobil": "942 42 424",
-      "landkodeMobil": "+47",
-      "datakilder": [{}, {}]
+      "telefonHoved": "12121212",
+      "telefonAlternativ": "942 42 424",
+      "landskodeHoved": "+47",
+      "landskodeAlternativ": "+93"
     },
     "spraak": "NB",
     "epostadr": "TODO",
