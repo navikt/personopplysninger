@@ -120,6 +120,7 @@ export default {
   "dsop.ingendata":
     "Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Ingen personopplysninger har blitt utlevert.",
   "inst.tittel": `Institusjonsopphold`,
+  "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",

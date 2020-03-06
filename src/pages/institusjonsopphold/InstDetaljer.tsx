@@ -7,6 +7,7 @@ import moment from "moment";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
+import { AlertStripeInfo } from "nav-frontend-alertstriper";
 
 interface Routes {
   id: string;
@@ -92,6 +93,15 @@ const InstDetaljer = () => {
           );
         }}
       </WithInst>
+      <div className="arbeidsforhold__disclaimer">
+        <AlertStripeInfo>
+          <Normaltekst>
+            Opplysningene er rapportert til NAV av de respektive institusjonene.
+            Hvis det er feil i et institusjonsopphold, må du ta kontakt med den
+            gjeldende institusjonen for å få endret dette.
+          </Normaltekst>
+        </AlertStripeInfo>
+      </div>
     </PageContainer>
   );
 };

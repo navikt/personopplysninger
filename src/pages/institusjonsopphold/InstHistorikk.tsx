@@ -1,7 +1,10 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { Element } from "nav-frontend-typografi";
+import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
+import {
+  AlertStripeAdvarsel,
+  AlertStripeInfo
+} from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
@@ -60,6 +63,21 @@ const Tabell = (props: { instInfo: InstInfo }) => {
 
   return (
     <div className="historikk__tabs-innhold historikk__flex-table">
+      <div className="arbeidsforhold__disclaimer">
+        <AlertStripeInfo>
+          <Normaltekst>
+            NAV trenger informasjon om institusjonsopphold fordi det kan ha
+            betydning for din rett til ytelser fra NAV. Arbeids- og
+            velferdsetaten kan pålegge helseinstitusjoner, fengsler og boformer
+            for heldøgns omsorg og pleie å gi rutinemessige meldinger om
+            innskriving og utskriving av klienter,{" "}
+            <a href="https://lovdata.no/lov/1997-02-28-19/§21-4">
+              jfr. Folketrygdloven § 21-4
+            </a>
+            .
+          </Normaltekst>
+        </AlertStripeInfo>
+      </div>
       {Object.keys(data).length > 0 ? (
         <>
           <div className="historikk__flex-rad historikk__head">
@@ -70,7 +88,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
             </div>
             <div className="historikk__flex-kolonne">
               <Element>
-                <FormattedMessage id="dsop.mottaker" />
+                <FormattedMessage id="inst.institusjon" />
               </Element>
             </div>
           </div>
@@ -132,6 +150,17 @@ const Tabell = (props: { instInfo: InstInfo }) => {
           </AlertStripeInfo>
         </div>
       )}
+      <div className="arbeidsforhold__disclaimer">
+        <AlertStripeAdvarsel>
+          <Normaltekst>
+            NAV viser kun opphold på alders- og sykehjem og andre
+            helseinstitusjoner foreløpig. Opphold på et fengsel vises ikke i
+            denne versjonen av innsynstjenesten NAV tilbyr deg, men vi jobber
+            med å videreutvikle løsningen slik opphold på alle institusjoner
+            blir synlig.
+          </Normaltekst>
+        </AlertStripeAdvarsel>
+      </div>
     </div>
   );
 };
