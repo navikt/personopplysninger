@@ -16,18 +16,20 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
+import { Tlfnr } from "../../../../../../../types/personalia";
 
 interface Props {
   prioritet: 1 | 2;
   onCancelClick: () => void;
   onChangeSuccess: () => void;
+  tlfnr?: Tlfnr;
 }
 
 const OpprettTelefonnummer = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { prioritet, onChangeSuccess } = props;
+  const { prioritet, tlfnr, onChangeSuccess } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -44,6 +46,13 @@ const OpprettTelefonnummer = (props: Props) => {
     tlfnummer: {
       isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
       isNumber: msg({ id: "validation.tlfnr.siffer" }),
+      ...(tlfnr &&
+        (tlfnr.telefonHoved || tlfnr.telefonAlternativ) && {
+          isBlacklisted: {
+            message: msg({ id: "validation.tlfnr.eksisterer" }),
+            blacklist: [tlfnr.telefonHoved, tlfnr.telefonAlternativ]
+          }
+        }),
       isValidNorwegianNumber: {
         message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>

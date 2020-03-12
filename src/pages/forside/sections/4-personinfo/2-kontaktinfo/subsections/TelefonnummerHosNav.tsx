@@ -86,6 +86,7 @@ const TelefonnummerHosNav = (props: Props) => {
           prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
+          tlfnr={tlfnr}
         />
       )}
 

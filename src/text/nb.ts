@@ -242,6 +242,7 @@ export default {
   "validation.tlfnr.siffer": "Telefonnummer må være tall",
   "validation.tlfnr.norske": "Norske telefonnummer må ha 8 tall",
   "validation.tlfnr.makslengde": "Telefonnummeret kan ha maksimalt 16 tall",
+  "validation.tlfnr.eksisterer": "Dette telefonnummeret er allerede registrert",
   "validation.retningsnr.pakrevd": "Retningsnummer er nødvendig",
   "validation.postnummer.pakrevd": "Bolignummer er nødvendig",
   "validation.postboksnummer.pakrevd": "Nødvendig",
