@@ -154,7 +154,10 @@ const OpprettTelefonnummer = (props: Props) => {
                     htmlType={"button"}
                     disabled={loading}
                     className={"tlfnummer__knapp"}
-                    onClick={props.onCancelClick}
+                    onClick={() => {
+                      settAlert(undefined);
+                      props.onCancelClick();
+                    }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>

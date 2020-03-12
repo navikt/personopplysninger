@@ -57,7 +57,7 @@ const TelefonnummerHosNav = (props: Props) => {
           {tlfnr.telefonAlternativ && (
             <EndreNummer
               prioritet={2}
-              titleId="personalia.tlfnr.alternativ"
+              titleId="personalia.tlfnr.telefon"
               hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
               landskode={tlfnr.landskodeAlternativ}
               tlfnummer={fjernMellorom(tlfnr.telefonAlternativ)}

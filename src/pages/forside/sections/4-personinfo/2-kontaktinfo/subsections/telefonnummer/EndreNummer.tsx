@@ -264,7 +264,10 @@ const EndreTelefonnummer = (props: Props) => {
                     type={"flat"}
                     htmlType={"button"}
                     className={"tlfnummer__knapp"}
-                    onClick={() => settEndre(!endre)}
+                    onClick={() => {
+                      settAlert(undefined);
+                      settEndre(!endre);
+                    }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
