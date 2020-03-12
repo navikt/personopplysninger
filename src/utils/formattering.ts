@@ -25,14 +25,32 @@ export const formatTelefonnummer = (
   landskode?: string
 ) => {
   if (landskode === "+47") {
-    if (input.length > 8) {
-      return input.replace(/^(.{3})(.{2})(.{3})(.*)$/, "$1 $2 $3");
-    }
-    if (input.length > 5) {
-      return input.replace(/^(.{3})(.{2})(.*)$/, "$1 $2 $3");
-    }
-    if (input.length > 3) {
-      return input.replace(/^(.{3})(.*)$/, "$1 $2");
+    switch (input.charAt(0)) {
+      case "4":
+      case "9":
+        if (input.length > 8) {
+          return input.replace(/^(.{3})(.{2})(.{3})(.*)$/, "$1 $2 $3");
+        }
+        if (input.length > 5) {
+          return input.replace(/^(.{3})(.{2})(.*)$/, "$1 $2 $3");
+        }
+        if (input.length > 3) {
+          return input.replace(/^(.{3})(.*)$/, "$1 $2");
+        }
+        break;
+      default:
+        if (input.length > 8) {
+          return input.replace(/^(.{2})(.{2})(.{2})(.{2})(.*)$/, "$1 $2 $3 $4");
+        }
+        if (input.length > 6) {
+          return input.replace(/^(.{2})(.{2})(.{2})(.*)$/, "$1 $2 $3 $4");
+        }
+        if (input.length > 4) {
+          return input.replace(/^(.{2})(.{2})(.*)$/, "$1 $2 $3");
+        }
+        if (input.length > 2) {
+          return input.replace(/^(.{2})(.*)$/, "$1 $2");
+        }
     }
   }
 
