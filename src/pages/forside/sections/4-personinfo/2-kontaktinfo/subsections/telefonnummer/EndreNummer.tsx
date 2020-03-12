@@ -27,6 +27,7 @@ export interface OutboundTlfnummer {
 interface Props {
   prioritet: 1 | 2;
   titleId: string;
+  hasTwoNumbers: boolean;
   onDeleteSuccess: () => void;
   onChangeSuccess: () => void;
   landskode?: string;
@@ -34,7 +35,7 @@ interface Props {
 }
 
 const EndreTelefonnummer = (props: Props) => {
-  const { prioritet, titleId, landskode, tlfnummer } = props;
+  const { prioritet, titleId, landskode, tlfnummer, hasTwoNumbers } = props;
   const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
@@ -151,7 +152,10 @@ const EndreTelefonnummer = (props: Props) => {
             <div className={"tlfnummer__container"}>
               <div className={"tlfnummer__verdi"}>
                 <Element>
-                  <FormattedMessage id={titleId} />
+                  <FormattedMessage
+                    id={titleId}
+                    values={{ x: hasTwoNumbers ? prioritet : `` }}
+                  />
                 </Element>
                 {!endre && (
                   <Normaltekst>

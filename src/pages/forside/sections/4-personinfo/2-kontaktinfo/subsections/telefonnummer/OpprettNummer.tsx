@@ -1,5 +1,5 @@
 import { FormattedMessage } from "react-intl";
-import { Input, Select } from "nav-frontend-skjema";
+import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import {
@@ -10,26 +10,24 @@ import {
 } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import { Element } from "nav-frontend-typografi";
-import { Tlfnr } from "types/personalia";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
-import { RADIX_DECIMAL } from "../../../../../../../utils/formattering";
 
 interface Props {
+  prioritet: 1 | 2;
   onCancelClick: () => void;
   onChangeSuccess: () => void;
-  tlfnr?: Tlfnr;
 }
 
 const OpprettTelefonnummer = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { tlfnr, onChangeSuccess } = props;
+  const { prioritet, onChangeSuccess } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -40,13 +38,6 @@ const OpprettTelefonnummer = (props: Props) => {
   };
 
   const formConfig = {
-    prioritet: {
-      isRequired: { message: msg({ id: "validation.prioritet.pakrevd" }) },
-      isWhitelisted: {
-        message: msg({ id: "validation.prioritet.pakrevd" }),
-        whitelist: ["1", "2"]
-      }
-    },
     landskode: {
       isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
@@ -75,11 +66,11 @@ const OpprettTelefonnummer = (props: Props) => {
 
   const submit = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { prioritet, landskode, tlfnummer } = fields;
+    const { landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
-        prioritet: parseInt(prioritet, RADIX_DECIMAL) as 1 | 2,
+        prioritet,
         landskode: landskode.value,
         nummer: tlfnummer
       };
@@ -115,27 +106,6 @@ const OpprettTelefonnummer = (props: Props) => {
                 </div>
               </div>
               <div className="tlfnummer__form">
-                <div className={"tlfnummer__container"}>
-                  <Select
-                    value={fields.prioritet}
-                    label={msg({ id: "felter.prioritet.label" })}
-                    onChange={e => setField({ prioritet: e.target.value })}
-                    bredde={"s"}
-                    feil={sjekkForFeil(submitted, errors.prioritet)}
-                  >
-                    <option>{msg({ id: "felter.type.velg" })}</option>
-                    {(!tlfnr || (tlfnr && !tlfnr.telefonHoved)) && (
-                      <option value="1">
-                        {msg({ id: "personalia.tlfnr.hoved" })}
-                      </option>
-                    )}
-                    {(!tlfnr || (tlfnr && !tlfnr.telefonAlternativ)) && (
-                      <option value="2">
-                        {msg({ id: "personalia.tlfnr.alternativ" })}
-                      </option>
-                    )}
-                  </Select>
-                </div>
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode

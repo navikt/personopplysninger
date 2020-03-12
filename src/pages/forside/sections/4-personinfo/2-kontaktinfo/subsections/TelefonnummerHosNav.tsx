@@ -46,7 +46,8 @@ const TelefonnummerHosNav = (props: Props) => {
           {tlfnr.telefonHoved && (
             <EndreNummer
               prioritet={1}
-              titleId="personalia.tlfnr.hoved"
+              titleId="personalia.tlfnr.telefon"
+              hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
               landskode={tlfnr.landskodeHoved}
               tlfnummer={fjernMellorom(tlfnr.telefonHoved)}
               onDeleteSuccess={onDeleteSuccess}
@@ -57,6 +58,7 @@ const TelefonnummerHosNav = (props: Props) => {
             <EndreNummer
               prioritet={2}
               titleId="personalia.tlfnr.alternativ"
+              hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
               landskode={tlfnr.landskodeAlternativ}
               tlfnummer={fjernMellorom(tlfnr.telefonAlternativ)}
               onDeleteSuccess={onDeleteSuccess}
@@ -81,9 +83,9 @@ const TelefonnummerHosNav = (props: Props) => {
 
       {opprett && (
         <OpprettNummer
+          prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
-          tlfnr={tlfnr}
         />
       )}
 
