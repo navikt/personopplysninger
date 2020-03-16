@@ -45,11 +45,6 @@ const init = async () => {
       "{{{MEGAMENU_RESOURCES}}}",
       megamenu
     );
-
-    // Execute client.js
-    var script = document.createElement("script");
-    script.src = "https://www.nav.no/dekoratoren/client.js";
-    document.body.appendChild(script);
   }
 
   ReactDOM.render(

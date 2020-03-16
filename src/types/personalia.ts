@@ -1,8 +1,10 @@
 export interface Tlfnr {
-  telefonHoved?: string;
-  telefonAlternativ?: string;
-  landskodeHoved?: string;
-  landskodeAlternativ?: string;
+  jobb?: string;
+  mobil?: string;
+  privat?: string;
+  landkodeJobb?: string;
+  landkodeMobil?: string;
+  landkodePrivat?: string;
 }
 
 export interface UtenlandskBankkonto {
