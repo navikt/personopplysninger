@@ -20,14 +20,13 @@ export const fjernMellorom = (value: string) => {
 };
 
 export const formatTelefonnummer = (
-  prioritet: 1 | 2,
+  type: string,
   input: string,
   landskode?: string
 ) => {
   if (landskode === "+47") {
-    switch (input.charAt(0)) {
-      case "4":
-      case "9":
+    switch (type) {
+      case "MOBIL":
         if (input.length > 8) {
           return input.replace(/^(.{3})(.{2})(.{3})(.*)$/, "$1 $2 $3");
         }
@@ -38,7 +37,8 @@ export const formatTelefonnummer = (
           return input.replace(/^(.{3})(.*)$/, "$1 $2");
         }
         break;
-      default:
+      case "HJEM":
+      case "ARBEID":
         if (input.length > 8) {
           return input.replace(/^(.{2})(.{2})(.{2})(.{2})(.*)$/, "$1 $2 $3 $4");
         }
@@ -51,6 +51,7 @@ export const formatTelefonnummer = (
         if (input.length > 2) {
           return input.replace(/^(.{2})(.*)$/, "$1 $2");
         }
+        break;
     }
   }
 

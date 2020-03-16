@@ -5,7 +5,7 @@ import Box from "components/box/Box";
 import { useParams } from "react-router-dom";
 import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
-import TelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav";
+import PDLTelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav-PDL";
 import MedPersonInfo from "store/providers/PersonInfo";
 import Spinner from "components/spinner/Spinner";
 import Error, { HTTPError } from "components/error/Error";
@@ -35,7 +35,7 @@ const EndreAlleOpplysninger = () => {
                     tittel="kontaktinfo.tittel"
                     icon={kontaktIkon}
                   >
-                    <TelefonnummerHosNav tlfnr={personalia.tlfnr} />
+                    <PDLTelefonnummerHosNav tlfnr={personalia.tlfnr} />
                   </Box>
                 )}
                 {adresser && <Adresser adresser={adresser} />}

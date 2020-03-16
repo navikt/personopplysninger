@@ -1,25 +1,19 @@
 import { FormattedMessage } from "react-intl";
-import { Input } from "nav-frontend-skjema";
+import { Input, Select } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
-import {
-  FieldsConfig,
-  FormContext,
-  FormValidation,
-  ValidatorContext
-} from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import { Element } from "nav-frontend-typografi";
+import { Tlfnr } from "types/personalia";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
 import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
-import { Tlfnr } from "../../../../../../../types/personalia";
 
 interface Props {
-  prioritet: 1 | 2;
   onCancelClick: () => void;
   onChangeSuccess: () => void;
   tlfnr?: Tlfnr;
@@ -29,7 +23,7 @@ const OpprettTelefonnummer = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const { prioritet, tlfnr, onChangeSuccess } = props;
+  const { tlfnr, onChangeSuccess } = props;
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -40,19 +34,19 @@ const OpprettTelefonnummer = (props: Props) => {
   };
 
   const formConfig = {
+    type: {
+      isRequired: { message: msg({ id: "validation.type.pakrevd" }) },
+      isWhitelisted: {
+        message: msg({ id: "validation.type.pakrevd" }),
+        whitelist: ["MOBIL", "ARBEID", "HJEM"]
+      }
+    },
     landskode: {
       isRequired: msg({ id: "validation.retningsnr.pakrevd" })
     },
     tlfnummer: {
       isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
       isNumber: msg({ id: "validation.tlfnr.siffer" }),
-      ...(tlfnr &&
-        (tlfnr.telefonHoved || tlfnr.telefonAlternativ) && {
-          isBlacklisted: {
-            message: msg({ id: "validation.tlfnr.eksisterer" }),
-            blacklist: [tlfnr.telefonHoved, tlfnr.telefonAlternativ]
-          }
-        }),
       isValidNorwegianNumber: {
         message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
@@ -75,11 +69,11 @@ const OpprettTelefonnummer = (props: Props) => {
 
   const submit = (e: FormContext) => {
     const { isValid, fields } = e;
-    const { landskode, tlfnummer } = fields;
+    const { type, landskode, tlfnummer } = fields;
 
     if (isValid) {
       const outbound = {
-        prioritet,
+        type,
         landskode: landskode.value,
         nummer: tlfnummer
       };
@@ -97,7 +91,7 @@ const OpprettTelefonnummer = (props: Props) => {
     <>
       <FormValidation
         onSubmit={submit}
-        config={formConfig as FieldsConfig}
+        config={formConfig}
         initialValues={initialValues}
         className={"tlfnummer__rad-leggtil"}
       >
@@ -115,6 +109,32 @@ const OpprettTelefonnummer = (props: Props) => {
                 </div>
               </div>
               <div className="tlfnummer__form">
+                <div className={"tlfnummer__container"}>
+                  <Select
+                    value={fields.type}
+                    label={msg({ id: "felter.type.label" })}
+                    onChange={e => setField({ type: e.target.value })}
+                    bredde={"s"}
+                    feil={sjekkForFeil(submitted, errors.type)}
+                  >
+                    <option>{msg({ id: "felter.type.velg" })}</option>
+                    {(!tlfnr || (tlfnr && !tlfnr.mobil)) && (
+                      <option value="MOBIL">
+                        {msg({ id: "personalia.tlfnr.mobil" })}
+                      </option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.jobb)) && (
+                      <option value="ARBEID">
+                        {msg({ id: "personalia.tlfnr.arbeid" })}
+                      </option>
+                    )}
+                    {(!tlfnr || (tlfnr && !tlfnr.privat)) && (
+                      <option value="HJEM">
+                        {msg({ id: "personalia.tlfnr.hjem" })}
+                      </option>
+                    )}
+                  </Select>
+                </div>
                 <div className={"tlfnummer__input-container"}>
                   <div className={"tlfnummer__input input--s"}>
                     <SelectLandskode
@@ -154,10 +174,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     htmlType={"button"}
                     disabled={loading}
                     className={"tlfnummer__knapp"}
-                    onClick={() => {
-                      settAlert(undefined);
-                      props.onCancelClick();
-                    }}
+                    onClick={props.onCancelClick}
                   >
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>

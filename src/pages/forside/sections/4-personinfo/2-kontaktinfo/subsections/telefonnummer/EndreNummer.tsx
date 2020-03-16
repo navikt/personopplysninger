@@ -19,15 +19,14 @@ import { UNKNOWN } from "utils/text";
 import Modal from "nav-frontend-modal";
 
 export interface OutboundTlfnummer {
-  prioritet: 1 | 2;
+  type: string;
   landskode?: string;
   nummer: string;
 }
 
 interface Props {
-  prioritet: 1 | 2;
+  type: "MOBIL" | "HJEM" | "ARBEID";
   titleId: string;
-  hasTwoNumbers: boolean;
   onDeleteSuccess: () => void;
   onChangeSuccess: () => void;
   landskode?: string;
@@ -35,7 +34,7 @@ interface Props {
 }
 
 const EndreTelefonnummer = (props: Props) => {
-  const { prioritet, titleId, landskode, tlfnummer, hasTwoNumbers } = props;
+  const { type, titleId, landskode, tlfnummer } = props;
   const [visSlettModal, settVisSlettModal] = useState(false);
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
@@ -101,7 +100,7 @@ const EndreTelefonnummer = (props: Props) => {
 
     if (isValid) {
       const outbound = {
-        prioritet,
+        type,
         landskode: fields.landskode.value,
         nummer: fields.tlfnummer
       };
@@ -121,7 +120,7 @@ const EndreTelefonnummer = (props: Props) => {
     }
 
     const outbound = {
-      prioritet,
+      type,
       landskode: landskode,
       nummer: tlfnummer
     };
@@ -152,15 +151,12 @@ const EndreTelefonnummer = (props: Props) => {
             <div className={"tlfnummer__container"}>
               <div className={"tlfnummer__verdi"}>
                 <Element>
-                  <FormattedMessage
-                    id={titleId}
-                    values={{ x: hasTwoNumbers ? prioritet : `` }}
-                  />
+                  <FormattedMessage id={titleId} />
                 </Element>
                 {!endre && (
                   <Normaltekst>
                     {landskode && <span>{landskode} </span>}
-                    {formatTelefonnummer(prioritet, tlfnummer, landskode)}
+                    {formatTelefonnummer(type, tlfnummer, landskode)}
                   </Normaltekst>
                 )}
               </div>
@@ -200,7 +196,7 @@ const EndreTelefonnummer = (props: Props) => {
                 closeButton={false}
                 isOpen={visSlettModal}
                 onRequestClose={lukkSlettModal}
-                contentLabel={msg({ id: "side.opphor" })}
+                contentLabel={msg({ id: "side.opphør" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
                   <FormattedMessage id="personalia.tlfnr.slett.alert" />
@@ -264,10 +260,7 @@ const EndreTelefonnummer = (props: Props) => {
                     type={"flat"}
                     htmlType={"button"}
                     className={"tlfnummer__knapp"}
-                    onClick={() => {
-                      settAlert(undefined);
-                      settEndre(!endre);
-                    }}
+                    onClick={() => settEndre(!endre)}
                   >
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
