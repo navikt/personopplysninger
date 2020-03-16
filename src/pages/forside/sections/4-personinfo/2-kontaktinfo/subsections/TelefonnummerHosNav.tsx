@@ -15,7 +15,7 @@ interface Props {
   tlfnr?: Tlfnr;
 }
 
-const PDLTelefonnummerHosNav = (props: Props) => {
+const TelefonnummerHosNav = (props: Props) => {
   const [opprett, settOpprett] = useState();
   const { tlfnr } = props;
 
@@ -41,34 +41,26 @@ const PDLTelefonnummerHosNav = (props: Props) => {
           <FormattedHTMLMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
-      {tlfnr && (tlfnr.mobil || tlfnr.privat || tlfnr.jobb) ? (
+      {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
         <div>
-          {tlfnr.mobil && (
+          {tlfnr.telefonHoved && (
             <EndreNummer
-              type={"MOBIL"}
-              titleId="personalia.tlfnr.mobil"
-              landskode={tlfnr.landkodeMobil}
-              tlfnummer={fjernMellorom(tlfnr.mobil)}
+              prioritet={1}
+              titleId="personalia.tlfnr.telefon"
+              hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
+              landskode={tlfnr.landskodeHoved}
+              tlfnummer={fjernMellorom(tlfnr.telefonHoved)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
           )}
-          {tlfnr.privat && (
+          {tlfnr.telefonAlternativ && (
             <EndreNummer
-              type={"HJEM"}
-              titleId="personalia.tlfnr.hjem"
-              landskode={tlfnr.landkodePrivat}
-              tlfnummer={fjernMellorom(tlfnr.privat)}
-              onDeleteSuccess={onDeleteSuccess}
-              onChangeSuccess={onChangeSuccess}
-            />
-          )}
-          {tlfnr.jobb && (
-            <EndreNummer
-              type={"ARBEID"}
-              titleId="personalia.tlfnr.arbeid"
-              landskode={tlfnr.landkodeJobb}
-              tlfnummer={fjernMellorom(tlfnr.jobb)}
+              prioritet={2}
+              titleId="personalia.tlfnr.telefon"
+              hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
+              landskode={tlfnr.landskodeAlternativ}
+              tlfnummer={fjernMellorom(tlfnr.telefonAlternativ)}
               onDeleteSuccess={onDeleteSuccess}
               onChangeSuccess={onChangeSuccess}
             />
@@ -78,7 +70,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
         <Melding meldingId="personalia.tlfnr.ingenData" />
       )}
 
-      {!opprett && !(tlfnr && tlfnr.jobb && tlfnr.mobil && tlfnr.privat) && (
+      {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
         <button onClick={onLeggTil} className="tlfnummer__leggtil lenke">
           <span className="kilde__icon">
             <img src={leggTilIkon} alt="Ekstern lenke" />
@@ -91,6 +83,7 @@ const PDLTelefonnummerHosNav = (props: Props) => {
 
       {opprett && (
         <OpprettNummer
+          prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
           tlfnr={tlfnr}
@@ -102,4 +95,4 @@ const PDLTelefonnummerHosNav = (props: Props) => {
   );
 };
 
-export default PDLTelefonnummerHosNav;
+export default TelefonnummerHosNav;
