@@ -47,7 +47,7 @@ const DittNavKontor = (props: Props) => {
           </Normaltekst>
           <Element>{geografiskTilknytning.enhet}</Element>
         </div>
-        {publikumsmottak && publikumsmottak.length > 1 && (
+        {publikumsmottak.length > 1 && (
           <Select
             label={``}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
