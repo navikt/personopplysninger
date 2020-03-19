@@ -21,8 +21,9 @@ interface Props {
 const DittNavKontor = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { enhet } = props.enhetKontaktInformasjon;
+  const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
   const [valgtMottakId, settValgtMottakId] = useState(
-    enhet && enhet.publikumsmottak.length > 1 ? -1 : 0
+    publikumsmottak.length ? 0 : -1
   );
 
   if (!enhet || !props.geografiskTilknytning) {
@@ -30,7 +31,7 @@ const DittNavKontor = (props: Props) => {
   }
 
   const { geografiskTilknytning } = props;
-  const { publikumsmottak, postadresse } = enhet;
+  const { postadresse } = enhet;
 
   return (
     <Box
@@ -46,7 +47,7 @@ const DittNavKontor = (props: Props) => {
           </Normaltekst>
           <Element>{geografiskTilknytning.enhet}</Element>
         </div>
-        {publikumsmottak.length > 1 && (
+        {publikumsmottak && publikumsmottak.length > 1 && (
           <Select
             label={``}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
