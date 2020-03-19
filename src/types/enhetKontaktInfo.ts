@@ -42,7 +42,7 @@ export interface Enhet {
         postboksnummer?: string;
         postboksanlegg?: string;
       };
-  publikumsmottak: Publikumsmottak[];
+  publikumsmottak?: Publikumsmottak[];
   spesielleopplysninger?: string;
   tlfperson?: string;
 }
