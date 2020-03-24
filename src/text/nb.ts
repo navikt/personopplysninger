@@ -154,7 +154,7 @@ export default {
   "dittnavkontor.kontaktinfo.pensjon": `Pensjon`,
   "dittnavkontor.kontaktinfo.pensjon.tlfnr": `<a class="lenke" href="tel:004755553334"/>55 55 33 34</a> `,
   "dittnavkontor.kontaktinfo.apningstider.tittel": `Åpningstider på telefon`,
-  "dittnavkontor.kontaktinfo.apningstider.innhold": `08.00 til 15.30 på hverdager.`,
+  "dittnavkontor.kontaktinfo.apningstider.innhold": `08.00 til 15.00 på hverdager.`,
   "dittnavkontor.kilde": `Folkeregisteret`,
   "lenker.tittel": `Flere opplysninger om deg`,
   "lenker.beskrivelse": `Vi har også opplysninger om deg som du ikke ser på denne siden. Gå til de ulike tjenestene under og se opplysninger.`,
