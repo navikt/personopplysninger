@@ -148,7 +148,7 @@ export default {
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
   "dittnavkontor.publikumsmottakfor": `Publikumsmottak for`,
   "dittnavkontor.apningstider": `Åpningstider`,
-  "dittnavkontor.andreapningstider": `Andre åpningertider`,
+  "dittnavkontor.andreapningstider": `Andre åpningstider`,
   "dittnavkontor.kontaktinfo.overskrift": `Kontakt NAV`,
   "dittnavkontor.kontaktinfo.lenke": `Gå til kontaktinformasjon`,
   "dittnavkontor.kilde": `Folkeregisteret`,
