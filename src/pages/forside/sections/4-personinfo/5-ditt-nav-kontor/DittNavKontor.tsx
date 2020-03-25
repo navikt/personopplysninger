@@ -12,6 +12,7 @@ import Apningstid from "./apningstid/Apningstid";
 import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
+import Lenke from "nav-frontend-lenker";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -158,21 +159,12 @@ const DittNavKontor = (props: Props) => {
       </div>
       <ul className="dittnavkontor__footer list-column-2">
         <ListElement
-          titleId="dittnavkontor.kontaktinfo.kontaktsenter.tittel"
+          titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
-            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.kontaktsenter.tlfnr" />
+            <Lenke href={`/person/kontakt-oss/`}>
+              <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.lenke" />
+            </Lenke>
           }
-        >
-          <>
-            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" />
-            (<FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
-          </>
-        </ListElement>
-        <ListElement
-          titleId="dittnavkontor.kontaktinfo.apningstider.tittel"
-          content={msg({
-            id: "dittnavkontor.kontaktinfo.apningstider.innhold"
-          })}
         />
       </ul>
       <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
