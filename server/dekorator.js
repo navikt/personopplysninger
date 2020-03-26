@@ -27,8 +27,8 @@ const getDecorator = () =>
             NAV_SKIPLINKS: document.getElementById("skiplinks")[prop],
             NAV_SCRIPTS: document.getElementById("scripts")[prop],
             NAV_STYLES: document.getElementById("styles")[prop],
-            NAV_HEADING: document.getElementById("header-withmenu")[prop],
-            NAV_FOOTER: document.getElementById("footer-withmenu")[prop],
+            NAV_HEADING: document.getElementById("header")[prop],
+            NAV_FOOTER: document.getElementById("footer")[prop],
             MEGAMENU_RESOURCES: document.getElementById("megamenu-resources")[
               prop
             ]
