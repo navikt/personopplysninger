@@ -38,7 +38,7 @@ export default {
     knapp: "Gå tilbake til uføretrygd"
   },
   "dagpenger/forskudd": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fdagpenger%2Fforskudd%2F`,
+    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fdagpenger%2Fforskudd%2Fsoknad%2F`,
     beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til søknaden om forskudd på dagpenger"
   },
