@@ -9,11 +9,12 @@ import SkattIkon from "assets/img/Skattekort.svg";
 import MEDLIkon from "assets/img/MEDL.svg";
 import FullmaktIkon from "assets/img/Fullmakt.svg";
 import TilretteleggingIkon from "assets/img/Tilrettelegging.svg";
+import SkjermingIkon from "assets/img/Skjerming.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import ScrollableAnchor from "react-scrollable-anchor";
 
-const { REACT_APP_PDL_URL, REACT_APP_BFT_URL } = process.env;
+const { REACT_APP_PDL_URL, REACT_APP_BFT_URL, REACT_APP_SKJERMING_URL } = process.env;
 
 const LinksContainer = () => {
   const [{ featureToggles }] = useStore();
@@ -110,6 +111,15 @@ const LinksContainer = () => {
               component={"a"}
             />
           )}
+          <LinkBox
+            id={"skjerming"}
+            icon={SkjermingIkon}
+            tittel={"lenker.skjerming.tittel"}
+            beskrivelse={"lenker.skjerming.beskrivelse"}
+            lenkeTekst={"lenker.skjerming.lenkeTekst"}
+            to={`${REACT_APP_SKJERMING_URL}`}
+            component={"a"}
+          />
         </div>
       </ScrollableAnchor>
     </PanelBase>
