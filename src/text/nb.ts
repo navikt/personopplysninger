@@ -181,7 +181,7 @@ export default {
   "lenker.tilrettelegging.tittel": `Behov for tilrettelegging`,
   "lenker.tilrettelegging.beskrivelse": `Se hvilke behov du har for tilrettelegging for å kunne jobbe. Behovene er registrert av veileder.`,
   "lenker.skjerming.tittel": `Skjerming mot innsyn`,
-  "lenker.skjerming.beskrivelse": `Se og endre skjermingsstatus.`,
+  "lenker.skjerming.beskrivelse": `Gjelder ansatte i NAV og familiemedlemmer.`,
   "felter.type.label": "Type",
   "felter.type.velg": "Velg type",
   "felter.prioritet.label": "Prioritet",
