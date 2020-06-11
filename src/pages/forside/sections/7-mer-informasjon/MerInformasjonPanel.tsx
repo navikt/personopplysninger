@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Lenke from "nav-frontend-lenker";
@@ -26,10 +26,11 @@ const Alternativ = (props: Props) => {
           <FormattedMessage
             id={melding}
             values={{
-              p: (text: string | Element, test: string) => (
+              p: (...chunks: string[]) => (
                 <p>
-                  {text}
-                  <>{console.log(test)}</>
+                  {chunks.map((chunk, i) => (
+                    <Fragment key={i}>{chunk}</Fragment>
+                  ))}
                 </p>
               ),
               beskjedLenke: (text: string) => (
