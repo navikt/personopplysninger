@@ -7,6 +7,7 @@ import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
+import Lenke from "nav-frontend-lenker";
 
 const Header = () => {
   const [{ nameInfo }] = useStore();
@@ -43,7 +44,20 @@ const Header = () => {
               </div>
               <div className="header__seksjon">
                 <Normaltekst>
-                  <FormattedMessage id="header.description" />
+                  <FormattedMessage
+                    id="header.description"
+                    values={{
+                      a: (text: String) => (
+                        <Lenke
+                          href="https://www.nav.no/personvern"
+                          target="blank"
+                          rel="noopener noreferrer"
+                        >
+                          {text}
+                        </Lenke>
+                      ),
+                    }}
+                  />
                 </Normaltekst>
               </div>
             </div>

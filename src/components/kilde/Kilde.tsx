@@ -79,7 +79,18 @@ const Kilde = (props: Props) => {
         <div className="kilde__tekst">
           {props.kilde && (
             <EtikettLiten>
-              <FormattedMessage id={props.kilde} />
+              <FormattedMessage
+                id={props.kilde}
+                values={{
+                  span: (text: String) => <span>{text}</span>,
+                  br: (text: String) => (
+                    <>
+                      <br />
+                      {text}
+                    </>
+                  ),
+                }}
+              />
             </EtikettLiten>
           )}
         </div>

@@ -28,7 +28,12 @@ const EndreKontonummerFelt = ({
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
           <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
-            <FormattedMessage id={hjelpetekst} />
+            <FormattedMessage
+              id={hjelpetekst}
+              values={{
+                b: (text: string) => <b>{text}</b>,
+              }}
+            />
           </Hjelpetekst>
         )}
       </div>

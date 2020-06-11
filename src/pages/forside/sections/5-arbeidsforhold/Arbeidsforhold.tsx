@@ -22,7 +22,7 @@ const Arbeidsforhold = () => {
   const onClick = {
     type: "REACT_ROUTER_LENKE",
     Component: Link,
-    to: `${basePath}/arbeidsforhold/{id}`
+    to: `${basePath}/arbeidsforhold/{id}`,
   } as AFListeOnClick;
 
   return (
@@ -41,7 +41,17 @@ const Arbeidsforhold = () => {
       </div>
       <div className="arbeidsforhold__disclaimer">
         <AlertStripeInfo>
-          <FormattedMessage id="arbeidsforhold.disclaimer" />
+          <FormattedMessage
+            id="arbeidsforhold.disclaimer"
+            values={{
+              br: (text: String) => (
+                <>
+                  <br />
+                  {text}
+                </>
+              ),
+            }}
+          />
         </AlertStripeInfo>
       </div>
       <Kilde kilde="arbeidsforhold.kilde" lenkeType="INGEN" />

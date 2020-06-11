@@ -2,7 +2,6 @@ import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import ListElement from "components/listelement/ListElement";
-import Melding from "components/melding/Melding";
 import { KontaktInfo } from "types/kontaktInfo";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
@@ -18,7 +17,12 @@ const KontaktInformasjon = (props: Props) => {
       <div className="underseksjon__beskrivelse">
         <Normaltekst>
           {kanVarsles ? (
-            <FormattedMessage id="personalia.dkif.kanVarsles" />
+            <FormattedMessage
+              id="personalia.dkif.kanVarsles"
+              values={{
+                b: (text: string) => <b>{text}</b>,
+              }}
+            />
           ) : (
             <FormattedMessage id="personalia.dkif.kanIkkeVarsles" />
           )}
@@ -38,7 +42,14 @@ const KontaktInformasjon = (props: Props) => {
     </>
   ) : (
     <>
-      <Melding bold={true} meldingId="personalia.dkif.ingenData" />
+      <div className="underseksjon__beskrivelse">
+        <FormattedMessage
+          id={"personalia.dkif.ingenData"}
+          values={{
+            b: (text: string) => <b>{text}</b>,
+          }}
+        />
+      </div>
       <Kilde
         kilde="personalia.source.dkif"
         lenke="https://brukerprofil.difi.no/minprofil"

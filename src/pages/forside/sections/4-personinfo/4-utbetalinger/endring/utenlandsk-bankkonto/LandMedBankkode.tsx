@@ -22,7 +22,12 @@ const LandMedBankkode = (props: Props) => {
           <AlertStripeAdvarsel>
             <FormattedMessage
               id="felter.landetbrukerbankkode.advarsel"
-              values={{ land: fields.land.label.toLowerCase() }}
+              values={{
+                land: fields.land.label.toLowerCase(),
+                span: (text: string) => (
+                  <span className="capitalize">{text}</span>
+                ),
+              }}
             />
           </AlertStripeAdvarsel>
         </div>
@@ -33,7 +38,7 @@ const LandMedBankkode = (props: Props) => {
           value={fields.bickode}
           hjelpetekst={"utbetalinger.hjelpetekster.bic"}
           label={msg({ id: "felter.bic.label" })}
-          onChange={value => setField({ bickode: value })}
+          onChange={(value) => setField({ bickode: value })}
           error={errors.bickode}
         />
         <div className="utbetalinger__bankkode-rad">
@@ -45,7 +50,7 @@ const LandMedBankkode = (props: Props) => {
               label={msg({ id: "felter.bankkode.label" })}
               error={errors.retningsnummer}
               hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
-              onChange={value => setField({ retningsnummer: value })}
+              onChange={(value) => setField({ retningsnummer: value })}
             />
           </div>
           <div className="utbetalinger__bankkode-kolonne">
@@ -55,7 +60,7 @@ const LandMedBankkode = (props: Props) => {
               submitted={submitted}
               value={fields.bankkode}
               error={errors.bankkode}
-              onChange={value => setField({ bankkode: value })}
+              onChange={(value) => setField({ bankkode: value })}
               maxLength={fields.land && BANKKODE_MAX_LENGTH[fields.land.value]}
             />
           </div>
@@ -67,7 +72,7 @@ const LandMedBankkode = (props: Props) => {
           maxLength={34}
           submitted={submitted}
           value={fields.adresse1}
-          onChange={value => setField({ adresse1: value })}
+          onChange={(value) => setField({ adresse1: value })}
           label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
@@ -76,7 +81,7 @@ const LandMedBankkode = (props: Props) => {
           maxLength={34}
           value={fields.adresse2}
           submitted={submitted}
-          onChange={value => setField({ adresse2: value })}
+          onChange={(value) => setField({ adresse2: value })}
         />
         <InputMedHjelpetekst
           label={""}
@@ -84,7 +89,7 @@ const LandMedBankkode = (props: Props) => {
           maxLength={34}
           value={fields.adresse3}
           submitted={submitted}
-          onChange={value => setField({ adresse3: value })}
+          onChange={(value) => setField({ adresse3: value })}
         />
       </div>
     </>

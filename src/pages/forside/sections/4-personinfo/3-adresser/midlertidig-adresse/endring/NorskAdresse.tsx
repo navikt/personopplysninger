@@ -32,7 +32,12 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
           <div className="adresse__select-header">
             <FormattedMessage id={"felter.adressetype"} />
             <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
-              <FormattedMessage id={"adresse.hjelpetekster.adressetyper"} />
+              <FormattedMessage
+                id={"adresse.hjelpetekster.adressetyper"}
+                values={{
+                  b: (text: string) => <b>{text}</b>,
+                }}
+              />
             </Hjelpetekst>
           </div>
           <div className={cls("KodeverkSelect--select-wrapper input--l")}>

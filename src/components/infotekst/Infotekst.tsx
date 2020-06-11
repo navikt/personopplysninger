@@ -40,7 +40,15 @@ function Infotekst(props: HjelpetekstProps) {
         <div style={{ padding: "2rem 2.5rem" }}>
           <div className="infotekst__ingress">
             <Normaltekst>
-              <FormattedMessage id={props.beskrivelse} />
+              <FormattedMessage
+                id={props.beskrivelse}
+                values={{
+                  b: (text: string) => <b>{text}</b>,
+                  span: (text: string) => (
+                    <span style={{ textTransform: "none" }}>{text}</span>
+                  ),
+                }}
+              />
             </Normaltekst>
           </div>
         </div>

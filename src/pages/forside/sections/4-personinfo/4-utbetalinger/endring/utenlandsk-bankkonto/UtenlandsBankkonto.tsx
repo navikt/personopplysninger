@@ -15,6 +15,7 @@ import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
+import Lenke from "nav-frontend-lenker";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -185,7 +186,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         <>
           <div className="utbetalinger__alert">
             <AlertStripeInfo>
-              <FormattedMessage id="felter.utenlandskkonto.info" />
+              <FormattedMessage
+                id="felter.utenlandskkonto.info"
+                values={{
+                  a: (text: String) => (
+                    <Lenke href="https://www.nav.no/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
+                      {text}
+                    </Lenke>
+                  ),
+                }}
+              />
             </AlertStripeInfo>
           </div>
           <SelectLand

@@ -1,5 +1,5 @@
 import React from "react";
-import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser-PDL";
+import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser";
 import Utbetalinger from "pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import Box from "components/box/Box";
 import { useParams } from "react-router-dom";

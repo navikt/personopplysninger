@@ -4,7 +4,6 @@ import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "types/personalia";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import Kilde from "components/kilde/Kilde";
-import Melding from "components/melding/Melding";
 import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
@@ -67,7 +66,19 @@ const TelefonnummerHosNav = (props: Props) => {
           )}
         </div>
       ) : (
-        <Melding meldingId="personalia.tlfnr.ingenData" />
+        <div className="underseksjon__beskrivelse">
+          <FormattedMessage
+            id="personalia.tlfnr.ingenData"
+            values={{
+              br: (text: String) => (
+                <>
+                  <br />
+                  {text}
+                </>
+              ),
+            }}
+          />
+        </div>
       )}
 
       {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
