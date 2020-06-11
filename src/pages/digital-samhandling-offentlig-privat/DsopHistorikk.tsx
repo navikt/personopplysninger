@@ -5,7 +5,7 @@ import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
-import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
@@ -68,7 +68,7 @@ const Tabell = (props: Props) => {
         <>
           <div className={"historikk__info"}>
             <AlertStripeInfo>
-              <FormattedHTMLMessage id={"lenker.dsop.info"} />
+              <FormattedMessage id={"lenker.dsop.info"} />
             </AlertStripeInfo>
           </div>
           <div className="historikk__flex-rad historikk__head">

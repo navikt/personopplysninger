@@ -1,5 +1,5 @@
 import { Element, Normaltekst } from "nav-frontend-typografi";
-import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { Fareknapp, Flatknapp, Knapp } from "nav-frontend-knapper";
@@ -210,7 +210,7 @@ const EndreTelefonnummer = (props: Props) => {
                       spinner={slettLoading}
                       autoDisableVedSpinner={true}
                     >
-                      <FormattedHTMLMessage id={"side.slett"} />
+                      <FormattedMessage id={"side.slett"} />
                     </Fareknapp>
                     <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
                       <FormattedMessage id="side.avbryt" />

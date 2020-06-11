@@ -1,6 +1,5 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { FormattedHTMLMessage } from "react-intl";
 import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 import NorskMidlertidigAdresse from "./midlertidig-adresse/visning/NorskAdresse";
 import { Adresser } from "types/adresser";
@@ -42,7 +41,7 @@ const AdresserOLD = (props: Props) => {
         )}
         {!adresser.tilleggsadresse && !adresser.utenlandskAdresse && (
           <Normaltekst>
-            <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
+            <FormattedMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
           </Normaltekst>
         )}
         {adresser.tilleggsadresse || adresser.utenlandskAdresse ? (

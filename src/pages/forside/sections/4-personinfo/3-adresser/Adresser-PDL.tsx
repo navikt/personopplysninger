@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { FormattedHTMLMessage, useIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { Adresser } from "types/adresser";
 import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
@@ -150,7 +149,7 @@ const AdresserPDL = (props: Props) => {
             )}
             {!tilleggsadresse && !utenlandskAdresse && (
               <Normaltekst>
-                <FormattedHTMLMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
+                <FormattedMessage id="adresse.midlertidigadresse.leggtil.beskrivelse" />
               </Normaltekst>
             )}
             <div className="adresse__endre-knapper">
@@ -162,7 +161,7 @@ const AdresserPDL = (props: Props) => {
                   />
                 </span>
                 <Normaltekst>
-                  <FormattedHTMLMessage
+                  <FormattedMessage
                     id={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
                   />
                 </Normaltekst>
@@ -173,7 +172,7 @@ const AdresserPDL = (props: Props) => {
                     <img src={slettIkon} alt="Ekstern lenke" />
                   </span>
                   <Normaltekst>
-                    <FormattedHTMLMessage id={"side.slett"} />
+                    <FormattedMessage id={"side.slett"} />
                   </Normaltekst>
                 </button>
               )}
@@ -185,14 +184,14 @@ const AdresserPDL = (props: Props) => {
                   contentLabel={msg({ id: "side.slett" })}
                 >
                   <div style={{ padding: "2rem 2.5rem" }}>
-                    <FormattedHTMLMessage id="adresse.slett.alert" />
+                    <FormattedMessage id="adresse.slett.alert" />
                     <div className="adresse__modal-knapper">
                       <Fareknapp
                         onClick={slettAdresse}
                         spinner={slettLoading}
                         autoDisableVedSpinner={true}
                       >
-                        <FormattedHTMLMessage id={"side.slett"} />
+                        <FormattedMessage id={"side.slett"} />
                       </Fareknapp>
                       <Flatknapp
                         onClick={lukkSlettModal}

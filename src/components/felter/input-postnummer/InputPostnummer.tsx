@@ -20,7 +20,7 @@ export interface Kode {
 const SelectPostnummer = React.memo((props: Props) => {
   const [loading, settLoading] = useState(true);
   const [postnummer, settPostnummer] = useState([] as Kode[]);
-  const [fetchError, settFetchError] = useState();
+  const [fetchError, settFetchError] = useState<HTTPError>();
   const { error, onErrors } = props;
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const SelectPostnummer = React.memo((props: Props) => {
 
   const poststed = postnummer
     .filter(
-      postnummer => props.value && postnummer.kode === props.value.toString()
+      (postnummer) => props.value && postnummer.kode === props.value.toString()
     )
     .shift();
 
@@ -63,7 +63,7 @@ const SelectPostnummer = React.memo((props: Props) => {
             ? { feilmelding: props.error }
             : undefined
         }
-        onChange={e => {
+        onChange={(e) => {
           if (e.target.value.length <= 4) {
             props.onChange(e.target.value);
           }

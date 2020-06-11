@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Normaltekst } from "nav-frontend-typografi";
 
 interface Props {
@@ -12,10 +12,10 @@ const Message = (props: Props) => (
     <Normaltekst>
       {props.bold ? (
         <b>
-          <FormattedHTMLMessage id={props.meldingId} />
+          <FormattedMessage id={props.meldingId} />
         </b>
       ) : (
-        <FormattedHTMLMessage id={props.meldingId} />
+        <FormattedMessage id={props.meldingId} />
       )}
     </Normaltekst>
   </div>

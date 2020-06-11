@@ -1,6 +1,6 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import ListElement from "components/listelement/ListElement";
 import Melding from "components/melding/Melding";
 import { KontaktInfo } from "types/kontaktInfo";
@@ -18,9 +18,9 @@ const KontaktInformasjon = (props: Props) => {
       <div className="underseksjon__beskrivelse">
         <Normaltekst>
           {kanVarsles ? (
-            <FormattedHTMLMessage id="personalia.dkif.kanVarsles" />
+            <FormattedMessage id="personalia.dkif.kanVarsles" />
           ) : (
-            <FormattedHTMLMessage id="personalia.dkif.kanIkkeVarsles" />
+            <FormattedMessage id="personalia.dkif.kanIkkeVarsles" />
           )}
         </Normaltekst>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { useIntl } from "react-intl";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/kodeverk/SelectLand";
@@ -171,7 +171,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
           <>
             <div className="utbetalinger__alert">
               <AlertStripeInfo>
-                <FormattedHTMLMessage id="felter.utenlandskkonto.info" />
+                <FormattedMessage id="felter.utenlandskkonto.info" />
               </AlertStripeInfo>
             </div>
             <SelectLand

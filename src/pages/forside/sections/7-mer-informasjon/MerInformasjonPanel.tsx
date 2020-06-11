@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 interface Props {
   tittel: string;
@@ -22,7 +22,7 @@ const Alternativ = (props: Props) => {
       </button>
       {visBeskrivelse && (
         <Normaltekst>
-          <FormattedHTMLMessage id={melding} />
+          <FormattedMessage id={melding} />
         </Normaltekst>
       )}
     </>

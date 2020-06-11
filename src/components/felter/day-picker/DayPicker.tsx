@@ -5,8 +5,9 @@ import { formatDate, parseDate } from "./utils";
 import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
-import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
-import { FormattedHTMLMessage } from "react-intl";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { FormattedMessage } from "react-intl";
+import { PopoverOrientering } from "nav-frontend-popover";
 
 interface Props {
   label?: string;
@@ -25,12 +26,8 @@ const DayPicker = (props: Props) => {
   const { label, onErrors, submitted, error, ugyldigTekst } = props;
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
 
-  const iMorgen = moment(new Date())
-    .add(1, "days")
-    .toDate();
-  const etArFrem = moment(new Date())
-    .add(1, "year")
-    .toDate();
+  const iMorgen = moment(new Date()).add(1, "days").toDate();
+  const etArFrem = moment(new Date()).add(1, "year").toDate();
 
   useEffect(() => {
     if (props.value) {
@@ -71,16 +68,16 @@ const DayPicker = (props: Props) => {
 
   const inputClasses = cls({
     "skjemaelement__input--harFeil": submitted && error,
-    "skjemaelement__input input--m": true
+    "skjemaelement__input input--m": true,
   });
 
   return (
     <div className="skjemaelement">
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
-        <HjelpetekstHoyre id={"hjelpetekst"}>
-          <FormattedHTMLMessage id={"adresse.hjelpetekster.gyldigtil"} />
-        </HjelpetekstHoyre>
+        <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+          <FormattedMessage id={"adresse.hjelpetekster.gyldigtil"} />
+        </Hjelpetekst>
       </div>
       <DayPickerInput
         value={valgtDag}
@@ -90,7 +87,7 @@ const DayPicker = (props: Props) => {
         parseDate={parseDate}
         onDayChange={onChange}
         inputProps={{
-          className: inputClasses
+          className: inputClasses,
         }}
         dayPickerProps={{
           selectedDays: valgtDag,
@@ -98,7 +95,7 @@ const DayPicker = (props: Props) => {
           localeUtils: MomentLocaleUtils,
           fromMonth: iMorgen,
           toMonth: etArFrem,
-          disabledDays: [{ before: iMorgen, after: etArFrem }]
+          disabledDays: [{ before: iMorgen, after: etArFrem }],
         }}
       />
       {submitted && error && (
@@ -111,7 +108,7 @@ const DayPicker = (props: Props) => {
 DayPicker.defaultProps = {
   format: "DD.MM.YYYY",
   placeholder: "DD.MM.ÅÅÅÅ",
-  locale: "nb"
+  locale: "nb",
 };
 
 export default DayPicker;

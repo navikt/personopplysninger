@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "types/personalia";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import Kilde from "components/kilde/Kilde";
@@ -38,7 +38,7 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
       <div className="underseksjon__header">
         <Undertittel>
-          <FormattedHTMLMessage id="personalia.tlfnr.oveskrift" />
+          <FormattedMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
       {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
@@ -76,7 +76,7 @@ const TelefonnummerHosNav = (props: Props) => {
             <img src={leggTilIkon} alt="Ekstern lenke" />
           </span>
           <Normaltekst>
-            <FormattedHTMLMessage id={"side.leggtil"} />
+            <FormattedMessage id={"side.leggtil"} />
           </Normaltekst>
         </button>
       )}

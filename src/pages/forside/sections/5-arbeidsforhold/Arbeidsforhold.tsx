@@ -2,8 +2,7 @@ import React from "react";
 import Box from "components/box/Box";
 import { ListeMedArbeidsforhold, AFListeOnClick } from "@navikt/arbeidsforhold";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
-import { FormattedHTMLMessage, useIntl } from "react-intl";
-
+import { FormattedMessage, useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { basePath } from "App";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
@@ -42,7 +41,7 @@ const Arbeidsforhold = () => {
       </div>
       <div className="arbeidsforhold__disclaimer">
         <AlertStripeInfo>
-          <FormattedHTMLMessage id="arbeidsforhold.disclaimer" />
+          <FormattedMessage id="arbeidsforhold.disclaimer" />
         </AlertStripeInfo>
       </div>
       <Kilde kilde="arbeidsforhold.kilde" lenkeType="INGEN" />

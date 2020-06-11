@@ -1,6 +1,6 @@
 import React from "react";
 import { Systemtittel } from "nav-frontend-typografi";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
 import Infotekst from "components/infotekst/Infotekst";
@@ -29,7 +29,7 @@ const Box = (props: Props) => {
                 <div className="box__line" />
                 {tittel && (
                   <Systemtittel className="box__title">
-                    <FormattedHTMLMessage id={tittel} />
+                    <FormattedMessage id={tittel} />
                   </Systemtittel>
                 )}
                 {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
