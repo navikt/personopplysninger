@@ -4,7 +4,7 @@ import { HTTPError } from "components/error/Error";
 import { Input } from "nav-frontend-skjema";
 
 interface Props {
-  value?: number;
+  value?: string;
   submitted: boolean;
   label: string;
   error: string | null;
@@ -20,7 +20,7 @@ export interface Kode {
 const SelectPostnummer = React.memo((props: Props) => {
   const [loading, settLoading] = useState(true);
   const [postnummer, settPostnummer] = useState([] as Kode[]);
-  const [fetchError, settFetchError] = useState<HTTPError>();
+  const [fetchError, settFetchError] = useState<HTTPError | undefined>();
   const { error, onErrors } = props;
 
   useEffect(() => {

@@ -25,13 +25,13 @@ export interface Kode {
 const SelectLandskode = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [retningsnumre, settRetningsnumre] = useState([] as Kode[]);
-  const [fetchError, settFetchError] = useState();
+  const [fetchError, settFetchError] = useState<HTTPError | undefined>();
 
   useEffect(() => {
     if (!loading && !retningsnumre.length) {
       settLoading(true);
       fetchRetningsnumre()
-        .then(landskoder => {
+        .then((landskoder) => {
           settRetningsnumre(landskoder);
         })
         .catch((error: HTTPError) => {
@@ -46,7 +46,7 @@ const SelectLandskode = (props: Props) => {
   const mapKoderToOptions = (koder: Kode[]): any =>
     koder.map((k, i) => ({
       label: `${k.land} (${k.landskode})`,
-      value: k.landskode
+      value: k.landskode,
     }));
 
   const defineLabel = (

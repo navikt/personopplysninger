@@ -10,14 +10,15 @@ import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { PopoverOrientering } from "nav-frontend-popover";
+import { HTTPError } from "../../error/Error";
 
 interface Props {
-  option: OptionType;
+  option?: OptionType;
   submitted: boolean;
   label: string;
   options: OptionType[];
   error: string | null;
-  fetchError: boolean;
+  fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
   onChange: (value?: OptionType) => void;
@@ -59,17 +60,18 @@ const NAVSelect = React.memo((props: Props) => {
         .filter(
           (option: OptionType) =>
             // Find closest match
-            option.value === props.option.value ||
-            option.label
-              .replace(`(${option.value})`, ``)
-              .toUpperCase()
-              .trim() === props.option.label.trim().toUpperCase()
+            (props.option && option.value === props.option.value) ||
+            (props.option &&
+              option.label
+                .replace(`(${option.value})`, ``)
+                .toUpperCase()
+                .trim() === props.option.label.trim().toUpperCase())
         )
         .shift()
     : null;
 
   useEffect(() => {
-    if (value && value.value !== props.option.value) {
+    if (value && props.option && value.value !== props.option.value) {
       props.onChange(value);
     }
   }, [props, value]);
@@ -147,7 +149,7 @@ const NAVSelect = React.memo((props: Props) => {
   ) : (
     <Input
       label={props.label}
-      value={props.option.value}
+      value={props.option && props.option.value}
       onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }

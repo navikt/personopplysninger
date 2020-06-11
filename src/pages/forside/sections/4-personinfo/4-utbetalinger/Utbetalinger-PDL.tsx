@@ -37,8 +37,8 @@ const UTENLANDSK = "UTENLANDSK";
 const UtbetalingerPDL = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { kontonr, utenlandskbank } = props;
-  const [loading, settLoading] = useState(false);
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState();
+  const [loading, settLoading] = useState<boolean>(false);
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [, dispatch] = useStore();
 
@@ -47,13 +47,13 @@ const UtbetalingerPDL = (props: Props) => {
       ? NORSK
       : utenlandskbank
       ? UTENLANDSK
-      : undefined
+      : undefined,
   };
 
   const config = {
     norskEllerUtenlandsk: {
-      isRequired: msg({ id: "felter.type.velg" })
-    }
+      isRequired: msg({ id: "felter.type.velg" }),
+    },
   };
 
   const submitEndre = (context: FormContext) => {
@@ -62,7 +62,7 @@ const UtbetalingerPDL = (props: Props) => {
       type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
       const outbound: { [key: string]: () => Outbound } = {
         NORSK: () => setOutboundNorskKontonummer(context),
-        UTENLANDSK: () => setOutboundUtenlandsbankonto(context)
+        UTENLANDSK: () => setOutboundUtenlandsbankonto(context),
       };
 
       settLoading(true);
@@ -75,10 +75,10 @@ const UtbetalingerPDL = (props: Props) => {
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -106,7 +106,7 @@ const UtbetalingerPDL = (props: Props) => {
                     name={NORSK}
                     checked={fields.norskEllerUtenlandsk === NORSK}
                     label={msg({ id: "felter.kontonummervalg.norsk" })}
-                    onChange={e =>
+                    onChange={(e) =>
                       setField({ norskEllerUtenlandsk: e.target.name })
                     }
                   />
@@ -117,7 +117,7 @@ const UtbetalingerPDL = (props: Props) => {
                     name={UTENLANDSK}
                     checked={fields.norskEllerUtenlandsk === UTENLANDSK}
                     label={msg({ id: "felter.kontonummervalg.utenlandsk" })}
-                    onChange={e =>
+                    onChange={(e) =>
                       setField({ norskEllerUtenlandsk: e.target.name })
                     }
                   />

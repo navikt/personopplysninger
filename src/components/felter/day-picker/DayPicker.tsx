@@ -11,7 +11,7 @@ import { PopoverOrientering } from "nav-frontend-popover";
 
 interface Props {
   label?: string;
-  value: string;
+  value?: string;
   error: string | null;
   format: string;
   locale: string;

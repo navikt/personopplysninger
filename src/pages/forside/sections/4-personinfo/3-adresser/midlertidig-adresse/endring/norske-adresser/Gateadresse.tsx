@@ -3,7 +3,7 @@ import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
-import { ExtraFieldsConfig, sjekkForFeil } from "utils/validators";
+import { sjekkForFeil } from "utils/validators";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postGateadresse } from "clients/apiClient";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
@@ -18,6 +18,16 @@ import Alert, { AlertType } from "components/alert/Alert";
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
+}
+
+interface FormFields {
+  tilleggslinje?: string;
+  gatenavn?: string;
+  husnummer?: string;
+  husbokstav?: string;
+  bolignummer?: string;
+  postnummer?: string;
+  datoTilOgMed?: string;
 }
 
 export interface OutboundGateadresse {
@@ -36,57 +46,60 @@ export interface OutboundGateadresse {
 const OpprettEllerEndreGateadresse = (props: Props) => {
   const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const [loading, settLoading] = useState();
+  const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
-  const initialValues = {
+  const initialValues: FormFields = {
     ...(tilleggsadresse && {
       ...tilleggsadresse,
       // Fjern nuller foran f.eks husnummer 002
       ...(tilleggsadresse.husnummer && {
-        husnummer: parseInt(tilleggsadresse.husnummer, RADIX_DECIMAL).toString()
-      })
-    })
+        husnummer: parseInt(
+          tilleggsadresse.husnummer,
+          RADIX_DECIMAL
+        ).toString(),
+      }),
+    }),
   };
 
-  const formConfig: ExtraFieldsConfig = {
+  const formConfig = {
     tilleggslinje: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     gatenavn: {
       isRequired: msg({ id: "validation.gatenavn.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
-      isValidStreetName: msg({ id: "validation.gatenavn.valid" })
+      isValidStreetName: msg({ id: "validation.gatenavn.valid" }),
     },
     husnummer: {
       isRequired: msg({ id: "validation.husnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
-      isPositive: msg({ id: "validation.husnummer.positive" })
+      isPositive: msg({ id: "validation.husnummer.positive" }),
     },
     husbokstav: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isLetters: msg({ id: "validation.only.letters" })
+      isLetters: msg({ id: "validation.only.letters" }),
     },
     bolignummer: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isHouseNumber: msg({ id: "validation.bolignummer.ugyldig" })
+      isHouseNumber: msg({ id: "validation.bolignummer.ugyldig" }),
     },
     postnummer: {
-      isRequired: msg({ id: "validation.postnummer.pakrevd" })
+      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
     },
     datoTilOgMed: {
-      isRequired: msg({ id: "validation.tomdato.pakrevd" })
-    }
+      isRequired: msg({ id: "validation.tomdato.pakrevd" }),
+    },
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -105,8 +118,8 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
           tilleggslinjeType: "CO",
-          tilleggslinje
-        })
+          tilleggslinje,
+        }),
       } as OutboundGateadresse;
 
       settLoading(true);
@@ -134,7 +147,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={value => setField({ tilleggslinje: value })}
+              onChange={(value) => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
             />
@@ -145,7 +158,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                   maxLength={30}
                   value={fields.gatenavn}
                   label={msg({ id: "felter.gatenavn.label" })}
-                  onChange={e => setField({ gatenavn: e.target.value })}
+                  onChange={(e) => setField({ gatenavn: e.target.value })}
                   feil={sjekkForFeil(submitted, errors.gatenavn)}
                 />
               </div>
@@ -189,7 +202,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 hjelpetekst={"adresse.hjelpetekster.bolignummer"}
                 className="adresse__input-avstand adresse__input-bolignummer"
                 label={msg({ id: "felter.bolignummer.label" })}
-                onChange={value => setField({ bolignummer: value })}
+                onChange={(value) => setField({ bolignummer: value })}
                 error={errors.bolignummer}
                 bredde={"S"}
               />
@@ -198,8 +211,8 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                 value={fields.postnummer}
                 error={errors.postnummer}
                 label={msg({ id: "felter.postnummer.label" })}
-                onChange={postnummer => setField({ postnummer })}
-                onErrors={error => setError({ postnummer: error })}
+                onChange={(postnummer) => setField({ postnummer })}
+                onErrors={(error) => setError({ ...errors, postnummer: error })}
               />
             </div>
             <div className="adresse__rad">
@@ -210,8 +223,10 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                   error={errors.datoTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
                   ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={value => setField({ datoTilOgMed: value })}
-                  onErrors={error => setError({ datoTilOgMed: error })}
+                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onErrors={(error) =>
+                    setError({ ...errors, datoTilOgMed: error })
+                  }
                 />
               </div>
               <div className="adresse__kolonne" />

@@ -38,10 +38,10 @@ const AdresserPDL = (props: Props) => {
   const { adresser } = props;
   const { tilleggsadresse, utenlandskAdresse } = adresser;
   const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
-  const [slettLoading, settSlettLoading] = useState();
+  const [slettLoading, settSlettLoading] = useState<boolean>();
   const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState();
-  const [visSlettModal, settVisSlettModal] = useState(false);
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
+  const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
     props.adresser.tilleggsadresse
       ? "NORSK"
@@ -63,10 +63,10 @@ const AdresserPDL = (props: Props) => {
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -117,13 +117,13 @@ const AdresserPDL = (props: Props) => {
               name={NORSK}
               checked={norskEllerUtenlandsk === NORSK}
               label={msg({ id: "felter.adressevalg.norsk" })}
-              onChange={e => settNorskEllerUtenlandsk(e.target.name)}
+              onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
             />
             <Radio
               name={UTENLANDSK}
               checked={norskEllerUtenlandsk === UTENLANDSK}
               label={msg({ id: "felter.adressevalg.utenlandsk" })}
-              onChange={e => settNorskEllerUtenlandsk(e.target.name)}
+              onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
             />
             {norskEllerUtenlandsk === NORSK && (
               <OpprettEllerEndreNorskMidlertidigAdresse

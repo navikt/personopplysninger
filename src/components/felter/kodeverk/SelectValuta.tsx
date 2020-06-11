@@ -4,7 +4,7 @@ import { HTTPError } from "components/error/Error";
 import NAVSelect from "components/felter/select/NAVSelect";
 
 interface Props {
-  option: OptionType;
+  option?: OptionType;
   submitted: boolean;
   label: string;
   error: string | null;
@@ -25,13 +25,13 @@ export interface Valuta {
 const SelectValuta = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [valutaer, settValutaer] = useState([] as Valuta[]);
-  const [fetchError, settFetchError] = useState();
+  const [fetchError, settFetchError] = useState<HTTPError | undefined>();
 
   useEffect(() => {
     if (!loading && !valutaer.length) {
       settLoading(true);
       fetchValutaer()
-        .then(v => {
+        .then((v) => {
           settValutaer(v);
         })
         .catch((error: HTTPError) => {
@@ -44,9 +44,9 @@ const SelectValuta = (props: Props) => {
   }, [loading, valutaer]);
 
   const mapKoderToOptions = (koder: Valuta[]): any =>
-    koder.map(k => ({
+    koder.map((k) => ({
       label: `${k.tekst} (${k.kode})`,
-      value: k.kode
+      value: k.kode,
     }));
 
   const options = mapKoderToOptions(valutaer)

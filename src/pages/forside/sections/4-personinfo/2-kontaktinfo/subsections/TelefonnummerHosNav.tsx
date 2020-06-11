@@ -16,7 +16,7 @@ interface Props {
 }
 
 const TelefonnummerHosNav = (props: Props) => {
-  const [opprett, settOpprett] = useState();
+  const [opprett, settOpprett] = useState<boolean>();
   const { tlfnr } = props;
 
   const onChangeSuccess = () => {

@@ -48,13 +48,13 @@ const EndreTelefonnummer = (props: Props) => {
     tlfnummer: tlfnummer,
     landskode: {
       label: UNKNOWN,
-      value: landskode
-    }
+      value: landskode || "",
+    },
   };
 
   const formConfig = {
     landskode: {
-      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" }),
     },
     tlfnummer: {
       isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
@@ -62,13 +62,13 @@ const EndreTelefonnummer = (props: Props) => {
       isValidNorwegianNumber: {
         message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
-          isNorwegianNumber(fields.landskode)
+          isNorwegianNumber(fields.landskode),
       },
       isMaxLength: {
         message: msg({ id: "validation.tlfnr.makslengde" }),
-        length: 16
-      }
-    }
+        length: 16,
+      },
+    },
   };
 
   const apneSlettModal = () => {
@@ -89,10 +89,10 @@ const EndreTelefonnummer = (props: Props) => {
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -103,7 +103,7 @@ const EndreTelefonnummer = (props: Props) => {
       const outbound = {
         prioritet,
         landskode: fields.landskode.value,
-        nummer: fields.tlfnummer
+        nummer: fields.tlfnummer,
       };
 
       settEndreLoading(true);
@@ -123,7 +123,7 @@ const EndreTelefonnummer = (props: Props) => {
     const outbound = {
       prioritet,
       landskode: landskode,
-      nummer: tlfnummer
+      nummer: tlfnummer,
     };
 
     settSlettLoading(true);
@@ -227,7 +227,7 @@ const EndreTelefonnummer = (props: Props) => {
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
-                      onChange={option => setField({ landskode: option })}
+                      onChange={(option) => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
                     />
@@ -238,7 +238,7 @@ const EndreTelefonnummer = (props: Props) => {
                       bredde={"M"}
                       value={fields.tlfnummer}
                       label={msg({ id: "felter.tlfnr.label" })}
-                      onChange={e => setField({ tlfnummer: e.target.value })}
+                      onChange={(e) => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
                       feil={
                         submitted && errors.tlfnummer
