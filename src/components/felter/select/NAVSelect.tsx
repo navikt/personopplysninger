@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
@@ -113,7 +113,19 @@ const NAVSelect = React.memo((props: Props) => {
         )}
         {props.hjelpetekst && (
           <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
-            <FormattedMessage id={props.hjelpetekst} />
+            <FormattedMessage
+              id={props.hjelpetekst}
+              values={{
+                b: (text: string) => <b>{text}</b>,
+                p: (...chunks: string[]) => (
+                  <p>
+                    {chunks.map((chunk, i) => (
+                      <Fragment key={i}>{chunk}</Fragment>
+                    ))}
+                  </p>
+                ),
+              }}
+            />
           </Hjelpetekst>
         )}
       </div>

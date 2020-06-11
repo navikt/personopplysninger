@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Input, InputProps } from "nav-frontend-skjema";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { FormattedMessage } from "react-intl";
@@ -32,6 +32,13 @@ const EndreKontonummerFelt = ({
               id={hjelpetekst}
               values={{
                 b: (text: string) => <b>{text}</b>,
+                p: (...chunks: string[]) => (
+                  <p>
+                    {chunks.map((chunk, i) => (
+                      <Fragment key={i}>{chunk}</Fragment>
+                    ))}
+                  </p>
+                ),
               }}
             />
           </Hjelpetekst>

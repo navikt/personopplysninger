@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, Fragment, useState } from "react";
 import { Select } from "nav-frontend-skjema";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
@@ -36,6 +36,13 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
                 id={"adresse.hjelpetekster.adressetyper"}
                 values={{
                   b: (text: string) => <b>{text}</b>,
+                  p: (...chunks: string[]) => (
+                    <p>
+                      {chunks.map((chunk, i) => (
+                        <Fragment key={i}>{chunk}</Fragment>
+                      ))}
+                    </p>
+                  ),
                 }}
               />
             </Hjelpetekst>

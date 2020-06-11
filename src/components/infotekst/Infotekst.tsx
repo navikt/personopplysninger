@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import Modal from "nav-frontend-modal";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
+import Lenke from "nav-frontend-lenker";
 
 interface HjelpetekstProps {
   beskrivelse: string;
@@ -43,9 +44,26 @@ function Infotekst(props: HjelpetekstProps) {
               <FormattedMessage
                 id={props.beskrivelse}
                 values={{
-                  b: (text: string) => <b>{text}</b>,
+                  p: (...chunks: string[]) => (
+                    <p>
+                      {chunks.map((chunk, i) => (
+                        <Fragment key={i}>{chunk}</Fragment>
+                      ))}
+                    </p>
+                  ),
+                  br: (text: string) => (
+                    <>
+                      <br />
+                      {text}
+                    </>
+                  ),
                   span: (text: string) => (
                     <span style={{ textTransform: "none" }}>{text}</span>
+                  ),
+                  lenkeAaRegisteret: (text: string) => (
+                    <Lenke href="https://www.nav.no/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
+                      {text}
+                    </Lenke>
                   ),
                 }}
               />

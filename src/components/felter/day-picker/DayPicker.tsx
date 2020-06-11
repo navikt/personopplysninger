@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import MomentLocaleUtils from "react-day-picker/moment";
 import { formatDate, parseDate } from "./utils";
@@ -80,6 +80,13 @@ const DayPicker = (props: Props) => {
             id={"adresse.hjelpetekster.gyldigtil"}
             values={{
               b: (text: string) => <b>{text}</b>,
+              p: (...chunks: string[]) => (
+                <p>
+                  {chunks.map((chunk, i) => (
+                    <Fragment key={i}>{chunk}</Fragment>
+                  ))}
+                </p>
+              ),
             }}
           />
         </Hjelpetekst>
