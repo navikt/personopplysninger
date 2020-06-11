@@ -9,7 +9,7 @@ import leggTilIkon from "assets/img/LeggTil.svg";
 import slettIkon from "assets/img/Slett.svg";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { Radio } from "nav-frontend-skjema";
+import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
 import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
 import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
@@ -113,30 +113,32 @@ const Adresser = (props: Props) => {
         )}
         {opprettEllerEndre ? (
           <div className="adresse__form">
-            <Radio
-              name={NORSK}
-              checked={norskEllerUtenlandsk === NORSK}
-              label={msg({ id: "felter.adressevalg.norsk" })}
-              onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
-            />
-            <Radio
-              name={UTENLANDSK}
-              checked={norskEllerUtenlandsk === UTENLANDSK}
-              label={msg({ id: "felter.adressevalg.utenlandsk" })}
-              onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
-            />
-            {norskEllerUtenlandsk === NORSK && (
-              <OpprettEllerEndreNorskMidlertidigAdresse
-                tilleggsadresse={props.adresser.tilleggsadresse}
-                settOpprettEllerEndre={settOpprettEllerEndre}
+            <RadioGruppe>
+              <Radio
+                name={NORSK}
+                checked={norskEllerUtenlandsk === NORSK}
+                label={msg({ id: "felter.adressevalg.norsk" })}
+                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
               />
-            )}
-            {norskEllerUtenlandsk === UTENLANDSK && (
-              <OpprettEllerEndreUtenlandskAdresse
-                utenlandskadresse={props.adresser.utenlandskAdresse}
-                settOpprettEllerEndre={settOpprettEllerEndre}
+              <Radio
+                name={UTENLANDSK}
+                checked={norskEllerUtenlandsk === UTENLANDSK}
+                label={msg({ id: "felter.adressevalg.utenlandsk" })}
+                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
               />
-            )}
+              {norskEllerUtenlandsk === NORSK && (
+                <OpprettEllerEndreNorskMidlertidigAdresse
+                  tilleggsadresse={props.adresser.tilleggsadresse}
+                  settOpprettEllerEndre={settOpprettEllerEndre}
+                />
+              )}
+              {norskEllerUtenlandsk === UTENLANDSK && (
+                <OpprettEllerEndreUtenlandskAdresse
+                  utenlandskadresse={props.adresser.utenlandskAdresse}
+                  settOpprettEllerEndre={settOpprettEllerEndre}
+                />
+              )}
+            </RadioGruppe>
             <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
           </div>
         ) : (

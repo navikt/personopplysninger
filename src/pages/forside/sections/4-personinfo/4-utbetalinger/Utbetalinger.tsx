@@ -13,7 +13,7 @@ import { OutboundNorskKontonummer } from "./endring/NorskKontonummer";
 import OpprettEllerEndreUtenlandsbank from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { SkjemaGruppe, Radio } from "nav-frontend-skjema";
+import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Knapp } from "nav-frontend-knapper";
 import Alert, { AlertType } from "components/alert/Alert";
@@ -100,7 +100,7 @@ const Utbetalinger = (props: Props) => {
             {({ submitted, isValid, errors, setField, fields }) => {
               const feil = sjekkForFeil(submitted, errors.norskEllerUtenlandsk);
               return (
-                <SkjemaGruppe feil={feil}>
+                <RadioGruppe feil={feil}>
                   <Radio
                     name={NORSK}
                     checked={fields.norskEllerUtenlandsk === NORSK}
@@ -149,7 +149,7 @@ const Utbetalinger = (props: Props) => {
                     </div>
                   </div>
                   {alert && <Alert {...alert} />}
-                </SkjemaGruppe>
+                </RadioGruppe>
               );
             }}
           </Validation>

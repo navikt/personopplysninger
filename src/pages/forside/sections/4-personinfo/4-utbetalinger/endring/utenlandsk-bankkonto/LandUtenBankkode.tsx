@@ -25,7 +25,7 @@ const LandUtenBankkode = (props: Props) => {
           name={BIC}
           checked={fields.bankidentifier === BIC}
           label={msg({ id: "felter.bankidentifier.bic" })}
-          onChange={e => setField({ bankidentifier: e.target.name })}
+          onChange={(e) => setField({ bankidentifier: e.target.name })}
         />
         {harValgtBic(fields.bankidentifier) && (
           <InputMedHjelpetekst
@@ -35,7 +35,7 @@ const LandUtenBankkode = (props: Props) => {
             value={fields.bickode}
             hjelpetekst={"utbetalinger.hjelpetekster.bic"}
             label={msg({ id: "felter.bic.label" })}
-            onChange={value => setField({ bickode: value })}
+            onChange={(value) => setField({ bickode: value })}
             error={errors.bickode}
           />
         )}
@@ -43,7 +43,7 @@ const LandUtenBankkode = (props: Props) => {
           name={UTEN_BIC}
           checked={fields.bankidentifier === UTEN_BIC}
           label={msg({ id: "felter.bankidentifier.harikke.bic" })}
-          onChange={e => setField({ bankidentifier: e.target.name })}
+          onChange={(e) => setField({ bankidentifier: e.target.name })}
         />
       </SkjemaGruppe>
       {fields.bankidentifier === UTEN_BIC && (
@@ -60,7 +60,7 @@ const LandUtenBankkode = (props: Props) => {
             maxLength={34}
             submitted={submitted}
             value={fields.adresse1}
-            onChange={value => setField({ adresse1: value })}
+            onChange={(value) => setField({ adresse1: value })}
             label={msg({ id: "felter.bankens.adresse.label" })}
           />
           <InputMedHjelpetekst
@@ -69,7 +69,7 @@ const LandUtenBankkode = (props: Props) => {
             maxLength={34}
             value={fields.adresse2}
             submitted={submitted}
-            onChange={value => setField({ adresse2: value })}
+            onChange={(value) => setField({ adresse2: value })}
           />
           <InputMedHjelpetekst
             label={""}
@@ -77,7 +77,7 @@ const LandUtenBankkode = (props: Props) => {
             maxLength={34}
             value={fields.adresse3}
             submitted={submitted}
-            onChange={value => setField({ adresse3: value })}
+            onChange={(value) => setField({ adresse3: value })}
           />
         </div>
       )}
