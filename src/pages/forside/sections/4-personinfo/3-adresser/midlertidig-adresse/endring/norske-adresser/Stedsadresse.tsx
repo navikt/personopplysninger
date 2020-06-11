@@ -3,7 +3,6 @@ import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { FormContext, FormValidation } from "calidation";
 import { fetchPersonInfo, postStedsadresse } from "clients/apiClient";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "utils/validators";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -130,7 +129,7 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
                   value={fields.eiendomsnavn}
                   label={msg({ id: "felter.stedsadresse.label" })}
                   onChange={(e) => setField({ eiendomsnavn: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
+                  feil={submitted && errors.eiendomsnavn}
                 />
               </div>
               <div className="adresse__kolonne" />

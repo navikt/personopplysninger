@@ -58,11 +58,7 @@ const SelectPostnummer = React.memo((props: Props) => {
         type={"number"}
         value={props.value}
         label={props.label}
-        feil={
-          props.submitted && props.error
-            ? { feilmelding: props.error }
-            : undefined
-        }
+        feil={props.submitted && props.error}
         onChange={(e) => {
           if (e.target.value.length <= 4) {
             props.onChange(e.target.value);

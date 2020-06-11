@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
-import { sjekkForFeil } from "utils/validators";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
@@ -151,7 +150,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 label={msg({ id: "felter.postboksnummer.label" })}
                 value={fields.postboksnummer}
                 className="adresse__input-avstand"
-                feil={sjekkForFeil(submitted, errors.postboksnummer)}
+                feil={submitted && errors.postboksnummer}
                 onChange={({ target }) => {
                   if (target.value.length <= 4) {
                     setField({ postboksnummer: target.value });
@@ -165,7 +164,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 label={msg({ id: "felter.postboksanlegg.label" })}
                 onChange={(e) => setField({ postboksanlegg: e.target.value })}
                 className="adresse__input-avstand"
-                feil={sjekkForFeil(submitted, errors.postboksanlegg)}
+                feil={submitted && errors.postboksanlegg}
               />
             </div>
             <div className="adresse__rad">

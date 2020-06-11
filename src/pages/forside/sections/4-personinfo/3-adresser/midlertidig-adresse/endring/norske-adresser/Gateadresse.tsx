@@ -3,7 +3,6 @@ import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
-import { sjekkForFeil } from "utils/validators";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postGateadresse } from "clients/apiClient";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
@@ -159,7 +158,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                   value={fields.gatenavn}
                   label={msg({ id: "felter.gatenavn.label" })}
                   onChange={(e) => setField({ gatenavn: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.gatenavn)}
+                  feil={submitted && errors.gatenavn}
                 />
               </div>
               <div className="adresse__kolonne">
@@ -171,7 +170,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                     label={msg({ id: "felter.gatenummer.label" })}
                     value={fields.husnummer || ""}
                     className="adresse__input-avstand"
-                    feil={sjekkForFeil(submitted, errors.husnummer)}
+                    feil={submitted && errors.husnummer}
                     onChange={({ target }) => {
                       if (target.value.length <= 6) {
                         setField({ husnummer: target.value });
@@ -184,7 +183,7 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
                     value={fields.husbokstav}
                     className="adresse__input-avstand"
                     label={msg({ id: "felter.gatebokstav.label" })}
-                    feil={sjekkForFeil(submitted, errors.husbokstav)}
+                    feil={submitted && errors.husbokstav}
                     onChange={({ target }) => {
                       if (target.value !== " ") {
                         setField({ husbokstav: target.value.toUpperCase() });

@@ -2,7 +2,6 @@ import React from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, Validation } from "calidation";
 import { useIntl } from "react-intl";
-import { sjekkForFeil } from "utils/validators";
 
 interface Props {
   kontonummer?: string;
@@ -51,7 +50,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
               onChange={(e) => setField({ kontonummer: e.target.value })}
-              feil={sjekkForFeil(submitted, errors.kontonummer)}
+              feil={submitted && errors.kontonummer}
             />
           </div>
         </>

@@ -165,11 +165,7 @@ const NAVSelect = React.memo((props: Props) => {
       onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }
-      feil={
-        props.submitted && props.error
-          ? { feilmelding: props.error }
-          : undefined
-      }
+      feil={props.submitted && props.error}
       placeholder={"+"}
     />
   );

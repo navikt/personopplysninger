@@ -18,7 +18,6 @@ import { FormattedMessage, useIntl } from "react-intl";
 import { Knapp } from "nav-frontend-knapper";
 import Alert, { AlertType } from "components/alert/Alert";
 import { Form, FormContext, Validation } from "calidation";
-import { sjekkForFeil } from "utils/validators";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
@@ -98,9 +97,8 @@ const Utbetalinger = (props: Props) => {
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
-              const feil = sjekkForFeil(submitted, errors.norskEllerUtenlandsk);
               return (
-                <RadioGruppe feil={feil}>
+                <RadioGruppe feil={submitted && errors.norskEllerUtenlandsk}>
                   <Radio
                     name={NORSK}
                     checked={fields.norskEllerUtenlandsk === NORSK}

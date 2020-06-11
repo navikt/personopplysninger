@@ -49,7 +49,7 @@ const EndreKontonummerFelt = ({
           label={""}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          feil={submitted && error ? { feilmelding: error } : undefined}
+          feil={submitted && error}
           {...restProps}
         />
       </div>

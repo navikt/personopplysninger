@@ -240,11 +240,7 @@ const EndreTelefonnummer = (props: Props) => {
                       label={msg({ id: "felter.tlfnr.label" })}
                       onChange={(e) => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
-                      feil={
-                        submitted && errors.tlfnummer
-                          ? { feilmelding: errors.tlfnummer }
-                          : undefined
-                      }
+                      feil={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>

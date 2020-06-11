@@ -5,7 +5,6 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { Errors, Fields, FormContext, FormValidation } from "calidation";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { sjekkForFeil } from "utils/validators";
 import SelectLand from "components/felter/kodeverk/SelectLand";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
@@ -106,7 +105,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
         const setError = calidation.setError;
         return (
           <>
-            <SkjemaGruppe feil={sjekkForFeil(submitted, errors.adresse1)}>
+            <SkjemaGruppe feil={submitted && errors.adresse1}>
               <InputMedHjelpetekst
                 bredde={"L"}
                 submitted={submitted}

@@ -5,7 +5,6 @@ import { FormattedMessage, useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { Radio, SkjemaGruppe } from "nav-frontend-skjema";
-import { sjekkForFeil } from "utils/validators";
 import { harValgtBic } from "../utils";
 
 interface Props {
@@ -20,7 +19,7 @@ const LandUtenBankkode = (props: Props) => {
   const { errors, fields, setField, submitted } = props;
   return (
     <div className="utbetalinger__bank-identifier">
-      <SkjemaGruppe feil={sjekkForFeil(submitted, errors.bankidentifier)}>
+      <SkjemaGruppe feil={submitted && errors.bankidentifier}>
         <Radio
           name={BIC}
           checked={fields.bankidentifier === BIC}

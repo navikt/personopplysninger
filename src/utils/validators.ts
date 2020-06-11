@@ -108,9 +108,6 @@ export const erInteger = (str: string) => {
   return n !== Infinity && String(n) === str && n >= 0;
 };
 
-export const sjekkForFeil = (submitted: boolean, error: string | null) =>
-  submitted && error ? { feilmelding: error } : undefined;
-
 export const isNorwegianNumber = (landskode: OptionType) =>
   landskode && landskode.value === "+47";
 
