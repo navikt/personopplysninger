@@ -82,7 +82,9 @@ const Kilde = (props: Props) => {
               <FormattedMessage
                 id={props.kilde}
                 values={{
-                  span: (text: String) => <span>{text}</span>,
+                  span: (text: String) => (
+                    <span style={{ textTransform: "none" }}>{text}</span>
+                  ),
                   br: (text: String) => (
                     <>
                       <br />
