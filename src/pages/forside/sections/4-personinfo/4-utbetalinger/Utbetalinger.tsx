@@ -162,7 +162,17 @@ const Utbetalinger = (props: Props) => {
             </>
           ) : (
             <div className="underseksjon__beskrivelse">
-              <FormattedMessage id="FormattedMessageData" />
+              <FormattedMessage
+                id="personalia.kontonr.ingenData"
+                values={{
+                  br: (text: String) => (
+                    <>
+                      <br />
+                      {text}
+                    </>
+                  ),
+                }}
+              />
             </div>
           )}
           <Kilde
