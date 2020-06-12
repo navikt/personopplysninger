@@ -111,7 +111,9 @@ const DayPicker = (props: Props) => {
         }}
       />
       {submitted && error && (
-        <div className="skjemaelement__feilmelding">{error}</div>
+        <div className="skjemaelement__feilmelding typo-feilmelding">
+          {error}
+        </div>
       )}
     </div>
   );

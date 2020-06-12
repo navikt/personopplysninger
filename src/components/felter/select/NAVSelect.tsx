@@ -152,7 +152,7 @@ const NAVSelect = React.memo((props: Props) => {
         <div
           role="alert"
           aria-live="assertive"
-          className="skjemaelement__feilmelding"
+          className="skjemaelement__feilmelding typo-feilmelding"
         >
           {props.error}
         </div>
