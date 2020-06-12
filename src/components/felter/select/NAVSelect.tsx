@@ -1,22 +1,24 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
 import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
-import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
-import { FormattedHTMLMessage } from "react-intl";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
+import { PopoverOrientering } from "nav-frontend-popover";
+import { HTTPError } from "../../error/Error";
 
 interface Props {
-  option: OptionType;
+  option?: OptionType;
   submitted: boolean;
   label: string;
   options: OptionType[];
   error: string | null;
-  fetchError: boolean;
+  fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
   onChange: (value?: OptionType) => void;
@@ -34,12 +36,7 @@ interface OptionType {
 }
 
 const LoadingIndicator = () => (
-  <NavFrontendSpinner
-    type="XS"
-    negativ={true}
-    stroke={true}
-    className="KodeverkSelect__spinner"
-  />
+  <NavFrontendSpinner type="XS" className="KodeverkSelect__spinner" />
 );
 
 const DropdownIndicator = (props: any) => (
@@ -50,12 +47,12 @@ const DropdownIndicator = (props: any) => (
 
 const NAVSelect = React.memo((props: Props) => {
   const controlClasses = cls({
-    "KodeverkSelect__control-feil": props.submitted && props.error
+    "KodeverkSelect__control-feil": props.submitted && props.error,
   });
 
   const containerClasses = cls({
     skjemaelement: true,
-    KodeverkSelect: true
+    KodeverkSelect: true,
   });
 
   const value = props.option
@@ -63,17 +60,18 @@ const NAVSelect = React.memo((props: Props) => {
         .filter(
           (option: OptionType) =>
             // Find closest match
-            option.value === props.option.value ||
-            option.label
-              .replace(`(${option.value})`, ``)
-              .toUpperCase()
-              .trim() === props.option.label.trim().toUpperCase()
+            (props.option && option.value === props.option.value) ||
+            (props.option &&
+              option.label
+                .replace(`(${option.value})`, ``)
+                .toUpperCase()
+                .trim() === props.option.label.trim().toUpperCase())
         )
         .shift()
     : null;
 
   useEffect(() => {
-    if (value && value.value !== props.option.value) {
+    if (value && props.option && value.value !== props.option.value) {
       props.onChange(value);
     }
   }, [props, value]);
@@ -114,9 +112,21 @@ const NAVSelect = React.memo((props: Props) => {
           <div className="skjemaelement__label">{props.label}</div>
         )}
         {props.hjelpetekst && (
-          <HjelpetekstHoyre id={"hjelpetekst"}>
-            <FormattedHTMLMessage id={props.hjelpetekst} />
-          </HjelpetekstHoyre>
+          <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+            <FormattedMessage
+              id={props.hjelpetekst}
+              values={{
+                b: (text: string) => <b>{text}</b>,
+                p: (...chunks: string[]) => (
+                  <p>
+                    {chunks.map((chunk, i) => (
+                      <Fragment key={i}>{chunk}</Fragment>
+                    ))}
+                  </p>
+                ),
+              }}
+            />
+          </Hjelpetekst>
         )}
       </div>
       <div className={cls("KodeverkSelect--select-wrapper input--l")}>
@@ -126,7 +136,7 @@ const NAVSelect = React.memo((props: Props) => {
           placeholder="Søk..."
           classNamePrefix="KodeverkSelect"
           loadingMessage={() => "Laster inn..."}
-          noOptionsMessage={v => `Ingen treff funnet for ${v.inputValue}...`}
+          noOptionsMessage={(v) => `Ingen treff funnet for ${v.inputValue}...`}
           className={controlClasses}
           cacheOptions={true}
           openMenuOnClick={props.openMenuOnClick}
@@ -151,15 +161,11 @@ const NAVSelect = React.memo((props: Props) => {
   ) : (
     <Input
       label={props.label}
-      value={props.option.value}
-      onChange={e =>
+      value={props.option && props.option.value}
+      onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }
-      feil={
-        props.submitted && props.error
-          ? { feilmelding: props.error }
-          : undefined
-      }
+      feil={props.submitted && props.error}
       placeholder={"+"}
     />
   );

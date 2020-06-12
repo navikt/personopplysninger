@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { FormattedHTMLMessage, FormattedMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
+import Lenke from "nav-frontend-lenker";
 
 interface Props {
   tittel: string;
@@ -22,7 +23,48 @@ const Alternativ = (props: Props) => {
       </button>
       {visBeskrivelse && (
         <Normaltekst>
-          <FormattedHTMLMessage id={melding} />
+          <FormattedMessage
+            id={melding}
+            values={{
+              p: (...chunks: string[]) => (
+                <p>
+                  {chunks.map((chunk, i) => (
+                    <Fragment key={i}>{chunk}</Fragment>
+                  ))}
+                </p>
+              ),
+              beskjedLenke: (text: string) => (
+                <Lenke
+                  href="https://www.nav.no/beskjedtilnav"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {text}
+                </Lenke>
+              ),
+              telefonLenke: (text: string) => (
+                <Lenke href="tel:004755553333">{text}</Lenke>
+              ),
+              trygdeavtalerLenke: (text: string) => (
+                <Lenke
+                  href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler"
+                  rel="noopener noreferrer"
+                  target="blank"
+                >
+                  {text}
+                </Lenke>
+              ),
+              datatilsynetLenke: (text: string) => (
+                <Lenke
+                  href="https://www.datatilsynet.no/om-datatilsynet/kontakt-oss/hvordan-kan-jeg-klage-til-datatilsynet"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {text}
+                </Lenke>
+              ),
+            }}
+          />
         </Normaltekst>
       )}
     </>

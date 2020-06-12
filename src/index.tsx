@@ -13,7 +13,7 @@ import scripts from "./clients/apiMock/decorator/decorator-scripts";
 import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
-import { extraValidators, SimpleValidators } from "./utils/validators";
+import { extraValidators } from "./utils/validators";
 import App from "./App";
 
 const browserLanguage = "nb";
@@ -54,7 +54,7 @@ const init = async () => {
 
   ReactDOM.render(
     <IntlProvider locale={browserLanguage} messages={messages}>
-      <ValidatorsProvider validators={extraValidators as SimpleValidators}>
+      <ValidatorsProvider validators={extraValidators}>
         <StoreProvider initialState={initialState} reducer={reducer}>
           <App />
         </StoreProvider>

@@ -1,12 +1,12 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, Fragment, useState } from "react";
 import { Select } from "nav-frontend-skjema";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
-import { useIntl, FormattedMessage } from "react-intl";
-import { FormattedHTMLMessage } from "react-intl";
-import { HjelpetekstHoyre } from "nav-frontend-hjelpetekst";
+import { FormattedMessage, useIntl } from "react-intl";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { PopoverOrientering } from "nav-frontend-popover";
 import cls from "classnames";
 
 interface Props {
@@ -29,11 +29,23 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
     <>
       <div className="adresse__rad">
         <div className="adresse__kolonne">
-          <div className="adresse__select-header">
+          <div className="adresse__select-header skjemaelement__label">
             <FormattedMessage id={"felter.adressetype"} />
-            <HjelpetekstHoyre id={"hjelpetekst"}>
-              <FormattedHTMLMessage id={"adresse.hjelpetekster.adressetyper"} />
-            </HjelpetekstHoyre>
+            <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+              <FormattedMessage
+                id={"adresse.hjelpetekster.adressetyper"}
+                values={{
+                  b: (text: string) => <b>{text}</b>,
+                  p: (...chunks: string[]) => (
+                    <p>
+                      {chunks.map((chunk, i) => (
+                        <Fragment key={i}>{chunk}</Fragment>
+                      ))}
+                    </p>
+                  ),
+                }}
+              />
+            </Hjelpetekst>
           </div>
           <div className={cls("KodeverkSelect--select-wrapper input--l")}>
             <Select
@@ -60,7 +72,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
         {
           GATEADRESSE: <OpprettEllerEndreGateadresse {...props} />,
           POSTBOKSADRESSE: <OpprettEllerEndrePostboksadresse {...props} />,
-          STEDSADRESSE: <OpprettEllerEndreStedsadresse {...props} />
+          STEDSADRESSE: <OpprettEllerEndreStedsadresse {...props} />,
         }[type]
       }
     </>

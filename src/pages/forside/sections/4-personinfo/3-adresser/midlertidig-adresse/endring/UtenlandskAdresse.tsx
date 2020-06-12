@@ -3,9 +3,8 @@ import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenl
 import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { Errors, Fields, FormContext, FormValidation } from "calidation";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { sjekkForFeil } from "utils/validators";
 import SelectLand from "components/felter/kodeverk/SelectLand";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
@@ -31,7 +30,7 @@ export interface OutboundUtenlandskAdresse {
 const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
   const { utenlandskadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const [loading, settLoading] = useState();
+  const [loading, settLoading] = useState<boolean>();
   const [, dispatch] = useStore();
   const { formatMessage: msg } = useIntl();
 
@@ -40,30 +39,30 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       ...utenlandskadresse,
       land: {
         label: utenlandskadresse.land,
-        value: UNKNOWN
-      }
-    })
+        value: UNKNOWN,
+      },
+    }),
   };
 
   const formConfig = {
     adresse1: {
-      isRequired: msg({ id: "validation.gateadresse.pakrevd" })
+      isRequired: msg({ id: "validation.gateadresse.pakrevd" }),
     },
     adresse2: {},
     adresse3: {},
     land: {
-      isRequired: msg({ id: "validation.land.pakrevd" })
+      isRequired: msg({ id: "validation.land.pakrevd" }),
     },
     datoTilOgMed: {
-      isRequired: msg({ id: "validation.tomdato.pakrevd" })
-    }
+      isRequired: msg({ id: "validation.tomdato.pakrevd" }),
+    },
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -79,7 +78,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
         adresselinje2: fields.adresse2,
         adresselinje3: fields.adresse3,
         landkode: fields.land.value,
-        gyldigTom: fields.datoTilOgMed
+        gyldigTom: fields.datoTilOgMed,
       };
 
       settLoading(true);
@@ -97,10 +96,16 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
       config={formConfig}
       initialValues={initialValues}
     >
-      {({ errors, fields, submitted, isValid, setField, setError }) => {
+      {(calidation) => {
+        const fields: Fields = calidation.fields;
+        const errors: Errors = calidation.errors;
+        const isValid = calidation.isValid;
+        const submitted = calidation.submitted;
+        const setField = calidation.setField;
+        const setError = calidation.setError;
         return (
           <>
-            <SkjemaGruppe feil={sjekkForFeil(submitted, errors.adresse1)}>
+            <SkjemaGruppe feil={submitted && errors.adresse1}>
               <InputMedHjelpetekst
                 bredde={"L"}
                 submitted={submitted}
@@ -108,21 +113,21 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
                 value={fields.adresse1}
                 hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
                 label={msg({ id: "felter.adresse.label" })}
-                onChange={value => setField({ adresse1: value })}
+                onChange={(value) => setField({ adresse1: value })}
               />
               <Input
                 label={""}
                 bredde={"L"}
                 maxLength={30}
                 value={fields.adresse2}
-                onChange={e => setField({ adresse2: e.target.value })}
+                onChange={(e) => setField({ adresse2: e.target.value })}
               />
               <Input
                 label={""}
                 bredde={"L"}
                 maxLength={30}
                 value={fields.adresse3}
-                onChange={e => setField({ adresse3: e.target.value })}
+                onChange={(e) => setField({ adresse3: e.target.value })}
               />
             </SkjemaGruppe>
             <SelectLand
@@ -130,7 +135,7 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
               submitted={submitted}
               option={fields.land}
               error={errors.land}
-              onChange={land => setField({ land })}
+              onChange={(land) => setField({ land })}
             />
             <DayPicker
               submitted={submitted}
@@ -138,8 +143,8 @@ const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
               error={errors.datoTilOgMed}
               label={msg({ id: "felter.gyldigtom.label" })}
               ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-              onChange={value => setField({ datoTilOgMed: value })}
-              onErrors={error => setError({ datoTilOgMed: error })}
+              onChange={(value) => setField({ datoTilOgMed: value })}
+              onErrors={(error) => setError({ datoTilOgMed: error })}
             />
             <div className="adresse__form-knapper">
               <div className="adresse__knapp">

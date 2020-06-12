@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const Knapp = (props: Props) => {
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+            <FormattedMessage id={props.lenkeTekst} />
           </Normaltekst>
         </Link>
       );
@@ -48,7 +48,7 @@ const Knapp = (props: Props) => {
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+            <FormattedMessage id={props.lenkeTekst} />
           </Normaltekst>
         </Lenke>
       );
@@ -61,7 +61,7 @@ const Knapp = (props: Props) => {
             </span>
           )}
           <Normaltekst>
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+            <FormattedMessage id={props.lenkeTekst} />
           </Normaltekst>
         </button>
       );
@@ -79,7 +79,20 @@ const Kilde = (props: Props) => {
         <div className="kilde__tekst">
           {props.kilde && (
             <EtikettLiten>
-              <FormattedHTMLMessage id={props.kilde} />
+              <FormattedMessage
+                id={props.kilde}
+                values={{
+                  span: (text: String) => (
+                    <span style={{ textTransform: "none" }}>{text}</span>
+                  ),
+                  br: (text: String) => (
+                    <>
+                      <br />
+                      {text}
+                    </>
+                  ),
+                }}
+              />
             </EtikettLiten>
           )}
         </div>

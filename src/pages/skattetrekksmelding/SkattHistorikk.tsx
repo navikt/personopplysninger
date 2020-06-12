@@ -4,12 +4,13 @@ import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
-import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
 import PageContainer from "components/pagecontainer/PageContainer";
 import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
+import Lenke from "nav-frontend-lenker";
 
 /*
   Hent data
@@ -49,7 +50,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
     if (!initState[year]) {
       initState[year] = {
         instInnslag: [instInnslag],
-        ekspandert: !i ? true : false
+        ekspandert: !i ? true : false,
       };
     } else {
       initState[year].instInnslag.push(instInnslag);
@@ -64,7 +65,16 @@ const Tabell = (props: { instInfo: InstInfo }) => {
         <>
           <div className={"historikk__info"}>
             <AlertStripeInfo>
-              <FormattedHTMLMessage id={"lenker.dsop.info"} />
+              <FormattedMessage
+                id={"lenker.dsop.info"}
+                values={{
+                  a: (text: String) => (
+                    <Lenke href="https://altinn.no" target="blank">
+                      {text}
+                    </Lenke>
+                  ),
+                }}
+              />
             </AlertStripeInfo>
           </div>
           <div className="historikk__flex-rad historikk__head">
@@ -81,15 +91,15 @@ const Tabell = (props: { instInfo: InstInfo }) => {
           </div>
           {Object.keys(data)
             .reverse()
-            .map(year => {
+            .map((year) => {
               const value = data[year];
               const onClick = () =>
                 setData({
                   ...data,
                   [year]: {
                     ...data[year],
-                    ekspandert: !data[year].ekspandert
-                  }
+                    ekspandert: !data[year].ekspandert,
+                  },
                 });
 
               return (

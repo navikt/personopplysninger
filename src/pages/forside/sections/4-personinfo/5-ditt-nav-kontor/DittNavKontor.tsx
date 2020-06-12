@@ -4,7 +4,7 @@ import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
-import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
 import ListElement from "components/listelement/ListElement";
@@ -162,7 +162,7 @@ const DittNavKontor = (props: Props) => {
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
             <Lenke href={`/person/kontakt-oss/`}>
-              <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.lenke" />
+              <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
             </Lenke>
           }
         />

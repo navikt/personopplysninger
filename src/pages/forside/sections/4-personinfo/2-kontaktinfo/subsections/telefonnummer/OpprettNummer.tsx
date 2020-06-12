@@ -6,12 +6,12 @@ import {
   FieldsConfig,
   FormContext,
   FormValidation,
-  ValidatorContext
+  ValidatorContext,
 } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import { Element } from "nav-frontend-typografi";
 import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
-import { isNorwegianNumber, sjekkForFeil } from "utils/validators";
+import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
@@ -35,13 +35,13 @@ const OpprettTelefonnummer = (props: Props) => {
   const initialValues = {
     landskode: {
       label: "Norge",
-      value: "+47"
-    }
+      value: "+47",
+    },
   };
 
   const formConfig = {
     landskode: {
-      isRequired: msg({ id: "validation.retningsnr.pakrevd" })
+      isRequired: msg({ id: "validation.retningsnr.pakrevd" }),
     },
     tlfnummer: {
       isRequired: msg({ id: "validation.tlfnr.pakrevd" }),
@@ -50,26 +50,26 @@ const OpprettTelefonnummer = (props: Props) => {
         (tlfnr.telefonHoved || tlfnr.telefonAlternativ) && {
           isBlacklisted: {
             message: msg({ id: "validation.tlfnr.eksisterer" }),
-            blacklist: [tlfnr.telefonHoved, tlfnr.telefonAlternativ]
-          }
+            blacklist: [tlfnr.telefonHoved, tlfnr.telefonAlternativ],
+          },
         }),
       isValidNorwegianNumber: {
         message: msg({ id: "validation.tlfnr.norske" }),
         validateIf: ({ fields }: ValidatorContext) =>
-          isNorwegianNumber(fields.landskode)
+          isNorwegianNumber(fields.landskode),
       },
       isMaxLength: {
         message: msg({ id: "validation.tlfnr.makslengde" }),
-        length: 16
-      }
-    }
+        length: 16,
+      },
+    },
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -81,7 +81,7 @@ const OpprettTelefonnummer = (props: Props) => {
       const outbound = {
         prioritet,
         landskode: landskode.value,
-        nummer: tlfnummer
+        nummer: tlfnummer,
       };
 
       settLoading(true);
@@ -120,7 +120,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
-                      onChange={option => setField({ landskode: option })}
+                      onChange={(option) => setField({ landskode: option })}
                       error={errors.landskode}
                       submitted={submitted}
                     />
@@ -132,8 +132,8 @@ const OpprettTelefonnummer = (props: Props) => {
                       value={fields.tlfnummer}
                       maxLength={tlfNummerMaxLength}
                       label={msg({ id: "felter.tlfnr.label" })}
-                      onChange={e => setField({ tlfnummer: e.target.value })}
-                      feil={sjekkForFeil(submitted, errors.tlfnummer)}
+                      onChange={(e) => setField({ tlfnummer: e.target.value })}
+                      feil={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>

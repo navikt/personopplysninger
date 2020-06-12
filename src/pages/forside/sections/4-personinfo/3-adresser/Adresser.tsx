@@ -1,20 +1,238 @@
-import React from "react";
+import React, { useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { Adresser as IAdresser } from "types/adresser";
+import Box from "components/box/Box";
+import adresseIkon from "assets/img/Adresse.svg";
+import Kilde from "components/kilde/Kilde";
+import endreIkon from "assets/img/Pencil.svg";
+import leggTilIkon from "assets/img/LeggTil.svg";
+import slettIkon from "assets/img/Slett.svg";
+import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
+import { Normaltekst, Undertittel } from "nav-frontend-typografi";
+import { Radio, RadioGruppe } from "nav-frontend-skjema";
+import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
+import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
+import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
+import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
+import Modal from "nav-frontend-modal";
+import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
+import Alert, { AlertType } from "components/alert/Alert";
+import { slettUtenlandsAdresse } from "clients/apiClient";
+import { slettMidlertidigAdresse } from "clients/apiClient";
+import { fetchPersonInfo } from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
-import { Adresser } from "types/adresser";
-import AdresserPDL from "./Adresser-PDL";
-import AdresserOLD from "./Adresser-OLD";
+import driftsmeldinger from "driftsmeldinger";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
-  adresser: Adresser;
+  adresser: IAdresser;
 }
 
-const VisAdresser = (props: Props) => {
-  const [{ featureToggles }] = useStore();
-  return featureToggles.data["personopplysninger.pdl"] ? (
-    <AdresserPDL adresser={props.adresser} />
-  ) : (
-    <AdresserOLD adresser={props.adresser} />
+const NORSK = "NORSK";
+const UTENLANDSK = "UTENLANDSK";
+
+const Adresser = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
+  const [, dispatch] = useStore();
+  const { adresser } = props;
+  const { tilleggsadresse, utenlandskAdresse } = adresser;
+  const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
+  const [slettLoading, settSlettLoading] = useState<boolean>();
+  const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
+  const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
+  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
+    props.adresser.tilleggsadresse
+      ? "NORSK"
+      : props.adresser.utenlandskAdresse
+      ? "UTENLANDSK"
+      : undefined
+  );
+
+  const visEndreOpprett = () => {
+    settOpprettEllerEndre(true);
+  };
+
+  const apneSlettModal = () => {
+    settVisSlettModal(true);
+  };
+
+  const lukkSlettModal = () => {
+    settVisSlettModal(false);
+  };
+
+  const getUpdatedData = () =>
+    fetchPersonInfo().then((personInfo) => {
+      dispatch({
+        type: "SETT_PERSON_INFO_RESULT",
+        payload: personInfo as PersonInfo,
+      });
+    });
+
+  const onSlettSuccess = () => {
+    lukkSlettModal();
+  };
+
+  const slettAdresse = () => {
+    settSlettLoading(true);
+
+    if (utenlandskAdresse) {
+      slettUtenlandsAdresse()
+        .then(getUpdatedData)
+        .then(onSlettSuccess)
+        .catch((error: AlertType) => settSlettAlert(error))
+        .then(() => settSlettLoading(false));
+    }
+    if (tilleggsadresse) {
+      slettMidlertidigAdresse()
+        .then(getUpdatedData)
+        .then(onSlettSuccess)
+        .catch((error: AlertType) => settSlettAlert(error))
+        .then(() => settSlettLoading(false));
+    }
+  };
+  return (
+    <Box
+      id="adresser"
+      tittel="adresse.tittel"
+      beskrivelse="adresse.beskrivelse"
+      icon={adresseIkon}
+    >
+      <Folkeregisteret adresser={props.adresser} />
+      <div className="adresse__box">
+        <div className="underseksjon__header underseksjon__divider">
+          <Undertittel>
+            <FormattedMessage id={"adresse.midlertidigadresse"} />
+          </Undertittel>
+        </div>
+        {driftsmeldinger.pdl && (
+          <div style={{ padding: "1rem 0" }}>
+            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          </div>
+        )}
+        {opprettEllerEndre ? (
+          <div className="adresse__form">
+            <RadioGruppe>
+              <Radio
+                name={NORSK}
+                checked={norskEllerUtenlandsk === NORSK}
+                label={msg({ id: "felter.adressevalg.norsk" })}
+                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
+              />
+              <Radio
+                name={UTENLANDSK}
+                checked={norskEllerUtenlandsk === UTENLANDSK}
+                label={msg({ id: "felter.adressevalg.utenlandsk" })}
+                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
+              />
+              {norskEllerUtenlandsk === NORSK && (
+                <OpprettEllerEndreNorskMidlertidigAdresse
+                  tilleggsadresse={props.adresser.tilleggsadresse}
+                  settOpprettEllerEndre={settOpprettEllerEndre}
+                />
+              )}
+              {norskEllerUtenlandsk === UTENLANDSK && (
+                <OpprettEllerEndreUtenlandskAdresse
+                  utenlandskadresse={props.adresser.utenlandskAdresse}
+                  settOpprettEllerEndre={settOpprettEllerEndre}
+                />
+              )}
+            </RadioGruppe>
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+          </div>
+        ) : (
+          <>
+            {tilleggsadresse && (
+              <MidlertidigNorskAdresse tilleggsadresse={tilleggsadresse} />
+            )}
+            {utenlandskAdresse && (
+              <UtenlandskAdresse utenlandskadresse={utenlandskAdresse} />
+            )}
+            {!tilleggsadresse && !utenlandskAdresse && (
+              <Normaltekst>
+                <FormattedMessage
+                  id="adresse.midlertidigadresse.leggtil.beskrivelse"
+                  values={{
+                    br: (text: String) => (
+                      <>
+                        <br />
+                        {text}
+                      </>
+                    ),
+                  }}
+                />
+              </Normaltekst>
+            )}
+            <div className="adresse__endre-knapper">
+              <button onClick={visEndreOpprett} className="kilde__lenke lenke">
+                <span className="kilde__icon">
+                  <img
+                    src={harMidlertidigAdr ? endreIkon : leggTilIkon}
+                    alt="Ekstern lenke"
+                  />
+                </span>
+                <Normaltekst>
+                  <FormattedMessage
+                    id={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
+                  />
+                </Normaltekst>
+              </button>
+              {(tilleggsadresse || utenlandskAdresse) && (
+                <button onClick={apneSlettModal} className="kilde__lenke lenke">
+                  <span className="kilde__icon">
+                    <img src={slettIkon} alt="Ekstern lenke" />
+                  </span>
+                  <Normaltekst>
+                    <FormattedMessage id={"side.slett"} />
+                  </Normaltekst>
+                </button>
+              )}
+              {visSlettModal && (
+                <Modal
+                  closeButton={false}
+                  isOpen={visSlettModal}
+                  onRequestClose={lukkSlettModal}
+                  contentLabel={msg({ id: "side.slett" })}
+                >
+                  <div style={{ padding: "2rem 2.5rem" }}>
+                    <FormattedMessage
+                      id="adresse.slett.alert"
+                      values={{
+                        br: (text: String) => (
+                          <>
+                            <br />
+                            {text}
+                          </>
+                        ),
+                      }}
+                    />
+                    <div className="adresse__modal-knapper">
+                      <Fareknapp
+                        onClick={slettAdresse}
+                        spinner={slettLoading}
+                        autoDisableVedSpinner={true}
+                      >
+                        <FormattedMessage id={"side.slett"} />
+                      </Fareknapp>
+                      <Flatknapp
+                        onClick={lukkSlettModal}
+                        disabled={slettLoading}
+                      >
+                        <FormattedMessage id="side.avbryt" />
+                      </Flatknapp>
+                    </div>
+                    {slettAlert && <Alert {...slettAlert} />}
+                  </div>
+                </Modal>
+              )}
+            </div>
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+          </>
+        )}
+      </div>
+    </Box>
   );
 };
 
-export default VisAdresser;
+export default Adresser;
