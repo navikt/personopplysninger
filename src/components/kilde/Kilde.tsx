@@ -28,29 +28,29 @@ const Knapp = (props: Props) => {
   switch (props.lenkeType) {
     case "INTERN":
       return (
-        <Link to={props.lenke} className="kilde__lenke lenke">
-          <Normaltekst>
+        <Normaltekst>
+          <Link to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </Link>
+          </Link>
+        </Normaltekst>
       );
     case "EKSTERN":
       return (
-        <Lenke href={props.lenke} className="kilde__lenke lenke">
-          <Normaltekst>
+        <Normaltekst>
+          <Lenke href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </Lenke>
+          </Lenke>
+        </Normaltekst>
       );
     case "KNAPP":
       return (
