@@ -24,6 +24,7 @@
     "@babel/core": "^7.10.2",
     "@navikt/arbeidsforhold": "^1.1.25",
     "@navikt/fnrvalidator": "^1.1.2",
+    "@react-pdf/renderer": "^2.0.0-beta.6",
     "calidation": "^1.16.2",
     "core-js": "^3.6.5",
     "fetch-mock": "^9.10.1",
