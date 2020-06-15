@@ -17,6 +17,11 @@ Installer nødvendige pakker:
 ```
 npm install
 ```
+Start dekoratøren og mocks
+
+```
+docker-compose up -d
+```
 
 Start applikasjonen lokalt:
 
