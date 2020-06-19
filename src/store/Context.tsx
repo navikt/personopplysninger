@@ -3,7 +3,7 @@ import React, {
   useContext,
   useReducer,
   Reducer,
-  Dispatch
+  Dispatch,
 } from "react";
 import { Action, Store } from "./Store";
 
@@ -14,9 +14,12 @@ interface Props {
 }
 
 export const StoreContext = createContext({} as [Store, Dispatch<Action>]);
-export const StoreProvider = ({ reducer, initialState, children }: Props) => (
-  <StoreContext.Provider value={useReducer(reducer, initialState)}>
-    {children}
-  </StoreContext.Provider>
-);
+export const StoreProvider = (props: Props) => {
+  const { reducer, initialState, children } = props;
+  return (
+    <StoreContext.Provider value={useReducer(reducer, initialState)}>
+      {children}
+    </StoreContext.Provider>
+  );
+};
 export const useStore = () => useContext(StoreContext);
