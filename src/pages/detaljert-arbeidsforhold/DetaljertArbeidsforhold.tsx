@@ -4,6 +4,7 @@ import { useIntl } from "react-intl";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
+import { useStore } from "../../store/Context";
 
 const miljo = process.env.REACT_APP_MILJO as
   | "LOCAL"
@@ -21,7 +22,18 @@ const radix = 10;
 const Arbeidsforhold = () => {
   const { locale } = useIntl();
   const params = useParams<Routes>();
+  const [{ personInfo }] = useStore();
   const id: number = parseInt(params.id, radix);
+
+  const printName =
+    personInfo.status === "RESULT"
+      ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}`
+      : ``;
+
+  const printSSN =
+    personInfo.status === "RESULT"
+      ? `${personInfo.data.personalia?.personident?.verdi}`
+      : ``;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,9 +48,12 @@ const Arbeidsforhold = () => {
     >
       <DetaljertArbeidsforhold
         rolle={"ARBEIDSTAKER"}
-        locale={locale as "nb" | "en"}
         miljo={miljo}
+        locale={locale as "nb" | "en"}
         navArbeidsforholdId={id}
+        printActivated={true}
+        printName={printName}
+        printSSN={printSSN}
       />
     </PageContainer>
   );
