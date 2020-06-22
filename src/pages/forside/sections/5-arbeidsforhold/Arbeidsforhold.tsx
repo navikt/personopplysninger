@@ -31,8 +31,6 @@ const Arbeidsforhold = () => {
       ? `${personInfo.data.personalia?.personident?.verdi}`
       : ``;
 
-  console.log(printSSN);
-
   const onClick = {
     type: "REACT_ROUTER_LENKE",
     Component: Link,
