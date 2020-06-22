@@ -2,7 +2,6 @@ import React from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, Validation } from "calidation";
 import { useIntl } from "react-intl";
-import { sjekkForFeil } from "utils/validators";
 
 interface Props {
   kontonummer?: string;
@@ -12,14 +11,18 @@ export interface OutboundNorskKontonummer {
   value: string;
 }
 
+interface Fields {
+  kontonummer?: string;
+}
+
 const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { kontonummer } = props;
 
-  const initialValues = {
+  const initialValues: Fields = {
     ...(kontonummer && {
-      kontonummer: kontonummer
-    })
+      kontonummer: kontonummer,
+    }),
   };
 
   const formConfig = {
@@ -28,12 +31,12 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
       isNumber: msg({ id: "validation.kontonummer.siffer" }),
       isExactLength: {
         message: msg({ id: "validation.kontonummer.elleve" }),
-        length: 11
+        length: 11,
       },
       isMod11: {
-        message: msg({ id: "validation.kontonummer.mod11" })
-      }
-    }
+        message: msg({ id: "validation.kontonummer.mod11" }),
+      },
+    },
   };
 
   return (
@@ -46,8 +49,8 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               maxLength={11}
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
-              onChange={e => setField({ kontonummer: e.target.value })}
-              feil={sjekkForFeil(submitted, errors.kontonummer)}
+              onChange={(e) => setField({ kontonummer: e.target.value })}
+              feil={submitted && errors.kontonummer}
             />
           </div>
         </>
@@ -60,7 +63,7 @@ export const setOutboundNorskKontonummer = (c: FormContext) => {
   const { fields } = c;
   const { kontonummer } = fields;
   return {
-    value: kontonummer
+    value: kontonummer,
   };
 };
 

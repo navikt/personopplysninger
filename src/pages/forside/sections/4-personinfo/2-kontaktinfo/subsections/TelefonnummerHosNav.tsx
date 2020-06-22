@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "types/personalia";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import Kilde from "components/kilde/Kilde";
-import Melding from "components/melding/Melding";
 import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
@@ -16,7 +15,7 @@ interface Props {
 }
 
 const TelefonnummerHosNav = (props: Props) => {
-  const [opprett, settOpprett] = useState();
+  const [opprett, settOpprett] = useState<boolean>();
   const { tlfnr } = props;
 
   const onChangeSuccess = () => {
@@ -38,7 +37,7 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
       <div className="underseksjon__header">
         <Undertittel>
-          <FormattedHTMLMessage id="personalia.tlfnr.oveskrift" />
+          <FormattedMessage id="personalia.tlfnr.oveskrift" />
         </Undertittel>
       </div>
       {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
@@ -67,7 +66,19 @@ const TelefonnummerHosNav = (props: Props) => {
           )}
         </div>
       ) : (
-        <Melding meldingId="personalia.tlfnr.ingenData" />
+        <div className="underseksjon__beskrivelse">
+          <FormattedMessage
+            id="personalia.tlfnr.ingenData"
+            values={{
+              br: (text: String) => (
+                <>
+                  <br />
+                  {text}
+                </>
+              ),
+            }}
+          />
+        </div>
       )}
 
       {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
@@ -76,7 +87,7 @@ const TelefonnummerHosNav = (props: Props) => {
             <img src={leggTilIkon} alt="Ekstern lenke" />
           </span>
           <Normaltekst>
-            <FormattedHTMLMessage id={"side.leggtil"} />
+            <FormattedMessage id={"side.leggtil"} />
           </Normaltekst>
         </button>
       )}

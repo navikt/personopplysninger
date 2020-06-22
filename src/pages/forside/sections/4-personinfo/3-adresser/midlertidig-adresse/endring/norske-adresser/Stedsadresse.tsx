@@ -3,7 +3,6 @@ import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { FormContext, FormValidation } from "calidation";
 import { fetchPersonInfo, postStedsadresse } from "clients/apiClient";
 import { Input } from "nav-frontend-skjema";
-import { ExtraFieldsConfig, sjekkForFeil } from "utils/validators";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
@@ -19,6 +18,13 @@ interface Props {
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
+interface FormFields {
+  tilleggslinje?: string;
+  eiendomsnavn?: string;
+  postnummer?: string;
+  datoTilOgMed?: string;
+}
+
 export interface OutboundStedsadresse {
   tilleggslinje: string;
   tilleggslinjeType: string;
@@ -31,40 +37,40 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const [loading, settLoading] = useState();
+  const [loading, settLoading] = useState<boolean>();
   const [, dispatch] = useStore();
 
-  const initialValues = {
+  const initialValues: FormFields = {
     ...(tilleggsadresse && {
-      ...tilleggsadresse
-    })
+      ...tilleggsadresse,
+    }),
   };
 
-  const formConfig: ExtraFieldsConfig = {
+  const formConfig = {
     tilleggslinje: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     eiendomsnavn: {
       isRequired: msg({ id: "validation.stedsadresse.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isLettersSpaceAndDigits: msg({
-        id: "validation.only.letters.space.and.digits"
-      })
+        id: "validation.only.letters.space.and.digits",
+      }),
     },
     postnummer: {
-      isRequired: msg({ id: "validation.postnummer.pakrevd" })
+      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
     },
     datoTilOgMed: {
-      isRequired: msg({ id: "validation.tomdato.pakrevd" })
-    }
+      isRequired: msg({ id: "validation.tomdato.pakrevd" }),
+    },
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -82,8 +88,8 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
           tilleggslinjeType: "CO",
-          tilleggslinje
-        })
+          tilleggslinje,
+        }),
       } as OutboundStedsadresse;
 
       settLoading(true);
@@ -111,7 +117,7 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={value => setField({ tilleggslinje: value })}
+              onChange={(value) => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
             />
@@ -122,8 +128,8 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
                   maxLength={30}
                   value={fields.eiendomsnavn}
                   label={msg({ id: "felter.stedsadresse.label" })}
-                  onChange={e => setField({ eiendomsnavn: e.target.value })}
-                  feil={sjekkForFeil(submitted, errors.eiendomsnavn)}
+                  onChange={(e) => setField({ eiendomsnavn: e.target.value })}
+                  feil={submitted && errors.eiendomsnavn}
                 />
               </div>
               <div className="adresse__kolonne" />
@@ -135,8 +141,10 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
                   value={fields.postnummer}
                   error={errors.postnummer}
                   label={msg({ id: "felter.postnummer.label" })}
-                  onChange={postnummer => setField({ postnummer })}
-                  onErrors={error => setError({ postnummer: error })}
+                  onChange={(postnummer) => setField({ postnummer })}
+                  onErrors={(error) =>
+                    setError({ ...errors, postnummer: error })
+                  }
                 />
               </div>
               <div className="adresse__kolonne" />
@@ -149,8 +157,10 @@ const OpprettEllerEndreStedsadresse = (props: Props) => {
                   error={errors.datoTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
                   ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={value => setField({ datoTilOgMed: value })}
-                  onErrors={error => setError({ datoTilOgMed: error })}
+                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onErrors={(error) =>
+                    setError({ ...errors, datoTilOgMed: error })
+                  }
                 />
               </div>
               <div className="adresse__kolonne" />

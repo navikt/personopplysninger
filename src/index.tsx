@@ -13,7 +13,7 @@ import scripts from "./clients/apiMock/decorator/decorator-scripts";
 import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
-import { extraValidators, SimpleValidators } from "./utils/validators";
+import { extraValidators } from "./utils/validators";
 import App from "./App";
 
 const browserLanguage = "nb";
@@ -48,13 +48,13 @@ const init = async () => {
 
     // Execute client.js
     var script = document.createElement("script");
-    script.src = "https://www.nav.no/dekoratoren/client.js";
+    script.src = "http://localhost:8100/dekoratoren/client.js";
     document.body.appendChild(script);
   }
 
   ReactDOM.render(
     <IntlProvider locale={browserLanguage} messages={messages}>
-      <ValidatorsProvider validators={extraValidators as SimpleValidators}>
+      <ValidatorsProvider validators={extraValidators}>
         <StoreProvider initialState={initialState} reducer={reducer}>
           <App />
         </StoreProvider>

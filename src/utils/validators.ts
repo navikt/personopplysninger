@@ -1,44 +1,12 @@
-import {
-  Dictionary,
-  FieldConfig,
-  SimpleValidator,
-  SimpleValidatorConfig,
-  ValidatorContext
-} from "calidation";
+import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
-import {
-  BANKKODE_MAX_LENGTH,
-  BIC
-} from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { BIC } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 
-/*
-  Form validators
- */
-
-export type ExtraFieldsConfig = Dictionary<FieldConfig & ExtraFieldConfig>;
-export interface ExtraFieldConfig {
-  isBIC?: SimpleValidator;
-  isIBAN?: SimpleValidator;
-  isIBANCountryCompliant?: SimpleValidator;
-  isBankkode?: CustomValidator;
-  isMod11?: SimpleValidator;
-  isPositive?: SimpleValidator;
-  isFirstCharNotSpace?: SimpleValidator;
-  isValidStreetName?: SimpleValidator;
-  isLetters?: SimpleValidator;
-  isLettersAndSpace?: SimpleValidator;
-  isLettersAndDigits?: SimpleValidator;
-  isLettersSpaceAndDigits?: SimpleValidator;
-  isMinOneLetter?: SimpleValidator;
-  isBlacklistedCommon?: SimpleValidator;
-  isValidNorwegianNumber?: SimpleValidator;
-  isHouseNumber?: SimpleValidator;
-}
-
-export const extraValidators: Validators = {
+export const extraValidators = {
   /*
     General validators
    */
@@ -68,7 +36,7 @@ export const extraValidators: Validators = {
     value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
 
   isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    ["ukjent", "vet ikke"].some(substring =>
+    ["ukjent", "vet ikke"].some((substring) =>
       value.toLowerCase().includes(substring)
     )
       ? config.message
@@ -116,13 +84,11 @@ export const extraValidators: Validators = {
   isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     isValidIBAN(value) ? config.message : null,
 
-  isBankkode: (config: CustomValidator, { fields }: ValidatorContext) => (
-    value: string
-  ) =>
+  isBankkode: (config: any, { fields }: ValidatorContext) => (value: string) =>
     value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
       ? config.message({
           land: fields.land.label,
-          siffer: BANKKODE_MAX_LENGTH[fields.land.value]
+          siffer: BANKKODE_MAX_LENGTH[fields.land.value],
         })
       : null,
 
@@ -130,7 +96,7 @@ export const extraValidators: Validators = {
     value.length !== 8 || !erInteger(value) ? config.message : null,
 
   isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null
+    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null,
 };
 
 /*
@@ -142,28 +108,10 @@ export const erInteger = (str: string) => {
   return n !== Infinity && String(n) === str && n >= 0;
 };
 
-export const sjekkForFeil = (submitted: boolean, error: string | null) =>
-  submitted && error ? { feilmelding: error } : undefined;
-
 export const isNorwegianNumber = (landskode: OptionType) =>
   landskode && landskode.value === "+47";
-
-/*
-  Overridden types
- */
-
-export type SimpleValidators = Dictionary<
-  (config: SimpleValidatorConfig) => (value: any) => string | null
->;
 
 export interface CustomValidator {
   message: (values: object) => string;
   validateIf?: ((context: ValidatorContext) => boolean) | boolean;
 }
-
-export type Validators = Dictionary<
-  (
-    config: SimpleValidatorConfig & CustomValidator,
-    context: ValidatorContext
-  ) => (value: any) => string | null
->;

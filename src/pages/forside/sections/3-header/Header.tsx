@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "assets/img/Veileder.svg";
 import Veilederpanel from "nav-frontend-veilederpanel";
@@ -7,6 +7,7 @@ import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
+import Lenke from "nav-frontend-lenker";
 
 const Header = () => {
   const [{ nameInfo }] = useStore();
@@ -28,22 +29,35 @@ const Header = () => {
             <div className="box__container header__content">
               <Systemtittel>
                 {fornavn ? (
-                  <FormattedHTMLMessage
+                  <FormattedMessage
                     id="header.hello.name"
                     values={{ name: formatName(fornavn) }}
                   />
                 ) : (
-                  <FormattedHTMLMessage id="header.hello" />
+                  <FormattedMessage id="header.hello" />
                 )}
               </Systemtittel>
               <div className="header__seksjon">
                 <Normaltekst>
-                  <FormattedHTMLMessage id="header.obs" />
+                  <FormattedMessage id="header.obs" />
                 </Normaltekst>
               </div>
               <div className="header__seksjon">
                 <Normaltekst>
-                  <FormattedHTMLMessage id="header.description" />
+                  <FormattedMessage
+                    id="header.description"
+                    values={{
+                      a: (text: String) => (
+                        <Lenke
+                          href="https://www.nav.no/personvern"
+                          target="blank"
+                          rel="noopener noreferrer"
+                        >
+                          {text}
+                        </Lenke>
+                      ),
+                    }}
+                  />
                 </Normaltekst>
               </div>
             </div>

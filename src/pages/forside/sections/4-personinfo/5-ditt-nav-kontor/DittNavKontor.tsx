@@ -4,7 +4,7 @@ import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
 import { Normaltekst, Element } from "nav-frontend-typografi";
-import { FormattedMessage, FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
 import ListElement from "components/listelement/ListElement";
@@ -12,6 +12,7 @@ import Apningstid from "./apningstid/Apningstid";
 import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
+import Lenke from "nav-frontend-lenker";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -21,8 +22,9 @@ interface Props {
 const DittNavKontor = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { enhet } = props.enhetKontaktInformasjon;
+  const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
   const [valgtMottakId, settValgtMottakId] = useState(
-    enhet && enhet.publikumsmottak.length > 1 ? -1 : 0
+    publikumsmottak.length ? 0 : -1
   );
 
   if (!enhet || !props.geografiskTilknytning) {
@@ -30,7 +32,7 @@ const DittNavKontor = (props: Props) => {
   }
 
   const { geografiskTilknytning } = props;
-  const { publikumsmottak, postadresse } = enhet;
+  const { postadresse } = enhet;
 
   return (
     <Box
@@ -157,21 +159,12 @@ const DittNavKontor = (props: Props) => {
       </div>
       <ul className="dittnavkontor__footer list-column-2">
         <ListElement
-          titleId="dittnavkontor.kontaktinfo.kontaktsenter.tittel"
+          titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
-            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.kontaktsenter.tlfnr" />
+            <Lenke href={`/person/kontakt-oss/`}>
+              <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
+            </Lenke>
           }
-        >
-          <>
-            <FormattedHTMLMessage id="dittnavkontor.kontaktinfo.pensjon.tlfnr" />
-            (<FormattedMessage id="dittnavkontor.kontaktinfo.pensjon" />)
-          </>
-        </ListElement>
-        <ListElement
-          titleId="dittnavkontor.kontaktinfo.apningstider.tittel"
-          content={msg({
-            id: "dittnavkontor.kontaktinfo.apningstider.innhold"
-          })}
         />
       </ul>
       <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="69px" height="48px" viewBox="-10 -10 89 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60.1 (88133) - https://sketch.com -->
+    <title>Group 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.25,17.2941176 C23.6012746,17.2941176 29.3512746,14.4117647 34.5,8.64705882 C29.3512746,2.88235294 23.6012746,0 17.25,0 C10.8987254,0 5.14872538,2.88235294 0,8.64705882 C5.14872538,14.4117647 10.8987254,17.2941176 17.25,17.2941176 Z" id="path-1"></path>
+    </defs>
+    <g id="For-familiemedlem---nyeste-versjon" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Personopplysninger" transform="translate(-115.000000, -1348.000000)">
+            <g id="Group-3" transform="translate(115.000000, 1348.000000)">
+                <g id="Group-8-Copy">
+                    <g id="skjerming2">
+                        <path d="M57.5,0 C60.6756373,0 63.25,2.58094674 63.25,5.76470588 L63.25,37.4705882 C63.25,40.6543474 60.6756373,43.2352941 57.5,43.2352941 L11.5,43.2352941 C8.32436269,43.2352941 5.75,40.6543474 5.75,37.4705882 L5.75,5.76470588 C5.75,2.58094674 8.32436269,0 11.5,0 L57.5,0 Z" id="Path" fill="#59514B" fill-rule="nonzero"></path>
+                        <polygon id="Path" fill="#E3B0A8" fill-rule="nonzero" points="58.9375 4.32352941 10.0625 4.32352941 10.0625 38.9117647 58.9375 38.9117647"></polygon>
+                        <path d="M69,41.8661765 C69,45.0499356 66.4256373,47.6308824 63.25,47.6308824 L5.75,47.6308824 C2.57436269,47.6308824 0,45.0499356 0,41.8661765 L69,41.8661765 Z" id="Path" fill="#3E3832" fill-rule="nonzero"></path>
+                        <g id="Group-7" transform="translate(17.250000, 12.970588)">
+                            <g id="Oval" fill="#FFFFFF" fill-rule="nonzero">
+                                <path d="M17.25,17.2941176 C23.6012746,17.2941176 29.3512746,14.4117647 34.5,8.64705882 C29.3512746,2.88235294 23.6012746,0 17.25,0 C10.8987254,0 5.14872538,2.88235294 0,8.64705882 C5.14872538,14.4117647 10.8987254,17.2941176 17.25,17.2941176 Z" id="path-1"></path>
+                            </g>
+                            <g id="Oval-Clipped">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="path-1"></g>
+                                <ellipse id="Oval" fill="#5EAEC7" fill-rule="nonzero" mask="url(#mask-2)" cx="17.25" cy="8.64705882" rx="7.1875" ry="7.20588235"></ellipse>
+                            </g>
+                        </g>
+                        <polygon id="Rectangle" fill="#3E3832" fill-rule="nonzero" transform="translate(34.500000, 22.338235) rotate(45.000000) translate(-34.500000, -22.338235) " points="33.0376838 4.34466912 35.9163603 4.34834559 35.9623162 40.3318015 33.0836397 40.328125"></polygon>
+                    </g>
+                </g>
+                <circle id="Oval-Copy-3" fill="#FFFFFF" cx="30" cy="19" r="3"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

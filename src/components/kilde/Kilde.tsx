@@ -1,5 +1,5 @@
 import React from "react";
-import { FormattedHTMLMessage } from "react-intl";
+import { FormattedMessage } from "react-intl";
 import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import { Link } from "react-router-dom";
@@ -28,29 +28,29 @@ const Knapp = (props: Props) => {
   switch (props.lenkeType) {
     case "INTERN":
       return (
-        <Link to={props.lenke} className="kilde__lenke lenke">
-          <Normaltekst>
+        <Normaltekst>
+          <Link to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
-            <FormattedHTMLMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </Link>
+            <FormattedMessage id={props.lenkeTekst} />
+          </Link>
+        </Normaltekst>
       );
     case "EKSTERN":
       return (
-        <Lenke href={props.lenke} className="kilde__lenke lenke">
-          <Normaltekst>
+        <Normaltekst>
+          <Lenke href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
-            <FormattedHTMLMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </Lenke>
+            <FormattedMessage id={props.lenkeTekst} />
+          </Lenke>
+        </Normaltekst>
       );
     case "KNAPP":
       return (
@@ -61,7 +61,7 @@ const Knapp = (props: Props) => {
             </span>
           )}
           <Normaltekst>
-            <FormattedHTMLMessage id={props.lenkeTekst} />
+            <FormattedMessage id={props.lenkeTekst} />
           </Normaltekst>
         </button>
       );
@@ -79,7 +79,20 @@ const Kilde = (props: Props) => {
         <div className="kilde__tekst">
           {props.kilde && (
             <EtikettLiten>
-              <FormattedHTMLMessage id={props.kilde} />
+              <FormattedMessage
+                id={props.kilde}
+                values={{
+                  span: (text: String) => (
+                    <span style={{ textTransform: "none" }}>{text}</span>
+                  ),
+                  br: (text: String) => (
+                    <>
+                      <br />
+                      {text}
+                    </>
+                  ),
+                }}
+              />
             </EtikettLiten>
           )}
         </div>

@@ -3,6 +3,7 @@
 test("Check environmental variables", () => {
   expect(process.env.REACT_APP_MILJO).not.toBeUndefined();
   expect(process.env.REACT_APP_PDL_URL).not.toBeUndefined();
+  expect(process.env.REACT_APP_SKJERMING_URL).not.toBeUndefined();
   expect(process.env.REACT_APP_URL).not.toBeUndefined();
   expect(process.env.REACT_APP_API_URL).not.toBeUndefined();
   expect(process.env.REACT_APP_DSOP_URL).not.toBeUndefined();

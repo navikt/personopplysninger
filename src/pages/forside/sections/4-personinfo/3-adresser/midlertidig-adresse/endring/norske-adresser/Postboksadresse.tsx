@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
-import { ExtraFieldsConfig, sjekkForFeil } from "utils/validators";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
@@ -20,6 +19,14 @@ interface Props {
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
+interface FormFields {
+  tilleggslinje?: string;
+  postboksnummer?: string;
+  postboksanlegg?: string;
+  postnummer?: string;
+  datoTilOgMed?: string;
+}
+
 export interface OutboundPostboksadresse {
   tilleggslinje: string;
   tilleggslinjeType: string;
@@ -32,11 +39,11 @@ export interface OutboundPostboksadresse {
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
-  const [loading, settLoading] = useState();
+  const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
-  const initialValues = {
+  const initialValues: FormFields = {
     ...(tilleggsadresse && {
       ...tilleggsadresse,
       // Fjern nuller foran f.eks postnr 0024
@@ -44,41 +51,41 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
         postboksnummer: parseInt(
           tilleggsadresse.postboksnummer,
           RADIX_DECIMAL
-        ).toString()
-      })
-    })
+        ).toString(),
+      }),
+    }),
   };
 
-  const formConfig: ExtraFieldsConfig = {
+  const formConfig = {
     tilleggslinje: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" })
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     postboksnummer: {
       isRequired: msg({ id: "validation.postboksnummer.pakrevd" }),
-      isNumber: msg({ id: "validation.only.digits" })
+      isNumber: msg({ id: "validation.only.digits" }),
     },
     postboksanlegg: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isMinOneLetter: msg({ id: "validation.min.one.letter" }),
       isLettersSpaceAndDigits: msg({
-        id: "validation.only.letters.space.and.digits"
-      })
+        id: "validation.only.letters.space.and.digits",
+      }),
     },
     postnummer: {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
-      isNumber: msg({ id: "validation.only.digits" })
+      isNumber: msg({ id: "validation.only.digits" }),
     },
     datoTilOgMed: {
-      isRequired: msg({ id: "validation.tomdato.pakrevd" })
-    }
+      isRequired: msg({ id: "validation.tomdato.pakrevd" }),
+    },
   };
 
   const getUpdatedData = () =>
-    fetchPersonInfo().then(personInfo => {
+    fetchPersonInfo().then((personInfo) => {
       dispatch({
         type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo
+        payload: personInfo as PersonInfo,
       });
     });
 
@@ -102,8 +109,8 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
         gyldigTom: datoTilOgMed,
         ...(tilleggslinje && {
           tilleggslinjeType: "CO",
-          tilleggslinje
-        })
+          tilleggslinje,
+        }),
       } as OutboundPostboksadresse;
 
       settLoading(true);
@@ -131,7 +138,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={value => setField({ tilleggslinje: value })}
+              onChange={(value) => setField({ tilleggslinje: value })}
               value={fields.tilleggslinje}
               error={errors.tilleggslinje}
             />
@@ -143,7 +150,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 label={msg({ id: "felter.postboksnummer.label" })}
                 value={fields.postboksnummer}
                 className="adresse__input-avstand"
-                feil={sjekkForFeil(submitted, errors.postboksnummer)}
+                feil={submitted && errors.postboksnummer}
                 onChange={({ target }) => {
                   if (target.value.length <= 4) {
                     setField({ postboksnummer: target.value });
@@ -155,9 +162,9 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 maxLength={30}
                 value={fields.postboksanlegg}
                 label={msg({ id: "felter.postboksanlegg.label" })}
-                onChange={e => setField({ postboksanlegg: e.target.value })}
+                onChange={(e) => setField({ postboksanlegg: e.target.value })}
                 className="adresse__input-avstand"
-                feil={sjekkForFeil(submitted, errors.postboksanlegg)}
+                feil={submitted && errors.postboksanlegg}
               />
             </div>
             <div className="adresse__rad">
@@ -167,8 +174,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                   value={fields.postnummer}
                   error={errors.postnummer}
                   label={msg({ id: "felter.postnummer.label" })}
-                  onChange={postnummer => setField({ postnummer })}
-                  onErrors={error => setError({ postnummer: error })}
+                  onChange={(postnummer) => setField({ postnummer })}
+                  onErrors={(error) =>
+                    setError({ ...errors, postnummer: error })
+                  }
                 />
               </div>
               <div className="adresse__kolonne" />
@@ -181,8 +190,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                   error={errors.datoTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
                   ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={value => setField({ datoTilOgMed: value })}
-                  onErrors={error => setError({ datoTilOgMed: error })}
+                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onErrors={(error) =>
+                    setError({ ...errors, datoTilOgMed: error })
+                  }
                 />
               </div>
               <div className="adresse__kolonne" />
