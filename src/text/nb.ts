@@ -253,6 +253,7 @@ export default {
   "validation.kontonummer.siffer": "Kontonummer må være tall",
   "validation.kontonummer.elleve": `Norske kontonummer må ha 11 tall`,
   "validation.kontonummer.mod11": `Skriv inn et gyldig kontonummer`,
+  "validation.kontonummer.idnr": `Kontonummer kan ikke være et fødselsnummer eller d-nummer.`,
   "validation.ikke.iban": `Amerikanske kontonummer kan ikke være IBAN`,
   "validation.iban.pakrevd": "Gyldig IBAN er nødvendig",
   "validation.iban.country": `Du må taste inn et IBAN-nummer fra det landet du har valgt.`,

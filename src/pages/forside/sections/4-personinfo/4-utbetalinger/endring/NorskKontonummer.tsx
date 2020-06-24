@@ -36,6 +36,9 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
       isMod11: {
         message: msg({ id: "validation.kontonummer.mod11" }),
       },
+      isNotSSN: {
+        message: msg({ id: "validation.kontonummer.idnr" }),
+      },
     },
   };
 
