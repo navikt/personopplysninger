@@ -123,6 +123,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer),
       },
+      isNotSSN: {
+        message: msg({ id: "validation.kontonummer.inr" }),
+      },
     },
     bankidentifier: {
       isRequired: {
