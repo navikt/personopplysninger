@@ -18,6 +18,7 @@ import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
 
 interface Props {
+  personident?: { verdi: string; type: string };
   utenlandskbank?: UtenlandskBankkonto;
 }
 
@@ -123,8 +124,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer),
       },
-      isNotSSN: {
+      isNotYourSSN: {
         message: msg({ id: "validation.kontonummer.idnr" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.kontonummer === props.personident?.verdi,
       },
     },
     bankidentifier: {

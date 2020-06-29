@@ -77,6 +77,8 @@ export const extraValidators = {
   isNotSSN: (config: SimpleValidatorConfig) => (value: string) =>
     validator.idnr(value).status === "valid" ? config.message : null,
 
+  isNotYourSSN: (config: SimpleValidatorConfig) => () => config.message,
+
   isIBANCountryCompliant: (
     config: SimpleValidatorConfig,
     { fields }: ValidatorContext

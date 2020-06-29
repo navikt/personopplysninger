@@ -26,6 +26,7 @@ import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
+  personident?: { verdi: string; type: string };
   kontonr?: string;
 }
 
@@ -34,7 +35,7 @@ const UTENLANDSK = "UTENLANDSK";
 
 const Utbetalinger = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const { kontonr, utenlandskbank } = props;
+  const { kontonr, utenlandskbank, personident } = props;
   const [loading, settLoading] = useState<boolean>(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
   const [alert, settAlert] = useState<AlertType | undefined>();
@@ -108,7 +109,10 @@ const Utbetalinger = (props: Props) => {
                     }
                   />
                   {fields.norskEllerUtenlandsk === NORSK && (
-                    <OpprettEllerEndreNorskKontonr kontonummer={kontonr} />
+                    <OpprettEllerEndreNorskKontonr
+                      personident={personident}
+                      kontonummer={kontonr}
+                    />
                   )}
                   <Radio
                     name={UTENLANDSK}
@@ -120,6 +124,7 @@ const Utbetalinger = (props: Props) => {
                   />
                   {fields.norskEllerUtenlandsk === UTENLANDSK && (
                     <OpprettEllerEndreUtenlandsbank
+                      personident={personident}
                       utenlandskbank={utenlandskbank}
                     />
                   )}
