@@ -1,9 +1,8 @@
 import React, { ChangeEvent, Fragment, useState } from "react";
 import { Select } from "nav-frontend-skjema";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
-import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
+import OpprettEllerEndreVegadresse from "./norske-adresser/Vegadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
-import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
 import { FormattedMessage, useIntl } from "react-intl";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
@@ -14,12 +13,19 @@ interface Props {
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
-type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
+type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
+const MapTPStilPDL: { [key: string]: Adresser } = {
+  GATEADRESSE: "VEGADRESSE",
+  POSTBOKSADRESSE: "POSTBOKSADRESSE",
+  STEDSADRESSE: "VEGADRESSE",
+};
+
 const OpprettEllerEndreNorskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { tilleggsadresse } = props;
   const [type, settType] = useState(
-    (tilleggsadresse && tilleggsadresse.type) || ("GATEADRESSE" as Adresser)
+    (tilleggsadresse?.type && MapTPStilPDL[tilleggsadresse.type]) ||
+      ("VEGADRESSE" as Adresser)
   );
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
@@ -70,9 +76,8 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
       </div>
       {
         {
-          GATEADRESSE: <OpprettEllerEndreGateadresse {...props} />,
+          VEGADRESSE: <OpprettEllerEndreVegadresse {...props} />,
           POSTBOKSADRESSE: <OpprettEllerEndrePostboksadresse {...props} />,
-          STEDSADRESSE: <OpprettEllerEndreStedsadresse {...props} />,
         }[type]
       }
     </>

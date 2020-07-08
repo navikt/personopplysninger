@@ -4,7 +4,7 @@ import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import DayPicker from "components/felter/day-picker/DayPicker";
-import { fetchPersonInfo, postGateadresse } from "clients/apiClient";
+import { fetchPersonInfo, postVegadresse } from "clients/apiClient";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { RADIX_DECIMAL } from "utils/formattering";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
@@ -20,29 +20,32 @@ interface Props {
 }
 
 interface FormFields {
-  tilleggslinje?: string;
-  gatenavn?: string;
+  coAdressenavn?: string;
+  adressenavn?: string;
   husnummer?: string;
   husbokstav?: string;
-  bolignummer?: string;
   postnummer?: string;
-  datoTilOgMed?: string;
+  poststed?: string;
+  bruksenhetsnummer?: string;
+  kommunenummer?: string;
+  tilleggsnavn?: string;
+  gyldigTilOgMed?: string;
 }
 
-export interface OutboundGateadresse {
-  bolignummer: string;
-  gatekode: number;
-  gatenavn: string;
-  gyldigTom: string;
-  husbokstav: string;
-  husnummer: number;
-  kommunenummer: string;
-  postnummer: string;
-  tilleggslinje: string;
-  tilleggslinjeType: string;
+export interface OutboundVegadresse {
+  coAdressenavn?: string;
+  adressenavn?: string;
+  husnummer?: string;
+  husbokstav?: string;
+  postnummer?: string;
+  poststed?: string;
+  bruksenhetsnummer?: string;
+  kommunenummer?: string;
+  tilleggsnavn?: string;
+  gyldigTilOgMed?: string;
 }
 
-const OpprettEllerEndreGateadresse = (props: Props) => {
+const OpprettEllerEndreVegadresse = (props: Props) => {
   const { tilleggsadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
@@ -63,11 +66,11 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   };
 
   const formConfig = {
-    tilleggslinje: {
+    coAdressenavn: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    gatenavn: {
+    adressenavn: {
       isRequired: msg({ id: "validation.gatenavn.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
@@ -82,14 +85,14 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isLetters: msg({ id: "validation.only.letters" }),
     },
-    bolignummer: {
+    bruksenhetsnummer: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isHouseNumber: msg({ id: "validation.bolignummer.ugyldig" }),
     },
     postnummer: {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
     },
-    datoTilOgMed: {
+    gyldigTilOgMed: {
       isRequired: msg({ id: "validation.tomdato.pakrevd" }),
     },
   };
@@ -109,20 +112,15 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, tilleggslinje, husnummer, ...equalFields } = fields;
+      const { tilleggslinje, husnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
         husnummer: parseInt(husnummer, RADIX_DECIMAL),
-        gyldigTom: datoTilOgMed,
-        ...(tilleggslinje && {
-          tilleggslinjeType: "CO",
-          tilleggslinje,
-        }),
-      } as OutboundGateadresse;
+      } as OutboundVegadresse;
 
       settLoading(true);
-      postGateadresse(outbound)
+      postVegadresse(outbound)
         .then(getUpdatedData)
         .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
@@ -146,19 +144,19 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ tilleggslinje: value })}
-              value={fields.tilleggslinje}
-              error={errors.tilleggslinje}
+              onChange={(value) => setField({ coAdressenavn: value })}
+              value={fields.coAdressenavn}
+              error={errors.coAdressenavn}
             />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input
                   bredde={"XXL"}
                   maxLength={30}
-                  value={fields.gatenavn}
+                  value={fields.adressenavn}
                   label={msg({ id: "felter.gatenavn.label" })}
-                  onChange={(e) => setField({ gatenavn: e.target.value })}
-                  feil={submitted && errors.gatenavn}
+                  onChange={(e) => setField({ adressenavn: e.target.value })}
+                  feil={submitted && errors.adressenavn}
                 />
               </div>
               <div className="adresse__kolonne">
@@ -197,12 +195,12 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               <InputMedHjelpetekst
                 maxLength={5}
                 submitted={submitted}
-                value={fields.bolignummer}
+                value={fields.bruksenhetsnummer}
                 hjelpetekst={"adresse.hjelpetekster.bolignummer"}
                 className="adresse__input-avstand adresse__input-bolignummer"
                 label={msg({ id: "felter.bolignummer.label" })}
-                onChange={(value) => setField({ bolignummer: value })}
-                error={errors.bolignummer}
+                onChange={(value) => setField({ bruksenhetsnummer: value })}
+                error={errors.bruksenhetsnummer}
                 bredde={"S"}
               />
               <InputPostnummer
@@ -218,13 +216,13 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
               <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
-                  value={fields.datoTilOgMed}
-                  error={errors.datoTilOgMed}
+                  value={fields.gyldigTilOgMed}
+                  error={errors.gyldigTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
                   ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onChange={(value) => setField({ gyldigTilOgMed: value })}
                   onErrors={(error) =>
-                    setError({ ...errors, datoTilOgMed: error })
+                    setError({ ...errors, gyldigTilOgMed: error })
                   }
                 />
               </div>
@@ -261,4 +259,4 @@ const OpprettEllerEndreGateadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndreGateadresse;
+export default OpprettEllerEndreVegadresse;
