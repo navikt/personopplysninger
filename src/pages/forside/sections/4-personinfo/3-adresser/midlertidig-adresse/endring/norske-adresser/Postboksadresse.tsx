@@ -20,20 +20,17 @@ interface Props {
 }
 
 interface FormFields {
-  tilleggslinje?: string;
-  postboksnummer?: string;
-  postboksanlegg?: string;
+  postbokseier?: string;
+  postboks?: string;
   postnummer?: string;
   datoTilOgMed?: string;
 }
 
 export interface OutboundPostboksadresse {
-  tilleggslinje: string;
-  tilleggslinjeType: string;
-  postboksnummer: number;
-  postboksanlegg: string;
+  postbokseier?: string;
+  postboks: number;
   postnummer: string;
-  gyldigTom: string;
+  datoTilOgMed: string;
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
@@ -45,10 +42,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   const initialValues: FormFields = {
     ...(tilleggsadresse && {
-      ...tilleggsadresse,
+      postboks: tilleggsadresse.postboksnummer,
       // Fjern nuller foran f.eks postnr 0024
       ...(tilleggsadresse.postboksnummer && {
-        postboksnummer: parseInt(
+        postboks: parseInt(
           tilleggsadresse.postboksnummer,
           RADIX_DECIMAL
         ).toString(),
@@ -57,20 +54,13 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   };
 
   const formConfig = {
-    tilleggslinje: {
+    postbokseier: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    postboksnummer: {
+    postboks: {
       isRequired: msg({ id: "validation.postboksnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
-    },
-    postboksanlegg: {
-      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isMinOneLetter: msg({ id: "validation.min.one.letter" }),
-      isLettersSpaceAndDigits: msg({
-        id: "validation.only.letters.space.and.digits",
-      }),
     },
     postnummer: {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
@@ -138,9 +128,9 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ tilleggslinje: value })}
-              value={fields.tilleggslinje}
-              error={errors.tilleggslinje}
+              onChange={(value) => setField({ postbokseier: value })}
+              value={fields.postbokseier}
+              error={errors.postbokseier}
             />
             <div className="adresse__rad">
               <Input
@@ -148,23 +138,14 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 bredde={"S"}
                 type={"number"}
                 label={msg({ id: "felter.postboksnummer.label" })}
-                value={fields.postboksnummer}
+                value={fields.postboks}
                 className="adresse__input-avstand"
-                feil={submitted && errors.postboksnummer}
+                feil={submitted && errors.postboks}
                 onChange={({ target }) => {
                   if (target.value.length <= 4) {
-                    setField({ postboksnummer: target.value });
+                    setField({ postboks: target.value });
                   }
                 }}
-              />
-              <Input
-                bredde={"M"}
-                maxLength={30}
-                value={fields.postboksanlegg}
-                label={msg({ id: "felter.postboksanlegg.label" })}
-                onChange={(e) => setField({ postboksanlegg: e.target.value })}
-                className="adresse__input-avstand"
-                feil={submitted && errors.postboksanlegg}
               />
             </div>
             <div className="adresse__rad">
