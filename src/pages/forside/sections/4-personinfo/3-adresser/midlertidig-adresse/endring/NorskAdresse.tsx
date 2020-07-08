@@ -60,14 +60,11 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
               onChange={onSelectChange}
               defaultValue={type}
             >
-              <option value="GATEADRESSE">
+              <option value="VEGADRESSE">
                 {msg({ id: "felter.adressetype.gateadresse" })}
               </option>
               <option value="POSTBOKSADRESSE">
                 {msg({ id: "felter.adressetype.postboksadresse" })}
-              </option>
-              <option value="STEDSADRESSE">
-                {msg({ id: "felter.adressetype.stedsadresse" })}
               </option>
             </Select>
           </div>
