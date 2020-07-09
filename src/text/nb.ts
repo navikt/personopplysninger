@@ -201,7 +201,7 @@ export default {
   "felter.gyldigtom.label": "Gyldig til",
   "felter.postnummer.label": "Postnummer",
   "felter.postboksnummer.label": "Postboksnummer",
-  "felter.postboksanlegg.label": "Postboksanlegg",
+  "felter.postboksanlegg.label": "Postboksanlegg (valgfri)",
   "felter.stedsadresse.label": "Stedsadresse",
   "felter.adresse.label": "Adresse",
   "felter.bankens.adresse.label": "Bankens adresse (valgfri)",

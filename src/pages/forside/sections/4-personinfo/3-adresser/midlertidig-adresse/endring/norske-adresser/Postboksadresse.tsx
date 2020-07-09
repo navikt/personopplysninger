@@ -22,14 +22,15 @@ interface Props {
 
 interface FormFields {
   postbokseier?: string;
-  postboks?: string;
+  postboksnummer?: number;
+  postboksanlegg?: string;
   postnummer?: string;
   gyldigTilOgMed?: string;
 }
 
 export interface OutboundPostboksadresse {
   postbokseier?: string;
-  postboks: number;
+  postboks: string;
   postnummer: string;
   gyldigTilOgMed: string;
   gyldigFraOgMed: string;
@@ -46,22 +47,26 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
     ...(tilleggsadresse && {
       // Fjern nuller foran f.eks postnr 0024
       ...(tilleggsadresse.postboksnummer && {
-        postboks: parseInt(
-          tilleggsadresse.postboksnummer,
-          RADIX_DECIMAL
-        ).toString(),
+        postboksnummer: parseInt(tilleggsadresse.postboksnummer, RADIX_DECIMAL),
       }),
     }),
   };
 
   const formConfig = {
-    postbokseier: {
+    tilleggslinje: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    postboks: {
+    postboksnummer: {
       isRequired: msg({ id: "validation.postboksnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
+    },
+    postboksanlegg: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isMinOneLetter: msg({ id: "validation.min.one.letter" }),
+      isLettersSpaceAndDigits: msg({
+        id: "validation.only.letters.space.and.digits",
+      }),
     },
     postnummer: {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
@@ -87,13 +92,15 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { datoTilOgMed, postboks, tilleggslinje, ...equalFields } = fields;
+      const { postboksanlegg, postboksnummer, ...equalFields } = fields;
 
-      const outbound = {
+      const outbound: OutboundPostboksadresse = {
         ...equalFields,
-        postboks: parseInt(postboks, RADIX_DECIMAL).toString(),
+        postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
+          postboksanlegg ? ` ${postboksanlegg}` : ``
+        }`,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
-      } as OutboundPostboksadresse;
+      };
 
       settLoading(true);
       postPostboksadresse(outbound)
@@ -130,14 +137,25 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 bredde={"S"}
                 type={"number"}
                 label={msg({ id: "felter.postboksnummer.label" })}
-                value={fields.postboks}
+                value={fields.postboksnummer}
                 className="adresse__input-avstand"
-                feil={submitted && errors.postboks}
+                feil={submitted && errors.postboksnummer}
                 onChange={({ target }) => {
                   if (target.value.length <= 4) {
-                    setField({ postboks: target.value });
+                    setField({
+                      postboksnummer: parseInt(target.value, RADIX_DECIMAL),
+                    });
                   }
                 }}
+              />
+              <Input
+                bredde={"M"}
+                maxLength={30}
+                value={fields.postboksanlegg}
+                label={msg({ id: "felter.postboksanlegg.label" })}
+                onChange={(e) => setField({ postboksanlegg: e.target.value })}
+                className="adresse__input-avstand"
+                feil={submitted && errors.postboksanlegg}
               />
             </div>
             <div className="adresse__rad">
