@@ -13,6 +13,7 @@ import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import moment from "moment";
 
 interface Props {
   tilleggsadresse?: Tilleggsadresse;
@@ -23,14 +24,15 @@ interface FormFields {
   postbokseier?: string;
   postboks?: string;
   postnummer?: string;
-  datoTilOgMed?: string;
+  gyldigTilOgMed?: string;
 }
 
 export interface OutboundPostboksadresse {
   postbokseier?: string;
   postboks: number;
   postnummer: string;
-  datoTilOgMed: string;
+  gyldigTilOgMed: string;
+  gyldigFraOgMed: string;
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
@@ -43,6 +45,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const initialValues: FormFields = {
     ...(tilleggsadresse && {
       postboks: tilleggsadresse.postboksnummer,
+      gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       // Fjern nuller foran f.eks postnr 0024
       ...(tilleggsadresse.postboksnummer && {
         postboks: parseInt(
@@ -86,21 +89,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const {
-        datoTilOgMed,
-        postboksnummer,
-        tilleggslinje,
-        ...equalFields
-      } = fields;
+      const { datoTilOgMed, postboks, tilleggslinje, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
-        postboksnummer: parseInt(postboksnummer, RADIX_DECIMAL),
-        gyldigTom: datoTilOgMed,
-        ...(tilleggslinje && {
-          tilleggslinjeType: "CO",
-          tilleggslinje,
-        }),
+        postboks: parseInt(postboks, RADIX_DECIMAL).toString(),
+        gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       } as OutboundPostboksadresse;
 
       settLoading(true);
@@ -167,13 +161,13 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
-                  value={fields.datoTilOgMed}
-                  error={errors.datoTilOgMed}
+                  value={fields.gyldigTilOgMed}
+                  error={errors.gyldigTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
                   ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onChange={(value) => setField({ gyldigTilOgMed: value })}
                   onErrors={(error) =>
-                    setError({ ...errors, datoTilOgMed: error })
+                    setError({ ...errors, gyldigTilOgMed: error })
                   }
                 />
               </div>

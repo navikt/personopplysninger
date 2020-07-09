@@ -12,6 +12,7 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
+import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
 
 interface Props {
@@ -43,6 +44,7 @@ export interface OutboundVegadresse {
   kommunenummer?: string;
   tilleggsnavn?: string;
   gyldigTilOgMed?: string;
+  gyldigFraOgMed?: string;
 }
 
 const OpprettEllerEndreVegadresse = (props: Props) => {
@@ -112,11 +114,12 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { tilleggslinje, husnummer, ...equalFields } = fields;
+      const { husnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
-        husnummer: parseInt(husnummer, RADIX_DECIMAL),
+        husnummer: husnummer.toString(),
+        gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       } as OutboundVegadresse;
 
       settLoading(true);
