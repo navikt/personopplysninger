@@ -44,8 +44,6 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   const initialValues: FormFields = {
     ...(tilleggsadresse && {
-      postboks: tilleggsadresse.postboksnummer,
-      gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       // Fjern nuller foran f.eks postnr 0024
       ...(tilleggsadresse.postboksnummer && {
         postboks: parseInt(
@@ -69,7 +67,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
     },
-    datoTilOgMed: {
+    gyldigTilOgMed: {
       isRequired: msg({ id: "validation.tomdato.pakrevd" }),
     },
   };
