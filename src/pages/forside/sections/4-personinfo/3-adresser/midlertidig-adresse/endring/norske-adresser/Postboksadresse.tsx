@@ -53,7 +53,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   };
 
   const formConfig = {
-    tilleggslinje: {
+    postbokseier: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
