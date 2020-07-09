@@ -33,7 +33,7 @@ interface FormFields {
   gyldigTilOgMed?: string;
 }
 
-export interface OutboundVegadresse {
+export interface OutboundNorskVegadresse {
   coAdressenavn?: string;
   adressenavn?: string;
   husnummer?: string;
@@ -120,7 +120,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
         ...equalFields,
         husnummer: husnummer.toString(),
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
-      } as OutboundVegadresse;
+      } as OutboundNorskVegadresse;
 
       settLoading(true);
       postVegadresse(outbound)

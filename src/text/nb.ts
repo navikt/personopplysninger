@@ -90,7 +90,7 @@ export default {
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
   "adresse.midlertidig.alert": `Frem til og med {dato} sender vi deg post til din midlertidige adresse.`,
   "adresse.slett.alert": `Vil du fjerne den midlertidige adressen og bruke folkeregistrert <br></br> adresse til å motta post fra NAV?`,
-  "adresse.hjelpetekster.adressetyper": `<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p><p>Stedsadresse viser til et sted, for eksempel en gård, og inneholder ikke gatenavn</p>`,
+  "adresse.hjelpetekster.adressetyper": `<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>Du velger selv hvor lenge adressen skal være gyldig, maksimalt 1 år. Etter 1 år må du endre eller forlenge adressen.</p>`,
   "adresse.hjelpetekster.co": `<p>Bor du midlertidig på en annen persons adresse og ønsker posten dit? Da må posten være merket med den andre personens navn. Det er ekstra viktig hvis navnet ditt ikke står på postkassen.</p>`,
   "adresse.hjelpetekster.bolignummer": `<p>Bolignummer er en del av adressen hvis du bor i leilighet i et flerbolighus.</p>`,

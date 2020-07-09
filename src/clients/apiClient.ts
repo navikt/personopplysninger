@@ -3,8 +3,9 @@ import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
-import { OutboundVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Vegadresse";
+import { OutboundUtenlandskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/utenlanske-adresser/Vegadresse";
+import { OutboundUtenlandskPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/utenlanske-adresser/Postboksadresse";
+import { OutboundNorskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Vegadresse";
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
@@ -105,9 +106,9 @@ export const fetchDsopInfo = () =>
 
 type Outbound =
   | OutboundTlfnummer
-  | OutboundVegadresse
+  | OutboundNorskVegadresse
   | OutboundPostboksadresse
-  | OutboundUtenlandskAdresse
+  | OutboundUtenlandskVegadresse
   | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
@@ -144,13 +145,15 @@ export const postKontonummer = (
   data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
 ) => postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
 
-export const postVegadresse = (data: OutboundVegadresse) =>
+export const postVegadresse = (data: OutboundNorskVegadresse) =>
   postJson(`${REACT_APP_API_URL}/endreKontaktadresse/vegadresse`, data);
 
 export const postPostboksadresse = (data: OutboundPostboksadresse) =>
   postJson(`${REACT_APP_API_URL}/endreKontaktadresse/postboksadresse`, data);
 
-export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
+export const postUtenlandskAdresse = (
+  data: OutboundUtenlandskVegadresse | OutboundUtenlandskPostboksadresse
+) =>
   postJson(`${REACT_APP_API_URL}/endreKontaktadresse/utenlandskAdresse`, data);
 
 /*
