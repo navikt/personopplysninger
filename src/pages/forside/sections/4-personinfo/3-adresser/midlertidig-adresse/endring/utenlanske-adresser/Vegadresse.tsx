@@ -56,6 +56,10 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
   const initialValues: FormFields = {
     ...(utenlandskVegadresse && {
       ...utenlandskVegadresse,
+      // Fjern tid, kun hent dato
+      ...(utenlandskVegadresse.gyldigTilOgMed && {
+        gyldigTilOgMed: utenlandskVegadresse.gyldigTilOgMed.split("T")[0],
+      }),
       landkode: {
         label: utenlandskVegadresse.land || "",
         value: UNKNOWN,

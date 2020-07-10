@@ -57,6 +57,10 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const initialValues: FormFields = {
     ...(vegadresse && {
       ...vegadresse,
+      // Fjern tid, kun hent dato
+      ...(vegadresse.gyldigTilOgMed && {
+        gyldigTilOgMed: vegadresse.gyldigTilOgMed.split("T")[0],
+      }),
       // Fjern nuller foran f.eks husnummer 002
       ...(vegadresse.husnummer && {
         husnummer: parseInt(vegadresse.husnummer, RADIX_DECIMAL).toString(),

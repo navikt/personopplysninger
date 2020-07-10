@@ -70,7 +70,7 @@ export interface UtenlandskAdresse {
   regionDistriktOmraade?: string;
   landkode: string;
   land: string;
-  gyldigFraOgMed: string;
-  gyldigTilOgMed: string;
+  gyldigFraOgMed?: string;
+  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
