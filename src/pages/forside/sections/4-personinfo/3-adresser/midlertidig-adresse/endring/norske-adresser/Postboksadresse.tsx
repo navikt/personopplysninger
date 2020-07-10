@@ -45,6 +45,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   const initialValues: FormFields = {
     ...(postboksadresse && {
+      ...postboksadresse,
       // Fjern tid, kun hent dato
       ...(postboksadresse.gyldigTilOgMed && {
         gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],
