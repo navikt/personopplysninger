@@ -12,20 +12,29 @@ const Vegadresse = (props: VegadresseType) => {
   const { postnummer, poststed, gyldigTilOgMed, coAdressenavn } = props;
   return (
     <>
-      <div className="adresse__linje">
-        <Normaltekst>{tilleggsnavn}</Normaltekst>
-      </div>
-      <div className="adresse__linje">
-        <Normaltekst>{coAdressenavn}</Normaltekst>
-      </div>
-      <div className="adresse__linje">
-        <Normaltekst>
-          {adressenavn} {husnummer} {husbokstav} {bruksenhetsnummer}
-        </Normaltekst>
-      </div>
-      <div className="adresse__linje">
-        <Normaltekst>{kommunenummer}</Normaltekst>
-      </div>
+      {tilleggsnavn && (
+        <div className="adresse__linje">
+          <Normaltekst>{tilleggsnavn}</Normaltekst>
+        </div>
+      )}
+      {coAdressenavn && (
+        <div className="adresse__linje">
+          <Normaltekst>{coAdressenavn}</Normaltekst>
+        </div>
+      )}
+      {(adressenavn || husnummer || husbokstav || bruksenhetsnummer) && (
+        <div className="adresse__linje">
+          <Normaltekst>
+            {adressenavn || ""} {husnummer || ""} {husbokstav || ""}{" "}
+            {bruksenhetsnummer || ""}
+          </Normaltekst>
+        </div>
+      )}
+      {kommunenummer && (
+        <div className="adresse__linje">
+          <Normaltekst>{kommunenummer}</Normaltekst>
+        </div>
+      )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
       <div className="adresse__divider" />
       <AlertStripeInfo>

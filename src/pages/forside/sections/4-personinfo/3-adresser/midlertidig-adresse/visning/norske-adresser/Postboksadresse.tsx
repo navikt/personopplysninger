@@ -11,12 +11,16 @@ const Postboksadresse = (props: PostboksadresseType) => {
   const { poststed, gyldigTilOgMed } = props;
   return (
     <>
-      <div className="adresse__linje">
-        <Normaltekst>{postbokseier}</Normaltekst>
-      </div>
-      <div className="adresse__linje">
-        <Normaltekst>{postboks}</Normaltekst>
-      </div>
+      {postbokseier && (
+        <div className="adresse__linje">
+          <Normaltekst>{postbokseier}</Normaltekst>
+        </div>
+      )}
+      {postboks && (
+        <div className="adresse__linje">
+          <Normaltekst>{postboks}</Normaltekst>
+        </div>
+      )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
       <div className="adresse__divider" />
       <AlertStripeInfo>
