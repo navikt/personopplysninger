@@ -9,7 +9,7 @@ import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
 interface Props {
-  kontaktadresse: Kontaktadresse;
+  kontaktadresse?: Kontaktadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -19,8 +19,8 @@ const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
   const { kontaktadresse } = props;
 
   const [type, settType] = useState(
-    (kontaktadresse.type === "UTENLANDSK_ADRESSE" &&
-    kontaktadresse.postboksNummerNavn
+    (kontaktadresse?.type === "UTENLANDSK_ADRESSE" &&
+    kontaktadresse?.postboksNummerNavn
       ? "POSTBOKSADRESSE"
       : "VEGADRESSE") as Adresser
   );

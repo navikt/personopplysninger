@@ -122,13 +122,13 @@ const Adresser = (props: Props) => {
               />
               {norskEllerUtenlandsk === NORSK && (
                 <OpprettEllerEndreNorskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse!}
+                  kontaktadresse={props.adresser.kontaktadresse}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}
               {norskEllerUtenlandsk === UTENLANDSK && (
                 <OpprettEllerEndreUtenlandskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse!}
+                  kontaktadresse={props.adresser.kontaktadresse}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}
