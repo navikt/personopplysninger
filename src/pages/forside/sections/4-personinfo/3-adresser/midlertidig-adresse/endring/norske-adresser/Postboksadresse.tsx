@@ -12,11 +12,11 @@ import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { NorskPostboksadresse } from "types/adresser/kontaktadresse";
+import { Postboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 
 interface Props {
-  postboksadresse?: NorskPostboksadresse;
+  postboksadresse?: Postboksadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 

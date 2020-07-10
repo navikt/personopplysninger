@@ -13,10 +13,10 @@ import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
-import { NorskVegadresse } from "types/adresser/kontaktadresse";
+import { Vegadresse } from "types/adresser/kontaktadresse";
 
 interface Props {
-  vegadresse: NorskVegadresse;
+  vegadresse: Vegadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 

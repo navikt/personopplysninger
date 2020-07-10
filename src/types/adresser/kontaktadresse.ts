@@ -1,14 +1,14 @@
 export type Kontaktadresse =
   // TPS
-  | NorskPostadresseIFrittFormat
+  | PostadresseIFrittFormat
   | UtenlandskAdresseIFrittFormat
   // PDL
-  | NorskVegadresse
-  | NorskPostboksadresse
+  | Vegadresse
+  | Postboksadresse
   | UtenlandskAdresse;
 
 // TPS
-export interface NorskPostadresseIFrittFormat {
+export interface PostadresseIFrittFormat {
   type: "POSTADRESSE_I_FRITT_FORMAT";
   adresselinje1?: string;
   adresselinje2?: string;
@@ -35,7 +35,7 @@ export interface UtenlandskAdresseIFrittFormat {
 }
 
 // PDL
-export interface NorskVegadresse {
+export interface Vegadresse {
   type: "VEGADRESSE";
   husnummer?: string;
   husbokstav?: string;
@@ -50,7 +50,7 @@ export interface NorskVegadresse {
   coAdressenavn?: string;
 }
 
-export interface NorskPostboksadresse {
+export interface Postboksadresse {
   type: "POSTBOKSADRESSE";
   postbokseier?: string;
   postboks: string;

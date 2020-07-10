@@ -1,15 +1,12 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import {
-  NorskPostboksadresse,
-  NorskVegadresse,
-} from "types/adresser/kontaktadresse";
+import { Postboksadresse } from "types/adresser/kontaktadresse";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 import { Normaltekst } from "nav-frontend-typografi";
 
-const Postboksadresse = (props: NorskPostboksadresse) => {
+const Postboksadresse = (props: Postboksadresse) => {
   const { postbokseier, postboks, postnummer } = props;
   const { poststed, gyldigTilOgMed } = props;
   return (
