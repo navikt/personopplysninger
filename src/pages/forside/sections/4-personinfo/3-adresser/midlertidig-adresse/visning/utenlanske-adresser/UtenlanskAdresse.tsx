@@ -3,9 +3,9 @@ import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresse as IUtenlandskAdresse } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/kontaktadresse";
 
-const UtenlanskAdresse = (props: IUtenlandskAdresse) => {
+const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
   const { postboksNummerNavn, postkode } = props;
   const { adressenavnNummer, bygningEtasjeLeilighet } = props;
   const { gyldigTilOgMed, coAdressenavn } = props;

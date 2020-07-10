@@ -1,12 +1,12 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { Vegadresse } from "types/adresser/kontaktadresse";
+import { Vegadresse as VegadresseType } from "types/adresser/kontaktadresse";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 import { Normaltekst } from "nav-frontend-typografi";
 
-const Vegadresse = (props: Vegadresse) => {
+const Vegadresse = (props: VegadresseType) => {
   const { husnummer, husbokstav, bruksenhetsnummer } = props;
   const { adressenavn, kommunenummer, tilleggsnavn } = props;
   const { postnummer, poststed, gyldigTilOgMed, coAdressenavn } = props;

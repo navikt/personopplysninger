@@ -1,12 +1,12 @@
 import React from "react";
 import GateAdresse from "../../../komponenter/GateAdresse";
 import Postnummer from "../../../komponenter/Postnummer";
-import { PostadresseIFrittFormat as IPostadresseIFrittFormat } from "types/adresser/kontaktadresse";
+import { PostadresseIFrittFormat as PostadresseIFrittFormatType } from "types/adresser/kontaktadresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 
-const PostadresseIFrittFormat = (props: IPostadresseIFrittFormat) => {
+const PostadresseIFrittFormat = (props: PostadresseIFrittFormatType) => {
   const { adresselinje1, adresselinje2, adresselinje3 } = props;
   const { gyldigTilOgMed, postnummer, poststed } = props;
   return (

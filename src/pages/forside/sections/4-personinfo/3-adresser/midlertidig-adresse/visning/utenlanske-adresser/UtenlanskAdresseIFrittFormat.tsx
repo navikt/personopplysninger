@@ -1,12 +1,14 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresseIFrittFormat as IUtenlanskAdresseIFrittFormat } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from "types/adresser/kontaktadresse";
 import GateAdresse from "../../../komponenter/GateAdresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 
-const UtenlanskAdresseIFrittFormat = (props: IUtenlanskAdresseIFrittFormat) => {
+const UtenlanskAdresseIFrittFormat = (
+  props: UtenlanskAdresseIFrittFormatType
+) => {
   const { adresselinje1, adresselinje2, adresselinje3 } = props;
   const { gyldigTilOgMed, land } = props;
   return (
