@@ -119,7 +119,7 @@ const postJson = (url: string, data: Outbound) => {
     method: "POST",
     ...(data && {
       body: JSON.stringify(data),
-    }),g
+    }),
     headers: { "Content-Type": "application/json;charset=UTF-8" },
     credentials: "include",
   })
