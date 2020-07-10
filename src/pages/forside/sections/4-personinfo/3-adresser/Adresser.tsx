@@ -187,17 +187,20 @@ const Adresser = (props: Props) => {
                   contentLabel={msg({ id: "side.slett" })}
                 >
                   <div style={{ padding: "2rem 2.5rem" }}>
-                    <FormattedMessage
-                      id="adresse.slett.alert"
-                      values={{
-                        br: (text: String) => (
-                          <>
-                            <br />
-                            {text}
-                          </>
-                        ),
-                      }}
-                    />
+                    <Normaltekst>
+                      <FormattedMessage
+                        id="adresse.slett.alert"
+                        values={{
+                          br: (text: String) => (
+                            <>
+                              <br />
+                              {text}
+                            </>
+                          ),
+                        }}
+                      />
+                    </Normaltekst>
+
                     <div className="adresse__modal-knapper">
                       <Fareknapp
                         onClick={slettAdresse}
