@@ -203,7 +203,9 @@ const EndreTelefonnummer = (props: Props) => {
                 contentLabel={msg({ id: "side.opphor" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
-                  <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  <Normaltekst>
+                    <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  </Normaltekst>
                   <div className="adresse__modal-knapper">
                     <Fareknapp
                       onClick={submitSlett}
