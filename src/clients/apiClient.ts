@@ -117,7 +117,9 @@ const postJson = (url: string, data: Outbound) => {
   logEvent({ url });
   return fetch(url, {
     method: "POST",
-    body: JSON.stringify(data),
+    ...(data && {
+      body: JSON.stringify(data),
+    }),g
     headers: { "Content-Type": "application/json;charset=UTF-8" },
     credentials: "include",
   })
