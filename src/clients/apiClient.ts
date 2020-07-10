@@ -156,33 +156,8 @@ export const postUtenlandskAdresse = (
 ) =>
   postJson(`${REACT_APP_API_URL}/endreKontaktadresse/utenlandskAdresse`, data);
 
-/*
-    PUT
- */
-
-const putJson = (url: string) => {
-  logEvent({ url });
-  return fetch(url, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include",
-  })
-    .then(sjekkHttpFeil)
-    .then(parseJson)
-    .then(sjekkTPSFeil)
-    .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text || err,
-      };
-      logApiError(url, error);
-      throw error;
-    });
-};
-
 export const slettKontaktadresse = () =>
-  putJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
+  postJson(`${REACT_APP_API_URL}/slettKontaktadresse`, {});
 
 /*
     UTILS
