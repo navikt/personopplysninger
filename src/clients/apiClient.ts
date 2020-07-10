@@ -112,7 +112,7 @@ type Outbound =
   | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
-const postJson = (url: string, data: Outbound) => {
+const postJson = (url: string, data?: Outbound) => {
   console.log(url, data);
   logEvent({ url });
   return fetch(url, {
@@ -159,7 +159,7 @@ export const postUtenlandskAdresse = (
   postJson(`${REACT_APP_API_URL}/endreKontaktadresse/utenlandskAdresse`, data);
 
 export const slettKontaktadresse = () =>
-  postJson(`${REACT_APP_API_URL}/slettKontaktadresse`, {});
+  postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 
 /*
     UTILS
