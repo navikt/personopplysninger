@@ -182,7 +182,7 @@ const putJson = (url: string) => {
 };
 
 export const slettKontaktadresse = () =>
-  putJson(`${REACT_APP_API_URL}/opphoerUtenlandskKontaktadresse`);
+  putJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 
 /*
     UTILS
