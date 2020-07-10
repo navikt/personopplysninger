@@ -1,29 +1,20 @@
 import React from "react";
 import { Normaltekst } from "nav-frontend-typografi";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
+import { UtenlanskAdresseIFrittFormat as IUtenlanskAdresseIFrittFormat } from "types/adresser/kontaktadresse";
 import GateAdresse from "../../komponenter/GateAdresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 
-interface Props {
-  utenlandskadresse: UtenlandskAdresseType;
-}
-
-const UtenlandskAdresse = (props: Props) => {
-  const {
-    adresse1,
-    adresse2,
-    adresse3,
-    land,
-    datoTilOgMed
-  } = props.utenlandskadresse;
+const UtenlanskAdresseIFrittFormat = (props: IUtenlanskAdresseIFrittFormat) => {
+  const { adresselinje1, adresselinje2, adresselinje3 } = props;
+  const { gyldigTilOgMed, land } = props;
   return (
     <>
       <GateAdresse
-        adresse1={adresse1}
-        adresse2={adresse2}
-        adresse3={adresse3}
+        adresse1={adresselinje1}
+        adresse2={adresselinje2}
+        adresse3={adresselinje3}
       />
       {land && (
         <div className="adresse__linje">
@@ -34,11 +25,11 @@ const UtenlandskAdresse = (props: Props) => {
       <AlertStripeInfo>
         <FormattedMessage
           id="adresse.midlertidig.alert"
-          values={{ dato: moment(datoTilOgMed).format("LL") }}
+          values={{ dato: moment(gyldigTilOgMed).format("LL") }}
         />
       </AlertStripeInfo>
     </>
   );
 };
 
-export default UtenlandskAdresse;
+export default UtenlanskAdresseIFrittFormat;

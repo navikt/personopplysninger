@@ -181,11 +181,8 @@ const putJson = (url: string) => {
     });
 };
 
-export const slettUtenlandsAdresse = () =>
+export const slettKontaktadresse = () =>
   putJson(`${REACT_APP_API_URL}/opphoerUtenlandskKontaktadresse`);
-
-export const slettMidlertidigAdresse = () =>
-  putJson(`${REACT_APP_API_URL}/opphoerNorskKontaktadresse`);
 
 /*
     UTILS

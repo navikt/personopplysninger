@@ -10,20 +10,18 @@ import slettIkon from "assets/img/Slett.svg";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { Radio, RadioGruppe } from "nav-frontend-skjema";
-import OpprettEllerEndreNorskMidlertidigAdresse from "./midlertidig-adresse/endring/NorskAdresse";
+import OpprettEllerEndreNorskAdresse from "./midlertidig-adresse/endring/NorskAdresse";
 import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
-import MidlertidigNorskAdresse from "./midlertidig-adresse/visning/NorskAdresse";
-import UtenlandskAdresse from "./midlertidig-adresse/visning/UtenlandskAdresse";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
 import Alert, { AlertType } from "components/alert/Alert";
-import { slettUtenlandsAdresse } from "clients/apiClient";
-import { slettMidlertidigAdresse } from "clients/apiClient";
+import { slettKontaktadresse } from "clients/apiClient";
 import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
 
 interface Props {
   adresser: IAdresser;
@@ -36,16 +34,19 @@ const Adresser = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
   const { adresser } = props;
-  const { tilleggsadresse, utenlandskAdresse } = adresser;
-  const harMidlertidigAdr = tilleggsadresse || utenlandskAdresse;
+  const { kontaktadresse } = adresser;
   const [slettLoading, settSlettLoading] = useState<boolean>();
   const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
   const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
+
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    props.adresser.tilleggsadresse
+    kontaktadresse.type === "POSTADRESSE_I_FRITT_FORMAT" ||
+      kontaktadresse.type === "VEGADRESSE" ||
+      kontaktadresse.type === "POSTBOKSADRESSE"
       ? "NORSK"
-      : props.adresser.utenlandskAdresse
+      : kontaktadresse.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
+        kontaktadresse.type === "UTENLANDSK_ADRESSE"
       ? "UTENLANDSK"
       : undefined
   );
@@ -77,15 +78,8 @@ const Adresser = (props: Props) => {
   const slettAdresse = () => {
     settSlettLoading(true);
 
-    if (utenlandskAdresse) {
-      slettUtenlandsAdresse()
-        .then(getUpdatedData)
-        .then(onSlettSuccess)
-        .catch((error: AlertType) => settSlettAlert(error))
-        .then(() => settSlettLoading(false));
-    }
-    if (tilleggsadresse) {
-      slettMidlertidigAdresse()
+    if (kontaktadresse) {
+      slettKontaktadresse()
         .then(getUpdatedData)
         .then(onSlettSuccess)
         .catch((error: AlertType) => settSlettAlert(error))
@@ -127,14 +121,14 @@ const Adresser = (props: Props) => {
                 onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
               />
               {norskEllerUtenlandsk === NORSK && (
-                <OpprettEllerEndreNorskMidlertidigAdresse
-                  tilleggsadresse={props.adresser.tilleggsadresse}
+                <OpprettEllerEndreNorskAdresse
+                  kontaktadresse={props.adresser.kontaktadresse}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}
               {norskEllerUtenlandsk === UTENLANDSK && (
                 <OpprettEllerEndreUtenlandskAdresse
-                  utenlandskadresse={props.adresser.utenlandskAdresse}
+                  kontaktadresse={props.adresser.kontaktadresse}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}
@@ -143,13 +137,10 @@ const Adresser = (props: Props) => {
           </div>
         ) : (
           <>
-            {tilleggsadresse && (
-              <MidlertidigNorskAdresse tilleggsadresse={tilleggsadresse} />
+            {kontaktadresse && (
+              <Kontaktadresse kontaktadresse={kontaktadresse} />
             )}
-            {utenlandskAdresse && (
-              <UtenlandskAdresse utenlandskadresse={utenlandskAdresse} />
-            )}
-            {!tilleggsadresse && !utenlandskAdresse && (
+            {!kontaktadresse && (
               <Normaltekst>
                 <FormattedMessage
                   id="adresse.midlertidigadresse.leggtil.beskrivelse"
@@ -168,17 +159,17 @@ const Adresser = (props: Props) => {
               <button onClick={visEndreOpprett} className="kilde__lenke lenke">
                 <span className="kilde__icon">
                   <img
-                    src={harMidlertidigAdr ? endreIkon : leggTilIkon}
+                    src={kontaktadresse ? endreIkon : leggTilIkon}
                     alt="Ekstern lenke"
                   />
                 </span>
                 <Normaltekst>
                   <FormattedMessage
-                    id={harMidlertidigAdr ? "side.endre" : "side.leggtil"}
+                    id={kontaktadresse ? "side.endre" : "side.leggtil"}
                   />
                 </Normaltekst>
               </button>
-              {(tilleggsadresse || utenlandskAdresse) && (
+              {kontaktadresse && (
                 <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon} alt="Ekstern lenke" />

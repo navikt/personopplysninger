@@ -1,6 +1,6 @@
 import React from "react";
-import GateAdresse from "../../komponenter/GateAdresse";
-import Postnummer from "../../komponenter/Postnummer";
+import GateAdresse from "../../../komponenter/GateAdresse";
+import Postnummer from "../../../komponenter/Postnummer";
 import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
@@ -10,14 +10,14 @@ interface Props {
   tilleggsadresse: Tilleggsadresse;
 }
 
-const NorskMidlertidigAdresse = (props: Props) => {
+const NorskVegadresse = (props: Props) => {
   const {
     adresse1,
     adresse2,
     adresse3,
     datoTilOgMed,
     postnummer,
-    poststed
+    poststed,
   } = props.tilleggsadresse;
   return (
     <>
@@ -38,4 +38,4 @@ const NorskMidlertidigAdresse = (props: Props) => {
   );
 };
 
-export default NorskMidlertidigAdresse;
+export default NorskVegadresse;

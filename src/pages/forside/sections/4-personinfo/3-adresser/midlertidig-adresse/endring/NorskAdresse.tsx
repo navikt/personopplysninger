@@ -1,31 +1,29 @@
 import React, { ChangeEvent, Fragment, useState } from "react";
 import { Select } from "nav-frontend-skjema";
-import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import OpprettEllerEndreVegadresse from "./norske-adresser/Vegadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
 import { FormattedMessage, useIntl } from "react-intl";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
+import { NorskVegadresse } from "types/adresser/kontaktadresse";
+import { NorskPostboksadresse } from "types/adresser/kontaktadresse";
+import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
 interface Props {
-  tilleggsadresse?: Tilleggsadresse;
+  kontaktadresse: Kontaktadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
-const MapTPStilPDL: { [key: string]: Adresser } = {
-  GATEADRESSE: "VEGADRESSE",
-  POSTBOKSADRESSE: "POSTBOKSADRESSE",
-  STEDSADRESSE: "VEGADRESSE",
-};
 
 const OpprettEllerEndreNorskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const { tilleggsadresse } = props;
+  const { kontaktadresse } = props;
   const [type, settType] = useState(
-    (tilleggsadresse?.type && MapTPStilPDL[tilleggsadresse.type]) ||
-      ("VEGADRESSE" as Adresser)
+    (kontaktadresse.type === "POSTBOKSADRESSE"
+      ? "POSTBOKSADRESSE"
+      : "VEGADRESSE") as Adresser
   );
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
@@ -73,8 +71,18 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
       </div>
       {
         {
-          VEGADRESSE: <OpprettEllerEndreVegadresse {...props} />,
-          POSTBOKSADRESSE: <OpprettEllerEndrePostboksadresse {...props} />,
+          VEGADRESSE: (
+            <OpprettEllerEndreVegadresse
+              vegadresse={props.kontaktadresse as NorskVegadresse}
+              settOpprettEllerEndre={props.settOpprettEllerEndre}
+            />
+          ),
+          POSTBOKSADRESSE: (
+            <OpprettEllerEndrePostboksadresse
+              postboksadresse={props.kontaktadresse as NorskPostboksadresse}
+              settOpprettEllerEndre={props.settOpprettEllerEndre}
+            />
+          ),
         }[type]
       }
     </>

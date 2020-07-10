@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
-import { Input, SkjemaGruppe } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
@@ -140,27 +139,26 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <div className="adresse__kolonne">
-              <Input
-                bredde={"XXL"}
-                maxLength={30}
-                value={fields.coAdressenavn}
-                label={msg({ id: "felter.gatenavn.label" })}
-                onChange={(e) => setField({ coAdressenavn: e.target.value })}
-                feil={submitted && errors.coAdressenavn}
-              />
-            </div>
-            <SkjemaGruppe feil={submitted && errors.adressenavnNummer}>
-              <InputMedHjelpetekst
-                bredde={"L"}
-                submitted={submitted}
-                maxLength={30}
-                value={fields.adressenavnNummer}
-                hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
-                label={msg({ id: "felter.adresse.label" })}
-                onChange={(value) => setField({ adressenavnNummer: value })}
-              />
-            </SkjemaGruppe>
+            <InputMedHjelpetekst
+              bredde={"L"}
+              maxLength={26}
+              submitted={submitted}
+              hjelpetekst={"adresse.hjelpetekster.co"}
+              label={msg({ id: "felter.tilleggslinje.label" })}
+              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+              onChange={(value) => setField({ coAdressenavn: value })}
+              value={fields.coAdressenavn}
+              error={errors.coAdressenavn}
+            />
+            <InputMedHjelpetekst
+              bredde={"L"}
+              submitted={submitted}
+              maxLength={30}
+              value={fields.adressenavnNummer}
+              hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
+              label={msg({ id: "felter.adresse.label" })}
+              onChange={(value) => setField({ adressenavnNummer: value })}
+            />
             <SelectLand
               label={msg({ id: "felter.land.label" })}
               submitted={submitted}

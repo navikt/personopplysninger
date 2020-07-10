@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "components/felter/day-picker/DayPicker";
@@ -13,10 +12,11 @@ import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { NorskPostboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 
 interface Props {
-  tilleggsadresse?: Tilleggsadresse;
+  postboksadresse?: NorskPostboksadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -37,18 +37,15 @@ export interface OutboundPostboksadresse {
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
-  const { tilleggsadresse, settOpprettEllerEndre } = props;
+  const { postboksadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
   const initialValues: FormFields = {
-    ...(tilleggsadresse && {
-      // Fjern nuller foran f.eks postnr 0024
-      ...(tilleggsadresse.postboksnummer && {
-        postboksnummer: parseInt(tilleggsadresse.postboksnummer, RADIX_DECIMAL),
-      }),
+    ...(postboksadresse && {
+      ...postboksadresse,
     }),
   };
 

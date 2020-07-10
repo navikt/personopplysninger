@@ -5,7 +5,6 @@ import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postVegadresse } from "clients/apiClient";
-import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { RADIX_DECIMAL } from "utils/formattering";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
@@ -14,9 +13,10 @@ import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
+import { NorskVegadresse } from "types/adresser/kontaktadresse";
 
 interface Props {
-  tilleggsadresse?: Tilleggsadresse;
+  vegadresse: NorskVegadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -48,21 +48,20 @@ export interface OutboundNorskVegadresse {
 }
 
 const OpprettEllerEndreVegadresse = (props: Props) => {
-  const { tilleggsadresse, settOpprettEllerEndre } = props;
+  const { vegadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
+  console.log(vegadresse);
+
   const initialValues: FormFields = {
-    ...(tilleggsadresse && {
-      ...tilleggsadresse,
+    ...(vegadresse && {
+      ...vegadresse,
       // Fjern nuller foran f.eks husnummer 002
-      ...(tilleggsadresse.husnummer && {
-        husnummer: parseInt(
-          tilleggsadresse.husnummer,
-          RADIX_DECIMAL
-        ).toString(),
+      ...(vegadresse.husnummer && {
+        husnummer: parseInt(vegadresse.husnummer, RADIX_DECIMAL).toString(),
       }),
     }),
   };

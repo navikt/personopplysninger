@@ -5,18 +5,25 @@ import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
 import OpprettEllerEndreUtenlandskVegadresse from "./utenlanske-adresser/Vegadresse";
 import OpprettEllerEndreUtenlandskPostboksadresse from "./utenlanske-adresser/Postboksadresse";
-import { UtenlandskAdresse } from "types/adresser/utenlandskadresse";
+import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
 interface Props {
-  utenlandskadresse?: UtenlandskAdresse;
+  kontaktadresse: Kontaktadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
 const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const [type, settType] = useState("VEGADRESSE" as Adresser);
+  const { kontaktadresse } = props;
+
+  const [type, settType] = useState(
+    (kontaktadresse.type === "UTENLANDSK_ADRESSE" &&
+    kontaktadresse.postboksNummerNavn
+      ? "POSTBOKSADRESSE"
+      : "VEGADRESSE") as Adresser
+  );
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
     settType(e.target.value as Adresser);
