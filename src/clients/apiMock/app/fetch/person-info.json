@@ -52,25 +52,18 @@
     "postadresse": null,
     "prioritertAdresse": "TIAD",
     "kontaktadresse": {
-      "type": "VEGADRESSE",
-      "vegadresse": {
-        "husnummer": "2",
-        "husbokstav": "A",
-        "bruksenhetsnummer": "H0204",
-        "adressenavn": "Test",
-        "kommunenummer": "",
-        "postnummer": "2640",
-        "poststed": "VINSTRA",
-        "gyldigFraOgMed": "2020-07-10T00:00",
-        "gyldigTilOgMed": "2020-07-12T23:59:59",
-        "coAdressenavn": "Test"
-      },
-      "postadresseIFrittFormat": null,
-      "postboksadresse": null,
-      "utenlandskAdresse": null,
-      "utenlandskAdresseIFrittFormat": null
-    },
-    "utenlandskAdresse": null
+      "husnummer": "2",
+      "husbokstav": "A",
+      "bruksenhetsnummer": "H0204",
+      "adressenavn": "Test",
+      "kommunenummer": "",
+      "postnummer": "2640",
+      "poststed": "VINSTRA",
+      "gyldigFraOgMed": "2020-07-10T00:00",
+      "gyldigTilOgMed": "2020-07-12T23:59:59",
+      "coAdressenavn": "Test",
+      "type": "VEGADRESSE"
+    }
   },
   "enhetKontaktInformasjon": {
     "enhet": {

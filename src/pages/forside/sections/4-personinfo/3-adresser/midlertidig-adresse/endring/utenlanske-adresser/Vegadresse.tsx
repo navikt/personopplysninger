@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
@@ -13,10 +12,11 @@ import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 import moment from "moment";
+import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import { OptionType } from "types/option";
 
 interface Props {
-  utenlandskadresse?: UtenlandskAdresseType;
+  utenlandskVegadresse?: UtenlandskAdresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -47,16 +47,17 @@ export interface OutboundUtenlandskVegadresse {
 }
 
 const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
-  const { utenlandskadresse, settOpprettEllerEndre } = props;
+  const { utenlandskVegadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const [, dispatch] = useStore();
   const { formatMessage: msg } = useIntl();
 
   const initialValues: FormFields = {
-    ...(utenlandskadresse && {
+    ...(utenlandskVegadresse && {
+      ...utenlandskVegadresse,
       landkode: {
-        label: utenlandskadresse.land || "",
+        label: utenlandskVegadresse.land || "",
         value: UNKNOWN,
       },
     }),

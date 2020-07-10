@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation } from "calidation";
@@ -12,11 +11,12 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
+import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 
 interface Props {
-  utenlandskadresse?: UtenlandskAdresseType;
+  utenlandskPostboksadress?: UtenlandskAdresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -43,16 +43,17 @@ export interface OutboundUtenlandskPostboksadresse {
 }
 
 const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
-  const { utenlandskadresse, settOpprettEllerEndre } = props;
+  const { utenlandskPostboksadress, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const [, dispatch] = useStore();
   const { formatMessage: msg } = useIntl();
 
   const initialValues: FormFields = {
-    ...(utenlandskadresse && {
+    ...(utenlandskPostboksadress && {
+      ...utenlandskPostboksadress,
       landkode: {
-        label: utenlandskadresse.land || "",
+        label: utenlandskPostboksadress.land || "",
         value: UNKNOWN,
       },
     }),

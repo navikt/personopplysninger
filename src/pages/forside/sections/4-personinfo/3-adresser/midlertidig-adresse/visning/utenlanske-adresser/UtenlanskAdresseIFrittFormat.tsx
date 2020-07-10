@@ -1,14 +1,14 @@
 import React from "react";
-import GateAdresse from "../../komponenter/GateAdresse";
-import Postnummer from "../../komponenter/Postnummer";
-import { NorskPostadresseIFrittFormat as INorskPostadresseIFrittFormat } from "types/adresser/kontaktadresse";
+import { Normaltekst } from "nav-frontend-typografi";
+import { UtenlandskAdresseIFrittFormat as IUtenlanskAdresseIFrittFormat } from "types/adresser/kontaktadresse";
+import GateAdresse from "../../../komponenter/GateAdresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 
-const NorskPostadresseIFrittFormat = (props: INorskPostadresseIFrittFormat) => {
+const UtenlanskAdresseIFrittFormat = (props: IUtenlanskAdresseIFrittFormat) => {
   const { adresselinje1, adresselinje2, adresselinje3 } = props;
-  const { gyldigTilOgMed, postnummer, poststed } = props;
+  const { gyldigTilOgMed, land } = props;
   return (
     <>
       <GateAdresse
@@ -16,7 +16,11 @@ const NorskPostadresseIFrittFormat = (props: INorskPostadresseIFrittFormat) => {
         adresse2={adresselinje2}
         adresse3={adresselinje3}
       />
-      <Postnummer postnummer={postnummer} poststed={poststed} />
+      {land && (
+        <div className="adresse__linje">
+          <Normaltekst>{land}</Normaltekst>
+        </div>
+      )}
       <div className="adresse__divider" />
       <AlertStripeInfo>
         <FormattedMessage
@@ -28,4 +32,4 @@ const NorskPostadresseIFrittFormat = (props: INorskPostadresseIFrittFormat) => {
   );
 };
 
-export default NorskPostadresseIFrittFormat;
+export default UtenlanskAdresseIFrittFormat;

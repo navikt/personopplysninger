@@ -1,11 +1,11 @@
 export type Kontaktadresse =
   // TPS
   | NorskPostadresseIFrittFormat
-  | UtenlanskAdresseIFrittFormat
+  | UtenlandskAdresseIFrittFormat
   // PDL
   | NorskVegadresse
   | NorskPostboksadresse
-  | UtenlanskAdresse;
+  | UtenlandskAdresse;
 
 // TPS
 export interface NorskPostadresseIFrittFormat {
@@ -20,7 +20,7 @@ export interface NorskPostadresseIFrittFormat {
   coAdressenavn?: string;
 }
 
-export interface UtenlanskAdresseIFrittFormat {
+export interface UtenlandskAdresseIFrittFormat {
   type: "UTENLANDSK_ADRESSE_I_FRITT_FORMAT";
   adresselinje1?: string;
   adresselinje2?: string;
@@ -40,25 +40,27 @@ export interface NorskVegadresse {
   husnummer?: string;
   husbokstav?: string;
   bruksenhetsnummer?: string;
-  adressenavn: string;
+  adressenavn?: string;
   kommunenummer?: string;
   tilleggsnavn?: string;
-  postnummer: string;
-  gyldigFraOgMed: string;
-  gyldigTilOgMed: string;
+  postnummer?: string;
+  poststed?: string;
+  gyldigFraOgMed?: string;
+  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
 
 export interface NorskPostboksadresse {
   type: "POSTBOKSADRESSE";
-  postbokseier: string;
+  postbokseier?: string;
   postboks: string;
-  postnummer: string;
-  gyldigFraOgMed: string;
-  gyldigTilOgMed: string;
+  postnummer?: string;
+  poststed?: string;
+  gyldigFraOgMed?: string;
+  gyldigTilOgMed?: string;
 }
 
-export interface UtenlanskAdresse {
+export interface UtenlandskAdresse {
   type: "UTENLANDSK_ADRESSE";
   adressenavnNummer?: string;
   bygningEtasjeLeilighet?: string;
@@ -67,6 +69,7 @@ export interface UtenlanskAdresse {
   bySted?: string;
   regionDistriktOmraade?: string;
   landkode: string;
+  land: string;
   gyldigFraOgMed: string;
   gyldigTilOgMed: string;
   coAdressenavn?: string;

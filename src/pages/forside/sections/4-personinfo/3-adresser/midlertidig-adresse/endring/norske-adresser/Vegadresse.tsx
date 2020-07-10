@@ -54,8 +54,6 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
-  console.log(vegadresse);
-
   const initialValues: FormFields = {
     ...(vegadresse && {
       ...vegadresse,
