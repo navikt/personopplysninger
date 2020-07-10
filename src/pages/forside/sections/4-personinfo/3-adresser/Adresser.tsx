@@ -41,12 +41,12 @@ const Adresser = (props: Props) => {
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    kontaktadresse.type === "POSTADRESSE_I_FRITT_FORMAT" ||
-      kontaktadresse.type === "VEGADRESSE" ||
-      kontaktadresse.type === "POSTBOKSADRESSE"
+    kontaktadresse?.type === "POSTADRESSE_I_FRITT_FORMAT" ||
+      kontaktadresse?.type === "VEGADRESSE" ||
+      kontaktadresse?.type === "POSTBOKSADRESSE"
       ? "NORSK"
-      : kontaktadresse.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
-        kontaktadresse.type === "UTENLANDSK_ADRESSE"
+      : kontaktadresse?.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
+        kontaktadresse?.type === "UTENLANDSK_ADRESSE"
       ? "UTENLANDSK"
       : undefined
   );
@@ -122,13 +122,13 @@ const Adresser = (props: Props) => {
               />
               {norskEllerUtenlandsk === NORSK && (
                 <OpprettEllerEndreNorskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse}
+                  kontaktadresse={props.adresser.kontaktadresse!}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}
               {norskEllerUtenlandsk === UTENLANDSK && (
                 <OpprettEllerEndreUtenlandskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse}
+                  kontaktadresse={props.adresser.kontaktadresse!}
                   settOpprettEllerEndre={settOpprettEllerEndre}
                 />
               )}

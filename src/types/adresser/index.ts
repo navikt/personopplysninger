@@ -17,6 +17,6 @@ export interface Adresser {
   geografiskTilknytning?: GeografiskTilknytning;
   postadresse?: Postadresse;
   prioritertAdresse?: string;
-  kontaktadresse: Kontaktadresse;
+  kontaktadresse?: Kontaktadresse;
   datakilder?: {}[];
 }
