@@ -77,7 +77,6 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       isRequired: msg({ id: "validation.gatenavn.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
-      isValidStreetName: msg({ id: "validation.gatenavn.valid" }),
     },
     bygningEtasjeLeilighet: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
