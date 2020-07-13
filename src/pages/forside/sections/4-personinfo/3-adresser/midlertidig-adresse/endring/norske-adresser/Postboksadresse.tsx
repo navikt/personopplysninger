@@ -134,9 +134,9 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               hjelpetekst={"adresse.hjelpetekster.co"}
               label={msg({ id: "felter.tilleggslinje.label" })}
               placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ postbokseier: value })}
-              value={fields.postbokseier}
-              error={errors.postbokseier}
+              onChange={(value) => setField({ coAdressenavn: value })}
+              value={fields.coAdressenavn}
+              error={errors.coAdressenavn}
             />
             <Input
               bredde={"L"}
