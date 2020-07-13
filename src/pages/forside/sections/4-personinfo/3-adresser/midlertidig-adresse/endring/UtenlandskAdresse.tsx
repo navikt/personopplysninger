@@ -5,6 +5,7 @@ import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
 import OpprettEllerEndreUtenlandskVegadresse from "./utenlanske-adresser/Vegadresse";
 import OpprettEllerEndreUtenlandskPostboksadresse from "./utenlanske-adresser/Postboksadresse";
+import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
@@ -16,7 +17,7 @@ interface Props {
 type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
 const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const { kontaktadresse } = props;
+  const { kontaktadresse, settOpprettEllerEndre } = props;
 
   const [type, settType] = useState(
     (kontaktadresse?.type === "UTENLANDSK_ADRESSE" &&
@@ -70,9 +71,17 @@ const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
       </div>
       {
         {
-          VEGADRESSE: <OpprettEllerEndreUtenlandskVegadresse {...props} />,
+          VEGADRESSE: (
+            <OpprettEllerEndreUtenlandskVegadresse
+              utenlandskVegadresse={kontaktadresse as UtenlandskAdresse}
+              settOpprettEllerEndre={settOpprettEllerEndre}
+            />
+          ),
           POSTBOKSADRESSE: (
-            <OpprettEllerEndreUtenlandskPostboksadresse {...props} />
+            <OpprettEllerEndreUtenlandskPostboksadresse
+              utenlandskPostboksadress={kontaktadresse as UtenlandskAdresse}
+              settOpprettEllerEndre={settOpprettEllerEndre}
+            />
           ),
         }[type]
       }
