@@ -25,7 +25,6 @@ interface FormFields {
   coAdressenavn?: string;
   adressenavnNummer?: string;
   bygningEtasjeLeilighet?: string;
-  postboksNummerNavn?: string;
   regionDistriktOmraade?: string;
   postkode?: string;
   bySted?: string;
@@ -38,7 +37,6 @@ export interface OutboundUtenlandskVegadresse {
   coAdressenavn?: string;
   adressenavnNummer: string;
   bygningEtasjeLeilighet?: string;
-  postboksNummerNavn?: string;
   regionDistriktOmraade?: string;
   postkode?: string;
   bySted?: string;
@@ -79,10 +77,6 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     bygningEtasjeLeilighet: {
-      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
-    },
-    postboksNummerNavn: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
