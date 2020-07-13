@@ -58,6 +58,7 @@ export interface Postboksadresse {
   poststed?: string;
   gyldigFraOgMed?: string;
   gyldigTilOgMed?: string;
+  coAdressenavn?: string;
 }
 
 export interface UtenlandskAdresse {

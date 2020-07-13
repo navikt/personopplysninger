@@ -7,13 +7,13 @@ import moment from "moment";
 import { Normaltekst } from "nav-frontend-typografi";
 
 const Postboksadresse = (props: PostboksadresseType) => {
-  const { postbokseier, postboks, postnummer } = props;
+  const { postbokseier, postboks, postnummer, coAdressenavn } = props;
   const { poststed, gyldigTilOgMed } = props;
   return (
     <>
-      {postbokseier && (
+      {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{postbokseier}</Normaltekst>
+          <Normaltekst>{coAdressenavn}</Normaltekst>
         </div>
       )}
       {postboks && (
