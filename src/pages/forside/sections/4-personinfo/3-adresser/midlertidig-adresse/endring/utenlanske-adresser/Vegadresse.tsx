@@ -125,7 +125,6 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       const outbound: OutboundUtenlandskVegadresse = {
         ...fields,
         landkode: fields.land.value,
-        gyldigTilOgMed: fields.datoTilOgMed,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       };
 
