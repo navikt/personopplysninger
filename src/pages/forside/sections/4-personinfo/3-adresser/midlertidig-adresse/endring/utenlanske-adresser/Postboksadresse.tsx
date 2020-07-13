@@ -86,7 +86,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    landkode: {
+    land: {
       isRequired: msg({ id: "validation.land.pakrevd" }),
     },
     gyldigTilOgMed: {
