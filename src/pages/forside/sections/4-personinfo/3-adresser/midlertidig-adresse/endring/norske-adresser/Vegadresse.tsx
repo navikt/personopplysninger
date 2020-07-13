@@ -94,6 +94,11 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
     },
     postnummer: {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
+      isNumber: msg({ id: "validation.only.digits" }),
+    },
+    tilleggsnavn: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     gyldigTilOgMed: {
       isRequired: msg({ id: "validation.tomdato.pakrevd" }),
@@ -216,6 +221,16 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
                 onErrors={(error) => setError({ ...errors, postnummer: error })}
               />
             </div>
+            <InputMedHjelpetekst
+              submitted={submitted}
+              value={fields.tilleggsnavn}
+              hjelpetekst={"adresse.hjelpetekster.tilleggsnavn"}
+              className="adresse__input-avstand"
+              label={msg({ id: "felter.tilleggsnavn.label" })}
+              onChange={(value) => setField({ tilleggsnavn: value })}
+              error={errors.tilleggsnavn}
+              bredde={"L"}
+            />
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <DayPicker

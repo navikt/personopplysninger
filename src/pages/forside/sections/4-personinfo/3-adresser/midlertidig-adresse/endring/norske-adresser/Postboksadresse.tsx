@@ -21,6 +21,7 @@ interface Props {
 }
 
 interface FormFields {
+  coAdressenavn?: string;
   postbokseier?: string;
   postboksnummer?: number;
   postboksanlegg?: string;
@@ -29,6 +30,7 @@ interface FormFields {
 }
 
 export interface OutboundPostboksadresse {
+  coAdressenavn?: string;
   postbokseier?: string;
   postboks: string;
   postnummer: string;
@@ -54,6 +56,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   };
 
   const formConfig = {
+    coAdressenavn: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+    },
     postbokseier: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
@@ -131,6 +137,15 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               onChange={(value) => setField({ postbokseier: value })}
               value={fields.postbokseier}
               error={errors.postbokseier}
+            />
+            <Input
+              bredde={"L"}
+              maxLength={30}
+              label={msg({ id: "felter.postbokseier.label" })}
+              value={fields.postbokseier}
+              className="adresse__input-avstand"
+              feil={submitted && errors.postbokseier}
+              onChange={(e) => setField({ postbokseier: e.target.value })}
             />
             <div className="adresse__rad">
               <Input
