@@ -255,6 +255,8 @@ export default {
   "validation.postboksnummer.pakrevd": "Nødvendig",
   "validation.tomdato.pakrevd": "Gyldig dato er nødvendig",
   "validation.tomdato.ugyldig": "Ugyldig dato",
+  "validation.tomdato.fremitid": "Velg en dato frem i tid",
+  "validation.tomdato.maksetarfrem": "Velg en dato makismalt 1 år frem i tid",
   "validation.gateadresse.pakrevd": "Gateadresse er nødvendig",
   "validation.stedsadresse.pakrevd": "Stedsadresse er nødvendig",
   "validation.land.pakrevd": "Land er nødvendig",

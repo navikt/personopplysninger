@@ -225,7 +225,6 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
               value={fields.gyldigTilOgMed}
               error={errors.gyldigTilOgMed}
               label={msg({ id: "felter.gyldigtom.label" })}
-              ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
               onChange={(value) => setField({ gyldigTilOgMed: value })}
               onErrors={(error) =>
                 setError({ ...errors, gyldigTilOgMed: error })
