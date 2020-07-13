@@ -2,7 +2,6 @@ import React, { Fragment, useEffect, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import MomentLocaleUtils from "react-day-picker/moment";
 import { formatDate, parseDate } from "./utils";
-import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
@@ -33,6 +32,7 @@ const DayPicker = (props: Props) => {
     if (props.value) {
       setValue(moment(props.value).toDate());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
   const setValue = (nyValgtDag: Date) => {
