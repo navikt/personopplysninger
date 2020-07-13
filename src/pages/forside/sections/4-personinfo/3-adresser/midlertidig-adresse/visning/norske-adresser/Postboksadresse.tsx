@@ -16,6 +16,11 @@ const Postboksadresse = (props: PostboksadresseType) => {
           <Normaltekst>{coAdressenavn}</Normaltekst>
         </div>
       )}
+      {postbokseier && (
+        <div className="adresse__linje">
+          <Normaltekst>{postbokseier}</Normaltekst>
+        </div>
+      )}
       {postboks && (
         <div className="adresse__linje">
           <Normaltekst>{postboks}</Normaltekst>
