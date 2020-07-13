@@ -61,7 +61,7 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       }),
       land: {
         label: utenlandskVegadresse.land || "",
-        value: UNKNOWN,
+        value: utenlandskVegadresse.landkode || UNKNOWN,
       },
     }),
   };
