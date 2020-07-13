@@ -108,10 +108,11 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
-    const { land, ...extraFields } = fields;
+    const { land, postboksNummerNavn, ...extraFields } = fields;
     if (isValid) {
       const outbound: OutboundUtenlandskPostboksadresse = {
         ...extraFields,
+        postboksNummerNavn: `PO BOX ${postboksNummerNavn}`,
         landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       };
