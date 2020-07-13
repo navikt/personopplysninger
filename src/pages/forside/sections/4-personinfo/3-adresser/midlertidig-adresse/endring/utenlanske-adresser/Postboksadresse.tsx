@@ -15,7 +15,9 @@ import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 import { Input } from "nav-frontend-skjema";
-import SelectCO from "../../../../../../../../components/felter/select-co/SelectCO";
+import SelectCO, {
+  EmptyOption,
+} from "../../../../../../../../components/felter/select-co/SelectCO";
 
 interface Props {
   utenlandskPostboksadress?: UtenlandskAdresse;
@@ -53,6 +55,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
 
   const initialValues: FormFields = {
+    coType: EmptyOption,
     ...(utenlandskPostboksadress && {
       ...utenlandskPostboksadress,
       // Fjern tid, kun hent dato
@@ -67,10 +70,12 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
   };
 
   const formConfig = {
+    coType: {},
     coAdressenavn: {
       isRequired: {
         message: msg({ id: "validation.coadressenavn.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.coType?.value !== UNKNOWN,
       },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
@@ -125,9 +130,10 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
     if (isValid) {
       const outbound: OutboundUtenlandskPostboksadresse = {
         ...extraFields,
-        coAdressenavn: coType.value
-          ? `${coType.label} ${coAdressenavn}`
-          : coAdressenavn,
+        coAdressenavn:
+          coType.value !== UNKNOWN
+            ? `${coType.label} ${coAdressenavn}`
+            : coAdressenavn,
         postboksNummerNavn: `PO BOX ${postboksNummerNavn}`,
         landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),

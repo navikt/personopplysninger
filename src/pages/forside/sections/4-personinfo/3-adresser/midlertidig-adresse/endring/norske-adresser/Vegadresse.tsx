@@ -14,8 +14,9 @@ import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
 import { Vegadresse } from "types/adresser/kontaktadresse";
-import SelectCO from "components/felter/select-co/SelectCO";
+import SelectCO, { EmptyOption } from "components/felter/select-co/SelectCO";
 import { OptionType } from "types/option";
+import { UNKNOWN } from "../../../../../../../../utils/text";
 
 interface Props {
   vegadresse: Vegadresse;
@@ -58,6 +59,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const [, dispatch] = useStore();
 
   const initialValues: FormFields = {
+    coType: EmptyOption,
     ...(vegadresse && {
       ...vegadresse,
       // Fjern tid, kun hent dato
@@ -72,10 +74,12 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   };
 
   const formConfig = {
+    coType: {},
     coAdressenavn: {
       isRequired: {
         message: msg({ id: "validation.coadressenavn.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.coType?.value !== UNKNOWN,
       },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
@@ -131,9 +135,10 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
 
       const outbound = {
         ...equalFields,
-        coAdressenavn: coType.value
-          ? `${coType.label} ${coAdressenavn}`
-          : coAdressenavn,
+        coAdressenavn:
+          coType.value !== UNKNOWN
+            ? `${coType.label} ${coAdressenavn}`
+            : coAdressenavn,
         husnummer: husnummer.toString(),
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       } as OutboundNorskVegadresse;

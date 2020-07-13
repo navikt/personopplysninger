@@ -15,7 +15,10 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { Postboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "../../../../../../../../types/option";
-import SelectCO from "../../../../../../../../components/felter/select-co/SelectCO";
+import SelectCO, {
+  EmptyOption,
+} from "../../../../../../../../components/felter/select-co/SelectCO";
+import { UNKNOWN } from "../../../../../../../../utils/text";
 
 interface Props {
   postboksadresse?: Postboksadresse;
@@ -49,6 +52,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const [, dispatch] = useStore();
 
   const initialValues: FormFields = {
+    coType: EmptyOption,
     ...(postboksadresse && {
       ...postboksadresse,
       // Fjern tid, kun hent dato
@@ -59,10 +63,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   };
 
   const formConfig = {
+    coType: {},
     coAdressenavn: {
       isRequired: {
         message: msg({ id: "validation.coadressenavn.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.coType?.value !== UNKNOWN,
       },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
@@ -116,9 +122,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
       const outbound: OutboundPostboksadresse = {
         ...equalFields,
-        coAdressenavn: coType.value
-          ? `${coType.label} ${coAdressenavn}`
-          : coAdressenavn,
+        coAdressenavn:
+          coType.value !== UNKNOWN
+            ? `${coType.label} ${coAdressenavn}`
+            : coAdressenavn,
         postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
           postboksanlegg ? ` ${postboksanlegg}` : ``
         }`,

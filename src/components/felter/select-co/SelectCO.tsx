@@ -1,5 +1,6 @@
 import React from "react";
 import NAVSelect from "components/felter/select/NAVSelect";
+import { UNKNOWN } from "utils/text";
 
 interface Props {
   option?: OptionType;
@@ -20,11 +21,12 @@ export interface Land {
   tekst: string;
 }
 
+export const EmptyOption = { label: "", value: UNKNOWN };
 const SelectCO = (props: Props) => {
   const options = [
     {
       label: "",
-      value: "",
+      value: UNKNOWN,
     },
     {
       label: "C/O",
