@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import SelectLand from "components/felter/kodeverk/SelectLand";
+import SelectLand from "components/felter/select-kodeverk/SelectLand";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
 import { UNKNOWN } from "utils/text";
@@ -15,6 +15,7 @@ import moment from "moment";
 import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import { OptionType } from "types/option";
 import { Input } from "nav-frontend-skjema";
+import SelectCO from "../../../../../../../../components/felter/select-co/SelectCO";
 
 interface Props {
   utenlandskVegadresse?: UtenlandskAdresse;
@@ -22,6 +23,7 @@ interface Props {
 }
 
 interface FormFields {
+  coType?: OptionType;
   coAdressenavn?: string;
   adressenavnNummer?: string;
   bygningEtasjeLeilighet?: string;
@@ -68,6 +70,10 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
 
   const formConfig = {
     coAdressenavn: {
+      isRequired: {
+        message: msg({ id: "validation.coadressenavn.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -114,10 +120,13 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
-    const { land, ...extraFields } = fields;
+    const { coAdressenavn, coType, land, ...extraFields } = fields;
     if (isValid) {
       const outbound: OutboundUtenlandskVegadresse = {
         ...extraFields,
+        coAdressenavn: coType.value
+          ? `${coType.label} ${coAdressenavn}`
+          : coAdressenavn,
         landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       };
@@ -140,17 +149,27 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <InputMedHjelpetekst
-              bredde={"L"}
-              maxLength={26}
-              submitted={submitted}
-              hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tilleggslinje.label" })}
-              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ coAdressenavn: value })}
-              value={fields.coAdressenavn}
-              error={errors.coAdressenavn}
-            />
+            <div className="adresse__rad">
+              <SelectCO
+                submitted={submitted}
+                option={fields.coType}
+                label={msg({ id: "felter.tilleggslinje.label" })}
+                error={submitted && errors.coType ? errors.coType : null}
+                hjelpetekst={"adresse.hjelpetekster.co"}
+                onChange={(value) => setField({ coType: value })}
+              />
+              <div className="adresse__without-label">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  maxLength={26}
+                  submitted={submitted}
+                  placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+                  onChange={(value) => setField({ coAdressenavn: value })}
+                  value={fields.coAdressenavn}
+                  error={errors.coAdressenavn}
+                />
+              </div>
+            </div>
             <InputMedHjelpetekst
               bredde={"XL"}
               submitted={submitted}

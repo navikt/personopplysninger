@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postVegadresse } from "clients/apiClient";
 import { RADIX_DECIMAL } from "utils/formattering";
@@ -14,6 +14,8 @@ import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
 import { Vegadresse } from "types/adresser/kontaktadresse";
+import SelectCO from "components/felter/select-co/SelectCO";
+import { OptionType } from "types/option";
 
 interface Props {
   vegadresse: Vegadresse;
@@ -21,6 +23,7 @@ interface Props {
 }
 
 interface FormFields {
+  coType?: OptionType;
   coAdressenavn?: string;
   adressenavn?: string;
   husnummer?: string;
@@ -70,6 +73,10 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
 
   const formConfig = {
     coAdressenavn: {
+      isRequired: {
+        message: msg({ id: "validation.coadressenavn.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -120,10 +127,13 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { husnummer, ...equalFields } = fields;
+      const { coAdressenavn, coType, husnummer, ...equalFields } = fields;
 
       const outbound = {
         ...equalFields,
+        coAdressenavn: coType.value
+          ? `${coType.label} ${coAdressenavn}`
+          : coAdressenavn,
         husnummer: husnummer.toString(),
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       } as OutboundNorskVegadresse;
@@ -146,17 +156,27 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <InputMedHjelpetekst
-              bredde={"L"}
-              maxLength={26}
-              submitted={submitted}
-              hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tilleggslinje.label" })}
-              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ coAdressenavn: value })}
-              value={fields.coAdressenavn}
-              error={errors.coAdressenavn}
-            />
+            <div className="adresse__rad">
+              <SelectCO
+                submitted={submitted}
+                option={fields.coType}
+                label={msg({ id: "felter.tilleggslinje.label" })}
+                error={submitted && errors.coType ? errors.coType : null}
+                hjelpetekst={"adresse.hjelpetekster.co"}
+                onChange={(value) => setField({ coType: value })}
+              />
+              <div className="adresse__without-label">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  maxLength={26}
+                  submitted={submitted}
+                  placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+                  onChange={(value) => setField({ coAdressenavn: value })}
+                  value={fields.coAdressenavn}
+                  error={errors.coAdressenavn}
+                />
+              </div>
+            </div>
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input

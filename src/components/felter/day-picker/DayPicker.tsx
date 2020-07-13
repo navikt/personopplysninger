@@ -73,7 +73,7 @@ const DayPicker = (props: Props) => {
     <div className="skjemaelement">
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
-        <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+        <Hjelpetekst type={PopoverOrientering.Hoyre}>
           <FormattedMessage
             id={"adresse.hjelpetekster.gyldigtil"}
             values={{

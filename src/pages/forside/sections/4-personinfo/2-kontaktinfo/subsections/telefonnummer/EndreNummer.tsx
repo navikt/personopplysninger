@@ -8,7 +8,7 @@ import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
 import endreIkon from "assets/img/Pencil.svg";
 import slettIkon from "assets/img/Slett.svg";
-import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
+import SelectLandskode from "components/felter/select-kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";

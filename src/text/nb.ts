@@ -234,6 +234,7 @@ export default {
   "validation.only.letters": "Skriv bare bokstaver",
   "validation.only.digits": "Skriv bare tall",
   "validation.postboks.pakrevd": "Postboks er nødvendig",
+  "validation.coadressenavn.pakrevd": `Fyll inn navn på mottaker, eller fjern valgt type fra nedtrekksmenyen`,
   "validation.only.digits.space": "Skriv bare tall og mellomrom",
   "validation.only.letters.and.digits": "Skriv bare bokstaver og tall",
   "validation.only.letters.space.and.digits": `Skriv bare bokstaver, mellomrom og tall`,

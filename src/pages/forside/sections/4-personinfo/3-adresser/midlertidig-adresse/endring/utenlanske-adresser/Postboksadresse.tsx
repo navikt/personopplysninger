@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import SelectLand from "components/felter/kodeverk/SelectLand";
+import SelectLand from "components/felter/select-kodeverk/SelectLand";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
 import { UNKNOWN } from "utils/text";
@@ -15,6 +15,7 @@ import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 import { Input } from "nav-frontend-skjema";
+import SelectCO from "../../../../../../../../components/felter/select-co/SelectCO";
 
 interface Props {
   utenlandskPostboksadress?: UtenlandskAdresse;
@@ -22,6 +23,7 @@ interface Props {
 }
 
 interface FormFields {
+  coType?: OptionType;
   coAdressenavn?: string;
   postboksNummerNavn?: string;
   regionDistriktOmraade?: string;
@@ -66,6 +68,10 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
 
   const formConfig = {
     coAdressenavn: {
+      isRequired: {
+        message: msg({ id: "validation.coadressenavn.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -108,10 +114,20 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
-    const { land, postboksNummerNavn, ...extraFields } = fields;
+    const {
+      coAdressenavn,
+      coType,
+      postboksNummerNavn,
+      land,
+      ...extraFields
+    } = fields;
+
     if (isValid) {
       const outbound: OutboundUtenlandskPostboksadresse = {
         ...extraFields,
+        coAdressenavn: coType.value
+          ? `${coType.label} ${coAdressenavn}`
+          : coAdressenavn,
         postboksNummerNavn: `PO BOX ${postboksNummerNavn}`,
         landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
@@ -135,17 +151,27 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <InputMedHjelpetekst
-              bredde={"L"}
-              maxLength={26}
-              submitted={submitted}
-              hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tilleggslinje.label" })}
-              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ coAdressenavn: value })}
-              value={fields.coAdressenavn}
-              error={errors.coAdressenavn}
-            />
+            <div className="adresse__rad">
+              <SelectCO
+                submitted={submitted}
+                option={fields.coType}
+                label={msg({ id: "felter.tilleggslinje.label" })}
+                error={submitted && errors.coType ? errors.coType : null}
+                hjelpetekst={"adresse.hjelpetekster.co"}
+                onChange={(value) => setField({ coType: value })}
+              />
+              <div className="adresse__without-label">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  maxLength={26}
+                  submitted={submitted}
+                  placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+                  onChange={(value) => setField({ coAdressenavn: value })}
+                  value={fields.coAdressenavn}
+                  error={errors.coAdressenavn}
+                />
+              </div>
+            </div>
             <Input
               bredde={"XL"}
               label={msg({ id: "felter.postboks.label" })}

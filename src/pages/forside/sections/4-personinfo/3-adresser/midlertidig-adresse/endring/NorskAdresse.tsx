@@ -35,7 +35,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
         <div className="adresse__kolonne adresse__select">
           <div className="adresse__select-header skjemaelement__label">
             <FormattedMessage id={"felter.adressetype"} />
-            <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+            <Hjelpetekst type={PopoverOrientering.Hoyre}>
               <FormattedMessage
                 id={"adresse.hjelpetekster.adressetyper"}
                 values={{

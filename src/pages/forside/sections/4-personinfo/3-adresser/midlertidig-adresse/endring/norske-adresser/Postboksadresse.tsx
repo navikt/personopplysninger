@@ -4,7 +4,7 @@ import InputPostnummer from "components/felter/input-postnummer/InputPostnummer"
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
@@ -14,6 +14,8 @@ import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { Postboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
+import { OptionType } from "../../../../../../../../types/option";
+import SelectCO from "../../../../../../../../components/felter/select-co/SelectCO";
 
 interface Props {
   postboksadresse?: Postboksadresse;
@@ -21,6 +23,7 @@ interface Props {
 }
 
 interface FormFields {
+  coType?: OptionType;
   coAdressenavn?: string;
   postbokseier?: string;
   postboksnummer?: number;
@@ -57,6 +60,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   const formConfig = {
     coAdressenavn: {
+      isRequired: {
+        message: msg({ id: "validation.coadressenavn.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.coType,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -99,10 +106,19 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
     if (isValid) {
-      const { postboksanlegg, postboksnummer, ...equalFields } = fields;
+      const {
+        coType,
+        coAdressenavn,
+        postboksanlegg,
+        postboksnummer,
+        ...equalFields
+      } = fields;
 
       const outbound: OutboundPostboksadresse = {
         ...equalFields,
+        coAdressenavn: coType.value
+          ? `${coType.label} ${coAdressenavn}`
+          : coAdressenavn,
         postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
           postboksanlegg ? ` ${postboksanlegg}` : ``
         }`,
@@ -127,17 +143,27 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <InputMedHjelpetekst
-              bredde={"L"}
-              maxLength={26}
-              submitted={submitted}
-              hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tilleggslinje.label" })}
-              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ coAdressenavn: value })}
-              value={fields.coAdressenavn}
-              error={errors.coAdressenavn}
-            />
+            <div className="adresse__rad">
+              <SelectCO
+                submitted={submitted}
+                option={fields.coType}
+                label={msg({ id: "felter.tilleggslinje.label" })}
+                error={submitted && errors.coType ? errors.coType : null}
+                hjelpetekst={"adresse.hjelpetekster.co"}
+                onChange={(value) => setField({ coType: value })}
+              />
+              <div className="adresse__without-label">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  maxLength={26}
+                  submitted={submitted}
+                  placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+                  onChange={(value) => setField({ coAdressenavn: value })}
+                  value={fields.coAdressenavn}
+                  error={errors.coAdressenavn}
+                />
+              </div>
+            </div>
             <Input
               bredde={"L"}
               maxLength={30}
