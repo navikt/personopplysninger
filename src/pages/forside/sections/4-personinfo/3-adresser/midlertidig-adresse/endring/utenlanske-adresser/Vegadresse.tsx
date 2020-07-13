@@ -225,7 +225,7 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
               submitted={submitted}
               option={fields.landkode}
               error={errors.landkode}
-              onChange={(land) => setField({ landkode: fields.landkode })}
+              onChange={(land) => setField({ landkode: land })}
             />
             <DayPicker
               submitted={submitted}
