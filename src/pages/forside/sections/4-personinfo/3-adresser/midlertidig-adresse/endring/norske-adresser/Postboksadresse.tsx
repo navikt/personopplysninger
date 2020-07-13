@@ -122,10 +122,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
       const outbound: OutboundPostboksadresse = {
         ...equalFields,
-        coAdressenavn:
-          coType.value !== UNKNOWN
-            ? `${coType.label} ${coAdressenavn}`
-            : coAdressenavn,
+        ...(coAdressenavn && {
+          coAdressenavn:
+            coType.value !== UNKNOWN
+              ? `${coType.label} ${coAdressenavn}`
+              : coAdressenavn,
+        }),
         postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
           postboksanlegg ? ` ${postboksanlegg}` : ``
         }`,

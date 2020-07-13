@@ -130,10 +130,12 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
     if (isValid) {
       const outbound: OutboundUtenlandskPostboksadresse = {
         ...extraFields,
-        coAdressenavn:
-          coType.value !== UNKNOWN
-            ? `${coType.label} ${coAdressenavn}`
-            : coAdressenavn,
+        ...(coAdressenavn && {
+          coAdressenavn:
+            coType.value !== UNKNOWN
+              ? `${coType.label} ${coAdressenavn}`
+              : coAdressenavn,
+        }),
         postboksNummerNavn: `PO BOX ${postboksNummerNavn}`,
         landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),

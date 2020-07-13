@@ -135,10 +135,12 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
 
       const outbound = {
         ...equalFields,
-        coAdressenavn:
-          coType.value !== UNKNOWN
-            ? `${coType.label} ${coAdressenavn}`
-            : coAdressenavn,
+        ...(coAdressenavn && {
+          coAdressenavn:
+            coType.value !== UNKNOWN
+              ? `${coType.label} ${coAdressenavn}`
+              : coAdressenavn,
+        }),
         husnummer: husnummer.toString(),
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       } as OutboundNorskVegadresse;
