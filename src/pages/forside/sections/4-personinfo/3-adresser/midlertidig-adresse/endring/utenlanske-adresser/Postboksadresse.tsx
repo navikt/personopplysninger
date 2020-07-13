@@ -27,7 +27,7 @@ interface FormFields {
   regionDistriktOmraade?: string;
   postkode?: string;
   bySted?: string;
-  landkode?: OptionType;
+  land?: OptionType;
   gyldigFraOgMed?: string;
   gyldigTilOgMed?: string;
 }
@@ -57,7 +57,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       ...(utenlandskPostboksadress.gyldigTilOgMed && {
         gyldigTilOgMed: utenlandskPostboksadress.gyldigTilOgMed.split("T")[0],
       }),
-      landkode: {
+      land: {
         label: utenlandskPostboksadress.land || "",
         value: UNKNOWN,
       },
@@ -187,9 +187,9 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
             <SelectLand
               label={msg({ id: "felter.land.label" })}
               submitted={submitted}
-              option={fields.landkode}
-              error={errors.landkode}
-              onChange={(land) => setField({ landkode: land })}
+              option={fields.land}
+              error={errors.land}
+              onChange={(land) => setField({ land })}
             />
             <DayPicker
               submitted={submitted}
