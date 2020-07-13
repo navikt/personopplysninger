@@ -158,7 +158,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               submitted={submitted}
               maxLength={30}
               value={fields.regionDistriktOmraade}
-              error={fields.regionDistriktOmraade}
+              error={errors.regionDistriktOmraade}
               hjelpetekst={"adresse.hjelpetekster.regiondistriktomraade"}
               label={msg({ id: "felter.regiondistriktomraade.label" })}
               onChange={(value) => setField({ regionDistriktOmraade: value })}
