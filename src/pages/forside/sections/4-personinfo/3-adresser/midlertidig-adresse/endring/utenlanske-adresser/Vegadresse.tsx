@@ -14,6 +14,7 @@ import Alert, { AlertType } from "components/alert/Alert";
 import moment from "moment";
 import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import { OptionType } from "types/option";
+import { Input } from "nav-frontend-skjema";
 
 interface Props {
   utenlandskVegadresse?: UtenlandskAdresse;
@@ -35,7 +36,7 @@ interface FormFields {
 
 export interface OutboundUtenlandskVegadresse {
   coAdressenavn?: string;
-  adressenavnNummer?: string;
+  adressenavnNummer: string;
   bygningEtasjeLeilighet?: string;
   postboksNummerNavn?: string;
   regionDistriktOmraade?: string;
@@ -91,7 +92,8 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     postkode: {
-      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     bySted: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
@@ -121,6 +123,7 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
     const { isValid, fields } = c;
     if (isValid) {
       const outbound: OutboundUtenlandskVegadresse = {
+        ...fields,
         landkode: fields.land.value,
         gyldigTilOgMed: fields.datoTilOgMed,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
@@ -156,14 +159,67 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
               error={errors.coAdressenavn}
             />
             <InputMedHjelpetekst
-              bredde={"L"}
+              bredde={"XL"}
               submitted={submitted}
               maxLength={30}
               value={fields.adressenavnNummer}
+              error={errors.adressenavnNummer}
               hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
               label={msg({ id: "felter.adresse.label" })}
               onChange={(value) => setField({ adressenavnNummer: value })}
             />
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  submitted={submitted}
+                  maxLength={30}
+                  value={fields.bygningEtasjeLeilighet}
+                  error={errors.bygningEtasjeLeilighet}
+                  hjelpetekst={"adresse.hjelpetekster.bygningetasjeleilighet"}
+                  label={msg({ id: "felter.bygningetasjeleilighet.label" })}
+                  onChange={(value) =>
+                    setField({ bygningEtasjeLeilighet: value })
+                  }
+                />
+              </div>
+              <div className="adresse__kolonne">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  submitted={submitted}
+                  maxLength={30}
+                  value={fields.regionDistriktOmraade}
+                  error={fields.regionDistriktOmraade}
+                  hjelpetekst={"adresse.hjelpetekster.regiondistriktomraade"}
+                  label={msg({ id: "felter.regiondistriktomraade.label" })}
+                  onChange={(value) =>
+                    setField({ regionDistriktOmraade: value })
+                  }
+                />
+              </div>
+            </div>
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.postkode.label" })}
+                  value={fields.postkode}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.postkode}
+                  onChange={(e) => setField({ postkode: e.target.value })}
+                />
+              </div>
+              <div className="adresse__kolonne">
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.bysted.label" })}
+                  value={fields.bySted}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.bySted}
+                  onChange={(e) => setField({ bySted: e.target.value })}
+                />
+              </div>
+            </div>
             <SelectLand
               label={msg({ id: "felter.land.label" })}
               submitted={submitted}

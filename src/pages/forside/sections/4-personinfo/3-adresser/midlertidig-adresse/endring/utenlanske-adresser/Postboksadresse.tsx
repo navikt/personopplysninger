@@ -117,6 +117,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
     const { isValid, fields } = c;
     if (isValid) {
       const outbound: OutboundUtenlandskPostboksadresse = {
+        ...fields,
         landkode: fields.land.value,
         gyldigTilOgMed: fields.datoTilOgMed,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),

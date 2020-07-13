@@ -32,7 +32,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
   return (
     <>
       <div className="adresse__rad">
-        <div className="adresse__kolonne">
+        <div className="adresse__kolonne adresse__select">
           <div className="adresse__select-header skjemaelement__label">
             <FormattedMessage id={"felter.adressetype"} />
             <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
