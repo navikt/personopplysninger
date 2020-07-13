@@ -233,6 +233,7 @@ export default {
   "felter.landetbrukerbankkode.advarsel": `For <span>{land}</span> kan du oppgi både BIC/Swift-kode og bankkode. Du kan oppgi begge, men det er tilstrekkelig med en av kodene.`,
   "validation.only.letters": "Skriv bare bokstaver",
   "validation.only.digits": "Skriv bare tall",
+  "validation.postboks.pakrevd": "Postboks er nødvendig",
   "validation.only.digits.space": "Skriv bare tall og mellomrom",
   "validation.only.letters.and.digits": "Skriv bare bokstaver og tall",
   "validation.only.letters.space.and.digits": `Skriv bare bokstaver, mellomrom og tall`,

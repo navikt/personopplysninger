@@ -14,6 +14,7 @@ import Alert, { AlertType } from "components/alert/Alert";
 import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
+import { Input } from "nav-frontend-skjema";
 
 interface Props {
   utenlandskPostboksadress?: UtenlandskAdresse;
@@ -68,17 +69,8 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    adressenavnNummer: {
-      isRequired: msg({ id: "validation.gatenavn.pakrevd" }),
-      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
-      isValidStreetName: msg({ id: "validation.gatenavn.valid" }),
-    },
-    bygningEtasjeLeilighet: {
-      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
-    },
     postboksNummerNavn: {
+      isRequired: msg({ id: "validation.postboks.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -87,7 +79,8 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     postkode: {
-      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
     bySted: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
@@ -152,16 +145,46 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               value={fields.coAdressenavn}
               error={errors.coAdressenavn}
             />
+            <Input
+              bredde={"XL"}
+              label={msg({ id: "felter.postboks.label" })}
+              value={fields.postboksNummerNavn}
+              className="adresse__input-avstand"
+              feil={submitted && errors.postboksNummerNavn}
+              onChange={(e) => setField({ postboksNummerNavn: e.target.value })}
+            />
             <InputMedHjelpetekst
-              bredde={"L"}
+              bredde={"XL"}
               submitted={submitted}
               maxLength={30}
-              value={fields.postboksNummerNavn}
-              hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
-              label={msg({ id: "felter.postboks.label" })}
-              onChange={(value) => setField({ postboksNummerNavn: value })}
-              error={errors.postboksNummerNavn}
+              value={fields.regionDistriktOmraade}
+              error={fields.regionDistriktOmraade}
+              hjelpetekst={"adresse.hjelpetekster.regiondistriktomraade"}
+              label={msg({ id: "felter.regiondistriktomraade.label" })}
+              onChange={(value) => setField({ regionDistriktOmraade: value })}
             />
+            <div className="adresse__rad">
+              <div className="adresse__kolonne">
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.postkode.label" })}
+                  value={fields.postkode}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.postkode}
+                  onChange={(e) => setField({ postkode: e.target.value })}
+                />
+              </div>
+              <div className="adresse__kolonne">
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.bysted.label" })}
+                  value={fields.bySted}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.bySted}
+                  onChange={(e) => setField({ bySted: e.target.value })}
+                />
+              </div>
+            </div>
             <SelectLand
               label={msg({ id: "felter.land.label" })}
               submitted={submitted}
