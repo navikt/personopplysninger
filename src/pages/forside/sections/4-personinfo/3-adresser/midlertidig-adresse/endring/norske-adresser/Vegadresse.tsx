@@ -91,7 +91,6 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
       isValidStreetName: msg({ id: "validation.gatenavn.valid" }),
     },
     husnummer: {
-      isRequired: msg({ id: "validation.husnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
       isPositive: msg({ id: "validation.husnummer.positive" }),
     },

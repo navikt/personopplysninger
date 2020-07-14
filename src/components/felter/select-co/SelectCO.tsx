@@ -36,10 +36,6 @@ const SelectCO = (props: Props) => {
       label: "V/",
       value: "V",
     },
-    {
-      label: "V/DBO",
-      value: "VDBO",
-    },
   ];
 
   return (
