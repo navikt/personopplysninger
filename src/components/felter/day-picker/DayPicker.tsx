@@ -2,11 +2,10 @@ import React, { Fragment, useEffect, useState } from "react";
 import DayPickerInput from "react-day-picker/DayPickerInput";
 import MomentLocaleUtils from "react-day-picker/moment";
 import { formatDate, parseDate } from "./utils";
-import { DayModifiers } from "react-day-picker";
 import moment from "moment";
 import cls from "classnames";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { PopoverOrientering } from "nav-frontend-popover";
 
 interface Props {
@@ -17,13 +16,13 @@ interface Props {
   locale: string;
   submitted: boolean;
   placeholder: string;
-  ugyldigTekst: string;
   onChange: (value: string) => void;
   onErrors: (value: string) => void;
 }
 
 const DayPicker = (props: Props) => {
-  const { label, onErrors, submitted, error, ugyldigTekst } = props;
+  const { label, onErrors, submitted, error } = props;
+  const { formatMessage: msg } = useIntl();
   const [valgtDag, settValgtDag] = useState<Date | undefined>(undefined);
 
   const iMorgen = moment(new Date()).add(1, "days").toDate();
@@ -31,19 +30,13 @@ const DayPicker = (props: Props) => {
 
   useEffect(() => {
     if (props.value) {
-      settValgtDag(moment(props.value).toDate());
+      setValue(moment(props.value).toDate());
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
-  const onChange = (
-    nyValgtDag: Date,
-    modifiers: DayModifiers,
-    dayPickerInput: DayPickerInput
-  ) => {
+  const setValue = (nyValgtDag: Date) => {
     settValgtDag(nyValgtDag);
-    const input = dayPickerInput.getInput();
-    const isEmpty = input.value && !input.value.trim();
-    const isDisabled = modifiers.disabled === true;
 
     // Reset til kl 12 for sammenligning
     const klTolvValgtDag = new Date(new Date(nyValgtDag).setHours(12, 0, 0, 0));
@@ -54,16 +47,21 @@ const DayPicker = (props: Props) => {
       )
     );
 
-    if (klTolvValgtDag && !isDisabled) {
+    if (klTolvValgtDag) {
       if (klTolvValgtDag >= klTolvIMorgen && klTolvValgtDag <= klTolvEtArFrem) {
         props.onChange(moment(klTolvValgtDag).format("YYYY-MM-DD"));
+      } else if (klTolvValgtDag <= klTolvIMorgen) {
+        onErrors(msg({ id: "validation.tomdato.fremitid" }));
+      } else if (klTolvValgtDag >= klTolvEtArFrem) {
+        onErrors(msg({ id: "validation.tomdato.maksetarfrem" }));
       } else {
-        onErrors(ugyldigTekst);
+        onErrors(msg({ id: "validation.tomdato.ugyldig" }));
       }
     }
-    if (!klTolvValgtDag && !isEmpty) {
-      onErrors(ugyldigTekst);
-    }
+  };
+
+  const onChange = (nyValgtDag: Date) => {
+    setValue(nyValgtDag);
   };
 
   const inputClasses = cls({
@@ -75,7 +73,7 @@ const DayPicker = (props: Props) => {
     <div className="skjemaelement">
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
-        <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+        <Hjelpetekst type={PopoverOrientering.Hoyre}>
           <FormattedMessage
             id={"adresse.hjelpetekster.gyldigtil"}
             values={{

@@ -1,64 +1,71 @@
 import React, { useState } from "react";
-import { Input } from "nav-frontend-skjema";
-import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
-import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
-import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
+import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import SelectLand from "components/felter/select-kodeverk/SelectLand";
+import DayPicker from "components/felter/day-picker/DayPicker";
+import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
+import { UNKNOWN } from "utils/text";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
-import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
-import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { Postboksadresse } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
-import { OptionType } from "../../../../../../../../types/option";
+import { OptionType } from "types/option";
+import { Input } from "nav-frontend-skjema";
 import SelectCO, {
   EmptyOption,
 } from "../../../../../../../../components/felter/select-co/SelectCO";
-import { UNKNOWN } from "../../../../../../../../utils/text";
 
 interface Props {
-  postboksadresse?: Postboksadresse;
+  utenlandskPostboksadress?: UtenlandskAdresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 interface FormFields {
   coType?: OptionType;
   coAdressenavn?: string;
-  postbokseier?: string;
-  postboksnummer?: number;
-  postboksanlegg?: string;
-  postnummer?: string;
+  postboksNummerNavn?: string;
+  regionDistriktOmraade?: string;
+  postkode?: string;
+  bySted?: string;
+  land?: OptionType;
+  gyldigFraOgMed?: string;
   gyldigTilOgMed?: string;
 }
 
-export interface OutboundPostboksadresse {
+export interface OutboundUtenlandskPostboksadresse {
   coAdressenavn?: string;
-  postbokseier?: string;
-  postboks: string;
-  postnummer: string;
-  gyldigTilOgMed: string;
+  postboksNummerNavn?: string;
+  regionDistriktOmraade?: string;
+  postkode?: string;
+  bySted?: string;
+  landkode: string;
   gyldigFraOgMed: string;
+  gyldigTilOgMed: string;
 }
 
-const OpprettEllerEndrePostboksadresse = (props: Props) => {
-  const { postboksadresse, settOpprettEllerEndre } = props;
+const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
+  const { utenlandskPostboksadress, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
-  const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
+  const { formatMessage: msg } = useIntl();
 
   const initialValues: FormFields = {
     coType: EmptyOption,
-    ...(postboksadresse && {
-      ...postboksadresse,
+    ...(utenlandskPostboksadress && {
+      ...utenlandskPostboksadress,
       // Fjern tid, kun hent dato
-      ...(postboksadresse.gyldigTilOgMed && {
-        gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],
+      ...(utenlandskPostboksadress.gyldigTilOgMed && {
+        gyldigTilOgMed: utenlandskPostboksadress.gyldigTilOgMed.split("T")[0],
       }),
+      land: {
+        label: utenlandskPostboksadress.land || "",
+        value: utenlandskPostboksadress.landkode || UNKNOWN,
+      },
     }),
   };
 
@@ -73,24 +80,25 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    postbokseier: {
+    postboksNummerNavn: {
+      isRequired: msg({ id: "validation.postboks.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    postboksnummer: {
-      isRequired: msg({ id: "validation.postboksnummer.pakrevd" }),
-      isNumber: msg({ id: "validation.only.digits" }),
-    },
-    postboksanlegg: {
+    regionDistriktOmraade: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
-      isMinOneLetter: msg({ id: "validation.min.one.letter" }),
-      isLettersSpaceAndDigits: msg({
-        id: "validation.only.letters.space.and.digits",
-      }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
-    postnummer: {
-      isRequired: msg({ id: "validation.postnummer.pakrevd" }),
-      isNumber: msg({ id: "validation.only.digits" }),
+    postkode: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+    },
+    bySted: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+    },
+    land: {
+      isRequired: msg({ id: "validation.land.pakrevd" }),
     },
     gyldigTilOgMed: {
       isRequired: msg({ id: "validation.tomdato.pakrevd" }),
@@ -111,31 +119,30 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   const submit = (c: FormContext) => {
     const { isValid, fields } = c;
-    if (isValid) {
-      const {
-        coType,
-        coAdressenavn,
-        postboksanlegg,
-        postboksnummer,
-        ...equalFields
-      } = fields;
+    const {
+      coAdressenavn,
+      coType,
+      postboksNummerNavn,
+      land,
+      ...extraFields
+    } = fields;
 
-      const outbound: OutboundPostboksadresse = {
-        ...equalFields,
+    if (isValid) {
+      const outbound: OutboundUtenlandskPostboksadresse = {
+        ...extraFields,
         ...(coAdressenavn && {
           coAdressenavn:
             coType.value !== UNKNOWN
               ? `${coType.label} ${coAdressenavn}`
               : coAdressenavn,
         }),
-        postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
-          postboksanlegg ? ` ${postboksanlegg}` : ``
-        }`,
+        postboksNummerNavn: `PO BOX ${postboksNummerNavn}`,
+        landkode: fields.land.value,
         gyldigFraOgMed: moment().format("YYYY-MM-DD"),
       };
 
       settLoading(true);
-      postPostboksadresse(outbound)
+      postUtenlandskAdresse(outbound)
         .then(getUpdatedData)
         .then(onSuccess)
         .catch((error: AlertType) => settAlert(error))
@@ -174,71 +181,62 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               </div>
             </div>
             <Input
-              bredde={"L"}
-              maxLength={30}
-              label={msg({ id: "felter.postbokseier.label" })}
-              value={fields.postbokseier}
+              bredde={"XL"}
+              label={msg({ id: "felter.postboks.label" })}
+              value={fields.postboksNummerNavn}
               className="adresse__input-avstand"
-              feil={submitted && errors.postbokseier}
-              onChange={(e) => setField({ postbokseier: e.target.value })}
+              feil={submitted && errors.postboksNummerNavn}
+              onChange={(e) => setField({ postboksNummerNavn: e.target.value })}
+            />
+            <InputMedHjelpetekst
+              bredde={"XL"}
+              submitted={submitted}
+              maxLength={30}
+              value={fields.regionDistriktOmraade}
+              error={errors.regionDistriktOmraade}
+              hjelpetekst={"adresse.hjelpetekster.regiondistriktomraade"}
+              label={msg({ id: "felter.regiondistriktomraade.label" })}
+              onChange={(value) => setField({ regionDistriktOmraade: value })}
             />
             <div className="adresse__rad">
-              <Input
-                min={1}
-                bredde={"S"}
-                type={"number"}
-                label={msg({ id: "felter.postboksnummer.label" })}
-                value={fields.postboksnummer}
-                className="adresse__input-avstand"
-                feil={submitted && errors.postboksnummer}
-                onChange={({ target }) => {
-                  if (target.value.length <= 4) {
-                    setField({
-                      postboksnummer: parseInt(target.value, RADIX_DECIMAL),
-                    });
-                  }
-                }}
-              />
-              <Input
-                bredde={"M"}
-                maxLength={30}
-                value={fields.postboksanlegg}
-                label={msg({ id: "felter.postboksanlegg.label" })}
-                onChange={(e) => setField({ postboksanlegg: e.target.value })}
-                className="adresse__input-avstand"
-                feil={submitted && errors.postboksanlegg}
-              />
-            </div>
-            <div className="adresse__rad">
               <div className="adresse__kolonne">
-                <InputPostnummer
-                  submitted={submitted}
-                  value={fields.postnummer}
-                  error={errors.postnummer}
-                  label={msg({ id: "felter.postnummer.label" })}
-                  onChange={(postnummer) => setField({ postnummer })}
-                  onErrors={(error) =>
-                    setError({ ...errors, postnummer: error })
-                  }
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.postkode.label" })}
+                  value={fields.postkode}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.postkode}
+                  onChange={(e) => setField({ postkode: e.target.value })}
                 />
               </div>
-              <div className="adresse__kolonne" />
-            </div>
-            <div className="adresse__rad">
               <div className="adresse__kolonne">
-                <DayPicker
-                  submitted={submitted}
-                  value={fields.gyldigTilOgMed}
-                  error={errors.gyldigTilOgMed}
-                  label={msg({ id: "felter.gyldigtom.label" })}
-                  onChange={(value) => setField({ gyldigTilOgMed: value })}
-                  onErrors={(error) =>
-                    setError({ ...errors, gyldigTilOgMed: error })
-                  }
+                <Input
+                  bredde={"XL"}
+                  label={msg({ id: "felter.bysted.label" })}
+                  value={fields.bySted}
+                  className="adresse__input-avstand"
+                  feil={submitted && errors.bySted}
+                  onChange={(e) => setField({ bySted: e.target.value })}
                 />
               </div>
-              <div className="adresse__kolonne" />
             </div>
+            <SelectLand
+              label={msg({ id: "felter.land.label" })}
+              submitted={submitted}
+              option={fields.land}
+              error={errors.land}
+              onChange={(land) => setField({ land })}
+            />
+            <DayPicker
+              submitted={submitted}
+              value={fields.gyldigTilOgMed}
+              error={errors.gyldigTilOgMed}
+              label={msg({ id: "felter.gyldigtom.label" })}
+              onChange={(value) => setField({ gyldigTilOgMed: value })}
+              onErrors={(error) =>
+                setError({ ...errors, gyldigTilOgMed: error })
+              }
+            />
             <div className="adresse__form-knapper">
               <div className="adresse__knapp">
                 <Knapp
@@ -270,4 +268,4 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   );
 };
 
-export default OpprettEllerEndrePostboksadresse;
+export default OpprettEllerEndreUtenlandskVegadresse;

@@ -2,6 +2,7 @@ import { Boadresse } from "./boadresse";
 import { Postadresse } from "./postadresse";
 import { Tilleggsadresse } from "./tilleggsadresse";
 import { UtenlandskAdresse } from "./utenlandskadresse";
+import { Kontaktadresse } from "./kontaktadresse";
 
 export interface GeografiskTilknytning {
   bydel?: string;
@@ -16,7 +17,6 @@ export interface Adresser {
   geografiskTilknytning?: GeografiskTilknytning;
   postadresse?: Postadresse;
   prioritertAdresse?: string;
-  tilleggsadresse?: Tilleggsadresse;
-  utenlandskAdresse?: UtenlandskAdresse;
+  kontaktadresse?: Kontaktadresse;
   datakilder?: {}[];
 }

@@ -16,7 +16,7 @@ export const extraValidators = {
     value && !isMod11(value) ? config.message : null,
 
   isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    !value.match(/^[^\s].*/) ? config.message : null,
+    value && !value.match(/^[^\s].*/) ? config.message : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z]+/g) ? config.message : null,

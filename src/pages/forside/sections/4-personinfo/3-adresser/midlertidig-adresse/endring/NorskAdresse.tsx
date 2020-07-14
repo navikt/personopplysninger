@@ -1,25 +1,29 @@
 import React, { ChangeEvent, Fragment, useState } from "react";
 import { Select } from "nav-frontend-skjema";
-import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
-import OpprettEllerEndreGateadresse from "./norske-adresser/Gateadresse";
+import OpprettEllerEndreVegadresse from "./norske-adresser/Vegadresse";
 import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse";
-import OpprettEllerEndreStedsadresse from "./norske-adresser/Stedsadresse";
 import { FormattedMessage, useIntl } from "react-intl";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
+import { Vegadresse } from "types/adresser/kontaktadresse";
+import { Postboksadresse } from "types/adresser/kontaktadresse";
+import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
 interface Props {
-  tilleggsadresse?: Tilleggsadresse;
+  kontaktadresse?: Kontaktadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
-type Adresser = "GATEADRESSE" | "POSTBOKSADRESSE" | "STEDSADRESSE";
+type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
+
 const OpprettEllerEndreNorskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const { tilleggsadresse } = props;
+  const { kontaktadresse } = props;
   const [type, settType] = useState(
-    (tilleggsadresse && tilleggsadresse.type) || ("GATEADRESSE" as Adresser)
+    (kontaktadresse?.type === "POSTBOKSADRESSE"
+      ? "POSTBOKSADRESSE"
+      : "VEGADRESSE") as Adresser
   );
 
   const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
@@ -28,10 +32,10 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
   return (
     <>
       <div className="adresse__rad">
-        <div className="adresse__kolonne">
+        <div className="adresse__kolonne adresse__select">
           <div className="adresse__select-header skjemaelement__label">
             <FormattedMessage id={"felter.adressetype"} />
-            <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+            <Hjelpetekst type={PopoverOrientering.Hoyre}>
               <FormattedMessage
                 id={"adresse.hjelpetekster.adressetyper"}
                 values={{
@@ -54,14 +58,11 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
               onChange={onSelectChange}
               defaultValue={type}
             >
-              <option value="GATEADRESSE">
+              <option value="VEGADRESSE">
                 {msg({ id: "felter.adressetype.gateadresse" })}
               </option>
               <option value="POSTBOKSADRESSE">
                 {msg({ id: "felter.adressetype.postboksadresse" })}
-              </option>
-              <option value="STEDSADRESSE">
-                {msg({ id: "felter.adressetype.stedsadresse" })}
               </option>
             </Select>
           </div>
@@ -70,9 +71,18 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
       </div>
       {
         {
-          GATEADRESSE: <OpprettEllerEndreGateadresse {...props} />,
-          POSTBOKSADRESSE: <OpprettEllerEndrePostboksadresse {...props} />,
-          STEDSADRESSE: <OpprettEllerEndreStedsadresse {...props} />,
+          VEGADRESSE: (
+            <OpprettEllerEndreVegadresse
+              vegadresse={props.kontaktadresse as Vegadresse}
+              settOpprettEllerEndre={props.settOpprettEllerEndre}
+            />
+          ),
+          POSTBOKSADRESSE: (
+            <OpprettEllerEndrePostboksadresse
+              postboksadresse={props.kontaktadresse as Postboksadresse}
+              settOpprettEllerEndre={props.settOpprettEllerEndre}
+            />
+          ),
         }[type]
       }
     </>

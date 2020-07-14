@@ -27,7 +27,7 @@ const EndreKontonummerFelt = ({
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+          <Hjelpetekst type={PopoverOrientering.Hoyre}>
             <FormattedMessage
               id={hjelpetekst}
               values={{

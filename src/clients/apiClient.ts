@@ -3,10 +3,10 @@ import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandskAdresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/UtenlandskAdresse";
-import { OutboundGateadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Gateadresse";
+import { OutboundUtenlandskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/utenlanske-adresser/Vegadresse";
+import { OutboundUtenlandskPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/utenlanske-adresser/Postboksadresse";
+import { OutboundNorskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Vegadresse";
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
-import { OutboundStedsadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Stedsadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import Cookies from "js-cookie";
@@ -17,7 +17,7 @@ const {
   REACT_APP_API_URL,
   REACT_APP_LOGIN_URL,
   REACT_APP_DSOP_URL,
-  REACT_APP_URL
+  REACT_APP_URL,
 } = process.env;
 /*
   AUTH
@@ -30,7 +30,7 @@ export const sjekkAuthHentNavn = () => {
   return fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include"
+    credentials: "include",
   })
     .then(sjekkAuth)
     .then(sjekkHttpFeil)
@@ -39,7 +39,7 @@ export const sjekkAuthHentNavn = () => {
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
-        text: err.text || err
+        text: err.text || err,
       };
       if (error.code !== 401 && error.code !== 403) {
         logApiError(url, error);
@@ -56,7 +56,7 @@ const sjekkAuthHentJson = (url: string) =>
   fetch(url, {
     method: "GET",
     headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include"
+    credentials: "include",
   })
     .then(sjekkAuth)
     .then(sjekkHttpFeil)
@@ -65,7 +65,7 @@ const sjekkAuthHentJson = (url: string) =>
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
-        text: err.text || err
+        text: err.text || err,
       };
       logApiError(url, error);
       throw error;
@@ -106,21 +106,22 @@ export const fetchDsopInfo = () =>
 
 type Outbound =
   | OutboundTlfnummer
-  | OutboundGateadresse
+  | OutboundNorskVegadresse
   | OutboundPostboksadresse
-  | OutboundStedsadresse
-  | OutboundUtenlandskAdresse
+  | OutboundUtenlandskVegadresse
   | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
-const postJson = (url: string, data: Outbound) => {
+const postJson = (url: string, data?: Outbound) => {
   console.log(url, data);
   logEvent({ url });
   return fetch(url, {
     method: "POST",
-    body: JSON.stringify(data),
+    ...(data && {
+      body: JSON.stringify(data),
+    }),
     headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include"
+    credentials: "include",
   })
     .then(sjekkHttpFeil)
     .then(parseJson)
@@ -129,7 +130,7 @@ const postJson = (url: string, data: Outbound) => {
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
-        text: err.text || err
+        text: err.text || err,
       };
       logApiError(url, error);
       throw error;
@@ -146,48 +147,19 @@ export const postKontonummer = (
   data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
 ) => postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
 
-export const postGateadresse = (data: OutboundGateadresse) =>
-  postJson(`${REACT_APP_API_URL}/endreGateadresse`, data);
+export const postVegadresse = (data: OutboundNorskVegadresse) =>
+  postJson(`${REACT_APP_API_URL}/endreKontaktadresse/vegadresse`, data);
 
 export const postPostboksadresse = (data: OutboundPostboksadresse) =>
-  postJson(`${REACT_APP_API_URL}/endrePostboksadresse`, data);
+  postJson(`${REACT_APP_API_URL}/endreKontaktadresse/postboksadresse`, data);
 
-export const postStedsadresse = (data: OutboundStedsadresse) =>
-  postJson(`${REACT_APP_API_URL}/endreStedsadresse`, data);
+export const postUtenlandskAdresse = (
+  data: OutboundUtenlandskVegadresse | OutboundUtenlandskPostboksadresse
+) =>
+  postJson(`${REACT_APP_API_URL}/endreKontaktadresse/utenlandskAdresse`, data);
 
-export const postUtenlandskAdresse = (data: OutboundUtenlandskAdresse) =>
-  postJson(`${REACT_APP_API_URL}/endreUtenlandsadresse`, data);
-
-/*
-    PUT
- */
-
-const putJson = (url: string) => {
-  logEvent({ url });
-  return fetch(url, {
-    method: "PUT",
-    headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include"
-  })
-    .then(sjekkHttpFeil)
-    .then(parseJson)
-    .then(sjekkTPSFeil)
-    .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text || err
-      };
-      logApiError(url, error);
-      throw error;
-    });
-};
-
-export const slettUtenlandsAdresse = () =>
-  putJson(`${REACT_APP_API_URL}/opphoerUtenlandskKontaktadresse`);
-
-export const slettMidlertidigAdresse = () =>
-  putJson(`${REACT_APP_API_URL}/opphoerNorskKontaktadresse`);
+export const slettKontaktadresse = () =>
+  postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 
 /*
     UTILS
@@ -214,7 +186,7 @@ const sjekkHttpFeil = (response: Response) => {
   } else {
     const error = {
       code: response.status,
-      text: response.statusText
+      text: response.statusText,
     };
     throw error;
   }
@@ -227,22 +199,22 @@ const sjekkTPSFeil = (response: TPSResponse) => {
     const error = {
       PENDING: {
         type: `info`,
-        text: `Vi har sendt inn endringen din`
+        text: `Vi har sendt inn endringen din`,
       },
       REJECTED: {
         type: `info`,
-        text: `Det eksisterer en pågående endring`
+        text: `Det eksisterer en pågående endring`,
       },
       ERROR: {
         type: `feil`,
         text: `${response.error && response.error.message}${
           response.error && response.error.details
             ? `\n${Object.values(response.error.details)
-                .map(details => details.join("\n"))
+                .map((details) => details.join("\n"))
                 .join("\n")}`
             : ``
-        }`
-      }
+        }`,
+      },
     }[response.statusType];
     throw error;
   }

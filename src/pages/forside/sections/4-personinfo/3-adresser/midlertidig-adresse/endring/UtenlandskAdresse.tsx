@@ -1,180 +1,92 @@
-import React, { useState } from "react";
-import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/utenlandskadresse";
-import { Input, SkjemaGruppe } from "nav-frontend-skjema";
-import { Knapp } from "nav-frontend-knapper";
-import { FormattedMessage } from "react-intl";
-import { Errors, Fields, FormContext, FormValidation } from "calidation";
-import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import SelectLand from "components/felter/kodeverk/SelectLand";
-import DayPicker from "components/felter/day-picker/DayPicker";
-import { fetchPersonInfo, postUtenlandskAdresse } from "clients/apiClient";
-import { UNKNOWN } from "utils/text";
-import { PersonInfo } from "types/personInfo";
-import { useStore } from "store/Context";
-import { useIntl } from "react-intl";
-import Alert, { AlertType } from "components/alert/Alert";
+import React, { ChangeEvent, Fragment, useState } from "react";
+import { Select } from "nav-frontend-skjema";
+import { FormattedMessage, useIntl } from "react-intl";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { PopoverOrientering } from "nav-frontend-popover";
+import OpprettEllerEndreUtenlandskVegadresse from "./utenlanske-adresser/Vegadresse";
+import OpprettEllerEndreUtenlandskPostboksadresse from "./utenlanske-adresser/Postboksadresse";
+import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
+import { Kontaktadresse } from "types/adresser/kontaktadresse";
+import cls from "classnames";
 
 interface Props {
-  utenlandskadresse?: UtenlandskAdresseType;
+  kontaktadresse?: Kontaktadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
-export interface OutboundUtenlandskAdresse {
-  adresselinje1: string;
-  adresselinje2: string;
-  adresselinje3: string;
-  landkode: string;
-  gyldigTom: string;
-}
-
-const OpprettEllerEndreUtenlandskAdresse = (props: Props) => {
-  const { utenlandskadresse, settOpprettEllerEndre } = props;
-  const [alert, settAlert] = useState<AlertType | undefined>();
-  const [loading, settLoading] = useState<boolean>();
-  const [, dispatch] = useStore();
+type Adresser = "VEGADRESSE" | "POSTBOKSADRESSE";
+const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
+  const { kontaktadresse, settOpprettEllerEndre } = props;
 
-  const initialValues = {
-    ...(utenlandskadresse && {
-      ...utenlandskadresse,
-      land: {
-        label: utenlandskadresse.land,
-        value: UNKNOWN,
-      },
-    }),
-  };
+  const [type, settType] = useState(
+    (kontaktadresse?.type === "UTENLANDSK_ADRESSE" &&
+    kontaktadresse?.postboksNummerNavn
+      ? "POSTBOKSADRESSE"
+      : "VEGADRESSE") as Adresser
+  );
 
-  const formConfig = {
-    adresse1: {
-      isRequired: msg({ id: "validation.gateadresse.pakrevd" }),
-    },
-    adresse2: {},
-    adresse3: {},
-    land: {
-      isRequired: msg({ id: "validation.land.pakrevd" }),
-    },
-    datoTilOgMed: {
-      isRequired: msg({ id: "validation.tomdato.pakrevd" }),
-    },
-  };
-
-  const getUpdatedData = () =>
-    fetchPersonInfo().then((personInfo) => {
-      dispatch({
-        type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo,
-      });
-    });
-
-  const onSuccess = () => {
-    settOpprettEllerEndre(false);
-  };
-
-  const submit = (c: FormContext) => {
-    const { isValid, fields } = c;
-    if (isValid) {
-      const outbound: OutboundUtenlandskAdresse = {
-        adresselinje1: fields.adresse1,
-        adresselinje2: fields.adresse2,
-        adresselinje3: fields.adresse3,
-        landkode: fields.land.value,
-        gyldigTom: fields.datoTilOgMed,
-      };
-
-      settLoading(true);
-      postUtenlandskAdresse(outbound)
-        .then(getUpdatedData)
-        .then(onSuccess)
-        .catch((error: AlertType) => settAlert(error))
-        .then(() => settLoading(false));
-    }
-  };
+  const onSelectChange = (e: ChangeEvent<HTMLSelectElement>) =>
+    settType(e.target.value as Adresser);
 
   return (
-    <FormValidation
-      onSubmit={submit}
-      config={formConfig}
-      initialValues={initialValues}
-    >
-      {(calidation) => {
-        const fields: Fields = calidation.fields;
-        const errors: Errors = calidation.errors;
-        const isValid = calidation.isValid;
-        const submitted = calidation.submitted;
-        const setField = calidation.setField;
-        const setError = calidation.setError;
-        return (
-          <>
-            <SkjemaGruppe feil={submitted && errors.adresse1}>
-              <InputMedHjelpetekst
-                bredde={"L"}
-                submitted={submitted}
-                maxLength={30}
-                value={fields.adresse1}
-                hjelpetekst={"adresse.hjelpetekster.utenlandsk.adresse"}
-                label={msg({ id: "felter.adresse.label" })}
-                onChange={(value) => setField({ adresse1: value })}
+    <>
+      <div className="adresse__rad">
+        <div className="adresse__kolonne adresse__select">
+          <div className="adresse__select-header skjemaelement__label">
+            <FormattedMessage id={"felter.adressetype"} />
+            <Hjelpetekst type={PopoverOrientering.Hoyre}>
+              <FormattedMessage
+                id={"adresse.hjelpetekster.adressetyper"}
+                values={{
+                  b: (text: string) => <b>{text}</b>,
+                  p: (...chunks: string[]) => (
+                    <p>
+                      {chunks.map((chunk, i) => (
+                        <Fragment key={i}>{chunk}</Fragment>
+                      ))}
+                    </p>
+                  ),
+                }}
               />
-              <Input
-                label={""}
-                bredde={"L"}
-                maxLength={30}
-                value={fields.adresse2}
-                onChange={(e) => setField({ adresse2: e.target.value })}
-              />
-              <Input
-                label={""}
-                bredde={"L"}
-                maxLength={30}
-                value={fields.adresse3}
-                onChange={(e) => setField({ adresse3: e.target.value })}
-              />
-            </SkjemaGruppe>
-            <SelectLand
-              label={msg({ id: "felter.land.label" })}
-              submitted={submitted}
-              option={fields.land}
-              error={errors.land}
-              onChange={(land) => setField({ land })}
+            </Hjelpetekst>
+          </div>
+          <div className={cls("KodeverkSelect--select-wrapper input--l")}>
+            <Select
+              label={""}
+              className="input--l"
+              onChange={onSelectChange}
+              defaultValue={type}
+            >
+              <option value="VEGADRESSE">
+                {msg({ id: "felter.adressetype.gateadresse" })}
+              </option>
+              <option value="POSTBOKSADRESSE">
+                {msg({ id: "felter.adressetype.postboksadresse" })}
+              </option>
+            </Select>
+          </div>
+        </div>
+        <div className="adresse__kolonne" />
+      </div>
+      {
+        {
+          VEGADRESSE: (
+            <OpprettEllerEndreUtenlandskVegadresse
+              utenlandskVegadresse={kontaktadresse as UtenlandskAdresse}
+              settOpprettEllerEndre={settOpprettEllerEndre}
             />
-            <DayPicker
-              submitted={submitted}
-              value={fields.datoTilOgMed}
-              error={errors.datoTilOgMed}
-              label={msg({ id: "felter.gyldigtom.label" })}
-              ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-              onChange={(value) => setField({ datoTilOgMed: value })}
-              onErrors={(error) => setError({ datoTilOgMed: error })}
+          ),
+          POSTBOKSADRESSE: (
+            <OpprettEllerEndreUtenlandskPostboksadresse
+              utenlandskPostboksadress={kontaktadresse as UtenlandskAdresse}
+              settOpprettEllerEndre={settOpprettEllerEndre}
             />
-            <div className="adresse__form-knapper">
-              <div className="adresse__knapp">
-                <Knapp
-                  type={"standard"}
-                  htmlType={"submit"}
-                  disabled={submitted && !isValid}
-                  autoDisableVedSpinner={true}
-                  spinner={loading}
-                >
-                  <FormattedMessage id={"side.lagre"} />
-                </Knapp>
-              </div>
-              <div className="adresse__knapp">
-                <Knapp
-                  type={"flat"}
-                  htmlType={"button"}
-                  disabled={loading}
-                  onClick={() => settOpprettEllerEndre(false)}
-                >
-                  <FormattedMessage id={"side.avbryt"} />
-                </Knapp>
-              </div>
-            </div>
-            {alert && <Alert {...alert} />}
-          </>
-        );
-      }}
-    </FormValidation>
+          ),
+        }[type]
+      }
+    </>
   );
 };
 
-export default OpprettEllerEndreUtenlandskAdresse;
+export default OpprettEllerEndreUtenlanskAdresse;

@@ -1,233 +1,131 @@
 {
   "personalia": {
-    "fornavn": "STURLE FAUNTLEROY",
-    "etternavn": "DUCK",
-    "personident": {
-      "verdi": "12345678911",
-      "type": "FNR"
-    },
-    "utenlandskbank": {
-      "adresse1": "Gävlegatan 22",
-      "adresse2": "113 30 Stockholm",
-      "adresse3": "",
-      "bankkode": "",
-      "banknavn": "Nordax Bank AB",
-      "iban": "SE7280000810340009783242",
-      "land": "Sverige",
-      "swiftkode": "SWEDSESS",
-      "valuta": "Svenske kroner"
-    },
+    "fornavn": "AREMARK",
+    "etternavn": "TESTFAMILIEN",
+    "personident": { "verdi": "10108000398", "type": "FNR" },
+    "kontonr": "12345678903",
     "tlfnr": {
-      "telefonHoved": "12121212",
+      "telefonAlternativ": "40853158",
+      "landskodeAlternativ": "+47",
+      "telefonHoved": "22556677",
       "landskodeHoved": "+47"
     },
-    "spraak": "NB",
-    "epostadr": "TODO",
-    "personstatus": "BOSA",
-    "statsborgerskap": "NOR",
-    "foedested": "NOR",
-    "sivilstand": "UGIF",
-    "kjoenn": "M",
-    "datakilder": [{}, {}, {}, {}]
+    "utenlandskbank": null,
+    "spraak": "Nynorsk",
+    "epostadr": null,
+    "personstatus": "Bosatt",
+    "statsborgerskap": "NORGE",
+    "foedested": "Randaberg, NORGE",
+    "sivilstand": "Ugift",
+    "kjoenn": "Mann"
+  },
+  "adresser": {
+    "boadresse": {
+      "adresse": "JØRGENSENVEIEN 50",
+      "adressetillegg": null,
+      "bydel": null,
+      "datoFraOgMed": "2013-06-29",
+      "kommune": "Indre Østfold",
+      "land": "NORGE",
+      "matrikkeladresse": {
+        "bruksnummer": null,
+        "festenummer": null,
+        "gaardsnummer": null,
+        "undernummer": null
+      },
+      "postnummer": "1860",
+      "poststed": "TRØGSTAD",
+      "veiadresse": {
+        "bokstav": null,
+        "bolignummer": null,
+        "gatekode": "15031",
+        "husnummer": "50"
+      }
+    },
+    "geografiskTilknytning": {
+      "bydel": null,
+      "datoFraOgMed": "2013-06-29",
+      "kommune": "3014",
+      "land": null,
+      "enhet": "NAV Indre Østfold"
+    },
+    "postadresse": null,
+    "prioritertAdresse": "TIAD",
+    "kontaktadresse": {
+      "husnummer": "2",
+      "husbokstav": "A",
+      "bruksenhetsnummer": "H0204",
+      "adressenavn": "Test",
+      "kommunenummer": "",
+      "postnummer": "2640",
+      "poststed": "VINSTRA",
+      "gyldigFraOgMed": "2020-07-10T00:00",
+      "gyldigTilOgMed": "2020-07-12T23:59:59",
+      "coAdressenavn": "Test",
+      "type": "VEGADRESSE"
+    }
   },
   "enhetKontaktInformasjon": {
     "enhet": {
       "postadresse": {
-        "type": "stedsadresse",
-        "postnummer": "0614",
-        "poststed": "Oslo",
-        "gatenavn": "Slottsveien",
-        "husnummer": "22",
-        "husbokstav": "A"
+        "type": "postboksadresse",
+        "postnummer": "1861",
+        "poststed": "TRØGSTAD",
+        "postboksnummer": "34",
+        "postboksanlegg": null,
+        "gatenavn": null,
+        "husnummer": null,
+        "husbokstav": null,
+        "adresseTilleggsnavn": null
       },
       "publikumsmottak": [
         {
-          "gateadresse": "Peder Falcks veg",
-          "poststed": "Trondheim",
-          "husnummer": "31",
+          "gateadresse": "Rådhusgata",
+          "poststed": "Askim",
+          "husnummer": "22",
           "husbokstav": null,
-          "postnummer": "7044",
+          "postnummer": "1830",
           "stedsbeskrivelse": null,
           "aapningMandag": {
             "dag": "Mandag",
-            "fra": "10:00",
+            "fra": "12:00",
             "til": "14:00",
             "stengt": "false",
-            "kommentar": "Timeavtaler også utenom åpningstiden"
+            "kommentar": "Timeavtaler i og utenom åpningstiden."
           },
           "aapningTirsdag": {
             "dag": "Tirsdag",
-            "fra": "10:00",
+            "fra": "12:00",
             "til": "14:00",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i og utenom åpningstiden."
           },
           "aapningOnsdag": {
             "dag": "Onsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
             "kommentar": null
           },
           "aapningTorsdag": {
             "dag": "Torsdag",
-            "fra": "10:00",
+            "fra": "12:00",
             "til": "14:00",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i og utenom åpningstiden."
           },
           "aapningFredag": {
             "dag": "Fredag",
-            "fra": "10:00",
+            "fra": "12:00",
             "til": "14:00",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i og utenom åpningstiden."
           },
-          "aapningAndre": [
-            {
-              "dag": "15.05.2019",
-              "fra": "09:00",
-              "til": "12:00",
-              "stengt": "false",
-              "kommentar": "Her kan det også være en merknad "
-            },
-            {
-              "dag": "17.05.2019",
-              "fra": null,
-              "til": null,
-              "stengt": "true"
-            },
-            {
-              "dag": "29.05.2019",
-              "fra": "09:00",
-              "til": "13:30",
-              "stengt": "false",
-              "kommentar": "Onsdag før Kristi himmelfartsdag"
-            }
-          ]
-        },
-        {
-          "gateadresse": "Kirkegata",
-          "poststed": "Trondheim",
-          "husnummer": "25",
-          "husbokstav": null,
-          "postnummer": "7014",
-          "stedsbeskrivelse": null,
-          "aapningMandag": {
-            "dag": "Mandag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": "Timeavtaler også utenom åpningstiden"
-          },
-          "aapningTirsdag": {
-            "dag": "Tirsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningOnsdag": {
-            "dag": "Onsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningTorsdag": {
-            "dag": "Torsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningFredag": {
-            "dag": "Fredag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningAndre": [
-            {
-              "dag": "15.05.2019",
-              "fra": "09:00",
-              "til": "12:00",
-              "stengt": "false",
-              "kommentar": "Her kan det også være en merknad "
-            },
-            {
-              "dag": "17.05.2019",
-              "fra": null,
-              "til": null,
-              "stengt": "true"
-            },
-            {
-              "dag": "29.05.2019",
-              "fra": "09:00",
-              "til": "13:30",
-              "stengt": "false",
-              "kommentar": "Onsdag før Kristi himmelfartsdag"
-            }
-          ]
+          "aapningAndre": null
         }
       ],
       "tlfperson": "55553333",
-      "spesielleopplysninger": "Timeavtale 8-15, man - fre."
+      "spesielleopplysninger": null
     }
-  },
-  "adresser": {
-    "boadresse": {
-      "adressetillegg": "C/O Rune Aremark",
-      "adresse": "Bjørvika 4D",
-      "datoFraOgMed": "2017-02-21",
-      "kommune": "1239",
-      "land": "Norge",
-      "matrikkeladresse": {},
-      "postnummer": "1239",
-      "poststed": "Jepp",
-      "veiadresse": {
-        "bokstav": "A",
-        "bolignummer": "H0102",
-        "gatekode": "01239",
-        "husnummer": "11"
-      }
-    },
-    "geografiskTilknytning": {
-      "bydel": "500102",
-      "datoFraOgMed": "2012-10-01",
-      "kommune": null,
-      "land": null,
-      "enhet": "NAV Falkenborg"
-    },
-    "postadresse": {
-      "adresse1": "MS Joyce Browning",
-      "adresse2": "2045 Royal Road",
-      "adresse3": "LONDON WIP 6HQ",
-      "datoFraOgMed": "2018-03-13",
-      "land": "ENGLAND",
-      "postnummer": "",
-      "poststed": ""
-    },
-    "prioritertAdresse": "TIAD",
-    "tilleggsadresse": {
-      "type": "GATEADRESSE",
-      "adresse1": "C/O Per Vikane",
-      "adresse2": "Per Vikens Gate A H0402",
-      "adresse3": "",
-      "bolignummer": "H0402",
-      "bydel": "",
-      "datoFraOgMed": "2019-09-19",
-      "datoTilOgMed": "2020-09-19",
-      "gateKode": "0270",
-      "husbokstav": "A",
-      "husnummer": "0020",
-      "kommunenummer": "0131",
-      "postboksanlegg": "",
-      "postboksnummer": "",
-      "postnummer": "2021",
-      "poststed": "OSLO"
-    },
-    "datakilder": [{}, {}]
   }
 }
