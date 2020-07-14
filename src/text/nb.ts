@@ -190,7 +190,7 @@ export default {
   "felter.landkode.label": "Landkode",
   "felter.tlfnr.label": "Telefonnummer",
   "felter.adressetype": "Type adresse",
-  "felter.adressetype.gateadresse": "Veg-og stedsadresse",
+  "felter.adressetype.gateadresse": "Veg- og stedsadresse",
   "felter.adressetype.postboksadresse": "Postboksadresse",
   "felter.adressetype.stedsadresse": "Stedsadresse",
   "felter.adressevalg.norsk": "Norsk adresse",
