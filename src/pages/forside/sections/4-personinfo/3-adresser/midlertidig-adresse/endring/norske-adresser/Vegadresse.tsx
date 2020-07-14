@@ -60,11 +60,15 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
+  console.log(initialCoAdressenavn(vegadresse.coAdressenavn));
   const initialValues: FormFields = {
     coType: initialCoType(vegadresse?.coAdressenavn),
     ...(vegadresse && {
       ...vegadresse,
-      coAdressenavn: initialCoAdressenavn(vegadresse.coAdressenavn),
+      // Fjern coType
+      ...(vegadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(vegadresse.coAdressenavn),
+      }),
       // Fjern tid, kun hent dato
       ...(vegadresse.gyldigTilOgMed && {
         gyldigTilOgMed: vegadresse.gyldigTilOgMed.split("T")[0],

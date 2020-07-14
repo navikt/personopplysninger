@@ -60,7 +60,10 @@ const OpprettEllerEndreUtenlandskPostboksadresse = (props: Props) => {
     coType: initialCoType(utenlandskVegadresse?.coAdressenavn),
     ...(utenlandskVegadresse && {
       ...utenlandskVegadresse,
-      coAdressenavn: initialCoAdressenavn(utenlandskVegadresse.coAdressenavn),
+      // Fjern coType
+      ...(utenlandskVegadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(utenlandskVegadresse.coAdressenavn),
+      }),
       // Fjern tid, kun hent dato
       ...(utenlandskVegadresse.gyldigTilOgMed && {
         gyldigTilOgMed: utenlandskVegadresse.gyldigTilOgMed.split("T")[0],

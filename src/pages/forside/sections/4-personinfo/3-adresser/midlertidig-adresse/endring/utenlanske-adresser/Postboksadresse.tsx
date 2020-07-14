@@ -63,12 +63,17 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
     coType: initialCoType(utenlandskPostboksadresse?.coAdressenavn),
     ...(utenlandskPostboksadresse && {
       ...utenlandskPostboksadresse,
-      coAdressenavn: initialCoAdressenavn(
-        utenlandskPostboksadresse.coAdressenavn
-      ),
-      postboksNummerNavn: initialPostboksNummerNavn(
-        utenlandskPostboksadresse.postboksNummerNavn
-      ),
+      // Fjern coType
+      ...(utenlandskPostboksadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(
+          utenlandskPostboksadresse.coAdressenavn
+        ),
+      }),
+      ...(utenlandskPostboksadresse.postboksNummerNavn && {
+        postboksNummerNavn: initialPostboksNummerNavn(
+          utenlandskPostboksadresse.postboksNummerNavn
+        ),
+      }),
       // Fjern tid, kun hent dato
       ...(utenlandskPostboksadresse.gyldigTilOgMed && {
         gyldigTilOgMed: utenlandskPostboksadresse.gyldigTilOgMed.split("T")[0],

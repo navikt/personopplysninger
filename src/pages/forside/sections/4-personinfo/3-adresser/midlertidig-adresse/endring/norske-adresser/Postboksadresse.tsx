@@ -69,9 +69,15 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
     coType: initialCoType(postboksadresse?.coAdressenavn),
     ...(postboksadresse && {
       ...postboksadresse,
-      coAdressenavn: initialCoAdressenavn(postboksadresse.coAdressenavn),
-      postboksnummer: initialPostboksNummber(postboksadresse.postboks),
-      postboksanlegg: initialPostboksAnlegg(postboksadresse.postboks),
+      // Fjern coType
+      ...(postboksadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(postboksadresse.coAdressenavn),
+      }),
+      // Legg i respektive felter
+      ...(postboksadresse.postboks && {
+        postboksnummer: initialPostboksNummber(postboksadresse.postboks),
+        postboksanlegg: initialPostboksAnlegg(postboksadresse.postboks),
+      }),
       // Fjern tid, kun hent dato
       ...(postboksadresse.gyldigTilOgMed && {
         gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],

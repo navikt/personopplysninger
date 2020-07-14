@@ -45,7 +45,7 @@ const SelectCO = (props: Props) => {
 
 // Utils
 export const initialCoType = (coAdressenavn?: string) =>
-  coAdressenavn?.includes("/V")
+  coAdressenavn?.includes("V/")
     ? SelectOptionV
     : coAdressenavn?.includes("C/O")
     ? SelectOptionCO
