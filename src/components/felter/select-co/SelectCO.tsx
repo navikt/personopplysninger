@@ -51,7 +51,7 @@ export const initialCoType = (coAdressenavn?: string) =>
     ? SelectOptionCO
     : SelectOptionEmpty;
 
-export const gi = (coAdressenavn?: string) =>
+export const initialCoAdressenavn = (coAdressenavn?: string) =>
   coAdressenavn?.replace("V/ ", "").replace("C/O ", "");
 
 export default SelectCO;
