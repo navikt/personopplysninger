@@ -14,9 +14,11 @@ import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
 import { Vegadresse } from "types/adresser/kontaktadresse";
-import SelectCO, { EmptyOption } from "components/felter/select-co/SelectCO";
+import SelectCO from "components/felter/select-co/SelectCO";
+import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
+import { initialCoType } from "components/felter/select-co/SelectCO";
 import { OptionType } from "types/option";
-import { UNKNOWN } from "../../../../../../../../utils/text";
+import { UNKNOWN } from "utils/text";
 
 interface Props {
   vegadresse: Vegadresse;
@@ -58,10 +60,15 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
+  console.log(initialCoAdressenavn(vegadresse.coAdressenavn));
   const initialValues: FormFields = {
-    coType: EmptyOption,
+    coType: initialCoType(vegadresse?.coAdressenavn),
     ...(vegadresse && {
       ...vegadresse,
+      // Fjern coType
+      ...(vegadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(vegadresse.coAdressenavn),
+      }),
       // Fjern tid, kun hent dato
       ...(vegadresse.gyldigTilOgMed && {
         gyldigTilOgMed: vegadresse.gyldigTilOgMed.split("T")[0],

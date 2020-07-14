@@ -14,11 +14,11 @@ import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { Postboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
-import { OptionType } from "../../../../../../../../types/option";
-import SelectCO, {
-  EmptyOption,
-} from "../../../../../../../../components/felter/select-co/SelectCO";
-import { UNKNOWN } from "../../../../../../../../utils/text";
+import { OptionType } from "types/option";
+import SelectCO from "components/felter/select-co/SelectCO";
+import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
+import { initialCoType } from "components/felter/select-co/SelectCO";
+import { UNKNOWN } from "utils/text";
 
 interface Props {
   postboksadresse?: Postboksadresse;
@@ -51,10 +51,33 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
+  // Finn postboksnummer
+  // Eks "Postboks 12 Sørstranda" -> "12"
+  const initialPostboksNummber = (postboks?: string) => {
+    const postboksnummer = postboks?.replace(/(^.+\D)(\d+)(\D.+$)/i, "$2");
+    return postboksnummer?.match(/^-{0,1}\d+$/)
+      ? parseInt(postboksnummer, RADIX_DECIMAL)
+      : undefined;
+  };
+
+  // Finn postboksanlegg
+  // Eks "Postboks 12 Sørstranda" -> "Sørstranda"
+  const initialPostboksAnlegg = (postboks?: string) =>
+    postboks?.replace("Postboks ", "").replace(/^[\s\d]+/, "");
+
   const initialValues: FormFields = {
-    coType: EmptyOption,
+    coType: initialCoType(postboksadresse?.coAdressenavn),
     ...(postboksadresse && {
       ...postboksadresse,
+      // Fjern coType
+      ...(postboksadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(postboksadresse.coAdressenavn),
+      }),
+      // Legg i respektive felter
+      ...(postboksadresse.postboks && {
+        postboksnummer: initialPostboksNummber(postboksadresse.postboks),
+        postboksanlegg: initialPostboksAnlegg(postboksadresse.postboks),
+      }),
       // Fjern tid, kun hent dato
       ...(postboksadresse.gyldigTilOgMed && {
         gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],

@@ -15,12 +15,12 @@ import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 import { Input } from "nav-frontend-skjema";
-import SelectCO, {
-  EmptyOption,
-} from "../../../../../../../../components/felter/select-co/SelectCO";
+import SelectCO from "components/felter/select-co/SelectCO";
+import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
+import { initialCoType } from "components/felter/select-co/SelectCO";
 
 interface Props {
-  utenlandskPostboksadress?: UtenlandskAdresse;
+  utenlandskPostboksadresse?: UtenlandskAdresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
@@ -48,23 +48,39 @@ export interface OutboundUtenlandskPostboksadresse {
 }
 
 const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
-  const { utenlandskPostboksadress, settOpprettEllerEndre } = props;
+  const { utenlandskPostboksadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const [, dispatch] = useStore();
   const { formatMessage: msg } = useIntl();
 
+  // Finn postboksanlegg
+  // Eks "Postboks 12 Sørstranda" -> "Sørstranda"
+  const initialPostboksNummerNavn = (postboks?: string) =>
+    postboks?.replace("PO BOX ", "");
+
   const initialValues: FormFields = {
-    coType: EmptyOption,
-    ...(utenlandskPostboksadress && {
-      ...utenlandskPostboksadress,
+    coType: initialCoType(utenlandskPostboksadresse?.coAdressenavn),
+    ...(utenlandskPostboksadresse && {
+      ...utenlandskPostboksadresse,
+      // Fjern coType
+      ...(utenlandskPostboksadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(
+          utenlandskPostboksadresse.coAdressenavn
+        ),
+      }),
+      ...(utenlandskPostboksadresse.postboksNummerNavn && {
+        postboksNummerNavn: initialPostboksNummerNavn(
+          utenlandskPostboksadresse.postboksNummerNavn
+        ),
+      }),
       // Fjern tid, kun hent dato
-      ...(utenlandskPostboksadress.gyldigTilOgMed && {
-        gyldigTilOgMed: utenlandskPostboksadress.gyldigTilOgMed.split("T")[0],
+      ...(utenlandskPostboksadresse.gyldigTilOgMed && {
+        gyldigTilOgMed: utenlandskPostboksadresse.gyldigTilOgMed.split("T")[0],
       }),
       land: {
-        label: utenlandskPostboksadress.land || "",
-        value: utenlandskPostboksadress.landkode || UNKNOWN,
+        label: utenlandskPostboksadresse.land || "",
+        value: utenlandskPostboksadresse.landkode || UNKNOWN,
       },
     }),
   };

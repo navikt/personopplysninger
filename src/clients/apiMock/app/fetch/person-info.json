@@ -1,31 +1,31 @@
 {
   "personalia": {
-    "fornavn": "AREMARK",
-    "etternavn": "TESTFAMILIEN",
+    "fornavn": "VINAYAGUM-MASK",
+    "etternavn": "AMIZIC",
     "personident": { "verdi": "10108000398", "type": "FNR" },
-    "kontonr": "12345678903",
+    "kontonr": null,
     "tlfnr": {
       "telefonAlternativ": "40853158",
       "landskodeAlternativ": "+47",
-      "telefonHoved": "22556677",
-      "landskodeHoved": "+47"
+      "telefonHoved": null,
+      "landskodeHoved": null
     },
     "utenlandskbank": null,
     "spraak": "Nynorsk",
     "epostadr": null,
     "personstatus": "Bosatt",
     "statsborgerskap": "NORGE",
-    "foedested": "Randaberg, NORGE",
+    "foedested": "Oslo, NORGE",
     "sivilstand": "Ugift",
     "kjoenn": "Mann"
   },
   "adresser": {
     "boadresse": {
-      "adresse": "JØRGENSENVEIEN 50",
+      "adresse": "FREGATTEN",
       "adressetillegg": null,
       "bydel": null,
-      "datoFraOgMed": "2013-06-29",
-      "kommune": "Indre Østfold",
+      "datoFraOgMed": "2001-04-04",
+      "kommune": "Aremark",
       "land": "NORGE",
       "matrikkeladresse": {
         "bruksnummer": null,
@@ -33,45 +33,50 @@
         "gaardsnummer": null,
         "undernummer": null
       },
-      "postnummer": "1860",
-      "poststed": "TRØGSTAD",
+      "postnummer": "1798",
+      "poststed": "AREMARK",
       "veiadresse": {
         "bokstav": null,
-        "bolignummer": null,
-        "gatekode": "15031",
-        "husnummer": "50"
+        "bolignummer": "H1",
+        "gatekode": "77777",
+        "husnummer": null
       }
     },
     "geografiskTilknytning": {
       "bydel": null,
-      "datoFraOgMed": "2013-06-29",
-      "kommune": "3014",
+      "datoFraOgMed": "2001-04-04",
+      "kommune": "3012",
       "land": null,
-      "enhet": "NAV Indre Østfold"
+      "enhet": "NAV Halden-Aremark"
     },
-    "postadresse": null,
-    "prioritertAdresse": "TIAD",
+    "postadresse": {
+      "adresse1": "ALUKO",
+      "adresse2": "MONBIJOUSTR.",
+      "adresse3": "13088",
+      "datoFraOgMed": "2016-03-21",
+      "land": "NORGE",
+      "postnummer": "0130",
+      "poststed": "OSLO"
+    },
+    "prioritertAdresse": null,
     "kontaktadresse": {
-      "husnummer": "2",
-      "husbokstav": "A",
-      "bruksenhetsnummer": "H0204",
-      "adressenavn": "Test",
-      "kommunenummer": "",
-      "postnummer": "2640",
-      "poststed": "VINSTRA",
-      "gyldigFraOgMed": "2020-07-10T00:00",
-      "gyldigTilOgMed": "2020-07-12T23:59:59",
-      "coAdressenavn": "Test",
-      "type": "VEGADRESSE"
+      "postbokseier": "",
+      "postboks": "Postboks 10 Sørstrand",
+      "postnummer": "0194",
+      "poststed": "OSLO",
+      "gyldigFraOgMed": "2020-07-14T00:00",
+      "gyldigTilOgMed": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "type": "POSTBOKSADRESSE"
     }
   },
   "enhetKontaktInformasjon": {
     "enhet": {
       "postadresse": {
         "type": "postboksadresse",
-        "postnummer": "1861",
-        "poststed": "TRØGSTAD",
-        "postboksnummer": "34",
+        "postnummer": "1751",
+        "poststed": "HALDEN",
+        "postboksnummer": "56",
         "postboksanlegg": null,
         "gatenavn": null,
         "husnummer": null,
@@ -80,46 +85,90 @@
       },
       "publikumsmottak": [
         {
-          "gateadresse": "Rådhusgata",
-          "poststed": "Askim",
-          "husnummer": "22",
+          "gateadresse": "Storgata",
+          "poststed": "HALDEN",
+          "husnummer": "8",
           "husbokstav": null,
-          "postnummer": "1830",
-          "stedsbeskrivelse": null,
+          "postnummer": "1771",
+          "stedsbeskrivelse": "Halden",
           "aapningMandag": {
             "dag": "Mandag",
             "fra": "12:00",
-            "til": "14:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": "Timeavtaler i og utenom åpningstiden."
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
           "aapningTirsdag": {
             "dag": "Tirsdag",
             "fra": "12:00",
-            "til": "14:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": "Timeavtaler i og utenom åpningstiden."
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningOnsdag": {
+            "dag": "Onsdag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningTorsdag": {
+            "dag": "Torsdag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningFredag": {
+            "dag": "Fredag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningAndre": null
+        },
+        {
+          "gateadresse": "Aremark Rådhus",
+          "poststed": "AREMARK",
+          "husnummer": null,
+          "husbokstav": null,
+          "postnummer": "1798",
+          "stedsbeskrivelse": "Aremark",
+          "aapningMandag": {
+            "dag": "Mandag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
+          },
+          "aapningTirsdag": {
+            "dag": "Tirsdag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningOnsdag": {
             "dag": "Onsdag",
             "fra": null,
             "til": null,
             "stengt": "true",
-            "kommentar": null
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningTorsdag": {
             "dag": "Torsdag",
-            "fra": "12:00",
-            "til": "14:00",
+            "fra": "09:00",
+            "til": "15:00",
             "stengt": "false",
-            "kommentar": "Timeavtaler i og utenom åpningstiden."
+            "kommentar": null
           },
           "aapningFredag": {
             "dag": "Fredag",
-            "fra": "12:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i og utenom åpningstiden."
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningAndre": null
         }
