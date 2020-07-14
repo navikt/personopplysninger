@@ -16,8 +16,9 @@ import moment from "moment";
 import { OptionType } from "types/option";
 import { Input } from "nav-frontend-skjema";
 import SelectCO, {
-  EmptyOption,
-} from "../../../../../../../../components/felter/select-co/SelectCO";
+  SelectInitialCoAdressenavn,
+} from "components/felter/select-co/SelectCO";
+import { SelectInitialCoType } from "components/felter/select-co/SelectCO";
 
 interface Props {
   utenlandskPostboksadress?: UtenlandskAdresse;
@@ -55,9 +56,12 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
 
   const initialValues: FormFields = {
-    coType: EmptyOption,
+    coType: SelectInitialCoType(utenlandskPostboksadress?.coAdressenavn),
     ...(utenlandskPostboksadress && {
       ...utenlandskPostboksadress,
+      coAdressenavn: SelectInitialCoAdressenavn(
+        utenlandskPostboksadress.coAdressenavn
+      ),
       // Fjern tid, kun hent dato
       ...(utenlandskPostboksadress.gyldigTilOgMed && {
         gyldigTilOgMed: utenlandskPostboksadress.gyldigTilOgMed.split("T")[0],

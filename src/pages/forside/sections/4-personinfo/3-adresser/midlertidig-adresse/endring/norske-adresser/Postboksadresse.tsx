@@ -14,11 +14,12 @@ import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { Postboksadresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
-import { OptionType } from "../../../../../../../../types/option";
+import { OptionType } from "types/option";
 import SelectCO, {
-  EmptyOption,
-} from "../../../../../../../../components/felter/select-co/SelectCO";
-import { UNKNOWN } from "../../../../../../../../utils/text";
+  SelectInitialCoAdressenavn,
+} from "components/felter/select-co/SelectCO";
+import { SelectInitialCoType } from "components/felter/select-co/SelectCO";
+import { UNKNOWN } from "utils/text";
 
 interface Props {
   postboksadresse?: Postboksadresse;
@@ -52,9 +53,10 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const [, dispatch] = useStore();
 
   const initialValues: FormFields = {
-    coType: EmptyOption,
+    coType: SelectInitialCoType(postboksadresse?.coAdressenavn),
     ...(postboksadresse && {
       ...postboksadresse,
+      coAdressenavn: SelectInitialCoAdressenavn(postboksadresse.coAdressenavn),
       // Fjern tid, kun hent dato
       ...(postboksadresse.gyldigTilOgMed && {
         gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],

@@ -21,23 +21,12 @@ export interface Land {
   tekst: string;
 }
 
-export const EmptyOption = { label: "", value: UNKNOWN };
-const SelectCO = (props: Props) => {
-  const options = [
-    {
-      label: "",
-      value: UNKNOWN,
-    },
-    {
-      label: "C/O",
-      value: "CO",
-    },
-    {
-      label: "V/",
-      value: "V",
-    },
-  ];
+export const SelectOptionEmpty = { label: "", value: UNKNOWN };
+export const SelectOptionCO = { label: "C/O", value: "CO" };
+export const SelectOptionV = { label: "V/", value: "V" };
 
+const SelectCO = (props: Props) => {
+  const options = [SelectOptionEmpty, SelectOptionCO, SelectOptionV];
   return (
     <div className={"KodeverkSelect__margin"}>
       <NAVSelect
@@ -53,5 +42,16 @@ const SelectCO = (props: Props) => {
     </div>
   );
 };
+
+// Utils
+export const SelectInitialCoType = (coAdressenavn?: string) =>
+  coAdressenavn?.includes("/V")
+    ? SelectOptionV
+    : coAdressenavn?.includes("C/O")
+    ? SelectOptionCO
+    : SelectOptionEmpty;
+
+export const SelectInitialCoAdressenavn = (coAdressenavn?: string) =>
+  coAdressenavn?.replace("/V ", "").replace("C/O ", "");
 
 export default SelectCO;
