@@ -79,7 +79,7 @@ const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
           ),
           POSTBOKSADRESSE: (
             <OpprettEllerEndreUtenlandskPostboksadresse
-              utenlandskPostboksadress={kontaktadresse as UtenlandskAdresse}
+              utenlandskPostboksadresse={kontaktadresse as UtenlandskAdresse}
               settOpprettEllerEndre={settOpprettEllerEndre}
             />
           ),

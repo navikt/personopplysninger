@@ -44,14 +44,14 @@ const SelectCO = (props: Props) => {
 };
 
 // Utils
-export const SelectInitialCoType = (coAdressenavn?: string) =>
+export const initialCoType = (coAdressenavn?: string) =>
   coAdressenavn?.includes("/V")
     ? SelectOptionV
     : coAdressenavn?.includes("C/O")
     ? SelectOptionCO
     : SelectOptionEmpty;
 
-export const SelectInitialCoAdressenavn = (coAdressenavn?: string) =>
+export const initialCoAdressenavn = (coAdressenavn?: string) =>
   coAdressenavn?.replace("/V ", "").replace("C/O ", "");
 
 export default SelectCO;
