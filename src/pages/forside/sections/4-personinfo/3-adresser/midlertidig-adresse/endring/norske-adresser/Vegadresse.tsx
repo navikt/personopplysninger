@@ -60,7 +60,6 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
-  console.log(initialCoAdressenavn(vegadresse.coAdressenavn));
   const initialValues: FormFields = {
     coType: initialCoType(vegadresse?.coAdressenavn),
     ...(vegadresse && {
