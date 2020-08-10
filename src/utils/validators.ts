@@ -5,6 +5,7 @@ import { BIC } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/
 import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
+import validator from "@navikt/fnrvalidator";
 
 export const extraValidators = {
   /*
@@ -15,7 +16,7 @@ export const extraValidators = {
     value && !isMod11(value) ? config.message : null,
 
   isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    !value.match(/^[^\s].*/) ? config.message : null,
+    value && !value.match(/^[^\s].*/) ? config.message : null,
 
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z]+/g) ? config.message : null,
@@ -72,6 +73,11 @@ export const extraValidators = {
     { fields }: ValidatorContext
   ) => (value: string) =>
     isValidIBAN(fields.kontonummer) && value !== BIC ? config.message : null,
+
+  isNotSSN: (config: SimpleValidatorConfig) => (value: string) =>
+    validator.idnr(value).status === "valid" ? config.message : null,
+
+  isNotYourSSN: (config: SimpleValidatorConfig) => () => config.message,
 
   isIBANCountryCompliant: (
     config: SimpleValidatorConfig,

@@ -1,9 +1,10 @@
 import React from "react";
 import { Input } from "nav-frontend-skjema";
-import { FormContext, Validation } from "calidation";
+import { FormContext, Validation, ValidatorContext } from "calidation";
 import { useIntl } from "react-intl";
 
 interface Props {
+  personident?: { verdi: string; type: string };
   kontonummer?: string;
 }
 
@@ -35,6 +36,11 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
       },
       isMod11: {
         message: msg({ id: "validation.kontonummer.mod11" }),
+      },
+      isNotYourSSN: {
+        message: msg({ id: "validation.kontonummer.idnr" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.kontonummer === props.personident?.verdi,
       },
     },
   };

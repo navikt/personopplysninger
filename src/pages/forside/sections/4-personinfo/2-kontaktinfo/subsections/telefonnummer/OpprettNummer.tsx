@@ -10,7 +10,7 @@ import {
 } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
 import { Element } from "nav-frontend-typografi";
-import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
+import SelectLandskode from "components/felter/select-kodeverk/SelectLandskode";
 import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";

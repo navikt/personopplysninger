@@ -8,7 +8,7 @@ import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
 import endreIkon from "assets/img/Pencil.svg";
 import slettIkon from "assets/img/Slett.svg";
-import SelectLandskode from "components/felter/kodeverk/SelectLandskode";
+import SelectLandskode from "components/felter/select-kodeverk/SelectLandskode";
 import { formatTelefonnummer } from "utils/formattering";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
@@ -203,7 +203,9 @@ const EndreTelefonnummer = (props: Props) => {
                 contentLabel={msg({ id: "side.opphor" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
-                  <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  <Normaltekst>
+                    <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                  </Normaltekst>
                   <div className="adresse__modal-knapper">
                     <Fareknapp
                       onClick={submitSlett}

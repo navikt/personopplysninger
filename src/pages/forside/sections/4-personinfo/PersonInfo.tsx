@@ -32,6 +32,7 @@ const VisPersonInfo = () => {
           {personalia && (
             <Utbetalinger
               kontonr={personalia.kontonr}
+              personident={personalia.personident}
               utenlandskbank={personalia.utenlandskbank}
             />
           )}

@@ -21,6 +21,7 @@ interface Props {
   fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
+  bredde?: string;
   onChange: (value?: OptionType) => void;
   borderUnderNth?: number;
   loading?: boolean;
@@ -112,7 +113,7 @@ const NAVSelect = React.memo((props: Props) => {
           <div className="skjemaelement__label">{props.label}</div>
         )}
         {props.hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre} id={"hjelpetekst"}>
+          <Hjelpetekst type={PopoverOrientering.Hoyre}>
             <FormattedMessage
               id={props.hjelpetekst}
               values={{
@@ -129,7 +130,11 @@ const NAVSelect = React.memo((props: Props) => {
           </Hjelpetekst>
         )}
       </div>
-      <div className={cls("KodeverkSelect--select-wrapper input--l")}>
+      <div
+        className={`${cls("KodeverkSelect--select-wrapper")} ${
+          props.bredde || "input--l"
+        }`}
+      >
         <Select
           value={value}
           label={props.label}

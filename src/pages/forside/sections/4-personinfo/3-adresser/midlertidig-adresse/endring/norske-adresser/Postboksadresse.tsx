@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Tilleggsadresse } from "types/adresser/tilleggsadresse";
 import { Input } from "nav-frontend-skjema";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
-import { FormContext, FormValidation } from "calidation";
+import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo, postPostboksadresse } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
@@ -13,51 +12,91 @@ import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
+import { Postboksadresse } from "types/adresser/kontaktadresse";
+import moment from "moment";
+import { OptionType } from "types/option";
+import SelectCO from "components/felter/select-co/SelectCO";
+import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
+import { initialCoType } from "components/felter/select-co/SelectCO";
+import { UNKNOWN } from "utils/text";
 
 interface Props {
-  tilleggsadresse?: Tilleggsadresse;
+  postboksadresse?: Postboksadresse;
   settOpprettEllerEndre: (opprettEllerEndre: boolean) => void;
 }
 
 interface FormFields {
-  tilleggslinje?: string;
-  postboksnummer?: string;
+  coType?: OptionType;
+  coAdressenavn?: string;
+  postbokseier?: string;
+  postboksnummer?: number;
   postboksanlegg?: string;
   postnummer?: string;
-  datoTilOgMed?: string;
+  gyldigTilOgMed?: string;
 }
 
 export interface OutboundPostboksadresse {
-  tilleggslinje: string;
-  tilleggslinjeType: string;
-  postboksnummer: number;
-  postboksanlegg: string;
+  coAdressenavn?: string;
+  postbokseier?: string;
+  postboks: string;
   postnummer: string;
-  gyldigTom: string;
+  gyldigTilOgMed: string;
+  gyldigFraOgMed: string;
 }
 
 const OpprettEllerEndrePostboksadresse = (props: Props) => {
-  const { tilleggsadresse, settOpprettEllerEndre } = props;
+  const { postboksadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
 
+  // Finn postboksnummer
+  // Eks "Postboks 12 Sørstranda" -> "12"
+  const initialPostboksNummber = (postboks?: string) => {
+    const postboksnummer = postboks?.replace(/(^.+\D)(\d+)(\D.+$)/i, "$2");
+    return postboksnummer?.match(/^-{0,1}\d+$/)
+      ? parseInt(postboksnummer, RADIX_DECIMAL)
+      : undefined;
+  };
+
+  // Finn postboksanlegg
+  // Eks "Postboks 12 Sørstranda" -> "Sørstranda"
+  const initialPostboksAnlegg = (postboks?: string) =>
+    postboks?.replace("Postboks ", "").replace(/^[\s\d]+/, "");
+
   const initialValues: FormFields = {
-    ...(tilleggsadresse && {
-      ...tilleggsadresse,
-      // Fjern nuller foran f.eks postnr 0024
-      ...(tilleggsadresse.postboksnummer && {
-        postboksnummer: parseInt(
-          tilleggsadresse.postboksnummer,
-          RADIX_DECIMAL
-        ).toString(),
+    coType: initialCoType(postboksadresse?.coAdressenavn),
+    ...(postboksadresse && {
+      ...postboksadresse,
+      // Fjern coType
+      ...(postboksadresse.coAdressenavn && {
+        coAdressenavn: initialCoAdressenavn(postboksadresse.coAdressenavn),
+      }),
+      // Legg i respektive felter
+      ...(postboksadresse.postboks && {
+        postboksnummer: initialPostboksNummber(postboksadresse.postboks),
+        postboksanlegg: initialPostboksAnlegg(postboksadresse.postboks),
+      }),
+      // Fjern tid, kun hent dato
+      ...(postboksadresse.gyldigTilOgMed && {
+        gyldigTilOgMed: postboksadresse.gyldigTilOgMed.split("T")[0],
       }),
     }),
   };
 
   const formConfig = {
-    tilleggslinje: {
+    coType: {},
+    coAdressenavn: {
+      isRequired: {
+        message: msg({ id: "validation.coadressenavn.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.coType?.value !== UNKNOWN,
+      },
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+    },
+    postbokseier: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
     },
@@ -76,7 +115,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       isRequired: msg({ id: "validation.postnummer.pakrevd" }),
       isNumber: msg({ id: "validation.only.digits" }),
     },
-    datoTilOgMed: {
+    gyldigTilOgMed: {
       isRequired: msg({ id: "validation.tomdato.pakrevd" }),
     },
   };
@@ -97,21 +136,26 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
     const { isValid, fields } = c;
     if (isValid) {
       const {
-        datoTilOgMed,
+        coType,
+        coAdressenavn,
+        postboksanlegg,
         postboksnummer,
-        tilleggslinje,
         ...equalFields
       } = fields;
 
-      const outbound = {
+      const outbound: OutboundPostboksadresse = {
         ...equalFields,
-        postboksnummer: parseInt(postboksnummer, RADIX_DECIMAL),
-        gyldigTom: datoTilOgMed,
-        ...(tilleggslinje && {
-          tilleggslinjeType: "CO",
-          tilleggslinje,
+        ...(coAdressenavn && {
+          coAdressenavn:
+            coType.value !== UNKNOWN
+              ? `${coType.label} ${coAdressenavn}`
+              : coAdressenavn,
         }),
-      } as OutboundPostboksadresse;
+        postboks: `Postboks ${parseInt(postboksnummer, RADIX_DECIMAL)}${
+          postboksanlegg ? ` ${postboksanlegg}` : ``
+        }`,
+        gyldigFraOgMed: moment().format("YYYY-MM-DD"),
+      };
 
       settLoading(true);
       postPostboksadresse(outbound)
@@ -131,16 +175,35 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       {({ errors, fields, submitted, isValid, setField, setError }) => {
         return (
           <>
-            <InputMedHjelpetekst
+            <div className="adresse__rad">
+              <SelectCO
+                submitted={submitted}
+                option={fields.coType}
+                label={msg({ id: "felter.tilleggslinje.label" })}
+                error={submitted && errors.coType ? errors.coType : null}
+                hjelpetekst={"adresse.hjelpetekster.co"}
+                onChange={(value) => setField({ coType: value })}
+              />
+              <div className="adresse__without-label">
+                <InputMedHjelpetekst
+                  bredde={"XL"}
+                  maxLength={26}
+                  submitted={submitted}
+                  placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
+                  onChange={(value) => setField({ coAdressenavn: value })}
+                  value={fields.coAdressenavn}
+                  error={errors.coAdressenavn}
+                />
+              </div>
+            </div>
+            <Input
               bredde={"L"}
-              maxLength={26}
-              submitted={submitted}
-              hjelpetekst={"adresse.hjelpetekster.co"}
-              label={msg({ id: "felter.tilleggslinje.label" })}
-              placeholder={msg({ id: "felter.tilleggslinje.placeholder" })}
-              onChange={(value) => setField({ tilleggslinje: value })}
-              value={fields.tilleggslinje}
-              error={errors.tilleggslinje}
+              maxLength={30}
+              label={msg({ id: "felter.postbokseier.label" })}
+              value={fields.postbokseier}
+              className="adresse__input-avstand"
+              feil={submitted && errors.postbokseier}
+              onChange={(e) => setField({ postbokseier: e.target.value })}
             />
             <div className="adresse__rad">
               <Input
@@ -153,7 +216,9 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 feil={submitted && errors.postboksnummer}
                 onChange={({ target }) => {
                   if (target.value.length <= 4) {
-                    setField({ postboksnummer: target.value });
+                    setField({
+                      postboksnummer: parseInt(target.value, RADIX_DECIMAL),
+                    });
                   }
                 }}
               />
@@ -186,13 +251,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               <div className="adresse__kolonne">
                 <DayPicker
                   submitted={submitted}
-                  value={fields.datoTilOgMed}
-                  error={errors.datoTilOgMed}
+                  value={fields.gyldigTilOgMed}
+                  error={errors.gyldigTilOgMed}
                   label={msg({ id: "felter.gyldigtom.label" })}
-                  ugyldigTekst={msg({ id: "validation.tomdato.ugyldig" })}
-                  onChange={(value) => setField({ datoTilOgMed: value })}
+                  onChange={(value) => setField({ gyldigTilOgMed: value })}
                   onErrors={(error) =>
-                    setError({ ...errors, datoTilOgMed: error })
+                    setError({ ...errors, gyldigTilOgMed: error })
                   }
                 />
               </div>

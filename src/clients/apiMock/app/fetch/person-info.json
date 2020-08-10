@@ -1,233 +1,180 @@
 {
   "personalia": {
-    "fornavn": "STURLE FAUNTLEROY",
-    "etternavn": "DUCK",
-    "personident": {
-      "verdi": "12345678911",
-      "type": "FNR"
-    },
-    "utenlandskbank": {
-      "adresse1": "Gävlegatan 22",
-      "adresse2": "113 30 Stockholm",
-      "adresse3": "",
-      "bankkode": "",
-      "banknavn": "Nordax Bank AB",
-      "iban": "SE7280000810340009783242",
-      "land": "Sverige",
-      "swiftkode": "SWEDSESS",
-      "valuta": "Svenske kroner"
-    },
+    "fornavn": "VINAYAGUM-MASK",
+    "etternavn": "AMIZIC",
+    "personident": { "verdi": "10108000398", "type": "FNR" },
+    "kontonr": null,
     "tlfnr": {
-      "telefonHoved": "12121212",
-      "landskodeHoved": "+47"
+      "telefonAlternativ": "40853158",
+      "landskodeAlternativ": "+47",
+      "telefonHoved": null,
+      "landskodeHoved": null
     },
-    "spraak": "NB",
-    "epostadr": "TODO",
-    "personstatus": "BOSA",
-    "statsborgerskap": "NOR",
-    "foedested": "NOR",
-    "sivilstand": "UGIF",
-    "kjoenn": "M",
-    "datakilder": [{}, {}, {}, {}]
+    "utenlandskbank": null,
+    "spraak": "Nynorsk",
+    "epostadr": null,
+    "personstatus": "Bosatt",
+    "statsborgerskap": "NORGE",
+    "foedested": "Oslo, NORGE",
+    "sivilstand": "Ugift",
+    "kjoenn": "Mann"
+  },
+  "adresser": {
+    "boadresse": {
+      "adresse": "FREGATTEN",
+      "adressetillegg": null,
+      "bydel": null,
+      "datoFraOgMed": "2001-04-04",
+      "kommune": "Aremark",
+      "land": "NORGE",
+      "matrikkeladresse": {
+        "bruksnummer": null,
+        "festenummer": null,
+        "gaardsnummer": null,
+        "undernummer": null
+      },
+      "postnummer": "1798",
+      "poststed": "AREMARK",
+      "veiadresse": {
+        "bokstav": null,
+        "bolignummer": "H1",
+        "gatekode": "77777",
+        "husnummer": null
+      }
+    },
+    "geografiskTilknytning": {
+      "bydel": null,
+      "datoFraOgMed": "2001-04-04",
+      "kommune": "3012",
+      "land": null,
+      "enhet": "NAV Halden-Aremark"
+    },
+    "postadresse": {
+      "adresse1": "ALUKO",
+      "adresse2": "MONBIJOUSTR.",
+      "adresse3": "13088",
+      "datoFraOgMed": "2016-03-21",
+      "land": "NORGE",
+      "postnummer": "0130",
+      "poststed": "OSLO"
+    },
+    "prioritertAdresse": null,
+    "kontaktadresse": {
+      "postbokseier": "",
+      "postboks": "Postboks 10 Sørstrand",
+      "postnummer": "0194",
+      "poststed": "OSLO",
+      "gyldigFraOgMed": "2020-07-14T00:00",
+      "gyldigTilOgMed": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "type": "POSTBOKSADRESSE"
+    }
   },
   "enhetKontaktInformasjon": {
     "enhet": {
       "postadresse": {
-        "type": "stedsadresse",
-        "postnummer": "0614",
-        "poststed": "Oslo",
-        "gatenavn": "Slottsveien",
-        "husnummer": "22",
-        "husbokstav": "A"
+        "type": "postboksadresse",
+        "postnummer": "1751",
+        "poststed": "HALDEN",
+        "postboksnummer": "56",
+        "postboksanlegg": null,
+        "gatenavn": null,
+        "husnummer": null,
+        "husbokstav": null,
+        "adresseTilleggsnavn": null
       },
       "publikumsmottak": [
         {
-          "gateadresse": "Peder Falcks veg",
-          "poststed": "Trondheim",
-          "husnummer": "31",
+          "gateadresse": "Storgata",
+          "poststed": "HALDEN",
+          "husnummer": "8",
           "husbokstav": null,
-          "postnummer": "7044",
-          "stedsbeskrivelse": null,
+          "postnummer": "1771",
+          "stedsbeskrivelse": "Halden",
           "aapningMandag": {
             "dag": "Mandag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "12:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": "Timeavtaler også utenom åpningstiden"
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
           "aapningTirsdag": {
             "dag": "Tirsdag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "12:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
           "aapningOnsdag": {
             "dag": "Onsdag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "12:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
           "aapningTorsdag": {
             "dag": "Torsdag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "12:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
           "aapningFredag": {
             "dag": "Fredag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "12:00",
+            "til": "14:30",
             "stengt": "false",
-            "kommentar": null
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
           },
-          "aapningAndre": [
-            {
-              "dag": "15.05.2019",
-              "fra": "09:00",
-              "til": "12:00",
-              "stengt": "false",
-              "kommentar": "Her kan det også være en merknad "
-            },
-            {
-              "dag": "17.05.2019",
-              "fra": null,
-              "til": null,
-              "stengt": "true"
-            },
-            {
-              "dag": "29.05.2019",
-              "fra": "09:00",
-              "til": "13:30",
-              "stengt": "false",
-              "kommentar": "Onsdag før Kristi himmelfartsdag"
-            }
-          ]
+          "aapningAndre": null
         },
         {
-          "gateadresse": "Kirkegata",
-          "poststed": "Trondheim",
-          "husnummer": "25",
+          "gateadresse": "Aremark Rådhus",
+          "poststed": "AREMARK",
+          "husnummer": null,
           "husbokstav": null,
-          "postnummer": "7014",
-          "stedsbeskrivelse": null,
+          "postnummer": "1798",
+          "stedsbeskrivelse": "Aremark",
           "aapningMandag": {
             "dag": "Mandag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": "Timeavtaler også utenom åpningstiden"
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningTirsdag": {
             "dag": "Tirsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningOnsdag": {
             "dag": "Onsdag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
           "aapningTorsdag": {
             "dag": "Torsdag",
-            "fra": "10:00",
-            "til": "14:00",
+            "fra": "09:00",
+            "til": "15:00",
             "stengt": "false",
             "kommentar": null
           },
           "aapningFredag": {
             "dag": "Fredag",
-            "fra": "10:00",
-            "til": "14:00",
-            "stengt": "false",
-            "kommentar": null
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
           },
-          "aapningAndre": [
-            {
-              "dag": "15.05.2019",
-              "fra": "09:00",
-              "til": "12:00",
-              "stengt": "false",
-              "kommentar": "Her kan det også være en merknad "
-            },
-            {
-              "dag": "17.05.2019",
-              "fra": null,
-              "til": null,
-              "stengt": "true"
-            },
-            {
-              "dag": "29.05.2019",
-              "fra": "09:00",
-              "til": "13:30",
-              "stengt": "false",
-              "kommentar": "Onsdag før Kristi himmelfartsdag"
-            }
-          ]
+          "aapningAndre": null
         }
       ],
       "tlfperson": "55553333",
-      "spesielleopplysninger": "Timeavtale 8-15, man - fre."
+      "spesielleopplysninger": null
     }
-  },
-  "adresser": {
-    "boadresse": {
-      "adressetillegg": "C/O Rune Aremark",
-      "adresse": "Bjørvika 4D",
-      "datoFraOgMed": "2017-02-21",
-      "kommune": "1239",
-      "land": "Norge",
-      "matrikkeladresse": {},
-      "postnummer": "1239",
-      "poststed": "Jepp",
-      "veiadresse": {
-        "bokstav": "A",
-        "bolignummer": "H0102",
-        "gatekode": "01239",
-        "husnummer": "11"
-      }
-    },
-    "geografiskTilknytning": {
-      "bydel": "500102",
-      "datoFraOgMed": "2012-10-01",
-      "kommune": null,
-      "land": null,
-      "enhet": "NAV Falkenborg"
-    },
-    "postadresse": {
-      "adresse1": "MS Joyce Browning",
-      "adresse2": "2045 Royal Road",
-      "adresse3": "LONDON WIP 6HQ",
-      "datoFraOgMed": "2018-03-13",
-      "land": "ENGLAND",
-      "postnummer": "",
-      "poststed": ""
-    },
-    "prioritertAdresse": "TIAD",
-    "tilleggsadresse": {
-      "type": "GATEADRESSE",
-      "adresse1": "C/O Per Vikane",
-      "adresse2": "Per Vikens Gate A H0402",
-      "adresse3": "",
-      "bolignummer": "H0402",
-      "bydel": "",
-      "datoFraOgMed": "2019-09-19",
-      "datoTilOgMed": "2020-09-19",
-      "gateKode": "0270",
-      "husbokstav": "A",
-      "husnummer": "0020",
-      "kommunenummer": "0131",
-      "postboksanlegg": "",
-      "postboksnummer": "",
-      "postnummer": "2021",
-      "poststed": "OSLO"
-    },
-    "datakilder": [{}, {}]
   }
 }

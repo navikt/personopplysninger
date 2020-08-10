@@ -5,8 +5,8 @@ import { useIntl } from "react-intl";
 import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
-import SelectLand from "components/felter/kodeverk/SelectLand";
-import SelectValuta from "components/felter/kodeverk/SelectValuta";
+import SelectLand from "components/felter/select-kodeverk/SelectLand";
+import SelectValuta from "components/felter/select-kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
 import { brukerBankkode, validerBankkode, validerBic } from "../utils";
@@ -18,6 +18,7 @@ import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
 
 interface Props {
+  personident?: { verdi: string; type: string };
   utenlandskbank?: UtenlandskBankkonto;
 }
 
@@ -122,6 +123,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         message: msg({ id: "validation.iban.country" }),
         validateIf: ({ fields }: ValidatorContext) =>
           isValidIBAN(fields.kontonummer),
+      },
+      isNotYourSSN: {
+        message: msg({ id: "validation.kontonummer.idnr" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.kontonummer === props.personident?.verdi,
       },
     },
     bankidentifier: {
