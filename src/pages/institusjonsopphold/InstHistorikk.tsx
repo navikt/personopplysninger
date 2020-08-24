@@ -54,7 +54,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
               </div>
               <div className="historikk__flex-kolonne">
                 <Element>
-                  <FormattedMessage id="dsop.mottaker" />
+                  <FormattedMessage id="inst.institusjon" />
                 </Element>
               </div>
             </div>
