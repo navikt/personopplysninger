@@ -12,6 +12,9 @@ export const formatKontonummer = (input: string) => {
   return input;
 };
 
+export const formatOrgnr = (input: string) =>
+  input.replace(/(?=.{3}$)/, " ").replace(/(?=.{7}$)/, " ");
+
 export const fjernMellorom = (value: string) => {
   if (value) {
     return value.replace(/\s+/g, ``);

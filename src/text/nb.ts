@@ -129,6 +129,7 @@ export default {
   "inst.kategori": "Kategori",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
+  "inst.kilde": `Kilde: Institusjonsoppholdsregisteret<br></br><span>Dataene er rapportert av den enkelte institusjonen</span>`,
   "skattetrekksmeldinger.tittel": `Skattetrekksmeldinger`,
   "skattetrekksmeldinger.ingendata":
     "Ingen skattetrekksmeldinger har blitt innhentet",

@@ -7,7 +7,10 @@ import moment from "moment";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
+import { formatOrgnr, RADIX_DECIMAL } from "../../utils/formattering";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
+import Kilde from "../../components/kilde/Kilde";
+import Box from "../../components/box/Box";
 
 interface Routes {
   id: string;
@@ -28,25 +31,34 @@ const InstDetaljer = () => {
       backTo={"/institusjonsopphold"}
       brodsmulesti={[
         { title: "inst.tittel", path: "/institusjonsopphold" },
-        { title: "inst.detaljer" }
+        { title: "inst.detaljer" },
       ]}
     >
       <WithInst>
         {({ data }) => {
           const innslag = data
-            .filter(d => d.registreringstidspunkt === id)
+            .filter((d) => d.registreringstidspunkt === id)
             .shift();
 
           return innslag ? (
             <div>
               <div className="detaljer__tittel">
                 <Undertittel>{innslag.institusjonsnavn}</Undertittel>
-                <Normaltekst>
-                  <FormattedMessage
-                    id="side.organisasjonsnummer"
-                    values={{ orgnr: innslag.organisasjonsnummer }}
-                  />
-                </Normaltekst>
+                {innslag.organisasjonsnummer && (
+                  <Normaltekst>
+                    <FormattedMessage
+                      id="side.organisasjonsnummer"
+                      values={{
+                        orgnr: formatOrgnr(
+                          parseInt(
+                            innslag.organisasjonsnummer,
+                            RADIX_DECIMAL
+                          ).toString()
+                        ),
+                      }}
+                    />
+                  </Normaltekst>
+                )}
               </div>
               <hr className="box__linje-bred" />
               <div className="box">
@@ -55,10 +67,6 @@ const InstDetaljer = () => {
                     <ListElement
                       titleId={"inst.institusjonstype"}
                       content={innslag.institusjonstype}
-                    />
-                    <ListElement
-                      titleId={"inst.kategori"}
-                      content={innslag.kategori}
                     />
                     <ListElement
                       titleId={"inst.periode"}
@@ -72,16 +80,6 @@ const InstDetaljer = () => {
                           : ``
                       }`}
                     />
-                    <ListElement
-                      titleId={"inst.registreringstidspunkt"}
-                      content={moment(innslag.registreringstidspunkt).format(
-                        "DD.MM.YYYY hh:mm"
-                      )}
-                    />
-                    <ListElement
-                      titleId={"inst.institusjonsnavn"}
-                      content={innslag.institusjonsnavn}
-                    />
                   </ul>
                 </div>
               </div>
@@ -93,14 +91,8 @@ const InstDetaljer = () => {
           );
         }}
       </WithInst>
-      <div className="arbeidsforhold__disclaimer">
-        <AlertStripeInfo>
-          <Normaltekst>
-            Opplysningene er rapportert til NAV av de respektive institusjonene.
-            Hvis det er feil i et institusjonsopphold, må du ta kontakt med den
-            gjeldende institusjonen for å få endret dette.
-          </Normaltekst>
-        </AlertStripeInfo>
+      <div className="inst__kilde">
+        <Kilde kilde="inst.kilde" lenkeType="INGEN" />
       </div>
     </PageContainer>
   );
