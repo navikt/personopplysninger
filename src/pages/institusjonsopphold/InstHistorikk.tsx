@@ -1,9 +1,8 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
@@ -11,7 +10,6 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import Kilde from "../../components/kilde/Kilde";
-import Box from "../../components/box/Box";
 
 /*
   Hent data

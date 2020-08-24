@@ -8,9 +8,7 @@ import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { formatOrgnr, RADIX_DECIMAL } from "../../utils/formattering";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "../../components/kilde/Kilde";
-import Box from "../../components/box/Box";
 
 interface Routes {
   id: string;
