@@ -42,12 +42,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
     <div className="arbeidsforhold__disclaimer">
       <AlertStripeInfo>
         <Normaltekst>
-          NAV viser registrerte opphold på alders- og sykehjem og andre
-          helseinstitusjoner fra 16.9.2020. Opphold i fengsel vises ikke i denne
-          versjonen av innsynstjenesten, men vi jobber med å videreutvikle
-          løsningen slik at disse oppholdene også kan vises. Du kan be NAV om
-          innsyn i eldre opphold og opphold i fengsel. Dersom det er feil i
-          opplysninger, kontakt kilden.
+          <FormattedMessage id="inst.disclaimer" />
         </Normaltekst>
       </AlertStripeInfo>
       <div className={"inst__tabell"}>

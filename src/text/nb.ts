@@ -123,6 +123,12 @@ export default {
   "inst.tittel": `Institusjonsopphold`,
   "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
+  "inst.disclaimer": ` NAV viser registrerte opphold på alders- og sykehjem og andre
+          helseinstitusjoner fra 16.9.2020. Opphold i fengsel vises ikke i denne
+          versjonen av innsynstjenesten, men vi jobber med å videreutvikle
+          løsningen slik at disse oppholdene også kan vises. Du kan be NAV om
+          innsyn i eldre opphold og opphold i fengsel. Dersom det er feil i
+          opplysninger, kontakt kilden.`,
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",
   "inst.institusjonstype": "Institusjonstype",
