@@ -24,10 +24,10 @@ const getDecorator = () =>
           const { document } = new JSDOM(body).window;
           const prop = "innerHTML";
           const data = {
-            NAV_HEADER: document.getElementById("header-withmenu")[prop],
-            NAV_STYLES: document.getElementById("styles")[prop],
-            NAV_FOOTER: document.getElementById("footer-withmenu")[prop],
-            NAV_SCRIPTS: document.getElementById("scripts")[prop],
+            HEADER: document.getElementById("header-withmenu")[prop],
+            STYLES: document.getElementById("styles")[prop],
+            FOOTER: document.getElementById("footer-withmenu")[prop],
+            SCRIPTS: document.getElementById("scripts")[prop],
           };
           cache.set("main-cache", data);
           logger.info(`Creating cache`);
