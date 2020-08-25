@@ -2,7 +2,7 @@ version: "3.7"
 services:
   oidc-provider:
     container_name: oidc-provider
-    image: "navikt/stub-oidc-provider:latest"
+    image: "docker.pkg.github.com/navikt/stub-oidc-provider/stub-oidc-provider:latest"
     ports:
       - "9000:9000"
     environment:
@@ -12,20 +12,20 @@ services:
 
   oidc-provider-gui:
     container_name: oidc-provider-gui
-    image: "navikt/pb-oidc-provider-gui:latest"
+    image: "docker.pkg.github.com/navikt/pb-oidc-provider-gui/pb-oidc-provider-gui:latest"
     ports:
       - "5000:5000"
     environment:
-      REDIRECT_URL: "http://localhost:3000"
+      REDIRECT_URL: "http://localhost:8080"
       AUTO_REDIRECT_TO_FRONTEND: "true"
     depends_on:
       - oidc-provider
 
   mocks:
     container_name: mocks
-    image: "navikt/pb-nav-mocked:latest"
+    image: "docker.pkg.github.com/navikt/pb-nav-mocked/pb-nav-mocked:latest"
     ports:
-      - "8096:8080"
+      - "8095:8080"
     environment:
       CORS_ALLOWED_ORIGINS: "*"
       OIDC_ISSUER: "https://localhost:9000"
@@ -36,12 +36,13 @@ services:
 
   dekoratoren:
     container_name: dekoratoren
-    image: "navikt/nav-dekoratoren:latest"
+    image: "docker.pkg.github.com/navikt/nav-dekoratoren/nav-dekoratoren:latest"
     ports:
       - "8100:8088"
     environment:
-      XP_BASE_URL: "https://www.nav.no"
-      APP_BASE_URL: "http://localhost:8100/dekoratoren"
+      XP_BASE_URL: "http://localhost:8080"
+      APP_BASE_URL: "http://localhost:8100"
+      APP_BASE_PATH: "/dekoratoren"
       API_XP_MENY_URL: "http://host.docker.internal:8080/_/service/no.nav.navno/menu"
       API_XP_SOK_URL: "http://host.docker.internal:8080/_/service/navno.nav.no.search/search2/sok"
       API_INNLOGGINGSLINJE_URL: "http://mocks:8080/innloggingslinje-api/auth"
