@@ -123,19 +123,14 @@ export default {
   "inst.tittel": `Institusjonsopphold`,
   "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
-  "inst.disclaimer": ` NAV viser registrerte opphold på alders- og sykehjem og andre
-          helseinstitusjoner fra 16.9.2020. Opphold i fengsel vises ikke i denne
-          versjonen av innsynstjenesten, men vi jobber med å videreutvikle
-          løsningen slik at disse oppholdene også kan vises. Du kan be NAV om
-          innsyn i eldre opphold og opphold i fengsel. Dersom det er feil i
-          opplysninger, kontakt kilden.`,
+  "inst.disclaimer": `Her kan du se opplysninger om opphold på alders- og sykehjem og andre helseinstitusjoner. Oversikten viser bare registrerte opphold etter 16. september 2020. Du kan be NAV om innsyn i eldre opphold. Hvis det er feil opplysninger, må du kontakte kilden. Vi jobber med å utvikle oversikten, senere vil også opphold i fengsel bli vist. Foreløpig må man be NAV om innsyn.`,
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",
   "inst.institusjonstype": "Institusjonstype",
   "inst.kategori": "Kategori",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
-  "inst.kilde": `Kilde: Institusjonsoppholdsregisteret<br></br><span>Dataene er rapportert av den enkelte institusjonen</span>`,
+  "inst.kilde": `Kilde: Institusjonsoppholdsregisteret<br></br><span>Opplysningene kommer fra den enkelte institusjonen</span>`,
   "skattetrekksmeldinger.tittel": `Skattetrekksmeldinger`,
   "skattetrekksmeldinger.ingendata":
     "Ingen skattetrekksmeldinger har blitt innhentet",
