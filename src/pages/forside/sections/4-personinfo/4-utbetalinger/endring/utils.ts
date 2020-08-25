@@ -2,7 +2,7 @@ import { OptionType } from "types/option";
 import { Fields } from "calidation";
 import {
   LAND_MED_BANKKODE,
-  BIC
+  BIC,
 } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
 
 const countryISOMapping: { [key: string]: string } = {
@@ -252,7 +252,7 @@ const countryISOMapping: { [key: string]: string } = {
   ESH: "EH",
   YEM: "YE",
   ZMB: "ZM",
-  ZWE: "ZW"
+  ZWE: "ZW",
 };
 export const getCountryISO2 = (countryCode: string) =>
   countryISOMapping[countryCode];

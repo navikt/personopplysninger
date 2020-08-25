@@ -16,7 +16,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      REDIRECT_URL: "http://localhost:8080"
+      REDIRECT_URL: "http://localhost:3000"
       AUTO_REDIRECT_TO_FRONTEND: "true"
     depends_on:
       - oidc-provider
