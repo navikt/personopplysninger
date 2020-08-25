@@ -18,7 +18,7 @@ export const StoreProvider = (props: Props) => {
   const { reducer, initialState, children } = props;
   return (
     <StoreContext.Provider value={useReducer(reducer, initialState)}>
-      {children ? children : null}
+      {children}
     </StoreContext.Provider>
   );
 };
