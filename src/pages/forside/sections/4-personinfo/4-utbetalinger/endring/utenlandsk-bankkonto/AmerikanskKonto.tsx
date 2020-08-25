@@ -25,7 +25,7 @@ const AmerikanskKonto = (props: Props) => {
             label={msg({ id: "felter.bankkode.label" })}
             hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
             error={errors.retningsnummer}
-            onChange={value => setField({ retningsnummer: value })}
+            onChange={(value) => setField({ retningsnummer: value })}
           />
         </div>
         <div className="utbetalinger__bankkode-kolonne">
@@ -35,7 +35,7 @@ const AmerikanskKonto = (props: Props) => {
             submitted={submitted}
             value={fields.bankkode}
             error={errors.bankkode}
-            onChange={value => setField({ bankkode: value })}
+            onChange={(value) => setField({ bankkode: value })}
             maxLength={fields.land && BANKKODE_MAX_LENGTH[fields.land.value]}
           />
         </div>
@@ -46,7 +46,7 @@ const AmerikanskKonto = (props: Props) => {
           maxLength={34}
           submitted={submitted}
           value={fields.adresse1}
-          onChange={value => setField({ adresse1: value })}
+          onChange={(value) => setField({ adresse1: value })}
           label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
@@ -55,7 +55,7 @@ const AmerikanskKonto = (props: Props) => {
           maxLength={34}
           value={fields.adresse2}
           submitted={submitted}
-          onChange={value => setField({ adresse2: value })}
+          onChange={(value) => setField({ adresse2: value })}
         />
         <InputMedHjelpetekst
           label={""}
@@ -63,7 +63,7 @@ const AmerikanskKonto = (props: Props) => {
           maxLength={34}
           value={fields.adresse3}
           submitted={submitted}
-          onChange={value => setField({ adresse3: value })}
+          onChange={(value) => setField({ adresse3: value })}
         />
       </div>
     </>

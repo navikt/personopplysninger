@@ -10,7 +10,7 @@ const SECONDS_PER_HOUR = SECONDS_PER_MINUTE * 60;
 // Refresh cache every hour
 const cache = new NodeCache({
   stdTTL: SECONDS_PER_HOUR,
-  checkperiod: SECONDS_PER_MINUTE
+  checkperiod: SECONDS_PER_MINUTE,
 });
 
 const getDecorator = () =>
@@ -24,14 +24,10 @@ const getDecorator = () =>
           const { document } = new JSDOM(body).window;
           const prop = "innerHTML";
           const data = {
-            NAV_SKIPLINKS: document.getElementById("skiplinks")[prop],
-            NAV_SCRIPTS: document.getElementById("scripts")[prop],
-            NAV_STYLES: document.getElementById("styles")[prop],
-            NAV_HEADING: document.getElementById("header-withmenu")[prop],
-            NAV_FOOTER: document.getElementById("footer-withmenu")[prop],
-            MEGAMENU_RESOURCES: document.getElementById("megamenu-resources")[
-              prop
-            ]
+            HEADER: document.getElementById("header-withmenu")[prop],
+            STYLES: document.getElementById("styles")[prop],
+            FOOTER: document.getElementById("footer-withmenu")[prop],
+            SCRIPTS: document.getElementById("scripts")[prop],
           };
           cache.set("main-cache", data);
           logger.info(`Creating cache`);
