@@ -6,11 +6,9 @@ import { StoreProvider } from "./store/Context";
 import * as serviceWorker from "./service-worker";
 import { initialState, reducer } from "./store/Store";
 import messages from "./text/nb";
-import withMenu from "./clients/apiMock/decorator/decorator-header-withmenu";
-import megamenu from "./clients/apiMock/decorator/decorator-megamenu";
+import header from "./clients/apiMock/decorator/decorator-header";
 import footer from "./clients/apiMock/decorator/decorator-footer";
 import scripts from "./clients/apiMock/decorator/decorator-scripts";
-import skiplinks from "./clients/apiMock/decorator/decorator-skiplinks";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
 import { extraValidators } from "./utils/validators";
@@ -22,28 +20,20 @@ const init = async () => {
   if (process.env.NODE_ENV === "development") {
     await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{NAV_HEADING}}}",
-      withMenu
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{NAV_FOOTER}}}",
-      footer
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{NAV_STYLES}}}",
+      "{{{STYLES}}}",
       styles
     );
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{NAV_SCRIPTS}}}",
+      "{{{HEADER}}}",
+      header
+    );
+    document.body.innerHTML = document.body.innerHTML.replace(
+      "{{{FOOTER}}}",
+      footer
+    );
+    document.body.innerHTML = document.body.innerHTML.replace(
+      "{{{SCRIPTS}}}",
       scripts
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{NAV_SKIPLINKS}}}",
-      skiplinks
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{MEGAMENU_RESOURCES}}}",
-      megamenu
     );
 
     // Execute client.js
