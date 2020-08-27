@@ -2,7 +2,32 @@
   &__tabell {
     margin: 1rem 0;
   }
+
+  &__head {
+    @media @maxMobile {
+      display: none;
+    }
+  }
   &__kilde {
     margin-top: 1rem;
+  }
+  &__se-flere {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    &-icon {
+      margin-left: 10px;
+      height: 18px;
+      width: 18px;
+    }
+  }
+  &__animate {
+    &-enter {
+      opacity: 0;
+    }
+    &-enter-active {
+      opacity: 1;
+      transition: all 100ms ease-in;
+    }
   }
 }
