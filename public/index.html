@@ -15,13 +15,13 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
-    {{{NAV_SCRIPTS}}} {{{NAV_STYLES}}} {{{MEGAMENU_RESOURCES}}}
+    {{{STYLES}}}
     <script type="application/javascript">
       window.frontendlogger = {
-        info: function() {},
-        warn: function() {},
-        error: function() {},
-        event: function() {}
+        info: function () {},
+        warn: function () {},
+        error: function () {},
+        event: function () {},
       };
       window.frontendlogger.appname = "personopplysninger";
     </script>
@@ -34,9 +34,9 @@
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div class="pagewrapper">
-      {{{NAV_SKIPLINKS}}} {{{NAV_HEADING}}}
+      {{{HEADER}}}
       <div class="app" id="app"></div>
     </div>
-    {{{NAV_FOOTER}}}
+    {{{FOOTER}}} {{{SCRIPTS}}}
   </body>
 </html>
