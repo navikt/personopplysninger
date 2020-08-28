@@ -22,7 +22,6 @@ import MedlDetaljer from "./pages/medlemskap-i-folketrygden/MedlDetaljer";
 import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
-import "@navikt/nav-dekoratoren-moduler/dist/index.css";
 import { Auth } from "./types/authInfo";
 
 const redirects: {
