@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "assets/img/Veileder.svg";
@@ -8,33 +8,16 @@ import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
 import Lenke from "nav-frontend-lenker";
-import { NameInfo } from "types/nameInfo";
-import { AlertType } from "components/alert/Alert";
-import { fetchNavn } from "clients/apiClient";
 
 const Header = () => {
-  const [{ nameInfo }, dispatch] = useStore();
+  const [{ authInfo }] = useStore();
 
-  useEffect(() => {
-    if (nameInfo.status === "LOADING") {
-      fetchNavn()
-        .then((result: NameInfo) => {
-          dispatch({ type: "SETT_NAME_RESULT", payload: result });
-        })
-        .catch((error: AlertType) => {
-          if (error.code !== 401 && error.code !== 403) {
-            dispatch({ type: "SETT_NAME_ERROR", payload: error });
-          }
-        });
-    }
-  }, [nameInfo, dispatch]);
-
-  switch (nameInfo.status) {
+  switch (authInfo.status) {
     default:
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      const { name } = nameInfo.data;
+      const { name } = authInfo.data;
       const fornavn = name.split(" ")[0];
       const Veileder = (
         <img src={veilederIkon} className="header__ikon" alt="Veileder" />
@@ -82,7 +65,7 @@ const Header = () => {
         </div>
       );
     case "ERROR":
-      return <Error error={nameInfo.error} />;
+      return <Error error={authInfo.error} />;
   }
 };
 export default Header;

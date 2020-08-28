@@ -1,4 +1,3 @@
-import { NameInfo } from "./nameInfo";
 import { HTTPError } from "../components/error/Error";
 
 export type Auth = {
@@ -9,5 +8,5 @@ export type Auth = {
 
 export type FetchAuth =
   | { status: "LOADING" }
-  | { status: "RESULT"; data: NameInfo }
+  | { status: "RESULT"; data: Auth }
   | { status: "ERROR"; error: HTTPError };

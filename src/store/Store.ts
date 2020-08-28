@@ -2,7 +2,6 @@ import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { NameInfo } from "../types/nameInfo";
 import { FetchFeatureToggles } from "./providers/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
 import { DsopInfo } from "../types/dsop";
@@ -12,14 +11,14 @@ import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
 import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
-import { FetchAuth } from "../types/authInfo";
+import { Auth, FetchAuth } from "../types/authInfo";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
 export const initialState = {
-  nameInfo: { status: "LOADING" } as FetchAuth,
+  authInfo: { status: "LOADING" } as FetchAuth,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -42,7 +41,7 @@ export const initialState = {
 };
 
 export interface Store {
-  nameInfo: FetchAuth;
+  authInfo: FetchAuth;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -54,8 +53,8 @@ export interface Store {
 
 export type Action =
   | {
-      type: "SETT_NAME_RESULT";
-      payload: NameInfo;
+      type: "SETT_AUTH_RESULT";
+      payload: Auth;
     }
   | {
       type: "SETT_NAME_ERROR";
@@ -116,10 +115,10 @@ export type Action =
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
-    case "SETT_NAME_RESULT":
+    case "SETT_AUTH_RESULT":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "RESULT",
           data: action.payload,
         } as FetchAuth,
@@ -127,7 +126,7 @@ export const reducer = (state: Store, action: Action) => {
     case "SETT_NAME_ERROR":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "ERROR",
           error: action.payload,
         } as FetchAuth,

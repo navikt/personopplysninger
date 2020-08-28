@@ -56,7 +56,7 @@ const App = () => {
     .join("|");
 
   const authCallback = (auth: Auth) => {
-    dispatch({ type: "SETT_NAME_RESULT", payload: auth });
+    dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
   };
 
   return (
