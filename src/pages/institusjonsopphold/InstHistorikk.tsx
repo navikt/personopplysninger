@@ -90,7 +90,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                       style={{
                         transitionDelay: `${animateDelay}ms`,
                         fontWeight:
-                          i > 20 && i >= viewAmount - 20 ? "bold" : "normal",
+                          i >= 20 && i >= viewAmount - 20 ? "bold" : "normal",
                       }}
                       timeout={100 + animateDelaySum}
                     >
