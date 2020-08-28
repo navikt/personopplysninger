@@ -3,8 +3,6 @@ import Error, { HTTPError } from "components/error/Error";
 import { useStore } from "../Context";
 import { NameInfo } from "types/nameInfo";
 import Spinner from "components/spinner/Spinner";
-import { AlertType } from "../../components/alert/Alert";
-import { sjekkAuthHentNavn } from "../../clients/apiClient";
 
 export type FetchNameInfo =
   | { status: "LOADING" }
@@ -19,18 +17,17 @@ const Auth = (props: Props) => {
   const [{ nameInfo }, dispatch] = useStore();
 
   useEffect(() => {
-    if (nameInfo.status === "LOADING") {
-      sjekkAuthHentNavn()
-        .then((result: NameInfo) => {
-          dispatch({ type: "SETT_NAME_RESULT", payload: result });
-        })
-        .catch((error: AlertType) => {
-          if (error.code !== 401 && error.code !== 403) {
-            dispatch({ type: "SETT_NAME_ERROR", payload: error });
-          }
-        });
-    }
-  }, [nameInfo, dispatch]);
+    const receiveMessage = ({ data }: MessageEvent) => {
+      const { source, event, payload } = data;
+      if (source === "decorator" && event === "auth") {
+        dispatch({ type: "SETT_NAME_RESULT", payload });
+      }
+    };
+    window.addEventListener("message", receiveMessage, false);
+    return () => {
+      window.removeEventListener("message", receiveMessage, false);
+    };
+  });
 
   switch (nameInfo.status) {
     case "LOADING":

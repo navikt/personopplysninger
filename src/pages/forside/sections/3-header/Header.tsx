@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "assets/img/Veileder.svg";
@@ -8,9 +8,26 @@ import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
 import Lenke from "nav-frontend-lenker";
+import { NameInfo } from "types/nameInfo";
+import { AlertType } from "components/alert/Alert";
+import { fetchNavn } from "clients/apiClient";
 
 const Header = () => {
-  const [{ nameInfo }] = useStore();
+  const [{ nameInfo }, dispatch] = useStore();
+
+  useEffect(() => {
+    if (nameInfo.status === "LOADING") {
+      fetchNavn()
+        .then((result: NameInfo) => {
+          dispatch({ type: "SETT_NAME_RESULT", payload: result });
+        })
+        .catch((error: AlertType) => {
+          if (error.code !== 401 && error.code !== 403) {
+            dispatch({ type: "SETT_NAME_ERROR", payload: error });
+          }
+        });
+    }
+  }, [nameInfo, dispatch]);
 
   switch (nameInfo.status) {
     default:
