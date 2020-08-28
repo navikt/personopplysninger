@@ -3,7 +3,6 @@ import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
 import { NameInfo } from "../types/nameInfo";
-import { FetchNameInfo } from "./providers/Auth";
 import { FetchFeatureToggles } from "./providers/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
 import { DsopInfo } from "../types/dsop";
@@ -13,13 +12,14 @@ import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
 import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
+import { FetchAuth } from "../types/authInfo";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
 export const initialState = {
-  nameInfo: { status: "LOADING" } as FetchNameInfo,
+  nameInfo: { status: "LOADING" } as FetchAuth,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -42,7 +42,7 @@ export const initialState = {
 };
 
 export interface Store {
-  nameInfo: FetchNameInfo;
+  nameInfo: FetchAuth;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -122,7 +122,7 @@ export const reducer = (state: Store, action: Action) => {
         nameInfo: {
           status: "RESULT",
           data: action.payload,
-        } as FetchNameInfo,
+        } as FetchAuth,
       };
     case "SETT_NAME_ERROR":
       return {
@@ -130,7 +130,7 @@ export const reducer = (state: Store, action: Action) => {
         nameInfo: {
           status: "ERROR",
           error: action.payload,
-        } as FetchNameInfo,
+        } as FetchAuth,
       };
     case "SETT_FEATURE_TOGGLES":
       return {
