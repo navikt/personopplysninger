@@ -92,7 +92,7 @@
     "typescript": "^3.9.5"
   },
   "devDependencies": {
-    "@types/calidation": "1.16.2",
+    "@types/calidation": "1.16.1",
     "@types/classnames": "^2.2.10",
     "@types/fetch-mock": "^7.3.3",
     "@types/file-saver": "^2.0.1",
