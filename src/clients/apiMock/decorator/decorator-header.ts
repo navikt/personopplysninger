@@ -1,2 +1,2 @@
 /*tslint:disable*/
-export default '<section id="decorator-header"></section>';
+export default '<div id="decorator-header"></div>';
