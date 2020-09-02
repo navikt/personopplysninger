@@ -4,7 +4,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import WithAuth from "./store/providers/Auth";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
@@ -17,11 +16,13 @@ import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 import { redirectLoginCookie } from "./utils/cookies";
-import Modal from "react-modal";
-import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import MedlDetaljer from "./pages/medlemskap-i-folketrygden/MedlDetaljer";
+import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
+import Modal from "react-modal";
+import Cookies from "js-cookie";
+import { Auth } from "./types/authInfo";
 
 const redirects: {
   [key: string]: {
@@ -34,6 +35,7 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 const App = () => {
   const [{ featureToggles }] = useStore();
+  const [, dispatch] = useStore();
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -42,21 +44,25 @@ const App = () => {
   configureAnchors({
     offset: -65,
     scrollDuration: 0,
-    keepLastAnchorHash: true
+    keepLastAnchorHash: true,
   });
 
   const tillatteTjenester = Object.keys(redirects)
-    .map(key => key)
+    .map((key) => key)
     .join("|");
 
   const tillatteUrler = Object.keys(redirects)
-    .map(key => redirects[key].allowed)
+    .map((key) => redirects[key].allowed)
     .join("|");
+
+  const authCallback = (auth: Auth) => {
+    dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
+  };
 
   return (
     <div className="pagecontent">
       <Router>
-        <WithAuth>
+        <EnforceLoginLoader authCallback={authCallback}>
           <WithFeatureToggles>
             <RedirectAfterLogin>
               <Switch>
@@ -149,7 +155,7 @@ const App = () => {
               </Switch>
             </RedirectAfterLogin>
           </WithFeatureToggles>
-        </WithAuth>
+        </EnforceLoginLoader>
       </Router>
     </div>
   );

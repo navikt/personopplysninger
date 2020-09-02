@@ -49,7 +49,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
     if (!initState[year]) {
       initState[year] = {
         innslag: [innslag],
-        ekspandert: !i ? true : false
+        ekspandert: !i ? true : false,
       };
     } else {
       initState[year].innslag.push(innslag);
@@ -76,15 +76,15 @@ const Tabell = (props: { instInfo: InstInfo }) => {
           </div>
           {Object.keys(data)
             .reverse()
-            .map(year => {
+            .map((year) => {
               const value = data[year];
               const onClick = () =>
                 setData({
                   ...data,
                   [year]: {
                     ...data[year],
-                    ekspandert: !data[year].ekspandert
-                  }
+                    ekspandert: !data[year].ekspandert,
+                  },
                 });
 
               return (

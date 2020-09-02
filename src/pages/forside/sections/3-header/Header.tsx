@@ -10,14 +10,14 @@ import { useStore } from "store/Context";
 import Lenke from "nav-frontend-lenker";
 
 const Header = () => {
-  const [{ nameInfo }] = useStore();
+  const [{ authInfo }] = useStore();
 
-  switch (nameInfo.status) {
+  switch (authInfo.status) {
     default:
     case "LOADING":
       return <Spinner />;
     case "RESULT":
-      const { name } = nameInfo.data;
+      const { name } = authInfo.data;
       const fornavn = name.split(" ")[0];
       const Veileder = (
         <img src={veilederIkon} className="header__ikon" alt="Veileder" />
@@ -65,7 +65,7 @@ const Header = () => {
         </div>
       );
     case "ERROR":
-      return <Error error={nameInfo.error} />;
+      return <Error error={authInfo.error} />;
   }
 };
 export default Header;

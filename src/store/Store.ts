@@ -2,8 +2,6 @@ import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { NameInfo } from "../types/nameInfo";
-import { FetchNameInfo } from "./providers/Auth";
 import { FetchFeatureToggles } from "./providers/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
 import { DsopInfo } from "../types/dsop";
@@ -13,13 +11,14 @@ import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
 import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
+import { Auth, FetchAuth } from "../types/authInfo";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
 export const initialState = {
-  nameInfo: { status: "LOADING" } as FetchNameInfo,
+  authInfo: { status: "LOADING" } as FetchAuth,
   featureToggles: {
     status: "LOADING",
     data: {
@@ -30,19 +29,19 @@ export const initialState = {
       "personopplysninger.medl": false,
       "personopplysninger.fullmakt": false,
       "personopplysninger.tilrettelegging": false,
-      "pdl-fullmakt": false
-    }
+      "pdl-fullmakt": false,
+    },
   } as FetchFeatureToggles,
   dsopInfo: { status: "LOADING" } as FetchDsopInfo,
   instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
   skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
-  medlInfo: { status: "LOADING" } as FetchMedlInfo
+  medlInfo: { status: "LOADING" } as FetchMedlInfo,
 };
 
 export interface Store {
-  nameInfo: FetchNameInfo;
+  authInfo: FetchAuth;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -54,8 +53,8 @@ export interface Store {
 
 export type Action =
   | {
-      type: "SETT_NAME_RESULT";
-      payload: NameInfo;
+      type: "SETT_AUTH_RESULT";
+      payload: Auth;
     }
   | {
       type: "SETT_NAME_ERROR";
@@ -116,125 +115,125 @@ export type Action =
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
-    case "SETT_NAME_RESULT":
+    case "SETT_AUTH_RESULT":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchNameInfo
+          data: action.payload,
+        } as FetchAuth,
       };
     case "SETT_NAME_ERROR":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchNameInfo
+          error: action.payload,
+        } as FetchAuth,
       };
     case "SETT_FEATURE_TOGGLES":
       return {
         ...state,
         featureToggles: {
           status: "RESULT",
-          data: action.payload
-        } as FetchFeatureToggles
+          data: action.payload,
+        } as FetchFeatureToggles,
       };
     case "SETT_PERSON_INFO_RESULT":
       return {
         ...state,
         personInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchPersonInfo
+          data: action.payload,
+        } as FetchPersonInfo,
       };
     case "SETT_PERSON_INFO_ERROR":
       return {
         ...state,
         personInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchPersonInfo
+          error: action.payload,
+        } as FetchPersonInfo,
       };
     case "SETT_KONTAKT_INFO_RESULT":
       return {
         ...state,
         kontaktInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchKontaktInfo
+          data: action.payload,
+        } as FetchKontaktInfo,
       };
     case "SETT_KONTAKT_INFO_ERROR":
       return {
         ...state,
         kontaktInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchKontaktInfo
+          error: action.payload,
+        } as FetchKontaktInfo,
       };
     case "SETT_DSOP_INFO_RESULT":
       return {
         ...state,
         dsopInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchDsopInfo
+          data: action.payload,
+        } as FetchDsopInfo,
       };
     case "SETT_DSOP_INFO_ERROR":
       return {
         ...state,
         dsopInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchDsopInfo
+          error: action.payload,
+        } as FetchDsopInfo,
       };
     case "SETT_INST_INFO_RESULT":
       return {
         ...state,
         instInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchInstInfo
+          data: action.payload,
+        } as FetchInstInfo,
       };
     case "SETT_INST_INFO_ERROR":
       return {
         ...state,
         instInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchInstInfo
+          error: action.payload,
+        } as FetchInstInfo,
       };
     case "SETT_SKATT_RESULT":
       return {
         ...state,
         skattetrekksmeldinger: {
           status: "RESULT",
-          data: action.payload
-        } as Fetchskattetrekksmeldinger
+          data: action.payload,
+        } as Fetchskattetrekksmeldinger,
       };
     case "SETT_SKATT_ERROR":
       return {
         ...state,
         skattetrekksmeldinger: {
           status: "ERROR",
-          error: action.payload
-        } as Fetchskattetrekksmeldinger
+          error: action.payload,
+        } as Fetchskattetrekksmeldinger,
       };
     case "SETT_MEDL_INFO_RESULT":
       return {
         ...state,
         medlInfo: {
           status: "RESULT",
-          data: action.payload
-        } as FetchMedlInfo
+          data: action.payload,
+        } as FetchMedlInfo,
       };
     case "SETT_MEDL_INFO_ERROR":
       return {
         ...state,
         medlInfo: {
           status: "ERROR",
-          error: action.payload
-        } as FetchMedlInfo
+          error: action.payload,
+        } as FetchMedlInfo,
       };
     default:
       return state;
