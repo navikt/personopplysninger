@@ -4,9 +4,8 @@ import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
 import Tilbake from "components/tilbake/Tilbake";
-import Brodsmulesti, {
-  BrodsmuleLenke
-} from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
+import Brodsmulesti from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
+import { BrodsmuleLenke } from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 interface Props {
   children: JSX.Element | JSX.Element[];

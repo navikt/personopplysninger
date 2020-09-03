@@ -38,7 +38,7 @@ const init = async () => {
 
     // Execute client.js
     var script = document.createElement("script");
-    script.src = "http://localhost:8100/dekoratoren/client.js";
+    script.src = "http://localhost:8088/dekoratoren/client.js";
     document.body.appendChild(script);
   }
 
