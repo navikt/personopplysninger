@@ -14,7 +14,7 @@ interface BrodsmulestiProps {
 const Brodsmulesti = (props: BrodsmulestiProps) => {
   const { formatMessage: msg } = useIntl();
 
-  // Decorator
+  // Sett breadcrumbs in decorator
   useEffect(() => {
     const breadcrumbs = [
       {
