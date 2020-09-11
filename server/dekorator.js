@@ -24,12 +24,11 @@ const getDecorator = () =>
       const url = `${process.env.DECORATOR_URL}?breadcrumbs=${JSON.stringify([
         {
           url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
-          title: formatMessage({ id: "brodsmulesti.dittnav" }),
+          title: "Ditt nav",
         },
         {
-          url: `${basePath}`,
-          title: formatMessage({ id: "brodsmulesti.dinepersonopplysninger" }),
-          handleInApp: true,
+          url: `${process.env.REACT_APP_URL}`,
+          title: "Personopplysninger",
         },
       ])}`;
 
