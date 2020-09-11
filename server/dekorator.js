@@ -1,5 +1,3 @@
-import { basePath } from "../src/App";
-
 const jsdom = require("jsdom");
 const request = require("request");
 const NodeCache = require("node-cache");
