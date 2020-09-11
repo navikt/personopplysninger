@@ -42,15 +42,15 @@ const App = () => {
   configureAnchors({
     offset: -65,
     scrollDuration: 0,
-    keepLastAnchorHash: true
+    keepLastAnchorHash: true,
   });
 
   const tillatteTjenester = Object.keys(redirects)
-    .map(key => key)
+    .map((key) => key)
     .join("|");
 
   const tillatteUrler = Object.keys(redirects)
-    .map(key => redirects[key].allowed)
+    .map((key) => redirects[key].allowed)
     .join("|");
 
   return (
