@@ -5,7 +5,7 @@ import Icon from "components/icon/Icon";
 import PanelBase from "nav-frontend-paneler";
 import Tilbake from "components/tilbake/Tilbake";
 import Brodsmulesti, {
-  BrodsmuleLenke
+  BrodsmuleLenke,
 } from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 interface Props {
