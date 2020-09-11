@@ -1,3 +1,5 @@
+import { basePath } from "../src/App";
+
 const jsdom = require("jsdom");
 const request = require("request");
 const NodeCache = require("node-cache");
@@ -19,7 +21,19 @@ const getDecorator = () =>
     if (decorator) {
       resolve(decorator);
     } else {
-      request(process.env.DECORATOR_URL, (error, response, body) => {
+      const url = `${process.env.DECORATOR_URL}?breadcrumbs=${JSON.stringify([
+        {
+          url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+          title: formatMessage({ id: "brodsmulesti.dittnav" }),
+        },
+        {
+          url: `${basePath}`,
+          title: formatMessage({ id: "brodsmulesti.dinepersonopplysninger" }),
+          handleInApp: true,
+        },
+      ])}`;
+
+      request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
           const { document } = new JSDOM(body).window;
           const prop = "innerHTML";
