@@ -22,7 +22,7 @@ const getDecorator = () =>
       const url = `${process.env.DECORATOR_URL}?breadcrumbs=${JSON.stringify([
         {
           url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
-          title: "Ditt nav",
+          title: "Ditt NAV",
         },
         {
           url: `${process.env.REACT_APP_URL}`,
