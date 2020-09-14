@@ -1,11 +1,9 @@
-import React, { Fragment } from "react";
-import Lenke from "nav-frontend-lenker";
-import { FormattedMessage } from "react-intl";
-import konto from "assets/img/Konto.svg";
-import { Link, useLocation } from "react-router-dom";
-import { basePath } from "App";
-
-const { REACT_APP_TJENESTER_URL } = process.env;
+import React, { useEffect } from "react";
+import { useIntl } from "react-intl";
+import { useLocation, useHistory } from "react-router-dom";
+import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import { onBreadcrumbClick } from "@navikt/nav-dekoratoren-moduler";
+import { basePath } from "../../../../App";
 
 export interface BrodsmuleLenke {
   title: string;
@@ -21,56 +19,41 @@ interface BrodsmulestiProps {
   hierarki?: BrodsmuleLenke[];
 }
 
-interface Routes {
-  id: string;
-}
-
-const Brodsmule = (props: BrodsmuleProps) => (
-  <div className={`brodsmule ${props.className || ""}`}>{props.children}</div>
-);
-
 const Brodsmulesti = (props: BrodsmulestiProps) => {
+  const { formatMessage } = useIntl();
   const location = useLocation();
-  const allPaths = location.pathname.split("/");
-  const relevantPaths = allPaths.splice(3, allPaths.length);
-  return (
-    <div className="brodsmulesti">
-      <Brodsmule className="brodsmulesti__icon">
-        <img alt="Brodsmulesti" className="brodsmulesti__account" src={konto} />
-      </Brodsmule>
-      <Brodsmule>
-        <Lenke href={`${REACT_APP_TJENESTER_URL}/dittnav`}>
-          <FormattedMessage id="brodsmulesti.dittnav" />
-        </Lenke>
-      </Brodsmule>
-      /
-      <Brodsmule>
-        {relevantPaths.length > 0 ? (
-          <Link to={`${basePath}`} className="lenke">
-            <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
-          </Link>
-        ) : (
-          <FormattedMessage id="brodsmulesti.dinepersonopplysninger" />
-        )}
-      </Brodsmule>
-      {props.hierarki &&
-        props.hierarki.map((link, i) => (
-          <Fragment key={i}>
-            /
-            <Brodsmule>
-              {link.path ? (
-                <Link to={`${basePath}${link.path}`} className="lenke">
-                  <FormattedMessage id={link.title} />
-                </Link>
-              ) : (
-                <span>
-                  <FormattedMessage id={link.title} />
-                </span>
-              )}
-            </Brodsmule>
-          </Fragment>
-        ))}
-    </div>
-  );
+  const history = useHistory();
+  const { hierarki } = props;
+
+  onBreadcrumbClick((breadcrumb) => {
+    history.push(breadcrumb.url);
+  });
+
+  // Set breadcrumbs in decorator
+  useEffect(() => {
+    const baseBreadcrumbs = [
+      {
+        url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+        title: formatMessage({ id: "brodsmulesti.dittnav" }),
+      },
+      {
+        url: `${basePath}`,
+        title: formatMessage({ id: "brodsmulesti.dinepersonopplysninger" }),
+        handleInApp: true,
+      },
+    ];
+
+    const appBreadcrumbs =
+      hierarki?.map((lenke) => ({
+        url: `${basePath}${lenke.path || ""}`,
+        title: formatMessage({ id: lenke.title }),
+        handleInApp: lenke.path?.includes("/") || false,
+      })) || [];
+
+    const breadcrumbs = baseBreadcrumbs.concat(appBreadcrumbs);
+    setBreadcrumbs(breadcrumbs);
+  }, [formatMessage, hierarki, location]);
+
+  return <></>;
 };
 export default Brodsmulesti;
