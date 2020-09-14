@@ -121,13 +121,16 @@ export default {
   "dsop.ingendata":
     "Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Ingen personopplysninger har blitt utlevert.",
   "inst.tittel": `Institusjonsopphold`,
+  "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
+  "inst.disclaimer": `Her kan du se opplysninger om opphold på alders- og sykehjem og andre helseinstitusjoner. Oversikten viser bare registrerte opphold etter 16. september 2020. Oppdager du feil i opplysningene, må du kontakte institusjonen direkte.`,
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",
   "inst.institusjonstype": "Institusjonstype",
   "inst.kategori": "Kategori",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
+  "inst.kilde": `Kilde: Den enkelte institusjon`,
   "skattetrekksmeldinger.tittel": `Skattetrekksmeldinger`,
   "skattetrekksmeldinger.ingendata":
     "Ingen skattetrekksmeldinger har blitt innhentet",
