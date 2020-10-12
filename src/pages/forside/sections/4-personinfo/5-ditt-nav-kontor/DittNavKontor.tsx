@@ -13,6 +13,7 @@ import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Lenke from "nav-frontend-lenker";
+import { useStore } from "store/Context";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -21,6 +22,7 @@ interface Props {
 
 const DittNavKontor = (props: Props) => {
   const { formatMessage: msg } = useIntl();
+  const [{ locale }] = useStore();
   const { enhet } = props.enhetKontaktInformasjon;
   const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
   const [valgtMottakId, settValgtMottakId] = useState(
@@ -59,7 +61,7 @@ const DittNavKontor = (props: Props) => {
           >
             <option value="-1">
               {`${msg({
-                id: "dittnavkontor.publikumsmottakfor"
+                id: "dittnavkontor.publikumsmottakfor",
               })} ${geografiskTilknytning.enhet}`}
             </option>
             {publikumsmottak.map((mottak, id) => (
@@ -86,7 +88,7 @@ const DittNavKontor = (props: Props) => {
                   )} ${print(postadresse.husbokstav)}`}
                 {postadresse.type === "postboksadresse" &&
                   `${msg({
-                    id: "dittnavkontor.postboks"
+                    id: "dittnavkontor.postboks",
                   })} ${print(postadresse.postboksnummer)} ${print(
                     postadresse.postboksanlegg
                   )}`}
@@ -161,7 +163,7 @@ const DittNavKontor = (props: Props) => {
         <ListElement
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
-            <Lenke href={`/person/kontakt-oss/`}>
+            <Lenke href={`/person/kontakt-oss/${locale}/`}>
               <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
             </Lenke>
           }

@@ -5,6 +5,7 @@ import ListElement from "components/listelement/ListElement";
 import { KontaktInfo } from "types/kontaktInfo";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
+import { useStore } from "../../../../../../../store/Context";
 
 interface Props {
   info: KontaktInfo;
@@ -12,6 +13,7 @@ interface Props {
 
 const KontaktInformasjon = (props: Props) => {
   const { mobiltelefonnummer, epostadresse, kanVarsles } = props.info;
+  const [{ locale }] = useStore();
   return mobiltelefonnummer || epostadresse || kanVarsles ? (
     <>
       <div className="underseksjon__beskrivelse">
@@ -34,7 +36,9 @@ const KontaktInformasjon = (props: Props) => {
       </ul>
       <Kilde
         kilde="personalia.source.dkif"
-        lenke="https://brukerprofil.difi.no/minprofil"
+        lenke={`https://brukerprofil.difi.no/minprofil${
+          locale === "en" ? "?locale=en" : ""
+        }`}
         lenkeTekst="personalia.link.dkif.endre"
         lenkeType={"EKSTERN"}
         ikon={eksternLenkeIkon}

@@ -37,7 +37,7 @@ const LinksContainer = () => {
               <FormattedMessage id="lenker.beskrivelse" />
             </Normaltekst>
           </div>
-          {lenker.map((link) => (
+          {lenker(locale).map((link) => (
             <LinkBox
               id={link.id}
               key={link.id}

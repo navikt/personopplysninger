@@ -2,6 +2,7 @@ import React, { Fragment, useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Lenke from "nav-frontend-lenker";
+import { useStore } from "store/Context";
 
 interface Props {
   tittel: string;
@@ -9,6 +10,7 @@ interface Props {
 }
 const Alternativ = (props: Props) => {
   const { tittel, melding } = props;
+  const [{ locale }] = useStore();
   const [visBeskrivelse, settVisBeskrivelse] = useState(false);
   return (
     <>
@@ -35,7 +37,7 @@ const Alternativ = (props: Props) => {
               ),
               beskjedLenke: (text: string) => (
                 <Lenke
-                  href="https://www.nav.no/beskjedtilnav"
+                  href={`https://www.nav.no/person/kontakt-oss/${locale}/skriv-til-oss`}
                   rel="noopener noreferrer"
                   target="_blank"
                 >
