@@ -17,7 +17,7 @@ export default {
   "side.endre.kontonummer": "Change account number",
   "side.endretil": "Change to",
   "side.opphor": "Termination",
-  "brodsmulesti.dittnav": `Your NAV`,
+  "brodsmulesti.dittnav": `My page`,
   "brodsmulesti.dinepersonopplysninger": `Personal data`,
   "brodsmulesti.arbeidsforhold": `Employment relationship`,
   "header.hello": `Hi!`,
