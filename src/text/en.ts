@@ -88,7 +88,7 @@ export default {
   "adresse.land": `Country`,
   "adresse.overskrift": `Addresses registered in the National Population Register`,
   "adresse.ikke.registrert": `You do not have a registered home address in the National Population Register`,
-  "adresse.midlertidig.alert": `Up to and on {date} we will send you post to your temporary address.`,
+  "adresse.midlertidig.alert": `Up to and on {dato} we will send you post to your temporary address.`,
   "adresse.slett.alert": `Do you want to remove the temporary address and use the address registered with the National Population Register <br></br> to receive mail from NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>You choose how long the address is to be valid, a maximum of 1 year. After 1 year, you need to change or extend the address.</p>`,

@@ -187,7 +187,7 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
 
       history.push(redirectTo);
     }
-  }, [location]);
+  }, [locale, location, history]);
   return props.children;
 };
 

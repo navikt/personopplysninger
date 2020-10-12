@@ -30,9 +30,8 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
   });
 
   onLanguageSelect((language) => {
-    console.log(language);
-    history.push(language.url);
     dispatch({ type: "SETT_LOCALE", payload: language.locale as Locale });
+    history.push(language.url);
   });
 
   useEffect(() => {
@@ -73,7 +72,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
 
     const breadcrumbs = baseBreadcrumbs.concat(appBreadcrumbs);
     setBreadcrumbs(breadcrumbs);
-  }, [formatMessage, hierarki, location]);
+  }, [formatMessage, hierarki, location, locale]);
 
   return <></>;
 };
