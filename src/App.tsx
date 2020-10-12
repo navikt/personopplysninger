@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, useHistory } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
@@ -32,6 +36,8 @@ const redirects: {
 } = redirectsRaw;
 
 export const basePath = "/person/personopplysninger";
+export const basePathWithLanguage = `${basePath}/(nb|en)`;
+
 const App = () => {
   const [{ featureToggles }] = useStore();
 
@@ -60,96 +66,101 @@ const App = () => {
           <WithAuth>
             <WithFeatureToggles>
               <RedirectAfterLogin>
-                <Switch>
-                  <Route
-                    exact={true}
-                    path={`(/|${basePath})`}
-                    component={Forside}
-                  />
-                  <Route
-                    exact={true}
-                    path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                    component={Forside}
-                  />
-                  <Route
-                    exact={true}
-                    path={`${basePath}/arbeidsforhold`}
-                    render={() => (
-                      <Redirect to={`${basePath}/#arbeidsforhold`} />
+                <RedirectToLocale>
+                  <Switch>
+                    <Redirect to={`${basePath}/nb/`} exact={true} path={"/"} />
+                    <Route
+                      exact={true}
+                      path={`${basePathWithLanguage}/`}
+                      component={Forside}
+                    />
+                    <Route
+                      exact={true}
+                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                      component={Forside}
+                    />
+                    <Route
+                      exact={true}
+                      path={`${basePathWithLanguage}/arbeidsforhold`}
+                      render={() => (
+                        <Redirect
+                          to={`${basePathWithLanguage}/#arbeidsforhold`}
+                        />
+                      )}
+                    />
+                    <Route
+                      exact={true}
+                      path={`${basePathWithLanguage}/arbeidsforhold/:id`}
+                      component={DetaljertArbeidsforhold}
+                    />
+                    {featureToggles.data["personopplysninger.dsop"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/dsop`}
+                        component={DsopHistorikk}
+                      />
                     )}
-                  />
-                  <Route
-                    exact={true}
-                    path={`${basePath}/arbeidsforhold/:id`}
-                    component={DetaljertArbeidsforhold}
-                  />
-                  {featureToggles.data["personopplysninger.dsop"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/dsop`}
-                      component={DsopHistorikk}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.dsop"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/dsop/:id`}
-                      component={DsopDetaljer}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.inst"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/institusjonsopphold`}
-                      component={InstHistorikk}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.inst"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/institusjonsopphold/:id`}
-                      component={InstDetaljer}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.pdl"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                      component={EndreOpplysninger}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.skatt"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/skattetrekksmelding`}
-                      component={SkattkortHistorikk}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.skatt"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/skattetrekksmelding/:id`}
-                      component={SkattekortDetaljer}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.medl"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/medlemskap-i-folketrygden`}
-                      component={MedlHistorikk}
-                    />
-                  )}
-                  {featureToggles.data["personopplysninger.medl"] && (
-                    <Route
-                      exact={true}
-                      path={`${basePath}/medlemskap-i-folketrygden/:id`}
-                      component={MedlDetaljer}
-                    />
-                  )}
-                  {featureToggles.status === "RESULT" && (
-                    <Route component={PageNotFound} />
-                  )}
-                </Switch>
+                    {featureToggles.data["personopplysninger.dsop"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/dsop/:id`}
+                        component={DsopDetaljer}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.inst"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/institusjonsopphold`}
+                        component={InstHistorikk}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.inst"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/institusjonsopphold/:id`}
+                        component={InstDetaljer}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.pdl"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                        component={EndreOpplysninger}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.skatt"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/skattetrekksmelding`}
+                        component={SkattkortHistorikk}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.skatt"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/skattetrekksmelding/:id`}
+                        component={SkattekortDetaljer}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.medl"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/medlemskap-i-folketrygden`}
+                        component={MedlHistorikk}
+                      />
+                    )}
+                    {featureToggles.data["personopplysninger.medl"] && (
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/medlemskap-i-folketrygden/:id`}
+                        component={MedlDetaljer}
+                      />
+                    )}
+                    {featureToggles.status === "RESULT" && (
+                      <Route component={PageNotFound} />
+                    )}
+                  </Switch>
+                </RedirectToLocale>
               </RedirectAfterLogin>
             </WithFeatureToggles>
           </WithAuth>
@@ -157,6 +168,27 @@ const App = () => {
       </div>
     </div>
   );
+};
+
+const RedirectToLocale = (props: { children: JSX.Element }) => {
+  const location = useLocation();
+  const history = useHistory();
+  const [{ locale }] = useStore();
+
+  useEffect(() => {
+    const urlHasLocale =
+      location.pathname.includes("/en/") || location.pathname.includes("/nb/");
+
+    if (!urlHasLocale) {
+      const redirectTo = `${location.pathname.replace(
+        `${basePath}`,
+        `${basePath}/${locale}`
+      )}${location.hash}`;
+
+      history.push(redirectTo);
+    }
+  }, [location]);
+  return props.children;
 };
 
 const RedirectAfterLogin = (props: { children: JSX.Element }) => {

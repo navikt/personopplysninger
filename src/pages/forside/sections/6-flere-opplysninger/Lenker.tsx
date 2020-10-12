@@ -13,11 +13,16 @@ import SkjermingIkon from "assets/img/Skjerming.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import ScrollableAnchor from "react-scrollable-anchor";
+import { basePath } from "../../../../App";
 
-const { REACT_APP_PDL_URL, REACT_APP_BFT_URL, REACT_APP_SKJERMING_URL } = process.env;
+const {
+  REACT_APP_PDL_URL,
+  REACT_APP_BFT_URL,
+  REACT_APP_SKJERMING_URL,
+} = process.env;
 
 const LinksContainer = () => {
-  const [{ featureToggles }] = useStore();
+  const [{ featureToggles, locale }] = useStore();
   return (
     <PanelBase className="el__panel">
       <ScrollableAnchor id={"flere-opplysninger"}>
@@ -32,7 +37,7 @@ const LinksContainer = () => {
               <FormattedMessage id="lenker.beskrivelse" />
             </Normaltekst>
           </div>
-          {lenker.map(link => (
+          {lenker.map((link) => (
             <LinkBox
               id={link.id}
               key={link.id}
@@ -51,7 +56,7 @@ const LinksContainer = () => {
               tittel={"lenker.inst.tittel"}
               beskrivelse={"lenker.inst.beskrivelse"}
               lenkeTekst={"lenker.inst.lenkeTekst"}
-              to={"/person/personopplysninger/institusjonsopphold"}
+              to={`${basePath}/${locale}/institusjonsopphold`}
               component={"Link"}
             />
           )}
@@ -62,7 +67,7 @@ const LinksContainer = () => {
               tittel={"lenker.dsop.tittel"}
               beskrivelse={"lenker.dsop.beskrivelse"}
               lenkeTekst={"lenker.dsop.lenkeTekst"}
-              to={"/person/personopplysninger/dsop"}
+              to={`${basePath}/${locale}/dsop`}
               component={"Link"}
             />
           )}
@@ -73,7 +78,7 @@ const LinksContainer = () => {
               tittel={"lenker.skattetrekksmelding.tittel"}
               beskrivelse={"lenker.skattetrekksmelding.beskrivelse"}
               lenkeTekst={"lenker.skattetrekksmelding.lenkeTekst"}
-              to={"/person/personopplysninger/skattetrekksmelding"}
+              to={`${basePath}/${locale}/skattetrekksmelding`}
               component={"Link"}
             />
           )}
@@ -84,7 +89,7 @@ const LinksContainer = () => {
               tittel={"lenker.medl.tittel"}
               beskrivelse={"lenker.medl.beskrivelse"}
               lenkeTekst={"lenker.medl.lenkeTekst"}
-              to={"/person/personopplysninger/medlemskap-i-folketrygden"}
+              to={`${basePath}/${locale}/medlemskap-i-folketrygden`}
               component={"Link"}
             />
           )}

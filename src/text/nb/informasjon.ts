@@ -1,4 +1,3 @@
-/* tslint:disable */
 export default {
   feilopplysninger: {
     tittel: `Personopplysninger om meg er feil – hva gjør jeg?`,
