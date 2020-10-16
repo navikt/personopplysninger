@@ -1,10 +1,14 @@
-.historikk {
+.medl-historikk {
   &__flex-table {
     max-width: 100%;
     border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  &__space {
+    margin: 1rem 0;
   }
   &__flex-rad {
-    border-bottom: 1px solid #979797;
+    border-top: 1px solid #979797;
     display: flex;
     padding: 0.25rem 0;
     @media @minDesktop, @maxTablet {
@@ -17,6 +21,9 @@
   &__flex-kolonne {
     padding: 0.25rem 0;
     flex-basis: 100%;
+  }
+  &__flex-grid {
+    margin-left: 2rem;
   }
   &__tabs-innhold {
     @media @minMobile {
