@@ -1,15 +1,18 @@
-import React, { useState, Fragment, useEffect } from "react";
-import { Element } from "nav-frontend-typografi";
+import React, { useEffect, useState } from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
 import PageContainer from "components/pagecontainer/PageContainer";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
+import Kilde from "../../components/kilde/Kilde";
+import { Flatknapp } from "nav-frontend-knapper";
+import PilNed from "assets/img/PilNed.svg";
 
 /*
   Hent data
@@ -29,84 +32,76 @@ const InstHistorikk = () => (
   Visning
 */
 const Tabell = (props: { instInfo: InstInfo }) => {
+  const [viewAmount, setViewAmount] = useState(20);
   const location = useLocation();
   const { instInfo } = props;
+
+  let animateDelay = 0;
+  let animateDelayKey = 0;
+  let animateDelaySum = 0;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const initState: {
-    [key: string]: {
-      innslag: InstInfo;
-      ekspandert: boolean;
-    };
-  } = {};
-
-  instInfo.forEach((innslag, i) => {
-    const year = moment(innslag.registreringstidspunkt).year();
-
-    if (!initState[year]) {
-      initState[year] = {
-        innslag: [innslag],
-        ekspandert: !i ? true : false,
-      };
-    } else {
-      initState[year].innslag.push(innslag);
-    }
-  });
-
-  const [data, setData] = useState(initState);
-
+  // @ts-ignore
   return (
-    <div className="historikk__tabs-innhold historikk__flex-table">
-      {Object.keys(data).length > 0 ? (
-        <>
-          <div className="historikk__flex-rad historikk__head">
-            <div className="historikk__flex-kolonne">
-              <Element>
-                <FormattedMessage id="inst.periode" />
-              </Element>
+    <div className="arbeidsforhold__disclaimer">
+      <AlertStripeInfo>
+        <Normaltekst>
+          <FormattedMessage id="inst.disclaimer" />
+        </Normaltekst>
+      </AlertStripeInfo>
+      <div className={"inst__tabell"}>
+        {instInfo.length > 0 ? (
+          <>
+            <div className="historikk__flex-rad inst__head">
+              <div className="historikk__flex-kolonne">
+                <Element>
+                  <FormattedMessage id="inst.periode" />
+                </Element>
+              </div>
+              <div className="historikk__flex-kolonne">
+                <Element>
+                  <FormattedMessage id="inst.institusjon" />
+                </Element>
+              </div>
             </div>
-            <div className="historikk__flex-kolonne">
-              <Element>
-                <FormattedMessage id="dsop.mottaker" />
-              </Element>
-            </div>
-          </div>
-          {Object.keys(data)
-            .reverse()
-            .map((year) => {
-              const value = data[year];
-              const onClick = () =>
-                setData({
-                  ...data,
-                  [year]: {
-                    ...data[year],
-                    ekspandert: !data[year].ekspandert,
-                  },
-                });
+            <TransitionGroup>
+              {instInfo
+                .sort((a, b) =>
+                  moment(a.startdato) > moment(b.startdato) ? -1 : 1
+                )
+                .slice(0, viewAmount)
+                .map((innslag, i) => {
+                  if (animateDelayKey >= 20) {
+                    animateDelay = 0;
+                    animateDelayKey = 0;
+                    animateDelaySum = 0;
+                  }
+                  animateDelay = 50 + animateDelayKey * 15;
+                  animateDelaySum = +animateDelay;
+                  animateDelayKey++;
 
-              return (
-                <Fragment key={year}>
-                  <div className="historikk__flex-rad" key={year}>
-                    <div
-                      className="historikk__flex-kolonne af-liste__ekspander"
-                      onClick={onClick}
+                  return (
+                    <CSSTransition
+                      key={i}
+                      classNames={"inst__animate"}
+                      style={{
+                        transitionDelay: `${animateDelay}ms`,
+                        fontWeight:
+                          i >= 20 && i >= viewAmount - 20 ? "bold" : "normal",
+                      }}
+                      timeout={100 + animateDelaySum}
                     >
-                      {year}{" "}
-                      {value.ekspandert ? <OppChevron /> : <NedChevron />}
-                    </div>
-                    <div />
-                  </div>
-                  {value.ekspandert &&
-                    value.innslag.map((innslag, i) => (
-                      <div className="historikk__flex-rad" key={i}>
+                      <div className="historikk__flex-rad">
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM">{innslag.startdato}</Moment>
+                          <Moment format="DD.MM.YYYY">
+                            {innslag.startdato}
+                          </Moment>
                           {` - `}
                           {innslag.faktiskSluttdato && (
-                            <Moment format="DD.MM">
+                            <Moment format="DD.MM.YYYY">
                               {innslag.faktiskSluttdato}
                             </Moment>
                           )}
@@ -120,18 +115,36 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                           </Link>
                         </div>
                       </div>
-                    ))}
-                </Fragment>
-              );
-            })}
-        </>
-      ) : (
-        <div className="historikk__ingen-data">
-          <AlertStripeInfo>
-            <FormattedMessage id="inst.ingendata" />
-          </AlertStripeInfo>
-        </div>
-      )}
+                    </CSSTransition>
+                  );
+                })}
+            </TransitionGroup>
+          </>
+        ) : (
+          <div className="historikk__ingen-data">
+            <AlertStripeInfo>
+              <FormattedMessage id="inst.ingendata" />
+            </AlertStripeInfo>
+          </div>
+        )}
+        {instInfo.length > 20 && instInfo.length >= viewAmount && (
+          <div className={"inst__se-flere"}>
+            <Flatknapp onClick={() => setViewAmount(viewAmount + 20)}>
+              <span>
+                <Normaltekst>Se flere</Normaltekst>
+              </span>
+              <img
+                alt={"Se flere ikon"}
+                className={"inst__se-flere-icon"}
+                src={PilNed}
+              />
+            </Flatknapp>
+          </div>
+        )}
+      </div>
+      <div className="inst__kilde">
+        <Kilde kilde="inst.kilde" lenkeType="INGEN" />
+      </div>
     </div>
   );
 };

@@ -19,7 +19,20 @@ const getDecorator = () =>
     if (decorator) {
       resolve(decorator);
     } else {
-      request(process.env.DECORATOR_URL, (error, response, body) => {
+      const url = `${
+        process.env.DECORATOR_URL
+      }/?redirectToApp=true&level=Level4&breadcrumbs=${JSON.stringify([
+        {
+          url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+          title: "Ditt NAV",
+        },
+        {
+          url: `${process.env.REACT_APP_URL}`,
+          title: "Personopplysninger",
+        },
+      ])}`;
+
+      request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
           const { document } = new JSDOM(body).window;
           const prop = "innerHTML";
