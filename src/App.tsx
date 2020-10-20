@@ -21,8 +21,6 @@ import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
-import Modal from "react-modal";
-import Cookies from "js-cookie";
 import { Auth } from "./types/authInfo";
 
 const redirects: {
