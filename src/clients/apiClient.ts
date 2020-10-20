@@ -71,7 +71,6 @@ export const fetchValutaer = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/valuta`);
 export const fetchDsopInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`);
-export const fetchNavn = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/name`);
 
 /*
     POST

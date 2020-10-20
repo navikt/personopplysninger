@@ -20,7 +20,6 @@ fetchMock.config.fallbackToNetwork = true;
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;
 const mockFetchFeatureToggles = true;
-const mockFetchName = true;
 const mockFetchDsopInfo = true;
 const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
@@ -78,10 +77,6 @@ export const setUpMock = async () => {
     fetchMock.get(`${REACT_APP_API_URL}/medl`, () =>
       delay(1000, 2000).then(() => medlInfo)
     );
-  mockFetchName &&
-    fetchMock.get(`${REACT_APP_API_URL}/name`, () =>
-      delay(50, 100).then(() => name)
-    );
   /*
     POST
    */
@@ -104,7 +99,7 @@ export const setUpMock = async () => {
 };
 
 const delay = (min: number, max: number) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, Math.random() * (max - min) + min);
   });
 };
