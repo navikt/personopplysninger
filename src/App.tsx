@@ -16,9 +16,10 @@ import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 import { redirectLoginCookie } from "./utils/cookies";
+import Modal from "react-modal";
+import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
-import MedlDetaljer from "./pages/medlemskap-i-folketrygden/MedlDetaljer";
 import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
 import Modal from "react-modal";
 import Cookies from "js-cookie";
@@ -61,102 +62,99 @@ const App = () => {
 
   return (
     <div className="pagecontent">
-      <Router>
-        <EnforceLoginLoader authCallback={authCallback}>
-          <WithFeatureToggles>
-            <RedirectAfterLogin>
-              <Switch>
-                <Route
-                  exact={true}
-                  path={`(/|${basePath})`}
-                  component={Forside}
-                />
-                <Route
-                  exact={true}
-                  path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                  component={Forside}
-                />
-                <Route
-                  exact={true}
-                  path={`${basePath}/arbeidsforhold`}
-                  render={() => <Redirect to={`${basePath}/#arbeidsforhold`} />}
-                />
-                <Route
-                  exact={true}
-                  path={`${basePath}/arbeidsforhold/:id`}
-                  component={DetaljertArbeidsforhold}
-                />
-                {featureToggles.data["personopplysninger.dsop"] && (
+      <div className="wrapper">
+        <Router>
+          <EnforceLoginLoader authCallback={authCallback}>
+            <WithFeatureToggles>
+              <RedirectAfterLogin>
+                <Switch>
                   <Route
                     exact={true}
-                    path={`${basePath}/dsop`}
-                    component={DsopHistorikk}
+                    path={`(/|${basePath})`}
+                    component={Forside}
                   />
-                )}
-                {featureToggles.data["personopplysninger.dsop"] && (
                   <Route
                     exact={true}
-                    path={`${basePath}/dsop/:id`}
-                    component={DsopDetaljer}
+                    path={`${basePath}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                    component={Forside}
                   />
-                )}
-                {featureToggles.data["personopplysninger.inst"] && (
                   <Route
                     exact={true}
-                    path={`${basePath}/institusjonsopphold`}
-                    component={InstHistorikk}
+                    path={`${basePath}/arbeidsforhold`}
+                    render={() => (
+                      <Redirect to={`${basePath}/#arbeidsforhold`} />
+                    )}
                   />
-                )}
-                {featureToggles.data["personopplysninger.inst"] && (
                   <Route
                     exact={true}
-                    path={`${basePath}/institusjonsopphold/:id`}
-                    component={InstDetaljer}
+                    path={`${basePath}/arbeidsforhold/:id`}
+                    component={DetaljertArbeidsforhold}
                   />
-                )}
-                {featureToggles.data["personopplysninger.pdl"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                    component={EndreOpplysninger}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.skatt"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/skattetrekksmelding`}
-                    component={SkattkortHistorikk}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.skatt"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/skattetrekksmelding/:id`}
-                    component={SkattekortDetaljer}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.medl"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/medlemskap-i-folketrygden`}
-                    component={MedlHistorikk}
-                  />
-                )}
-                {featureToggles.data["personopplysninger.medl"] && (
-                  <Route
-                    exact={true}
-                    path={`${basePath}/medlemskap-i-folketrygden/:id`}
-                    component={MedlDetaljer}
-                  />
-                )}
-                {featureToggles.status === "RESULT" && (
-                  <Route component={PageNotFound} />
-                )}
-              </Switch>
-            </RedirectAfterLogin>
-          </WithFeatureToggles>
-        </EnforceLoginLoader>
-      </Router>
+                  {featureToggles.data["personopplysninger.dsop"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/dsop`}
+                      component={DsopHistorikk}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.dsop"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/dsop/:id`}
+                      component={DsopDetaljer}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.inst"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/institusjonsopphold`}
+                      component={InstHistorikk}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.inst"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/institusjonsopphold/:id`}
+                      component={InstDetaljer}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.pdl"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                      component={EndreOpplysninger}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.skatt"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/skattetrekksmelding`}
+                      component={SkattkortHistorikk}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.skatt"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/skattetrekksmelding/:id`}
+                      component={SkattekortDetaljer}
+                    />
+                  )}
+                  {featureToggles.data["personopplysninger.medl"] && (
+                    <Route
+                      exact={true}
+                      path={`${basePath}/medlemskap-i-folketrygden`}
+                      component={MedlHistorikk}
+                    />
+                  )}
+                  {featureToggles.status === "RESULT" && (
+                    <Route component={PageNotFound} />
+                  )}
+                </Switch>
+              </RedirectAfterLogin>
+            </WithFeatureToggles>
+          </EnforceLoginLoader>
+        </Router>
+      </div>
     </div>
   );
 };
