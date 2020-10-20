@@ -41,7 +41,7 @@ interface PerioderProps {
 
 const Perioder = (props: PerioderProps) => {
   const { medlInfo } = props;
-  const perioder = medlInfo.perioder;
+  const perioder = medlInfo?.perioder || [];
 
   useEffect(() => {
     window.scrollTo(0, 0);
