@@ -154,6 +154,7 @@ export default {
   "medl.medlemskap.uten.ingress": `Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.`,
   "medl.medlemskap.lanekassen.tittel": `Med støtte fra Lånekassen for å studere i utlandet`,
   "medl.medlemskap.lanekassen.ingress": `Oversikten viser perioder der Lånekassen har registrert deg som student ved et utenlandsk lærested.`,
+  "medl.periode": "Periode",
   "medl.dekning": "Dekning",
   "medl.helsedel": "Helsedel",
   "medl.lovland": "Lovland",

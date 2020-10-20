@@ -190,7 +190,7 @@ export const Periode = (props: PeriodeProps) => {
         <div className={"medl__heading"}>
           <img className={"medl__kalender"} src={Kalender} />
           <Element>
-            <FormattedMessage id={"Periode"} />{" "}
+            <FormattedMessage id={"medl.periode"} />{" "}
             <Moment format="DD.MM.YY">{periode.fraOgMed}</Moment>
             {" - "}
             <Moment format="DD.MM.YY">{periode.tilOgMed}</Moment>
