@@ -198,10 +198,28 @@ export const Periode = (props: PeriodeProps) => {
         </div>
         <div className={"medl__flex-grid box__content"}>
           <ul className="list-column-2">
-            <ListElement titleId="medl.hjemmel" content={periode.hjemmel} />
             <ListElement
-              titleId="medl.dekning"
+              titleId="medl.hjemmel"
+              content={periode.hjemmel}
+              hjelpetekstId={"medl.hjemmel.hjelpetekst"}
+            />
+            <ListElement
+              titleId="medl.trygdedekning"
               content={periode.trygdedekning ? "Full" : "Halv"}
+              hjelpetekstId={"medl.trygdedekning.hjelpetekst"}
+            />
+            <ListElement
+              titleId="medl.lovvalgsland"
+              content={periode.lovvalgsland}
+              hjelpetekstId={"medl.lovvalgsland.hjelpetekst"}
+            />
+            <ListElement
+              titleId="medl.statsborgerland"
+              content={periode.studieinformasjon?.statsborgerland}
+            />
+            <ListElement
+              titleId="medl.studieland"
+              content={periode.studieinformasjon?.studieland}
             />
           </ul>
         </div>
