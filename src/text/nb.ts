@@ -137,7 +137,7 @@ export default {
   "medl.tittel": `Medlemskap og unntak fra <br></br> medlemskap i folketrygden`,
   "medl.ingendata":
     "Ingen medlemskap eller unntak fra medlemskap i folketrygden",
-  "medl.folketrygden.ingress": `Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. <lenkeTilFolketrygden>Les mer om medlemskap i folketrygden.</lenkeTilFolketrygden> Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden.`,
+  "medl.folketrygden.ingress": `Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. <lenkeTilFolketrygden> Les om medlemskap i folketrygden</lenkeTilFolketrygden>. Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.`,
   "medl.detaljer": "Detaljer",
   "medl.dekning": "Dekning",
   "medl.helsedel": "Helsedel",
