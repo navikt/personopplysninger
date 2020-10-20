@@ -55,94 +55,79 @@ const Perioder = (props: PerioderProps) => {
     <div className="medl__tabs-innhold">
       <div className={"medl__space"}>
         <Normaltekst>
-          <FormattedMessage
-            id={`Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuellfor deg som har`}
-          />
+          <FormattedMessage id={`medl.oversikt.ingress`} />
         </Normaltekst>
       </div>
       <div className={"medl__space"}>
-        <Checkbox
-          text={`bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det`}
-        />
+        <Checkbox text={`medl.oversikt.1`} />
       </div>
       <div className={"medl__space"}>
-        <Checkbox
-          text={`jobbet i Norge, men var med i trygdeordningen i et annet land`}
-        />
+        <Checkbox text={`medl.oversikt.2`} />
       </div>
 
       <div className={"medl__section"}>
         <Undertittel>
-          <FormattedMessage id={"Ulike situasjoner"} />
+          <FormattedMessage id={"medl.situasjoner.tittel"} />
         </Undertittel>
       </div>
       <div className={"medl__space"}>
-        <Checkbox
-          text={`Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.`}
-        />
+        <Checkbox text={`medl.situasjoner.1`} />
       </div>
       <div className={"medl__space"}>
-        <Checkbox
-          text={`Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.`}
-        />
+        <Checkbox text={`medl.situasjoner.2`} />
       </div>
       <div className={"medl__space"}>
-        <Checkbox
-          text={`Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.`}
-        />
+        <Checkbox text={`medl.situasjoner.3`} />
       </div>
 
       <div className={"medl__section"}>
         <Undertittel>
-          <FormattedMessage id={"Hva betyr medlemskap i folketrygden?"} />
+          <FormattedMessage id={"medl.folketrygden.tittel"} />
         </Undertittel>
       </div>
       <div className={"medl__space"}>
         <Normaltekst>
           <FormattedMessage
+            id={`medl.folketrygden.ingress`}
             values={{
               lenkeTilFolketrygden: (text: string) => (
                 <Lenke href={"$"}>{text}</Lenke>
               ),
             }}
-            id={`medl.folketrygden.ingress`}
           />
         </Normaltekst>
       </div>
-
       <div className={"medl__space"}>
         <Normaltekst>
-          <FormattedMessage
-            id={`Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.`}
-          />
+          <FormattedMessage id={`medl.folketrygden.lanekassen`} />
         </Normaltekst>
       </div>
 
       <div className={"medl__section"}>
         <Systemtittel>
-          <FormattedMessage id={"Oversikt over perioder"} />
+          <FormattedMessage id={"medl.perioder.tittel"} />
         </Systemtittel>
       </div>
       <div className={"medl__space"}>
         <AlertStripeInfo>
-          <FormattedMessage id={"Kun perioder fra og med 2015 vises."} />
+          <FormattedMessage id={"medl.perioder.alert"} />
         </AlertStripeInfo>
       </div>
       <Panel
-        tittelId={"Med medlemskap"}
-        tittelIdIngress={`Oversikten viser perioder der du har søkt NAV om medlemskap i folketrygden og fått bekreftet det`}
+        tittelId={"medl.medlemskap.med.tittel"}
+        tittelIdIngress={`medl.medlemskap.med.ingress`}
         tittelIdIngenData={"medl.ingendata"}
         perioder={medMedlemskap}
       />
       <Panel
-        tittelId={"Uten medlemskap"}
-        tittelIdIngress={`Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge. `}
+        tittelId={"medl.medlemskap.uten.tittel"}
+        tittelIdIngress={`medl.medlemskap.uten.ingress`}
         tittelIdIngenData={"medl.ingendata"}
         perioder={utenMedlemskap}
       />
       <Panel
-        tittelId={"Med støtte fra Lånekassen for å studere i utlandet"}
-        tittelIdIngress={`Oversikten viser perioder der Lånekassen har registrert deg som student ved et utenlandsk lærested.`}
+        tittelId={"medl.medlemskap.lanekassen.tittel"}
+        tittelIdIngress={`medl.medlemskap.lanekassen.ingress`}
         tittelIdIngenData={"medl.ingendata"}
         perioder={fraLanekassen}
       />
