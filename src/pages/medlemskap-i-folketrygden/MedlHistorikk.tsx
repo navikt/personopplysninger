@@ -175,7 +175,7 @@ interface PeriodeProps {
 
 const Checkbox = (props: { text: string }) => (
   <div className="medl__checkbox">
-    <img className={"medl__kalender"} src={Check} />
+    <img className={"medl__kalender"} src={Check} alt="Sjekkboksikon" />
     <Normaltekst>
       <FormattedMessage id={props.text} />
     </Normaltekst>
@@ -188,7 +188,7 @@ export const Periode = (props: PeriodeProps) => {
     <div className="medl__flex-rad">
       <div className="medl__flex-kolonne ">
         <div className={"medl__heading"}>
-          <img className={"medl__kalender"} src={Kalender} />
+          <img className={"medl__kalender"} src={Kalender} alt="Kalenderikon" />
           <Element>
             <FormattedMessage id={"medl.periode"} />{" "}
             <Moment format="DD.MM.YY">{periode.fraOgMed}</Moment>
