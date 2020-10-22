@@ -6,7 +6,7 @@ export interface MedlInnslag {
   medlem: boolean;
   studieinformasjon?: Studieinformasjon;
   tilOgMed: string;
-  trygdedekning: boolean;
+  trygdedekning: string;
 }
 
 export interface Studieinformasjon {

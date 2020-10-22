@@ -205,7 +205,7 @@ export const Periode = (props: PeriodeProps) => {
             />
             <ListElement
               titleId="medl.trygdedekning"
-              content={periode.trygdedekning ? "Full" : "Halv"}
+              content={periode.trygdedekning}
               hjelpetekstId={"medl.trygdedekning.hjelpetekst"}
             />
             <ListElement
