@@ -2,9 +2,9 @@
   "perioder": [
     {
       "fraOgMed": "2014-12-31",
-      "hjemmel": "FO_12_1",
+      "hjemmel": "EØS 883/04 - 12.1",
       "kilde": "NAV",
-      "lovvalgsland": "DNK",
+      "lovvalgsland": "DANMARK",
       "medlem": false,
       "studieinformasjon": null,
       "tilOgMed": "2015-01-01",
@@ -12,59 +12,59 @@
     },
     {
       "fraOgMed": "2015-01-01",
-      "hjemmel": "FTL_2-13_2_ledd",
+      "hjemmel": "Folketrygdloven § 2-13, 2. ledd",
       "kilde": "NAV",
-      "lovvalgsland": "SWE",
+      "lovvalgsland": "SVERIGE",
       "medlem": false,
       "studieinformasjon": null,
       "tilOgMed": "2015-10-31",
       "trygdedekning": "Unntatt"
     },
     {
-      "fraOgMed": "2017-01-01",
-      "hjemmel": "FO_13_1_a",
+      "fraOgMed": "2015-12-09",
+      "hjemmel": "Avtale - Australia - 11",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
-      "tilOgMed": "2017-12-31",
-      "trygdedekning": "Full"
+      "tilOgMed": "2015-12-26",
+      "trygdedekning": "Folketrygdloven § 2-7a 2. ledd bokstav a"
     },
     {
       "fraOgMed": "2018-01-01",
-      "hjemmel": "Canada",
+      "hjemmel": "Avtale - Canada",
       "kilde": "NAV",
-      "lovvalgsland": "CAN",
+      "lovvalgsland": "CANADA",
       "medlem": false,
       "studieinformasjon": null,
       "tilOgMed": "2018-12-31",
-      "trygdedekning": "IKKEPENDEL"
+      "trygdedekning": "Ikke pensjonsdel"
     },
     {
       "fraOgMed": "2019-01-01",
-      "hjemmel": "FTL_2-7",
+      "hjemmel": "Folketrygdloven § 2-7",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2019-12-31",
-      "trygdedekning": "FTL_2-7_3_ledd_b"
+      "trygdedekning": "Folketrygdloven § 2-7, 3. ledd bokstav b"
     },
     {
       "fraOgMed": "2019-01-01",
-      "hjemmel": "Canada",
+      "hjemmel": "Avtale - Canada",
       "kilde": "NAV",
-      "lovvalgsland": "CAN",
+      "lovvalgsland": "CANADA",
       "medlem": false,
       "studieinformasjon": null,
       "tilOgMed": "2019-02-01",
-      "trygdedekning": "IKKEPENDEL"
+      "trygdedekning": "Ikke pensjonsdel"
     },
     {
       "fraOgMed": "2019-09-01",
-      "hjemmel": "Bosnia_Hercegovina",
+      "hjemmel": "Avtale - Bosnia og Hercegovina",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-12-31",
@@ -72,9 +72,39 @@
     },
     {
       "fraOgMed": "2019-10-01",
-      "hjemmel": "Tyrkia",
+      "hjemmel": "Medlem, ukjent",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-10-10",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2019-10-01",
+      "hjemmel": "Avtale - Tyrkia",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2020-12-31",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2019-12-09",
+      "hjemmel": "Avtale - Bosnia og Hercegovina",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-12-30",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-01-01",
+      "hjemmel": "Folketrygdloven § 2-5",
+      "kilde": "NAV",
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-12-31",
@@ -82,19 +112,19 @@
     },
     {
       "fraOgMed": "2020-01-01",
-      "hjemmel": "FTL_2-7",
+      "hjemmel": "Folketrygdloven § 2-7",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-06-01",
-      "trygdedekning": "FTL_2-7_3_ledd_a"
+      "trygdedekning": "Folketrygdloven § 2-7, 3. ledd bokstav a"
     },
     {
       "fraOgMed": "2020-01-01",
-      "hjemmel": "FO_12_1",
+      "hjemmel": "EØS 883/04 - 12.1",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-03-01",
@@ -102,9 +132,9 @@
     },
     {
       "fraOgMed": "2020-01-01",
-      "hjemmel": "FO_13_1_a",
+      "hjemmel": "EØS 883/04 - 11.3.a",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-12-31",
@@ -112,43 +142,43 @@
     },
     {
       "fraOgMed": "2020-01-01",
-      "hjemmel": "FO_11_3_a",
+      "hjemmel": "EØS 883/04 - 13.1.a",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-12-31",
       "trygdedekning": "Full"
     },
     {
-      "fraOgMed": "2020-01-01",
-      "hjemmel": "FTL_2-5",
+      "fraOgMed": "2020-04-27",
+      "hjemmel": "Folketrygdloven § 2-1, 1. ledd",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
-      "tilOgMed": "2023-12-31",
-      "trygdedekning": "Full"
-    },
-    {
-      "fraOgMed": "2020-01-01",
-      "hjemmel": "FO_13_1_a",
-      "kilde": "NAV",
-      "lovvalgsland": null,
-      "medlem": true,
-      "studieinformasjon": null,
-      "tilOgMed": "2020-12-31",
-      "trygdedekning": "Full"
+      "tilOgMed": "2021-04-26",
+      "trygdedekning": "Unntatt"
     },
     {
       "fraOgMed": "2020-05-01",
-      "hjemmel": "FO_13_1_b",
+      "hjemmel": "EØS 883/04 - 13.1.b.i",
       "kilde": "NAV",
-      "lovvalgsland": null,
+      "lovvalgsland": "",
       "medlem": true,
       "studieinformasjon": null,
       "tilOgMed": "2020-11-30",
       "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-06-26",
+      "hjemmel": "Folketrygdloven § 2-7a",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2021-03-01",
+      "trygdedekning": "Folketrygdloven § 2-7a 2. ledd bokstav a"
     }
   ]
 }

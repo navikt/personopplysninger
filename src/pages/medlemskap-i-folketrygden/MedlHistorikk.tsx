@@ -209,11 +209,13 @@ export const Periode = (props: PeriodeProps) => {
               hjelpetekstId={"medl.trygdedekning.hjelpetekst"}
             />
             <ListElement
+              className={"medl__land"}
               titleId="medl.lovvalgsland"
               content={periode.lovvalgsland}
               hjelpetekstId={"medl.lovvalgsland.hjelpetekst"}
             />
             <ListElement
+              className={"medl__land"}
               titleId="medl.statsborgerland"
               content={periode.studieinformasjon?.statsborgerland}
             />
