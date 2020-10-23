@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { fetchPostnummer } from "clients/apiClient";
 import { HTTPError } from "components/error/Error";
 import { Input } from "nav-frontend-skjema";
+import { useIntl } from "react-intl";
 
 interface Props {
   value?: string;
@@ -18,6 +19,7 @@ export interface Kode {
 }
 
 const SelectPostnummer = React.memo((props: Props) => {
+  const { formatMessage } = useIntl();
   const [loading, settLoading] = useState(true);
   const [postnummer, settPostnummer] = useState([] as Kode[]);
   const [fetchError, settFetchError] = useState<HTTPError | undefined>();
@@ -43,7 +45,7 @@ const SelectPostnummer = React.memo((props: Props) => {
     .shift();
 
   useEffect(() => {
-    const errorText = "Ugyldig postnummer";
+    const errorText = formatMessage({ id: "validation.postnummer.pakrevd" });
     if (error !== errorText && !poststed && !loading) {
       onErrors(errorText);
     }

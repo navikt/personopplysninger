@@ -257,7 +257,7 @@ export default {
     "The phone number can have a maximum of 16 numbers",
   "validation.tlfnr.eksisterer": "This phone number is already registered",
   "validation.retningsnr.pakrevd": "Area code is required",
-  "validation.postnummer.pakrevd": "Unit number is required",
+  "validation.postnummer.pakrevd": "Postal code number is required",
   "validation.postboksnummer.pakrevd": "Required",
   "validation.tomdato.pakrevd": "Valid date is required",
   "validation.tomdato.ugyldig": "Invalid date",
@@ -296,4 +296,7 @@ export default {
   "alternativer.utlevere.melding": merInfo.utlevere.melding,
   "alternativer.klage.tittel": merInfo.klage.tittel,
   "alternativer.klage.melding": merInfo.klage.melding,
+  "select.sok": "Search ...",
+  "select.loading": "Loading ...",
+  "select.no.hits": "No hits for",
 };
