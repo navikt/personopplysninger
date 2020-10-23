@@ -257,7 +257,7 @@ export default {
     "The phone number can have a maximum of 16 numbers",
   "validation.tlfnr.eksisterer": "This phone number is already registered",
   "validation.retningsnr.pakrevd": "Area code is required",
-  "validation.postnummer.pakrevd": "Postal code number is required",
+  "validation.postnummer.pakrevd": "Postal code is required",
   "validation.postboksnummer.pakrevd": "Required",
   "validation.tomdato.pakrevd": "Valid date is required",
   "validation.tomdato.ugyldig": "Invalid date",
