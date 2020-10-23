@@ -45,6 +45,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    // Reset forms dersom locale endrer seg
     dispatch({ type: "INCREASE_FORM_KEY" });
   }, [locale, dispatch]);
 
