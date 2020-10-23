@@ -49,7 +49,7 @@ const SelectPostnummer = React.memo((props: Props) => {
     if (error !== errorText && !poststed && !loading) {
       onErrors(errorText);
     }
-  }, [loading, error, onErrors, poststed]);
+  }, [loading, error, onErrors, poststed, formatMessage]);
 
   return (
     <div className="input-postnummer__container">
