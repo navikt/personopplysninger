@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useIntl } from "react-intl";
 import { useHistory, useLocation } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -36,11 +37,16 @@ export const basePath = "/person/personopplysninger";
 export const basePathWithLanguage = `${basePath}/(nb|en)`;
 
 const App = () => {
-  const [{ featureToggles }] = useStore();
+  const { locale } = useIntl();
+  const [{ featureToggles }, dispatch] = useStore();
 
   useEffect(() => {
     Modal.setAppElement("#app");
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: "INCREASE_FORM_KEY" });
+  }, [locale, dispatch]);
 
   configureAnchors({
     offset: -65,

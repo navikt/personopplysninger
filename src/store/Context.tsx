@@ -22,6 +22,7 @@ export const StoreProvider = (props: Props) => {
     : "nb") as Locale;
 
   const initialState = {
+    formKey: 0,
     locale: initialLocale,
     nameInfo: { status: "LOADING" } as FetchNameInfo,
     featureToggles: {

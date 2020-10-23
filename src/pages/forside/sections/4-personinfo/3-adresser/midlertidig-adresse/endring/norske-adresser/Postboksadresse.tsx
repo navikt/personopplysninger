@@ -49,7 +49,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
-  const [, dispatch] = useStore();
+  const [{ formKey }, dispatch] = useStore();
 
   // Finn postboksnummer
   // Eks "Postboks 12 Sørstranda" -> "12"
@@ -168,11 +168,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
 
   return (
     <FormValidation
+      key={formKey}
       onSubmit={submit}
       config={formConfig}
       initialValues={initialValues}
     >
-      {({ errors, fields, submitted, isValid, setField, setError }) => {
+      {({ errors, fields, submitted, isValid, setField, setError, submit }) => {
         return (
           <>
             <div className="adresse__rad">

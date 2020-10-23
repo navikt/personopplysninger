@@ -16,6 +16,7 @@ import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
+import { useStore } from "../../../../../../../store/Context";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -75,6 +76,7 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const { formatMessage: msg } = useIntl();
+  const [{ formKey }] = useStore();
   const { utenlandskbank } = props;
 
   /*
@@ -187,7 +189,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   };
 
   return (
-    <Validation config={formConfig} initialValues={initialValues}>
+    <Validation key={formKey} config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => (
         <>
           <div className="utbetalinger__alert">

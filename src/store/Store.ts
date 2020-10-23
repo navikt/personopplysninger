@@ -21,6 +21,7 @@ export interface FeatureToggles {
 export type Locale = "nb" | "en";
 
 export interface Store {
+  formKey: number;
   locale: Locale;
   nameInfo: FetchNameInfo;
   featureToggles: FetchFeatureToggles;
@@ -96,6 +97,9 @@ export type Action =
   | {
       type: "SETT_MEDL_INFO_ERROR";
       payload: HTTPError;
+    }
+  | {
+      type: "INCREASE_FORM_KEY";
     };
 
 export const reducer = (state: Store, action: Action) => {
@@ -224,6 +228,11 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload,
         } as FetchMedlInfo,
+      };
+    case "INCREASE_FORM_KEY":
+      return {
+        ...state,
+        formKey: state.formKey + 1,
       };
     default:
       return state;
