@@ -104,7 +104,7 @@ export const setUpMock = async () => {
 };
 
 const delay = (min: number, max: number) => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     setTimeout(resolve, Math.random() * (max - min) + min);
   });
 };
