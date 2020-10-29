@@ -22,6 +22,7 @@ import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import MedlDetaljer from "./pages/medlemskap-i-folketrygden/MedlDetaljer";
+import Alert from "./components/alert/Alert";
 
 const redirects: {
   [key: string]: {
@@ -56,6 +57,7 @@ const App = () => {
   return (
     <div className="pagecontent">
       <div className="wrapper">
+        <Alert type={"feil"} code={0} text={"Vi har for tiden tekniske problemer med å vise utenlandske kontonumre. Vi jobber med å rette feilen."} />
         <Router>
           <WithAuth>
             <WithFeatureToggles>
