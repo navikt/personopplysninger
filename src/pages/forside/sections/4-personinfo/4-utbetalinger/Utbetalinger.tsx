@@ -93,6 +93,7 @@ const Utbetalinger = (props: Props) => {
             <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
           </div>
         )}
+        <Alert type={"feil"} code={0} text={"Vi har for tiden tekniske problemer med å vise utenlandske kontonumre. Vi jobber med å rette feilen."} />
       </>
       {opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>
