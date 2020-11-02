@@ -1,20 +1,17 @@
 import "./polyfills";
 import React from "react";
 import ReactDOM from "react-dom";
-import { IntlProvider } from "react-intl";
 import { StoreProvider } from "./store/Context";
 import * as serviceWorker from "./service-worker";
-import { initialState, reducer } from "./store/Store";
-import messages from "./text/nb";
 import header from "./clients/apiMock/decorator/decorator-header";
 import footer from "./clients/apiMock/decorator/decorator-footer";
 import scripts from "./clients/apiMock/decorator/decorator-scripts";
 import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
 import { extraValidators } from "./utils/validators";
-import App from "./App";
+import WithLanguages from "./store/providers/Language";
 
-const browserLanguage = "nb";
+import App from "./App";
 
 const init = async () => {
   if (process.env.NODE_ENV === "development") {
@@ -43,13 +40,13 @@ const init = async () => {
   }
 
   ReactDOM.render(
-    <IntlProvider locale={browserLanguage} messages={messages}>
+    <StoreProvider>
       <ValidatorsProvider validators={extraValidators}>
-        <StoreProvider initialState={initialState} reducer={reducer}>
+        <WithLanguages>
           <App />
-        </StoreProvider>
+        </WithLanguages>
       </ValidatorsProvider>
-    </IntlProvider>,
+    </StoreProvider>,
     document.getElementById("app")
   );
   serviceWorker.unregister();

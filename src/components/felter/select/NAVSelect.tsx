@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
+import { useIntl } from "react-intl";
 import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
@@ -47,6 +48,7 @@ const DropdownIndicator = (props: any) => (
 );
 
 const NAVSelect = React.memo((props: Props) => {
+  const { formatMessage } = useIntl();
   const controlClasses = cls({
     "KodeverkSelect__control-feil": props.submitted && props.error,
   });
@@ -138,10 +140,12 @@ const NAVSelect = React.memo((props: Props) => {
         <Select
           value={value}
           label={props.label}
-          placeholder="Søk..."
+          placeholder={formatMessage({ id: "select.sok" })}
           classNamePrefix="KodeverkSelect"
-          loadingMessage={() => "Laster inn..."}
-          noOptionsMessage={(v) => `Ingen treff funnet for ${v.inputValue}...`}
+          loadingMessage={() => formatMessage({ id: "select.loading" })}
+          noOptionsMessage={(v) =>
+            `${formatMessage({ id: "select.no.hits" })} ${v.inputValue}...`
+          }
           className={controlClasses}
           cacheOptions={true}
           openMenuOnClick={props.openMenuOnClick}

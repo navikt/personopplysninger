@@ -30,7 +30,7 @@ const OpprettTelefonnummer = (props: Props) => {
   const [loading, settLoading] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
   const { prioritet, tlfnr, onChangeSuccess } = props;
-  const [, dispatch] = useStore();
+  const [{ formKey }, dispatch] = useStore();
 
   const initialValues = {
     landskode: {
@@ -96,6 +96,7 @@ const OpprettTelefonnummer = (props: Props) => {
   return (
     <>
       <FormValidation
+        key={formKey}
         onSubmit={submit}
         config={formConfig as FieldsConfig}
         initialValues={initialValues}

@@ -49,7 +49,7 @@ const Header = () => {
                     values={{
                       a: (text: String) => (
                         <Lenke
-                          href="https://www.nav.no/personvern"
+                          href="/personvern"
                           target="blank"
                           rel="noopener noreferrer"
                         >
