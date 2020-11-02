@@ -51,7 +51,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
   const { utenlandskPostboksadresse, settOpprettEllerEndre } = props;
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
-  const [, dispatch] = useStore();
+  const [{ formKey }, dispatch] = useStore();
   const { formatMessage: msg } = useIntl();
 
   // Finn postboksanlegg
@@ -168,6 +168,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
 
   return (
     <FormValidation
+      key={formKey}
       onSubmit={submit}
       config={formConfig}
       initialValues={initialValues}

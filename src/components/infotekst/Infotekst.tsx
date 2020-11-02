@@ -61,7 +61,7 @@ function Infotekst(props: HjelpetekstProps) {
                     <span style={{ textTransform: "none" }}>{text}</span>
                   ),
                   lenkeAaRegisteret: (text: string) => (
-                    <Lenke href="https://www.nav.no/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
+                    <Lenke href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
                       {text}
                     </Lenke>
                   ),

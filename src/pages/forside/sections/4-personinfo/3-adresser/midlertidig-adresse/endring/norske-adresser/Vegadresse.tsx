@@ -58,7 +58,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
   const [alert, settAlert] = useState<AlertType | undefined>();
   const [loading, settLoading] = useState<boolean>();
   const { formatMessage: msg } = useIntl();
-  const [, dispatch] = useStore();
+  const [{ formKey }, dispatch] = useStore();
 
   const initialValues: FormFields = {
     coType: initialCoType(vegadresse?.coAdressenavn),
@@ -161,6 +161,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
 
   return (
     <FormValidation
+      key={formKey}
       onSubmit={submit}
       config={formConfig}
       initialValues={initialValues}

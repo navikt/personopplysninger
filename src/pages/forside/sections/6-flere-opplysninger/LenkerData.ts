@@ -6,14 +6,16 @@ import dineSaker from "assets/img/DineSaker.svg";
 
 const { REACT_APP_TJENESTER_URL } = process.env;
 
-export default [
+export default (locale: string) => [
   {
     id: "dine-saker",
     tittel: "lenker.dinesaker.tittel",
     beskrivelse: "lenker.dinesaker.beskrivelse",
     lenkeTekst: "lenker.dinesaker.lenkeTekst",
-    url: `${REACT_APP_TJENESTER_URL}/saksoversikt/app`,
-    icon: dineSaker
+    url: `${REACT_APP_TJENESTER_URL}/saksoversikt/${
+      locale === "en" ? "?lang=en" : ""
+    }`,
+    icon: dineSaker,
   },
   {
     id: "utbetalinger",
@@ -21,7 +23,7 @@ export default [
     beskrivelse: "lenker.utbetalinger.beskrivelse",
     lenkeTekst: "lenker.utbetalinger.lenkeTekst",
     url: `${REACT_APP_TJENESTER_URL}/utbetalingsoversikt`,
-    icon: utbetalinger
+    icon: utbetalinger,
   },
   {
     id: "sykefravaer",
@@ -29,7 +31,7 @@ export default [
     beskrivelse: "lenker.sykefravaer.beskrivelse",
     lenkeTekst: "lenker.sykefravaer.lenkeTekst",
     url: `${REACT_APP_TJENESTER_URL}/sykefravaer`,
-    icon: sykefravaer
+    icon: sykefravaer,
   },
   {
     id: "cv",
@@ -37,7 +39,7 @@ export default [
     beskrivelse: "lenker.cv.beskrivelse",
     lenkeTekst: "lenker.cv.lenkeTekst",
     url: "https://arbeidsplassen.nav.no/personinnstillinger",
-    icon: jobbsok
+    icon: jobbsok,
   },
   {
     id: "pensjonsopptjening",
@@ -45,6 +47,6 @@ export default [
     beskrivelse: "lenker.pensjon.beskrivelse",
     lenkeTekst: "lenker.pensjon.lenkeTekst",
     url: `${REACT_APP_TJENESTER_URL}/pselv/publisering/dinpensjon.jsf`,
-    icon: pensjon
-  }
+    icon: pensjon,
+  },
 ];

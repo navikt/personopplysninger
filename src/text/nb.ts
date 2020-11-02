@@ -255,7 +255,7 @@ export default {
   "validation.tlfnr.makslengde": "Telefonnummeret kan ha maksimalt 16 tall",
   "validation.tlfnr.eksisterer": "Dette telefonnummeret er allerede registrert",
   "validation.retningsnr.pakrevd": "Retningsnummer er nødvendig",
-  "validation.postnummer.pakrevd": "Bolignummer er nødvendig",
+  "validation.postnummer.pakrevd": "Postnummer er nødvendig",
   "validation.postboksnummer.pakrevd": "Nødvendig",
   "validation.tomdato.pakrevd": "Gyldig dato er nødvendig",
   "validation.tomdato.ugyldig": "Ugyldig dato",
@@ -294,4 +294,7 @@ export default {
   "alternativer.utlevere.melding": merInfo.utlevere.melding,
   "alternativer.klage.tittel": merInfo.klage.tittel,
   "alternativer.klage.melding": merInfo.klage.melding,
+  "select.sok": "Sok ...",
+  "select.loading": "Laster inn ...",
+  "select.no.hits": "Ingen treff funnet for",
 };
