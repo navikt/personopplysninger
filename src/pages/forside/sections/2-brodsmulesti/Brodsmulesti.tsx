@@ -53,7 +53,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
   useEffect(() => {
     const baseBreadcrumbs = [
       {
-        url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+        url: `${process.env.REACT_APP_DITT_NAV_URL}`,
         title: formatMessage({ id: "brodsmulesti.dittnav" }),
       },
       {
