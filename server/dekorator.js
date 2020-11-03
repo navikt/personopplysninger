@@ -23,7 +23,7 @@ const getDecorator = () =>
         process.env.DECORATOR_URL
       }/?redirectToApp=true&level=Level4&breadcrumbs=${JSON.stringify([
         {
-          url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+          url: `${process.env.REACT_APP_DITT_NAV_URL}`,
           title: "Ditt NAV",
         },
         {
