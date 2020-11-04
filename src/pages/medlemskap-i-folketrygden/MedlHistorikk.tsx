@@ -47,7 +47,9 @@ const Perioder = (props: PerioderProps) => {
     window.scrollTo(0, 0);
   }, []);
 
-  const medMedlemskap = perioder.filter((periode) => periode.medlem);
+  const medMedlemskap = perioder.filter(
+    (periode) => periode.medlem && !periode.studieinformasjon
+  );
   const utenMedlemskap = perioder.filter((periode) => !periode.medlem);
   const fraLanekassen = perioder.filter((periode) => periode.studieinformasjon);
 
@@ -220,6 +222,7 @@ export const Periode = (props: PeriodeProps) => {
               content={periode.studieinformasjon?.statsborgerland}
             />
             <ListElement
+              className={"medl__land"}
               titleId="medl.studieland"
               content={periode.studieinformasjon?.studieland}
             />
