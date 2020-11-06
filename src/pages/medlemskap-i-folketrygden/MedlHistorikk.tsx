@@ -52,6 +52,10 @@ const Perioder = (props: PerioderProps) => {
   );
   const utenMedlemskap = perioder.filter((periode) => !periode.medlem);
   const fraLanekassen = perioder.filter((periode) => periode.studieinformasjon);
+  const ingenPerioder =
+    medMedlemskap.length === 0 &&
+    utenMedlemskap.length === 0 &&
+    fraLanekassen.length === 0;
 
   return (
     <div className="medl__tabs-innhold">
@@ -93,7 +97,11 @@ const Perioder = (props: PerioderProps) => {
             id={`medl.folketrygden.ingress`}
             values={{
               lenkeTilFolketrygden: (text: string) => (
-                <Lenke href={"$"}>{text}</Lenke>
+                <Lenke
+                  href={`/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden`}
+                >
+                  {text}
+                </Lenke>
               ),
             }}
           />
@@ -115,24 +123,34 @@ const Perioder = (props: PerioderProps) => {
           <FormattedMessage id={"medl.perioder.alert"} />
         </AlertStripeInfo>
       </div>
-      <Panel
-        tittelId={"medl.medlemskap.med.tittel"}
-        tittelIdIngress={`medl.medlemskap.med.ingress`}
-        tittelIdIngenData={"medl.ingendata"}
-        perioder={medMedlemskap}
-      />
-      <Panel
-        tittelId={"medl.medlemskap.uten.tittel"}
-        tittelIdIngress={`medl.medlemskap.uten.ingress`}
-        tittelIdIngenData={"medl.ingendata"}
-        perioder={utenMedlemskap}
-      />
-      <Panel
-        tittelId={"medl.medlemskap.lanekassen.tittel"}
-        tittelIdIngress={`medl.medlemskap.lanekassen.ingress`}
-        tittelIdIngenData={"medl.ingendata"}
-        perioder={fraLanekassen}
-      />
+      {medMedlemskap.length > 0 ? (
+        <Panel
+          tittelId={"medl.medlemskap.med.tittel"}
+          tittelIdIngress={`medl.medlemskap.med.ingress`}
+          perioder={medMedlemskap}
+        />
+      ) : null}
+      {utenMedlemskap.length > 0 ? (
+        <Panel
+          tittelId={"medl.medlemskap.uten.tittel"}
+          tittelIdIngress={`medl.medlemskap.uten.ingress`}
+          perioder={utenMedlemskap}
+        />
+      ) : null}
+      {fraLanekassen.length > 0 ? (
+        <Panel
+          tittelId={"medl.medlemskap.lanekassen.tittel"}
+          tittelIdIngress={`medl.medlemskap.lanekassen.ingress`}
+          perioder={fraLanekassen}
+        />
+      ) : null}
+      {ingenPerioder && (
+        <div className={"medl__space"}>
+          <AlertStripeInfo>
+            <FormattedMessage id={"medl.ingendata"} />
+          </AlertStripeInfo>
+        </div>
+      )}
     </div>
   );
 };
@@ -140,13 +158,12 @@ const Perioder = (props: PerioderProps) => {
 interface TabellProps {
   tittelId: string;
   tittelIdIngress: string;
-  tittelIdIngenData: string;
   perioder: MedlInnslag[];
 }
 
 const Panel = (props: TabellProps) => {
   const { perioder } = props;
-  const { tittelId, tittelIdIngress, tittelIdIngenData } = props;
+  const { tittelId, tittelIdIngress } = props;
   return (
     <Ekspanderbartpanel
       tittel={<FormattedMessage id={tittelId} />}
@@ -157,15 +174,9 @@ const Panel = (props: TabellProps) => {
         <FormattedMessage id={tittelIdIngress} />
       </Normaltekst>
       <div className={"medl__flex-table "}>
-        {perioder.length > 0 ? (
-          perioder.map((periode, i) => <Periode key={i} periode={periode} />)
-        ) : (
-          <div className="medl__ingen-data">
-            <AlertStripeInfo>
-              <FormattedMessage id={tittelIdIngenData} />
-            </AlertStripeInfo>
-          </div>
-        )}
+        {perioder.map((periode, i) => (
+          <Periode key={i} periode={periode} />
+        ))}
       </div>
     </Ekspanderbartpanel>
   );

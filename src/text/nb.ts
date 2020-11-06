@@ -135,7 +135,7 @@ export default {
   "skattetrekksmeldinger.ingendata":
     "Ingen skattetrekksmeldinger har blitt innhentet",
   "medl.tittel": `Medlemskap og unntak fra <br></br> medlemskap i folketrygden`,
-  "medl.ingendata": `Ingen registrerte innslag`,
+  "medl.ingendata": `Ingen registrerte perioder`,
   "medl.oversikt.ingress": `Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har`,
   "medl.oversikt.1": `bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det`,
   "medl.oversikt.2": `jobbet i Norge, men var med i trygdeordningen i et annet land`,
