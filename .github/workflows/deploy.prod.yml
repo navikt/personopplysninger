@@ -14,23 +14,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          echo ::set-env name=CI::true
-          echo ::set-env name=IMAGE_REGISTRY::docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})
-          echo ::set-env name=IMAGE_NAME::$(echo ${GITHUB_REPOSITORY##*/})
-          echo ::set-env name=IMAGE_VERSION::$(echo ${GITHUB_WORKFLOW})-$(echo ${GITHUB_SHA})
-          echo ::set-env name=GITHUB_TOKEN::$(echo ${GITHUB_TOKEN})
+          echo "CI=true" >> $GITHUB_ENV
+          echo "IMAGE_REGISTRY=docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})" >> $GITHUB_ENV
+          echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
+          echo "IMAGE_VERSION=$(echo ${GITHUB_WORKFLOW})-$(echo ${GITHUB_SHA})" >> $GITHUB_ENV
+          echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
-          echo ::set-env name=REACT_APP_MILJO::PROD
-          echo ::set-env name=REACT_APP_PDL_URL::https://www.nav.no/person/pdl-fullmakt-ui
-          echo ::set-env name=REACT_APP_BFT_URL::https://www.nav.no/person/behov-for-tilrettelegging
-          echo ::set-env name=REACT_APP_SKJERMING_URL::https://www.nav.no/person/personopplysninger/skjerming
-          echo ::set-env name=REACT_APP_URL::https://www.nav.no/person/personopplysninger
-          echo ::set-env name=REACT_APP_API_URL::https://www.nav.no/person/personopplysninger-api
-          echo ::set-env name=REACT_APP_DSOP_URL::https://www.nav.no/person/dsop-api
-          echo ::set-env name=REACT_APP_TJENESTER_URL::https://tjenester.nav.no
-          echo ::set-env name=REACT_APP_LOGIN_URL::https://loginservice.nav.no/login
-          echo ::set-env name=REACT_APP_DITT_NAV_URL::https://www.nav.no/person/dittnav
+          echo "REACT_APP_MILJO=PROD" >> $GITHUB_ENV
+          echo "REACT_APP_PDL_URL=https://www.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
+          echo "REACT_APP_BFT_URL=https://www.nav.no/person/behov-for-tilrettelegging" >> $GITHUB_ENV
+          echo "REACT_APP_SKJERMING_URL=https://www.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
+          echo "REACT_APP_URL=https://www.nav.no/person/personopplysninger" >> $GITHUB_ENV
+          echo "REACT_APP_API_URL=https://www.nav.no/person/personopplysninger-api" >> $GITHUB_ENV
+          echo "REACT_APP_DSOP_URL=https://www.nav.no/person/dsop-api" >> $GITHUB_ENV
+          echo "REACT_APP_TJENESTER_URL=https://tjenester.nav.no" >> $GITHUB_ENV
+          echo "REACT_APP_LOGIN_URL=https://loginservice.nav.no/login" >> $GITHUB_ENV
+          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/person/dittnav" >> $GITHUB_ENV
       - uses: actions/cache@v1
         with:
           path: ~/.npm
