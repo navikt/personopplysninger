@@ -199,7 +199,7 @@ export const Periode = (props: PeriodeProps) => {
   const { periode } = props;
   return (
     <div className="medl__flex-rad">
-      <div className="medl__flex-kolonne ">
+      <div className="medl__flex-kolonne">
         <div className={"medl__heading"}>
           <img className={"medl__kalender"} src={Kalender} alt="Kalenderikon" />
           <Element>
