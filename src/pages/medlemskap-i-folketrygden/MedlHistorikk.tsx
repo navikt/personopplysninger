@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { MedlInfo, MedlInnslag } from "types/medl";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import PageContainer from "components/pagecontainer/PageContainer";
 import MEDLIkon from "assets/img/MEDL.svg";
 import Kalender from "assets/img/Kalender.svg";
@@ -41,6 +41,7 @@ interface PerioderProps {
 
 const Perioder = (props: PerioderProps) => {
   const { medlInfo } = props;
+  const { locale } = useIntl();
   const perioder = medlInfo?.perioder || [];
 
   useEffect(() => {
@@ -56,6 +57,11 @@ const Perioder = (props: PerioderProps) => {
     medMedlemskap.length === 0 &&
     utenMedlemskap.length === 0 &&
     fraLanekassen.length === 0;
+
+  const lenkerTilFolketrygden: { [key: string]: string } = {
+    nb: `/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden`,
+    en: `/en/home/rules-and-regulations/membership-of-the-national-insurance-scheme`,
+  };
 
   return (
     <div className="medl__tabs-innhold">
@@ -97,11 +103,7 @@ const Perioder = (props: PerioderProps) => {
             id={`medl.folketrygden.ingress`}
             values={{
               lenkeTilFolketrygden: (text: string) => (
-                <Lenke
-                  href={`/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden`}
-                >
-                  {text}
-                </Lenke>
+                <Lenke href={lenkerTilFolketrygden[locale]}>{text}</Lenke>
               ),
             }}
           />
