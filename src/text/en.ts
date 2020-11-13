@@ -142,7 +142,7 @@ export default {
   "medl.situasjoner.tittel": `Different scenarios`,
   "medl.situasjoner.1": `If you move abroad to live or work, membership in the National Insurance Scheme depends on what you do and how long you stay.`,
   "medl.situasjoner.2": `Norwegian students will normally be compulsory members of the National Insurance Scheme, if they receive funding from the State Educational Loan Fund (Lånekassen) to study at universities abroad.`,
-  "medl.situasjoner.3": `If you live in a different country, but work full time or part time in Norway, you may join the national insurance scheme in a the country you live and be exempt from membership in the National Insurance Scheme in Norway.`,
+  "medl.situasjoner.3": `If you live in a different country, but work full time or part time in Norway, you may join the national insurance scheme in the country you live and be exempt from membership in the National Insurance Scheme in Norway.`,
   "medl.folketrygden.tittel":
     "What does membership in the National Insurance Scheme mean?",
   "medl.folketrygden.ingress": `Membership in the National Insurance Scheme is the key to eligibility for rights to services from NAV. <lenkeTilFolketrygden> Read about membership in the National Insurance Scheme</lenkeTilFolketrygden>. Contact NAV if you have questions about periods with membership or exemptions from membership in the National Insurance Scheme, telephone (+47) 21 07 37 00.`,
