@@ -38,9 +38,8 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
       res.render("index.html", fragments);
     })
     .catch((e) => {
-      const error = `Failed to get decorator: ${e}`;
-      logger.error(error);
-      res.status(500).send(error);
+      logger.error(e);
+      res.status(500).send(e);
     })
 );
 

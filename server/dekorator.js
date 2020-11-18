@@ -15,8 +15,8 @@ const cache = new NodeCache({
 
 const params = {
   enforcedLogin: true,
-  redirectToApp: true,
   level: "Level4",
+  redirectToApp: true,
   breadcrumbs: [
     { url: `${process.env.REACT_APP_DITT_NAV_URL}`, title: "Ditt NAV" },
     { url: `${process.env.REACT_APP_URL}`, title: "Personopplysninger" },
@@ -33,8 +33,6 @@ const getDecorator = () =>
         .map(([key, value], i) => `${key}=${JSON.stringify(value)}`)
         .join("&")}`;
 
-      console.log(url);
-
       request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
           const { document } = new JSDOM(body).window;
@@ -49,7 +47,8 @@ const getDecorator = () =>
           logger.info(`Creating cache`);
           resolve(data);
         } else {
-          reject(new Error(error));
+          const errorData = `url: ${url}, error: ${error}, body: ${body}`;
+          reject(new Error(`Failed to fetch decorator - ${errorData}`));
         }
       });
     }
