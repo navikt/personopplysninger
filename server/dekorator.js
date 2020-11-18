@@ -29,9 +29,9 @@ const getDecorator = () =>
     if (decorator) {
       resolve(decorator);
     } else {
-      const url = `${process.env.DECORATOR_URL}/?${Object.entries(params).map(
-        ([key, value], i) => `${key}=${JSON.stringify(value)}&`
-      )}`;
+      const url = `${process.env.DECORATOR_URL}/?${Object.entries(params)
+        .map(([key, value], i) => `${key}=${JSON.stringify(value)}`)
+        .join("&")}`;
 
       request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
