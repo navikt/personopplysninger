@@ -20,7 +20,7 @@ const getDecorator = () =>
       resolve(cacheData);
     } else {
       const params = {
-        enforcedLogin: true,
+        enforceLogin: true,
         level: "Level4",
         redirectToApp: true,
         breadcrumbs: JSON.stringify([
