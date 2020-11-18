@@ -30,7 +30,7 @@ const getDecorator = () =>
       resolve(decorator);
     } else {
       const url = `${process.env.DECORATOR_URL}/?${Object.entries(params)
-        .map(([key, value], i) => `${key}=${encodeURI(value)}`)
+        .map(([key, value], i) => `${key}=${JSON.stringify(value)}`)
         .join("&")}`;
 
       request(url, (error, response, body) => {
