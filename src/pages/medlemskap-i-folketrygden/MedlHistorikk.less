@@ -1,12 +1,33 @@
-.historikk {
+.medl {
   &__flex-table {
     max-width: 100%;
     border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  &__heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  &__space {
+    margin: 1rem 0;
+  }
+  &__section {
+    margin: 3rem 0 1rem 0;
+  }
+  &__checkbox {
+    display: flex;
+    flex-direction: row;
+  }
+  &__kalender {
+    min-width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
   }
   &__flex-rad {
-    border-bottom: 1px solid #979797;
+    border-top: 1px solid #979797;
     display: flex;
-    padding: 0.25rem 0;
+    padding: 0.5rem 0;
     @media @minDesktop, @maxTablet {
       flex-direction: row;
     }
@@ -18,6 +39,9 @@
     padding: 0.25rem 0;
     flex-basis: 100%;
   }
+  &__flex-grid {
+    margin-left: 2rem;
+  }
   &__tabs-innhold {
     @media @minMobile {
       padding: 1rem 2rem;
@@ -28,5 +52,11 @@
   }
   &__info {
     margin-bottom: 1rem;
+  }
+  &__land {
+    text-transform: lowercase;
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 }

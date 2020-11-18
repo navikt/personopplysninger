@@ -1,16 +1,19 @@
 export interface MedlInnslag {
-  unntakId: number;
-  ident: string;
   fraOgMed: string;
-  tilOgMed: string;
-  status: "Avvist" | "Gyldig" | "Uavklart";
-  statusaarsak: string;
-  dekning: string;
-  helsedel: boolean;
-  medlem: boolean;
+  hjemmel: string;
+  kilde: string;
   lovvalgsland: string;
-  lovvalg: "Endelig" | "Foreløpig" | "Under avklaring";
-  grunnlag: string;
+  medlem: boolean;
+  studieinformasjon?: Studieinformasjon;
+  tilOgMed: string;
+  trygdedekning: string;
 }
 
-export type MedlInfo = MedlInnslag[];
+export interface Studieinformasjon {
+  statsborgerland: string;
+  studieland: string;
+}
+
+export type MedlInfo = {
+  perioder: MedlInnslag[];
+};

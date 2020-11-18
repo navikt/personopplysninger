@@ -2,6 +2,7 @@ import React from "react";
 import { Input } from "nav-frontend-skjema";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { useIntl } from "react-intl";
+import { useStore } from "../../../../../../store/Context";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -18,6 +19,7 @@ interface Fields {
 
 const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const { formatMessage: msg } = useIntl();
+  const [{ formKey }] = useStore();
   const { kontonummer } = props;
 
   const initialValues: Fields = {
@@ -46,7 +48,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   };
 
   return (
-    <Validation config={formConfig} initialValues={initialValues}>
+    <Validation key={formKey} config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => (
         <>
           <div className="utbetalinger__input input--m">

@@ -42,7 +42,7 @@ const EndreTelefonnummer = (props: Props) => {
   const [endre, settEndre] = useState(false);
   const [alert, settAlert] = useState<AlertType | undefined>();
   const { formatMessage: msg } = useIntl();
-  const [, dispatch] = useStore();
+  const [{ formKey }, dispatch] = useStore();
 
   const initialValues = {
     tlfnummer: tlfnummer,
@@ -138,6 +138,7 @@ const EndreTelefonnummer = (props: Props) => {
 
   return tlfnummer ? (
     <FormValidation
+      key={formKey}
       config={formConfig}
       onSubmit={submitEndre}
       className={"tlfnummer__rad"}

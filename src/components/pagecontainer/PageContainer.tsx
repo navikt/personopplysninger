@@ -31,7 +31,10 @@ const PageContainer = (props: Props) => {
         </div>
         <div className="da__overskrift">
           <Systemtittel>
-            <FormattedMessage id={props.tittelId} />
+            <FormattedMessage
+              id={props.tittelId}
+              values={{ br: () => <br /> }}
+            />
           </Systemtittel>
         </div>
         <div className="da__filler" />

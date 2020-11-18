@@ -39,8 +39,11 @@ export const initialState = {
   skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
   medlInfo: { status: "LOADING" } as FetchMedlInfo,
 };
+export type Locale = "nb" | "en";
 
 export interface Store {
+  formKey: number;
+  locale: Locale;
   authInfo: FetchAuth;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
@@ -53,8 +56,16 @@ export interface Store {
 
 export type Action =
   | {
+    type: "SETT_LOCALE";
+    payload: Locale;
+  }
+  | {
       type: "SETT_AUTH_RESULT";
       payload: Auth;
+    }
+  | {
+      type: "SETT_NAME_RESULT";
+      payload: NameInfo;
     }
   | {
       type: "SETT_NAME_ERROR";
@@ -111,10 +122,18 @@ export type Action =
   | {
       type: "SETT_MEDL_INFO_ERROR";
       payload: HTTPError;
+    }
+  | {
+      type: "INCREASE_FORM_KEY";
     };
 
 export const reducer = (state: Store, action: Action) => {
   switch (action.type) {
+    case "SETT_LOCALE":
+      return {
+        ...state,
+        locale: action.payload,
+      };
     case "SETT_AUTH_RESULT":
       return {
         ...state,
@@ -234,6 +253,11 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload,
         } as FetchMedlInfo,
+      };
+    case "INCREASE_FORM_KEY":
+      return {
+        ...state,
+        formKey: state.formKey + 1,
       };
     default:
       return state;

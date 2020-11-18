@@ -54,5 +54,34 @@ services:
     depends_on:
       - mocks
 
+  arbeidsforhold-api:
+    container_name: arbeidsforhold-api
+    image: "navikt/arbeidsforhold-api:5ae21ce5-987b-4da2-8027-077c93564195-v1.0.17"
+    ports:
+      - "8096:8080"
+    environment:
+      APP_LOG_HOME: "target/log"
+      contextName: "arbeidsforhold-api"
+      AAD_B2C_ISSUER: "https://localhost:9000"
+      AAD_B2C_CLIENTID_USERNAME: "stubOidcClient"
+      AAD_B2C_DISCOVERY_URL: "http://oidc-provider:9000/.well-known/openid-configuration"
+      KODEVERK_REST_API_URL: "http://mocks:8080/kodeverk/api/"
+      ARBEIDSFORHOLD_API_KODEVERK_REST_API_APIKEY_USERNAME: "x-nav-apiKey"
+      ARBEIDSFORHOLD_API_KODEVERK_REST_API_APIKEY_PASSWORD: "dummy-token"
+      EREG_API_URL: "http://mocks:8080/ereg/api/"
+      ARBEIDSFORHOLD_API_EREG_API_APIKEY_USERNAME: "x-nav-apiKey"
+      ARBEIDSFORHOLD_API_EREG_API_APIKEY_PASSWORD: "dummy-token"
+      SECURITY_TOKEN_SERVICE_TOKEN_URL: "http://mocks:8080/security-token-service/rest/v1/sts/token/"
+      ARBEIDSFORHOLD_API_SECURITY_TOKEN_SERVICE_TOKEN_APIKEY_USERNAME: "x-nav-apiKey"
+      ARBEIDSFORHOLD_API_SECURITY_TOKEN_SERVICE_TOKEN_APIKEY_PASSWORD: "dummy-token"
+      AAREG_API_URL: "http://mocks:8080/aareg-services/api/"
+      ARBEIDSFORHOLD_API_AAREG_API_APIKEY_USERNAME: "x-nav-apiKey"
+      ARBEIDSFORHOLD_API_AAREG_API_APIKEY_PASSWORD: "dummy-token"
+      SRVARBEIDSFORHOLD_API_USERNAME: "srvarbeidsforhold-"
+      SRVARBEIDSFORHOLD_API_PASSWORD: "dummy-password"
+    depends_on:
+      - oidc-provider
+      - mocks
+
 volumes:
   event-cache-data:

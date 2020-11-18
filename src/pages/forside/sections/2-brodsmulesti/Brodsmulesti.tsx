@@ -1,18 +1,17 @@
 import React, { useEffect } from "react";
 import { useIntl } from "react-intl";
 import { useLocation, useHistory } from "react-router-dom";
+import { setAvailableLanguages } from "@navikt/nav-dekoratoren-moduler";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import { onLanguageSelect } from "@navikt/nav-dekoratoren-moduler";
 import { onBreadcrumbClick } from "@navikt/nav-dekoratoren-moduler";
-import { basePath } from "../../../../App";
+import { basePath } from "App";
+import { useStore } from "store/Context";
+import { Locale } from "store/Store";
 
 export interface BrodsmuleLenke {
   title: string;
   path?: string;
-}
-
-interface BrodsmuleProps {
-  className?: string;
-  children: "" | JSX.Element | JSX.Element[];
 }
 
 interface BrodsmulestiProps {
@@ -20,6 +19,7 @@ interface BrodsmulestiProps {
 }
 
 const Brodsmulesti = (props: BrodsmulestiProps) => {
+  const [{ locale }, dispatch] = useStore();
   const { formatMessage } = useIntl();
   const location = useLocation();
   const history = useHistory();
@@ -29,15 +29,35 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
     history.push(breadcrumb.url);
   });
 
+  onLanguageSelect((language) => {
+    dispatch({ type: "SETT_LOCALE", payload: language.locale as Locale });
+    history.push(language.url);
+  });
+
+  useEffect(() => {
+    setAvailableLanguages([
+      {
+        url: `${location.pathname.replace("/en/", "/nb/")}`,
+        locale: "nb",
+        handleInApp: true,
+      },
+      {
+        url: `${location.pathname.replace("/nb/", "/en/")}`,
+        locale: "en",
+        handleInApp: true,
+      },
+    ]);
+  }, [location]);
+
   // Set breadcrumbs in decorator
   useEffect(() => {
     const baseBreadcrumbs = [
       {
-        url: `${process.env.REACT_APP_TJENESTER_URL}/dittnav`,
+        url: `${process.env.REACT_APP_DITT_NAV_URL}`,
         title: formatMessage({ id: "brodsmulesti.dittnav" }),
       },
       {
-        url: `${basePath}`,
+        url: `${basePath}/${locale}/`,
         title: formatMessage({ id: "brodsmulesti.dinepersonopplysninger" }),
         handleInApp: true,
       },
@@ -45,14 +65,14 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
 
     const appBreadcrumbs =
       hierarki?.map((lenke) => ({
-        url: `${basePath}${lenke.path || ""}`,
-        title: formatMessage({ id: lenke.title }),
+        url: `${basePath}/${locale}${lenke.path || ""}`,
+        title: formatMessage({ id: lenke.title }, { br: () => "" }),
         handleInApp: lenke.path?.includes("/") || false,
       })) || [];
 
     const breadcrumbs = baseBreadcrumbs.concat(appBreadcrumbs);
     setBreadcrumbs(breadcrumbs);
-  }, [formatMessage, hierarki, location]);
+  }, [formatMessage, hierarki, location, locale]);
 
   return <></>;
 };

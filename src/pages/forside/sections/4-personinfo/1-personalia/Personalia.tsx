@@ -20,7 +20,7 @@ class Personalia extends Component<Props> {
       statsborgerskap,
       foedested,
       sivilstand,
-      kjoenn
+      kjoenn,
     } = this.props.personalia;
 
     const personidentHeader =
@@ -37,7 +37,7 @@ class Personalia extends Component<Props> {
       personident && personident.verdi.length === 11
         ? {
             ...personident,
-            verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2")
+            verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2"),
           }
         : personident;
 

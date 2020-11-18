@@ -1,57 +1,154 @@
-[
-  {
-    "unntakId": 3402759,
-    "ident": "11111111111",
-    "fraOgMed": "2010-01-01",
-    "tilOgMed": "2011-01-01",
-    "status": "Gyldig",
-    "dekning": "Full",
-    "helsedel": true,
-    "medlem": false,
-    "lovvalgsland": "STORBRITANNIA",
-    "lovvalg": "Endelig",
-    "grunnlag": "Avtale - Storbritannia og Nord-Irland"
-  },
-  {
-    "unntakId": 3209005,
-    "ident": "11111111111",
-    "fraOgMed": "2012-01-01",
-    "tilOgMed": "2012-12-31",
-    "status": "Avvist",
-    "statusaarsak": "Avvist",
-    "dekning": "Folketrygdloven § 2-9, 1. ledd bokstav a",
-    "helsedel": true,
-    "medlem": false,
-    "lovvalgsland": "AFGHANISTAN",
-    "lovvalg": "Endelig",
-    "grunnlag": "Avtale - Australia"
-  },
-  {
-    "unntakId": 3295894,
-    "ident": "11111111111",
-    "fraOgMed": "2012-01-01",
-    "tilOgMed": "2013-12-14",
-    "status": "Uavklart",
-    "statusaarsak": "Feilregistrert",
-    "dekning": "Folketrygdloven § 2-9, annet ledd, jfr. 1. ledd bokstav a",
-    "helsedel": true,
-    "medlem": true,
-    "lovvalgsland": "NORGE",
-    "lovvalg": "Endelig",
-    "grunnlag": "Avtale - Storbritannia og Nord-Irland"
-  },
-  {
-    "unntakId": 3294706,
-    "ident": "10108000398",
-    "fraOgMed": "2012-01-01",
-    "tilOgMed": "2013-10-10",
-    "status": "Avvist",
-    "statusaarsak": "Feilregistrert",
-    "dekning": "Folketrygdloven § 2-6",
-    "helsedel": true,
-    "medlem": true,
-    "lovvalgsland": "NORGE",
-    "lovvalg": "Foreløpig",
-    "grunnlag": "Avtale - Storbritannia og Nord-Irland - 6.1"
-  }
-]
+{
+  "perioder": [
+    {
+      "fraOgMed": "2014-12-31",
+      "hjemmel": "EØS-forordning 883/2004",
+      "kilde": "NAV",
+      "lovvalgsland": "DANMARK",
+      "medlem": false,
+      "studieinformasjon": null,
+      "tilOgMed": "2015-01-01",
+      "trygdedekning": "Ikke medlem - eller unntatt fra medlemskap"
+    },
+    {
+      "fraOgMed": "2015-01-01",
+      "hjemmel": "Folketrygdloven",
+      "kilde": "NAV",
+      "lovvalgsland": "SVERIGE",
+      "medlem": false,
+      "studieinformasjon": null,
+      "tilOgMed": "2015-10-31",
+      "trygdedekning": "Ikke medlem - eller unntatt fra medlemskap"
+    },
+    {
+      "fraOgMed": "2015-12-09",
+      "hjemmel": "Trygdeavtale Australia",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2015-12-26",
+      "trygdedekning": "Helse -og pensjonsdel"
+    },
+    {
+      "fraOgMed": "2018-01-01",
+      "hjemmel": "Trygdeavtale Canada",
+      "kilde": "NAV",
+      "lovvalgsland": "CANADA",
+      "medlem": false,
+      "studieinformasjon": null,
+      "tilOgMed": "2018-12-31",
+      "trygdedekning": "Ikke pensjonsdel"
+    },
+    {
+      "fraOgMed": "2019-01-01",
+      "hjemmel": "Folketrygdloven",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-12-31",
+      "trygdedekning": "Helsedel"
+    },
+    {
+      "fraOgMed": "2019-01-01",
+      "hjemmel": "Trygdeavtale Canada",
+      "kilde": "NAV",
+      "lovvalgsland": "CANADA",
+      "medlem": false,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-02-01",
+      "trygdedekning": "Ikke pensjonsdel"
+    },
+    {
+      "fraOgMed": "2019-10-01",
+      "hjemmel": "Trygdeavtale",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-10-10",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2019-12-09",
+      "hjemmel": "Trygdeavtale Bosnia og Hecegovina",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2019-12-30",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-01-01",
+      "hjemmel": "Folketrygdloven",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2020-12-31",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-01-01",
+      "hjemmel": "Folketrygdloven",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2020-06-01",
+      "trygdedekning": "Helse -og pensjonsdel"
+    },
+    {
+      "fraOgMed": "2020-01-01",
+      "hjemmel": "EØS-forordning 883/2004",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2020-03-01",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-01-01",
+      "hjemmel": "EØS-forordning 883/2004",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2020-12-31",
+      "trygdedekning": "Full"
+    },
+    {
+      "fraOgMed": "2020-06-26",
+      "hjemmel": "Folketrygdloven",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2021-03-01",
+      "trygdedekning": "Helse -og pensjonsdel"
+    },
+    {
+      "fraOgMed": "2022-01-01",
+      "hjemmel": "Trygdeavtale Australia",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2023-12-19",
+      "trygdedekning": "Helse -og pensjonsdel"
+    },
+    {
+      "fraOgMed": "2022-01-01",
+      "hjemmel": "Trygdeavtale Australia",
+      "kilde": "NAV",
+      "lovvalgsland": "",
+      "medlem": true,
+      "studieinformasjon": null,
+      "tilOgMed": "2023-12-19",
+      "trygdedekning": "Helse -og pensjonsdel"
+    }
+  ]
+}
