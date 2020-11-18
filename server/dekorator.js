@@ -13,24 +13,24 @@ const cache = new NodeCache({
   checkperiod: SECONDS_PER_MINUTE,
 });
 
-const params = {
-  enforcedLogin: true,
-  level: "Level4",
-  redirectToApp: true,
-  breadcrumbs: [
-    { url: `${process.env.REACT_APP_DITT_NAV_URL}`, title: "Ditt NAV" },
-    { url: `${process.env.REACT_APP_URL}`, title: "Personopplysninger" },
-  ],
-};
-
 const getDecorator = () =>
   new Promise((resolve, reject) => {
-    const decorator = cache.get("main-cache");
-    if (decorator) {
-      resolve(decorator);
+    const cacheData = cache.get("main-cache");
+    if (cacheData) {
+      resolve(cacheData);
     } else {
+      const params = {
+        enforcedLogin: true,
+        level: "Level4",
+        redirectToApp: true,
+        breadcrumbs: JSON.stringify([
+          { url: `${process.env.REACT_APP_DITT_NAV_URL}`, title: "Ditt NAV" },
+          { url: `${process.env.REACT_APP_URL}`, title: "Personopplysninger" },
+        ]),
+      };
+
       const url = `${process.env.DECORATOR_URL}/?${Object.entries(params)
-        .map(([key, value], i) => `${key}=${JSON.stringify(value)}`)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&")}`;
 
       request(url, (error, response, body) => {
