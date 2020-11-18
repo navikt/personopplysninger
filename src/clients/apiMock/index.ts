@@ -2,7 +2,6 @@ import fetchMock from "fetch-mock";
 import personInformasjon from "./app/fetch/person-info.json";
 import kontaktInformasjon from "./app/fetch/kontakt-info.json";
 import featureToggles from "./app/fetch/feature-toggles.json";
-import name from "./app/fetch/name-info.json";
 import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";

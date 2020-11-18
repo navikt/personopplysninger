@@ -17,7 +17,13 @@ export interface FeatureToggles {
   [key: string]: boolean;
 }
 
+const initialLocale = (window.location.pathname.includes("/en")
+  ? "en"
+  : "nb") as Locale;
+
 export const initialState = {
+  formKey: 0,
+  locale: initialLocale,
   authInfo: { status: "LOADING" } as FetchAuth,
   featureToggles: {
     status: "LOADING",
@@ -56,19 +62,15 @@ export interface Store {
 
 export type Action =
   | {
-    type: "SETT_LOCALE";
-    payload: Locale;
-  }
+      type: "SETT_LOCALE";
+      payload: Locale;
+    }
   | {
       type: "SETT_AUTH_RESULT";
       payload: Auth;
     }
   | {
-      type: "SETT_NAME_RESULT";
-      payload: NameInfo;
-    }
-  | {
-      type: "SETT_NAME_ERROR";
+      type: "SETT_AUTH_ERROR";
       payload: HTTPError;
     }
   | {
@@ -142,7 +144,7 @@ export const reducer = (state: Store, action: Action) => {
           data: action.payload,
         } as FetchAuth,
       };
-    case "SETT_NAME_ERROR":
+    case "SETT_AUTH_ERROR":
       return {
         ...state,
         authInfo: {
