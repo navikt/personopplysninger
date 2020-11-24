@@ -6,7 +6,6 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
-import WithAuth from "./store/providers/Auth";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
@@ -23,6 +22,8 @@ import Modal from "react-modal";
 import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
+import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
+import { Auth } from "./types/authInfo";
 
 const redirects: {
   [key: string]: {
@@ -62,11 +63,15 @@ const App = () => {
     .map((key) => redirects[key].allowed)
     .join("|");
 
+  const authCallback = (auth: Auth) => {
+    dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
+  };
+
   return (
     <div className="pagecontent">
       <div className="wrapper">
         <Router>
-          <WithAuth>
+          <EnforceLoginLoader authCallback={authCallback}>
             <WithFeatureToggles>
               <RedirectAfterLogin>
                 <RedirectToLocale>
@@ -159,7 +164,7 @@ const App = () => {
                 </RedirectToLocale>
               </RedirectAfterLogin>
             </WithFeatureToggles>
-          </WithAuth>
+          </EnforceLoginLoader>
         </Router>
       </div>
     </div>

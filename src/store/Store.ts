@@ -2,8 +2,6 @@ import { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from "../types/personInfo";
 import { KontaktInfo } from "../types/kontaktInfo";
 import { HTTPError } from "../components/error/Error";
-import { NameInfo } from "../types/nameInfo";
-import { FetchNameInfo } from "./providers/Auth";
 import { FetchFeatureToggles } from "./providers/FeatureToggles";
 import { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
 import { DsopInfo } from "../types/dsop";
@@ -13,17 +11,46 @@ import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
 import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
+import { Auth, FetchAuth } from "../types/authInfo";
 
 export interface FeatureToggles {
   [key: string]: boolean;
 }
 
+const initialLocale = (window.location.pathname.includes("/en")
+  ? "en"
+  : "nb") as Locale;
+
+export const initialState = {
+  formKey: 0,
+  locale: initialLocale,
+  authInfo: { status: "LOADING" } as FetchAuth,
+  featureToggles: {
+    status: "LOADING",
+    data: {
+      "personopplysninger.pdl": false,
+      "personopplysninger.dsop": false,
+      "personopplysninger.inst": false,
+      "personopplysninger.skatt": false,
+      "personopplysninger.medl": false,
+      "personopplysninger.fullmakt": false,
+      "personopplysninger.tilrettelegging": false,
+      "pdl-fullmakt": false,
+    },
+  } as FetchFeatureToggles,
+  dsopInfo: { status: "LOADING" } as FetchDsopInfo,
+  instInfo: { status: "LOADING" } as FetchInstInfo,
+  personInfo: { status: "LOADING" } as FetchPersonInfo,
+  kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
+  skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
+  medlInfo: { status: "LOADING" } as FetchMedlInfo,
+};
 export type Locale = "nb" | "en";
 
 export interface Store {
   formKey: number;
   locale: Locale;
-  nameInfo: FetchNameInfo;
+  authInfo: FetchAuth;
   featureToggles: FetchFeatureToggles;
   personInfo: FetchPersonInfo;
   dsopInfo: FetchDsopInfo;
@@ -39,11 +66,11 @@ export type Action =
       payload: Locale;
     }
   | {
-      type: "SETT_NAME_RESULT";
-      payload: NameInfo;
+      type: "SETT_AUTH_RESULT";
+      payload: Auth;
     }
   | {
-      type: "SETT_NAME_ERROR";
+      type: "SETT_AUTH_ERROR";
       payload: HTTPError;
     }
   | {
@@ -109,21 +136,21 @@ export const reducer = (state: Store, action: Action) => {
         ...state,
         locale: action.payload,
       };
-    case "SETT_NAME_RESULT":
+    case "SETT_AUTH_RESULT":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "RESULT",
           data: action.payload,
-        } as FetchNameInfo,
+        } as FetchAuth,
       };
-    case "SETT_NAME_ERROR":
+    case "SETT_AUTH_ERROR":
       return {
         ...state,
-        nameInfo: {
+        authInfo: {
           status: "ERROR",
           error: action.payload,
-        } as FetchNameInfo,
+        } as FetchAuth,
       };
     case "SETT_FEATURE_TOGGLES":
       return {

@@ -19,34 +19,6 @@ const {
   REACT_APP_DSOP_URL,
   REACT_APP_URL,
 } = process.env;
-/*
-  AUTH
-  Lettvekt kall for å sjekke autentisering
-  Logger ikke 401 eller 403 feil da det forventes
- */
-
-export const sjekkAuthHentNavn = () => {
-  const url = `${REACT_APP_API_URL}/name`;
-  return fetch(url, {
-    method: "GET",
-    headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include",
-  })
-    .then(sjekkAuth)
-    .then(sjekkHttpFeil)
-    .then(parseJson)
-    .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text || err,
-      };
-      if (error.code !== 401 && error.code !== 403) {
-        logApiError(url, error);
-      }
-      throw error;
-    });
-};
 
 /*
    FETCH

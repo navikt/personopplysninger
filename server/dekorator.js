@@ -15,22 +15,23 @@ const cache = new NodeCache({
 
 const getDecorator = () =>
   new Promise((resolve, reject) => {
-    const decorator = cache.get("main-cache");
-    if (decorator) {
-      resolve(decorator);
+    const cacheData = cache.get("main-cache");
+    if (cacheData) {
+      resolve(cacheData);
     } else {
-      const url = `${
-        process.env.DECORATOR_URL
-      }/?redirectToApp=true&level=Level4&breadcrumbs=${JSON.stringify([
-        {
-          url: `${process.env.REACT_APP_DITT_NAV_URL}`,
-          title: "Ditt NAV",
-        },
-        {
-          url: `${process.env.REACT_APP_URL}`,
-          title: "Personopplysninger",
-        },
-      ])}`;
+      const params = {
+        enforceLogin: true,
+        level: "Level4",
+        redirectToApp: true,
+        breadcrumbs: JSON.stringify([
+          { url: `${process.env.REACT_APP_DITT_NAV_URL}`, title: "Ditt NAV" },
+          { url: `${process.env.REACT_APP_URL}`, title: "Personopplysninger" },
+        ]),
+      };
+
+      const url = `${process.env.DECORATOR_URL}/?${Object.entries(params)
+        .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+        .join("&")}`;
 
       request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
@@ -46,7 +47,8 @@ const getDecorator = () =>
           logger.info(`Creating cache`);
           resolve(data);
         } else {
-          reject(new Error(error));
+          const errorData = `url: ${url}, error: ${error}, body: ${body}`;
+          reject(new Error(`Failed to fetch decorator - ${errorData}`));
         }
       });
     }

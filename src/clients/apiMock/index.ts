@@ -2,7 +2,6 @@ import fetchMock from "fetch-mock";
 import personInformasjon from "./app/fetch/person-info.json";
 import kontaktInformasjon from "./app/fetch/kontakt-info.json";
 import featureToggles from "./app/fetch/feature-toggles.json";
-import name from "./app/fetch/name-info.json";
 import dsopInfo from "./app/fetch/dsop-info.json";
 import retningsnumre from "./app/fetch/retningsnumre.json";
 import valutaer from "./app/fetch/valutaer.json";
@@ -20,7 +19,6 @@ fetchMock.config.fallbackToNetwork = true;
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;
 const mockFetchFeatureToggles = true;
-const mockFetchName = true;
 const mockFetchDsopInfo = true;
 const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
@@ -77,10 +75,6 @@ export const setUpMock = async () => {
   mockFetchMedl &&
     fetchMock.get(`${REACT_APP_API_URL}/medl`, () =>
       delay(1000, 2000).then(() => medlInfo)
-    );
-  mockFetchName &&
-    fetchMock.get(`${REACT_APP_API_URL}/name`, () =>
-      delay(50, 100).then(() => name)
     );
   /*
     POST

@@ -1,4 +1,8 @@
-require("dotenv").config({ path: "/var/run/secrets/nais.io/vault/.env" });
+const ENV_LOCAL = ".env";
+const ENV_NAIS = "/var/run/secrets/nais.io/vault/.env";
+require("dotenv").config({
+  path: process.env.NODE_ENV === "production" ? ENV_NAIS : ENV_LOCAL,
+});
 const express = require("express");
 const path = require("path");
 const mustacheExpress = require("mustache-express");
@@ -34,9 +38,8 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
       res.render("index.html", fragments);
     })
     .catch((e) => {
-      const error = `Failed to get decorator: ${e}`;
-      logger.error(error);
-      res.status(500).send(error);
+      logger.error(e);
+      res.status(500).send(e);
     })
 );
 
