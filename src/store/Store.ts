@@ -17,7 +17,7 @@ export interface FeatureToggles {
   [key: string]: boolean;
 }
 
-const initialLocale = (window.location.pathname.includes("/en")
+const initialLocale = (window.location.pathname.includes("/en/")
   ? "en"
   : "nb") as Locale;
 
