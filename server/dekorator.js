@@ -23,17 +23,12 @@ const getDecorator = () =>
         enforceLogin: true,
         level: "Level4",
         redirectToApp: true,
-        breadcrumbs: JSON.stringify([
-          { url: `${process.env.REACT_APP_DITT_NAV_URL}`, title: "Ditt NAV" },
-          { url: `${process.env.REACT_APP_URL}`, title: "Personopplysninger" },
-        ]),
       };
 
       const url = `${process.env.DECORATOR_URL}/?${Object.entries(params)
         .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
         .join("&")}`;
 
-      console.log(url);
       request(url, (error, response, body) => {
         if (!error && response.statusCode >= 200 && response.statusCode < 400) {
           const { document } = new JSDOM(body).window;
