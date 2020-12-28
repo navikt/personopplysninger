@@ -51,6 +51,7 @@ const SelectLand = (props: Props) => {
 
   const options = mapKoderToOptions(land)
     .filter((option: OptionType) => option.value !== "NOR")
+    .filter((option: OptionType) => option.label !== "UOPPGITT/UKJENT")
     .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1));
 
   return (
