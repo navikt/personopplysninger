@@ -6,11 +6,11 @@ import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
-import { InstInfo } from "types/inst";
 import PageContainer from "components/pagecontainer/PageContainer";
 import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 import Lenke from "nav-frontend-lenker";
+import { Skattetrekksmelding } from "types/skattetrekksmeldinger";
 
 /*
   Hent data
@@ -29,7 +29,7 @@ const SkattkortHistorikk = () => (
 /*
   Visning
 */
-const Tabell = (props: { instInfo: InstInfo }) => {
+const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
   const location = useLocation();
   const { instInfo } = props;
 
@@ -39,7 +39,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
 
   const initState: {
     [key: string]: {
-      instInnslag: InstInfo;
+      instInnslag: Skattetrekksmelding[];
       ekspandert: boolean;
     };
   } = {};

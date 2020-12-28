@@ -13,6 +13,7 @@ import WithInst from "./InstFetch";
 import Kilde from "../../components/kilde/Kilde";
 import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
 
 /*
   Hent data
@@ -104,6 +105,13 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                             <Moment format="DD.MM.YYYY">
                               {innslag.faktiskSluttdato}
                             </Moment>
+                          )}
+                          {innslag.maskineltAvsluttet && (
+                            <Hjelpetekst>
+                              <FormattedMessage
+                                id={"inst.maskineltAvsluttet"}
+                              />
+                            </Hjelpetekst>
                           )}
                         </div>
                         <div className="historikk__flex-kolonne">

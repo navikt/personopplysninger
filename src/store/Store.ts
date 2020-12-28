@@ -12,6 +12,7 @@ import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFe
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
 import { Auth, FetchAuth } from "../types/authInfo";
+import { Skattetrekksmeldinger } from "../types/skattetrekksmeldinger";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -111,7 +112,7 @@ export type Action =
     }
   | {
       type: "SETT_SKATT_RESULT";
-      payload: InstInfo;
+      payload: Skattetrekksmeldinger;
     }
   | {
       type: "SETT_SKATT_ERROR";

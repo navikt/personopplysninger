@@ -6,6 +6,7 @@ export interface InstInnslag {
   startdato: string;
   faktiskSluttdato: string;
   registreringstidspunkt: string;
+  maskineltAvsluttet: boolean;
 }
 
 export type InstInfo = InstInnslag[];

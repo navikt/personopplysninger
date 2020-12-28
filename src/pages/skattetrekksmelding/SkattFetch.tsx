@@ -20,16 +20,16 @@ const Withskattetrekksmelding = ({ children }: Props) => {
   useEffect(() => {
     if (skattetrekksmeldinger.status === "LOADING") {
       fetchskattetrekksmeldinger()
-        .then(result =>
+        .then((result) =>
           dispatch({
             type: "SETT_SKATT_RESULT",
-            payload: result as Skattetrekksmeldinger
+            payload: result as Skattetrekksmeldinger,
           })
         )
         .catch((error: HTTPError) =>
           dispatch({
             type: "SETT_SKATT_ERROR",
-            payload: error
+            payload: error,
           })
         );
     }

@@ -130,6 +130,7 @@ export default {
   "inst.kategori": "Category",
   "inst.registreringstidspunkt": "Date of registration",
   "inst.ingendata": "No institutional stay is registered",
+  "inst.maskineltAvsluttet": "inst.maskineltAvsluttet",
   "inst.kilde": `Source: The individual institution`,
   "skattetrekksmeldinger.tittel": `Tax deduction notices`,
   "skattetrekksmeldinger.ingendata":

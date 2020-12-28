@@ -15,7 +15,8 @@
     "kategori": "Chemical Engineer",
     "startdato": "2015-12-13",
     "faktiskSluttdato": "2014-02-05",
-    "registreringstidspunkt": "2005-02-17"
+    "registreringstidspunkt": "2005-02-17",
+    "maskineltAvsluttet": true
   },
   {
     "organisasjonsnummer": 998965277,
@@ -24,7 +25,8 @@
     "kategori": "Chemical Engineer",
     "startdato": "2012-07-02",
     "faktiskSluttdato": "2017-12-18",
-    "registreringstidspunkt": "2016-03-13"
+    "registreringstidspunkt": "2016-03-13",
+    "maskineltAvsluttet": true
   },
   {
     "organisasjonsnummer": 948456524,
@@ -1680,7 +1682,8 @@
     "kategori": "Financial Advisor",
     "startdato": "2002-12-19",
     "faktiskSluttdato": "2014-03-15",
-    "registreringstidspunkt": "2001-07-19"
+    "registreringstidspunkt": "2001-07-19",
+    "maskineltAvsluttet": true
   },
   {
     "organisasjonsnummer": 931962804,
@@ -4416,7 +4419,8 @@
     "kategori": "Dental Hygienist",
     "startdato": "2020-08-25",
     "faktiskSluttdato": "2006-06-23",
-    "registreringstidspunkt": "2004-12-10"
+    "registreringstidspunkt": "2004-12-10",
+    "maskineltAvsluttet": true
   },
   {
     "organisasjonsnummer": 938360391,
@@ -6702,7 +6706,8 @@
     "kategori": "Senior Financial Analyst",
     "startdato": "2001-04-20",
     "faktiskSluttdato": "2006-11-23",
-    "registreringstidspunkt": "2006-07-23"
+    "registreringstidspunkt": "2006-07-23",
+    "maskineltAvsluttet": true
   },
   {
     "organisasjonsnummer": 963404075,
