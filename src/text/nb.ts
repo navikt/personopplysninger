@@ -130,7 +130,7 @@ export default {
   "inst.kategori": "Kategori",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
-  "inst.fiktivSluttdato": "inst.fiktivSluttdato",
+  "inst.fiktivSluttdato": `Sluttdato for oppholdet er ikke mottatt. NAV har avsluttet oppholdet maskinelt.`,
   "inst.kilde": `Kilde: Den enkelte institusjon`,
   "skattetrekksmeldinger.tittel": `Skattetrekksmeldinger`,
   "skattetrekksmeldinger.ingendata":
