@@ -130,7 +130,7 @@ export default {
   "inst.kategori": "Kategori",
   "inst.registreringstidspunkt": "Registreringstidspunkt",
   "inst.ingendata": "Ingen institusjonsopphold er registrert",
-  "inst.maskineltAvsluttet": "inst.maskineltAvsluttet",
+  "inst.fiktivSluttdato": "inst.fiktivSluttdato",
   "inst.kilde": `Kilde: Den enkelte institusjon`,
   "skattetrekksmeldinger.tittel": `Skattetrekksmeldinger`,
   "skattetrekksmeldinger.ingendata":

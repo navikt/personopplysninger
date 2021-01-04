@@ -80,11 +80,9 @@ const InstDetaljer = () => {
                                 )
                               : ``
                           }`}
-                          {innslag.maskineltAvsluttet && (
+                          {innslag.fiktivSluttdato && (
                             <Hjelpetekst>
-                              <FormattedMessage
-                                id={"inst.maskineltAvsluttet"}
-                              />
+                              <FormattedMessage id={"inst.fiktivSluttdato"} />
                             </Hjelpetekst>
                           )}
                         </div>
