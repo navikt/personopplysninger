@@ -130,7 +130,7 @@ export default {
   "inst.kategori": "Category",
   "inst.registreringstidspunkt": "Date of registration",
   "inst.ingendata": "No institutional stay is registered",
-  "inst.fiktivSluttdato": "inst.fiktivSluttdato",
+  "inst.fiktivSluttdato": `The termination of the stay at the institution has not been reported. NAV has automatically terminated the stay.`,
   "inst.kilde": `Source: The individual institution`,
   "skattetrekksmeldinger.tittel": `Tax deduction notices`,
   "skattetrekksmeldinger.ingendata":
