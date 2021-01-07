@@ -4,7 +4,10 @@ import utbetalinger from "assets/img/Utbetalinger.svg";
 import sykefravaer from "assets/img/Sykepenger.svg";
 import dineSaker from "assets/img/DineSaker.svg";
 
-const { REACT_APP_TJENESTER_URL } = process.env;
+const {
+  REACT_APP_TJENESTER_URL,
+  REACT_APP_PENSJONSOPPTJENING_URL,
+} = process.env;
 
 export default (locale: string) => [
   {
@@ -46,7 +49,7 @@ export default (locale: string) => [
     tittel: "lenker.pensjon.tittel",
     beskrivelse: "lenker.pensjon.beskrivelse",
     lenkeTekst: "lenker.pensjon.lenkeTekst",
-    url: `${REACT_APP_TJENESTER_URL}/pselv/publisering/dinpensjon.jsf`,
+    url: `${REACT_APP_PENSJONSOPPTJENING_URL}`,
     icon: pensjon,
   },
 ];

@@ -9,6 +9,7 @@ import WithInst from "./InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { formatOrgnr, RADIX_DECIMAL } from "../../utils/formattering";
 import Kilde from "../../components/kilde/Kilde";
+import Hjelpetekst from "nav-frontend-hjelpetekst";
 
 interface Routes {
   id: string;
@@ -68,15 +69,24 @@ const InstDetaljer = () => {
                     />
                     <ListElement
                       titleId={"inst.periode"}
-                      content={`${moment(innslag.startdato).format(
-                        "DD.MM.YYYY"
-                      )} - ${
-                        innslag.faktiskSluttdato
-                          ? moment(innslag.faktiskSluttdato).format(
-                              "DD.MM.YYYY"
-                            )
-                          : ``
-                      }`}
+                      content={
+                        <div className={"inst__periode"}>
+                          {`${moment(innslag.startdato).format(
+                            "DD.MM.YYYY"
+                          )} - ${
+                            innslag.faktiskSluttdato
+                              ? moment(innslag.faktiskSluttdato).format(
+                                  "DD.MM.YYYY"
+                                )
+                              : ``
+                          }`}
+                          {innslag.fiktivSluttdato && (
+                            <Hjelpetekst>
+                              <FormattedMessage id={"inst.fiktivSluttdato"} />
+                            </Hjelpetekst>
+                          )}
+                        </div>
+                      }
                     />
                   </ul>
                 </div>

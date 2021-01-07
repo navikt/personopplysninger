@@ -40,11 +40,11 @@ services:
     ports:
       - "8100:8088"
     environment:
-      XP_BASE_URL: "http://localhost:8080"
+      XP_BASE_URL: "http://localhost:3000"
       APP_BASE_URL: "http://localhost:8100"
       APP_BASE_PATH: "/dekoratoren"
-      API_XP_MENY_URL: "http://host.docker.internal:8080/_/service/no.nav.navno/menu"
-      API_XP_SOK_URL: "http://host.docker.internal:8080/_/service/navno.nav.no.search/search2/sok"
+      API_XP_SERVICES_URL: "https://www.nav.no/_/service"
+      API_UNLEASH_PROXY_URL: "https://www.nav.no/person/pb-unleash-proxy"
       API_INNLOGGINGSLINJE_URL: "http://mocks:8080/innloggingslinje-api/auth"
       API_VARSELINNBOKS_URL: "http://mocks:8080/person/varselinnboks"
       MINSIDE_ARBEIDSGIVER_URL: "http://localhost:8080/min-side-arbeidsgiver/"

@@ -29,6 +29,7 @@ jobs:
           echo "REACT_APP_TJENESTER_URL=https://tjenester-q2.nav.no" >> $GITHUB_ENV
           echo "REACT_APP_LOGIN_URL=https://loginservice-q.nav.no/login" >> $GITHUB_ENV
           echo "REACT_APP_DITT_NAV_URL=https://www-q2.nav.no/person/dittnav" >> $GITHUB_ENV
+          echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www-q2.nav.no/pensjon/opptjening" >> $GITHUB_ENV
       - uses: actions/cache@v1
         with:
           path: ~/.npm
