@@ -13,7 +13,7 @@
     "jsdom": "^15.1.1",
     "mustache-express": "^1.2.8",
     "node-cache": "^5.0.1",
-    "winston": "^3.2.1"
+    "winston": "^3.3.3"
   },
   "browserslist": [
     ">0.2%",
