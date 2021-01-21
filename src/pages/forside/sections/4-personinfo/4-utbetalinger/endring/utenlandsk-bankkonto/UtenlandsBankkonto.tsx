@@ -38,7 +38,7 @@ interface FormFields {
 }
 
 export interface OutboundUtenlandsbankonto {
-  value: string;
+  value: string | null;
   utenlandskKontoInformasjon: {
     landkode: string;
     valuta: string;

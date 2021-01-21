@@ -2,7 +2,8 @@ export default {
   feilopplysninger: {
     tittel: `Personopplysninger om meg er feil – hva gjør jeg?`,
     melding:
-      `<p>Hvis personopplysninger om deg er feil, kan du be om at de blir rettet. Hvis personopplysninger er ufullstendige, kan du be om at de blir supplert. ` +
+      `<p>Hvis personopplysninger om deg er feil, kan du be om at de blir rettet. ` +
+      `Hvis personopplysninger er ufullstendige, kan du be om at de blir supplert. ` +
       `I særlige tilfeller kan du ha rett til å få slettet personopplysninger om deg, men NAV har som regel lovbestemt plikt til å lagre opplysningene.</p>` +
       `<p>Hvis personopplysningene er hentet fra andre kilder enn NAV, kan du henvende deg til kilden som er oppgitt.</p>` +
       `<p>Hvis kilden er NAV, kan du bruke <beskjedLenke>Send beskjed til NAV</beskjedLenke> eller henvende deg til NAV Kontaktsenter, tlf. <telefonLenke>55 55 33 33</telefonLenke>.</p>`,
