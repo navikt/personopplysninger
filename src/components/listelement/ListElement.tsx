@@ -7,7 +7,7 @@ interface Props {
   title?: string;
   titleId?: string;
   hjelpetekstId?: string;
-  content?: string | JSX.Element;
+  content?: string | JSX.Element | null;
   children?: JSX.Element | JSX.Element[];
   className?: string;
 }
