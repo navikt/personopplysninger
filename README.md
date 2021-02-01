@@ -1,6 +1,6 @@
 # Personopplysninger
 
-![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) <br>
+![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) | ![Deploy-to-dev](https://github.com/navikt/personopplysninger/workflows/Deploy-to-dev/badge.svg) <br>
 ![Deploy-to-q0](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q0/badge.svg)
 ![Deploy-to-q1](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q1/badge.svg)
 ![Deploy-to-q2](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q2/badge.svg)
