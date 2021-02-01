@@ -1,10 +1,6 @@
 # Personopplysninger
 
-![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) <br>
-![Deploy-to-q0](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q0/badge.svg)
-![Deploy-to-q1](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q1/badge.svg)
-![Deploy-to-q2](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q2/badge.svg)
-![Deploy-to-q6](https://github.com/navikt/personopplysninger/workflows/Deploy-to-q6/badge.svg)
+![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) | ![Deploy-to-dev](https://github.com/navikt/personopplysninger/workflows/Deploy-to-dev/badge.svg)
 
 React applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret.
 
@@ -43,9 +39,14 @@ Obs: Unleash er kun tilgjengelig i fagsystemsonen.
 
 ## Deployering
 
-- Q6: Tag på formatet `vX.X.X-dev`.
-- Q1, Q2, Q6: Tag på formatet `vX.X.X-test`.
-- Q0, PROD: Tag på formatet `vX.X.X`.
+- Dev - Tag på formatet `vX.X.X-dev`.
+- Prod - Tag på formatet `vX.X.X-prod`.
+
+Push den nye versjonen til GitHub og merge til master.
+
+```
+git push && git push --tags
+```
 
 ## Logging
 
