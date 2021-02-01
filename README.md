@@ -34,8 +34,7 @@ npm start
 ## Feature toggles
 
 Personopplysninger benytter Unleash til å skru av og på funksjonalitet som er under utvikling.<br>
-https://unleash.nais.adeo.no/#/features<br>
-Obs: Unleash er kun tilgjengelig i fagsystemsonen.
+https://unleash.nais.io
 
 ## Deployering
 
