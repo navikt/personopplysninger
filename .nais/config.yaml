@@ -22,6 +22,11 @@ spec:
     initialDelay: 10
   vault:
     enabled: true
+  accessPolicy:
+    outbound:
+      external:
+        - host: nav.no
+        - host: dekoratoren.dev.nav.no
   replicas:
     min: 2
     max: 3
