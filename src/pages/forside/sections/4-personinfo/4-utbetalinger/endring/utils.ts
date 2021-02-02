@@ -253,7 +253,9 @@ const countryISOMapping: { [key: string]: string } = {
   YEM: "YE",
   ZMB: "ZM",
   ZWE: "ZW",
+  XXK: "XK",
 };
+
 export const getCountryISO2 = (countryCode: string) =>
   countryISOMapping[countryCode];
 
