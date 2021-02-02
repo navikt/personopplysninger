@@ -6,13 +6,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
 import { useStore } from "../../store/Context";
 
-const miljo = process.env.REACT_APP_MILJO as
-  | "LOCAL"
-  | "Q6"
-  | "Q2"
-  | "Q1"
-  | "Q0"
-  | "PROD";
+const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
 
 interface Routes {
   id: string;

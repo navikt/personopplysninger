@@ -9,13 +9,7 @@ import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "components/kilde/Kilde";
 import { useStore } from "../../../../store/Context";
 
-const miljo = process.env.REACT_APP_MILJO as
-  | "LOCAL"
-  | "Q6"
-  | "Q2"
-  | "Q1"
-  | "Q0"
-  | "PROD";
+const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
 
 const Arbeidsforhold = () => {
   const { locale } = useIntl();
