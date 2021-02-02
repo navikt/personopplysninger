@@ -21,7 +21,7 @@
     "test": "react-scripts test"
   },
   "dependencies": {
-    "@navikt/arbeidsforhold": "^1.3.22",
+    "@navikt/arbeidsforhold": "^1.4.0",
     "@navikt/fnrvalidator": "^1.1.3",
     "@navikt/nav-dekoratoren-moduler": "^1.0.21",
     "@react-pdf/renderer": "^2.0.0-beta.18",
