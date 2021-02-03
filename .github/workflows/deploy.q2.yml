@@ -2,7 +2,7 @@ name: Deploy-to-q2
 on:
   push:
     tags:
-      - "v*-test"
+      - "v*-dev"
 jobs:
   deploy:
     runs-on: ubuntu-latest

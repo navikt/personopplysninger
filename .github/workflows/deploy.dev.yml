@@ -2,7 +2,6 @@ name: Deploy-to-dev
 on:
   push:
     tags:
-      - "v*-test"
       - "v*-dev"
 jobs:
   deploy:
