@@ -28,7 +28,7 @@ interface Props {
   loading?: boolean;
   defineLabel?: (
     option: OptionType,
-    context: FormatOptionLabelMeta<OptionType>
+    context: FormatOptionLabelMeta<OptionType, any>
   ) => string;
 }
 
@@ -87,7 +87,7 @@ const NAVSelect = React.memo((props: Props) => {
 
   // Legg til border på option
   // TODO: Forenkling
-  const Option = (optionProps: OptionProps<any>) => {
+  const Option = (optionProps: OptionProps<any, any>) => {
     if (props.borderUnderNth) {
       const { innerProps } = optionProps;
       const matches = innerProps.id.match(/\d+$/);
