@@ -33,7 +33,7 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 
 // Match everything except internal og static
 server.use(/^(?!.*\/(internal|static)\/).*$/, async (req, res) => {
-  return await getIndexWithDecorator(res);
+  await getIndexWithDecorator(res);
 });
 
 const port = process.env.PORT || 8080;
