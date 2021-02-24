@@ -29,7 +29,6 @@
     "core-js": "^3.8.3",
     "fetch-mock": "^9.11.0",
     "file-saver": "^2.0.5",
-    "html-react-parser": "^1.2.4",
     "ibantools": "^3.2.2",
     "intl": "^1.2.5",
     "js-cookie": "^2.2.1",
