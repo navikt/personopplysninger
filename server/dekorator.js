@@ -1,4 +1,4 @@
-const { SSR } = require("@navikt/nav-dekoratoren-moduler");
+const { fetchDecoratorHtml } = require("@navikt/nav-dekoratoren-moduler/ssr");
 const logger = require("./logger");
 const { ENV } = process.env;
 
@@ -9,7 +9,7 @@ const params = {
 };
 
 const getIndexWithDecorator = async (res) =>
-  await SSR.fetchDecoratorHtml(ENV, params)
+  await fetchDecoratorHtml({ ENV, ...params })
     // Cached innerHTML of { header, footer, scripts, styles }
     .then((fragments) => {
       res.render("index.html", fragments);
