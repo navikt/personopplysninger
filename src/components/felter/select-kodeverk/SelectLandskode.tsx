@@ -51,7 +51,7 @@ const SelectLandskode = (props: Props) => {
 
   const defineLabel = (
     option: OptionType,
-    context: FormatOptionLabelMeta<OptionType>
+    context: FormatOptionLabelMeta<OptionType, any>
   ) => (context.context === "value" ? `${option.value} ` : `${option.label}`);
 
   const options = mapKoderToOptions(retningsnumre)
