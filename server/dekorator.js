@@ -19,7 +19,7 @@ const params = {
 };
 
 const getIndexWithDecorator = async (res) =>
-  await fetchDecoratorHtml({ ENV, ...params })
+  await fetchDecoratorHtml({ env: ENV, ...params })
     // Cached innerHTML of { header, footer, scripts, styles }
     .then((fragments) => {
       res.render("index.html", fragments);
