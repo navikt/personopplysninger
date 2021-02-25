@@ -1,27 +1,17 @@
-const ENV_LOCAL = ".env";
-const ENV_NAIS = "/var/run/secrets/nais.io/vault/.env";
-require("dotenv").config({
-  path: process.env.NODE_ENV === "production" ? ENV_NAIS : ENV_LOCAL,
-});
 const express = require("express");
+const logger = require("./logger");
 const path = require("path");
-const getHtmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
 const basePath = "/person/personopplysninger";
-const logger = require("./logger");
 const server = express();
+const ENV = process.env.NODE_ENV;
+const ENV_LOCAL = ".env";
+const ENV_NAIS = "/var/run/secrets/nais.io/vault/.env";
+require("dotenv").config({ path: ENV === "production" ? ENV_NAIS : ENV_LOCAL });
+const getHtmlWithDecorator = require("./dekorator");
 
-// Parse application/json
 server.use(express.json());
-server.use((req, res, next) => {
-  res.removeHeader("X-Powered-By");
-  next();
-});
-
-// Static files
-server.use(basePath, express.static(buildPath, { index: false }));
-
-// Nais functions
+server.use(`${basePath}`, express.static(buildPath, { index: false }));
 server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
   res.sendStatus(200)
 );
@@ -40,7 +30,3 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
 
 const port = process.env.PORT || 8080;
 server.listen(port, () => logger.info(`App listening on port: ${port}`));
-
-process.on("SIGTERM", () =>
-  setTimeout(() => logger.info("Har sovet i 30 sekunder"), 30000)
-);
