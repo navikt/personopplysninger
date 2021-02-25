@@ -3,40 +3,22 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { StoreProvider } from "./store/Context";
 import * as serviceWorker from "./service-worker";
-import header from "./clients/apiMock/decorator/decorator-header";
-import footer from "./clients/apiMock/decorator/decorator-footer";
-import scripts from "./clients/apiMock/decorator/decorator-scripts";
-import styles from "./clients/apiMock/decorator/decorator-styles";
 import { ValidatorsProvider } from "calidation";
+import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
 import { extraValidators } from "./utils/validators";
 import WithLanguages from "./store/providers/Language";
-
 import App from "./App";
 
 const init = async () => {
   if (process.env.NODE_ENV === "development") {
     await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{DECORATOR_STYLES}}}",
-      styles
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{DECORATOR_HEADER}}}",
-      header
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{DECORATOR_FOOTER}}}",
-      footer
-    );
-    document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{DECORATOR_SCRIPTS}}}",
-      scripts
-    );
-
-    // Execute client.js
-    var script = document.createElement("script");
-    script.src = "http://localhost:8100/dekoratoren/client.js";
-    document.body.appendChild(script);
+    injectDecoratorClientSide({
+      env: "localhost",
+      port: 8100,
+      enforceLogin: true,
+      level: "Level4",
+      redirectToApp: true,
+    });
   }
 
   ReactDOM.render(
