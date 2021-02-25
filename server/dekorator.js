@@ -20,7 +20,14 @@ const params = {
 
 const getIndexWithDecorator = async (res) =>
   await fetchDecoratorHtml({ env: ENV, ...params })
-    // Cached innerHTML of { DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCRIPTS, DECORATOR_STYLES }
+    /*
+      Cached innerHTML {
+        DECORATOR_HEADER,
+        DECORATOR_FOOTER,
+        DECORATOR_SCRIPTS,
+        DECORATOR_STYLES
+      }
+    */
     .then((fragments) => {
       res.render("index.html", fragments);
     })
