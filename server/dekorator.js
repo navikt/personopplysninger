@@ -1,5 +1,4 @@
 const { injectDecorator } = require("@navikt/nav-dekoratoren-moduler/ssr");
-const logger = require("./logger");
 const { ENV } = process.env;
 
 const baseUrl = `https://www.nav.no/person`;
@@ -18,14 +17,7 @@ const params = {
   ],
 };
 
-const getIndexWithDecorator = async (res) =>
-  await injectDecorator({ env: ENV, fileName: "public/index.html", ...params })
-    .then((html) => {
-      res.render(html);
-    })
-    .catch((e) => {
-      logger.error(e);
-      res.status(500).send(e);
-    });
+const htmlWithDecorator = (filePath) =>
+  injectDecorator({ env: ENV, filePath, ...params });
 
-module.exports = getIndexWithDecorator;
+module.exports = htmlWithDecorator;

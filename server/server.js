@@ -5,16 +5,11 @@ require("dotenv").config({
 });
 const express = require("express");
 const path = require("path");
-const mustacheExpress = require("mustache-express");
-const getIndexWithDecorator = require("./dekorator");
+const htmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
 const basePath = "/person/personopplysninger";
 const logger = require("./logger");
 const server = express();
-
-server.set("views", `${__dirname}/../build`);
-server.set("view engine", "mustache");
-server.engine("html", mustacheExpress());
 
 // Parse application/json
 server.use(express.json());
@@ -32,9 +27,16 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 );
 
 // Match everything except internal og static
-server.use(/^(?!.*\/(internal|static)\/).*$/, async (req, res) => {
-  await getIndexWithDecorator(res);
-});
+server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
+  htmlWithDecorator("../public/index.html")
+    .then((html) => {
+      res.send(html);
+    })
+    .catch((e) => {
+      logger.error(e);
+      res.status(500).send(e);
+    })
+);
 
 const port = process.env.PORT || 8080;
 server.listen(port, () => logger.info(`App listening on port: ${port}`));
