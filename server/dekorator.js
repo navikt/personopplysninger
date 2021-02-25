@@ -1,5 +1,4 @@
-const { fetchDecoratorHtml } = require("@navikt/nav-dekoratoren-moduler/ssr");
-const logger = require("./logger");
+const { injectDecorator } = require("@navikt/nav-dekoratoren-moduler/ssr");
 const { ENV } = process.env;
 
 const baseUrl = `https://www.nav.no/person`;
@@ -18,22 +17,7 @@ const params = {
   ],
 };
 
-const getIndexWithDecorator = async (res) =>
-  await fetchDecoratorHtml({ env: ENV, ...params })
-    /*
-      Cached innerHTML {
-        DECORATOR_HEADER,
-        DECORATOR_FOOTER,
-        DECORATOR_SCRIPTS,
-        DECORATOR_STYLES
-      }
-    */
-    .then((fragments) => {
-      res.render("index.html", fragments);
-    })
-    .catch((e) => {
-      logger.error(e);
-      res.status(500).send(e);
-    });
+const getHtmlWithDecorator = (filePath) =>
+  injectDecorator({ env: ENV, filePath, ...params });
 
-module.exports = getIndexWithDecorator;
+module.exports = getHtmlWithDecorator;
