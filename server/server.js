@@ -28,7 +28,7 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 
 // Match everything except internal og static
 server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
-  htmlWithDecorator(path.resolve(__dirname, "../public/index.html"))
+  htmlWithDecorator(`${buildPath}/index.html`)
     .then((html) => {
       res.send(html);
     })
