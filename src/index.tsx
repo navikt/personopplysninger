@@ -17,19 +17,19 @@ const init = async () => {
   if (process.env.NODE_ENV === "development") {
     await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{styles}}}",
+      "{{{DECORATOR_STYLES}}}",
       styles
     );
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{header}}}",
+      "{{{DECORATOR_HEADER}}}",
       header
     );
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{footer}}}",
+      "{{{DECORATOR_FOOTER}}}",
       footer
     );
     document.body.innerHTML = document.body.innerHTML.replace(
-      "{{{scripts}}}",
+      "{{{DECORATOR_SCRIPTS}}}",
       scripts
     );
 

@@ -24,7 +24,6 @@ import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
 import { Auth } from "./types/authInfo";
-import NavFrontendSpinner from "nav-frontend-spinner";
 
 const redirects: {
   [key: string]: {
@@ -72,10 +71,7 @@ const App = () => {
     <div className="pagecontent">
       <div className="wrapper">
         <Router>
-          <EnforceLoginLoader
-            spinner={<NavFrontendSpinner type={"XL"} />}
-            authCallback={authCallback}
-          >
+          <EnforceLoginLoader authCallback={authCallback}>
             <WithFeatureToggles>
               <Switch>
                 <Redirect to={`${basePath}/nb/`} exact={true} path={"/"} />
