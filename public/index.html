@@ -15,7 +15,7 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="stylesheet" href="%PUBLIC_URL%/index.css" />
-    {{{styles}}}
+    {{{DECORATOR_STYLES}}}
     <script type="application/javascript">
       window.frontendlogger = {
         info: function () {},
@@ -34,9 +34,9 @@
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <div class="pagewrapper">
-      {{{header}}}
+      {{{DECORATOR_HEADER}}}
       <div class="app" id="app"></div>
     </div>
-    {{{footer}}} {{{scripts}}}
+    {{{DECORATOR_FOOTER}}} {{{DECORATOR_SCRIPTS}}}
   </body>
 </html>
