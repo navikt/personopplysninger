@@ -1,8 +1,8 @@
-const { injectDecorator } = require("@navikt/nav-dekoratoren-moduler/ssr");
-const { ENV } = process.env;
+const {
+  injectDecoratorServerSide,
+} = require("@navikt/nav-dekoratoren-moduler/ssr");
 
 const baseUrl = `https://www.nav.no/person`;
-
 const params = {
   enforceLogin: true,
   level: "Level4",
@@ -18,6 +18,10 @@ const params = {
 };
 
 const getHtmlWithDecorator = (filePath) =>
-  injectDecorator({ env: ENV, filePath, ...params });
+  injectDecoratorServerSide({
+    env: process.env.ENV,
+    filePath: filePath,
+    ...params,
+  });
 
 module.exports = getHtmlWithDecorator;
