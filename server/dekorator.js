@@ -1,39 +1,20 @@
-const { fetchDecoratorHtml } = require("@navikt/nav-dekoratoren-moduler/ssr");
-const logger = require("./logger");
-const { ENV } = process.env;
+const { injectDecoratorServerSide } = require("@navikt/nav-dekoratoren-moduler/ssr");
 
-const baseUrl = `https://www.nav.no/person`;
+const getHtmlWithDecorator = (filePath) =>
+  injectDecoratorServerSide({
+    env: process.env.ENV,
+    filePath: filePath,
+    enforceLogin: true,
+    level: "Level4",
+    redirectToApp: true,
+    breadcrumbs: [
+      { url: `https://www.nav.no/person/dittnav/`, title: "Ditt NAV" },
+      { url: `https://www.nav.no/person/personopplysninger/`, title: `Personopplysninger` },
+    ],
+    availableLanguages: [
+      { url: `https://www.nav.no/person/personopplysninger/nb/`, locale: "nb" },
+      { url: `https://www.nav.no/person/personopplysninger/en/`, locale: "en" },
+    ],
+  });
 
-const params = {
-  enforceLogin: true,
-  level: "Level4",
-  redirectToApp: true,
-  breadcrumbs: [
-    { url: `${baseUrl}/dittnav/`, title: "Ditt NAV" },
-    { url: `${baseUrl}/personopplysninger/`, title: `Personopplysninger` },
-  ],
-  availableLanguages: [
-    { url: `${baseUrl}/personopplysninger/nb/`, locale: "nb" },
-    { url: `${baseUrl}/personopplysninger/en/`, locale: "en" },
-  ],
-};
-
-const getIndexWithDecorator = async (res) =>
-  await fetchDecoratorHtml({ env: ENV, ...params })
-    /*
-      Cached innerHTML {
-        DECORATOR_HEADER,
-        DECORATOR_FOOTER,
-        DECORATOR_SCRIPTS,
-        DECORATOR_STYLES
-      }
-    */
-    .then((fragments) => {
-      res.render("index.html", fragments);
-    })
-    .catch((e) => {
-      logger.error(e);
-      res.status(500).send(e);
-    });
-
-module.exports = getIndexWithDecorator;
+module.exports = getHtmlWithDecorator;
