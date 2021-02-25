@@ -5,7 +5,7 @@ require("dotenv").config({
 });
 const express = require("express");
 const path = require("path");
-const htmlWithDecorator = require("./dekorator");
+const getHtmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
 const basePath = "/person/personopplysninger";
 const logger = require("./logger");
@@ -28,7 +28,7 @@ server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
 
 // Match everything except internal og static
 server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
-  htmlWithDecorator(`${buildPath}/index.html`)
+  getHtmlWithDecorator(`${buildPath}/index.html`)
     .then((html) => {
       res.send(html);
     })

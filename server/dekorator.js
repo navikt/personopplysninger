@@ -17,7 +17,7 @@ const params = {
   ],
 };
 
-const htmlWithDecorator = (filePath) =>
+const getHtmlWithDecorator = (filePath) =>
   injectDecorator({ env: ENV, filePath, ...params });
 
-module.exports = htmlWithDecorator;
+module.exports = getHtmlWithDecorator;
