@@ -18,6 +18,16 @@ const init = async () => {
       enforceLogin: true,
       level: "Level4",
       redirectToApp: true,
+      breadcrumbs: [
+        {
+          url: `https://www.nav.no/person/dittnav/`,
+          title: "Ditt NAV",
+        },
+        {
+          url: `https://www.nav.no/person/personopplysninger/`,
+          title: `Personopplysninger`,
+        },
+      ],
     });
   }
 
