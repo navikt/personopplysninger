@@ -44,8 +44,9 @@ const AmerikanskKonto = (props: Props) => {
         <InputMedHjelpetekst
           bredde={"L"}
           maxLength={34}
-          submitted={submitted}
           value={fields.adresse1}
+          error={errors.adresse1}
+          submitted={submitted}
           onChange={(value) => setField({ adresse1: value })}
           label={msg({ id: "felter.bankens.adresse.label" })}
         />
@@ -54,6 +55,7 @@ const AmerikanskKonto = (props: Props) => {
           bredde={"L"}
           maxLength={34}
           value={fields.adresse2}
+          error={errors.adresse2}
           submitted={submitted}
           onChange={(value) => setField({ adresse2: value })}
         />
@@ -62,6 +64,7 @@ const AmerikanskKonto = (props: Props) => {
           bredde={"L"}
           maxLength={34}
           value={fields.adresse3}
+          error={errors.adresse3}
           submitted={submitted}
           onChange={(value) => setField({ adresse3: value })}
         />

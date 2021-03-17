@@ -183,9 +183,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) => validerBankkode(fields),
       },
     },
-    adresse1: {},
-    adresse2: {},
-    adresse3: {},
+    adresse1: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+    },
+    adresse2: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+    },
+    adresse3: {
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+    },
   };
 
   return (
