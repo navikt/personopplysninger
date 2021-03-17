@@ -304,6 +304,7 @@ export default {
   "validation.bic.country": `You must enter a valid BIC / SWIFT code from the country you have selected.`,
   "validation.valuta.pakrevd": "Currency is required",
   "validation.adresse.pakrevd": "Address is required",
+  "validation.adresselinje.pakrevd": `Required when the field below is filled in`,
   "validation.svarteliste.felles": `Cannot contain words such as «ukjent», «ikke kjent», «vet ikke», «uoppgitt», «n.n.», «nomen nescio»`,
   "validation.bolignummer.ugyldig": `Unit number consists of one letter (L, H, U or K) and four numbers.`,
   "validation.firstchar.notspace": `The first letter cannot be a space`,

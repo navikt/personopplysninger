@@ -184,9 +184,18 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
     },
     adresse1: {
+      isRequired: {
+        message: msg({ id: "validation.adresselinje.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          fields.adresse2 || fields.adresse3,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
     },
     adresse2: {
+      isRequired: {
+        message: msg({ id: "validation.adresselinje.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.adresse3,
+      },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
     },
     adresse3: {
