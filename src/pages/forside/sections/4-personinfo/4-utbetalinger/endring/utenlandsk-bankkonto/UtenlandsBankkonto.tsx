@@ -239,7 +239,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               />
               <InputMedHjelpetekst
                 bredde={"L"}
-                maxLength={34}
+                maxLength={35}
                 submitted={submitted}
                 value={fields.banknavn}
                 label={msg({ id: "felter.banknavn.label" })}
