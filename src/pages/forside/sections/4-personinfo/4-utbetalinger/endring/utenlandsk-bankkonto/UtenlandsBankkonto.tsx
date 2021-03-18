@@ -112,6 +112,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     },
     banknavn: {
       isRequired: msg({ id: "validation.banknavn.pakrevd" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
       hasOnlySpaceSpecialLettersOrDigits: msg({
@@ -193,6 +194,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) =>
           fields.adresse2 || fields.adresse3,
       },
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
       hasOnlySpaceSpecialLettersOrDigits: msg({
@@ -204,12 +206,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         message: msg({ id: "validation.adresselinje.pakrevd" }),
         validateIf: ({ fields }: ValidatorContext) => fields.adresse3,
       },
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasOnlySpaceOrSpecialLetters: msg({
         id: "validation.only.whitespace.or.specialletters",
       }),
     },
     adresse3: {
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasOnlySpaceOrSpecialLetters: msg({
         id: "validation.only.whitespace.or.specialletters",
