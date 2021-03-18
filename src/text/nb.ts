@@ -306,6 +306,7 @@ export default {
   "validation.bolignummer.ugyldig": `Bolignummer består av en bokstav (L, H, U eller K) og fire tall.`,
   "validation.firstchar.notspace": `Første bokstav kan ikke være mellomrom`,
   "validation.multiple.spaces": `Kan ikke ha flere sammenhengende mellomrom`,
+  "validation.only.whitespace.specialletters.or.digits": `Kan ikke bestå av kun whitespace, spesialtegn og/eller sifre`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

@@ -112,6 +112,10 @@ export const extraValidators = {
   hasMultipleCombinedSpaces: (config: SimpleValidatorConfig) => (
     value: string
   ) => (value && value.match(/\s\s/) ? config.message : null),
+
+  hasOnlySpaceSpecialLettersOrDigits: (config: SimpleValidatorConfig) => (
+    value: string
+  ) => (value && value.match(/^[0-9\s-.,:‘/&#]+$/) ? config.message : null),
 };
 
 /*

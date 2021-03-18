@@ -114,6 +114,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isRequired: msg({ id: "validation.banknavn.pakrevd" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      hasOnlySpaceSpecialLettersOrDigits: msg({
+        id: "validation.only.whitespace.specialletters.or.digits",
+      }),
     },
     kontonummer: {
       isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
@@ -192,6 +195,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      hasOnlySpaceSpecialLettersOrDigits: msg({
+        id: "validation.only.whitespace.specialletters.or.digits",
+      }),
     },
     adresse2: {
       isRequired: {
