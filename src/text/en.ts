@@ -308,6 +308,7 @@ export default {
   "validation.svarteliste.felles": `Cannot contain words such as «ukjent», «ikke kjent», «vet ikke», «uoppgitt», «n.n.», «nomen nescio»`,
   "validation.bolignummer.ugyldig": `Unit number consists of one letter (L, H, U or K) and four numbers.`,
   "validation.firstchar.notspace": `The first letter cannot be a space`,
+  "validation.multiple.spaces": `Cannot have multiple contiguous spaces`,
   "alternativer.tittel": `More information`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

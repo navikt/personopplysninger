@@ -108,6 +108,10 @@ export const extraValidators = {
 
   isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null,
+
+  hasMultipleCombinedSpaces: (config: SimpleValidatorConfig) => (
+    value: string
+  ) => (value && value.match(/\s\s/) ? config.message : null),
 };
 
 /*

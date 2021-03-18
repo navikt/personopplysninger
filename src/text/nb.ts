@@ -305,6 +305,7 @@ export default {
   "validation.svarteliste.felles": `Kan ikke inneholde ord som «ukjent», «ikke kjent», «vet ikke», «uoppgitt», «n.n.», «nomen nescio»`,
   "validation.bolignummer.ugyldig": `Bolignummer består av en bokstav (L, H, U eller K) og fire tall.`,
   "validation.firstchar.notspace": `Første bokstav kan ikke være mellomrom`,
+  "validation.multiple.spaces": `Kan ikke ha flere sammenhengende mellomrom`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,
