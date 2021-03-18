@@ -208,6 +208,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
       hasOnlySpaceOrSpecialLetters: msg({
         id: "validation.only.whitespace.or.specialletters",
       }),
@@ -215,6 +216,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     adresse3: {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
       hasOnlySpaceOrSpecialLetters: msg({
         id: "validation.only.whitespace.or.specialletters",
       }),
