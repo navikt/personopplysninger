@@ -307,6 +307,7 @@ export default {
   "validation.firstchar.notspace": `Første bokstav kan ikke være mellomrom`,
   "validation.multiple.spaces": `Kan ikke ha flere sammenhengende mellomrom`,
   "validation.only.whitespace.specialletters.or.digits": `Kan ikke bestå av kun whitespace, spesialtegn og/eller sifre`,
+  "validation.only.whitespace.or.specialletters": `Kan ikke bestå av kun whitespace og/eller spesialtegn`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

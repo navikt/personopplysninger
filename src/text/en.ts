@@ -310,6 +310,7 @@ export default {
   "validation.firstchar.notspace": `The first letter cannot be a space`,
   "validation.multiple.spaces": `Cannot have multiple contiguous spaces`,
   "validation.only.whitespace.specialletters.or.digits": `Cannot consist of whitespace, special characters and / or numbers only`,
+  "validation.only.whitespace.or.specialletters": `Cannot consist of whitespace and / or special characters only`,
   "alternativer.tittel": `More information`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

@@ -205,9 +205,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) => fields.adresse3,
       },
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasOnlySpaceOrSpecialLetters: msg({
+        id: "validation.only.whitespace.or.specialletters",
+      }),
     },
     adresse3: {
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasOnlySpaceOrSpecialLetters: msg({
+        id: "validation.only.whitespace.or.specialletters",
+      }),
     },
   };
 

@@ -116,6 +116,10 @@ export const extraValidators = {
   hasOnlySpaceSpecialLettersOrDigits: (config: SimpleValidatorConfig) => (
     value: string
   ) => (value && value.match(/^[0-9\s-.,:‘/&#]+$/) ? config.message : null),
+
+  hasOnlySpaceOrSpecialLetters: (config: SimpleValidatorConfig) => (
+    value: string
+  ) => (value && value.match(/^[\s-.,:‘/&#]+$/) ? config.message : null),
 };
 
 /*
