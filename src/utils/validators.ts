@@ -39,14 +39,9 @@ export const extraValidators = {
     !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
 
   isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    [
-      "ukjent",
-      "ikke kjent",
-      "vet ikke",
-      "uoppgitt",
-      "n.n.",
-      "nomen nescio",
-    ].some((substring) => value.toLowerCase().includes(substring))
+    BLACKLISTED_WORDS.some((substring) =>
+      value.toLowerCase().includes(substring)
+    )
       ? config.message
       : null,
 
@@ -215,6 +210,15 @@ export const regExpPattern = {
     "]+$",
   ]),
 };
+
+export const BLACKLISTED_WORDS = [
+  "ukjent",
+  "ikke kjent",
+  "vet ikke",
+  "uoppgitt",
+  "n.n.",
+  "nomen nescio",
+];
 
 /*
  * Normalize-funksjonen vil først dekomponere en bokstav med spesialtegn til flere kodepunkter.
