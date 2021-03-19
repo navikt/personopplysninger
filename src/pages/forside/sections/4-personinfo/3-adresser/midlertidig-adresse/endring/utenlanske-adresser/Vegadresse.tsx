@@ -18,7 +18,7 @@ import { Feiloppsummering, Input } from "nav-frontend-skjema";
 import SelectCO from "components/felter/select-co/SelectCO";
 import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";
-import { mapErrorsToSummary } from "../../../../../../../../utils/kontonummer";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   utenlandskVegadresse?: UtenlandskAdresse;

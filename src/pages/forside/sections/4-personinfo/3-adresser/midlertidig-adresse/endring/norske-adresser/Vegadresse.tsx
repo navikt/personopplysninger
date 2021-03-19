@@ -19,7 +19,7 @@ import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";
 import { OptionType } from "types/option";
 import { UNKNOWN } from "utils/text";
-import { mapErrorsToSummary } from "../../../../../../../../utils/kontonummer";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   vegadresse: Vegadresse;
