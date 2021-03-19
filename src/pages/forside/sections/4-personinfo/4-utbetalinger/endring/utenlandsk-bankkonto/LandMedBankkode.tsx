@@ -32,6 +32,7 @@ const LandMedBankkode = (props: Props) => {
           </AlertStripeAdvarsel>
         </div>
         <InputMedHjelpetekst
+          id={"bickode"}
           bredde={"M"}
           maxLength={11}
           submitted={submitted}
@@ -55,6 +56,7 @@ const LandMedBankkode = (props: Props) => {
           </div>
           <div className="utbetalinger__bankkode-kolonne">
             <InputMedHjelpetekst
+              id={"bankkode"}
               label={``}
               bredde={"M"}
               submitted={submitted}
@@ -68,6 +70,7 @@ const LandMedBankkode = (props: Props) => {
       </div>
       <div className="utbetalinger__adressefelter">
         <InputMedHjelpetekst
+          id={"adresse1"}
           bredde={"L"}
           maxLength={34}
           value={fields.adresse1}
@@ -77,6 +80,7 @@ const LandMedBankkode = (props: Props) => {
           label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
+          id={"adresse2"}
           label={""}
           bredde={"L"}
           maxLength={34}
@@ -86,6 +90,7 @@ const LandMedBankkode = (props: Props) => {
           onChange={(value) => setField({ adresse2: value })}
         />
         <InputMedHjelpetekst
+          id={"adresse3"}
           label={""}
           bredde={"L"}
           maxLength={34}

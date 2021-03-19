@@ -30,6 +30,7 @@ const AmerikanskKonto = (props: Props) => {
         </div>
         <div className="utbetalinger__bankkode-kolonne">
           <InputMedHjelpetekst
+            id={"bankkode"}
             label={``}
             bredde={"M"}
             submitted={submitted}
@@ -42,6 +43,7 @@ const AmerikanskKonto = (props: Props) => {
       </div>
       <div className="utbetalinger__adressefelter">
         <InputMedHjelpetekst
+          id={"adresse1"}
           bredde={"L"}
           maxLength={34}
           value={fields.adresse1}
@@ -51,6 +53,7 @@ const AmerikanskKonto = (props: Props) => {
           label={msg({ id: "felter.bankens.adresse.label" })}
         />
         <InputMedHjelpetekst
+          id={"adresse2"}
           label={""}
           bredde={"L"}
           maxLength={34}
@@ -60,6 +63,7 @@ const AmerikanskKonto = (props: Props) => {
           onChange={(value) => setField({ adresse2: value })}
         />
         <InputMedHjelpetekst
+          id={"adresse3"}
           label={""}
           bredde={"L"}
           maxLength={34}

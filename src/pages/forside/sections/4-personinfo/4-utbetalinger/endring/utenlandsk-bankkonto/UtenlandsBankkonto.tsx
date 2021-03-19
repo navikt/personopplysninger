@@ -17,6 +17,7 @@ import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
+import { Feiloppsummering } from "nav-frontend-skjema";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -273,6 +274,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 error={errors.valuta}
               />
               <InputMedHjelpetekst
+                id={"banknavn"}
                 bredde={"L"}
                 maxLength={35}
                 submitted={submitted}
@@ -282,6 +284,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 error={errors.banknavn}
               />
               <InputMedHjelpetekst
+                id={"kontonummer"}
                 bredde={"L"}
                 maxLength={36}
                 submitted={submitted}
@@ -314,6 +317,17 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
               )}
             </>
+          )}
+          {submitted && errors && fields?.land && (
+            <Feiloppsummering
+              tittel="For å gå videre må du rette opp følgende:"
+              feil={Object.entries(errors)
+                .filter(([, value]) => value)
+                .map(([key, value]) => ({
+                  skjemaelementId: key,
+                  feilmelding: value as string,
+                }))}
+            />
           )}
         </>
       )}

@@ -57,6 +57,7 @@ const SelectValuta = (props: Props) => {
 
   return (
     <NAVSelect
+      id={"valuta"}
       loading={loading}
       label={props.label}
       error={props.error}
