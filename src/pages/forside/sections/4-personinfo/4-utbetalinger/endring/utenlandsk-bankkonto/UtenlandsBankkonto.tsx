@@ -18,6 +18,7 @@ import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
 import { Feiloppsummering } from "nav-frontend-skjema";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -226,111 +227,109 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
   return (
     <Validation key={formKey} config={formConfig} initialValues={initialValues}>
-      {({ errors, fields, submitted, setField }) => (
-        <>
-          <div className="utbetalinger__alert">
-            <AlertStripeInfo>
-              <FormattedMessage
-                id="felter.utenlandskkonto.info"
-                values={{
-                  a: (text: String) => (
-                    <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
-                      {text}
-                    </Lenke>
-                  ),
-                }}
-              />
-            </AlertStripeInfo>
-          </div>
-          <SelectLand
-            submitted={submitted}
-            option={fields.land}
-            label={msg({ id: "felter.bankensland.label" })}
-            error={errors.land}
-            onChange={(option) => {
-              const bankkodeRetningsnummer = option
-                ? BANKKODER[option.value]
-                : null;
+      {({ errors, fields, submitted, setField }) => {
+        const hasErrors = Object.values(errors).find((error) => error);
+        return (
+          <>
+            <div className="utbetalinger__alert">
+              <AlertStripeInfo>
+                <FormattedMessage
+                  id="felter.utenlandskkonto.info"
+                  values={{
+                    a: (text: String) => (
+                      <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
+                        {text}
+                      </Lenke>
+                    ),
+                  }}
+                />
+              </AlertStripeInfo>
+            </div>
+            <SelectLand
+              submitted={submitted}
+              option={fields.land}
+              label={msg({ id: "felter.bankensland.label" })}
+              error={errors.land}
+              onChange={(option) => {
+                const bankkodeRetningsnummer = option
+                  ? BANKKODER[option.value]
+                  : null;
 
-              setField({
-                land: option,
-                ...(brukerBankkode(option) && {
-                  bankidentifier: undefined,
-                }),
-                ...(bankkodeRetningsnummer && {
-                  retningsnummer: bankkodeRetningsnummer,
-                }),
-              });
-            }}
-          />
-          {fields.land && (
-            <>
-              <SelectValuta
-                submitted={submitted}
-                option={fields.valuta}
-                label={msg({ id: "felter.valuta.label" })}
-                hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
-                onChange={(value) => setField({ valuta: value })}
-                error={errors.valuta}
-              />
-              <InputMedHjelpetekst
-                id={"banknavn"}
-                bredde={"L"}
-                maxLength={35}
-                submitted={submitted}
-                value={fields.banknavn}
-                label={msg({ id: "felter.banknavn.label" })}
-                onChange={(value) => setField({ banknavn: value })}
-                error={errors.banknavn}
-              />
-              <InputMedHjelpetekst
-                id={"kontonummer"}
-                bredde={"L"}
-                maxLength={36}
-                submitted={submitted}
-                value={fields.kontonummer}
-                hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
-                label={msg({ id: "felter.kontonummer.kontonummer.label" })}
-                onChange={(value) => setField({ kontonummer: value })}
-                error={errors.kontonummer}
-              />
-              {harValgtUSA(fields.land) ? (
-                <AmerikanskKonto
-                  submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
-                />
-              ) : brukerBankkode(fields.land) ? (
-                <LandMedBankkode
-                  submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
-                />
-              ) : (
-                <LandUtenBankkode
-                  submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
-                />
-              )}
-            </>
-          )}
-          {submitted && errors && fields?.land && (
-            <Feiloppsummering
-              tittel="For å gå videre må du rette opp følgende:"
-              feil={Object.entries(errors)
-                .filter(([, value]) => value)
-                .map(([key, value]) => ({
-                  skjemaelementId: key,
-                  feilmelding: value as string,
-                }))}
+                setField({
+                  land: option,
+                  ...(brukerBankkode(option) && {
+                    bankidentifier: undefined,
+                  }),
+                  ...(bankkodeRetningsnummer && {
+                    retningsnummer: bankkodeRetningsnummer,
+                  }),
+                });
+              }}
             />
-          )}
-        </>
-      )}
+            {fields.land && (
+              <>
+                <SelectValuta
+                  submitted={submitted}
+                  option={fields.valuta}
+                  label={msg({ id: "felter.valuta.label" })}
+                  hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
+                  onChange={(value) => setField({ valuta: value })}
+                  error={errors.valuta}
+                />
+                <InputMedHjelpetekst
+                  id={"banknavn"}
+                  bredde={"L"}
+                  maxLength={35}
+                  submitted={submitted}
+                  value={fields.banknavn}
+                  label={msg({ id: "felter.banknavn.label" })}
+                  onChange={(value) => setField({ banknavn: value })}
+                  error={errors.banknavn}
+                />
+                <InputMedHjelpetekst
+                  id={"kontonummer"}
+                  bredde={"L"}
+                  maxLength={36}
+                  submitted={submitted}
+                  value={fields.kontonummer}
+                  hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
+                  label={msg({ id: "felter.kontonummer.kontonummer.label" })}
+                  onChange={(value) => setField({ kontonummer: value })}
+                  error={errors.kontonummer}
+                />
+                {harValgtUSA(fields.land) ? (
+                  <AmerikanskKonto
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                ) : brukerBankkode(fields.land) ? (
+                  <LandMedBankkode
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                ) : (
+                  <LandUtenBankkode
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                )}
+              </>
+            )}
+            {submitted && hasErrors && fields?.land && (
+              <Feiloppsummering
+                tittel={msg({ id: "validation.fix.errors" })}
+                feil={mapErrorsToSummary(errors)}
+              />
+            )}
+          </>
+        );
+      }}
     </Validation>
   );
 };

@@ -3,6 +3,7 @@ import NAVSelect from "components/felter/select/NAVSelect";
 import { UNKNOWN } from "utils/text";
 
 interface Props {
+  id?: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
@@ -30,6 +31,7 @@ const SelectCO = (props: Props) => {
   return (
     <div className={"KodeverkSelect__margin"}>
       <NAVSelect
+        id={props.id}
         bredde={"input--s"}
         label={props.label}
         error={props.error}

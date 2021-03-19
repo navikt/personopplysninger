@@ -18,3 +18,11 @@ const mod11OfNumberWithControlDigit = (input: string) => {
 export const isMod11 = (accountNumber: string) =>
   parseInt(accountNumber.charAt(accountNumber.length - 1), 10) ===
   mod11OfNumberWithControlDigit(accountNumber);
+
+export const mapErrorsToSummary = (errors: { [key: string]: string | null }) =>
+  Object.entries(errors)
+    .filter(([, value]) => value)
+    .map(([key, value]) => ({
+      skjemaelementId: key,
+      feilmelding: value as string,
+    }));

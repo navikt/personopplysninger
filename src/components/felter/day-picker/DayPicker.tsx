@@ -9,6 +9,7 @@ import { FormattedMessage, useIntl } from "react-intl";
 import { PopoverOrientering } from "nav-frontend-popover";
 
 interface Props {
+  id?: string;
   label?: string;
   value?: string;
   error: string | null;
@@ -70,7 +71,7 @@ const DayPicker = (props: Props) => {
   });
 
   return (
-    <div className="skjemaelement">
+    <div className="skjemaelement" id={props.id}>
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         <Hjelpetekst type={PopoverOrientering.Hoyre}>

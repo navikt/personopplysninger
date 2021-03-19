@@ -310,6 +310,7 @@ export default {
   "validation.multiple.spaces": `Kan ikke ha flere sammenhengende mellomrom`,
   "validation.only.space.signs.or.digits": `Kan ikke bestå av kun space, spesialtegn og/eller sifre`,
   "validation.only.space.or.signs": `Kan ikke bestå av kun space og/eller spesialtegn`,
+  "validation.fix.errors": `For å gå videre må du rette opp følgende:`,
   "alternativer.tittel": `Mer informasjon`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,

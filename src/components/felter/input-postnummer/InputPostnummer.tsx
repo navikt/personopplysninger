@@ -5,6 +5,7 @@ import { Input } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
 
 interface Props {
+  id?: string;
   value?: string;
   submitted: boolean;
   label: string;
@@ -54,6 +55,7 @@ const SelectPostnummer = React.memo((props: Props) => {
   return (
     <div className="input-postnummer__container">
       <Input
+        id={props.id}
         min={0}
         maxLength={4}
         bredde={"S"}

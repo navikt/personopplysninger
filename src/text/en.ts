@@ -313,6 +313,7 @@ export default {
   "validation.multiple.spaces": `Cannot have multiple contiguous spaces`,
   "validation.only.space.signs.or.digits": `Cannot consist of space, special characters and / or numbers only`,
   "validation.only.space.or.signs": `Cannot consist of space and / or special characters only`,
+  "validation.fix.errors": `To proceed, you must correct the following:`,
   "alternativer.tittel": `More information`,
   "alternativer.feilopplysninger.tittel": merInfo.feilopplysninger.tittel,
   "alternativer.feilopplysninger.melding": merInfo.feilopplysninger.melding,
