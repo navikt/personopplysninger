@@ -16,7 +16,7 @@ import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
-import { useStore } from "../../../../../../../store/Context";
+import { useStore } from "store/Context";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -115,9 +115,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
-      hasOnlySpaceSpecialLettersOrDigits: msg({
-        id: "validation.only.whitespace.specialletters.or.digits",
+      notOnlySignsDigitsSpace: msg({
+        id: "validation.only.space.signs.or.digits",
       }),
+      isValidBanknavn: msg({ id: "validation.banknavn.ugyldig" }),
     },
     kontonummer: {
       isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
@@ -197,9 +198,10 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
-      hasOnlySpaceSpecialLettersOrDigits: msg({
-        id: "validation.only.whitespace.specialletters.or.digits",
+      notOnlySignsDigitsSpace: msg({
+        id: "validation.only.space.signs.or.digits",
       }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
     },
     adresse2: {
       isRequired: {
@@ -209,17 +211,15 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
-      hasOnlySpaceOrSpecialLetters: msg({
-        id: "validation.only.whitespace.or.specialletters",
-      }),
+      notOnlySignsSpace: msg({ id: "validation.only.space.or.signs" }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
     },
     adresse3: {
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
-      hasOnlySpaceOrSpecialLetters: msg({
-        id: "validation.only.whitespace.or.specialletters",
-      }),
+      notOnlySignsSpace: msg({ id: "validation.only.space.or.signs" }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
     },
   };
 
