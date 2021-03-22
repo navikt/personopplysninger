@@ -320,7 +320,7 @@ export default {
   "alternativer.utlevere.melding": merInfo.utlevere.melding,
   "alternativer.klage.tittel": merInfo.klage.tittel,
   "alternativer.klage.melding": merInfo.klage.melding,
-  "select.sok": "Sok ...",
+  "select.sok": "Søk ...",
   "select.loading": "Laster inn ...",
   "select.no.hits": "Ingen treff funnet for",
 };
