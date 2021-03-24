@@ -1,7 +1,6 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
-import { BIC } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
@@ -77,12 +76,6 @@ export const extraValidators = {
 
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
-
-  isValidBankIdentifier: (
-    config: SimpleValidatorConfig,
-    { fields }: ValidatorContext
-  ) => (value: string) =>
-    isValidIBAN(fields.kontonummer) && value !== BIC ? config.message : null,
 
   isIBANCountryCompliant: (
     config: SimpleValidatorConfig,

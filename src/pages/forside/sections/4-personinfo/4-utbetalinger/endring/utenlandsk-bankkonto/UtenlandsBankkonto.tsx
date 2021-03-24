@@ -10,7 +10,7 @@ import SelectValuta from "components/felter/select-kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
 import { brukerBankkode, validerBankkode, validerBic } from "../utils";
-import { harUtfylt, harValgtBic, harValgtUSA } from "../utils";
+import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
@@ -30,7 +30,6 @@ interface FormFields {
   valuta?: OptionType;
   banknavn?: string;
   kontonummer?: string;
-  bankidentifier?: string;
   bickode?: string;
   retningsnummer?: string;
   bankkode?: string;
@@ -88,7 +87,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     ? {
         ...utenlandskbank,
         bickode: utenlandskbank.swiftkode,
-        bankidentifier: utenlandskbank.swiftkode ? BIC : undefined,
         kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
         land: {
           label: utenlandskbank.land.toUpperCase(),
@@ -138,18 +136,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         message: msg({ id: "validation.kontonummer.idnr" }),
         validateIf: ({ fields }: ValidatorContext) =>
           fields.kontonummer === props.personident?.verdi,
-      },
-    },
-    bankidentifier: {
-      isRequired: {
-        message: msg({ id: "validation.bankidentifier.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          !brukerBankkode(fields.land),
-      },
-      isValidBankIdentifier: {
-        message: msg({ id: "validation.bankidentifier.valid" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          harUtfylt(fields.bankidentifier),
       },
     },
     bickode: {

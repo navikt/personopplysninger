@@ -280,9 +280,7 @@ export const validerBic = (fields: Fields) => {
   }
 
   if (!brukerBankkode(fields.land)) {
-    if (harValgtBic(fields.bankidentifier)) {
-      return true;
-    }
+    return true;
   }
 
   return false;
