@@ -68,10 +68,10 @@ export const BANKKODER: { [key: string]: string } = {
 
 export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   USA: 9,
-  NZL: 6,
+  NZL: 5,
   AUS: 6,
   ZAF: 6,
-  CAN: 6,
+  CAN: 9,
   RUS: 9,
 };
 
