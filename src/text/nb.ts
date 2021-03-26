@@ -301,7 +301,7 @@ export default {
   "validation.bic.gyldig": "Gyldig BIC / Swift-kode er nødvendig",
   "validation.bic.country": `Du må taste inn en gyldig BIC / Swift-kode fra det landet du har valgt.`,
   "validation.valuta.pakrevd": "Valuta er nødvendig",
-  "validation.adresse.pakrevd": "Adresse er nødvendig",
+  "validation.adresse.pakrevd": "Første adresselinje er nødvendig",
   "validation.adresselinje.pakrevd": `Nødvendig når feltet under er utfylt`,
   "validation.adresselinje.ugyldig": `Inneholder ugyldige tegn`,
   "validation.svarteliste.felles": `Kan ikke inneholde ord som «ukjent», «ikke kjent», «vet ikke», «uoppgitt», «n.n.», «nomen nescio»`,
