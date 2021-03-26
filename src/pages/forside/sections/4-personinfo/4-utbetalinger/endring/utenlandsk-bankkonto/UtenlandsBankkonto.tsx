@@ -179,10 +179,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     },
     adresse1: {
       isRequired: {
-        message: msg({ id: "validation.adresselinje.pakrevd" }),
+        message: msg({ id: "validation.adresse.pakrevd" }),
         validateIf: ({ fields }: ValidatorContext) =>
-          fields.adresse2 || fields.adresse3,
+          validerBankkode(fields) || fields.adresse2 || fields.adresse3,
       },
+
       isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
       hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),

@@ -238,7 +238,7 @@ export default {
   "felter.regiondistriktomraade.label": "Region (optional)",
   "felter.postkode.label": "Postal code (optional)",
   "felter.bysted.label": "City / Place name (optional)",
-  "felter.bankens.adresse.label": "Bank address (optional)",
+  "felter.bankens.adresse.label": "Bank address",
   "felter.land.label": "Country",
   "felter.kontonummer.label": "Account number",
   "felter.kontonummervalg.norsk": "Norwegian account number",
