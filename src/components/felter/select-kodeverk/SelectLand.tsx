@@ -4,6 +4,7 @@ import { HTTPError } from "components/error/Error";
 import NAVSelect from "components/felter/select/NAVSelect";
 
 interface Props {
+  id?: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
@@ -56,6 +57,7 @@ const SelectLand = (props: Props) => {
 
   return (
     <NAVSelect
+      id={props.id}
       loading={loading}
       label={props.label}
       error={props.error}

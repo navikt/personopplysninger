@@ -10,13 +10,15 @@ import SelectValuta from "components/felter/select-kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
 import { brukerBankkode, validerBankkode, validerBic } from "../utils";
-import { harUtfylt, harValgtBic, harValgtUSA } from "../utils";
+import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
 import Lenke from "nav-frontend-lenker";
-import { useStore } from "../../../../../../../store/Context";
+import { useStore } from "store/Context";
+import { Feiloppsummering } from "nav-frontend-skjema";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -28,7 +30,6 @@ interface FormFields {
   valuta?: OptionType;
   banknavn?: string;
   kontonummer?: string;
-  bankidentifier?: string;
   bickode?: string;
   retningsnummer?: string;
   bankkode?: string;
@@ -70,7 +71,7 @@ export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
   NZL: 6,
   AUS: 6,
   ZAF: 6,
-  CAN: 6,
+  CAN: 9,
   RUS: 9,
 };
 
@@ -86,7 +87,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     ? {
         ...utenlandskbank,
         bickode: utenlandskbank.swiftkode,
-        bankidentifier: utenlandskbank.swiftkode ? BIC : undefined,
         kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
         land: {
           label: utenlandskbank.land.toUpperCase(),
@@ -112,7 +112,13 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     },
     banknavn: {
       isRequired: msg({ id: "validation.banknavn.pakrevd" }),
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
       isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      notOnlySignsDigitsSpace: msg({
+        id: "validation.only.space.signs.or.digits",
+      }),
+      isValidBanknavn: msg({ id: "validation.banknavn.ugyldig" }),
     },
     kontonummer: {
       isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
@@ -130,18 +136,6 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         message: msg({ id: "validation.kontonummer.idnr" }),
         validateIf: ({ fields }: ValidatorContext) =>
           fields.kontonummer === props.personident?.verdi,
-      },
-    },
-    bankidentifier: {
-      isRequired: {
-        message: msg({ id: "validation.bankidentifier.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          !brukerBankkode(fields.land),
-      },
-      isValidBankIdentifier: {
-        message: msg({ id: "validation.bankidentifier.valid" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          harUtfylt(fields.bankidentifier),
       },
     },
     bickode: {
@@ -183,105 +177,146 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         validateIf: ({ fields }: ValidatorContext) => validerBankkode(fields),
       },
     },
-    adresse1: {},
-    adresse2: {},
-    adresse3: {},
+    adresse1: {
+      isRequired: {
+        message: msg({ id: "validation.adresse.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          validerBankkode(fields) || fields.adresse2 || fields.adresse3,
+      },
+
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      notOnlySignsDigitsSpace: msg({
+        id: "validation.only.space.signs.or.digits",
+      }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
+    },
+    adresse2: {
+      isRequired: {
+        message: msg({ id: "validation.adresselinje.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) => fields.adresse3,
+      },
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      notOnlySignsSpace: msg({ id: "validation.only.space.or.signs" }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
+    },
+    adresse3: {
+      isFirstCharNotSpace: msg({ id: "validation.firstchar.notspace" }),
+      isBlacklistedCommon: msg({ id: "validation.svarteliste.felles" }),
+      hasMultipleCombinedSpaces: msg({ id: "validation.multiple.spaces" }),
+      notOnlySignsSpace: msg({ id: "validation.only.space.or.signs" }),
+      isValidAdresselinje: msg({ id: "validation.adresselinje.ugyldig" }),
+    },
   };
 
   return (
     <Validation key={formKey} config={formConfig} initialValues={initialValues}>
-      {({ errors, fields, submitted, setField }) => (
-        <>
-          <div className="utbetalinger__alert">
-            <AlertStripeInfo>
-              <FormattedMessage
-                id="felter.utenlandskkonto.info"
-                values={{
-                  a: (text: String) => (
-                    <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
-                      {text}
-                    </Lenke>
-                  ),
-                }}
-              />
-            </AlertStripeInfo>
-          </div>
-          <SelectLand
-            submitted={submitted}
-            option={fields.land}
-            label={msg({ id: "felter.bankensland.label" })}
-            error={errors.land}
-            onChange={(option) => {
-              const bankkodeRetningsnummer = option
-                ? BANKKODER[option.value]
-                : null;
+      {({ errors, fields, submitted, setField }) => {
+        const hasErrors = Object.values(errors).find((error) => error);
+        return (
+          <>
+            <div className="utbetalinger__alert">
+              <AlertStripeInfo>
+                <FormattedMessage
+                  id="felter.utenlandskkonto.info"
+                  values={{
+                    a: (text: String) => (
+                      <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
+                        {text}
+                      </Lenke>
+                    ),
+                  }}
+                />
+              </AlertStripeInfo>
+            </div>
+            <SelectLand
+              submitted={submitted}
+              option={fields.land}
+              label={msg({ id: "felter.bankensland.label" })}
+              error={errors.land}
+              onChange={(option) => {
+                const bankkodeRetningsnummer = option
+                  ? BANKKODER[option.value]
+                  : null;
 
-              setField({
-                land: option,
-                ...(brukerBankkode(option) && {
-                  bankidentifier: undefined,
-                }),
-                ...(bankkodeRetningsnummer && {
-                  retningsnummer: bankkodeRetningsnummer,
-                }),
-              });
-            }}
-          />
-          {fields.land && (
-            <>
-              <SelectValuta
-                submitted={submitted}
-                option={fields.valuta}
-                label={msg({ id: "felter.valuta.label" })}
-                hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
-                onChange={(value) => setField({ valuta: value })}
-                error={errors.valuta}
-              />
-              <InputMedHjelpetekst
-                bredde={"L"}
-                maxLength={34}
-                submitted={submitted}
-                value={fields.banknavn}
-                label={msg({ id: "felter.banknavn.label" })}
-                onChange={(value) => setField({ banknavn: value })}
-                error={errors.banknavn}
-              />
-              <InputMedHjelpetekst
-                bredde={"L"}
-                maxLength={36}
-                submitted={submitted}
-                value={fields.kontonummer}
-                hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
-                label={msg({ id: "felter.kontonummer.kontonummer.label" })}
-                onChange={(value) => setField({ kontonummer: value })}
-                error={errors.kontonummer}
-              />
-              {harValgtUSA(fields.land) ? (
-                <AmerikanskKonto
+                setField({
+                  land: option,
+                  ...(brukerBankkode(option) && {
+                    bankidentifier: undefined,
+                  }),
+                  ...(bankkodeRetningsnummer && {
+                    retningsnummer: bankkodeRetningsnummer,
+                  }),
+                });
+              }}
+            />
+            {fields.land && (
+              <>
+                <SelectValuta
                   submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
+                  option={fields.valuta}
+                  label={msg({ id: "felter.valuta.label" })}
+                  hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
+                  onChange={(value) => setField({ valuta: value })}
+                  error={errors.valuta}
                 />
-              ) : brukerBankkode(fields.land) ? (
-                <LandMedBankkode
+                <InputMedHjelpetekst
+                  id={"banknavn"}
+                  bredde={"L"}
+                  maxLength={35}
                   submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
+                  value={fields.banknavn}
+                  label={msg({ id: "felter.banknavn.label" })}
+                  onChange={(value) => setField({ banknavn: value })}
+                  error={errors.banknavn}
                 />
-              ) : (
-                <LandUtenBankkode
+                <InputMedHjelpetekst
+                  id={"kontonummer"}
+                  bredde={"L"}
+                  maxLength={36}
                   submitted={submitted}
-                  fields={fields}
-                  errors={errors}
-                  setField={setField}
+                  value={fields.kontonummer}
+                  hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
+                  label={msg({ id: "felter.kontonummer.kontonummer.label" })}
+                  onChange={(value) => setField({ kontonummer: value })}
+                  error={errors.kontonummer}
                 />
-              )}
-            </>
-          )}
-        </>
-      )}
+                {harValgtUSA(fields.land) ? (
+                  <AmerikanskKonto
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                ) : brukerBankkode(fields.land) ? (
+                  <LandMedBankkode
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                ) : (
+                  <LandUtenBankkode
+                    submitted={submitted}
+                    fields={fields}
+                    errors={errors}
+                    setField={setField}
+                  />
+                )}
+              </>
+            )}
+            {submitted && hasErrors && fields?.land && (
+              <Feiloppsummering
+                tittel={msg({ id: "validation.fix.errors" })}
+                feil={mapErrorsToSummary(errors)}
+              />
+            )}
+          </>
+        );
+      }}
     </Validation>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "nav-frontend-skjema";
+import { Feiloppsummering, Input } from "nav-frontend-skjema";
 import InputPostnummer from "components/felter/input-postnummer/InputPostnummer";
 import DayPicker from "components/felter/day-picker/DayPicker";
 import { Knapp } from "nav-frontend-knapper";
@@ -19,6 +19,7 @@ import SelectCO from "components/felter/select-co/SelectCO";
 import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";
 import { UNKNOWN } from "utils/text";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   postboksadresse?: Postboksadresse;
@@ -174,10 +175,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField, setError, submit }) => {
+        const hasErrors = Object.values(errors).find((error) => error);
         return (
           <>
             <div className="adresse__rad">
               <SelectCO
+                id={"coType"}
                 submitted={submitted}
                 option={fields.coType}
                 label={msg({ id: "felter.tilleggslinje.label" })}
@@ -187,6 +190,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               />
               <div className="adresse__without-label">
                 <InputMedHjelpetekst
+                  id={"coAdressenavn"}
                   bredde={"XL"}
                   maxLength={26}
                   submitted={submitted}
@@ -198,6 +202,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               </div>
             </div>
             <Input
+              id={"postbokseier"}
               bredde={"L"}
               maxLength={30}
               label={msg({ id: "felter.postbokseier.label" })}
@@ -208,6 +213,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             />
             <div className="adresse__rad">
               <Input
+                id={"postboksnummer"}
                 min={1}
                 bredde={"S"}
                 type={"number"}
@@ -224,6 +230,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
                 }}
               />
               <Input
+                id={"postboksanlegg"}
                 bredde={"M"}
                 maxLength={30}
                 value={fields.postboksanlegg}
@@ -236,6 +243,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <InputPostnummer
+                  id={"postnummer"}
                   submitted={submitted}
                   value={fields.postnummer}
                   error={errors.postnummer}
@@ -251,6 +259,7 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <DayPicker
+                  id={"gyldigTilOgMed"}
                   submitted={submitted}
                   value={fields.gyldigTilOgMed}
                   error={errors.gyldigTilOgMed}
@@ -263,6 +272,12 @@ const OpprettEllerEndrePostboksadresse = (props: Props) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
+            {submitted && hasErrors && (
+              <Feiloppsummering
+                tittel={msg({ id: "validation.fix.errors" })}
+                feil={mapErrorsToSummary(errors)}
+              />
+            )}
             <div className="adresse__form-knapper">
               <div className="adresse__knapp">
                 <Knapp

@@ -6,6 +6,7 @@ import { PopoverOrientering } from "nav-frontend-popover";
 
 type IProps = Omit<InputProps, "onChange">;
 interface Props extends IProps {
+  id?: string;
   value?: string;
   error?: string | null;
   submitted: boolean;
@@ -14,6 +15,7 @@ interface Props extends IProps {
 }
 
 const EndreKontonummerFelt = ({
+  id,
   value,
   onChange,
   submitted,
@@ -46,6 +48,7 @@ const EndreKontonummerFelt = ({
       </div>
       <div className="ekf__input">
         <Input
+          id={id}
           label={""}
           value={value}
           onChange={(e) => onChange(e.target.value)}

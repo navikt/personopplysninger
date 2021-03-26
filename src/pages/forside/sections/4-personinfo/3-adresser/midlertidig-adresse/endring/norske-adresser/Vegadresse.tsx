@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input } from "nav-frontend-skjema";
+import { Feiloppsummering, Input } from "nav-frontend-skjema";
 import { Knapp } from "nav-frontend-knapper";
 import { FormattedMessage } from "react-intl";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
@@ -19,6 +19,7 @@ import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";
 import { OptionType } from "types/option";
 import { UNKNOWN } from "utils/text";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   vegadresse: Vegadresse;
@@ -167,10 +168,12 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField, setError }) => {
+        const hasErrors = Object.values(errors).find((error) => error);
         return (
           <>
             <div className="adresse__rad">
               <SelectCO
+                id={"coType"}
                 submitted={submitted}
                 option={fields.coType}
                 label={msg({ id: "felter.tilleggslinje.label" })}
@@ -180,6 +183,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
               />
               <div className="adresse__without-label">
                 <InputMedHjelpetekst
+                  id={"coAdressenavn"}
                   bredde={"XL"}
                   maxLength={26}
                   submitted={submitted}
@@ -193,6 +197,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input
+                  id={"adressenavn"}
                   bredde={"XXL"}
                   maxLength={30}
                   value={fields.adressenavn}
@@ -204,6 +209,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
               <div className="adresse__kolonne">
                 <div className="adresse__rad">
                   <Input
+                    id={"husnummer"}
                     min={1}
                     bredde={"XS"}
                     type={"number"}
@@ -218,6 +224,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
                     }}
                   />
                   <Input
+                    id={"husbokstav"}
                     bredde={"XS"}
                     maxLength={1}
                     value={fields.husbokstav}
@@ -235,6 +242,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
             </div>
             <div className="adresse__rad">
               <InputMedHjelpetekst
+                id={"bruksenhetsnummer"}
                 maxLength={5}
                 submitted={submitted}
                 value={fields.bruksenhetsnummer}
@@ -246,6 +254,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
                 bredde={"S"}
               />
               <InputPostnummer
+                id={"postnummer"}
                 submitted={submitted}
                 value={fields.postnummer}
                 error={errors.postnummer}
@@ -255,6 +264,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
               />
             </div>
             <InputMedHjelpetekst
+              id={"tilleggsnavn"}
               submitted={submitted}
               value={fields.tilleggsnavn}
               hjelpetekst={"adresse.hjelpetekster.tilleggsnavn"}
@@ -267,6 +277,7 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <DayPicker
+                  id={"gyldigTilOgMed"}
                   submitted={submitted}
                   value={fields.gyldigTilOgMed}
                   error={errors.gyldigTilOgMed}
@@ -279,6 +290,12 @@ const OpprettEllerEndreVegadresse = (props: Props) => {
               </div>
               <div className="adresse__kolonne" />
             </div>
+            {submitted && hasErrors && (
+              <Feiloppsummering
+                tittel={msg({ id: "validation.fix.errors" })}
+                feil={mapErrorsToSummary(errors)}
+              />
+            )}
             <div className="adresse__form-knapper">
               <div className="adresse__knapp">
                 <Knapp

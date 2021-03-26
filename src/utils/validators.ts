@@ -1,7 +1,6 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
 import { getCountryISO2 } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
-import { BIC } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
@@ -18,26 +17,28 @@ export const extraValidators = {
   isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
     value && !value.match(/^[^\s].*/) ? config.message : null,
 
+  // Todo: use regExpCreator
   isLetters: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z]+/g) ? config.message : null,
 
+  // Todo: use regExpCreator
   isLettersAndSpace: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
 
+  // Todo: use regExpCreator
   isLettersAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z0-9]+/g) ? config.message : null,
 
+  // Todo: use regExpCreator
   isLettersSpaceAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
     value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
 
+  // Todo: use regExpCreator
   isMinOneLetter: (config: SimpleValidatorConfig) => (value: string) =>
     !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
 
-  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
-
   isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    ["ukjent", "vet ikke"].some((substring) =>
+    BLACKLISTED_WORDS.some((substring) =>
       value.toLowerCase().includes(substring)
     )
       ? config.message
@@ -50,9 +51,39 @@ export const extraValidators = {
       : null;
   },
 
+  isNotSSN: (config: SimpleValidatorConfig) => (value: string) =>
+    validator.idnr(value).status === "valid" ? config.message : null,
+
+  isNotYourSSN: (config: SimpleValidatorConfig) => () => config.message,
+
   /*
-    Special validators
+    Special validators - Address
   */
+
+  isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null,
+
+  // Todo: use regExpCreator
+  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
+    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
+
+  /*
+    Special validators - Account number
+   */
+
+  isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
+    value.length !== 8 || !erInteger(value) ? config.message : null,
+
+  isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
+    !isValidIBAN(value) ? config.message : null,
+
+  isIBANCountryCompliant: (
+    config: SimpleValidatorConfig,
+    { fields }: ValidatorContext
+  ) => (value: string) =>
+    fields.land && value.substring(0, 2) !== getCountryISO2(fields.land.value)
+      ? config.message
+      : null,
 
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
@@ -62,28 +93,6 @@ export const extraValidators = {
     { fields }: ValidatorContext
   ) => (value: string) =>
     fields.land && value.substring(4, 6) !== getCountryISO2(fields.land.value)
-      ? config.message
-      : null,
-
-  isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
-    !isValidIBAN(value) ? config.message : null,
-
-  isValidBankIdentifier: (
-    config: SimpleValidatorConfig,
-    { fields }: ValidatorContext
-  ) => (value: string) =>
-    isValidIBAN(fields.kontonummer) && value !== BIC ? config.message : null,
-
-  isNotSSN: (config: SimpleValidatorConfig) => (value: string) =>
-    validator.idnr(value).status === "valid" ? config.message : null,
-
-  isNotYourSSN: (config: SimpleValidatorConfig) => () => config.message,
-
-  isIBANCountryCompliant: (
-    config: SimpleValidatorConfig,
-    { fields }: ValidatorContext
-  ) => (value: string) =>
-    fields.land && value.substring(0, 2) !== getCountryISO2(fields.land.value)
       ? config.message
       : null,
 
@@ -98,11 +107,29 @@ export const extraValidators = {
         })
       : null,
 
-  isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value.length !== 8 || !erInteger(value) ? config.message : null,
+  hasMultipleCombinedSpaces: (config: SimpleValidatorConfig) => (
+    value: string
+  ) => (value && value.match(/\s\s/) ? config.message : null),
 
-  isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null,
+  notOnlySignsDigitsSpace: (config: SimpleValidatorConfig) => (value: string) =>
+    value && normalizeInput(value).match(regExpPattern.onlyNonLetters)
+      ? config.message
+      : null,
+
+  notOnlySignsSpace: (config: SimpleValidatorConfig) => (value: string) =>
+    value && normalizeInput(value).match(regExpPattern.onlySignsSpace)
+      ? config.message
+      : null,
+
+  isValidBanknavn: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !normalizeInput(value).match(regExpPattern.validBanknavn)
+      ? config.message
+      : null,
+
+  isValidAdresselinje: (config: SimpleValidatorConfig) => (value: string) =>
+    value && !normalizeInput(value).match(regExpPattern.validBankadresselinje)
+      ? config.message
+      : null,
 };
 
 /*
@@ -121,3 +148,79 @@ export interface CustomValidator {
   message: (values: object) => string;
   validateIf?: ((context: ValidatorContext) => boolean) | boolean;
 }
+
+/*
+  Regex
+ */
+
+const LATIN_LETTERS = "A-Za-z";
+const NORWEGIAN_LETTERS = LATIN_LETTERS + "ÆØÅæøå";
+const SPECIAL_LETTERS = `ıłŁŊŋŦŧƁɓƊɗƓɠƘƙƤƥƬƭÞþßԈБ\\u0189\\u0256\\u00D0\\u00F0\\u00F0\\u0111\\u01E4\\u01E5\\u0187\\u0188\\u01B3\\u01B4`;
+const ALL_LETTERS = NORWEGIAN_LETTERS + SPECIAL_LETTERS;
+const DIGITS = "0-9";
+const SPACE = " ";
+const HYPHEN = "\\-";
+const PERIOD = ".";
+const APOSTROPHE = "'";
+const FORWARD_SLASH = "/";
+const COMMA = ",";
+const COLON = ":";
+const NUMBER_SIGN = "#";
+const AMPERSAND = "&";
+
+export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp =>
+  new RegExp(regExpAsArray.join(""), flag);
+
+export const regExpPattern = {
+  onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
+  onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
+  validBankadresselinje: regExpCreator([
+    "^[",
+    ALL_LETTERS,
+    DIGITS,
+    SPACE,
+    HYPHEN,
+    PERIOD,
+    COMMA,
+    COLON,
+    APOSTROPHE,
+    FORWARD_SLASH,
+    AMPERSAND,
+    NUMBER_SIGN,
+    "]+$",
+  ]),
+  validBanknavn: regExpCreator([
+    "^[",
+    ALL_LETTERS,
+    DIGITS,
+    SPACE,
+    HYPHEN,
+    PERIOD,
+    COMMA,
+    APOSTROPHE,
+    FORWARD_SLASH,
+    AMPERSAND,
+    "]+$",
+  ]),
+};
+
+export const BLACKLISTED_WORDS = [
+  "ukjent",
+  "ikke kjent",
+  "vet ikke",
+  "uoppgitt",
+  "n.n.",
+  "nomen nescio",
+];
+
+/*
+ * Normalize-funksjonen vil først dekomponere en bokstav med spesialtegn til flere kodepunkter.
+ * F.eks. dekomponering av bokstaven Ç (\u00C7) vil resultere i kodepunktene \u0043 (C) og \u0327 (diakritisk tegn)
+ * Deretter vil kodepunkter for diakritiske tegn strippes vekk. Man sitter da igjen med kun "base"-versjonen av bokstaven.
+ * F.eks. i stringen \u0043\u0327 vil \u0327 bli gjenkjent som et diakritisk tegn og dermed strippes vekk.
+ */
+const normalizeInput = (val: string): string => {
+  const dekomponert = val.normalize("NFD");
+  const utenDiakritiskeTegn = dekomponert.replace(/[\u0300-\u036f]/g, "");
+  return utenDiakritiskeTegn;
+};

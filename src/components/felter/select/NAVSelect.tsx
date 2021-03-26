@@ -14,6 +14,7 @@ import { PopoverOrientering } from "nav-frontend-popover";
 import { HTTPError } from "../../error/Error";
 
 interface Props {
+  id?: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
@@ -138,6 +139,7 @@ const NAVSelect = React.memo((props: Props) => {
         }`}
       >
         <Select
+          id={props.id}
           value={value}
           label={props.label}
           placeholder={formatMessage({ id: "select.sok" })}

@@ -14,10 +14,11 @@ import Alert, { AlertType } from "components/alert/Alert";
 import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
 import moment from "moment";
 import { OptionType } from "types/option";
-import { Input } from "nav-frontend-skjema";
+import { Feiloppsummering, Input } from "nav-frontend-skjema";
 import SelectCO from "components/felter/select-co/SelectCO";
 import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";
+import { mapErrorsToSummary } from "utils/kontonummer";
 
 interface Props {
   utenlandskPostboksadresse?: UtenlandskAdresse;
@@ -174,10 +175,12 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
       initialValues={initialValues}
     >
       {({ errors, fields, submitted, isValid, setField, setError }) => {
+        const hasErrors = Object.values(errors).find((error) => error);
         return (
           <>
             <div className="adresse__rad">
               <SelectCO
+                id={"coType"}
                 submitted={submitted}
                 option={fields.coType}
                 label={msg({ id: "felter.tilleggslinje.label" })}
@@ -187,6 +190,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               />
               <div className="adresse__without-label">
                 <InputMedHjelpetekst
+                  id={"coAdressenavn"}
                   bredde={"XL"}
                   maxLength={26}
                   submitted={submitted}
@@ -198,6 +202,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               </div>
             </div>
             <Input
+              id={"postboksNummerNavn"}
               bredde={"XL"}
               label={msg({ id: "felter.postboks.label" })}
               value={fields.postboksNummerNavn}
@@ -206,6 +211,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               onChange={(e) => setField({ postboksNummerNavn: e.target.value })}
             />
             <InputMedHjelpetekst
+              id={"regionDistriktOmraade"}
               bredde={"XL"}
               submitted={submitted}
               maxLength={30}
@@ -218,6 +224,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
             <div className="adresse__rad">
               <div className="adresse__kolonne">
                 <Input
+                  id={"postkode"}
                   bredde={"XL"}
                   label={msg({ id: "felter.postkode.label" })}
                   value={fields.postkode}
@@ -228,6 +235,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               </div>
               <div className="adresse__kolonne">
                 <Input
+                  id={"bySted"}
                   bredde={"XL"}
                   label={msg({ id: "felter.bysted.label" })}
                   value={fields.bySted}
@@ -238,6 +246,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               </div>
             </div>
             <SelectLand
+              id={"land"}
               label={msg({ id: "felter.land.label" })}
               submitted={submitted}
               option={fields.land}
@@ -245,6 +254,7 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
               onChange={(land) => setField({ land })}
             />
             <DayPicker
+              id={"gyldigTilOgMed"}
               submitted={submitted}
               value={fields.gyldigTilOgMed}
               error={errors.gyldigTilOgMed}
@@ -254,6 +264,12 @@ const OpprettEllerEndreUtenlandskVegadresse = (props: Props) => {
                 setError({ ...errors, gyldigTilOgMed: error })
               }
             />
+            {submitted && hasErrors && (
+              <Feiloppsummering
+                tittel={msg({ id: "validation.fix.errors" })}
+                feil={mapErrorsToSummary(errors)}
+              />
+            )}
             <div className="adresse__form-knapper">
               <div className="adresse__knapp">
                 <Knapp
