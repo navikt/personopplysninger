@@ -50,10 +50,16 @@ const SelectLand = (props: Props) => {
       value: k.kode,
     }));
 
+  const disallowedCountries = ["NORGE", "UOPPGITT/UKJENT", "UOPPGITT"];
+
   const options = mapKoderToOptions(land)
-    .filter((option: OptionType) => option.value !== "NOR")
-    .filter((option: OptionType) => option.label !== "UOPPGITT/UKJENT")
+    .filter(
+      (option: OptionType) =>
+        !disallowedCountries.includes(option.label.toUpperCase())
+    )
     .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1));
+
+  console.log(mapKoderToOptions(land).length, options.length);
 
   return (
     <NAVSelect
