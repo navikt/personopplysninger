@@ -59,8 +59,6 @@ const SelectLand = (props: Props) => {
     )
     .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1));
 
-  console.log(mapKoderToOptions(land).length, options.length);
-
   return (
     <NAVSelect
       id={props.id}
