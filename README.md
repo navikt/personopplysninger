@@ -18,6 +18,12 @@ Installer nødvendige pakker:
 npm install
 ```
 
+Kopier environment-variabler fra eksempel-filen:
+
+```
+cp .env.sample .env
+```
+
 Start dekoratøren og mocks
 
 ```
@@ -30,6 +36,10 @@ Start applikasjonen lokalt:
 ```
 npm start
 ```
+
+## Mock-serveren
+
+Ved enkelte post-kall vil mock-serveren alltid returnere en feilet case. Se feks /clients/apiMock/app/post/endre-kontonr.json. For å teste andre TPS-svar, endre denne json tilsvarende.
 
 ## Feature toggles
 
