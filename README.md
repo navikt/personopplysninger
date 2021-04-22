@@ -15,9 +15,9 @@ Installer nødvendige pakker:
 `npm install`
 
 Autentiser på Github container-registry hvis du ikke har gjort det allerede
-(Merk: --password-stdin hindrer at access token havner i serverloggene):
+(Merk: --password-stdin hindrer at access token havner i diverse logger):
 
-`echo YOUR_GITHUB_PERSONAL_ACCESS_TOKEN | docker login docker.pkg.github.com -u YOUR_GITHUB_USERNAME --password-stdin`
+`echo DIN_GITHUB_ACCESS_TOKEN | docker login docker.pkg.github.com -u DITT_GITHUB_BRUKERNAVN --password-stdin`
 
 Start dekoratøren og mocks:
 
@@ -47,12 +47,16 @@ Benytt [Github CLI](https://cli.github.com/) for å deploye via kommandolinjen:
 
 ### Prod
 
-Deploy til prod trigges når du tagger og pusher en ny versjon. Husk å skrive en kort beskrivelse slik at det er enkelt å sporte endringer historisk gjennom versjonene.
+Deploy til prod trigges når du tagger og pusher en ny versjon. Husk å skrive en kort beskrivelse slik at det er enkelt å sporte endringer historisk fra én versjon til en annen.
 
-1. Opprett PR og be om review fra en peer.
-2. Merge inn i master
-3. `npm version patch -m "%s: Noen få ord om endringene som er gjort."`
+1. Opprett PR og be om review fra en kollega.
+2. Merge godkjent PR inn i master.
+3. `npm version [minor | patch] -m "%s: Noen få ord om endringene som er gjort."`
 4. Gå til repoet og publiser en ny release _eller_ bruk kommandolinjen: `gh release create vx.x.x -t "Tittel på release"`
+
+#### Om semver
+
+`npm version patch` vil bumpe versjon fra feks v1.1.1 til v1.1.2. Diskuter med teamet om versjonen er en minor eller kun en patch. Hvis minor bruker du `npm version minor` istedet. Du kan lese mer på [semver.org](https://semver.org/)
 
 ## Logging
 
