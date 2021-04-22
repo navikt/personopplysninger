@@ -18,7 +18,9 @@
     "build": "npm-run-all -p build:*",
     "build:js": "react-scripts build",
     "build:css": "less-watch-compiler --run-once",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "preversion": "npm test && npm run build",
+    "postversion": "git push && git push --tags && rm -rf build"
   },
   "dependencies": {
     "@navikt/arbeidsforhold": "^1.4.0",
