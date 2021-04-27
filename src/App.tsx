@@ -59,7 +59,7 @@ const App = () => {
         dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
       }
     });
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     Modal.setAppElement("#app");
