@@ -8,15 +8,11 @@ React applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret.
 
 Hent repoet fra github
 
-```
-git clone https://github.com/navikt/personopplysninger.git
-```
+`git clone https://github.com/navikt/personopplysninger.git`
 
 Installer nødvendige pakker:
 
-```
-npm install
-```
+`npm install`
 
 Kopier environment-variabler fra eksempel-filen:
 
@@ -24,18 +20,19 @@ Kopier environment-variabler fra eksempel-filen:
 cp .env.sample .env
 ```
 
-Start dekoratøren og mocks
+Start dekoratøren og mocks:
+Autentiser på Github container-registry hvis du ikke har gjort det allerede
+(Merk: --password-stdin hindrer at access token havner i diverse logger):
 
-```
-docker login docker.pkg.github.com -u GITHUB_USERNAME -p GITHUB_PERSONAL_ACCESS_TOKEN
-docker-compose up -d
-```
+`echo DIN_GITHUB_ACCESS_TOKEN | docker login docker.pkg.github.com -u DITT_GITHUB_BRUKERNAVN --password-stdin`
+
+Start dekoratøren og mocks:
+
+`docker-compose up -d`
 
 Start applikasjonen lokalt:
 
-```
-npm start
-```
+`npm start`
 
 ## Mock-serveren
 
@@ -48,14 +45,29 @@ https://unleash.nais.io
 
 ## Deployering
 
-- Dev - Tag på formatet `vX.X.X-dev`.
-- Prod - Tag på formatet `vX.X.X-prod`.
+### Dev
 
-Push den nye versjonen til GitHub og merge til master.
+1. Besøk https://github.com/navikt/personopplysninger/actions
+2. Velg workflow `Deploy-to-web` og deretter `Run workflow`. Husk å velge hvilken branch du ønsker å deploye til dev.
 
-```
-git push && git push --tags
-```
+_eller_
+
+Benytt [Github CLI](https://cli.github.com/) for å deploye via kommandolinjen:
+
+`gh workflow run workflow_dispatch -b <navn_på_branch>`
+
+### Prod
+
+Deploy til prod trigges når du tagger og pusher en ny versjon. Husk å skrive en kort beskrivelse slik at det er enkelt å sporte endringer historisk fra én versjon til en annen.
+
+1. Opprett PR og be om review fra en kollega.
+2. Merge godkjent PR inn i master.
+3. `npm version [minor | patch] -m "%s: Noen få ord om endringene som er gjort."`
+4. Gå til repoet og publiser en ny release _eller_ bruk kommandolinjen: `gh release create vx.x.x -t "Tittel på release"`
+
+#### Om semver
+
+`npm version patch` vil bumpe versjon fra feks v1.1.1 til v1.1.2. Diskuter med teamet om versjonen er en minor eller kun en patch. Hvis minor bruker du `npm version minor` istedet. Du kan lese mer på [semver.org](https://semver.org/)
 
 ## Logging
 
@@ -66,6 +78,6 @@ Feil ved API-kall blir logget via frontendlogger og vises i Kibana<br>
 
 Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/personbruker
 
-## For NAV-ansatte
+## For NAV internt
 
 Interne henvendelser kan sendes via Slack i kanalen #team-personbruker.
