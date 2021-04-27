@@ -1,4 +1,10 @@
-export default {
+export const redirects: {
+  [key: string]: {
+    beskrivelse: string;
+    knapp: string;
+    allowed: string;
+  };
+} = {
   /*
     Obs: dersom endringer gjøres her, husk å sjekke om endringene er dekket av eksisterende whitelisting i loginservice, og oppdater om nødvendig
 
@@ -50,3 +56,35 @@ export default {
     knapp: "Gå tilbake til Din Profil"
   }
 };
+
+export const tillatteTjenester = Object.keys(redirects)
+  .map((key) => key)
+  .join("|");
+
+const urlPatterns = Object.keys(redirects)
+  .map((key) => redirects[key].allowed);
+
+export const tillatteUrler = urlPatterns
+  .join("|");
+
+const sentFromOtherAppPathSegment = "sendt-fra";
+const serviceReturnUrlParam = "returnToAppUrl";
+
+export const getLoginserviceRedirectUrl = () => {
+  const url = window.location.origin + window.location.pathname + window.location.hash;
+
+  if (window.location.pathname.includes(sentFromOtherAppPathSegment)) {
+    const urlSegments = url.split("/");
+    const [serviceReturnUrl] = urlSegments.slice(-1);
+    const isValidServiceUrl = urlPatterns.some(pattern => new RegExp(pattern).test(serviceReturnUrl));
+
+    if (isValidServiceUrl) {
+      const baseUrl = urlSegments.slice(0, -1).join("/");
+      return `${baseUrl}?${serviceReturnUrlParam}=${serviceReturnUrl}`;
+    }
+  }
+
+  return url;
+};
+
+export const getServiceReturnUrl = () => new URLSearchParams(window.location.search).get(serviceReturnUrlParam);

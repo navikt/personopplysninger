@@ -9,6 +9,7 @@ import { OutboundNorskVegadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
+import { getLoginserviceRedirectUrl } from "../utils/redirects";
 
 const parseJson = (data: Response) => data.json();
 
@@ -167,10 +168,9 @@ const sjekkAuth = (response: Response): any => {
   return response;
 };
 
-export const sendTilLogin = (url?: string) => {
-  const to = url || window.location.href;
-  console.log(`${REACT_APP_LOGIN_URL}?redirect=${to}`);
-  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${to}`);
+export const sendTilLogin = () => {
+  const redirectUrl = getLoginserviceRedirectUrl();
+  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`);
 };
 
 const sjekkHttpFeil = (response: Response) => {

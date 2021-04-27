@@ -11,16 +11,16 @@ import RedirectKnapp from "components/knapper/Redirect";
 
 interface Routes {
   tjeneste?: string;
-  redirectUrl?: string;
+  tjenesteUrl?: string;
 }
 
 type Props = {
-  redirectUrlProp?: string | null;
+  tjenesteUrl?: string | null;
 };
 
-const Forside = ({ redirectUrlProp }: Props) => {
-  const { tjeneste, redirectUrl } = useParams<Routes>();
-  const url = redirectUrlProp || redirectUrl;
+const Forside = ({ tjenesteUrl: tjenesteUrlProp }: Props) => {
+  const { tjeneste, tjenesteUrl } = useParams<Routes>();
+  const url = tjenesteUrlProp || tjenesteUrl;
 
   console.log("redirecting to", url);
 

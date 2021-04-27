@@ -8,7 +8,7 @@ import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import redirectsRaw from "./utils/redirects";
+import { getServiceReturnUrl, tillatteTjenester, tillatteUrler } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
@@ -21,40 +21,18 @@ import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { Auth } from "./types/authInfo";
 import { fetchInnloggingsStatus, sendTilLogin } from "./clients/apiClient";
 
-const redirects: {
-  [key: string]: {
-    beskrivelse: string;
-    knapp: string;
-    allowed: string;
-  };
-} = redirectsRaw;
-
 export const basePath = "/person/personopplysninger";
 export const basePathWithLanguage = `${basePath}/(nb|en)`;
-
-const redirectedPathSegment = "sendt-fra";
-
-const getRedirectUrl = () => {
-  console.log(window.location.pathname, redirectedPathSegment);
-  if (window.location.href.includes(redirectedPathSegment)) {
-    const segments = window.location.href.split("/");
-    const [lastSegment] = segments.slice(-1);
-    return `${segments.slice(0, -1).join("/")}?url=${lastSegment}`;
-  }
-  return undefined;
-};
 
 const App = () => {
   const { locale } = useIntl();
   const [{ featureToggles, authInfo }, dispatch] = useStore();
-  const returnUrlToApp = new URLSearchParams(window.location.search).get("url");
-  console.log("Redirect url:", returnUrlToApp);
+  const serviceReturnUrl = getServiceReturnUrl();
 
   useEffect(() => {
     fetchInnloggingsStatus().then((auth: Auth) => {
-      console.log("received auth status:", auth);
       if (!auth?.authenticated || auth.securityLevel !== "4") {
-        sendTilLogin(getRedirectUrl());
+        sendTilLogin();
       } else {
         dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
       }
@@ -76,14 +54,6 @@ const App = () => {
     keepLastAnchorHash: true,
   });
 
-  const tillatteTjenester = Object.keys(redirects)
-    .map((key) => key)
-    .join("|");
-
-  const tillatteUrler = Object.keys(redirects)
-    .map((key) => redirects[key].allowed)
-    .join("|");
-
   return (
     <div className="pagecontent">
       <div className="wrapper">
@@ -99,17 +69,17 @@ const App = () => {
                       path={`${basePathWithLanguage}/`}
                       component={Forside}
                     />
-                    {returnUrlToApp ? (
+                    {serviceReturnUrl ? (
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})`}
                       >
-                        <Forside redirectUrlProp={returnUrlToApp} />
+                        <Forside tjenesteUrl={serviceReturnUrl} />
                       </Route>
                     ) : (
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
                         component={Forside}
                       />
                     )}
@@ -156,17 +126,17 @@ const App = () => {
                       />
                     )}
                     {featureToggles.data["personopplysninger.pdl"] && (
-                      returnUrlToApp ? (
+                      serviceReturnUrl ? (
                         <Route
                           exact={true}
                           path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})`}
                         >
-                          <EndreOpplysninger redirectUrlProp={returnUrlToApp} />
+                          <EndreOpplysninger tjenesteUrl={serviceReturnUrl} />
                         </Route>
                       ) : (
                         <Route
                           exact={true}
-                          path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                          path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
                           component={EndreOpplysninger}
                         />
                       )

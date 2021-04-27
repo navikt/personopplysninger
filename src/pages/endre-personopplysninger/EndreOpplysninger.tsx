@@ -12,16 +12,16 @@ import Error, { HTTPError } from "components/error/Error";
 
 interface Routes {
   tjeneste?: string;
-  redirectUrl?: string;
+  tjenesteUrl?: string;
 }
 
 type Props = {
-  redirectUrlProp?: string | null;
+  tjenesteUrl?: string | null;
 };
 
-const EndreAlleOpplysninger = ({ redirectUrlProp }: Props) => {
-  const { tjeneste, redirectUrl } = useParams<Routes>();
-  const url = redirectUrlProp || redirectUrl;
+const EndreAlleOpplysninger = ({ tjenesteUrl: tjenesteUrlProp }: Props) => {
+  const { tjeneste, tjenesteUrl } = useParams<Routes>();
+  const url = tjenesteUrlProp || tjenesteUrl;
 
   console.log("redirecting to", url);
 
