@@ -116,9 +116,9 @@ const App = () => {
                     <Route
                       exact={true}
                       path={`${basePathWithLanguage}/arbeidsforhold`}
-                      render={() => (
+                      render={(routeProps) => (
                         <Redirect
-                          to={`${basePathWithLanguage}/#arbeidsforhold`}
+                          to={routeProps.location.pathname.replace("arbeidsforhold", "#arbeidsforhold")}
                         />
                       )}
                     />
