@@ -4,7 +4,6 @@ const getHtmlWithDecorator = (filePath) =>
   injectDecoratorServerSide({
     env: process.env.ENV,
     filePath: filePath,
-    enforceLogin: false,
     breadcrumbs: [
       { url: `https://www.nav.no/person/dittnav/`, title: "Ditt NAV" },
       { url: `https://www.nav.no/person/personopplysninger/`, title: `Personopplysninger` },

@@ -70,15 +70,16 @@ export const tillatteUrler = urlPatterns
 const sentFromOtherAppPathSegment = "sendt-fra";
 const serviceReturnUrlParam = "returnToAppUrl";
 
+const isValidServiceUrl = (url: string) => urlPatterns.some(pattern => new RegExp(pattern).test(url));
+
 export const getLoginserviceRedirectUrl = () => {
   const url = window.location.origin + window.location.pathname + window.location.hash;
 
   if (window.location.pathname.includes(sentFromOtherAppPathSegment)) {
     const urlSegments = url.split("/");
     const [serviceReturnUrl] = urlSegments.slice(-1);
-    const isValidServiceUrl = urlPatterns.some(pattern => new RegExp(pattern).test(serviceReturnUrl));
 
-    if (isValidServiceUrl) {
+    if (isValidServiceUrl(serviceReturnUrl)) {
       const baseUrl = urlSegments.slice(0, -1).join("/");
       return `${baseUrl}?${serviceReturnUrlParam}=${serviceReturnUrl}`;
     }
@@ -87,4 +88,7 @@ export const getLoginserviceRedirectUrl = () => {
   return url;
 };
 
-export const getServiceReturnUrl = () => new URLSearchParams(window.location.search).get(serviceReturnUrlParam);
+export const getServiceReturnUrl = () => {
+  const urlFromParam = new URLSearchParams(window.location.search).get(serviceReturnUrlParam);
+  return urlFromParam && isValidServiceUrl(urlFromParam) ? urlFromParam : null;
+};
