@@ -11,18 +11,14 @@ import RedirectKnapp from "components/knapper/Redirect";
 
 interface Routes {
   tjeneste?: string;
-  redirectUrlLegacy?: string;
 }
 
-interface Props {
+type Props = {
   redirectUrl?: string | null;
-}
+};
 
-const Forside = ({ redirectUrl }: Props) => {
-  const params = useParams<Routes>();
-  const { tjeneste, redirectUrlLegacy } = params;
-
-  const _redirectUrl = redirectUrl || redirectUrlLegacy;
+const Forside = ({redirectUrl}: Props) => {
+  const { tjeneste } = useParams<Routes>();
 
   return (
     <>
@@ -33,8 +29,8 @@ const Forside = ({ redirectUrl }: Props) => {
       <Arbeidsforhold />
       <EksterneLenker />
       <MerInformasjon />
-      {tjeneste && _redirectUrl && (
-        <RedirectKnapp tjeneste={tjeneste} redirectUrl={_redirectUrl} />
+      {tjeneste && redirectUrl && (
+        <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
       )}
     </>
   );

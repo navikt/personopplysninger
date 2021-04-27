@@ -11,6 +11,7 @@ import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import Cookies from "js-cookie";
 import { redirectLoginCookie } from "../utils/cookies";
+
 const parseJson = (data: Response) => data.json();
 
 const {
@@ -18,11 +19,29 @@ const {
   REACT_APP_LOGIN_URL,
   REACT_APP_DSOP_URL,
   REACT_APP_URL,
+  REACT_APP_INNLOGGINGSSTATUS_URL,
 } = process.env;
 
 /*
    FETCH
  */
+
+const hentJson = (url: string) =>
+  fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json;charset=UTF-8" },
+    credentials: "include",
+  })
+    .then(parseJson)
+    .catch((err: string & AlertType) => {
+      const error = {
+        code: err.code || 404,
+        type: err.type || "feil",
+        text: err.text || err,
+      };
+      logApiError(url, error);
+      throw error;
+    });
 
 const sjekkAuthHentJson = (url: string) =>
   fetch(url, {
@@ -42,6 +61,8 @@ const sjekkAuthHentJson = (url: string) =>
       logApiError(url, error);
       throw error;
     });
+
+export const fetchInnloggingsStatus = () => hentJson(`${REACT_APP_INNLOGGINGSSTATUS_URL}`);
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   sjekkAuthHentJson(
@@ -144,8 +165,8 @@ const sjekkAuth = (response: Response): any => {
   return response;
 };
 
-export const sendTilLogin = () => {
-  const to = window.location.pathname + window.location.hash;
+export const sendTilLogin = (url?: string) => {
+  const to = url || window.location.pathname + window.location.hash;
   const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
   const options = { expires: inFiveMinutes };
   Cookies.set(redirectLoginCookie, to, options);
@@ -182,8 +203,8 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         text: `${response.error && response.error.message}${
           response.error && response.error.details
             ? `\n${Object.values(response.error.details)
-                .map((details) => details.join("\n"))
-                .join("\n")}`
+              .map((details) => details.join("\n"))
+              .join("\n")}`
             : ``
         }`,
       },

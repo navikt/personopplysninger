@@ -20,8 +20,9 @@ import Modal from "react-modal";
 import Cookies from "js-cookie";
 import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
-import { EnforceLoginLoader } from "@navikt/nav-dekoratoren-moduler";
 import { Auth } from "./types/authInfo";
+import { fetchInnloggingsStatus, sendTilLogin } from "./clients/apiClient";
+import { Location } from "history";
 
 const redirects: {
   [key: string]: {
@@ -34,11 +35,24 @@ const redirects: {
 export const basePath = "/person/personopplysninger";
 export const basePathWithLanguage = `${basePath}/(nb|en)`;
 
+const redirectedPathSegment = "sendt-fra";
+
+const getSecondOrderRedirectUrl = (location: Location) => {
+  if (location.pathname.includes(redirectedPathSegment)) {
+    return location.pathname.split("/").slice(0, -1).join("/");
+  }
+  return undefined;
+};
+
 const App = () => {
   const { locale } = useIntl();
-  const [{ featureToggles }, dispatch] = useStore();
-  const { search } = useLocation();
-  const redirectUrl = new URLSearchParams(search).get("url");
+  const [{ featureToggles, authInfo }, dispatch] = useStore();
+  const location = useLocation();
+  const redirectUrl = new URLSearchParams(location.search).get("url");
+
+  useEffect(() => {
+    fetchInnloggingsStatus().then(res => authCallback(res));
+  }, []);
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -64,14 +78,19 @@ const App = () => {
     .join("|");
 
   const authCallback = (auth: Auth) => {
-    dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
+    console.log("received auth status:", auth);
+    if (!auth?.authenticated || auth.securityLevel !== "4") {
+      sendTilLogin(getSecondOrderRedirectUrl(location));
+    } else {
+      dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
+    }
   };
 
   return (
     <div className="pagecontent">
       <div className="wrapper">
-        <Router>
-          <EnforceLoginLoader authCallback={authCallback}>
+        {authInfo.status === "RESULT" ? (
+          <Router>
             <WithFeatureToggles>
               <Switch>
                 <Redirect to={`${basePath}/nb/`} exact={true} path={"/"} />
@@ -85,7 +104,7 @@ const App = () => {
                       />
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrlLegacy(${tillatteUrler})`}
+                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
                       >
                         <Forside redirectUrl={redirectUrl} />
                       </Route>
@@ -167,8 +186,12 @@ const App = () => {
                 </RedirectAfterLogin>
               </Switch>
             </WithFeatureToggles>
-          </EnforceLoginLoader>
-        </Router>
+          </Router>
+        ) : (
+          <div>
+            {"Waiting for auth..."}
+          </div>
+        )}
       </div>
     </div>
   );
