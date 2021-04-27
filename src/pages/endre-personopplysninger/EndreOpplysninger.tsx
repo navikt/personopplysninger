@@ -15,15 +15,21 @@ interface Routes {
   redirectUrl?: string;
 }
 
-const EndreAlleOpplysninger = () => {
-  const params = useParams<Routes>();
-  const { tjeneste, redirectUrl } = params;
+type Props = {
+  redirectUrlProp?: string | null;
+};
+
+const EndreAlleOpplysninger = ({ redirectUrlProp }: Props) => {
+  const { tjeneste, redirectUrl } = useParams<Routes>();
+  const url = redirectUrlProp || redirectUrl;
+
+  console.log("redirecting to", url);
 
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
-        {tjeneste && redirectUrl && (
-          <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
+        {tjeneste && url && (
+          <RedirectKnapp tjeneste={tjeneste} redirectUrl={url} />
         )}
         <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
           {({ personalia, adresser }) => {
