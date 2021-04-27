@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useIntl } from "react-intl";
-import { useHistory, useLocation } from "react-router-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
@@ -39,6 +37,8 @@ export const basePathWithLanguage = `${basePath}/(nb|en)`;
 const App = () => {
   const { locale } = useIntl();
   const [{ featureToggles }, dispatch] = useStore();
+  const { search } = useLocation();
+  const redirectUrl = new URLSearchParams(search).get("url");
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -85,9 +85,10 @@ const App = () => {
                       />
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
-                        component={Forside}
-                      />
+                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrlLegacy(${tillatteUrler})`}
+                      >
+                        <Forside redirectUrl={redirectUrl} />
+                      </Route>
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/arbeidsforhold`}

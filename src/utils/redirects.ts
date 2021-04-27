@@ -1,5 +1,7 @@
 export default {
   /*
+    Obs: dersom endringer gjøres her, husk å sjekke om endringene er dekket av eksisterende whitelisting i loginservice, og oppdater om nødvendig
+
     Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og midlertidig adresse.
     Brukeren vil samtidig se en en knapp med tilhørende beskrivelse som ruter han/henne tilbake til den opprinnelige tjenesten.
 
