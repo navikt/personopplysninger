@@ -8,7 +8,7 @@ export default {
     2) Send brukeren til https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/[KEY]/[REDIRECT_URL]
 
     Eksempel på url:
-    https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/publisering/dinpensjon/https%3A%2F%2Ftjenester-q4.nav.no%2Fpselv%2Fpublisering%2Fdinpensjon.jsf
+    https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/publisering/dinpensjon/https%3A%2F%2Fwww.nav.no%2Fpselv%2Fpublisering%2Fdinpensjon.jsf
 
     Hvordan funker det?
     Beskrivelse og tekst på knappen vil bestemmes ut ifra [KEY].
