@@ -51,7 +51,14 @@ const App = () => {
   console.log("Redirect url:", returnUrlToApp);
 
   useEffect(() => {
-    fetchInnloggingsStatus().then(res => authCallback(res));
+    fetchInnloggingsStatus().then((auth: Auth) => {
+      console.log("received auth status:", auth);
+      if (!auth?.authenticated || auth.securityLevel !== "4") {
+        sendTilLogin(getRedirectUrl());
+      } else {
+        dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
+      }
+    });
   }, []);
 
   useEffect(() => {
@@ -76,15 +83,6 @@ const App = () => {
   const tillatteUrler = Object.keys(redirects)
     .map((key) => redirects[key].allowed)
     .join("|");
-
-  const authCallback = (auth: Auth) => {
-    console.log("received auth status:", auth);
-    if (!auth?.authenticated || auth.securityLevel !== "4") {
-      sendTilLogin(getRedirectUrl());
-    } else {
-      dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
-    }
-  };
 
   return (
     <div className="pagecontent">
@@ -214,9 +212,9 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
   const location = useLocation();
   const history = useHistory();
   const [{ locale }] = useStore();
-  const localeUrlPattern = new RegExp(`${basePath}(/en|/nb)($|\\/)`);
 
   useEffect(() => {
+    const localeUrlPattern = new RegExp(`${basePath}(/en|/nb)($|\\/)`);
     const urlHasLocale = localeUrlPattern.test(location.pathname);
 
     if (!urlHasLocale) {
