@@ -1,6 +1,7 @@
 interface EnkeltLand {
   alpha2: string;
   isEurope: boolean;
+  ibanPrefixAlternatives?: string[];
 }
 
 export const LandOppslag = new Map<string, EnkeltLand>([
@@ -652,6 +653,7 @@ export const LandOppslag = new Map<string, EnkeltLand>([
     "GGY",
     {
       alpha2: "GG",
+      ibanPrefixAlternatives: ["GB"],
       isEurope: true,
     },
   ],
@@ -757,6 +759,7 @@ export const LandOppslag = new Map<string, EnkeltLand>([
     "IMN",
     {
       alpha2: "IM",
+      ibanPrefixAlternatives: ["GB"],
       isEurope: true,
     },
   ],
@@ -792,6 +795,7 @@ export const LandOppslag = new Map<string, EnkeltLand>([
     "JEY",
     {
       alpha2: "JE",
+      ibanPrefixAlternatives: ["GB"],
       isEurope: true,
     },
   ],
