@@ -34,20 +34,23 @@ https://unleash.nais.io
 
 ## Deployering
 
+Merk: Bruk develop-branchen når vi deployer til dev. Dermed unngår vi at feks to utviklere overskriver hverandres features når de deployes individuelt til dev.
+
 ### Dev
 
-1. Besøk https://github.com/navikt/personopplysninger/actions
-2. Velg workflow `Deploy-to-web` og deretter `Run workflow`. Husk å velge hvilken branch du ønsker å deploye til dev.
+1. Opprett en PR mot develop. Sett den gjerne til DRAFT hvis du vil signalisere at den ikke er klar for test.
+2. Besøk https://github.com/navikt/personopplysninger/actions
+3. Velg workflow `Deploy-to-web`, velg develop-branchen og deretter `Run workflow`.
 
 _eller_
 
 Benytt [Github CLI](https://cli.github.com/) for å deploye via kommandolinjen:
 
-`gh workflow run workflow_dispatch -b <navn_på_branch>`
+`gh workflow run workflow_dispatch -b develop`
 
 ### Prod
 
-Deploy til prod trigges når du tagger og pusher en ny versjon. Husk å skrive en kort beskrivelse slik at det er enkelt å sporte endringer historisk fra én versjon til en annen.
+Deploy til prod trigges når du publiserer en ny versjon. Husk å skrive en kort beskrivelse slik at det er enkelt å sporte endringer historisk fra én versjon til en annen.
 
 1. Opprett PR og be om review fra en kollega.
 2. Merge godkjent PR inn i master.
