@@ -1,6 +1,9 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidIBAN, isValidBIC } from "ibantools";
-import { getCountryISO2 } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
+import {
+  getCountryAlpha2,
+  getIbanPrefixAlternatives,
+} from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
 import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
@@ -74,16 +77,30 @@ export const extraValidators = {
   isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
     value.length !== 8 || !erInteger(value) ? config.message : null,
 
+  isIBANRequired: (config: SimpleValidatorConfig) => (value: OptionType) =>
+    !value ? config.message : null,
+
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
 
   isIBANCountryCompliant: (
     config: SimpleValidatorConfig,
     { fields }: ValidatorContext
-  ) => (value: string) =>
-    fields.land && value.substring(0, 2) !== getCountryISO2(fields.land.value)
+  ) => (value: string) => {
+    if (!fields.land) {
+      return null;
+    }
+    const ibanPrefix = value && value.substring(0, 2);
+    const selectedCountryAlpha2 = getCountryAlpha2(fields.land.value);
+    const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
+      fields.land.value
+    );
+
+    return ibanPrefix !== selectedCountryAlpha2 &&
+      !selectedCountryPrefixAlternatives.includes(ibanPrefix)
       ? config.message
-      : null,
+      : null;
+  },
 
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
@@ -92,7 +109,7 @@ export const extraValidators = {
     config: SimpleValidatorConfig,
     { fields }: ValidatorContext
   ) => (value: string) =>
-    fields.land && value.substring(4, 6) !== getCountryISO2(fields.land.value)
+    fields.land && value.substring(4, 6) !== getCountryAlpha2(fields.land.value)
       ? config.message
       : null,
 
