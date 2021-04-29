@@ -69,7 +69,7 @@ export const tillatteUrler = Object.keys(redirects)
 export const getLoginserviceRedirectUrl = () => {
   // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
   const encodedPath = btoa(window.location.pathname + window.location.hash);
-  return `${baseUrl}?${redirectPathParam}=${btoa(encodedPath)}`;
+  return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
 };
 
 export const getRedirectPathFromParam = () => {
