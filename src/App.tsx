@@ -45,8 +45,8 @@ const App = () => {
   return (
     <div className="pagecontent">
       <div className="wrapper">
-        <WithAuth>
-          <Router>
+        <Router>
+          <WithAuth>
             <WithFeatureToggles>
               <Switch>
                 {redirectUrl && <Redirect to={redirectUrl} />}
@@ -140,8 +140,8 @@ const App = () => {
                 </RedirectToLocale>
               </Switch>
             </WithFeatureToggles>
-          </Router>
-        </WithAuth>
+          </WithAuth>
+        </Router>
       </div>
     </div>
   );
