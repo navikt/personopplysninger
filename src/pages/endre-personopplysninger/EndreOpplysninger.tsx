@@ -12,17 +12,18 @@ import Error, { HTTPError } from "components/error/Error";
 
 interface Routes {
   tjeneste?: string;
-  tjenesteUrl?: string;
+  redirectUrl?: string;
 }
 
 const EndreAlleOpplysninger = () => {
-  const { tjeneste, tjenesteUrl } = useParams<Routes>();
+  const params = useParams<Routes>();
+  const { tjeneste, redirectUrl } = params;
 
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
-        {tjeneste && tjenesteUrl && (
-          <RedirectKnapp tjeneste={tjeneste} redirectUrl={tjenesteUrl} />
+        {tjeneste && redirectUrl && (
+          <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
         )}
         <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
           {({ personalia, adresser }) => {

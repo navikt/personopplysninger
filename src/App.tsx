@@ -16,28 +16,16 @@ import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
 import Modal from "react-modal";
-import Spinner from "./components/spinner/Spinner";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
-import { Auth } from "./types/authInfo";
-import { fetchInnloggingsStatus, sendTilLogin } from "./clients/apiClient";
+import { WithAuth } from "./store/providers/WithAuth";
 
 export const basePath = "/person/personopplysninger";
 export const basePathWithLanguage = `${basePath}/(nb|en)`;
 
 const App = () => {
   const { locale } = useIntl();
-  const [{ featureToggles, authInfo }, dispatch] = useStore();
+  const [{ featureToggles }, dispatch] = useStore();
   const redirectUrl = getRedirectUrlFromParam();
-
-  useEffect(() => {
-    fetchInnloggingsStatus().then((auth: Auth) => {
-      if (!auth?.authenticated || auth.securityLevel !== "4") {
-        sendTilLogin();
-      } else {
-        dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
-      }
-    });
-  }, [dispatch]);
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -57,7 +45,7 @@ const App = () => {
   return (
     <div className="pagecontent">
       <div className="wrapper">
-        {authInfo.status === "RESULT" ? (
+        <WithAuth>
           <Router>
             <WithFeatureToggles>
               <Switch>
@@ -153,9 +141,7 @@ const App = () => {
               </Switch>
             </WithFeatureToggles>
           </Router>
-        ) : (
-          <Spinner />
-        )}
+        </WithAuth>
       </div>
     </div>
   );

@@ -24,23 +24,6 @@ const {
    GET
  */
 
-const hentJson = (url: string) =>
-  fetch(url, {
-    method: "GET",
-    headers: { "Content-Type": "application/json;charset=UTF-8" },
-    credentials: "include",
-  })
-    .then(parseJson)
-    .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text || err,
-      };
-      logApiError(url, error);
-      throw error;
-    });
-
 const sjekkAuthHentJson = (url: string) =>
   fetch(url, {
     method: "GET",
@@ -60,7 +43,7 @@ const sjekkAuthHentJson = (url: string) =>
       throw error;
     });
 
-export const fetchInnloggingsStatus = () => hentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   sjekkAuthHentJson(
