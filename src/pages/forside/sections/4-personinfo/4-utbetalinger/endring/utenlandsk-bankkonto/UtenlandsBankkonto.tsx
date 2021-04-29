@@ -9,7 +9,12 @@ import SelectLand from "components/felter/select-kodeverk/SelectLand";
 import SelectValuta from "components/felter/select-kodeverk/SelectValuta";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { UNKNOWN } from "utils/text";
-import { brukerBankkode, validerBankkode, validerBic } from "../utils";
+import {
+  brukerBankkode,
+  validerBankkode,
+  validerBic,
+  erLandIEuropa,
+} from "../utils";
 import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
@@ -121,11 +126,26 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       isValidBanknavn: msg({ id: "validation.banknavn.ugyldig" }),
     },
     kontonummer: {
-      isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
+      isIBANRequired: {
+        message: msg({ id: "validation.iban.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          erLandIEuropa(fields.land),
+      },
+      isRequired: {
+        message: msg({ id: "validation.kontonummer.pakrevd" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          !erLandIEuropa(fields.land),
+      },
       isLettersAndDigits: msg({ id: "validation.only.letters.and.digits" }),
+
       isNotIBAN: {
         message: msg({ id: "validation.ikke.iban" }),
         validateIf: ({ fields }: ValidatorContext) => harValgtUSA(fields.land),
+      },
+      isIBAN: {
+        message: msg({ id: "validation.iban.gyldig" }),
+        validateIf: ({ fields }: ValidatorContext) =>
+          erLandIEuropa(fields.land),
       },
       isIBANCountryCompliant: {
         message: msg({ id: "validation.iban.country" }),
