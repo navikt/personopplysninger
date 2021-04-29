@@ -8,7 +8,7 @@ import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import { getRedirectUrlFromParam, tillatteTjenester, tillatteUrler } from "./utils/redirects";
+import { getRedirectPathFromParam, tillatteTjenester, tillatteUrler } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
@@ -25,7 +25,7 @@ export const basePathWithLanguage = `${basePath}/(nb|en)`;
 const App = () => {
   const { locale } = useIntl();
   const [{ featureToggles }, dispatch] = useStore();
-  const redirectUrl = getRedirectUrlFromParam();
+  const redirectPath = getRedirectPathFromParam();
 
   useEffect(() => {
     Modal.setAppElement("#app");
@@ -49,7 +49,7 @@ const App = () => {
           <WithAuth>
             <WithFeatureToggles>
               <Switch>
-                {redirectUrl && <Redirect to={redirectUrl} />}
+                {redirectPath && <Redirect to={redirectPath} />}
                 <Redirect to={`${basePath}/nb/`} exact={true} path={"/"} />
                 <RedirectToLocale>
                   <Switch>

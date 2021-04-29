@@ -1,5 +1,5 @@
 const baseUrl = process.env.REACT_APP_URL;
-const redirectUrlParam = "redirectUrl";
+const redirectPathParam = "path";
 
 export const redirects: {
   [key: string]: {
@@ -68,8 +68,8 @@ export const tillatteUrler = Object.keys(redirects)
 
 export const getLoginserviceRedirectUrl = () => {
   const currentPath = window.location.pathname + window.location.hash;
-  return `${baseUrl}?${redirectUrlParam}=${currentPath}`;
+  return `${baseUrl}?${redirectPathParam}=${currentPath}`;
 };
 
-export const getRedirectUrlFromParam = () =>
-  new URLSearchParams(window.location.search).get(redirectUrlParam);
+export const getRedirectPathFromParam = () =>
+  new URLSearchParams(window.location.search).get(redirectPathParam);
