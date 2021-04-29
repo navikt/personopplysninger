@@ -20,7 +20,8 @@ import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
 
 export const basePath = "/person/personopplysninger";
-export const basePathWithLanguage = `${basePath}/(nb|en)`;
+const basePathWithLanguage = `${basePath}/(nb|en)`;
+const localeUrlPattern = new RegExp(`${basePath}(/en|/nb)($|\\/)`);
 
 const App = () => {
   const { locale } = useIntl();
@@ -60,7 +61,7 @@ const App = () => {
                     />
                     <Route
                       exact={true}
-                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
+                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
                       component={Forside}
                     />
                     <Route
@@ -108,7 +109,7 @@ const App = () => {
                     {featureToggles.data["personopplysninger.pdl"] && (
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
+                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
                         component={EndreOpplysninger}
                       />
                     )}
@@ -153,7 +154,6 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
   const [{ locale }] = useStore();
 
   useEffect(() => {
-    const localeUrlPattern = new RegExp(`${basePath}(/en|/nb)($|\\/)`);
     const urlHasLocale = localeUrlPattern.test(location.pathname);
 
     if (!urlHasLocale) {
