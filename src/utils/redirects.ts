@@ -1,3 +1,6 @@
+const baseUrl = process.env.REACT_APP_URL;
+const redirectUrlParam = "redirectUrl";
+
 export const redirects: {
   [key: string]: {
     beskrivelse: string;
@@ -6,8 +9,6 @@ export const redirects: {
   };
 } = {
   /*
-    Obs: dersom endringer gjøres her, husk å sjekke om endringene er dekket av eksisterende whitelisting i loginservice, og oppdater om nødvendig
-
     Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og midlertidig adresse.
     Brukeren vil samtidig se en en knapp med tilhørende beskrivelse som ruter han/henne tilbake til den opprinnelige tjenesten.
 
@@ -61,34 +62,14 @@ export const tillatteTjenester = Object.keys(redirects)
   .map((key) => key)
   .join("|");
 
-const urlPatterns = Object.keys(redirects)
-  .map((key) => redirects[key].allowed);
-
-export const tillatteUrler = urlPatterns
+export const tillatteUrler = Object.keys(redirects)
+  .map((key) => redirects[key].allowed)
   .join("|");
 
-const sentFromOtherAppPathSegment = "sendt-fra";
-const serviceReturnUrlParam = "returnToAppUrl";
-
-const isValidServiceUrl = (url: string) => urlPatterns.some(pattern => new RegExp(pattern).test(url));
-
 export const getLoginserviceRedirectUrl = () => {
-  const url = window.location.origin + window.location.pathname + window.location.hash;
-
-  if (window.location.pathname.includes(sentFromOtherAppPathSegment)) {
-    const urlSegments = url.split("/");
-    const [serviceReturnUrl] = urlSegments.slice(-1);
-
-    if (isValidServiceUrl(serviceReturnUrl)) {
-      const baseUrl = urlSegments.slice(0, -1).join("/");
-      return `${baseUrl}?${serviceReturnUrlParam}=${serviceReturnUrl}`;
-    }
-  }
-
-  return url;
+  const currentPath = window.location.pathname + window.location.hash;
+  return `${baseUrl}?${redirectUrlParam}=${currentPath}`;
 };
 
-export const getServiceReturnUrl = () => {
-  const urlFromParam = new URLSearchParams(window.location.search).get(serviceReturnUrlParam);
-  return urlFromParam && isValidServiceUrl(urlFromParam) ? urlFromParam : null;
-};
+export const getRedirectUrlFromParam = () =>
+  new URLSearchParams(window.location.search).get(redirectUrlParam);

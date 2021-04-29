@@ -8,7 +8,7 @@ import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { configureAnchors } from "react-scrollable-anchor";
-import { getServiceReturnUrl, tillatteTjenester, tillatteUrler } from "./utils/redirects";
+import { getRedirectUrlFromParam, tillatteTjenester, tillatteUrler } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
@@ -27,7 +27,7 @@ export const basePathWithLanguage = `${basePath}/(nb|en)`;
 const App = () => {
   const { locale } = useIntl();
   const [{ featureToggles, authInfo }, dispatch] = useStore();
-  const serviceReturnUrl = getServiceReturnUrl();
+  const redirectUrl = getRedirectUrlFromParam();
 
   useEffect(() => {
     fetchInnloggingsStatus().then((auth: Auth) => {
@@ -61,6 +61,7 @@ const App = () => {
           <Router>
             <WithFeatureToggles>
               <Switch>
+                {redirectUrl && <Redirect to={redirectUrl} />}
                 <Redirect to={`${basePath}/nb/`} exact={true} path={"/"} />
                 <RedirectToLocale>
                   <Switch>
@@ -69,20 +70,11 @@ const App = () => {
                       path={`${basePathWithLanguage}/`}
                       component={Forside}
                     />
-                    {serviceReturnUrl ? (
-                      <Route
-                        exact={true}
-                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})`}
-                      >
-                        <Forside tjenesteUrl={serviceReturnUrl} />
-                      </Route>
-                    ) : (
-                      <Route
-                        exact={true}
-                        path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
-                        component={Forside}
-                      />
-                    )}
+                    <Route
+                      exact={true}
+                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
+                      component={Forside}
+                    />
                     <Route
                       exact={true}
                       path={`${basePathWithLanguage}/arbeidsforhold`}
@@ -126,20 +118,11 @@ const App = () => {
                       />
                     )}
                     {featureToggles.data["personopplysninger.pdl"] && (
-                      serviceReturnUrl ? (
-                        <Route
-                          exact={true}
-                          path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})`}
-                        >
-                          <EndreOpplysninger tjenesteUrl={serviceReturnUrl} />
-                        </Route>
-                      ) : (
-                        <Route
-                          exact={true}
-                          path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
-                          component={EndreOpplysninger}
-                        />
-                      )
+                      <Route
+                        exact={true}
+                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:tjenesteUrl(${tillatteUrler})`}
+                        component={EndreOpplysninger}
+                      />
                     )}
                     {featureToggles.data["personopplysninger.skatt"] && (
                       <Route

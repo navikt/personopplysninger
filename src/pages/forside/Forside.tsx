@@ -14,15 +14,8 @@ interface Routes {
   tjenesteUrl?: string;
 }
 
-type Props = {
-  tjenesteUrl?: string | null;
-};
-
-const Forside = ({ tjenesteUrl: tjenesteUrlProp }: Props) => {
+const Forside = () => {
   const { tjeneste, tjenesteUrl } = useParams<Routes>();
-  const url = tjenesteUrlProp || tjenesteUrl;
-
-  console.log("redirecting to", url);
 
   return (
     <>
@@ -33,8 +26,8 @@ const Forside = ({ tjenesteUrl: tjenesteUrlProp }: Props) => {
       <Arbeidsforhold />
       <EksterneLenker />
       <MerInformasjon />
-      {tjeneste && url && (
-        <RedirectKnapp tjeneste={tjeneste} redirectUrl={url} />
+      {tjeneste && tjenesteUrl && (
+        <RedirectKnapp tjeneste={tjeneste} redirectUrl={tjenesteUrl} />
       )}
     </>
   );

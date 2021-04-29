@@ -15,21 +15,14 @@ interface Routes {
   tjenesteUrl?: string;
 }
 
-type Props = {
-  tjenesteUrl?: string | null;
-};
-
-const EndreAlleOpplysninger = ({ tjenesteUrl: tjenesteUrlProp }: Props) => {
+const EndreAlleOpplysninger = () => {
   const { tjeneste, tjenesteUrl } = useParams<Routes>();
-  const url = tjenesteUrlProp || tjenesteUrl;
-
-  console.log("redirecting to", url);
 
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
-        {tjeneste && url && (
-          <RedirectKnapp tjeneste={tjeneste} redirectUrl={url} />
+        {tjeneste && tjenesteUrl && (
+          <RedirectKnapp tjeneste={tjeneste} redirectUrl={tjenesteUrl} />
         )}
         <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
           {({ personalia, adresser }) => {
