@@ -77,4 +77,6 @@ export const getRedirectPathFromParam = () => {
   if (encodedPath) {
     return atob(encodedPath);
   }
+
+  return null;
 };
