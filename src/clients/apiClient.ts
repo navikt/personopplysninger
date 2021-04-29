@@ -186,8 +186,8 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         text: `${response.error && response.error.message}${
           response.error && response.error.details
             ? `\n${Object.values(response.error.details)
-              .map((details) => details.join("\n"))
-              .join("\n")}`
+                .map((details) => details.join("\n"))
+                .join("\n")}`
             : ``
         }`,
       },
