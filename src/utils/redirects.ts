@@ -67,9 +67,14 @@ export const tillatteUrler = Object.keys(redirects)
   .join("|");
 
 export const getLoginserviceRedirectUrl = () => {
-  const currentPath = window.location.pathname + window.location.hash;
-  return `${baseUrl}?${redirectPathParam}=${encodeURIComponent(currentPath)}`;
+  // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
+  const encodedPath = btoa(window.location.pathname + window.location.hash);
+  return `${baseUrl}?${redirectPathParam}=${btoa(encodedPath)}`;
 };
 
-export const getRedirectPathFromParam = () =>
-  new URLSearchParams(window.location.search).get(redirectPathParam);
+export const getRedirectPathFromParam = () => {
+  const encodedPath = new URLSearchParams(window.location.search).get(redirectPathParam);
+  if (encodedPath) {
+    return atob(encodedPath);
+  }
+};
