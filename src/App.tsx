@@ -95,8 +95,7 @@ const App = () => {
                     {featureToggles.data["personopplysninger.inst"] && (
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/
-                        `}
+                        path={`${basePathWithLanguage}/institusjonsopphold`}
                         component={InstHistorikk}
                       />
                     )}
