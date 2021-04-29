@@ -68,7 +68,7 @@ export const tillatteUrler = Object.keys(redirects)
 
 export const getLoginserviceRedirectUrl = () => {
   const currentPath = window.location.pathname + window.location.hash;
-  return `${baseUrl}?${redirectPathParam}=${currentPath}`;
+  return `${baseUrl}?${redirectPathParam}=${encodeURIComponent(currentPath)}`;
 };
 
 export const getRedirectPathFromParam = () =>
