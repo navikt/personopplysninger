@@ -38,7 +38,7 @@
     "lodash.throttle": "^4.1.1",
     "moment": "^2.29.1",
     "nav-frontend-alertstriper": "^3.0.42",
-    "nav-frontend-alertstriper-style": "^2.0.33",
+    "nav-frontend-alertstriper-style": "^2.1.1",
     "nav-frontend-chevron": "^1.0.25",
     "nav-frontend-chevron-style": "^0.3.10",
     "nav-frontend-core": "^5.0.11",
