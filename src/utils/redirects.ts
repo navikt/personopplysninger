@@ -1,4 +1,13 @@
-export default {
+const baseUrl = process.env.REACT_APP_URL;
+const redirectPathParam = "path";
+
+export const redirects: {
+  [key: string]: {
+    beskrivelse: string;
+    knapp: string;
+    allowed: string;
+  };
+} = {
   /*
     Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og midlertidig adresse.
     Brukeren vil samtidig se en en knapp med tilhørende beskrivelse som ruter han/henne tilbake til den opprinnelige tjenesten.
@@ -47,4 +56,27 @@ export default {
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
     knapp: "Gå tilbake til Din Profil"
   }
+};
+
+export const tillatteTjenester = Object.keys(redirects)
+  .map((key) => key)
+  .join("|");
+
+export const tillatteUrler = Object.keys(redirects)
+  .map((key) => redirects[key].allowed)
+  .join("|");
+
+export const getLoginserviceRedirectUrl = () => {
+  // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
+  const encodedPath = btoa(window.location.pathname + window.location.hash);
+  return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+};
+
+export const getRedirectPathFromParam = () => {
+  const encodedPath = new URLSearchParams(window.location.search).get(redirectPathParam);
+  if (encodedPath) {
+    return atob(encodedPath);
+  }
+
+  return null;
 };
