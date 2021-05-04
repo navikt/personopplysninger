@@ -21,5 +21,5 @@ export const WithAuth = ({ children }: Props) => {
     });
   }, [dispatch]);
 
-  return authInfo.status === "RESULT" ? children : <Spinner />;
+  return authInfo.status === "RESULT" ? children : <Spinner text={"Logger inn..."} />;
 };
