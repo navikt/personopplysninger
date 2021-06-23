@@ -123,7 +123,7 @@ export default {
   "inst.tittel": `Institusjonsopphold`,
   "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
-  "inst.disclaimer": `Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.`,
+  "inst.disclaimer": `Her kan du se opplysninger om opphold på alders- og sykehjem og helseinstitusjoner fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.`,
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",
   "inst.institusjonstype": "Institusjonstype",
