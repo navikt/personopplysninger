@@ -37,6 +37,7 @@ const Arbeidsforhold = () => {
       tittel="arbeidsforhold.tittel"
       beskrivelse="arbeidsforhold.beskrivelse"
       icon={arbeidsforholdIkon}
+      visAnkerlenke={true}
     >
       <div className="arbeidsforhold">
         <ListeMedArbeidsforhold

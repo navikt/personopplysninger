@@ -47,6 +47,7 @@ class Personalia extends Component<Props> {
         tittel="personalia.tittel"
         beskrivelse="personalia.beskrivelse"
         icon={personaliaIkon}
+        visAnkerlenke={true}
       >
         <ul className="list-column-2">
           <ListElement titleId={fornavnHeader} content={fornavn} />

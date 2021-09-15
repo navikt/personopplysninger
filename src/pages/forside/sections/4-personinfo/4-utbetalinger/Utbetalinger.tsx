@@ -86,7 +86,7 @@ const Utbetalinger = (props: Props) => {
   };
 
   return (
-    <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon}>
+    <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke={true}>
       <>
         {driftsmeldinger.pdl && (
           <div style={{ paddingBottom: "1rem" }}>

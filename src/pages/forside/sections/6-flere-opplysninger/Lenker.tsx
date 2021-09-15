@@ -13,6 +13,7 @@ import SkjermingIkon from "assets/img/Skjerming.svg";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import { basePath } from "../../../../App";
+import { AnchorLink } from "../../../../components/anchorlink/AnchorLink";
 
 const {
   REACT_APP_PDL_URL,
@@ -20,16 +21,19 @@ const {
   REACT_APP_SKJERMING_URL,
 } = process.env;
 
+const id = "flere-opplysninger";
+
 const LinksContainer = () => {
   const [{ featureToggles, locale }] = useStore();
   return (
-    <PanelBase className="el__panel" id={"flere-opplysninger"}>
+    <PanelBase className="el__panel" id={id}>
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>
             <FormattedMessage id="lenker.tittel"/>
           </Systemtittel>
         </div>
+        <AnchorLink id={id}/>
         <div className="el__info">
           <Normaltekst>
             <FormattedMessage id="lenker.beskrivelse"/>

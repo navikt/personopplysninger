@@ -92,6 +92,7 @@ const Adresser = (props: Props) => {
       tittel="adresse.tittel"
       beskrivelse="adresse.beskrivelse"
       icon={adresseIkon}
+      visAnkerlenke={true}
     >
       <Folkeregisteret adresser={props.adresser} />
       <div className="adresse__box">

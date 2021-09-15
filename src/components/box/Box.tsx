@@ -4,10 +4,12 @@ import { FormattedMessage } from "react-intl";
 import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
 import Infotekst from "components/infotekst/Infotekst";
+import { AnchorLink } from "../anchorlink/AnchorLink";
 
 interface Props {
   id: string;
   tittel: string;
+  visAnkerlenke?: boolean;
   beskrivelse?: string;
   icon?: string;
   children: JSX.Element | JSX.Element[];
@@ -15,7 +17,7 @@ interface Props {
 
 Modal.setAppElement("#app");
 const Box = (props: Props) => {
-  const { tittel, beskrivelse, icon, children, id } = props;
+  const { tittel, beskrivelse, icon, children, id, visAnkerlenke } = props;
   const Veileder = <img src={icon} className="box__ikon" alt="Veileder" />;
 
   return (
@@ -33,6 +35,7 @@ const Box = (props: Props) => {
               {beskrivelse && <Infotekst beskrivelse={beskrivelse}/>}
               <div className="box__line"/>
             </div>
+            {visAnkerlenke && <AnchorLink id={id}/>}
           </div>
           <div className="box__content">{children}</div>
         </div>
