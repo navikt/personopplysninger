@@ -7,7 +7,6 @@ import Forside from "./pages/forside/Forside";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
-import { configureAnchors } from "react-scrollable-anchor";
 import { getRedirectPathFromParam, tillatteTjenester, tillatteUrler } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
@@ -36,12 +35,6 @@ const App = () => {
     // Reset forms dersom locale endrer seg
     dispatch({ type: "INCREASE_FORM_KEY" });
   }, [locale, dispatch]);
-
-  configureAnchors({
-    offset: -65,
-    scrollDuration: 0,
-    keepLastAnchorHash: true,
-  });
 
   return (
     <div className="pagecontent">

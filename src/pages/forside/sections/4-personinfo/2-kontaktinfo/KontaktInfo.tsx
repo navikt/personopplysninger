@@ -11,7 +11,7 @@ interface Props {
 
 const KontaktInfo = (props: Props) => {
   return (
-    <Box id="kontaktinformasjon" tittel="kontaktinfo.tittel" icon={kontaktIkon}>
+    <Box id="kontaktinformasjon" tittel="kontaktinfo.tittel" icon={kontaktIkon} visAnkerlenke={true}>
       <TelefonnummerHosNav tlfnr={props.tlfnr} />
       <DKIF />
     </Box>

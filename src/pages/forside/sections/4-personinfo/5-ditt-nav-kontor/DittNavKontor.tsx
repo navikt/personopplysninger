@@ -42,6 +42,7 @@ const DittNavKontor = (props: Props) => {
       tittel="dittnavkontor.tittel"
       beskrivelse="dittnavkontor.beskrivelse"
       icon={dittNavKontorIkon}
+      visAnkerlenke={true}
     >
       <div className="dittnavkontor__header">
         <div className="dittnavkontor__ingress">
