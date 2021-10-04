@@ -123,7 +123,7 @@ export default {
   "inst.tittel": `Institutional stays`,
   "inst.institusjon": `Institution`,
   "inst.detaljer": `Details`,
-  "inst.disclaimer": `Here you can see information about stays in nursing homes and other health institutions. The overview shows only registered stays after 1. january 2017. If you notice errors in the information, you must contact the institution directly.`,
+  "inst.disclaimer": `Here you can see information about stays in nursing homes, health institutions and prisons. The overview shows only registered stays after 1. january 2017. If you notice errors in the information, you must contact the institution directly.`,
   "inst.periode": `Period`,
   "inst.institusjonsnavn": "Name of institution",
   "inst.institusjonstype": "Type of institution",
