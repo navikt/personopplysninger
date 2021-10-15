@@ -68,7 +68,7 @@ const App = () => {
   };
 
   return (
-    <div className="pagecontent">
+    <div role={"main"} className="pagecontent">
       <div className="wrapper">
         <Router>
           <EnforceLoginLoader authCallback={authCallback}>
