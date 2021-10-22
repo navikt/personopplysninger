@@ -20,7 +20,7 @@ jobs:
         run: |
           echo "REACT_APP_MILJO=DEV" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
-          echo "REACT_APP_BFT_URL=https://www-q1.nav.no/person/behov-for-tilrettelegging" >> $GITHUB_ENV
+          echo "REACT_APP_BFT_URL=https://tilretteleggingsbehov-innsyn.dev.nav.no/person/behov-for-tilrettelegging" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=https://www.dev.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
           echo "REACT_APP_URL=https://www.dev.nav.no/person/personopplysninger" >> $GITHUB_ENV
           echo "REACT_APP_API_URL=https://www.dev.nav.no/person/personopplysninger-api" >> $GITHUB_ENV
