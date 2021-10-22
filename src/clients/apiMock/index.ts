@@ -10,8 +10,9 @@ import endreKontonr from "./app/post/endre-kontonummer.json";
 import landInfo from "./app/fetch/land.json";
 import instInfo from "./app/fetch/inst-info.json";
 import medlInfo from "./app/fetch/medl-info.json";
+import auth from "./app/fetch/auth.json";
 
-const { REACT_APP_API_URL, REACT_APP_DSOP_URL } = process.env;
+const { REACT_APP_API_URL, REACT_APP_DSOP_URL, REACT_APP_INNLOGGINGSSTATUS_URL } = process.env;
 
 // Config
 fetchMock.config.fallbackToNetwork = true;
@@ -26,6 +27,7 @@ const mockFetchValutaer = true;
 const mockFetchPostnummer = true;
 const mockFetchInst = true;
 const mockFetchMedl = true;
+const mockFetchAuth = true;
 
 const mockPostGateadresse = true;
 const mockPostSlettTlfnr = true;
@@ -75,6 +77,10 @@ export const setUpMock = async () => {
   mockFetchMedl &&
     fetchMock.get(`${REACT_APP_API_URL}/medl`, () =>
       delay(1000, 2000).then(() => medlInfo)
+    );
+  mockFetchAuth &&
+    fetchMock.get(`${REACT_APP_INNLOGGINGSSTATUS_URL}`, () =>
+      delay(1000, 2000).then(() => auth)
     );
   /*
     POST

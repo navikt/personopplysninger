@@ -9,19 +9,19 @@ import { OutboundNorskVegadresse } from "../pages/forside/sections/4-personinfo/
 import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/endring/norske-adresser/Postboksadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
-import Cookies from "js-cookie";
-import { redirectLoginCookie } from "../utils/cookies";
+import { getLoginserviceRedirectUrl } from "../utils/redirects";
+
 const parseJson = (data: Response) => data.json();
 
 const {
   REACT_APP_API_URL,
   REACT_APP_LOGIN_URL,
   REACT_APP_DSOP_URL,
-  REACT_APP_URL,
+  REACT_APP_INNLOGGINGSSTATUS_URL,
 } = process.env;
 
 /*
-   FETCH
+   GET
  */
 
 const sjekkAuthHentJson = (url: string) =>
@@ -43,6 +43,8 @@ const sjekkAuthHentJson = (url: string) =>
       throw error;
     });
 
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
+
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   sjekkAuthHentJson(
     `${REACT_APP_API_URL}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
@@ -62,13 +64,18 @@ export const fetchskattetrekksmeldinger = () =>
 
 export const fetchMedlInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
+
 export const fetchPostnummer = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
+
 export const fetchPersonInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
+
 export const fetchLand = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/land`);
+
 export const fetchValutaer = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/valuta`);
+
 export const fetchDsopInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`);
 
@@ -145,11 +152,8 @@ const sjekkAuth = (response: Response): any => {
 };
 
 export const sendTilLogin = () => {
-  const to = window.location.pathname + window.location.hash;
-  const inFiveMinutes = new Date(new Date().getTime() + 5 * 60 * 1000);
-  const options = { expires: inFiveMinutes };
-  Cookies.set(redirectLoginCookie, to, options);
-  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${REACT_APP_URL}`);
+  const redirectUrl = getLoginserviceRedirectUrl();
+  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`);
 };
 
 const sjekkHttpFeil = (response: Response) => {

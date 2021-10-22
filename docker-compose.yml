@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   oidc-provider:
-    container_name: oidc-provider
+    container_name: oidc-provider-personopplysninger
     image: "docker.pkg.github.com/navikt/stub-oidc-provider/stub-oidc-provider:latest"
     ports:
       - "9000:9000"
@@ -11,7 +11,7 @@ services:
       ISSUER: "https://localhost:9000"
 
   oidc-provider-gui:
-    container_name: oidc-provider-gui
+    container_name: oidc-provider-gui-personopplysninger
     image: "docker.pkg.github.com/navikt/pb-oidc-provider-gui/pb-oidc-provider-gui:latest"
     ports:
       - "5000:5000"
@@ -22,7 +22,7 @@ services:
       - oidc-provider
 
   mocks:
-    container_name: mocks
+    container_name: mocks-personopplysninger
     image: "docker.pkg.github.com/navikt/pb-nav-mocked/pb-nav-mocked:latest"
     ports:
       - "8095:8080"
@@ -37,7 +37,7 @@ services:
       - oidc-provider
 
   dekoratoren:
-    container_name: dekoratoren
+    container_name: dekoratoren-personopplysninger
     image: "docker.pkg.github.com/navikt/nav-dekoratoren/nav-dekoratoren:latest"
     ports:
       - "8100:8088"
@@ -57,7 +57,7 @@ services:
       - mocks
 
   arbeidsforhold-api:
-    container_name: arbeidsforhold-api
+    container_name: arbeidsforhold-api-personopplysninger
     image: "navikt/arbeidsforhold-api:5ae21ce5-987b-4da2-8027-077c93564195-v1.0.17"
     ports:
       - "8096:8080"

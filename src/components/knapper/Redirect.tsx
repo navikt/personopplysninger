@@ -1,16 +1,8 @@
 import React from "react";
-import redirectsRaw from "utils/redirects";
+import { redirects } from "utils/redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
 import { VenstreChevron } from "nav-frontend-chevron";
-
-const redirects: {
-  [key: string]: {
-    beskrivelse: string;
-    knapp: string;
-    allowed: string;
-  };
-} = redirectsRaw;
 
 interface Props {
   tjeneste: string;
