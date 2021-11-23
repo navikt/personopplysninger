@@ -12,7 +12,7 @@ export default (locale: string) => [
     tittel: "lenker.dinesaker.tittel",
     beskrivelse: "lenker.dinesaker.beskrivelse",
     lenkeTekst: "lenker.dinesaker.lenkeTekst",
-    url: `${REACT_APP_TJENESTER_URL}/saksoversikt/${
+    url: `https://person.dev.nav.no/mine-saker/${
       locale === "en" ? "?lang=en" : ""
     }`,
     icon: dineSaker,
