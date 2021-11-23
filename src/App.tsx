@@ -37,7 +37,7 @@ const App = () => {
   }, [locale, dispatch]);
 
   return (
-    <div className="pagecontent">
+    <div role={"main"} className="pagecontent">
       <div className="wrapper">
         <Router>
           <WithAuth>
