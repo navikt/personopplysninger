@@ -129,3 +129,11 @@ body {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
+
+/*
+  Page is set to 9998 to accommodate Dekoratøren.
+  Need to raise overlay so that the modal actually shows up.
+ */
+.ReactModal__Overlay.ReactModal__Overlay--after-open.modal__overlay {
+  z-index: 10000;
+}
