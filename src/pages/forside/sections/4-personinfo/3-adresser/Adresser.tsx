@@ -84,7 +84,7 @@ const Adresser = (props: Props) => {
             <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
           </div>
         )}
-        {kontaktadresse?.kilde === "Freg" && (
+        {kontaktadresse?.kilde === "freg" && (
           <>
           {kontaktadresse && (
             <Kontaktadresse kontaktadresse={kontaktadresse} />

@@ -1,14 +1,7 @@
-export type Kontaktadresse = (
-  // TPS
-  | PostadresseIFrittFormat
-  | UtenlandskAdresseIFrittFormat
-  // PDL
-  | Vegadresse
-  | Postboksadresse
-  | UtenlandskAdresse) & Kilde;
+export type Kontaktadresse =  & Kilde;
 
 type Kilde = {
-  kilde?: "Freg" | "pdl";
+  kilde?: "freg" | "pdl";
 };
 
 // TPS
