@@ -18,7 +18,7 @@ export interface FeatureToggles {
   [key: string]: boolean;
 }
 
-const initialLocale = (window.location.pathname.includes("/en/")
+const initialLocale = (window.location.pathname.match(/\/en($|\/)/)
   ? "en"
   : "nb") as Locale;
 
