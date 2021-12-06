@@ -5,8 +5,8 @@ import OpprettEllerEndrePostboksadresse from "./norske-adresser/Postboksadresse"
 import { FormattedMessage, useIntl } from "react-intl";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
-import { Vegadresse } from "types/adresser/kontaktadresse";
-import { Postboksadresse } from "types/adresser/kontaktadresse";
+import { Vegadresse } from "types/adresser/adresse";
+import { Postboksadresse } from "types/adresser/adresse";
 import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
@@ -21,7 +21,7 @@ const OpprettEllerEndreNorskAdresse = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { kontaktadresse } = props;
   const [type, settType] = useState(
-    (kontaktadresse?.type === "POSTBOKSADRESSE"
+    (kontaktadresse?.adresse?.type === "POSTBOKSADRESSE"
       ? "POSTBOKSADRESSE"
       : "VEGADRESSE") as Adresser
   );

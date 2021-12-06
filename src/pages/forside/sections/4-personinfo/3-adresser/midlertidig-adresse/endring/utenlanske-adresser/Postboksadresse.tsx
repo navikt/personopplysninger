@@ -11,7 +11,7 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
-import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresse } from "types/adresser/adresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 import { Feiloppsummering, Input } from "nav-frontend-skjema";

@@ -13,7 +13,7 @@ import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import moment from "moment";
 import Alert, { AlertType } from "components/alert/Alert";
-import { Vegadresse } from "types/adresser/kontaktadresse";
+import { Vegadresse } from "types/adresser/adresse";
 import SelectCO from "components/felter/select-co/SelectCO";
 import { initialCoAdressenavn } from "components/felter/select-co/SelectCO";
 import { initialCoType } from "components/felter/select-co/SelectCO";

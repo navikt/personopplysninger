@@ -7,7 +7,6 @@ import Kilde from "components/kilde/Kilde";
 import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import slettIkon from "assets/img/Slett.svg";
-import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import OpprettEllerEndreNorskAdresse from "./midlertidig-adresse/endring/NorskAdresse";
@@ -20,8 +19,9 @@ import { fetchPersonInfo } from "clients/apiClient";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { AlertStripeAdvarsel, AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
+import moment from "moment";
 
 interface Props {
   adresser: IAdresser;
@@ -41,12 +41,12 @@ const Adresser = (props: Props) => {
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    kontaktadresse?.type === "POSTADRESSE_I_FRITT_FORMAT" ||
-      kontaktadresse?.type === "VEGADRESSE" ||
-      kontaktadresse?.type === "POSTBOKSADRESSE"
+    kontaktadresse?.adresse?.type === "POSTADRESSE_I_FRITT_FORMAT" ||
+      kontaktadresse?.adresse?.type === "VEGADRESSE" ||
+      kontaktadresse?.adresse?.type === "POSTBOKSADRESSE"
       ? "NORSK"
-      : kontaktadresse?.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
-        kontaktadresse?.type === "UTENLANDSK_ADRESSE"
+      : kontaktadresse?.adresse?.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
+        kontaktadresse?.adresse?.type === "UTENLANDSK_ADRESSE"
       ? "UTENLANDSK"
       : undefined
   );
@@ -94,7 +94,6 @@ const Adresser = (props: Props) => {
       icon={adresseIkon}
       visAnkerlenke={true}
     >
-      <Folkeregisteret adresser={props.adresser} />
       <div className="adresse__box">
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
@@ -139,7 +138,15 @@ const Adresser = (props: Props) => {
         ) : (
           <>
             {kontaktadresse && (
-              <Kontaktadresse kontaktadresse={kontaktadresse} />
+                <div>
+                    <Kontaktadresse kontaktadresse={kontaktadresse} />
+                    <AlertStripeInfo>
+                        <FormattedMessage
+                            id="adresse.midlertidig.alert"
+                            values={{ dato: moment(kontaktadresse.gyldigTilOgMed).format("LL") }}
+                        />
+                    </AlertStripeInfo>
+                </div>
             )}
             {!kontaktadresse && (
               <Normaltekst>

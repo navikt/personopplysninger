@@ -12,7 +12,7 @@ import { useIntl } from "react-intl";
 import { RADIX_DECIMAL } from "utils/formattering";
 import Alert, { AlertType } from "components/alert/Alert";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { Postboksadresse } from "types/adresser/kontaktadresse";
+import { Postboksadresse } from "types/adresser/adresse";
 import moment from "moment";
 import { OptionType } from "types/option";
 import SelectCO from "components/felter/select-co/SelectCO";

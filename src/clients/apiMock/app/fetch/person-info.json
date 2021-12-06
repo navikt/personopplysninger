@@ -60,14 +60,17 @@
     },
     "prioritertAdresse": null,
     "kontaktadresse": {
-      "postbokseier": "",
-      "postboks": "Postboks 10 Sørstrand",
-      "postnummer": "0194",
-      "poststed": "OSLO",
       "gyldigFraOgMed": "2020-07-14T00:00",
       "gyldigTilOgMed": "2020-07-20T23:59:59",
       "coAdressenavn": "V/ Aremark Jr",
-      "type": "POSTBOKSADRESSE"
+      "kilde": "Freg",
+      "adresse": {
+        "postbokseier": "",
+        "postboks": "Postboks 10 Sørstrand",
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "POSTBOKSADRESSE"
+      }
     }
   },
   "enhetKontaktInformasjon": {

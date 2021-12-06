@@ -1,22 +1,19 @@
-import { Boadresse } from "./boadresse";
-import { Postadresse } from "./postadresse";
-import { Tilleggsadresse } from "./tilleggsadresse";
-import { UtenlandskAdresse } from "./utenlandskadresse";
+import { Bostedsadresse } from "./bostedsadresse";
+import { Oppholdsadresse } from "./oppholdsadresse";
+import { DeltBosted } from "./deltbosted";
 import { Kontaktadresse } from "./kontaktadresse";
 
 export interface GeografiskTilknytning {
   bydel?: string;
-  datoFraOgMed?: string;
   kommune?: string;
   enhet?: string;
   land?: string;
 }
 
 export interface Adresser {
-  boadresse?: Boadresse;
   geografiskTilknytning?: GeografiskTilknytning;
-  postadresse?: Postadresse;
-  prioritertAdresse?: string;
   kontaktadresse?: Kontaktadresse;
-  datakilder?: {}[];
+  bostedsadresse?: Bostedsadresse;
+  oppholdsadresse?: Oppholdsadresse;
+  deltBosted?: DeltBosted;
 }

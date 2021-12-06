@@ -11,17 +11,17 @@ interface Props {
 }
 
 const Kontaktadresse = (props: Props) => {
-  switch (props.kontaktadresse.type) {
+  switch (props.kontaktadresse?.adresse?.type) {
     case "POSTADRESSE_I_FRITT_FORMAT":
-      return <PostadresseIFrittFormat {...props.kontaktadresse} />;
+      return <PostadresseIFrittFormat {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
     case "UTENLANDSK_ADRESSE_I_FRITT_FORMAT":
-      return <UtenlanskAdresseIFrittFormat {...props.kontaktadresse} />;
+      return <UtenlanskAdresseIFrittFormat {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
     case "VEGADRESSE":
-      return <Vegadresse {...props.kontaktadresse} />;
+      return <Vegadresse {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
     case "POSTBOKSADRESSE":
-      return <Postboksadresse {...props.kontaktadresse} />;
+      return <Postboksadresse {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
     case "UTENLANDSK_ADRESSE":
-      return <UtenlanskAdresse {...props.kontaktadresse} />;
+      return <UtenlanskAdresse {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
     default:
       return null;
   }

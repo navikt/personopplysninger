@@ -5,7 +5,7 @@ import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { PopoverOrientering } from "nav-frontend-popover";
 import OpprettEllerEndreUtenlandskVegadresse from "./utenlanske-adresser/Vegadresse";
 import OpprettEllerEndreUtenlandskPostboksadresse from "./utenlanske-adresser/Postboksadresse";
-import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresse } from "types/adresser/adresse";
 import { Kontaktadresse } from "types/adresser/kontaktadresse";
 import cls from "classnames";
 
@@ -20,8 +20,8 @@ const OpprettEllerEndreUtenlanskAdresse = (props: Props) => {
   const { kontaktadresse, settOpprettEllerEndre } = props;
 
   const [type, settType] = useState(
-    (kontaktadresse?.type === "UTENLANDSK_ADRESSE" &&
-    kontaktadresse?.postboksNummerNavn
+    (kontaktadresse?.adresse?.type === "UTENLANDSK_ADRESSE" &&
+    kontaktadresse?.adresse?.postboksNummerNavn
       ? "POSTBOKSADRESSE"
       : "VEGADRESSE") as Adresser
   );

@@ -12,7 +12,7 @@ import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import Alert, { AlertType } from "components/alert/Alert";
 import moment from "moment";
-import { UtenlandskAdresse } from "types/adresser/kontaktadresse";
+import { UtenlandskAdresse } from "types/adresser/adresse";
 import { OptionType } from "types/option";
 import { Feiloppsummering, Input } from "nav-frontend-skjema";
 import SelectCO from "components/felter/select-co/SelectCO";
