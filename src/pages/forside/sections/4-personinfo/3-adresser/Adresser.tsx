@@ -96,7 +96,7 @@ const Adresser = (props: Props) => {
                   </AlertStripeInfo>
                 </div>
             )}
-             <Kilde
+            <Kilde
               kilde="personalia.source.folkeregisteret"
               lenke={
                 locale === "en"
@@ -112,8 +112,15 @@ const Adresser = (props: Props) => {
         {kontaktadresse?.kilde === "pdl" && (
           <>
             {kontaktadresse && (
-              <Kontaktadresse kontaktadresse={kontaktadresse} />
-            )}
+                <div>
+                  <Kontaktadresse kontaktadresse={kontaktadresse} />
+                  <AlertStripeInfo>
+                    <FormattedMessage
+                        id="adresse.midlertidig.alert"
+                        values={{ dato: moment(kontaktadresse.gyldigTilOgMed).format("LL") }}
+                    />
+                  </AlertStripeInfo>
+                </div>            )}
             <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon} alt="Ekstern lenke" />
