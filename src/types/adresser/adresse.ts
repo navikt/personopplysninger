@@ -1,3 +1,8 @@
+import Matrikkeladresse
+  from "../../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/visning/norske-adresser/Matrikkeladresse";
+import Ukjentbosted
+  from "../../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/visning/norske-adresser/Ukjentbosted";
+
 export type Adresse =
   // TPS
   | PostadresseIFrittFormat
@@ -5,7 +10,9 @@ export type Adresse =
   // PDL
   | Vegadresse
   | Postboksadresse
-  | UtenlandskAdresse;
+  | UtenlandskAdresse
+  | Matrikkeladresse
+  | Ukjentbosted;
 
 // TPS
 export interface PostadresseIFrittFormat {
@@ -83,9 +90,11 @@ export interface Matrikkeladresse {
   postnummer?: string;
   poststed?: string;
   kommunenummer?: string;
+  coAdressenavn?: string;
 }
 
 export interface Ukjentbosted {
   type: "UKJENTBOSTED";
   bostedskommune?: string;
+  coAdressenavn?: string;
 }

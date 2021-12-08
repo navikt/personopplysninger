@@ -20,28 +20,6 @@
     "kjoenn": "Mann"
   },
   "adresser": {
-    "boadresse": {
-      "adresse": "FREGATTEN",
-      "adressetillegg": null,
-      "bydel": null,
-      "datoFraOgMed": "2001-04-04",
-      "kommune": "Aremark",
-      "land": "NORGE",
-      "matrikkeladresse": {
-        "bruksnummer": null,
-        "festenummer": null,
-        "gaardsnummer": null,
-        "undernummer": null
-      },
-      "postnummer": "1798",
-      "poststed": "AREMARK",
-      "veiadresse": {
-        "bokstav": null,
-        "bolignummer": "H1",
-        "gatekode": "77777",
-        "husnummer": null
-      }
-    },
     "geografiskTilknytning": {
       "bydel": null,
       "datoFraOgMed": "2001-04-04",
@@ -49,27 +27,68 @@
       "land": null,
       "enhet": "NAV Halden-Aremark"
     },
-    "postadresse": {
-      "adresse1": "ALUKO",
-      "adresse2": "MONBIJOUSTR.",
-      "adresse3": "13088",
-      "datoFraOgMed": "2016-03-21",
-      "land": "NORGE",
-      "postnummer": "0130",
-      "poststed": "OSLO"
-    },
-    "prioritertAdresse": null,
     "kontaktadresse": {
       "gyldigFraOgMed": "2020-07-14T00:00",
       "gyldigTilOgMed": "2020-07-20T23:59:59",
       "coAdressenavn": "V/ Aremark Jr",
-      "kilde": "freg",
+      "kilde": "pdl",
       "adresse": {
         "postbokseier": "",
         "postboks": "Postboks 10 Sørstrand",
         "postnummer": "0194",
         "poststed": "OSLO",
         "type": "POSTBOKSADRESSE"
+      }
+    },
+    "deltBosted": {
+      "startdatoForKontrakt": "2020-07-14T00:00",
+      "sluttdatoForKontrakt": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "kilde": "freg",
+      "adresse": {
+        "husnummer": "14",
+        "husbokstav": "B",
+        "bruksenhetsnummer": "H0301",
+        "adressenavn": "JØRGENSENVEIEN",
+        "kommunenummer": null,
+        "tilleggsnavn": null,
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "VEGADRESSE"
+      }
+    },
+    "oppholdsadresse": {
+      "gyldigFraOgMed": "2020-07-14T00:00",
+      "gyldigTilOgMed": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "kilde": "freg",
+      "adresse": {
+        "husnummer": "14",
+        "husbokstav": "B",
+        "bruksenhetsnummer": "H0301",
+        "adressenavn": "JØRGENSENVEIEN",
+        "kommunenummer": null,
+        "tilleggsnavn": null,
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "VEGADRESSE"
+      }
+    },
+    "bostedsadresse": {
+      "gyldigFraOgMed": "2020-07-14T00:00",
+      "gyldigTilOgMed": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "kilde": "freg",
+      "adresse": {
+        "husnummer": "14",
+        "husbokstav": "B",
+        "bruksenhetsnummer": "H0301",
+        "adressenavn": "JØRGENSENVEIEN",
+        "kommunenummer": null,
+        "tilleggsnavn": null,
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "VEGADRESSE"
       }
     }
   },

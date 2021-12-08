@@ -1,8 +1,5 @@
 import { Adresse } from "./adresse";
-
-type Kilde = {
-  kilde?: "freg" | "pdl";
-};
+import { Kilde } from "./kilde";
 
 export interface Kontaktadresse {
   gyldigFraOgMed?: string;

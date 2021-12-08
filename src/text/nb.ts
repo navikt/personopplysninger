@@ -72,6 +72,8 @@ export default {
   "personalia.dkif.ingenData": `<b>Ingen opplysninger registrert</b>`,
   "adresse.tittel": `Adresser`,
   "adresse.beskrivelse": `Her finner du bostedsadresse og eventuelt din midlertidige adresse.`,
+  "adresse.oppholdsadresse": `Oppholdsadresse`,
+  "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
   "adresse.bostedsadresse.lukkTekst": `Skjul detaljer`,

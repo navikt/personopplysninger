@@ -18,6 +18,10 @@ import { AlertStripeAdvarsel, AlertStripeInfo } from "nav-frontend-alertstriper"
 import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
 import moment from "moment";
 import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
+import DeltBosted from "./midlertidig-adresse/visning/DeltBosted";
+import Oppholdsadresse from "./midlertidig-adresse/visning/Oppholdsadresse";
+import Bostedsadresse from "./midlertidig-adresse/visning/Bostedsadresse";
+import AdresseKilde from "./midlertidig-adresse/visning/AdresseKilde";
 
 interface Props {
   adresser: IAdresser;
@@ -28,7 +32,7 @@ const Adresser = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
   const { adresser } = props;
-  const { kontaktadresse } = adresser;
+  const { kontaktadresse, bostedsadresse, deltBosted, oppholdsadresse } = adresser;
   const [slettLoading, settSlettLoading] = useState<boolean>();
   const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
@@ -73,16 +77,40 @@ const Adresser = (props: Props) => {
       visAnkerlenke={true}
     >
       <div className="adresse__box">
+        {driftsmeldinger.pdl && (
+            <div style={{ padding: "1rem 0" }}>
+              <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+            </div>
+        )}
+        {bostedsadresse &&
+          <div className="underseksjon__header underseksjon__divider">
+            <Undertittel>
+              <FormattedMessage id={"adresse.bostedsadresse"} />
+            </Undertittel>
+            <Bostedsadresse bostedsadresse={bostedsadresse}/>
+            <AdresseKilde kilde={bostedsadresse.kilde as string}/>
+          </div>}
+        {deltBosted &&
+          <div className="underseksjon__header underseksjon__divider">
+            <Undertittel>
+              <FormattedMessage id={"adresse.deltbosted"} />
+            </Undertittel>
+            <DeltBosted deltBosted={deltBosted}/>
+            <AdresseKilde kilde={deltBosted.kilde as string}/>
+          </div>}
+        {oppholdsadresse &&
+          <div className="underseksjon__header underseksjon__divider">
+            <Undertittel>
+              <FormattedMessage id={"adresse.oppholdsadresse"} />
+            </Undertittel>
+            <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>
+            <AdresseKilde kilde={oppholdsadresse.kilde as string}/>
+          </div>}
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
             <FormattedMessage id={"adresse.midlertidigadresse"} />
           </Undertittel>
         </div>
-        {driftsmeldinger.pdl && (
-          <div style={{ padding: "1rem 0" }}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
-          </div>
-        )}
         {kontaktadresse?.kilde === "freg" && (
           <>
             {kontaktadresse && (

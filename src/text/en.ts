@@ -72,6 +72,8 @@ export default {
   "personalia.dkif.ingenData": `<b>No information registered</b>`,
   "adresse.tittel": `Addresses`,
   "adresse.beskrivelse": `Here you will find your home address and your temporary address, if applicable.`,
+  "adresse.oppholdsadresse": `TODO`,
+  "adresse.deltbosted": `TODO`,
   "adresse.bostedsadresse": `Home address`,
   "adresse.bostedsadresse.apneTekst": `View details`,
   "adresse.bostedsadresse.lukkTekst": `Hide details`,
