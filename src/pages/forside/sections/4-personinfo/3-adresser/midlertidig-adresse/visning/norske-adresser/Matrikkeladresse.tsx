@@ -5,7 +5,7 @@ import { Normaltekst } from "nav-frontend-typografi";
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {
   const { bruksenhetsnummer, tilleggsnavn, postnummer } = props;
-  const { poststed, kommunenummer, coAdressenavn } = props;
+  const { poststed, coAdressenavn } = props;
   return (
     <>
       {coAdressenavn && (

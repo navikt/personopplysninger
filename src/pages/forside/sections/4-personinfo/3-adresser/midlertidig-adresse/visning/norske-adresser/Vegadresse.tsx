@@ -5,7 +5,7 @@ import { Normaltekst } from "nav-frontend-typografi";
 
 const Vegadresse = (props: VegadresseType) => {
   const { husnummer, husbokstav, bruksenhetsnummer } = props;
-  const { adressenavn, kommunenummer, tilleggsnavn } = props;
+  const { adressenavn, tilleggsnavn } = props;
   const { postnummer, poststed, coAdressenavn } = props;
   return (
     <>
