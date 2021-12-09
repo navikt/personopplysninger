@@ -3,9 +3,8 @@ import { Oppholdsadresse as IOppholdsadresse } from "types/adresser/oppholdsadre
 import Vegadresse from "./norske-adresser/Vegadresse";
 import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
 import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
-import {Undertittel} from "nav-frontend-typografi";
-import {FormattedMessage} from "react-intl";
 import AdresseKilde from "./AdresseKilde";
+import AdressePanel from "../../komponenter/AdressePanel";
 
 interface Props {
   oppholdsadresse: IOppholdsadresse;
@@ -28,17 +27,12 @@ const Oppholdsadresse = (props: Props) => {
   }
 
   return (
-      <>
-        <div className="underseksjon__header underseksjon__divider">
-          <Undertittel>
-            <FormattedMessage id={"adresse.oppholdsadresse"} />
-          </Undertittel>
-        </div>
+      <AdressePanel tittel={"adresse.oppholdsadresse"}>
         <div>
           {adresse}
           <AdresseKilde kilde={props.oppholdsadresse.kilde as string}/>
         </div>
-      </>
+      </AdressePanel>
   );
 };
 

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Element } from "nav-frontend-typografi";
+import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 
 interface Props {
@@ -9,10 +9,10 @@ interface Props {
 
 const AdressePanel = (props: Props) => (
   <div className="adresse__box">
-    <div className="underseksjon__header">
-      <Element>
+    <div className="underseksjon__header underseksjon__divider">
+      <Undertittel>
         <FormattedMessage id={props.tittel} />
-      </Element>
+      </Undertittel>
     </div>
     {props.children}
   </div>

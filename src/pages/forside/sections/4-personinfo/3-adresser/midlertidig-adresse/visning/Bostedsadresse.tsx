@@ -4,9 +4,8 @@ import Vegadresse from "./norske-adresser/Vegadresse";
 import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
 import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./norske-adresser/Ukjentbosted";
-import { Undertittel } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
 import AdresseKilde from "./AdresseKilde";
+import AdressePanel from "../../komponenter/AdressePanel";
 
 interface Props {
   bostedsadresse: IBostedsadresse;
@@ -32,17 +31,12 @@ const Bostedsadresse = (props: Props) => {
   }
 
   return (
-      <>
-        <div className="underseksjon__header underseksjon__divider">
-          <Undertittel>
-            <FormattedMessage id={"adresse.bostedsadresse"} />
-          </Undertittel>
-        </div>
+      <AdressePanel tittel={"adresse.bostedsadresse"}>
         <div>
           {adresse}
           <AdresseKilde kilde={props.bostedsadresse.kilde as string}/>
         </div>
-      </>
+      </AdressePanel>
   );
 };
 
