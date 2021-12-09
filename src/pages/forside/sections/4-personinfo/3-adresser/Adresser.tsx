@@ -82,30 +82,9 @@ const Adresser = (props: Props) => {
               <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
             </div>
         )}
-        {bostedsadresse &&
-          <div className="underseksjon__header underseksjon__divider">
-            <Undertittel>
-              <FormattedMessage id={"adresse.bostedsadresse"} />
-            </Undertittel>
-            <Bostedsadresse bostedsadresse={bostedsadresse}/>
-            <AdresseKilde kilde={bostedsadresse.kilde as string}/>
-          </div>}
-        {deltBosted &&
-          <div className="underseksjon__header underseksjon__divider">
-            <Undertittel>
-              <FormattedMessage id={"adresse.deltbosted"} />
-            </Undertittel>
-            <DeltBosted deltBosted={deltBosted}/>
-            <AdresseKilde kilde={deltBosted.kilde as string}/>
-          </div>}
-        {oppholdsadresse &&
-          <div className="underseksjon__header underseksjon__divider">
-            <Undertittel>
-              <FormattedMessage id={"adresse.oppholdsadresse"} />
-            </Undertittel>
-            <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>
-            <AdresseKilde kilde={oppholdsadresse.kilde as string}/>
-          </div>}
+        {bostedsadresse && <Bostedsadresse bostedsadresse={bostedsadresse}/>}
+        {deltBosted && <DeltBosted deltBosted={deltBosted}/>}
+        {oppholdsadresse && <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>}
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
             <FormattedMessage id={"adresse.midlertidigadresse"} />
