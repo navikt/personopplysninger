@@ -23,11 +23,6 @@ const Matrikkeladresse = (props: MatrikkeladresseType) => {
           <Normaltekst>{tilleggsnavn}</Normaltekst>
         </div>
       )}
-      {kommunenummer && (
-        <div className="adresse__linje">
-          <Normaltekst>{kommunenummer}</Normaltekst>
-        </div>
-      )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
       <div className="adresse__divider" />
     </>
