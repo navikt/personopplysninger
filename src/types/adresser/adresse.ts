@@ -1,8 +1,3 @@
-import Matrikkeladresse
-  from "../../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/visning/norske-adresser/Matrikkeladresse";
-import Ukjentbosted
-  from "../../pages/forside/sections/4-personinfo/3-adresser/midlertidig-adresse/visning/norske-adresser/Ukjentbosted";
-
 export type Adresse =
   // TPS
   | PostadresseIFrittFormat
@@ -49,6 +44,7 @@ export interface Vegadresse {
   bruksenhetsnummer?: string;
   adressenavn?: string;
   kommunenummer?: string;
+  kommune?: string;
   tilleggsnavn?: string;
   postnummer?: string;
   poststed?: string;
@@ -90,6 +86,7 @@ export interface Matrikkeladresse {
   postnummer?: string;
   poststed?: string;
   kommunenummer?: string;
+  kommune?: string;
   coAdressenavn?: string;
 }
 

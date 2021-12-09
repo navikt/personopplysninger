@@ -43,7 +43,7 @@ export const setUpMock = async () => {
       delay(200, 750).then(() => kontaktInformasjon)
     );
   mockFetchPersonalia &&
-    fetchMock.get(`${REACT_APP_API_URL}/personalia`, () =>
+    fetchMock.get(`${REACT_APP_API_URL}/migrert/personalia`, () =>
       delay(200, 750).then(() => personInformasjon)
     );
   mockFetchFeatureToggles &&
