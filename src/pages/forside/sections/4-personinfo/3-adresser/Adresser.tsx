@@ -21,7 +21,6 @@ import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
 import DeltBosted from "./midlertidig-adresse/visning/DeltBosted";
 import Oppholdsadresse from "./midlertidig-adresse/visning/Oppholdsadresse";
 import Bostedsadresse from "./midlertidig-adresse/visning/Bostedsadresse";
-import AdresseKilde from "./midlertidig-adresse/visning/AdresseKilde";
 
 interface Props {
   adresser: IAdresser;
