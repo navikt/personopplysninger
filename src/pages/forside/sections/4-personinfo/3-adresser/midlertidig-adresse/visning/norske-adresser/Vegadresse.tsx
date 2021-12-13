@@ -28,7 +28,6 @@ const Vegadresse = (props: VegadresseType) => {
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
-      <div className="adresse__divider" />
     </>
   );
 };

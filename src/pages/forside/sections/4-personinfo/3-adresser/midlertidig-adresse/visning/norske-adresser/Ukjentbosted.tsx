@@ -16,7 +16,6 @@ const Ukjentbosted = (props: UkjentbostedType) => {
           <Normaltekst>{bostedskommune}</Normaltekst>
         </div>
       )}
-      <div className="adresse__divider" />
     </>
   );
 };

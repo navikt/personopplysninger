@@ -20,7 +20,6 @@ const UtenlanskAdresseIFrittFormat = (
           <Normaltekst>{land}</Normaltekst>
         </div>
       )}
-      <div className="adresse__divider" />
     </>
   );
 };

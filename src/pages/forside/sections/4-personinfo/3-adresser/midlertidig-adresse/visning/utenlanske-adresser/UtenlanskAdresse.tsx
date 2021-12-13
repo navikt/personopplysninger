@@ -46,7 +46,6 @@ const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
           <Normaltekst>{land}</Normaltekst>
         </div>
       )}
-      <div className="adresse__divider" />
     </>
   );
 };

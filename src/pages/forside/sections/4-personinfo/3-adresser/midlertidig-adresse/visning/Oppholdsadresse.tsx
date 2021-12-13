@@ -3,7 +3,6 @@ import { Oppholdsadresse as IOppholdsadresse } from "types/adresser/oppholdsadre
 import Vegadresse from "./norske-adresser/Vegadresse";
 import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
 import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
-import AdresseKilde from "./AdresseKilde";
 import AdressePanel from "../../komponenter/AdressePanel";
 import "moment/locale/nb";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
@@ -66,7 +65,6 @@ const Oppholdsadresse = (props: Props) => {
                 </ul>
               </Lesmerpanel>
           )}
-          <AdresseKilde kilde={props.oppholdsadresse.kilde as string}/>
         </>
       </AdressePanel>
   );

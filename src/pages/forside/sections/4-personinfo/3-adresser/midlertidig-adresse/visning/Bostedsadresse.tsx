@@ -4,7 +4,6 @@ import Vegadresse from "./norske-adresser/Vegadresse";
 import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
 import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./norske-adresser/Ukjentbosted";
-import AdresseKilde from "./AdresseKilde";
 import AdressePanel from "../../komponenter/AdressePanel";
 import moment from "moment";
 import "moment/locale/nb";
@@ -78,7 +77,6 @@ const Bostedsadresse = (props: Props) => {
                 </ul>
               </Lesmerpanel>
           )}
-          <AdresseKilde kilde={props.bostedsadresse.kilde as string}/>
         </>
       </AdressePanel>
   );

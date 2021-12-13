@@ -18,9 +18,7 @@ import { AlertStripeAdvarsel, AlertStripeInfo } from "nav-frontend-alertstriper"
 import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
 import moment from "moment";
 import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
-import DeltBosted from "./midlertidig-adresse/visning/DeltBosted";
-import Oppholdsadresse from "./midlertidig-adresse/visning/Oppholdsadresse";
-import Bostedsadresse from "./midlertidig-adresse/visning/Bostedsadresse";
+import Folkeregisteret from "./midlertidig-adresse/visning/Folkeregisteret";
 
 interface Props {
   adresser: IAdresser;
@@ -81,9 +79,7 @@ const Adresser = (props: Props) => {
               <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
             </div>
         )}
-        {bostedsadresse && <Bostedsadresse bostedsadresse={bostedsadresse}/>}
-        {deltBosted && <DeltBosted deltBosted={deltBosted}/>}
-        {oppholdsadresse && <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>}
+        <Folkeregisteret bostedsadresse={bostedsadresse} deltBosted={deltBosted} oppholdsadresse={oppholdsadresse} />
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
             <FormattedMessage id={"adresse.midlertidigadresse"} />
@@ -99,6 +95,7 @@ const Adresser = (props: Props) => {
                         id="adresse.midlertidig.alert"
                         values={{ dato: moment(kontaktadresse.gyldigTilOgMed).format("LL") }}
                     />
+                  <div className={"adresse__divider"} />
                   </AlertStripeInfo>
                 </div>
             )}
@@ -120,6 +117,7 @@ const Adresser = (props: Props) => {
             {kontaktadresse && (
                 <div>
                   <Kontaktadresse kontaktadresse={kontaktadresse} />
+                  <div className={"adresse__divider"} />
                   <AlertStripeInfo>
                     <FormattedMessage
                         id="adresse.midlertidig.alert"

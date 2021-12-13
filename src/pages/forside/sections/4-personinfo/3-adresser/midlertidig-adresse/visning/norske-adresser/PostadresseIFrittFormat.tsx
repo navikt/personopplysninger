@@ -14,7 +14,6 @@ const PostadresseIFrittFormat = (props: PostadresseIFrittFormatType) => {
         adresse3={adresselinje3}
       />
       <Postnummer postnummer={postnummer} poststed={poststed} />
-      <div className="adresse__divider" />
     </>
   );
 };

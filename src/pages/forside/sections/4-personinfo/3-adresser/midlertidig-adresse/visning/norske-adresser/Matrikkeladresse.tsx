@@ -24,7 +24,6 @@ const Matrikkeladresse = (props: MatrikkeladresseType) => {
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
-      <div className="adresse__divider" />
     </>
   );
 };
