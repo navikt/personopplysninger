@@ -56,7 +56,7 @@ const Adresser = (props: Props) => {
   const slettAdresse = () => {
     settSlettLoading(true);
 
-    if (kontaktadresse) {
+    if (kontaktadresse ) {
       slettKontaktadresse()
         .then(getUpdatedData)
         .then(onSlettSuccess)
@@ -156,6 +156,7 @@ const Adresser = (props: Props) => {
                 </div>
               </Modal>
             )}
+            { <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
            </>
         )}
         {kontaktadresse === null && (

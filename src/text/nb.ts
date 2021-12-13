@@ -75,7 +75,7 @@ export default {
   "adresse.bostedsadresse": `Bostedsadresse`,
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
   "adresse.bostedsadresse.lukkTekst": `Skjul detaljer`,
-  "adresse.midlertidigadresse": `Midlertidig adresse`,
+  "adresse.midlertidigadresse": `Kontaktadresse`,
   "adresse.midlertidigadresse.leggtil.beskrivelse": `Du har ikke registrert en midlertidig adresse. <br></br> Hvis du ønsker å få post fra NAV til en midlertidig adresse, kan du registrere oppholdsadresse i Folkeregisteret.
     NAV henter adressen din fra Folkeregisteret`,
   "adresse.midlertidigadresse.leggtil.folkeregisteret": `Endre adresse i Folkeregisteret`,
@@ -93,6 +93,7 @@ export default {
   "adresse.overskrift": `Adresser som er registert i Folkeregisteret`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
   "adresse.midlertidig.alert": `Frem til og med {dato} får du post fra NAV til din midlertidige adresse. Du kan slette adressen når som helst. `,
+  "adresse.midlertidig.alert.uten.sluttdato": "Vi sender post til kontaktadressen din",
   "adresse.slett.alert": `Vil du fjerne den midlertidige adressen og bruke folkeregistrert <br></br> adresse til å motta post fra NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>Du velger selv hvor lenge adressen skal være gyldig, maksimalt 1 år. Etter 1 år må du endre eller forlenge adressen.</p>`,
