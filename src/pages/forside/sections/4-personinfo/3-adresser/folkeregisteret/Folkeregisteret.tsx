@@ -6,12 +6,14 @@ import eksternLenkeIkon from "assets/img/Link.svg";
 import { Adresser } from "types/adresser";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
+import { useStore } from "store/Context";
 
 interface Props {
   adresser: Adresser;
 }
 
 const Folkeregisteret = (props: Props) => {
+  const [{ locale }] = useStore();
   return (
     <div>
       {(props.adresser.boadresse || props.adresser.postadresse) && (
@@ -33,7 +35,11 @@ const Folkeregisteret = (props: Props) => {
       {(props.adresser.boadresse || props.adresser.postadresse) && (
         <Kilde
           kilde="personalia.source.folkeregisteret"
-          lenke="skatteetaten.url.folkeregister.flytting"
+          lenke={
+            locale === "en"
+              ? "https://www.skatteetaten.no/en/person/national-registry/moving/"
+              : "https://www.skatteetaten.no/person/folkeregister/flytte/"
+          }
           lenkeTekst="personalia.link.folkeregisteret"
           lenkeType={"EKSTERN"}
           ikon={eksternLenkeIkon}

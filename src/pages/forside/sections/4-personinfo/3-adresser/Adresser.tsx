@@ -24,6 +24,7 @@ interface Props {
 }
 
 const Adresser = (props: Props) => {
+  const [{ locale }] = useStore();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
   const { adresser } = props;
@@ -90,7 +91,11 @@ const Adresser = (props: Props) => {
           )}
              <Kilde
               kilde="personalia.source.folkeregisteret"
-              lenke="skatteetaten.url.folkeregister.postadresse"
+              lenke={
+                locale === "en"
+                  ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
+                  : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
+              }
               lenkeTekst="personalia.link.folkeregisteret.adresse"
               lenkeType={"EKSTERN"}
               ikon={eksternLenkeIkon}
@@ -169,7 +174,11 @@ const Adresser = (props: Props) => {
             />
             <Kilde
               kilde="personalia.source.folkeregisteret"
-              lenke="skatteetaten.url.folkeregister.postadresse"
+              lenke={
+                locale === "en"
+                  ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
+                  : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
+              }
               lenkeTekst="adresse.kontaktadresse.leggtil.folkeregisteret"
               lenkeType={"EKSTERN"}
               ikon={eksternLenkeIkon}
