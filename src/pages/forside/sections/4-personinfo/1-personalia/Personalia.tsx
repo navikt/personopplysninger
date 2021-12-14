@@ -5,6 +5,7 @@ import { Personalia as PersonaliaType } from "types/personalia";
 import ListElement from "components/listelement/ListElement";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
+import { useStore } from "../../../../../store/Context";
 
 interface Props {
   personalia: PersonaliaType;
@@ -12,6 +13,7 @@ interface Props {
 
 class Personalia extends Component<Props> {
   render() {
+    const [{ locale }] = useStore();
     const {
       personident,
       fornavn,
@@ -73,7 +75,11 @@ class Personalia extends Component<Props> {
         </ul>
         <Kilde
           kilde="personalia.source.folkeregisteret"
-          lenke="https://www.skatteetaten.no/person/folkeregister/"
+          lenke={
+            locale === "en"
+                ? "https://www.skatteetaten.no/en/person/national-registry/"
+                : "https://www.skatteetaten.no/person/folkeregister/"
+          }
           lenkeTekst="personalia.link.folkeregisteret"
           lenkeType={"EKSTERN"}
           ikon={eksternLenkeIkon}

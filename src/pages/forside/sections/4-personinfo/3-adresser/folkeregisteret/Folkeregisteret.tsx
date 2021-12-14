@@ -37,8 +37,8 @@ const Folkeregisteret = (props: Props) => {
           kilde="personalia.source.folkeregisteret"
           lenke={
             locale === "en"
-              ? "https://www.skatteetaten.no/en/person/national-registry/"
-              : "https://www.skatteetaten.no/person/folkeregister/"
+              ? "https://www.skatteetaten.no/en/person/national-registry/moving/"
+              : "https://www.skatteetaten.no/person/folkeregister/flytte/"
           }
           lenkeTekst="personalia.link.folkeregisteret"
           lenkeType={"EKSTERN"}

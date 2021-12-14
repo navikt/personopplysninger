@@ -96,7 +96,7 @@ const Adresser = (props: Props) => {
                   ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
                   : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
               }
-              lenkeTekst="personalia.link.folkeregisteret"
+              lenkeTekst="personalia.link.folkeregisteret.adresse"
               lenkeType={"EKSTERN"}
               ikon={eksternLenkeIkon}
             />
