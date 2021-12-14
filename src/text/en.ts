@@ -76,7 +76,7 @@ export default {
   "adresse.bostedsadresse.apneTekst": `View details`,
   "adresse.bostedsadresse.lukkTekst": `Hide details`,
   "adresse.kontaktadresse": `Contact address`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `NAV uses addresses from the National Population Register. <br></br>In the National Population Register you can register a temporary postal address.`,
+  "adresse.kontaktadresse.leggtil.beskrivelse": `NAV uses addresses from the National Population Register. <br></br>In the National Population Register you can register a contact address.`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Change address in National Population Register.`,
   "adresse.utenlandskadresse": `Contact address abroad`,
   "adresse.postadresse": `Postal address`,
