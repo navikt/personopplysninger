@@ -47,7 +47,7 @@ export default {
   "personalia.source.nav": `Source: NAV`,
   "personalia.source.dkif": `Source: Contact and Reservation Register`,
   "personalia.link.folkeregisteret": `Change in National Population Register`,
-  "personalia.link.folkeregisteret.adresse": `Delete or change in National Population Register`,
+  "personalia.link.folkeregisteret.adresse": `Delete or change address in National Population Register`,
   "personalia.link.brukerprofil.endre": `Change in Your Profile`,
   "personalia.link.brukerprofil.leggtil": `Add to Your Profile`,
   "personalia.link.dkif.endre": `Change in Contact and Reservation Register `,
