@@ -3,9 +3,6 @@ import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/kontaktadresse/endring/utenlanske-adresser/Vegadresse";
-import { OutboundNorskVegadresse } from "../pages/forside/sections/4-personinfo/3-adresser/kontaktadresse/endring/norske-adresser/Vegadresse";
-import { OutboundPostboksadresse } from "../pages/forside/sections/4-personinfo/3-adresser/kontaktadresse/endring/norske-adresser/Postboksadresse";
 import { TPSResponse } from "../types/tps-response";
 import { AlertType } from "../components/alert/Alert";
 import { getLoginserviceRedirectUrl } from "../utils/redirects";
@@ -84,9 +81,6 @@ export const fetchDsopInfo = () =>
 
 type Outbound =
   | OutboundTlfnummer
-  | OutboundNorskVegadresse
-  | OutboundPostboksadresse
-  | OutboundUtenlandskVegadresse
   | OutboundNorskKontonummer
   | OutboundUtenlandsbankonto;
 
