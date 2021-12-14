@@ -34,7 +34,7 @@ const Vegadresse = (props: VegadresseType) => {
       <div className="adresse__divider" />
       <AlertStripeInfo>
         <FormattedMessage
-          id="adresse.midlertidig.alert"
+          id="adresse.kontaktadresse.alert"
           values={{ dato: moment(gyldigTilOgMed).format("LL") }}
         />
       </AlertStripeInfo>

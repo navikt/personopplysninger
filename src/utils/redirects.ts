@@ -9,7 +9,7 @@ export const redirects: {
   };
 } = {
   /*
-    Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og midlertidig adresse.
+    Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og kontaktadresse.
     Brukeren vil samtidig se en en knapp med tilhørende beskrivelse som ruter han/henne tilbake til den opprinnelige tjenesten.
 
     Fremgangsmåte:
@@ -28,32 +28,32 @@ export const redirects: {
   */
   "skjema/alderspensjon": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
-    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon"
   },
   "skjema/innledning": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
-    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon"
   },
   "skjema/kvittering": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
-    beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til kvitteringen"
   },
   "skjema/uforetrygd": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
-    beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til uføretrygd"
   },
   "dagpenger/forskudd": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fdagpenger%2Fforskudd%2Fsoknad%2F`,
-    beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til søknaden om forskudd på dagpenger"
   },
   minprofil: {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
-    beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, midlertidig adresse og kontonummer</b>.`,
+    beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til Din Profil"
   }
 };
