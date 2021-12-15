@@ -77,8 +77,7 @@ export default {
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
   "adresse.bostedsadresse.lukkTekst": `Skjul detaljer`,
   "adresse.kontaktadresse": `Kontaktadresse`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `Du har ikke registrert en kontaktadresse. <br></br> Hvis du ønsker å få post fra NAV til en kontaktadresse, kan du registrere oppholdsadresse i Folkeregisteret.
-    NAV henter adressen din fra Folkeregisteret`,
+  "adresse.kontaktadresse.leggtil.beskrivelse": `Vil du registrere en kontaktadresse i Folkeregisteret? Du vil da få post fra NAV til den adressen.`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Endre adresse i Folkeregisteret`,
   "adresse.kontaktadresse.slette.folkeregisteret": `Slette kontaktadresse`,
   "adresse.utenlandskadresse": `Kontaktadresse i utlandet`,
