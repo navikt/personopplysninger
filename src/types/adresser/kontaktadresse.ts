@@ -1,11 +1,15 @@
-export type Kontaktadresse =
+export type Kontaktadresse = (
   // TPS
   | PostadresseIFrittFormat
   | UtenlandskAdresseIFrittFormat
   // PDL
   | Vegadresse
   | Postboksadresse
-  | UtenlandskAdresse;
+  | UtenlandskAdresse) & Kilde;
+
+type Kilde = {
+  kilde?: "freg" | "pdl";
+};
 
 // TPS
 export interface PostadresseIFrittFormat {

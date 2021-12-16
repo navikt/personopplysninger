@@ -4,14 +4,9 @@ import { Adresser as IAdresser } from "types/adresser";
 import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
 import Kilde from "components/kilde/Kilde";
-import endreIkon from "assets/img/Pencil.svg";
-import leggTilIkon from "assets/img/LeggTil.svg";
 import slettIkon from "assets/img/Slett.svg";
 import Folkeregisteret from "./folkeregisteret/Folkeregisteret";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
-import { Radio, RadioGruppe } from "nav-frontend-skjema";
-import OpprettEllerEndreNorskAdresse from "./midlertidig-adresse/endring/NorskAdresse";
-import OpprettEllerEndreUtenlandskAdresse from "./midlertidig-adresse/endring/UtenlandskAdresse";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
 import Alert, { AlertType } from "components/alert/Alert";
@@ -21,39 +16,22 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
+import Kontaktadresse from "./kontaktadresse/visning/Kontaktadresse";
+import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
 
 interface Props {
   adresser: IAdresser;
 }
 
-const NORSK = "NORSK";
-const UTENLANDSK = "UTENLANDSK";
-
 const Adresser = (props: Props) => {
+  const [{ locale }] = useStore();
   const { formatMessage: msg } = useIntl();
   const [, dispatch] = useStore();
   const { adresser } = props;
   const { kontaktadresse } = adresser;
   const [slettLoading, settSlettLoading] = useState<boolean>();
   const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
-
-  const [norskEllerUtenlandsk, settNorskEllerUtenlandsk] = useState(
-    kontaktadresse?.type === "POSTADRESSE_I_FRITT_FORMAT" ||
-      kontaktadresse?.type === "VEGADRESSE" ||
-      kontaktadresse?.type === "POSTBOKSADRESSE"
-      ? "NORSK"
-      : kontaktadresse?.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" ||
-        kontaktadresse?.type === "UTENLANDSK_ADRESSE"
-      ? "UTENLANDSK"
-      : undefined
-  );
-
-  const visEndreOpprett = () => {
-    settOpprettEllerEndre(true);
-  };
 
   const apneSlettModal = () => {
     settVisSlettModal(true);
@@ -78,7 +56,7 @@ const Adresser = (props: Props) => {
   const slettAdresse = () => {
     settSlettLoading(true);
 
-    if (kontaktadresse) {
+    if (kontaktadresse ) {
       slettKontaktadresse()
         .then(getUpdatedData)
         .then(onSlettSuccess)
@@ -98,7 +76,7 @@ const Adresser = (props: Props) => {
       <div className="adresse__box">
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
-            <FormattedMessage id={"adresse.midlertidigadresse"} />
+            <FormattedMessage id={"adresse.kontaktadresse"} />
           </Undertittel>
         </div>
         {driftsmeldinger.pdl && (
@@ -106,125 +84,108 @@ const Adresser = (props: Props) => {
             <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
           </div>
         )}
-        {opprettEllerEndre ? (
-          <div className="adresse__form">
-            <RadioGruppe>
-              <Radio
-                name={NORSK}
-                checked={norskEllerUtenlandsk === NORSK}
-                label={msg({ id: "felter.adressevalg.norsk" })}
-                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
-              />
-              <Radio
-                name={UTENLANDSK}
-                checked={norskEllerUtenlandsk === UTENLANDSK}
-                label={msg({ id: "felter.adressevalg.utenlandsk" })}
-                onChange={(e) => settNorskEllerUtenlandsk(e.target.name)}
-              />
-              {norskEllerUtenlandsk === NORSK && (
-                <OpprettEllerEndreNorskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse}
-                  settOpprettEllerEndre={settOpprettEllerEndre}
-                />
-              )}
-              {norskEllerUtenlandsk === UTENLANDSK && (
-                <OpprettEllerEndreUtenlandskAdresse
-                  kontaktadresse={props.adresser.kontaktadresse}
-                  settOpprettEllerEndre={settOpprettEllerEndre}
-                />
-              )}
-            </RadioGruppe>
-            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-          </div>
-        ) : (
+        {kontaktadresse?.kilde === "freg" && (
+          <>
+          {kontaktadresse && (
+            <Kontaktadresse kontaktadresse={kontaktadresse} />
+          )}
+             <Kilde
+              kilde="personalia.source.folkeregisteret"
+              lenke={
+                locale === "en"
+                  ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
+                  : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
+              }
+              lenkeTekst="personalia.link.folkeregisteret.adresse"
+              lenkeType={"EKSTERN"}
+              ikon={eksternLenkeIkon}
+            />
+          </>
+        )}
+        {kontaktadresse?.kilde === "pdl" && (
           <>
             {kontaktadresse && (
               <Kontaktadresse kontaktadresse={kontaktadresse} />
             )}
-            {!kontaktadresse && (
-              <Normaltekst>
-                <FormattedMessage
-                  id="adresse.midlertidigadresse.leggtil.beskrivelse"
-                  values={{
-                    br: (text: String) => (
-                      <>
-                        <br />
-                        {text}
-                      </>
-                    ),
-                  }}
-                />
-              </Normaltekst>
-            )}
-            <div className="adresse__endre-knapper">
-              <button onClick={visEndreOpprett} className="kilde__lenke lenke">
-                <span className="kilde__icon">
-                  <img
-                    src={kontaktadresse ? endreIkon : leggTilIkon}
-                    alt="Ekstern lenke"
-                  />
-                </span>
-                <Normaltekst>
-                  <FormattedMessage
-                    id={kontaktadresse ? "side.endre" : "side.leggtil"}
-                  />
-                </Normaltekst>
-              </button>
-              {kontaktadresse && (
-                <button onClick={apneSlettModal} className="kilde__lenke lenke">
+            <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon} alt="Ekstern lenke" />
                   </span>
-                  <Normaltekst>
-                    <FormattedMessage id={"side.slett"} />
-                  </Normaltekst>
-                </button>
-              )}
-              {visSlettModal && (
-                <Modal
-                  closeButton={false}
-                  isOpen={visSlettModal}
-                  onRequestClose={lukkSlettModal}
-                  contentLabel={msg({ id: "side.slett" })}
-                >
-                  <div style={{ padding: "2rem 2.5rem" }}>
-                    <Normaltekst>
-                      <FormattedMessage
-                        id="adresse.slett.alert"
-                        values={{
-                          br: (text: String) => (
-                            <>
-                              <br />
-                              {text}
-                            </>
-                          ),
-                        }}
-                      />
-                    </Normaltekst>
+              <Normaltekst>
+                <FormattedMessage id={"side.slett.kontaktadresse"} />
+              </Normaltekst>
+            </button>
 
-                    <div className="adresse__modal-knapper">
-                      <Fareknapp
-                        onClick={slettAdresse}
-                        spinner={slettLoading}
-                        autoDisableVedSpinner={true}
-                      >
-                        <FormattedMessage id={"side.slett"} />
-                      </Fareknapp>
-                      <Flatknapp
-                        onClick={lukkSlettModal}
-                        disabled={slettLoading}
-                      >
-                        <FormattedMessage id="side.avbryt" />
-                      </Flatknapp>
-                    </div>
-                    {slettAlert && <Alert {...slettAlert} />}
+            {visSlettModal && (
+              <Modal
+                closeButton={false}
+                isOpen={visSlettModal}
+                onRequestClose={lukkSlettModal}
+                contentLabel={msg({ id: "side.slett" })}
+              >
+                <div style={{ padding: "2rem 2.5rem" }}>
+                  <Normaltekst>
+                    <FormattedMessage
+                      id="adresse.slett.alert"
+                      values={{
+                        br: (text: String) => (
+                          <>
+                            <br />
+                            {text}
+                          </>
+                        ),
+                      }}
+                    />
+                  </Normaltekst>
+                  <div className="adresse__modal-knapper">
+                    <Fareknapp
+                      onClick={slettAdresse}
+                      spinner={slettLoading}
+                      autoDisableVedSpinner={true}
+                    >
+                      <FormattedMessage id={"side.slett"} />
+                    </Fareknapp>
+                    <Flatknapp
+                      onClick={lukkSlettModal}
+                      disabled={slettLoading}
+                    >
+                      <FormattedMessage id="side.avbryt" />
+                    </Flatknapp>
                   </div>
-                </Modal>
-              )}
-            </div>
-            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-          </>
+                  {slettAlert && <Alert {...slettAlert} />}
+                </div>
+              </Modal>
+            )}
+            { <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
+           </>
         )}
+        {kontaktadresse === null && (
+          <Normaltekst>
+            <FormattedMessage
+              id="adresse.kontaktadresse.leggtil.beskrivelse"
+              values={{
+                br: (text: String) => (
+                  <>
+                    <br />
+                    {text}
+                  </>
+                ),
+              }}
+            />
+            <Kilde
+              kilde="personalia.source.folkeregisteret"
+              lenke={
+                locale === "en"
+                  ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
+                  : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
+              }
+              lenkeTekst="adresse.kontaktadresse.leggtil.folkeregisteret"
+              lenkeType={"EKSTERN"}
+              ikon={eksternLenkeIkon}
+            />
+          </Normaltekst>
+        )
+        }
       </div>
     </Box>
   );

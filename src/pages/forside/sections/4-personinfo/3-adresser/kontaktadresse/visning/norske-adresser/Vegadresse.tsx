@@ -8,7 +8,7 @@ import { Normaltekst } from "nav-frontend-typografi";
 
 const Vegadresse = (props: VegadresseType) => {
   const { husnummer, husbokstav, bruksenhetsnummer } = props;
-  const { adressenavn, kommunenummer, tilleggsnavn } = props;
+  const { adressenavn, tilleggsnavn } = props;
   const { postnummer, poststed, gyldigTilOgMed, coAdressenavn } = props;
   return (
     <>
@@ -30,16 +30,11 @@ const Vegadresse = (props: VegadresseType) => {
           </Normaltekst>
         </div>
       )}
-      {kommunenummer && (
-        <div className="adresse__linje">
-          <Normaltekst>{kommunenummer}</Normaltekst>
-        </div>
-      )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
       <div className="adresse__divider" />
       <AlertStripeInfo>
         <FormattedMessage
-          id="adresse.midlertidig.alert"
+          id="adresse.kontaktadresse.alert"
           values={{ dato: moment(gyldigTilOgMed).format("LL") }}
         />
       </AlertStripeInfo>
