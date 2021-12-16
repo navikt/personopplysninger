@@ -18,16 +18,10 @@ import { AlertStripeAdvarsel, AlertStripeInfo } from "nav-frontend-alertstriper"
 import moment from "moment";
 import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
 import Kontaktadresse from "./kontaktadresse/visning/Kontaktadresse";
-import { Bostedsadresse } from "../../../../../types/adresser/bostedsadresse";
-import { DeltBosted } from "../../../../../types/adresser/deltbosted";
-import { Oppholdsadresse } from "../../../../../types/adresser/oppholdsadresse";
+import Folkeregisteret from "./kontaktadresse/visning/Folkeregisteret";
 
 interface Props {
   adresser: IAdresser;
-}
-
-function Folkeregisteret(props: { bostedsadresse: Bostedsadresse | undefined, deltBosted: DeltBosted | undefined, oppholdsadresse: Oppholdsadresse | undefined }) {
-  return null;
 }
 
 const Adresser = (props: Props) => {
