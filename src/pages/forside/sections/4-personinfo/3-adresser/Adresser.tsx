@@ -82,7 +82,7 @@ const Adresser = (props: Props) => {
         <Folkeregisteret bostedsadresse={bostedsadresse} deltBosted={deltBosted} oppholdsadresse={oppholdsadresse} />
         <div className="underseksjon__header underseksjon__divider">
           <Undertittel>
-            <FormattedMessage id={"adresse.midlertidigadresse"} />
+            <FormattedMessage id={"adresse.kontaktadresse"} />
           </Undertittel>
         </div>
         {kontaktadresse?.kilde === "freg" && (
@@ -106,7 +106,7 @@ const Adresser = (props: Props) => {
                   ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
                   : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
               }
-              lenkeTekst="personalia.link.folkeregisteret"
+              lenkeTekst="personalia.link.folkeregisteret.adresse"
               lenkeType={"EKSTERN"}
               ikon={eksternLenkeIkon}
             />
@@ -130,7 +130,7 @@ const Adresser = (props: Props) => {
                     <img src={slettIkon} alt="Ekstern lenke" />
                   </span>
               <Normaltekst>
-                <FormattedMessage id={"side.slett.midlertidig.adresse"} />
+                <FormattedMessage id={"side.slett.kontaktadresse"} />
               </Normaltekst>
             </button>
 
@@ -174,12 +174,13 @@ const Adresser = (props: Props) => {
                 </div>
               </Modal>
             )}
+            { <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
            </>
         )}
         {kontaktadresse === null && (
           <Normaltekst>
             <FormattedMessage
-              id="adresse.midlertidigadresse.leggtil.beskrivelse"
+              id="adresse.kontaktadresse.leggtil.beskrivelse"
               values={{
                 br: (text: String) => (
                   <>
@@ -196,7 +197,7 @@ const Adresser = (props: Props) => {
                   ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
                   : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
               }
-              lenkeTekst="adresse.midlertidigadresse.leggtil.folkeregisteret"
+              lenkeTekst="adresse.kontaktadresse.leggtil.folkeregisteret"
               lenkeType={"EKSTERN"}
               ikon={eksternLenkeIkon}
             />
