@@ -15,13 +15,19 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
 import { AlertStripeAdvarsel, AlertStripeInfo } from "nav-frontend-alertstriper";
-import Kontaktadresse from "./midlertidig-adresse/visning/Kontaktadresse";
 import moment from "moment";
 import eksternLenkeIkon from "../../../../../assets/img/Link.svg";
-import Folkeregisteret from "./midlertidig-adresse/visning/Folkeregisteret";
+import Kontaktadresse from "./kontaktadresse/visning/Kontaktadresse";
+import { Bostedsadresse } from "../../../../../types/adresser/bostedsadresse";
+import { DeltBosted } from "../../../../../types/adresser/deltbosted";
+import { Oppholdsadresse } from "../../../../../types/adresser/oppholdsadresse";
 
 interface Props {
   adresser: IAdresser;
+}
+
+function Folkeregisteret(props: { bostedsadresse: Bostedsadresse | undefined, deltBosted: DeltBosted | undefined, oppholdsadresse: Oppholdsadresse | undefined }) {
+  return null;
 }
 
 const Adresser = (props: Props) => {
@@ -92,7 +98,7 @@ const Adresser = (props: Props) => {
                   <Kontaktadresse kontaktadresse={kontaktadresse} />
                   <AlertStripeInfo>
                     <FormattedMessage
-                        id="adresse.midlertidig.alert"
+                        id="adresse.kontaktadresse.alert"
                         values={{ dato: moment(kontaktadresse.gyldigTilOgMed).format("LL") }}
                     />
                   <div className={"adresse__divider"} />
@@ -120,7 +126,7 @@ const Adresser = (props: Props) => {
                   <div className={"adresse__divider"} />
                   <AlertStripeInfo>
                     <FormattedMessage
-                        id="adresse.midlertidig.alert"
+                        id="adresse.kontaktadresse.alert"
                         values={{ dato: moment(kontaktadresse.gyldigTilOgMed).format("LL") }}
                     />
                   </AlertStripeInfo>
