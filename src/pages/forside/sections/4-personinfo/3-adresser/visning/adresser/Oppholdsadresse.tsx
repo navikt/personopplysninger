@@ -1,8 +1,8 @@
 import React from "react";
 import { Oppholdsadresse as IOppholdsadresse } from "types/adresser/oppholdsadresse";
-import Vegadresse from "./norske-adresser/Vegadresse";
-import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
-import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
+import Vegadresse from "../adressetyper/norske-adresser/Vegadresse";
+import UtenlanskAdresse from "../adressetyper/utenlanske-adresser/UtenlanskAdresse";
+import Matrikkeladresse from "../adressetyper/norske-adresser/Matrikkeladresse";
 import AdressePanel from "../../komponenter/AdressePanel";
 import "moment/locale/nb";
 import Lesmerpanel from "nav-frontend-lesmerpanel";

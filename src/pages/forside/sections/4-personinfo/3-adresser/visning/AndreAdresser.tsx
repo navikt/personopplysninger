@@ -2,24 +2,24 @@ import React, { useState } from "react";
 import Kilde from "components/kilde/Kilde";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Kontaktadresse as IKontaktadresse } from "../../../../../../../types/adresser/kontaktadresse";
-import Kontaktadresse from "./Kontaktadresse";
+import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
+import Kontaktadresse from "./adresser/Kontaktadresse";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import moment from "moment";
-import eksternLenkeIkon from "../../../../../../../assets/img/Link.svg";
-import slettIkon from "../../../../../../../assets/img/Slett.svg";
+import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
+import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "../../../../../../../components/alert/Alert";
-import { fetchPersonInfo, slettKontaktadresse } from "../../../../../../../clients/apiClient";
-import { PersonInfo } from "../../../../../../../types/personInfo";
-import { useStore } from "../../../../../../../store/Context";
+import Alert, { AlertType } from "../../../../../../components/alert/Alert";
+import { fetchPersonInfo, slettKontaktadresse } from "../../../../../../clients/apiClient";
+import { PersonInfo } from "../../../../../../types/personInfo";
+import { useStore } from "../../../../../../store/Context";
 
 interface Props {
   kontaktadresser: IKontaktadresse[];
 }
 
-const Kontaktadresser = (props: Props) => {
+const AndreAdresser = (props: Props) => {
   const [{ locale }] = useStore();
   const { formatMessage: msg } = useIntl();
   const { kontaktadresser } = props;
@@ -63,7 +63,7 @@ const Kontaktadresser = (props: Props) => {
   return <>
     <div className="underseksjon__header underseksjon__divider">
         <Undertittel>
-            <FormattedMessage id={"adresse.kontaktadresse"}/>
+            <FormattedMessage id={"adresse.overskrift.ovrige"}/>
         </Undertittel>
     </div>
     {
@@ -191,4 +191,4 @@ const Kontaktadresser = (props: Props) => {
     </>;
 };
 
-export default Kontaktadresser;
+export default AndreAdresser;

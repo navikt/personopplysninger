@@ -1,9 +1,9 @@
 import React from "react";
 import { DeltBosted as IDeltBosted } from "types/adresser/deltbosted";
-import Vegadresse from "./norske-adresser/Vegadresse";
-import UtenlanskAdresse from "./utenlanske-adresser/UtenlanskAdresse";
-import Matrikkeladresse from "./norske-adresser/Matrikkeladresse";
-import Ukjentbosted from "./norske-adresser/Ukjentbosted";
+import Vegadresse from "../adressetyper/norske-adresser/Vegadresse";
+import UtenlanskAdresse from "../adressetyper/utenlanske-adresser/UtenlanskAdresse";
+import Matrikkeladresse from "../adressetyper/norske-adresser/Matrikkeladresse";
+import Ukjentbosted from "../adressetyper/norske-adresser/Ukjentbosted";
 import AdressePanel from "../../komponenter/AdressePanel";
 import "moment/locale/nb";
 import Lesmerpanel from "nav-frontend-lesmerpanel";

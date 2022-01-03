@@ -2,14 +2,14 @@ import React from "react";
 import Kilde from "components/kilde/Kilde";
 import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import eksternLenkeIkon from "../../../../../../../assets/img/Link.svg";
-import { Bostedsadresse as IBostedsadresse } from "../../../../../../../types/adresser/bostedsadresse";
-import { DeltBosted as IDeltBosted } from "../../../../../../../types/adresser/deltbosted";
-import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../../types/adresser/oppholdsadresse";
-import Bostedsadresse from "./Bostedsadresse";
-import DeltBosted from "./DeltBosted";
-import Oppholdsadresse from "./Oppholdsadresse";
-import { useStore } from "../../../../../../../store/Context";
+import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
+import { Bostedsadresse as IBostedsadresse } from "../../../../../../types/adresser/bostedsadresse";
+import { DeltBosted as IDeltBosted } from "../../../../../../types/adresser/deltbosted";
+import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adresser/oppholdsadresse";
+import Bostedsadresse from "./adresser/Bostedsadresse";
+import DeltBosted from "./adresser/DeltBosted";
+import Oppholdsadresse from "./adresser/Oppholdsadresse";
+import { useStore } from "../../../../../../store/Context";
 
 interface Props {
   bostedsadresse?: IBostedsadresse;

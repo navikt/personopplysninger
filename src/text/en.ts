@@ -92,6 +92,7 @@ export default {
   "adresse.bolignummer": `Unit number`,
   "adresse.land": `Country`,
   "adresse.overskrift": `Addresses registered in the National Population Register`,
+  "adresse.overskrift.ovrige": `Other registered adresses`,
   "adresse.ikke.registrert": `You do not have a registered home address in the National Population Register`,
   "adresse.kontaktadresse.alert": `We will send you post to your contact address until {dato}.`,
   "adresse.slett.alert": `Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?`,

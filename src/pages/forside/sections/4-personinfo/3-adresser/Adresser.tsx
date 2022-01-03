@@ -4,8 +4,8 @@ import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
 import driftsmeldinger from "driftsmeldinger";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import Folkeregisteret from "./kontaktadresse/visning/Folkeregisteret";
-import Kontaktadresser from "./kontaktadresse/visning/Kontaktadresser";
+import Folkeregisteret from "./visning/Folkeregisteret";
+import AndreAdresser from "./visning/AndreAdresser";
 
 interface Props {
   adresser: IAdresser;

@@ -93,6 +93,7 @@ export default {
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
   "adresse.overskrift": `Adresser som er registert i Folkeregisteret`,
+  "adresse.overskrift.ovrige": `Øvrige registrerte adresser`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
   "adresse.kontaktadresse.alert": `Frem til og med {dato} får du post fra NAV til kontaktadressen din. Du kan slette adressen når som helst. `,
   "adresse.kontaktadresse.alert.uten.sluttdato": "Vi sender post til kontaktadressen din",
