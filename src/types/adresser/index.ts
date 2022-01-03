@@ -12,7 +12,7 @@ export interface GeografiskTilknytning {
 
 export interface Adresser {
   geografiskTilknytning?: GeografiskTilknytning;
-  kontaktadresse?: Kontaktadresse;
+  kontaktadresser: Kontaktadresse[];
   bostedsadresse?: Bostedsadresse;
   oppholdsadresse?: Oppholdsadresse;
   deltBosted?: DeltBosted;

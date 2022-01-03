@@ -27,7 +27,7 @@
       "land": null,
       "enhet": "NAV Halden-Aremark"
     },
-    "kontaktadresse": {
+    "kontaktadresser": [{
       "gyldigFraOgMed": "2020-07-14T00:00",
       "gyldigTilOgMed": "2020-07-20T23:59:59",
       "coAdressenavn": "V/ Aremark Jr",
@@ -39,7 +39,7 @@
         "poststed": "OSLO",
         "type": "POSTBOKSADRESSE"
       }
-    },
+    }],
     "deltBosted": {
       "startdatoForKontrakt": "2020-07-14T00:00",
       "sluttdatoForKontrakt": "2020-07-20T23:59:59",
