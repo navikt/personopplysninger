@@ -72,7 +72,15 @@ export default {
   "personalia.dkif.kanIkkeVarsles": `You have opted out of electronic communication.`,
   "personalia.dkif.ingenData": `<b>No information registered</b>`,
   "adresse.tittel": `Addresses`,
-  "adresse.beskrivelse": `Here you will find your home address and your contact address, if applicable.`,
+  "adresse.beskrivelse": `Here are the addresses the National Population Register has registered for you. You can have several addresses registered at the same time. If any of the addresses are incorrect, you must change them at the National Population Register.<br></br><br></br>
+<b>Home address</b> <br></br> 
+The address where you are officially registered as a resident.<br></br><br></br>
+<b>Temporary residential address</b><br></br> 
+An address where you are currently staying. The address is not confirmed as your home address.<br></br><br></br>
+<b>Contact address</b><br></br> 
+An address you can register so that it is possible to reach you by post. The address is not confirmed as your home address or temporary residential address.<br></br> <br></br> 
+<b>Shared housing</b><br></br> 
+Means that a child lives permanently with both the mother and the father. The child then has two home addresses, one of which you will find under home address..`,
   "adresse.oppholdsadresse": `Temporary residential address`,
   "adresse.deltbosted": `Shared housing`,
   "adresse.bostedsadresse": `Home address`,
@@ -88,13 +96,13 @@ export default {
   "adresse.postnummer": `Postal code`,
   "adresse.poststed": `Postal district`,
   "adresse.dato": `Date of move`,
+  "adresse.dato.gyldigtil": `Valid until`,
   "adresse.kommune": `Municipality`,
   "adresse.bolignummer": `Unit number`,
   "adresse.land": `Country`,
   "adresse.overskrift": `Addresses registered in the National Population Register`,
   "adresse.overskrift.ovrige": `Other registered adresses`,
   "adresse.ikke.registrert": `You do not have a registered home address in the National Population Register`,
-  "adresse.kontaktadresse.alert": `We will send you post to your contact address until {dato}.`,
   "adresse.slett.alert": `Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>You choose how long the address is to be valid, a maximum of 1 year. After 1 year, you need to change or extend the address.</p>`,

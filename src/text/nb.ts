@@ -72,7 +72,15 @@ export default {
   "personalia.dkif.kanIkkeVarsles": `Du har reservert deg mot elektronisk kommunikasjon.`,
   "personalia.dkif.ingenData": `<b>Ingen opplysninger registrert</b>`,
   "adresse.tittel": `Adresser`,
-  "adresse.beskrivelse": `Her finner du bostedsadresse og eventuelt kontaktadressen din.`,
+  "adresse.beskrivelse": `Alle adressene Folkeregisteret har registrert på deg. Du kan ha flere adresser registrert samtidig. Hvis noen av adressene er feil, må du endre dem hos Folkeregisteret (Skatteetaten).<br></br><br></br>
+<b>Bostedsadresse</b> <br></br> 
+Er adressen der du offisielt er registrert som bosatt.<br></br><br></br>
+<b>Oppholdsadresse</b><br></br> 
+Er en adresse der du oppholder deg for tiden. Adressen er ikke bekreftet som bostedsadressen din.<br></br><br></br>
+<b>Kontaktadresse</b><br></br> 
+Er en adresse du kan registrere slik at det er mulig å nå deg per post. Adressen  er ikke bekreftet som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
+<b>Delt bosted</b><br></br> 
+Betyr at  et barn bor fast både hos mor og far. Barnet har da to bostedsadresser, den ene finner du under delt bosted.`,
   "adresse.oppholdsadresse": `Oppholdsadresse`,
   "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
@@ -89,14 +97,13 @@ export default {
   "adresse.postnummer": `Postnummer`,
   "adresse.poststed": `Poststed`,
   "adresse.dato": `Flyttedato`,
+  "adresse.dato.gyldigtil": `Gyldig til og med`,
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
   "adresse.overskrift": `Adresser som er registert i Folkeregisteret`,
   "adresse.overskrift.ovrige": `Øvrige registrerte adresser`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
-  "adresse.kontaktadresse.alert": `Frem til og med {dato} får du post fra NAV til kontaktadressen din. Du kan slette adressen når som helst. `,
-  "adresse.kontaktadresse.alert.uten.sluttdato": "Vi sender post til kontaktadressen din",
   "adresse.slett.alert": `Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br> adresse til å motta post fra NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>Du velger selv hvor lenge adressen skal være gyldig, maksimalt 1 år. Etter 1 år må du endre eller forlenge adressen.</p>`,

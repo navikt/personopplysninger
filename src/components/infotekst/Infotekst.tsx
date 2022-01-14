@@ -57,6 +57,11 @@ function Infotekst(props: HjelpetekstProps) {
                       {text}
                     </>
                   ),
+                  b: (text: string) => (
+                    <>
+                        <b>{text}</b>
+                    </>
+                  ),
                   span: (text: string) => (
                     <span style={{ textTransform: "none" }}>{text}</span>
                   ),

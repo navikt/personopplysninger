@@ -15,6 +15,10 @@ const Adresser = (props: Props) => {
   const { adresser } = props;
   const { kontaktadresser, bostedsadresse, deltBosted, oppholdsadresse } = adresser;
 
+  const kontaktadresserFreg = kontaktadresser.filter(adr => adr.kilde === "freg");
+  const kontaktadresserPdl = kontaktadresser.filter(adr => adr.kilde === "pdl");
+  const kontaktadressePdl = kontaktadresserPdl.length === 0 ? null : kontaktadresserPdl[0];
+
   return (
     <Box
       id="adresser"
@@ -30,8 +34,12 @@ const Adresser = (props: Props) => {
             </div>
         )}
 
-        <Folkeregisteret bostedsadresse={bostedsadresse} deltBosted={deltBosted} oppholdsadresse={oppholdsadresse} />
-        <Kontaktadresser kontaktadresser={kontaktadresser}/>
+        <Folkeregisteret bostedsadresse={bostedsadresse}
+                         deltBosted={deltBosted}
+                         oppholdsadresse={oppholdsadresse}
+                         kontaktadresser={kontaktadresserFreg}/>
+
+        {kontaktadressePdl && <AndreAdresser kontaktadresse={kontaktadressePdl}/>}
       </div>
     </Box>
   );

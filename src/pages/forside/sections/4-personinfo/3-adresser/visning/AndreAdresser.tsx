@@ -4,8 +4,6 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
 import Kontaktadresse from "./adresser/Kontaktadresse";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import moment from "moment";
 import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
@@ -16,14 +14,13 @@ import { PersonInfo } from "../../../../../../types/personInfo";
 import { useStore } from "../../../../../../store/Context";
 
 interface Props {
-  kontaktadresser: IKontaktadresse[];
+  kontaktadresse: IKontaktadresse;
 }
 
 const AndreAdresser = (props: Props) => {
   const [{ locale }] = useStore();
   const { formatMessage: msg } = useIntl();
-  const { kontaktadresser } = props;
-  const kontaktadresse = kontaktadresser[0];
+  const { kontaktadresse } = props;
 
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
@@ -69,18 +66,7 @@ const AndreAdresser = (props: Props) => {
     {
         kontaktadresse?.kilde === "freg" && (
             <>
-                {kontaktadresse && (
-                    <div>
-                        <Kontaktadresse kontaktadresse={kontaktadresse}/>
-                        <AlertStripeInfo>
-                            <FormattedMessage
-                                id="adresse.kontaktadresse.alert"
-                                values={{dato: moment(kontaktadresse.gyldigTilOgMed).format("LL")}}
-                            />
-                            <div className={"adresse__divider"}/>
-                        </AlertStripeInfo>
-                    </div>
-                )}
+                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse}/>)}
                 <Kilde
                     kilde="personalia.source.folkeregisteret"
                     lenke={
@@ -98,17 +84,7 @@ const AndreAdresser = (props: Props) => {
     {
         kontaktadresse?.kilde === "pdl" && (
             <>
-                {kontaktadresse && (
-                    <div>
-                        <Kontaktadresse kontaktadresse={kontaktadresse}/>
-                        <div className={"adresse__divider"}/>
-                        <AlertStripeInfo>
-                            <FormattedMessage
-                                id="adresse.kontaktadresse.alert"
-                                values={{dato: moment(kontaktadresse.gyldigTilOgMed).format("LL")}}
-                            />
-                        </AlertStripeInfo>
-                    </div>)}
+                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse}/>)}
                 <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon} alt="Ekstern lenke"/>
@@ -161,33 +137,6 @@ const AndreAdresser = (props: Props) => {
             { <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
         </>
     )}
-    {kontaktadresse === null && (
-        <Normaltekst>
-            <FormattedMessage
-                id="adresse.kontaktadresse.leggtil.beskrivelse"
-                values={{
-                    br: (text: String) => (
-                        <>
-                            <br />
-                            {text}
-                        </>
-                    ),
-                }}
-            />
-            <Kilde
-                kilde="personalia.source.folkeregisteret"
-                lenke={
-                    locale === "en"
-                        ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
-                        : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
-                }
-                lenkeTekst="adresse.kontaktadresse.leggtil.folkeregisteret"
-                lenkeType={"EKSTERN"}
-                ikon={eksternLenkeIkon}
-            />
-        </Normaltekst>
-    )
-    }
     </>;
 };
 
