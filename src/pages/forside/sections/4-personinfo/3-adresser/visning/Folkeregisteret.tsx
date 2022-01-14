@@ -27,7 +27,7 @@ const Folkeregisteret = (props: Props) => {
 
   let key = 0;
 
-  if (!(bostedsadresse || deltBosted || oppholdsadresse)) { return null; }
+  if (!(bostedsadresse || deltBosted || oppholdsadresse || kontaktadresser)) { return null; }
 
   return (
     <div>
@@ -41,7 +41,21 @@ const Folkeregisteret = (props: Props) => {
       {deltBosted && <DeltBosted deltBosted={deltBosted}/>}
       {oppholdsadresse && <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>}
 
-      {kontaktadresser.map(adr => { return (<Kontaktadresse kontaktadresse={adr} key={key++}/>); })}
+      {kontaktadresser.map(adr => {
+          let tittel;
+          let utenlandskeAdressetyper = ["UTENLANDSK_ADRESSE", "UTENLANDSK_ADRESSE_I_FRITT_FORMAT"];
+          if (utenlandskeAdressetyper.includes(adr.adresse?.type!)) {
+              tittel = "adresse.kontaktadresse.utenlandsk";
+          } else {
+              if (kontaktadresser.filter(kontaktadresse => utenlandskeAdressetyper.includes(kontaktadresse.adresse?.type!)).length > 0) {
+                  // Må spesifiseres som norsk dersom bruker har registert utenlandsk kontaktadresse i tillegg
+                  tittel = "adresse.kontaktadresse.norsk";
+              } else {
+                  tittel = "adresse.kontaktadresse";
+              }
+          }
+          return (<Kontaktadresse kontaktadresse={adr} tittel={tittel} key={key++}/>);
+      })}
       {kontaktadresser.length === 0 && (
           <AdressePanel tittel={"adresse.kontaktadresse"}>
               <Normaltekst>
@@ -65,10 +79,10 @@ const Folkeregisteret = (props: Props) => {
           kilde="personalia.source.folkeregisteret"
           lenke={
               locale === "en"
-                  ? "https://www.skatteetaten.no/en/person/national-registry/"
-                  : "https://www.skatteetaten.no/person/folkeregister/"
+                  ? "https://www.skatteetaten.no/en/person/national-registry/moving/"
+                  : "https://www.skatteetaten.no/person/folkeregister/flytte/"
           }
-          lenkeTekst="personalia.link.folkeregisteret"
+          lenkeTekst="personalia.link.folkeregisteret.adresse"
           lenkeType={"EKSTERN"}
           ikon={eksternLenkeIkon}
       />

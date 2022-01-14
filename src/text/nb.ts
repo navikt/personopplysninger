@@ -47,7 +47,7 @@ export default {
   "personalia.source.nav": `Kilde: NAV`,
   "personalia.source.dkif": `Kilde: Kontakt - og reservasjonsregisteret`,
   "personalia.link.folkeregisteret": `Endre i Folkeregisteret`,
-  "personalia.link.folkeregisteret.adresse": `Slette eller endre adresse i Folkeregisteret`,
+  "personalia.link.folkeregisteret.adresse": `Endre adresse i Folkeregisteret`,
   "personalia.link.brukerprofil.endre": `Endre i Din profil`,
   "personalia.link.brukerprofil.leggtil": `Legg til i Din profil`,
   "personalia.link.dkif.endre": `Endre i Kontakt- og reservasjonsregisteret `,
@@ -78,15 +78,18 @@ Er adressen der du offisielt er registrert som bosatt.<br></br><br></br>
 <b>Oppholdsadresse</b><br></br> 
 Er en adresse der du oppholder deg for tiden. Adressen er ikke bekreftet som bostedsadressen din.<br></br><br></br>
 <b>Kontaktadresse</b><br></br> 
-Er en adresse du kan registrere slik at det er mulig å nå deg per post. Adressen  er ikke bekreftet som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
+Er en adresse du kan registrere slik at det er mulig å nå deg per post. Adressen er ikke bekreftet som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
 <b>Delt bosted</b><br></br> 
-Betyr at  et barn bor fast både hos mor og far. Barnet har da to bostedsadresser, den ene finner du under delt bosted.`,
+Betyr at et barn bor fast både hos mor og far. Barnet har da to bostedsadresser, den ene finner du under delt bosted.`,
   "adresse.oppholdsadresse": `Oppholdsadresse`,
   "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
   "adresse.bostedsadresse.lukkTekst": `Skjul detaljer`,
-  "adresse.kontaktadresse": `Kontaktadresse`,
+  "adresse.kontaktadresse": `Postadresse (kontaktadresse)`,
+  "adresse.kontaktadresse.utenlandsk": `Postadresse (utenlandsk kontaktadresse)`,
+  "adresse.kontaktadresse.norsk": `Postadresse (norsk kontaktadresse)`,
+  "adresse.kontaktadresse.nav": `Kontaktadresse registrert hos NAV`,
   "adresse.kontaktadresse.leggtil.beskrivelse": `Vil du registrere en kontaktadresse i Folkeregisteret? Du vil da få post fra NAV til den adressen.`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Endre adresse i Folkeregisteret`,
   "adresse.kontaktadresse.slette.folkeregisteret": `Slette kontaktadresse`,

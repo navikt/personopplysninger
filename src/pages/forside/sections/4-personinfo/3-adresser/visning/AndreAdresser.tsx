@@ -64,27 +64,9 @@ const AndreAdresser = (props: Props) => {
         </Undertittel>
     </div>
     {
-        kontaktadresse?.kilde === "freg" && (
-            <>
-                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse}/>)}
-                <Kilde
-                    kilde="personalia.source.folkeregisteret"
-                    lenke={
-                        locale === "en"
-                            ? "https://www.skatteetaten.no/en/person/national-registry/moving/changed-postal-address/"
-                            : "https://www.skatteetaten.no/person/folkeregister/flytte/endre-postadresse/"
-                    }
-                    lenkeTekst="personalia.link.folkeregisteret.adresse"
-                    lenkeType={"EKSTERN"}
-                    ikon={eksternLenkeIkon}
-                />
-            </>
-        )
-    }
-    {
         kontaktadresse?.kilde === "pdl" && (
             <>
-                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse}/>)}
+                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse} tittel={"adresse.kontaktadresse.nav"}/>)}
                 <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon} alt="Ekstern lenke"/>

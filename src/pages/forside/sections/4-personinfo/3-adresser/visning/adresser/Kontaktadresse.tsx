@@ -13,6 +13,7 @@ import ListElement from "../../../../../../../components/listelement/ListElement
 
 interface Props {
   kontaktadresse: IKontaktadresse;
+  tittel: string;
 }
 
 const Kontaktadresse = (props: Props) => {
@@ -47,7 +48,7 @@ const Kontaktadresse = (props: Props) => {
   }
 
   return (
-      <AdressePanel tittel={"adresse.kontaktadresse"}>
+      <AdressePanel tittel={props.tittel}>
         <>
           {adresse}
           {(bruksenhetsnummer || kommune || gyldigTilOgMedFormatert) && (
