@@ -4,7 +4,6 @@ import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
 import Kontaktadresse from "./adresser/Kontaktadresse";
-import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
@@ -18,7 +17,6 @@ interface Props {
 }
 
 const AndreAdresser = (props: Props) => {
-  const [{ locale }] = useStore();
   const { formatMessage: msg } = useIntl();
   const { kontaktadresse } = props;
 
