@@ -77,7 +77,7 @@ export default {
 Adressen der du offisielt er registrert som bosatt.<br></br><br></br>
 <b>Oppholdsadresse</b><br></br> 
 En adresse som du oppholder deg på for tiden. Den er ikke registrert som bostedsadressen din.<br></br><br></br>
-<b>Kontaktadresse</b><br></br> 
+<b>Postadresse (kontaktadresse)</b><br></br> 
 En adresse der du kan nås per post. Den er ikke registrert som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
 <b>Delt bosted</b><br></br> 
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene finner du under delt bosted.`,
