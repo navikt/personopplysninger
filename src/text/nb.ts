@@ -72,15 +72,15 @@ export default {
   "personalia.dkif.kanIkkeVarsles": `Du har reservert deg mot elektronisk kommunikasjon.`,
   "personalia.dkif.ingenData": `<b>Ingen opplysninger registrert</b>`,
   "adresse.tittel": `Adresser`,
-  "adresse.beskrivelse": `Alle adressene Folkeregisteret har registrert på deg. Du kan ha flere adresser registrert samtidig. Hvis noen av adressene er feil, må du endre dem hos Folkeregisteret (Skatteetaten).<br></br><br></br>
+  "adresse.beskrivelse": `Under ser du de adressetypene det er mulig å registrere i Folkeregisteret. Du kan ha flere adressetyper samtidig. Hvis en adresse er feil, må du endre den i Folkeregisteret hos Skatteetaten.<br></br><br></br>
 <b>Bostedsadresse</b> <br></br> 
-Er adressen der du offisielt er registrert som bosatt.<br></br><br></br>
+Adressen der du offisielt er registrert som bosatt.<br></br><br></br>
 <b>Oppholdsadresse</b><br></br> 
-Er en adresse der du oppholder deg for tiden. Adressen er ikke bekreftet som bostedsadressen din.<br></br><br></br>
+En adresse som du oppholder deg på for tiden. Den er ikke registrert som bostedsadressen din.<br></br><br></br>
 <b>Kontaktadresse</b><br></br> 
-Er en adresse du kan registrere slik at det er mulig å nå deg per post. Adressen er ikke bekreftet som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
+En adresse der du kan nås per post. Den er ikke registrert som bosteds- eller oppholdsadressen din.<br></br> <br></br> 
 <b>Delt bosted</b><br></br> 
-Betyr at et barn bor fast både hos mor og far. Barnet har da to bostedsadresser, den ene finner du under delt bosted.`,
+Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene finner du under delt bosted.`,
   "adresse.oppholdsadresse": `Oppholdsadresse`,
   "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
