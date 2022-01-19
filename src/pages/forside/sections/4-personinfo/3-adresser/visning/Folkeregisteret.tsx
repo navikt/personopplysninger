@@ -1,6 +1,6 @@
 import React from "react";
 import Kilde from "components/kilde/Kilde";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
+import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 import { Bostedsadresse as IBostedsadresse } from "../../../../../../types/adresser/bostedsadresse";
@@ -12,7 +12,6 @@ import DeltBosted from "./adresser/DeltBosted";
 import Oppholdsadresse from "./adresser/Oppholdsadresse";
 import Kontaktadresse from "./adresser/Kontaktadresse";
 import { useStore } from "../../../../../../store/Context";
-import AdressePanel from "../komponenter/AdressePanel";
 
 interface Props {
   bostedsadresse?: IBostedsadresse;
