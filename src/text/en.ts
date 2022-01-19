@@ -80,7 +80,7 @@ An address that you are currently staying at. It is not confirmed as your home a
 <b>Contact address</b><br></br> 
 An address where you can be reached by post. It is not confirmed as your home address or your temporary residential address.<br></br> <br></br> 
 <b>Shared housing</b><br></br> 
-A child who lives permanently with both mother and father can have two home addresses, one of which you will find under home address.`,
+A child who lives permanently with both mother and father can have two home addresses, one of which you will find under shared housing.`,
   "adresse.oppholdsadresse": `Temporary residential address`,
   "adresse.deltbosted": `Shared housing`,
   "adresse.bostedsadresse": `Home address`,
