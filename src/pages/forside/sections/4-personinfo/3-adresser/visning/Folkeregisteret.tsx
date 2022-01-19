@@ -56,24 +56,6 @@ const Folkeregisteret = (props: Props) => {
           }
           return (<Kontaktadresse kontaktadresse={adr} tittel={tittel} key={key++}/>);
       })}
-      {kontaktadresser.length === 0 && (
-          <AdressePanel tittel={"adresse.kontaktadresse"}>
-              <Normaltekst>
-                  <FormattedMessage
-                      id="adresse.kontaktadresse.leggtil.beskrivelse"
-                      values={{
-                          br: (text: String) => (
-                              <>
-                                  <br />
-                                  {text}
-                              </>
-                          ),
-                      }}
-                  />
-              </Normaltekst>
-          </AdressePanel>
-      )
-      }
       {/* Kilde vil alltid være FREG i prod, kan være PDL i dev */}
       <Kilde
           kilde="personalia.source.folkeregisteret"

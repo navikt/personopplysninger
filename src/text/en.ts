@@ -90,7 +90,6 @@ A child who lives permanently with both mother and father can have two home addr
   "adresse.kontaktadresse.utenlandsk": `Postal address (contact address abroad)`,
   "adresse.kontaktadresse.norsk": `Postal address (Norwegian contact address)`,
   "adresse.kontaktadresse.nav": `Contact address registered with NAV`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `Do you want to register a contact address in the National Population Register? You will then receive mail from NAV to that address.`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Change address in National Population Register.`,
   "adresse.utenlandskadresse": `Contact address abroad`,
   "adresse.postadresse": `Postal address`,

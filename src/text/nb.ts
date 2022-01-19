@@ -90,7 +90,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene fi
   "adresse.kontaktadresse.utenlandsk": `Postadresse (utenlandsk kontaktadresse)`,
   "adresse.kontaktadresse.norsk": `Postadresse (norsk kontaktadresse)`,
   "adresse.kontaktadresse.nav": `Kontaktadresse registrert hos NAV`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `Vil du registrere en kontaktadresse i Folkeregisteret? Du vil da få post fra NAV til den adressen.`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Endre adresse i Folkeregisteret`,
   "adresse.kontaktadresse.slette.folkeregisteret": `Slette kontaktadresse`,
   "adresse.utenlandskadresse": `Kontaktadresse i utlandet`,
