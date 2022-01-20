@@ -4,7 +4,7 @@ import { Vegadresse as VegadresseType } from "types/adresser/adresse";
 import { Normaltekst } from "nav-frontend-typografi";
 
 const Vegadresse = (props: VegadresseType) => {
-  const { husnummer, husbokstav, bruksenhetsnummer } = props;
+  const { husnummer, husbokstav } = props;
   const { adressenavn, tilleggsnavn } = props;
   const { postnummer, poststed, coAdressenavn } = props;
   return (
@@ -19,11 +19,10 @@ const Vegadresse = (props: VegadresseType) => {
           <Normaltekst>{coAdressenavn}</Normaltekst>
         </div>
       )}
-      {(adressenavn || husnummer || husbokstav || bruksenhetsnummer) && (
+      {(adressenavn || husnummer || husbokstav) && (
         <div className="adresse__linje">
           <Normaltekst>
-            {adressenavn || ""} {husnummer || ""} {husbokstav || ""}{" "}
-            {bruksenhetsnummer || ""}
+            {adressenavn || ""} {husnummer || ""} {husbokstav || ""}
           </Normaltekst>
         </div>
       )}
