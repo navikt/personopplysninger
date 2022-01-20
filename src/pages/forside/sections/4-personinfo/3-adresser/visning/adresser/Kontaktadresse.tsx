@@ -6,10 +6,7 @@ import Vegadresse from "../adressetyper/norske-adresser/Vegadresse";
 import Postboksadresse from "../adressetyper/norske-adresser/Postboksadresse";
 import UtenlanskAdresse from "../adressetyper/utenlanske-adresser/UtenlanskAdresse";
 import AdressePanel from "../../komponenter/AdressePanel";
-import { useIntl } from "react-intl";
 import moment from "moment";
-import Lesmerpanel from "nav-frontend-lesmerpanel";
-import ListElement from "../../../../../../../components/listelement/ListElement";
 
 interface Props {
   kontaktadresse: IKontaktadresse;
@@ -17,7 +14,6 @@ interface Props {
 }
 
 const Kontaktadresse = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
   const gyldigTilOgMed = props.kontaktadresse.gyldigTilOgMed;
   const gyldigTilOgMedFormatert = gyldigTilOgMed ? moment(gyldigTilOgMed).format("L") : "";
 
