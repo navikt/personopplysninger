@@ -48,33 +48,12 @@ const Kontaktadresse = (props: Props) => {
   }
 
   return (
-      <AdressePanel tittel={props.tittel}>
-        <>
-          {adresse}
-          {(bruksenhetsnummer || kommune || gyldigTilOgMedFormatert) && (
-              <Lesmerpanel
-                  className="adresse__lesmer"
-                  apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
-                  lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
-              >
-                <ul className="list-column-2 address-columns">
-                  {bruksenhetsnummer && (
-                      <ListElement
-                          titleId="adresse.bolignummer"
-                          content={bruksenhetsnummer}
-                      />
-                  )}
-                  {kommune && (
-                      <ListElement titleId="adresse.kommune" content={kommune} />
-                  )}
-                  {gyldigTilOgMedFormatert && (
-                      <ListElement titleId="adresse.dato.gyldigtil" content={gyldigTilOgMedFormatert} />
-                  )}
-                </ul>
-              </Lesmerpanel>
-          )}
-        </>
-      </AdressePanel>
+    <AdressePanel tittel={props.tittel}
+                  bruksenhetsnummer={bruksenhetsnummer}
+                  kommune={kommune}
+                  gyldigTilOgMedFormatert={gyldigTilOgMedFormatert}>
+      {adresse}
+    </AdressePanel>
   );
 };
 

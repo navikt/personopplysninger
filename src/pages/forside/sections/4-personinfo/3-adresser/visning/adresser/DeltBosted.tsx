@@ -6,17 +6,12 @@ import Matrikkeladresse from "../adressetyper/norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "../adressetyper/norske-adresser/Ukjentbosted";
 import AdressePanel from "../../komponenter/AdressePanel";
 import "moment/locale/nb";
-import Lesmerpanel from "nav-frontend-lesmerpanel";
-import ListElement from "../../../../../../../components/listelement/ListElement";
-import { useIntl } from "react-intl";
 
 interface Props {
   deltBosted: IDeltBosted;
 }
 
 const DeltBosted = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
-
   let adresse;
   let kommune;
   let bruksenhetsnummer;
@@ -47,30 +42,11 @@ const DeltBosted = (props: Props) => {
   }
 
   return (
-      <AdressePanel tittel={"adresse.deltbosted"}>
-        <>
-          {adresse}
-          {(bruksenhetsnummer || kommune) && (
-              <Lesmerpanel
-                  className="adresse__lesmer"
-                  apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
-                  lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
-              >
-                <ul className="list-column-2 address-columns">
-                  {bruksenhetsnummer && (
-                      <ListElement
-                          titleId="adresse.bolignummer"
-                          content={bruksenhetsnummer}
-                      />
-                  )}
-                  {kommune && (
-                      <ListElement titleId="adresse.kommune" content={kommune} />
-                  )}
-                </ul>
-              </Lesmerpanel>
-          )}
-        </>
-      </AdressePanel>
+    <AdressePanel tittel={"adresse.deltbosted"}
+                  bruksenhetsnummer={bruksenhetsnummer}
+                  kommune={kommune}>
+      {adresse}
+    </AdressePanel>
   );
 };
 

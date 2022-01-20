@@ -7,9 +7,6 @@ import Ukjentbosted from "../adressetyper/norske-adresser/Ukjentbosted";
 import AdressePanel from "../../komponenter/AdressePanel";
 import moment from "moment";
 import "moment/locale/nb";
-import Lesmerpanel from "nav-frontend-lesmerpanel";
-import ListElement from "../../../../../../../components/listelement/ListElement";
-import { useIntl } from "react-intl";
 
 moment.locale("nb");
 
@@ -18,7 +15,6 @@ interface Props {
 }
 
 const Bostedsadresse = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
   const flyttedato = props.bostedsadresse.angittFlyttedato;
   const flyttedatoFormatert = flyttedato ? moment(flyttedato).format("L") : "";
 
@@ -52,33 +48,12 @@ const Bostedsadresse = (props: Props) => {
   }
 
   return (
-      <AdressePanel tittel={"adresse.bostedsadresse"}>
-        <>
-          {adresse}
-          {(bruksenhetsnummer || kommune || flyttedatoFormatert) && (
-              <Lesmerpanel
-                  className="adresse__lesmer"
-                  apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
-                  lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
-              >
-                <ul className="list-column-2 address-columns">
-                  {bruksenhetsnummer && (
-                      <ListElement
-                          titleId="adresse.bolignummer"
-                          content={bruksenhetsnummer}
-                      />
-                  )}
-                  {kommune && (
-                      <ListElement titleId="adresse.kommune" content={kommune} />
-                  )}
-                  {flyttedatoFormatert && (
-                      <ListElement titleId="adresse.dato" content={flyttedatoFormatert} />
-                  )}
-                </ul>
-              </Lesmerpanel>
-          )}
-        </>
-      </AdressePanel>
+    <AdressePanel tittel={"adresse.bostedsadresse"}
+                  bruksenhetsnummer={bruksenhetsnummer}
+                  kommune={kommune}
+                  flyttedatoFormatert={flyttedatoFormatert}>
+      {adresse}
+    </AdressePanel>
   );
 };
 
