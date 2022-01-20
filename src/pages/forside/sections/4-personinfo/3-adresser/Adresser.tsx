@@ -16,8 +16,7 @@ const Adresser = (props: Props) => {
   const { kontaktadresser, bostedsadresse, deltBosted, oppholdsadresse } = adresser;
 
   const kontaktadresserFreg = kontaktadresser.filter(adr => adr.kilde === "freg");
-  const kontaktadresserPdl = kontaktadresser.filter(adr => adr.kilde === "pdl");
-  const kontaktadressePdl = kontaktadresserPdl.length === 0 ? null : kontaktadresserPdl[0];
+  const kontaktadressePdl = kontaktadresser.find(adr => adr.kilde === "pdl");
 
   return (
     <Box

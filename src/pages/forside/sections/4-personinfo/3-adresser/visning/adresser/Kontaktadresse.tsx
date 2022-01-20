@@ -27,10 +27,10 @@ const Kontaktadresse = (props: Props) => {
 
   switch (props.kontaktadresse?.adresse?.type) {
     case "POSTADRESSE_I_FRITT_FORMAT":
-      adresse = <PostadresseIFrittFormat {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
+      adresse = <PostadresseIFrittFormat {...props.kontaktadresse?.adresse} />;
       break;
     case "UTENLANDSK_ADRESSE_I_FRITT_FORMAT":
-      adresse = <UtenlanskAdresseIFrittFormat {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;
+      adresse = <UtenlanskAdresseIFrittFormat {...props.kontaktadresse?.adresse} />;
       break;
     case "VEGADRESSE":
       adresse = <Vegadresse {...props.kontaktadresse?.adresse} coAdressenavn={props.kontaktadresse?.coAdressenavn } />;

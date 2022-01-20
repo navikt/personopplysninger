@@ -103,7 +103,7 @@ A child who lives permanently with both mother and father can have two home addr
   "adresse.bolignummer": `Unit number`,
   "adresse.land": `Country`,
   "adresse.overskrift": `Addresses registered in the National Population Register`,
-  "adresse.overskrift.ovrige": `Other registered adresses`,
+  "adresse.overskrift.ovrige": `Other registered addresses`,
   "adresse.ikke.registrert": `You do not have a registered home address in the National Population Register`,
   "adresse.slett.alert": `Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>`,

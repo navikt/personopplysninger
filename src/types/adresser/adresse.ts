@@ -17,8 +17,6 @@ export interface PostadresseIFrittFormat {
   adresselinje3?: string;
   postnummer?: string;
   poststed?: string;
-  gyldigFraOgMed?: string; // Todo: fjern disse siste tre linjene på alle interfaces
-  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
 
@@ -31,9 +29,6 @@ export interface UtenlandskAdresseIFrittFormat {
   byEllerStedsnavn?: string;
   landkode?: String;
   land?: string;
-  gyldigFraOgMed?: string;
-  gyldigTilOgMed?: string;
-  coAdressenavn?: string;
 }
 
 // PDL
@@ -48,8 +43,6 @@ export interface Vegadresse {
   tilleggsnavn?: string;
   postnummer?: string;
   poststed?: string;
-  gyldigFraOgMed?: string;
-  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
 
@@ -59,8 +52,6 @@ export interface Postboksadresse {
   postboks: string;
   postnummer?: string;
   poststed?: string;
-  gyldigFraOgMed?: string;
-  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
 
@@ -74,8 +65,6 @@ export interface UtenlandskAdresse {
   regionDistriktOmraade?: string;
   landkode: string;
   land: string;
-  gyldigFraOgMed?: string;
-  gyldigTilOgMed?: string;
   coAdressenavn?: string;
 }
 
