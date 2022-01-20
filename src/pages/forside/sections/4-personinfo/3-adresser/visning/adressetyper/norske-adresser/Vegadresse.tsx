@@ -1,15 +1,12 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { Vegadresse as VegadresseType } from "types/adresser/kontaktadresse";
-import { FormattedMessage } from "react-intl";
-import moment from "moment";
+import { Vegadresse as VegadresseType } from "types/adresser/adresse";
 import { Normaltekst } from "nav-frontend-typografi";
 
 const Vegadresse = (props: VegadresseType) => {
   const { husnummer, husbokstav, bruksenhetsnummer } = props;
   const { adressenavn, tilleggsnavn } = props;
-  const { postnummer, poststed, gyldigTilOgMed, coAdressenavn } = props;
+  const { postnummer, poststed, coAdressenavn } = props;
   return (
     <>
       {tilleggsnavn && (
@@ -31,13 +28,6 @@ const Vegadresse = (props: VegadresseType) => {
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
-      <div className="adresse__divider" />
-      <AlertStripeInfo>
-        <FormattedMessage
-          id="adresse.kontaktadresse.alert"
-          values={{ dato: moment(gyldigTilOgMed).format("LL") }}
-        />
-      </AlertStripeInfo>
     </>
   );
 };

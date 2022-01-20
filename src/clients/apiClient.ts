@@ -65,7 +65,7 @@ export const fetchPostnummer = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
 
 export const fetchPersonInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/migrert/personalia`);
 
 export const fetchLand = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/land`);
 
