@@ -7,10 +7,7 @@ import { Bostedsadresse as IBostedsadresse } from "../../../../../../types/adres
 import { DeltBosted as IDeltBosted } from "../../../../../../types/adresser/deltbosted";
 import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adresser/oppholdsadresse";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
-import Bostedsadresse from "./adresser/Bostedsadresse";
-import DeltBosted from "./adresser/DeltBosted";
-import Oppholdsadresse from "./adresser/Oppholdsadresse";
-import Kontaktadresse from "./adresser/Kontaktadresse";
+import Adresse from "./Adresse";
 import { useStore } from "../../../../../../store/Context";
 
 interface Props {
@@ -36,9 +33,16 @@ const Folkeregisteret = (props: Props) => {
         </Undertittel>
       </div>
 
-      {bostedsadresse && <Bostedsadresse bostedsadresse={bostedsadresse}/>}
-      {deltBosted && <DeltBosted deltBosted={deltBosted}/>}
-      {oppholdsadresse && <Oppholdsadresse oppholdsadresse={oppholdsadresse}/>}
+      {bostedsadresse && <Adresse adresse={bostedsadresse?.adresse}
+                                  coAdressenavn={bostedsadresse.coAdressenavn}
+                                  angittFlyttedato={bostedsadresse.angittFlyttedato}
+                                  tittel={"adresse.bostedsadresse"}/>}
+      {deltBosted && <Adresse adresse={deltBosted?.adresse}
+                              coAdressenavn={deltBosted.coAdressenavn}
+                              tittel={"adresse.deltbosted"}/>}
+      {oppholdsadresse && <Adresse adresse={oppholdsadresse?.adresse}
+                                   coAdressenavn={oppholdsadresse.coAdressenavn}
+                                   tittel={"adresse.oppholdsadresse"}/>}
 
       {kontaktadresser.map(adr => {
           let tittel;
@@ -53,7 +57,11 @@ const Folkeregisteret = (props: Props) => {
                   tittel = "adresse.kontaktadresse";
               }
           }
-          return (<Kontaktadresse kontaktadresse={adr} tittel={tittel} key={key++}/>);
+          return (<Adresse adresse={adr.adresse}
+                           coAdressenavn={adr.coAdressenavn}
+                           gyldigTilOgMed={adr.gyldigTilOgMed}
+                           tittel={tittel}
+                           key={key++}/>);
       })}
       {/* Kilde vil alltid være FREG i prod, kan være PDL i dev */}
       <Kilde

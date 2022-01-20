@@ -3,7 +3,7 @@ import Kilde from "components/kilde/Kilde";
 import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
-import Kontaktadresse from "./adresser/Kontaktadresse";
+import Adresse from "./Adresse";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
@@ -64,7 +64,10 @@ const AndreAdresser = (props: Props) => {
     {
         kontaktadresse?.kilde === "pdl" && (
             <>
-                {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse} tittel={"adresse.kontaktadresse.nav"}/>)}
+                {kontaktadresse && (<Adresse adresse={kontaktadresse?.adresse}
+                                             coAdressenavn={kontaktadresse.coAdressenavn}
+                                             gyldigTilOgMed={kontaktadresse.gyldigTilOgMed}
+                                             tittel={"adresse.kontaktadresse.nav"}/>)}
                 <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
                     <img src={slettIkon}/>
