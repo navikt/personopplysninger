@@ -4,18 +4,13 @@ import { Matrikkeladresse as MatrikkeladresseType } from "types/adresser/adresse
 import { Normaltekst } from "nav-frontend-typografi";
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {
-  const { bruksenhetsnummer, tilleggsnavn, postnummer } = props;
+  const { tilleggsnavn, postnummer } = props;
   const { poststed, coAdressenavn } = props;
   return (
     <>
       {coAdressenavn && (
         <div className="adresse__linje">
           <Normaltekst>{coAdressenavn}</Normaltekst>
-        </div>
-      )}
-      {bruksenhetsnummer && (
-        <div className="adresse__linje">
-          <Normaltekst>{bruksenhetsnummer}</Normaltekst>
         </div>
       )}
       {tilleggsnavn && (
