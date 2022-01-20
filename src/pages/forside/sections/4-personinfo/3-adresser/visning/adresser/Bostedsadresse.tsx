@@ -22,6 +22,7 @@ const Bostedsadresse = (props: Props) => {
   let kommune;
   let bruksenhetsnummer;
 
+  // TODO: Lage funksjon for håndtering av adresse som kan benyttes fra Bostedsadresse, DeltBosted, Kontaktadresse og Oppholdsadresse
   switch (props.bostedsadresse?.adresse?.type) {
     case "VEGADRESSE":
       adresse = <Vegadresse {...props.bostedsadresse?.adresse}

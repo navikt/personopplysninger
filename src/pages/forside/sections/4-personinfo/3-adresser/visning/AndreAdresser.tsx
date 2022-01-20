@@ -67,7 +67,7 @@ const AndreAdresser = (props: Props) => {
                 {kontaktadresse && (<Kontaktadresse kontaktadresse={kontaktadresse} tittel={"adresse.kontaktadresse.nav"}/>)}
                 <button onClick={apneSlettModal} className="kilde__lenke lenke">
                   <span className="kilde__icon">
-                    <img src={slettIkon} alt="Ekstern lenke"/>
+                    <img src={slettIkon}/>
                   </span>
                 <Normaltekst>
                     <FormattedMessage id={"side.slett.kontaktadresse"} />
