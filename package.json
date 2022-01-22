@@ -78,7 +78,7 @@
     "nav-frontend-veilederpanel": "^0.1.46",
     "nav-frontend-veilederpanel-style": "0.0.43",
     "node-cache": "^5.1.2",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "npm-run-all": "^4.1.5",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
