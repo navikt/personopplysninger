@@ -42,6 +42,7 @@ const Folkeregisteret = (props: Props) => {
                               tittel={"adresse.deltbosted"}/>}
       {oppholdsadresse && <Adresse adresse={oppholdsadresse?.adresse}
                                    coAdressenavn={oppholdsadresse.coAdressenavn}
+                                   oppholdAnnetSted={oppholdsadresse.oppholdAnnetSted}
                                    tittel={"adresse.oppholdsadresse"}/>}
 
       {kontaktadresser.map(adr => {

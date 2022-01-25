@@ -9,16 +9,27 @@ import moment from "moment";
 import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./adressetyper/norske-adresser/Ukjentbosted";
 import { Adresse as IAdresse } from "../../../../../../types/adresser/adresse";
+import { Normaltekst } from "nav-frontend-typografi";
 
 interface Props {
   adresse?: IAdresse;
   coAdressenavn?: string;
   gyldigTilOgMed?: string;
   angittFlyttedato?: string;
+  oppholdAnnetSted?: string;
   tittel: string;
 }
 
 const Adresse = (props: Props) => {
+
+  if (props.adresse == null && props.oppholdAnnetSted != null) {
+    return (
+      <AdressePanel tittel={props.tittel}>
+        <Normaltekst>{props.oppholdAnnetSted}</Normaltekst>
+      </AdressePanel>
+    );
+  }
+
   const gyldigTilOgMed = props.gyldigTilOgMed;
   const gyldigTilOgMedFormatert = gyldigTilOgMed ? moment(gyldigTilOgMed).format("L") : "";
 
@@ -37,15 +48,15 @@ const Adresse = (props: Props) => {
       adresse = <UtenlanskAdresseIFrittFormat {...props.adresse} />;
       break;
     case "VEGADRESSE":
-      adresse = <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
       kommune = props.adresse?.kommune;
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "POSTBOKSADRESSE":
-      adresse = <Postboksadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = <Postboksadresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
       break;
     case "UTENLANDSK_ADRESSE":
-      adresse = <UtenlanskAdresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = <UtenlanskAdresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
       break;
     case "MATRIKKELADRESSE":
       adresse = <Matrikkeladresse {...props.adresse}
@@ -55,7 +66,7 @@ const Adresse = (props: Props) => {
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "UKJENTBOSTED":
-      adresse = <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
       break;
     default:
       return null;
