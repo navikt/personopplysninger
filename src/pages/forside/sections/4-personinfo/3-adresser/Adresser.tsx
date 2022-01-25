@@ -12,8 +12,8 @@ interface Props {
 }
 
 const Adresser = (props: Props) => {
-  const {adresser} = props;
-  const {kontaktadresser, bostedsadresse, deltBosted, oppholdsadresse, oppholdsadresser} = adresser;
+  const { adresser } = props;
+  const { kontaktadresser, bostedsadresse, deltBosted, oppholdsadresse, oppholdsadresser } = adresser;
 
   const kontaktadresserFreg = kontaktadresser.filter(adr => adr.kilde === "freg");
   const kontaktadressePdl = kontaktadresser.find(adr => adr.kilde === "pdl");
@@ -35,9 +35,9 @@ const Adresser = (props: Props) => {
     >
       <div className="adresse__box">
         {driftsmeldinger.pdl && (
-          <div style={{padding: "1rem 0"}}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
-          </div>
+            <div style={{ padding: "1rem 0" }}>
+              <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+            </div>
         )}
 
         <Folkeregisteret bostedsadresse={bostedsadresse}

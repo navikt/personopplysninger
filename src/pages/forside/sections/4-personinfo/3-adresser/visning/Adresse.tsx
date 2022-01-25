@@ -50,15 +50,15 @@ const Adresse = (props: Props) => {
       adresse = <UtenlanskAdresseIFrittFormat {...props.adresse} />;
       break;
     case "VEGADRESSE":
-      adresse = <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
+      adresse = <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
       kommune = props.adresse?.kommune;
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "POSTBOKSADRESSE":
-      adresse = <Postboksadresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
+      adresse = <Postboksadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
       break;
     case "UTENLANDSK_ADRESSE":
-      adresse = <UtenlanskAdresse {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
+      adresse = <UtenlanskAdresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
       break;
     case "MATRIKKELADRESSE":
       adresse = <Matrikkeladresse {...props.adresse}
@@ -68,7 +68,7 @@ const Adresse = (props: Props) => {
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "UKJENTBOSTED":
-      adresse = <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn}/>;
+      adresse = <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn } />;
       break;
     default:
       return null;

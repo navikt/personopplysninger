@@ -19,8 +19,8 @@ interface Props {
 }
 
 const AndreAdresser = (props: Props) => {
-  const {formatMessage: msg} = useIntl();
-  const {kontaktadresse, oppholdsadresse} = props;
+  const { formatMessage: msg } = useIntl();
+  const { kontaktadresse, oppholdsadresse } = props;
 
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
@@ -28,11 +28,11 @@ const AndreAdresser = (props: Props) => {
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const apneSlettModal = () => {
-    settVisSlettModal(true);
+      settVisSlettModal(true);
   };
 
   const lukkSlettModal = () => {
-    settVisSlettModal(false);
+      settVisSlettModal(false);
   };
 
   const getUpdatedData = () =>
