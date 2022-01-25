@@ -9,7 +9,8 @@ import moment from "moment";
 import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./adressetyper/norske-adresser/Ukjentbosted";
 import { Adresse as IAdresse } from "../../../../../../types/adresser/adresse";
-import { Normaltekst } from "nav-frontend-typografi";
+import { useStore } from "../../../../../../store/Context";
+import { FormattedMessage } from "react-intl";
 
 interface Props {
   adresse?: IAdresse;
@@ -21,11 +22,12 @@ interface Props {
 }
 
 const Adresse = (props: Props) => {
+  const [{ locale }] = useStore();
 
   if (props.adresse == null && props.oppholdAnnetSted != null) {
     return (
       <AdressePanel tittel={props.tittel}>
-        <Normaltekst>{props.oppholdAnnetSted}</Normaltekst>
+        <FormattedMessage id={mapOppholdAnnetSted(props.oppholdAnnetSted, locale)}/>
       </AdressePanel>
     );
   }
@@ -82,5 +84,19 @@ const Adresse = (props: Props) => {
     </AdressePanel>
   );
 };
+
+function mapOppholdAnnetSted(oppholdAnnetSted: string, locale: string): string {
+  switch (oppholdAnnetSted) {
+    case "MILITAER":
+      return "adresse.oppholdsadresse.militaer";
+    case "UTENRIKS":
+      return "adresse.oppholdsadresse.utenriks";
+    case "PAA_SVALBARD":
+      return "adresse.oppholdsadresse.paasvalbard";
+    case "PENDLER":
+      return "adresse.oppholdsadresse.pendler";
+  }
+  return oppholdAnnetSted; // Bruk kode direkte som fallback
+}
 
 export default Adresse;

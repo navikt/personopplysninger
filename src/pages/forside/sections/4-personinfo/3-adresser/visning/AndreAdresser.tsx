@@ -65,7 +65,6 @@ const AndreAdresser = (props: Props) => {
     </div>
     {oppholdsadresse && <Adresse adresse={oppholdsadresse?.adresse}
                                  coAdressenavn={oppholdsadresse.coAdressenavn}
-                                 oppholdAnnetSted={oppholdsadresse.oppholdAnnetSted}
                                  tittel={"adresse.oppholdsadresse"}/>}
     {kontaktadresse && (
       <>

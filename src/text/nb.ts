@@ -82,6 +82,10 @@ En adresse der du kan nås per post.<br></br> <br></br>
 <b>Delt bosted</b><br></br> 
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.`,
   "adresse.oppholdsadresse": `Oppholdsadresse`,
+  "adresse.oppholdsadresse.militaer": `Militær`,
+  "adresse.oppholdsadresse.utenriks": `Utenriks`,
+  "adresse.oppholdsadresse.paasvalbard": `På Svalbard`,
+  "adresse.oppholdsadresse.pendler": `Pendler`,
   "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
