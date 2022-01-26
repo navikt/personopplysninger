@@ -77,8 +77,8 @@ const Personalia = (props: Props) => {
         kilde="personalia.source.folkeregisteret"
         lenke={
           locale === "en"
-              ? "https://www.skatteetaten.no/en/person/national-registry/"
-              : "https://www.skatteetaten.no/person/folkeregister/"
+            ? "https://www.skatteetaten.no/en/person/national-registry/"
+            : "https://www.skatteetaten.no/person/folkeregister/"
         }
         lenkeTekst="personalia.link.folkeregisteret"
         lenkeType={"EKSTERN"}

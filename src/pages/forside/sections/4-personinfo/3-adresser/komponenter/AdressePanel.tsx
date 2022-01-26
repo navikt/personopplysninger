@@ -14,20 +14,23 @@ interface Props {
 }
 
 const AdressePanel = (props: Props) => {
-  const {formatMessage: msg} = useIntl();
+  const { formatMessage: msg } = useIntl();
   return (
     <div className="adresse__box">
       <div className="underseksjon__header">
         <Element>
-          <FormattedMessage id={props.tittel}/>
+          <FormattedMessage id={props.tittel} />
         </Element>
       </div>
       {props.children}
-      {(props.bruksenhetsnummer || props.kommune || props.flyttedatoFormatert || props.gyldigTilOgMedFormatert) && (
+      {(props.bruksenhetsnummer ||
+        props.kommune ||
+        props.flyttedatoFormatert ||
+        props.gyldigTilOgMedFormatert) && (
         <Lesmerpanel
           className="adresse__lesmer"
-          apneTekst={msg({id: "adresse.bostedsadresse.apneTekst"})}
-          lukkTekst={msg({id: "adresse.bostedsadresse.lukkTekst"})}
+          apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
+          lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
         >
           <ul className="list-column-2 address-columns">
             {props.bruksenhetsnummer && (
@@ -37,18 +40,24 @@ const AdressePanel = (props: Props) => {
               />
             )}
             {props.kommune && (
-              <ListElement titleId="adresse.kommune" content={props.kommune}/>
+              <ListElement titleId="adresse.kommune" content={props.kommune} />
             )}
             {props.flyttedatoFormatert && (
-              <ListElement titleId="adresse.dato" content={props.flyttedatoFormatert}/>
+              <ListElement
+                titleId="adresse.dato"
+                content={props.flyttedatoFormatert}
+              />
             )}
             {props.gyldigTilOgMedFormatert && (
-              <ListElement titleId="adresse.dato.gyldigtil" content={props.gyldigTilOgMedFormatert}/>
+              <ListElement
+                titleId="adresse.dato.gyldigtil"
+                content={props.gyldigTilOgMedFormatert}
+              />
             )}
           </ul>
         </Lesmerpanel>
       )}
-      <div className={"adresse__divider"}/>
+      <div className={"adresse__divider"} />
     </div>
   );
 };

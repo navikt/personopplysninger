@@ -27,13 +27,17 @@ const Adresse = (props: Props) => {
   if (props.adresse == null && props.oppholdAnnetSted != null) {
     return (
       <AdressePanel tittel={props.tittel}>
-        <FormattedMessage id={mapOppholdAnnetSted(props.oppholdAnnetSted, locale)}/>
+        <FormattedMessage
+          id={mapOppholdAnnetSted(props.oppholdAnnetSted, locale)}
+        />
       </AdressePanel>
     );
   }
 
   const gyldigTilOgMed = props.gyldigTilOgMed;
-  const gyldigTilOgMedFormatert = gyldigTilOgMed ? moment(gyldigTilOgMed).format("L") : "";
+  const gyldigTilOgMedFormatert = gyldigTilOgMed
+    ? moment(gyldigTilOgMed).format("L")
+    : "";
 
   const flyttedato = props.angittFlyttedato;
   const flyttedatoFormatert = flyttedato ? moment(flyttedato).format("L") : "";
@@ -50,36 +54,56 @@ const Adresse = (props: Props) => {
       adresse = <UtenlanskAdresseIFrittFormat {...props.adresse} />;
       break;
     case "VEGADRESSE":
-      adresse = <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = (
+        <Vegadresse {...props.adresse} coAdressenavn={props.coAdressenavn} />
+      );
       kommune = props.adresse?.kommune;
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "POSTBOKSADRESSE":
-      adresse = <Postboksadresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = (
+        <Postboksadresse
+          {...props.adresse}
+          coAdressenavn={props.coAdressenavn}
+        />
+      );
       break;
     case "UTENLANDSK_ADRESSE":
-      adresse = <UtenlanskAdresse {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = (
+        <UtenlanskAdresse
+          {...props.adresse}
+          coAdressenavn={props.coAdressenavn}
+        />
+      );
       break;
     case "MATRIKKELADRESSE":
-      adresse = <Matrikkeladresse {...props.adresse}
-                                  coAdressenavn={props.coAdressenavn}
-                                  bruksenhetsnummer={""}/>;
+      adresse = (
+        <Matrikkeladresse
+          {...props.adresse}
+          coAdressenavn={props.coAdressenavn}
+          bruksenhetsnummer={""}
+        />
+      );
       kommune = props.adresse?.kommune;
       bruksenhetsnummer = props.adresse?.bruksenhetsnummer;
       break;
     case "UKJENTBOSTED":
-      adresse = <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn } />;
+      adresse = (
+        <Ukjentbosted {...props.adresse} coAdressenavn={props.coAdressenavn} />
+      );
       break;
     default:
       return null;
   }
 
   return (
-    <AdressePanel tittel={props.tittel}
-                  bruksenhetsnummer={bruksenhetsnummer}
-                  kommune={kommune}
-                  gyldigTilOgMedFormatert={gyldigTilOgMedFormatert}
-                  flyttedatoFormatert={flyttedatoFormatert}>
+    <AdressePanel
+      tittel={props.tittel}
+      bruksenhetsnummer={bruksenhetsnummer}
+      kommune={kommune}
+      gyldigTilOgMedFormatert={gyldigTilOgMedFormatert}
+      flyttedatoFormatert={flyttedatoFormatert}
+    >
       {adresse}
     </AdressePanel>
   );

@@ -13,13 +13,25 @@ interface Props {
 
 const Adresser = (props: Props) => {
   const { adresser } = props;
-  const { kontaktadresser, bostedsadresse, deltBosted, oppholdsadresse, oppholdsadresser } = adresser;
+  const {
+    kontaktadresser,
+    bostedsadresse,
+    deltBosted,
+    oppholdsadresse,
+    oppholdsadresser,
+  } = adresser;
 
-  const kontaktadresserFreg = kontaktadresser.filter(adr => adr.kilde === "freg");
-  const kontaktadressePdl = kontaktadresser.find(adr => adr.kilde === "pdl");
+  const kontaktadresserFreg = kontaktadresser.filter(
+    (adr) => adr.kilde === "freg"
+  );
+  const kontaktadressePdl = kontaktadresser.find((adr) => adr.kilde === "pdl");
 
-  let oppholdsadresseFreg = oppholdsadresser?.find(adr => adr.kilde === "freg");
-  const oppholdsadressePdl = oppholdsadresser?.find(adr => adr.kilde === "pdl");
+  let oppholdsadresseFreg = oppholdsadresser?.find(
+    (adr) => adr.kilde === "freg"
+  );
+  const oppholdsadressePdl = oppholdsadresser?.find(
+    (adr) => adr.kilde === "pdl"
+  );
 
   if (oppholdsadresseFreg == null) {
     oppholdsadresseFreg = oppholdsadresse;
@@ -35,18 +47,24 @@ const Adresser = (props: Props) => {
     >
       <div className="adresse__box">
         {driftsmeldinger.pdl && (
-            <div style={{ padding: "1rem 0" }}>
-              <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
-            </div>
+          <div style={{ padding: "1rem 0" }}>
+            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          </div>
         )}
 
-        <Folkeregisteret bostedsadresse={bostedsadresse}
-                         deltBosted={deltBosted}
-                         oppholdsadresse={oppholdsadresseFreg}
-                         kontaktadresser={kontaktadresserFreg}/>
+        <Folkeregisteret
+          bostedsadresse={bostedsadresse}
+          deltBosted={deltBosted}
+          oppholdsadresse={oppholdsadresseFreg}
+          kontaktadresser={kontaktadresserFreg}
+        />
 
-        {(kontaktadressePdl || oppholdsadressePdl) && <AndreAdresser kontaktadresse={kontaktadressePdl}
-                                                                     oppholdsadresse={oppholdsadressePdl}/>}
+        {(kontaktadressePdl || oppholdsadressePdl) && (
+          <AndreAdresser
+            kontaktadresse={kontaktadressePdl}
+            oppholdsadresse={oppholdsadressePdl}
+          />
+        )}
       </div>
     </Box>
   );
