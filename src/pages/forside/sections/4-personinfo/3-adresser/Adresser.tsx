@@ -17,7 +17,6 @@ const Adresser = (props: Props) => {
     kontaktadresser,
     bostedsadresse,
     deltBosted,
-    oppholdsadresse,
     oppholdsadresser,
   } = adresser;
 
@@ -32,10 +31,6 @@ const Adresser = (props: Props) => {
   const oppholdsadressePdl = oppholdsadresser?.find(
     (adr) => adr.kilde === "pdl"
   );
-
-  if (oppholdsadresseFreg == null) {
-    oppholdsadresseFreg = oppholdsadresse;
-  }
 
   return (
     <Box

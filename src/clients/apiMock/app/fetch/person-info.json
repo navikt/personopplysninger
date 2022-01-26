@@ -58,7 +58,7 @@
         "type": "VEGADRESSE"
       }
     },
-    "oppholdsadresse": {
+    "oppholdsadresser": [{
       "gyldigFraOgMed": "2020-07-14T00:00",
       "gyldigTilOgMed": "2020-07-20T23:59:59",
       "coAdressenavn": "V/ Aremark Jr",
@@ -73,7 +73,7 @@
         "poststed": "OSLO",
         "type": "VEGADRESSE"
       }
-    },
+    }],
     "bostedsadresse": {
       "angittFlyttedato": "2020-07-14",
       "gyldigFraOgMed": "2020-07-14T00:00",
