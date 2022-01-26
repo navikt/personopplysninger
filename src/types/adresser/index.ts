@@ -14,6 +14,7 @@ export interface Adresser {
   geografiskTilknytning?: GeografiskTilknytning;
   kontaktadresser: Kontaktadresse[];
   bostedsadresse?: Bostedsadresse;
-  oppholdsadresse?: Oppholdsadresse;
+  oppholdsadresse?: Oppholdsadresse; // skal fjernes
+  oppholdsadresser?: Oppholdsadresse[];
   deltBosted?: DeltBosted;
 }

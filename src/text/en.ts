@@ -82,6 +82,10 @@ An address where you can be reached by post.<br></br> <br></br>
 <b>Shared housing</b><br></br> 
 A child who lives permanently with both mother and father can have two home addresses, one of which is registered under shared housing.`,
   "adresse.oppholdsadresse": `Temporary residential address`,
+  "adresse.oppholdsadresse.militaer": `Military`,
+  "adresse.oppholdsadresse.utenriks": `Abroad`,
+  "adresse.oppholdsadresse.paasvalbard": `Svalbard`,
+  "adresse.oppholdsadresse.pendler": `Commuter`,
   "adresse.deltbosted": `Shared housing`,
   "adresse.bostedsadresse": `Home address`,
   "adresse.bostedsadresse.apneTekst": `View details`,
