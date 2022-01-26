@@ -2,7 +2,10 @@
   "personalia": {
     "fornavn": "VINAYAGUM-MASK",
     "etternavn": "AMIZIC",
-    "personident": { "verdi": "10108000398", "type": "FNR" },
+    "personident": {
+      "verdi": "10108000398",
+      "type": "FNR"
+    },
     "kontonr": null,
     "tlfnr": {
       "telefonAlternativ": "40853158",
@@ -27,19 +30,21 @@
       "land": null,
       "enhet": "NAV Halden-Aremark"
     },
-    "kontaktadresser": [{
-      "gyldigFraOgMed": "2020-07-14T00:00",
-      "gyldigTilOgMed": "2020-07-20T23:59:59",
-      "coAdressenavn": "V/ Aremark Jr",
-      "kilde": "pdl",
-      "adresse": {
-        "postbokseier": "",
-        "postboks": "Postboks 10 Sørstrand",
-        "postnummer": "0194",
-        "poststed": "OSLO",
-        "type": "POSTBOKSADRESSE"
+    "kontaktadresser": [
+      {
+        "gyldigFraOgMed": "2020-07-14T00:00",
+        "gyldigTilOgMed": "2020-07-20T23:59:59",
+        "coAdressenavn": "V/ Aremark Jr",
+        "kilde": "pdl",
+        "adresse": {
+          "postbokseier": "",
+          "postboks": "Postboks 10 Sørstrand",
+          "postnummer": "0194",
+          "poststed": "OSLO",
+          "type": "POSTBOKSADRESSE"
+        }
       }
-    }],
+    ],
     "deltBosted": {
       "startdatoForKontrakt": "2020-07-14T00:00",
       "sluttdatoForKontrakt": "2020-07-20T23:59:59",
@@ -58,22 +63,24 @@
         "type": "VEGADRESSE"
       }
     },
-    "oppholdsadresser": [{
-      "gyldigFraOgMed": "2020-07-14T00:00",
-      "gyldigTilOgMed": "2020-07-20T23:59:59",
-      "coAdressenavn": "V/ Aremark Jr",
-      "kilde": "freg",
-      "adresse": {
-        "husnummer": "14",
-        "husbokstav": "B",
-        "adressenavn": "JØRGENSENVEIEN",
-        "kommunenummer": "4737",
-        "tilleggsnavn": null,
-        "postnummer": "0194",
-        "poststed": "OSLO",
-        "type": "VEGADRESSE"
+    "oppholdsadresser": [
+      {
+        "gyldigFraOgMed": "2020-07-14T00:00",
+        "gyldigTilOgMed": "2020-07-20T23:59:59",
+        "coAdressenavn": "V/ Aremark Jr",
+        "kilde": "freg",
+        "adresse": {
+          "husnummer": "14",
+          "husbokstav": "B",
+          "adressenavn": "JØRGENSENVEIEN",
+          "kommunenummer": "4737",
+          "tilleggsnavn": null,
+          "postnummer": "0194",
+          "poststed": "OSLO",
+          "type": "VEGADRESSE"
+        }
       }
-    }],
+    ],
     "bostedsadresse": {
       "angittFlyttedato": "2020-07-14",
       "gyldigFraOgMed": "2020-07-14T00:00",
