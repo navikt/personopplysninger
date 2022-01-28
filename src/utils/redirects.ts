@@ -22,10 +22,14 @@ export const redirects: {
     Hvordan funker det?
     Beskrivelse og tekst på knappen vil bestemmes ut ifra [KEY].
     Lenken tilbake settes ut ifra [REDIRECT_URL] (må være URL encoded).
-
     --
     Tillatte tjenester med redirect tilbake:
   */
+  "skjema/alderspensjonssoknad": {
+    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpensjon%2Fsoknadalder%2F.*`,
+    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
+    knapp: "Gå tilbake til alderspensjon"
+  },
   "skjema/alderspensjon": {
     allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
