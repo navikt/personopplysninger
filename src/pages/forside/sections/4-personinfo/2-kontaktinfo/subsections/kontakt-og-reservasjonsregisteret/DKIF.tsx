@@ -12,7 +12,7 @@ interface Props {
 }
 
 const KontaktInformasjon = (props: Props) => {
-  const { mobiltelefonnummer, epostadresse, kanVarsles } = props.info;
+  const { mobiltelefonnummer, epostadresse, kanVarsles, spraak } = props.info;
   const [{ locale }] = useStore();
   return mobiltelefonnummer || epostadresse || kanVarsles ? (
     <>
@@ -32,6 +32,7 @@ const KontaktInformasjon = (props: Props) => {
       </div>
       <ul className="list-column-2">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
+        <ListElement titleId="personalia.spraak" content={spraak} />
         <ListElement titleId="personalia.email" content={epostadresse} />
       </ul>
       <Kilde
