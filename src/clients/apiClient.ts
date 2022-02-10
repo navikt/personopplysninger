@@ -39,7 +39,8 @@ const sjekkAuthHentJson = (url: string) =>
       throw error;
     });
 
-export const fetchInnloggingsStatus = () => sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
+export const fetchInnloggingsStatus = () =>
+  sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
   sjekkAuthHentJson(
@@ -135,7 +136,9 @@ const sjekkAuth = (response: Response): any => {
 
 export const sendTilLogin = () => {
   const redirectUrl = getLoginserviceRedirectUrl();
-  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`);
+  window.location.assign(
+    `${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`
+  );
 };
 
 const sjekkHttpFeil = (response: Response) => {
@@ -144,7 +147,7 @@ const sjekkHttpFeil = (response: Response) => {
   } else {
     const error = {
       code: response.status,
-      text: response.statusText,
+      text: response.statusText || "Ukjent feil",
     };
     throw error;
   }
