@@ -33,7 +33,7 @@ const sjekkAuthHentJson = (url: string) =>
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
-        text: err.text || err,
+        text: err.text ?? err,
       };
       logApiError(url, error);
       throw error;
@@ -102,7 +102,7 @@ const postJson = (url: string, data?: Outbound) => {
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
-        text: err.text === undefined ? err : err.text,
+        text: err.text ?? err,
       };
       logApiError(url, error);
       throw error;
