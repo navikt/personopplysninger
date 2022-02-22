@@ -1,12 +1,6 @@
 const baseUrl = process.env.REACT_APP_URL;
 const redirectPathParam = "path";
 
-const encodedProtocolPrefix = encodeURIComponent("https://");
-const navNoPattern = "(:subdomain.)?(dev.)?nav.no";
-
-const createEncodedUrl = (pathname: string) =>
-  `${encodedProtocolPrefix}${navNoPattern}/${encodeURIComponent(pathname)}.*`;
-
 export const redirects: {
   [key: string]: {
     beskrivelse: string;
@@ -32,37 +26,37 @@ export const redirects: {
     Tillatte tjenester med redirect tilbake:
   */
   "skjema/alderspensjonssoknad": {
-    allowed: createEncodedUrl("person/soknadalder"),
+    allowed: "/person/soknadalder/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/alderspensjon": {
-    allowed: createEncodedUrl("pselv"),
+    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/innledning": {
-    allowed: createEncodedUrl("pselv"),
+    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/kvittering": {
-    allowed: createEncodedUrl("pselv"),
+    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til kvitteringen",
   },
   "skjema/uforetrygd": {
-    allowed: createEncodedUrl("pselv"),
+    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til uføretrygd",
   },
   "dagpenger/forskudd": {
-    allowed: createEncodedUrl("dagpenger/forskudd/soknad"),
+    allowed: "/dagpenger/forskudd/soknad/",
     beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til søknaden om forskudd på dagpenger",
   },
   minprofil: {
-    allowed: createEncodedUrl("pselv"),
+    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til Din Profil",
   },
@@ -72,10 +66,23 @@ export const tillatteTjenester = Object.keys(redirects)
   .map((key) => key)
   .join("|");
 
-export const tillatteUrler = Object.keys(redirects)
-  .map((key) => redirects[key].allowed)
-  .filter((urlPattern, index, array) => array.indexOf(urlPattern) === index) // remove duplicates
+const tillattePaths = Object.values(redirects)
+  .map((item) => item.allowed)
   .join("|");
+
+const tillatteUrler = new RegExp(
+  `^https:\\/\\/([a-z0-9_.-]+\\.)nav\\.no(${tillattePaths})`,
+  "i"
+);
+
+export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
+  if (!encodedUrl) {
+    return null;
+  }
+
+  const decodedUrl = decodeURIComponent(encodedUrl);
+  return tillatteUrler.test(decodedUrl) ? decodedUrl : null;
+};
 
 export const getLoginserviceRedirectUrl = () => {
   // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter

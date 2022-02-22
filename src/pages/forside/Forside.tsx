@@ -20,19 +20,11 @@ const Forside = () => {
   const params = useParams<Routes>();
   const { tjeneste, redirectUrl } = params;
 
-  const [{
-    authInfo,
-    featureToggles,
-    personInfo,
-    kontaktInfo,
-  }] = useStore();
+  const [{ authInfo, featureToggles, personInfo, kontaktInfo }] = useStore();
 
-  const isLoaded = ![
-    authInfo,
-    featureToggles,
-    personInfo,
-    kontaktInfo
-  ].some(item => item.status === "LOADING");
+  const isLoaded = ![authInfo, featureToggles, personInfo, kontaktInfo].some(
+    (item) => item.status === "LOADING"
+  );
 
   useEffect(() => {
     if (isLoaded) {
@@ -42,16 +34,14 @@ const Forside = () => {
 
   return (
     <>
-      <Brodsmulesti/>
-      <Sidetittel/>
-      <Header/>
-      <PersonInfo/>
-      <Arbeidsforhold/>
-      <EksterneLenker/>
-      <MerInformasjon/>
-      {tjeneste && redirectUrl && (
-        <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl}/>
-      )}
+      <Brodsmulesti />
+      <Sidetittel />
+      <Header />
+      <PersonInfo />
+      <Arbeidsforhold />
+      <EksterneLenker />
+      <MerInformasjon />
+      <RedirectKnapp tjeneste={tjeneste} encodedUrl={redirectUrl} />
     </>
   );
 };
