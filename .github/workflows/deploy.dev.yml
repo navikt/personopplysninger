@@ -37,12 +37,6 @@ jobs:
           echo "REACT_APP_DITT_NAV_URL=https://www.dev.nav.no/person/dittnav" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www-q0.nav.no/pensjon/opptjening" >> $GITHUB_ENV
           echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/auth" >> $GITHUB_ENV
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
