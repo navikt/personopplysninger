@@ -1,6 +1,12 @@
 const baseUrl = process.env.REACT_APP_URL;
 const redirectPathParam = "path";
 
+const encodedProtocolPrefix = encodeURIComponent("https://");
+const navNoPattern = "(:subdomain.)?(dev.)?nav.no";
+
+const createEncodedUrl = (pathname: string) =>
+  `${encodedProtocolPrefix}${navNoPattern}/${encodeURIComponent(pathname)}.*`;
+
 export const redirects: {
   [key: string]: {
     beskrivelse: string;
@@ -26,40 +32,40 @@ export const redirects: {
     Tillatte tjenester med redirect tilbake:
   */
   "skjema/alderspensjonssoknad": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpensjon%2Fsoknadalder%2F.*`,
+    allowed: createEncodedUrl("person/soknadalder"),
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til alderspensjon"
+    knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/alderspensjon": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+    allowed: createEncodedUrl("pselv"),
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til alderspensjon"
+    knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/innledning": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+    allowed: createEncodedUrl("pselv"),
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til alderspensjon"
+    knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/kvittering": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+    allowed: createEncodedUrl("pselv"),
     beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til kvitteringen"
+    knapp: "Gå tilbake til kvitteringen",
   },
   "skjema/uforetrygd": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+    allowed: createEncodedUrl("pselv"),
     beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til uføretrygd"
+    knapp: "Gå tilbake til uføretrygd",
   },
   "dagpenger/forskudd": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fdagpenger%2Fforskudd%2Fsoknad%2F`,
+    allowed: createEncodedUrl("dagpenger/forskudd/soknad"),
     beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til søknaden om forskudd på dagpenger"
+    knapp: "Gå tilbake til søknaden om forskudd på dagpenger",
   },
   minprofil: {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+    allowed: createEncodedUrl("pselv"),
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til Din Profil"
-  }
+    knapp: "Gå tilbake til Din Profil",
+  },
 };
 
 export const tillatteTjenester = Object.keys(redirects)
@@ -68,6 +74,7 @@ export const tillatteTjenester = Object.keys(redirects)
 
 export const tillatteUrler = Object.keys(redirects)
   .map((key) => redirects[key].allowed)
+  .filter((urlPattern, index, array) => array.indexOf(urlPattern) === index) // remove duplicates
   .join("|");
 
 export const getLoginserviceRedirectUrl = () => {
@@ -77,7 +84,9 @@ export const getLoginserviceRedirectUrl = () => {
 };
 
 export const getRedirectPathFromParam = () => {
-  const encodedPath = new URLSearchParams(window.location.search).get(redirectPathParam);
+  const encodedPath = new URLSearchParams(window.location.search).get(
+    redirectPathParam
+  );
   if (encodedPath) {
     return atob(encodedPath);
   }
