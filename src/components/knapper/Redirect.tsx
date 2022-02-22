@@ -3,6 +3,7 @@ import { redirects, validateAndDecodeRedirectUrl } from "utils/redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
 import { VenstreChevron } from "nav-frontend-chevron";
+import { useHistory, useLocation } from "react-router-dom";
 
 interface Props {
   tjeneste?: string;
@@ -10,9 +11,17 @@ interface Props {
 }
 
 const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
-  const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
+  const history = useHistory();
+  const location = useLocation();
 
-  if (!redirectUrl || !tjeneste) {
+  if (!tjeneste || !encodedUrl) {
+    return null;
+  }
+
+  const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
+  if (!redirectUrl) {
+    const basePath = location.pathname.split("sendt-fra")[0];
+    history.replace(basePath);
     return null;
   }
 
@@ -33,7 +42,7 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
             <div className="redirect__chevron">
               <VenstreChevron />
             </div>
-            <a href={encodedUrl}>{redirect.knapp}</a>
+            <a href={redirectUrl}>{redirect.knapp}</a>
           </div>
         </div>
       </div>

@@ -56,12 +56,10 @@ const App = () => {
                   <Switch>
                     <Route
                       exact={true}
-                      path={`${basePathWithLanguage}/`}
-                      component={Forside}
-                    />
-                    <Route
-                      exact={true}
-                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`}
+                      path={[
+                        `${basePathWithLanguage}/`,
+                        `${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`,
+                      ]}
                       component={Forside}
                     />
                     <Route
