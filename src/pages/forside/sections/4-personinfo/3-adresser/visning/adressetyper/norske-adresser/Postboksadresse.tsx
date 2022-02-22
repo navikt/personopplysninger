@@ -1,14 +1,11 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { Postboksadresse as PostboksadresseType } from "types/adresser/kontaktadresse";
-import { FormattedMessage } from "react-intl";
-import moment from "moment";
+import { Postboksadresse as PostboksadresseType } from "types/adresser/adresse";
 import { Normaltekst } from "nav-frontend-typografi";
 
 const Postboksadresse = (props: PostboksadresseType) => {
   const { postbokseier, postboks, postnummer, coAdressenavn } = props;
-  const { poststed, gyldigTilOgMed } = props;
+  const { poststed } = props;
   return (
     <>
       {coAdressenavn && (
@@ -27,13 +24,6 @@ const Postboksadresse = (props: PostboksadresseType) => {
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />
-      <div className="adresse__divider" />
-      <AlertStripeInfo>
-        <FormattedMessage
-          id="adresse.kontaktadresse.alert"
-          values={{ dato: moment(gyldigTilOgMed).format("LL") }}
-        />
-      </AlertStripeInfo>
     </>
   );
 };

@@ -1,7 +1,8 @@
 import { Adresse } from "./adresse";
 import { Kilde } from "./kilde";
 
-export interface Kontaktadresse {
+export interface Oppholdsadresse {
+  oppholdAnnetSted?: string;
   gyldigFraOgMed?: string;
   gyldigTilOgMed?: string;
   coAdressenavn?: string;

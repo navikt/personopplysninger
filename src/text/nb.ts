@@ -47,7 +47,7 @@ export default {
   "personalia.source.nav": `Kilde: NAV`,
   "personalia.source.dkif": `Kilde: Kontakt - og reservasjonsregisteret`,
   "personalia.link.folkeregisteret": `Endre i Folkeregisteret`,
-  "personalia.link.folkeregisteret.adresse": `Slette eller endre adresse i Folkeregisteret`,
+  "personalia.link.folkeregisteret.adresse": `Endre adresse i Folkeregisteret`,
   "personalia.link.brukerprofil.endre": `Endre i Din profil`,
   "personalia.link.brukerprofil.leggtil": `Legg til i Din profil`,
   "personalia.link.dkif.endre": `Endre i Kontakt- og reservasjonsregisteret `,
@@ -72,12 +72,28 @@ export default {
   "personalia.dkif.kanIkkeVarsles": `Du har reservert deg mot elektronisk kommunikasjon.`,
   "personalia.dkif.ingenData": `<b>Ingen opplysninger registrert</b>`,
   "adresse.tittel": `Adresser`,
-  "adresse.beskrivelse": `Her finner du bostedsadresse og eventuelt kontaktadressen din.`,
+  "adresse.beskrivelse": `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
+<b>Bostedsadresse</b> <br></br> 
+Adressen der du offisielt er registrert som bosatt.<br></br><br></br>
+<b>Oppholdsadresse</b><br></br> 
+En adresse som du oppholder deg på for tiden.<br></br><br></br>
+<b>Postadresse (kontaktadresse)</b><br></br> 
+En adresse der du kan nås per post.<br></br> <br></br> 
+<b>Delt bosted</b><br></br> 
+Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.`,
+  "adresse.oppholdsadresse": `Oppholdsadresse`,
+  "adresse.oppholdsadresse.militaer": `Militær`,
+  "adresse.oppholdsadresse.utenriks": `Utenriks`,
+  "adresse.oppholdsadresse.paasvalbard": `På Svalbard`,
+  "adresse.oppholdsadresse.pendler": `Pendler`,
+  "adresse.deltbosted": `Delt bosted`,
   "adresse.bostedsadresse": `Bostedsadresse`,
   "adresse.bostedsadresse.apneTekst": `Vis detaljer`,
   "adresse.bostedsadresse.lukkTekst": `Skjul detaljer`,
-  "adresse.kontaktadresse": `Kontaktadresse`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `Vil du registrere en kontaktadresse i Folkeregisteret? Du vil da få post fra NAV til den adressen.`,
+  "adresse.kontaktadresse": `Postadresse (kontaktadresse)`,
+  "adresse.kontaktadresse.utenlandsk": `Postadresse (utenlandsk kontaktadresse)`,
+  "adresse.kontaktadresse.norsk": `Postadresse (norsk kontaktadresse)`,
+  "adresse.kontaktadresse.nav": `Kontaktadresse registrert hos NAV`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Endre adresse i Folkeregisteret`,
   "adresse.kontaktadresse.slette.folkeregisteret": `Slette kontaktadresse`,
   "adresse.utenlandskadresse": `Kontaktadresse i utlandet`,
@@ -87,13 +103,13 @@ export default {
   "adresse.postnummer": `Postnummer`,
   "adresse.poststed": `Poststed`,
   "adresse.dato": `Flyttedato`,
+  "adresse.dato.gyldigtil": `Gyldig til og med`,
   "adresse.kommune": `Kommune`,
   "adresse.bolignummer": `Bolignummer`,
   "adresse.land": `Land`,
   "adresse.overskrift": `Adresser som er registert i Folkeregisteret`,
+  "adresse.overskrift.ovrige": `Øvrige registrerte adresser`,
   "adresse.ikke.registrert": `Du har ikke registrert bostedsadresse i Folkeregisteret`,
-  "adresse.kontaktadresse.alert": `Frem til og med {dato} får du post fra NAV til kontaktadressen din. Du kan slette adressen når som helst. `,
-  "adresse.kontaktadresse.alert.uten.sluttdato": "Vi sender post til kontaktadressen din",
   "adresse.slett.alert": `Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br> adresse til å motta post fra NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>Du velger selv hvor lenge adressen skal være gyldig, maksimalt 1 år. Etter 1 år må du endre eller forlenge adressen.</p>`,

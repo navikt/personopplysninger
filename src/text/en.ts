@@ -47,7 +47,7 @@ export default {
   "personalia.source.nav": `Source: NAV`,
   "personalia.source.dkif": `Source: Contact and Reservation Register`,
   "personalia.link.folkeregisteret": `Change in National Population Register`,
-  "personalia.link.folkeregisteret.adresse": `Delete or change address in National Population Register`,
+  "personalia.link.folkeregisteret.adresse": `Change address in National Population Register`,
   "personalia.link.brukerprofil.endre": `Change in Your Profile`,
   "personalia.link.brukerprofil.leggtil": `Add to Your Profile`,
   "personalia.link.dkif.endre": `Change in Contact and Reservation Register `,
@@ -72,12 +72,28 @@ export default {
   "personalia.dkif.kanIkkeVarsles": `You have opted out of electronic communication.`,
   "personalia.dkif.ingenData": `<b>No information registered</b>`,
   "adresse.tittel": `Addresses`,
-  "adresse.beskrivelse": `Here you will find your home address and your contact address, if applicable.`,
+  "adresse.beskrivelse": `Below you see the types of addresses it is possible to register in the National Population Register. You can have several address types registered at the same time. You can change addresses in the National Population Register at the Tax Administration.<br></br><br></br>
+<b>Home address</b> <br></br> 
+The address where you are officially registered as a resident.<br></br><br></br>
+<b>Temporary residential address</b><br></br> 
+An address that you are currently staying at.<br></br><br></br>
+<b>Postal address (contact address)</b><br></br> 
+An address where you can be reached by post.<br></br> <br></br> 
+<b>Shared housing</b><br></br> 
+A child who lives permanently with both mother and father can have two home addresses, one of which is registered under shared housing.`,
+  "adresse.oppholdsadresse": `Temporary residential address`,
+  "adresse.oppholdsadresse.militaer": `Military`,
+  "adresse.oppholdsadresse.utenriks": `Abroad`,
+  "adresse.oppholdsadresse.paasvalbard": `Svalbard`,
+  "adresse.oppholdsadresse.pendler": `Commuter`,
+  "adresse.deltbosted": `Shared housing`,
   "adresse.bostedsadresse": `Home address`,
   "adresse.bostedsadresse.apneTekst": `View details`,
   "adresse.bostedsadresse.lukkTekst": `Hide details`,
-  "adresse.kontaktadresse": `Contact address`,
-  "adresse.kontaktadresse.leggtil.beskrivelse": `Do you want to register a contact address in the National Population Register? You will then receive mail from NAV to that address.`,
+  "adresse.kontaktadresse": `Postal address (contact address)`,
+  "adresse.kontaktadresse.utenlandsk": `Postal address (contact address abroad)`,
+  "adresse.kontaktadresse.norsk": `Postal address (Norwegian contact address)`,
+  "adresse.kontaktadresse.nav": `Contact address registered with NAV`,
   "adresse.kontaktadresse.leggtil.folkeregisteret": `Change address in National Population Register.`,
   "adresse.utenlandskadresse": `Contact address abroad`,
   "adresse.postadresse": `Postal address`,
@@ -86,12 +102,13 @@ export default {
   "adresse.postnummer": `Postal code`,
   "adresse.poststed": `Postal district`,
   "adresse.dato": `Date of move`,
+  "adresse.dato.gyldigtil": `Valid until`,
   "adresse.kommune": `Municipality`,
   "adresse.bolignummer": `Unit number`,
   "adresse.land": `Country`,
   "adresse.overskrift": `Addresses registered in the National Population Register`,
+  "adresse.overskrift.ovrige": `Other registered addresses`,
   "adresse.ikke.registrert": `You do not have a registered home address in the National Population Register`,
-  "adresse.kontaktadresse.alert": `We will send you post to your contact address until {dato}.`,
   "adresse.slett.alert": `Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?`,
   "adresse.hjelpetekster.adressetyper": `<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>`,
   "adresse.hjelpetekster.gyldigtil": `<p>You choose how long the address is to be valid, a maximum of 1 year. After 1 year, you need to change or extend the address.</p>`,
