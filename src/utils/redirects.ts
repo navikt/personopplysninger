@@ -26,7 +26,7 @@ export const redirects: {
     Tillatte tjenester med redirect tilbake:
   */
   "skjema/alderspensjonssoknad": {
-    allowed: "/person/soknadalder/",
+    allowed: "/pensjon/soknadalder/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
