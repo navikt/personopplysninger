@@ -31,7 +31,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
 
   onLanguageSelect((language) => {
     dispatch({ type: "SETT_LOCALE", payload: language.locale as Locale });
-    history.push(language.url);
+    history.push(language.url!);
   });
 
   useEffect(() => {
