@@ -6,6 +6,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
+      - name: Setup node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          registry-url: 'https://npm.pkg.github.com'
+          cache: 'npm'
       - name: Define build environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,13 +37,9 @@ jobs:
           echo "REACT_APP_DITT_NAV_URL=https://www.dev.nav.no/person/dittnav" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www-q0.nav.no/pensjon/opptjening" >> $GITHUB_ENV
           echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://innloggingsstatus.dev.nav.no/person/innloggingsstatus/auth" >> $GITHUB_ENV
-      - uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
       - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - run: npm test
       - run: npm run build
       - name: Docker build and push
