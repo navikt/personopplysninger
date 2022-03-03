@@ -20,8 +20,6 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
-  vault:
-    enabled: true
   accessPolicy:
     outbound:
       external:
