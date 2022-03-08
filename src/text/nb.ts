@@ -66,6 +66,7 @@ export default {
   "personalia.tlfnr.ingenData": `Vi har ikke registrert telefonnummer på deg i våre registre. <br></br>Har du et telefonummer vi kan kontakte deg på?`,
   "personalia.tlfnr.telefon": `Telefon {x}`,
   "personalia.tlfnr.slett.alert": `Er du sikker på at du vil fjerne dette nummeret?`,
+  "personalia.spraak": `Språk/målform`,
   "personalia.dkif.overskrift": `Opplysninger fra Kontakt - og reservasjonsregisteret`,
   "personalia.dkif.beskrivelse": `Kontakt- og reservasjonsregisteret er et felles nasjonalt register. NAV må ha dine kontaktopplysninger i dette registeret for å kunne sende deg meldinger og dokumenter elektronisk.`,
   "personalia.dkif.kanVarsles": `Du har <b>ikke</b> reservert deg mot elektronisk kommunikasjon.`,
@@ -144,7 +145,8 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "inst.tittel": `Institusjonsopphold`,
   "inst.institusjon": `Institusjon`,
   "inst.detaljer": `Detaljer`,
-  "inst.disclaimer": "Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.",
+  "inst.disclaimer":
+    "Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.",
   "inst.periode": `Periode`,
   "inst.institusjonsnavn": "Institusjonsnavn",
   "inst.institusjonstype": "Institusjonstype",
