@@ -29,7 +29,6 @@ jobs:
           echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
-          echo "ENV=prod" >> $GITHUB_ENV
           echo "REACT_APP_MILJO=PROD" >> $GITHUB_ENV
           echo "REACT_APP_DINE_SAKER_URL=https://person.nav.no/mine-saker" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
@@ -58,13 +57,14 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: personbruker
           ingresses:
+            - https://personopplysninger.nais.oera.no
             - https://www.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           EOF
       - uses: nais/deploy/actions/deploy@master
         env:
-          CLUSTER: prod-gcp
+          CLUSTER: prod-sbs
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
           VARS: .nais/vars.yaml
