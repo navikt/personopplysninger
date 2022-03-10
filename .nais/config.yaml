@@ -20,13 +20,14 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
-  vault:
-    enabled: true
   accessPolicy:
     outbound:
       external:
         - host: nav.no
         - host: dekoratoren.dev.nav.no
+  env:
+    - name: ENV
+      value: {{env}}
   replicas:
     min: 2
     max: 3

@@ -3,8 +3,9 @@ const logger = require("./logger");
 const path = require("path");
 const ENV = process.env.NODE_ENV;
 const ENV_LOCAL = ".env";
-const ENV_NAIS = "/var/run/secrets/nais.io/vault/.env";
-require("dotenv").config({ path: ENV === "production" ? ENV_NAIS : ENV_LOCAL });
+if(ENV !== "production") {
+    require("dotenv").config(ENV_LOCAL);
+}
 const getHtmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
 const basePath = "/person/personopplysninger";
