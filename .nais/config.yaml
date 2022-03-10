@@ -25,6 +25,9 @@ spec:
       external:
         - host: nav.no
         - host: dekoratoren.dev.nav.no
+  env:
+    - name: ENV
+      value: {{env}}
   replicas:
     min: 2
     max: 3

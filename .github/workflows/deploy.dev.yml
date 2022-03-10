@@ -24,7 +24,6 @@ jobs:
           echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
-          echo "ENV=dev" >> $GITHUB_ENV
           echo "REACT_APP_MILJO=DEV" >> $GITHUB_ENV
           echo "REACT_APP_DINE_SAKER_URL=https://person.dev.nav.no/mine-saker" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
@@ -56,6 +55,7 @@ jobs:
             - https://person.dev.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
+          env: dev
           EOF
       - uses: nais/deploy/actions/deploy@master
         env:
