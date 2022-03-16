@@ -59,7 +59,7 @@ export const tillatteTjenester = Object.keys(redirects)
   .join("|");
 
 const navnoUrlPattern = new RegExp(
-  `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|\/)`,
+  `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)`,
   "i"
 );
 
