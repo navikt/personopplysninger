@@ -15,9 +15,7 @@ const init = async () => {
     injectDecoratorClientSide({
       env: "localhost",
       port: 8100,
-      enforceLogin: true,
-      level: "Level4",
-      redirectToApp: true,
+      enforceLogin: false,
     });
   }
 
