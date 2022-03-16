@@ -19,6 +19,7 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
   }
 
   const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
+  // If the redirect-url is not a valid nav.no url, redirect to the app front page
   if (!redirectUrl) {
     const basePath = location.pathname.split("sendt-fra")[0];
     history.replace(basePath);
