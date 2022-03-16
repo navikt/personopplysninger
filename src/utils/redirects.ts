@@ -5,7 +5,6 @@ export const redirects: {
   [key: string]: {
     beskrivelse: string;
     knapp: string;
-    allowed: string;
   };
 } = {
   /*
@@ -26,37 +25,30 @@ export const redirects: {
     Tillatte tjenester med redirect tilbake:
   */
   "skjema/alderspensjonssoknad": {
-    allowed: "/pensjon/soknadalder/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/alderspensjon": {
-    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/innledning": {
-    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/kvittering": {
-    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til kvitteringen",
   },
   "skjema/uforetrygd": {
-    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til uføretrygd",
   },
   "dagpenger/forskudd": {
-    allowed: "/dagpenger/forskudd/soknad/",
     beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til søknaden om forskudd på dagpenger",
   },
   minprofil: {
-    allowed: "/pselv/",
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
     knapp: "Gå tilbake til Din Profil",
   },
@@ -66,12 +58,8 @@ export const tillatteTjenester = Object.keys(redirects)
   .map((key) => key)
   .join("|");
 
-const tillattePaths = Object.values(redirects)
-  .map((item) => item.allowed)
-  .join("|");
-
-const tillatteUrler = new RegExp(
-  `^https:\\/\\/([a-z0-9_.-]+\\.)nav\\.no(${tillattePaths})`,
+const navnoUrlPattern = new RegExp(
+  `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|\/)`,
   "i"
 );
 
@@ -81,7 +69,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
   }
 
   const decodedUrl = decodeURIComponent(encodedUrl);
-  return tillatteUrler.test(decodedUrl) ? decodedUrl : null;
+  return navnoUrlPattern.test(decodedUrl) ? decodedUrl : null;
 };
 
 export const getLoginserviceRedirectUrl = () => {
