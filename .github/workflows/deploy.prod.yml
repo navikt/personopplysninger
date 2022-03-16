@@ -57,14 +57,14 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: personbruker
           ingresses:
-            - https://personopplysninger.nais.oera.no
             - https://www.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
+          env: prod
           EOF
       - uses: nais/deploy/actions/deploy@master
         env:
-          CLUSTER: prod-sbs
+          CLUSTER: prod-gcp
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           RESOURCE: .nais/config.yaml
           VARS: .nais/vars.yaml

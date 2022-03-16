@@ -66,6 +66,7 @@ export default {
   "personalia.tlfnr.ingenData": `We do not have a registered phone number for you in our registers. <br></br>Do you have a phone number we can contact you at?`,
   "personalia.tlfnr.telefon": `Phone {x}`,
   "personalia.tlfnr.slett.alert": `Are you sure you want to remove this number?`,
+  "personalia.spraak": `Language`,
   "personalia.dkif.overskrift": `Information from the Contact and Reservation Register`,
   "personalia.dkif.beskrivelse": `The Contact and Reservation Register is a joint national register. NAV must have your contact information in this register in order to send you messages and documents electronically.`,
   "personalia.dkif.kanVarsles": `You have <b>not</b> opted out of electronic communication.`,
