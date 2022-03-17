@@ -22,9 +22,7 @@ const EndreAlleOpplysninger = () => {
   return (
     <div className="endreOpplysninger__page">
       <div className="endreOpplysninger__container pagecontent">
-        {tjeneste && redirectUrl && (
-          <RedirectKnapp tjeneste={tjeneste} redirectUrl={redirectUrl} />
-        )}
+        <RedirectKnapp tjeneste={tjeneste} encodedUrl={redirectUrl} />
         <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
           {({ personalia, adresser }) => {
             return (

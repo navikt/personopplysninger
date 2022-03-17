@@ -1,13 +1,20 @@
 import React, { useEffect } from "react";
 import { useIntl } from "react-intl";
-import { BrowserRouter as Router, Redirect, Route, Switch, useHistory, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Redirect,
+  Route,
+  Switch,
+  useHistory,
+  useLocation,
+} from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
-import { getRedirectPathFromParam, tillatteTjenester, tillatteUrler } from "./utils/redirects";
+import { getRedirectPathFromParam, tillatteTjenester } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
@@ -49,12 +56,10 @@ const App = () => {
                   <Switch>
                     <Route
                       exact={true}
-                      path={`${basePathWithLanguage}/`}
-                      component={Forside}
-                    />
-                    <Route
-                      exact={true}
-                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                      path={[
+                        `${basePathWithLanguage}/`,
+                        `${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`,
+                      ]}
                       component={Forside}
                     />
                     <Route
@@ -62,7 +67,10 @@ const App = () => {
                       path={`${basePathWithLanguage}/arbeidsforhold`}
                       render={(routeProps) => (
                         <Redirect
-                          to={routeProps.location.pathname.replace("arbeidsforhold", "#arbeidsforhold")}
+                          to={routeProps.location.pathname.replace(
+                            "arbeidsforhold",
+                            "#arbeidsforhold"
+                          )}
                         />
                       )}
                     />
@@ -102,7 +110,7 @@ const App = () => {
                     {featureToggles.data["personopplysninger.pdl"] && (
                       <Route
                         exact={true}
-                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl(${tillatteUrler})`}
+                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`}
                         component={EndreOpplysninger}
                       />
                     )}

@@ -5,7 +5,6 @@ export const redirects: {
   [key: string]: {
     beskrivelse: string;
     knapp: string;
-    allowed: string;
   };
 } = {
   /*
@@ -22,49 +21,56 @@ export const redirects: {
     Hvordan funker det?
     Beskrivelse og tekst på knappen vil bestemmes ut ifra [KEY].
     Lenken tilbake settes ut ifra [REDIRECT_URL] (må være URL encoded).
-
     --
     Tillatte tjenester med redirect tilbake:
   */
-  "skjema/alderspensjon": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
+  "skjema/alderspensjonssoknad": {
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til alderspensjon"
+    knapp: "Gå tilbake til alderspensjon",
+  },
+  "skjema/alderspensjon": {
+    beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
+    knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/innledning": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til alderspensjon"
+    knapp: "Gå tilbake til alderspensjon",
   },
   "skjema/kvittering": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til kvitteringen"
+    knapp: "Gå tilbake til kvitteringen",
   },
   "skjema/uforetrygd": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til uføretrygd"
+    knapp: "Gå tilbake til uføretrygd",
   },
   "dagpenger/forskudd": {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fdagpenger%2Fforskudd%2Fsoknad%2F`,
     beskrivelse: `Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til søknaden om forskudd på dagpenger"
+    knapp: "Gå tilbake til søknaden om forskudd på dagpenger",
   },
   minprofil: {
-    allowed: `https%3A%2F%2Fwww?-?.?..nav.no%2Fpselv%2F.*`,
     beskrivelse: `Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.`,
-    knapp: "Gå tilbake til Din Profil"
-  }
+    knapp: "Gå tilbake til Din Profil",
+  },
 };
 
 export const tillatteTjenester = Object.keys(redirects)
   .map((key) => key)
   .join("|");
 
-export const tillatteUrler = Object.keys(redirects)
-  .map((key) => redirects[key].allowed)
-  .join("|");
+const navnoUrlPattern = new RegExp(
+  `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)`,
+  "i"
+);
+
+export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
+  if (!encodedUrl) {
+    return null;
+  }
+
+  const decodedUrl = decodeURIComponent(encodedUrl);
+  return navnoUrlPattern.test(decodedUrl) ? decodedUrl : null;
+};
 
 export const getLoginserviceRedirectUrl = () => {
   // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
@@ -73,7 +79,9 @@ export const getLoginserviceRedirectUrl = () => {
 };
 
 export const getRedirectPathFromParam = () => {
-  const encodedPath = new URLSearchParams(window.location.search).get(redirectPathParam);
+  const encodedPath = new URLSearchParams(window.location.search).get(
+    redirectPathParam
+  );
   if (encodedPath) {
     return atob(encodedPath);
   }
