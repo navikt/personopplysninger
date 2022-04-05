@@ -29,7 +29,7 @@ jobs:
           echo "REACT_APP_PDL_URL=https://www.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
           echo "REACT_APP_BFT_URL=https://tilretteleggingsbehov-innsyn.dev.nav.no/person/behov-for-tilrettelegging" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=https://person.dev.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
-          echo "REACT_APP_URL=https://person.dev.nav.no/person/personopplysninger" >> $GITHUB_ENV
+          echo "REACT_APP_URL=https://www.dev.nav.no/person/personopplysninger" >> $GITHUB_ENV
           echo "REACT_APP_API_URL=https://person.dev.nav.no/person/personopplysninger-api" >> $GITHUB_ENV
           echo "REACT_APP_DSOP_URL=https://person.dev.nav.no/person/dsop-api" >> $GITHUB_ENV
           echo "REACT_APP_TJENESTER_URL=https://tjenester-q1.nav.no" >> $GITHUB_ENV
@@ -52,7 +52,7 @@ jobs:
           cat > .nais/vars.yaml <<EOF
           namespace: personbruker
           ingresses:
-            - https://person.dev.nav.no/person/personopplysninger
+            - https://www.dev.nav.no/person/personopplysninger
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           env: dev
