@@ -14,6 +14,7 @@ import {
   validerBankkode,
   validerBic,
   erLandIEuropa,
+  getCountryAlpha2,
 } from "../utils";
 import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
@@ -354,6 +355,7 @@ export const setOutboundUtenlandsbankonto = (c: FormContext) => {
     value: electronicFormatIBAN(fields.kontonummer),
     utenlandskKontoInformasjon: {
       landkode: fields.land.value,
+      landkodeTobokstavs: getCountryAlpha2(fields.land.value),
       valuta: fields.valuta.value,
       ...(sendBICKode && {
         swift: bickode,
