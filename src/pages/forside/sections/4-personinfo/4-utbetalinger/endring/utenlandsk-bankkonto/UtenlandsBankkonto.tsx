@@ -48,6 +48,7 @@ export interface OutboundUtenlandsbankonto {
   value: string | null;
   utenlandskKontoInformasjon: {
     landkode: string;
+    landkodeTobokstavs: string;
     valuta: string;
     swift?: string;
     bank: {
