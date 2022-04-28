@@ -3,8 +3,8 @@ const logger = require("./logger");
 const path = require("path");
 const ENV = process.env.NODE_ENV;
 const ENV_LOCAL = ".env";
-if(ENV !== "production") {
-    require("dotenv").config(ENV_LOCAL);
+if (ENV !== "production") {
+  require("dotenv").config(ENV_LOCAL);
 }
 const getHtmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
@@ -24,10 +24,9 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
       res.send(html);
     })
     .catch((e) => {
-      logger.error(e);
       res.status(500).send(e);
     })
 );
 
 const port = process.env.PORT || 8080;
-server.listen(port, () => logger.info(`App listening on port: ${port}`));
+server.listen(port);
