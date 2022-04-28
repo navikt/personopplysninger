@@ -1,5 +1,4 @@
 const express = require("express");
-const logger = require("./logger");
 const path = require("path");
 const ENV = process.env.NODE_ENV;
 const ENV_LOCAL = ".env";
