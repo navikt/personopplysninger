@@ -131,11 +131,10 @@ const sjekkHttpFeil = (response: Response) => {
   if (response.ok) {
     return response;
   } else {
-    const error = {
+    throw {
       code: response.status,
       text: response.statusText || "Ukjent feil",
     };
-    throw error;
   }
 };
 
@@ -143,7 +142,7 @@ const sjekkTPSFeil = (response: TPSResponse) => {
   if (response.statusType === "OK") {
     return response;
   } else {
-    const error = {
+    throw {
       PENDING: {
         type: `info`,
         text: `Vi har sendt inn endringen din`,
@@ -163,7 +162,6 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         }`,
       },
     }[response.statusType];
-    throw error;
   }
 };
 
