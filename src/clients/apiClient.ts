@@ -1,4 +1,3 @@
-import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
@@ -30,13 +29,7 @@ const sjekkAuthHentJson = (url: string) =>
     .then(sjekkHttpFeil)
     .then(parseJson)
     .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text ?? err,
-      };
-      logApiError(url, error);
-      throw error;
+      handleError(err, url);
     });
 
 export const fetchInnloggingsStatus = () =>
@@ -99,13 +92,7 @@ const postJson = (url: string, data?: Outbound) => {
     .then(parseJson)
     .then(sjekkTPSFeil)
     .catch((err: string & AlertType) => {
-      const error = {
-        code: err.code || 404,
-        type: err.type || "feil",
-        text: err.text ?? err,
-      };
-      logApiError(url, error);
-      throw error;
+      handleError(err, url);
     });
 };
 
@@ -178,6 +165,16 @@ const sjekkTPSFeil = (response: TPSResponse) => {
     }[response.statusType];
     throw error;
   }
+};
+
+const handleError = (err: String & AlertType, url: String) => {
+  const error = {
+    code: err.code || 500,
+    type: err.type || "feil",
+    text: "Noe gikk galt",
+  };
+  console.error(url, err);
+  throw error;
 };
 
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
