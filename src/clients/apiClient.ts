@@ -169,7 +169,7 @@ const handleError = (err: String & AlertType, url: String) => {
   const error = {
     code: err.code || 500,
     type: err.type || "feil",
-    text: "Noe gikk galt",
+    text: err.text || "Ukjent feil",
   };
   console.error(url, err);
   throw error;
