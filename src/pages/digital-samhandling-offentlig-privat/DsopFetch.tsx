@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
 import { fetchDsopInfo } from "clients/apiClient";
-import Error, { HTTPError } from "components/error/Error";
+import { HTTPError } from "components/error/Error";
 import { useStore } from "store/Context";
 import { DsopInfo } from "types/dsop";
-import Spinner from "components/spinner/Spinner";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 export type FetchDsopInfo =
