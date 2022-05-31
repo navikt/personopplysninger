@@ -5,6 +5,8 @@ import { useStore } from "store/Context";
 import { DsopInfo } from "types/dsop";
 import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
+/* eslint-disable */
+
 export type FetchDsopInfo =
   | { status: "LOADING" }
   | { status: "RESULT"; data: DsopInfo }
@@ -60,3 +62,5 @@ const WithDSOP = (props: Props) => {
 };
 
 export default WithDSOP;
+
+/* eslint-disable */
