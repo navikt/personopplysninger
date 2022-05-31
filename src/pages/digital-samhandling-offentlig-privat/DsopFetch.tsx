@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { fetchDsopInfo } from "clients/apiClient";
-import Error, { HTTPError } from "components/error/Error";
+import { HTTPError } from "components/error/Error";
 import { useStore } from "store/Context";
 import { DsopInfo } from "types/dsop";
-import Spinner from "components/spinner/Spinner";
+import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+
+/* eslint-disable */
 
 export type FetchDsopInfo =
   | { status: "LOADING" }
@@ -40,6 +42,14 @@ const WithDSOP = (props: Props) => {
     }
   }, [dsopInfo, dispatch]);
 
+  return (
+    <AlertStripeAdvarsel>
+      Denne siden er midlertidig nede grunnet en teknisk feil. Vi jobber med
+      saken.
+    </AlertStripeAdvarsel>
+  );
+
+  /*
   switch (dsopInfo.status) {
     case "LOADING":
       return <Spinner />;
@@ -48,6 +58,9 @@ const WithDSOP = (props: Props) => {
     case "ERROR":
       return <Error error={dsopInfo.error} />;
   }
+   */
 };
 
 export default WithDSOP;
+
+/* eslint-disable */
