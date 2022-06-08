@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Element, Normaltekst } from "nav-frontend-typografi";
+import { Element } from "nav-frontend-typografi";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 
 interface Props {
@@ -23,9 +23,9 @@ const ListElement = (props: Props) => {
           </Hjelpetekst>
         )}
       </div>
-      <Normaltekst className={`content ${className || ""}`}>
+      <div className={`content ${className || ""}`}>
         {content}
-      </Normaltekst>
+      </div>
       {children}
     </li>
   ) : null;

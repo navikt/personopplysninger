@@ -67,7 +67,13 @@ const Personalia = (props: Props) => {
         <ListElement titleId="personalia.language" content={spraak} />
         <ListElement
           titleId="personalia.citizenship"
-          content={statsborgerskap}
+          content={
+            <>
+              {statsborgerskap?.map((i, key) => {
+                return <div key={key}>{i}</div>;
+              })}
+            </>
+          }
         />
         <ListElement titleId="personalia.birthplace" content={foedested} />
         <ListElement titleId="personalia.civil_status" content={sivilstand} />

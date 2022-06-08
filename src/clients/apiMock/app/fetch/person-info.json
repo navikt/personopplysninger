@@ -17,7 +17,7 @@
     "spraak": "Nynorsk",
     "epostadr": null,
     "personstatus": "Bosatt",
-    "statsborgerskap": "NORGE",
+    "statsborgerskap": ["NORGE", "SVERIGE"],
     "foedested": "Oslo, NORGE",
     "sivilstand": "Ugift",
     "kjoenn": "Mann"
