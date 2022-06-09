@@ -35,7 +35,7 @@ export default {
   "personalia.foreign_id": `Foreign ID`,
   "personalia.email": `E-mail`,
   "personalia.language": `Language`,
-  "personalia.citizenship": `Nationality`,
+  "personalia.citizenship": `Citizenship`,
   "personalia.status": `Personstatus`,
   "personalia.birthplace": `Birthplace`,
   "personalia.spesreg": `Special registration`,
