@@ -6,7 +6,7 @@ const getHtmlWithDecorator = (filePath) =>
       filePath: filePath,
       enforceLogin: false,
       breadcrumbs: [
-          { url: `https://www.nav.no/person/dittnav/`, title: "Ditt NAV" },
+          { url: `https://www.nav.no/person/minside/`, title: "Min side" },
           { url: `https://www.nav.no/person/personopplysninger/`, title: `Personopplysninger` },
       ],
       availableLanguages: [

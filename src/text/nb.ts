@@ -18,7 +18,7 @@ export default {
   "side.endre.kontonummer": "Endre kontonmmer",
   "side.endretil": "Endre til",
   "side.opphor": "Opphør",
-  "brodsmulesti.dittnav": `Ditt NAV`,
+  "brodsmulesti.minside": `Min side`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
   "header.hello": `Hei!`,
