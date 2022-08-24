@@ -39,7 +39,7 @@ jobs:
           echo "REACT_APP_DSOP_URL=https://www.nav.no/person/dsop-api" >> $GITHUB_ENV
           echo "REACT_APP_TJENESTER_URL=https://tjenester.nav.no" >> $GITHUB_ENV
           echo "REACT_APP_LOGIN_URL=https://loginservice.nav.no/login" >> $GITHUB_ENV
-          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/person/dittnav" >> $GITHUB_ENV
+          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/minside" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www.nav.no/pensjon/opptjening" >> $GITHUB_ENV
           echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.nav.no/person/innloggingsstatus/auth" >> $GITHUB_ENV
       - run: npm ci
