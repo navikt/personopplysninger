@@ -164,7 +164,9 @@ const DittNavKontor = (props: Props) => {
         <ListElement
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
-            <Lenke href={`/person/kontakt-oss/${locale}/`}>
+            <Lenke
+              href={`/person/kontakt-oss/${locale === "en" ? "en" : "nb"}/`}
+            >
               <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
             </Lenke>
           }
