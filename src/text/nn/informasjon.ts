@@ -5,7 +5,7 @@ export default {
       `<p>Dersom personopplysningar om deg er feil, kan du be om at dei vert retta. ` +
       `Dersom personopplysningar er ufullstendige, kan du be om at dei blir supplert. ` +
       `I særlege tilfelle kan du ha rett til å få sletta personopplysningar om deg, men NAV har som regel ei lovbestemt plikt til å lagre opplysningane.</p>` +
-      `<p>Dersom personopplysningane er henta frå andre kjelder enn NAV, kan du ta kontakt deg til kjelda som er oppgitt.</p>` +
+      `<p>Dersom personopplysningane er henta frå andre kjelder enn NAV, kan du ta kontakt med kjelda som er oppgitt.</p>` +
       `<p>Dersom kjelda er NAV, kan du bruke <beskjedLenke>Send beskjed til NAV</beskjedLenke> eller ta kontakt med NAV Kontaktsenter, tlf. <telefonLenke>55 55 33 33</telefonLenke>.</p>`,
   },
   savneropplysninger: {
@@ -20,7 +20,7 @@ export default {
     melding:
       `<p>Dersom du har budd eller arbeidd i andre land enn Norge, og har søkt om ytingar eller tenester i Norge eller i et annet land,  må NAV nokre gangar utveksle opplysningar om deg med trygdemyndigheitene i eit anna land. ` +
       `NAV vil berre levere ut opplysningar til land som er omfatta av EØS-avtalen eller land som Norge har inngått trygdeavtalar med. </p>` +
-      `<p><trygdeavtalerLenke>Sjå oversikt over kva land Norge har inngått trygdeavtale med.</trygdeavtalerLenke>.</p>`,
+      `<p><trygdeavtalerLenke>Sjå oversikt over kva land Norge har inngått trygdeavtale med</trygdeavtalerLenke></p>`,
   },
   klage: {
     tittel: `Har du spørsmål eller ønsker du å klage?`,
