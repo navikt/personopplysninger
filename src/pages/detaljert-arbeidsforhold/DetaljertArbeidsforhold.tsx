@@ -43,7 +43,7 @@ const Arbeidsforhold = () => {
       <DetaljertArbeidsforhold
         rolle={"ARBEIDSTAKER"}
         miljo={miljo}
-        locale={locale as "nb" | "en"}
+        locale={locale as "nb" | "en" | "nn"}
         navArbeidsforholdId={id}
         printActivated={true}
         printName={printName}

@@ -37,13 +37,18 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
   useEffect(() => {
     setAvailableLanguages([
       {
-        url: `${location.pathname.replace(/\/en(\/|$)/, "/nb/")}`,
+        url: `${location.pathname.replace(/\/(nn|en)(\/|$)/, "/nb/")}`,
         locale: "nb",
         handleInApp: true,
       },
       {
-        url: `${location.pathname.replace(/\/nb(\/|$)/, "/en/")}`,
+        url: `${location.pathname.replace(/\/(nb|nn)(\/|$)/, "/en/")}`,
         locale: "en",
+        handleInApp: true,
+      },
+      {
+        url: `${location.pathname.replace(/\/(nb|en)(\/|$)/, "/nn/")}`,
+        locale: "nn",
         handleInApp: true,
       },
     ]);

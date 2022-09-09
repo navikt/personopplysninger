@@ -42,7 +42,7 @@ const Arbeidsforhold = () => {
       <div className="arbeidsforhold">
         <ListeMedArbeidsforhold
           miljo={miljo}
-          locale={locale as "nb" | "en"}
+          locale={locale as "nb" | "en" | "nn"}
           onClick={onClick}
           printActivated={true}
           printName={printName}
