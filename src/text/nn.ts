@@ -23,7 +23,7 @@ export default {
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
   "header.hello": `Hei!`,
   "header.hello.name": `Hei {name}!`,
-  "header.description": `<a>Les om personvern i Arbeids- og velferdsetaten her.</a>`,
+  "header.description": `<a>Les om personvern i Arbeids- og velferdsetaten her</a>`,
   "header.obs": `Her kan du sjå opplysningar som NAV har registrert om deg. Du har rett til innsyn i personopplysningar NAV har registrert om deg, men det er ikkje sikkert du vil finne alle personopplysningar her. Det kan vere på grunn av tekniske og juridiske avgrensingar.`,
   "personalia.tittel": `Personalia`,
   "personalia.beskrivelse": `Vi må vite kven du er og korleis vi kan kontakte deg. Dersom du skal ha tenester eller søker om økonomisk støtte, treng vi opplysningar for å kunne vurdere kva du har krav på. For å kunne utbetale pengar må vi ha kontonummeret ditt og ei adresse.`,
