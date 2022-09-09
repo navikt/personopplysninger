@@ -159,7 +159,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "skattetrekksmeldinger.ingendata":
     "Ingen skattetrekksmeldingar har blitt henta",
   "medl.tittel": `Medlemskap og unntak frå <br></br> medlemskap i folketrygda`,
-  "medl.ingendata": `Du har ingen registrerte perioder.`,
+  "medl.ingendata": `Du har ingen registrerte periodar.`,
   "medl.oversikt.ingress": `Dersom du bur og jobbar i Norge, er du vanlegvis medlem i folketrygda. Periodar med denne type medlemskap blir ikkje vist i oversikta. Oversikta er berre aktuell for deg som har`,
   "medl.oversikt.1": `budd, jobba eller studert i utlandet, og du har søkt om medlemskap i folketrygda og fått bekrefta det.`,
   "medl.oversikt.2": `jobba i Norge, men var med i trygdeordninga i eit anna land.`,
@@ -171,7 +171,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "medl.folketrygden.ingress": `Medlemskap i folketrygda betyr at du har rettar og plikter i folketrygda. <lenkeTilFolketrygden> Les om medlemskap i folketrygda</lenkeTilFolketrygden>. Kontakt NAV dersom du har spørsmål om periodar med eller utan medlemskap i folketrygda, telefon (+47) 21 07 37 00.`,
   "medl.folketrygden.lanekassen": `Kontakt Statens lånekasse for utdanning dersom du har spørsmål om periodar med støtte frå Lånekassen.`,
   "medl.perioder.tittel": "Oversikt over periodar",
-  "medl.perioder.alert": `Oversikten viser periodar frå og med 2015. Dersom perioden i 2015 heng saman med ei periode frå tidlegare år, vil den også bli vist.`,
+  "medl.perioder.alert": `Oversikten viser periodar frå og med 2015. Dersom perioda i 2015 heng saman med ei periode frå tidlegare år, vil den også bli vist.`,
   "medl.medlemskap.med.tittel": "Med medlemskap",
   "medl.medlemskap.med.ingress": `Oversikta viser periodar der du har søkt NAV om medlemskap i folketrygda og fått stadfesta det.`,
   "medl.medlemskap.uten.tittel": "Utan medlemskap",
