@@ -18,9 +18,9 @@ export interface FeatureToggles {
   [key: string]: boolean;
 }
 
-const initialLocale = (window.location.pathname.match(/\/en($|\/)/)
-  ? "en"
-  : "nb") as Locale;
+const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && "en") ||
+  (window.location.pathname.match(/\/nn($|\/)/) && "nn") ||
+  "nb") as Locale;
 
 export const initialState = {
   formKey: 0,
@@ -46,7 +46,7 @@ export const initialState = {
   skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
   medlInfo: { status: "LOADING" } as FetchMedlInfo,
 };
-export type Locale = "nb" | "en";
+export type Locale = "nb" | "en" | "nn";
 
 export interface Store {
   formKey: number;

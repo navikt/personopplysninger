@@ -37,7 +37,9 @@ const Alternativ = (props: Props) => {
               ),
               beskjedLenke: (text: string) => (
                 <Lenke
-                  href={`/person/kontakt-oss/${locale}/skriv-til-oss`}
+                  href={`/person/kontakt-oss/${
+                    locale === "en" ? "en/write-to-us" : "nb/skriv-til-oss"
+                  }`}
                   rel="noopener noreferrer"
                   target="_blank"
                 >

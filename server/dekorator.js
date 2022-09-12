@@ -12,6 +12,7 @@ const getHtmlWithDecorator = (filePath) =>
       availableLanguages: [
           { url: `https://www.nav.no/person/personopplysninger/nb/`, locale: "nb" },
           { url: `https://www.nav.no/person/personopplysninger/en/`, locale: "en" },
+          { url: `https://www.nav.no/person/personopplysninger/nn/`, locale: "nn" },
       ],
   });
 

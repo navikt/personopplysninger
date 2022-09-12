@@ -5,6 +5,7 @@ import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { useParams } from "react-router-dom";
 import { useStore } from "../../store/Context";
+import { Locale } from "../../store/Store";
 
 const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
 
@@ -43,7 +44,7 @@ const Arbeidsforhold = () => {
       <DetaljertArbeidsforhold
         rolle={"ARBEIDSTAKER"}
         miljo={miljo}
-        locale={locale as "nb" | "en"}
+        locale={locale as Locale}
         navArbeidsforholdId={id}
         printActivated={true}
         printName={printName}
