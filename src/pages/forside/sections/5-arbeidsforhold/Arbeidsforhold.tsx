@@ -8,6 +8,7 @@ import { basePath } from "App";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "components/kilde/Kilde";
 import { useStore } from "../../../../store/Context";
+import { Locale } from "../../../../store/Store";
 
 const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
 
@@ -42,7 +43,7 @@ const Arbeidsforhold = () => {
       <div className="arbeidsforhold">
         <ListeMedArbeidsforhold
           miljo={miljo}
-          locale={locale as "nb" | "en" | "nn"}
+          locale={locale as Locale}
           onClick={onClick}
           printActivated={true}
           printName={printName}
