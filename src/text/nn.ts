@@ -67,7 +67,7 @@ export default {
   "personalia.tlfnr.telefon": `Telefon {x}`,
   "personalia.tlfnr.slett.alert": `Er du sikker på at du vil fjerne dette nummeret?`,
   "personalia.spraak": `Språk/målform`,
-  "personalia.dkif.overskrift": `Opplysningar fra Kontakt - og reservasjonsregisteret`,
+  "personalia.dkif.overskrift": `Opplysningar frå Kontakt - og reservasjonsregisteret`,
   "personalia.dkif.beskrivelse": `Kontakt- og reservasjonsregisteret er eit felles nasjonalt register. NAV må ha kontaktopplysningane dine i dette registeret for å kunne sende deg meldingar og dokument elektronisk.`,
   "personalia.dkif.kanVarsles": `Du har <b>ikkje</b> reservert deg mot elektronisk kommunikasjon.`,
   "personalia.dkif.kanIkkeVarsles": `Du har reservert deg mot elektronisk kommunikasjon.`,
