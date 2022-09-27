@@ -29,7 +29,7 @@ const Arbeidsforhold = () => {
   const onClick = {
     type: "REACT_ROUTER_LENKE",
     Component: Link,
-    to: `${basePath}/arbeidsforhold/{id}`,
+    to: `${basePath}/${locale}/arbeidsforhold/{id}`,
   } as AFListeOnClick;
 
   return (
