@@ -2,7 +2,6 @@ import "./polyfills";
 import React from "react";
 import ReactDOM from "react-dom";
 import { StoreProvider } from "./store/Context";
-import * as serviceWorker from "./service-worker";
 import { ValidatorsProvider } from "calidation";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
 import { extraValidators } from "./utils/validators";
@@ -29,6 +28,5 @@ const init = async () => {
     </StoreProvider>,
     document.getElementById("app")
   );
-  serviceWorker.unregister();
 };
 init();
