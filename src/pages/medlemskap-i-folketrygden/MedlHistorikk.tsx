@@ -7,12 +7,11 @@ import MEDLIkon from "assets/img/MEDL.svg";
 import Kalender from "assets/img/Kalender.svg";
 import Check from "assets/img/Check.svg";
 import WithMEDL from "./MedlFetch";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
 import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
 import { Element } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import ListElement from "../../components/listelement/ListElement";
-import { Alert } from "@navikt/ds-react";
+import { Accordion, Alert } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -168,20 +167,23 @@ const Panel = (props: TabellProps) => {
   const { perioder } = props;
   const { tittelId, tittelIdIngress } = props;
   return (
-    <Ekspanderbartpanel
-      tittel={<FormattedMessage id={tittelId} />}
-      className={"medl__space"}
-      border={true}
-    >
-      <Normaltekst>
-        <FormattedMessage id={tittelIdIngress} />
-      </Normaltekst>
-      <div className={"medl__flex-table "}>
-        {perioder.map((periode, i) => (
-          <Periode key={i} periode={periode} />
-        ))}
-      </div>
-    </Ekspanderbartpanel>
+    <Accordion className={"medl__space"}>
+      <Accordion.Item>
+        <Accordion.Header className={"medl__accordion-header"}>
+          <FormattedMessage id={tittelId} />
+        </Accordion.Header>
+        <Accordion.Content>
+          <Normaltekst>
+            <FormattedMessage id={tittelIdIngress} />
+          </Normaltekst>
+          <div className={"medl__flex-table "}>
+            {perioder.map((periode, i) => (
+              <Periode key={i} periode={periode} />
+            ))}
+          </div>
+        </Accordion.Content>
+      </Accordion.Item>
+    </Accordion>
   );
 };
 
