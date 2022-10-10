@@ -4,7 +4,7 @@ import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kont
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
 import { OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { TPSResponse } from "../types/tps-response";
-import { AlertType } from "../components/alert/Alert";
+import { FeilmeldingType } from "../components/httpFeilmelding/HttpFeilmelding";
 import { getLoginserviceRedirectUrl } from "../utils/redirects";
 
 const parseJson = (data: Response) => data.json();
@@ -29,7 +29,7 @@ const sjekkAuthHentJson = (url: string) =>
     .then(sjekkAuth)
     .then(sjekkHttpFeil)
     .then(parseJson)
-    .catch((err: string & AlertType) => {
+    .catch((err: string & FeilmeldingType) => {
       const error = {
         code: err.code || 404,
         type: err.type || "feil",
@@ -98,7 +98,7 @@ const postJson = (url: string, data?: Outbound) => {
     .then(sjekkHttpFeil)
     .then(parseJson)
     .then(sjekkTPSFeil)
-    .catch((err: string & AlertType) => {
+    .catch((err: string & FeilmeldingType) => {
       const error = {
         code: err.code || 404,
         type: err.type || "feil",

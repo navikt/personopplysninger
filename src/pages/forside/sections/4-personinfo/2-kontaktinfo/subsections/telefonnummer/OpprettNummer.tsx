@@ -15,7 +15,7 @@ import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
-import Alert, { AlertType } from "components/alert/Alert";
+import HttpFeilmelding, { FeilmeldingType } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
 
 interface Props {
@@ -28,7 +28,7 @@ interface Props {
 const OpprettTelefonnummer = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
-  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [alert, settAlert] = useState<FeilmeldingType | undefined>();
   const { prioritet, tlfnr, onChangeSuccess } = props;
   const [{ formKey }, dispatch] = useStore();
 
@@ -89,7 +89,7 @@ const OpprettTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => settAlert(error))
+        .catch((error: FeilmeldingType) => settAlert(error))
         .then(() => settLoading(false));
     }
   };
@@ -164,7 +164,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     <FormattedMessage id={"side.avbryt"} />
                   </Knapp>
                 </div>
-                {alert && <Alert {...alert} />}
+                {alert && <HttpFeilmelding {...alert} />}
               </div>
             </>
           );

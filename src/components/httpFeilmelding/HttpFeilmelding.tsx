@@ -2,11 +2,11 @@ import React from "react";
 import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { HTTPError } from "components/error/Error";
 
-export interface AlertType extends HTTPError {
+export interface FeilmeldingType extends HTTPError {
   type: AlertStripeType;
 }
 
-const Alert = (props: AlertType) => {
+const HttpFeilmelding = (props: FeilmeldingType) => {
   return (
     <div className="error__container">
       <AlertStripe type={props.type}>
@@ -16,4 +16,4 @@ const Alert = (props: AlertType) => {
   );
 };
 
-export default Alert;
+export default HttpFeilmelding;

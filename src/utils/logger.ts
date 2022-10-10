@@ -1,6 +1,6 @@
-import { AlertType } from "components/alert/Alert";
+import { FeilmeldingType } from "components/httpFeilmelding/HttpFeilmelding";
 
-export const logApiError = (url: string, err: AlertType) => {
+export const logApiError = (url: string, err: FeilmeldingType) => {
   switch (err.type) {
     default:
       console.log(url, err);

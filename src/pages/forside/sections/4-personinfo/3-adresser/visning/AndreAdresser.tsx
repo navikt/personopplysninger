@@ -8,7 +8,7 @@ import Adresse from "./Adresse";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "../../../../../../components/alert/Alert";
+import HttpFeilmelding, { FeilmeldingType } from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
 import {
   fetchPersonInfo,
   slettKontaktadresse,
@@ -27,7 +27,7 @@ const AndreAdresser = (props: Props) => {
 
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
-  const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
+  const [slettAlert, settSlettAlert] = useState<FeilmeldingType | undefined>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const apneSlettModal = () => {
@@ -56,7 +56,7 @@ const AndreAdresser = (props: Props) => {
     slettKontaktadresse()
       .then(getUpdatedData)
       .then(onSlettSuccess)
-      .catch((error: AlertType) => settSlettAlert(error))
+      .catch((error: FeilmeldingType) => settSlettAlert(error))
       .then(() => settSlettLoading(false));
   };
 
@@ -126,7 +126,7 @@ const AndreAdresser = (props: Props) => {
                     <FormattedMessage id="side.avbryt" />
                   </Flatknapp>
                 </div>
-                {slettAlert && <Alert {...slettAlert} />}
+                {slettAlert && <HttpFeilmelding {...slettAlert} />}
               </div>
             </Modal>
           )}
