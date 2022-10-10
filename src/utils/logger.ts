@@ -1,6 +1,6 @@
-import { FeilmeldingType } from "components/httpFeilmelding/HttpFeilmelding";
+import { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
 
-export const logApiError = (url: string, err: FeilmeldingType) => {
+export const logApiError = (url: string, err: Feilmelding) => {
   switch (err.type) {
     default:
       console.log(url, err);

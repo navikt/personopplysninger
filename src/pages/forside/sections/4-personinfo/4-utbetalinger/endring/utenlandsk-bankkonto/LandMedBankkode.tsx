@@ -3,7 +3,7 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { BANKKODE_MAX_LENGTH } from "./UtenlandsBankkonto";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   errors: Errors;
@@ -19,7 +19,7 @@ const LandMedBankkode = (props: Props) => {
     <>
       <div className="utbetalinger__bic-bankkode">
         <div className="utbetalinger__alert">
-          <AlertStripeAdvarsel>
+          <Alert variant="warning">
             <FormattedMessage
               id="felter.landetbrukerbankkode.advarsel"
               values={{
@@ -29,7 +29,7 @@ const LandMedBankkode = (props: Props) => {
                 ),
               }}
             />
-          </AlertStripeAdvarsel>
+          </Alert>
         </div>
         <InputMedHjelpetekst
           id={"bickode"}

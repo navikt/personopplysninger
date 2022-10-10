@@ -3,9 +3,9 @@ import { Adresser as IAdresser } from "types/adresser";
 import Box from "components/box/Box";
 import adresseIkon from "assets/img/Adresse.svg";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import Folkeregisteret from "./visning/Folkeregisteret";
 import AndreAdresser from "./visning/AndreAdresser";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   adresser: IAdresser;
@@ -43,7 +43,7 @@ const Adresser = (props: Props) => {
       <div className="adresse__box">
         {driftsmeldinger.pdl && (
           <div style={{ padding: "1rem 0" }}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+            <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
           </div>
         )}
 

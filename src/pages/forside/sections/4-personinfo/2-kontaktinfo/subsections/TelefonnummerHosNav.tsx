@@ -8,7 +8,7 @@ import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -32,7 +32,7 @@ const TelefonnummerHosNav = (props: Props) => {
     <>
       {driftsmeldinger.pdl && (
         <div style={{ paddingBottom: "1rem" }}>
-          <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
         </div>
       )}
       <div className="underseksjon__header">

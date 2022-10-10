@@ -1,6 +1,5 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { useIntl } from "react-intl";
 import { FormattedMessage } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
@@ -24,6 +23,7 @@ import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
 import { Feiloppsummering } from "nav-frontend-skjema";
 import { mapErrorsToSummary } from "utils/kontonummer";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -239,7 +239,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         return (
           <>
             <div className="utbetalinger__alert">
-              <AlertStripeInfo>
+              <Alert variant="info">
                 <FormattedMessage
                   id="felter.utenlandskkonto.info"
                   values={{
@@ -250,7 +250,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                     ),
                   }}
                 />
-              </AlertStripeInfo>
+              </Alert>
             </div>
             <SelectLand
               submitted={submitted}

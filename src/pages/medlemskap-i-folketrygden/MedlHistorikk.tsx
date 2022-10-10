@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { MedlInfo, MedlInnslag } from "types/medl";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { FormattedMessage, useIntl } from "react-intl";
 import PageContainer from "components/pagecontainer/PageContainer";
@@ -13,6 +12,7 @@ import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
 import { Element } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import ListElement from "../../components/listelement/ListElement";
+import { Alert } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -122,9 +122,9 @@ const Perioder = (props: PerioderProps) => {
         </Systemtittel>
       </div>
       <div className={"medl__space"}>
-        <AlertStripeInfo>
+        <Alert variant="info">
           <FormattedMessage id={"medl.perioder.alert"} />
-        </AlertStripeInfo>
+        </Alert>
       </div>
       {medMedlemskap.length > 0 ? (
         <Panel
@@ -149,9 +149,9 @@ const Perioder = (props: PerioderProps) => {
       ) : null}
       {ingenPerioder && (
         <div className={"medl__space"}>
-          <AlertStripeInfo>
+          <Alert variant="info">
             <FormattedMessage id={"medl.ingendata"} />
-          </AlertStripeInfo>
+          </Alert>
         </div>
       )}
     </div>

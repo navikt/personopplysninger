@@ -2,7 +2,6 @@ import React, { useState, Fragment, useEffect } from "react";
 import { DsopInfo } from "types/dsop";
 import { Element } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
@@ -11,6 +10,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
 import Lenke from "nav-frontend-lenker";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -68,7 +68,7 @@ const Tabell = (props: Props) => {
       {Object.keys(data).length > 0 ? (
         <>
           <div className={"historikk__info"}>
-            <AlertStripeInfo>
+            <Alert variant="info">
               <FormattedMessage
                 id={"lenker.dsop.info"}
                 values={{
@@ -79,7 +79,7 @@ const Tabell = (props: Props) => {
                   ),
                 }}
               />
-            </AlertStripeInfo>
+            </Alert>
           </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
@@ -142,9 +142,9 @@ const Tabell = (props: Props) => {
         </>
       ) : (
         <div className="historikk__ingen-data">
-          <AlertStripeInfo>
+          <Alert variant="info">
             <FormattedMessage id="dsop.ingendata" />
-          </AlertStripeInfo>
+          </Alert>
         </div>
       )}
     </div>

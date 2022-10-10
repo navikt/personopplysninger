@@ -16,13 +16,13 @@ import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/Utenla
 import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Knapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "components/alert/Alert";
+import HttpFeilmelding, { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
 import { Form, FormContext, Validation } from "calidation";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { Alert } from "@navikt/ds-react";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -38,7 +38,7 @@ const Utbetalinger = (props: Props) => {
   const { kontonr, utenlandskbank, personident } = props;
   const [loading, settLoading] = useState<boolean>(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
-  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [alert, settAlert] = useState<Feilmelding | undefined>();
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -68,7 +68,7 @@ const Utbetalinger = (props: Props) => {
       postKontonummer(outbound[fields.norskEllerUtenlandsk]())
         .then(getUpdatedData)
         .then(onSuccess)
-        .catch((error: AlertType) => settAlert(error))
+        .catch((error: Feilmelding) => settAlert(error))
         .then(() => settLoading(false));
     }
   };
@@ -90,7 +90,7 @@ const Utbetalinger = (props: Props) => {
       <>
         {driftsmeldinger.pdl && (
           <div style={{ paddingBottom: "1rem" }}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+            <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
           </div>
         )}
       </>
@@ -151,7 +151,7 @@ const Utbetalinger = (props: Props) => {
                       </Knapp>
                     </div>
                   </div>
-                  {alert && <Alert {...alert} />}
+                  {alert && <HttpFeilmelding {...alert} />}
                 </RadioGruppe>
               );
             }}

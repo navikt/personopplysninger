@@ -1,17 +1,28 @@
 import React from "react";
-import AlertStripe, { AlertStripeType } from "nav-frontend-alertstriper";
 import { HTTPError } from "components/error/Error";
+import { Alert, AlertProps } from "@navikt/ds-react";
 
-export interface FeilmeldingType extends HTTPError {
-  type: AlertStripeType;
+type FeilmeldingType = "advarsel" | "info" | "feil";
+export interface Feilmelding extends HTTPError {
+  type: FeilmeldingType;
 }
 
-const HttpFeilmelding = (props: FeilmeldingType) => {
+type AlertVariant = { [key in FeilmeldingType]: AlertProps["variant"] };
+
+const HttpFeilmelding = (props: Feilmelding) => {
+  const alertVarianter: AlertVariant = {
+    advarsel: "warning",
+    info: "info",
+    feil: "error",
+  };
+
+  const variant = alertVarianter[props.type] || alertVarianter["info"];
+
   return (
     <div className="error__container">
-      <AlertStripe type={props.type}>
+      <Alert variant={variant}>
         {props.text && <span>{`${props.text}`}</span>}
-      </AlertStripe>
+      </Alert>
     </div>
   );
 };

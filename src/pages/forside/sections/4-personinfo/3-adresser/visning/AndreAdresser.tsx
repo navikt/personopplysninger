@@ -8,7 +8,7 @@ import Adresse from "./Adresse";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
 import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import HttpFeilmelding, { FeilmeldingType } from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, { Feilmelding } from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
 import {
   fetchPersonInfo,
   slettKontaktadresse,
@@ -27,7 +27,7 @@ const AndreAdresser = (props: Props) => {
 
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
-  const [slettAlert, settSlettAlert] = useState<FeilmeldingType | undefined>();
+  const [slettAlert, settSlettAlert] = useState<Feilmelding | undefined>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const apneSlettModal = () => {
@@ -56,7 +56,7 @@ const AndreAdresser = (props: Props) => {
     slettKontaktadresse()
       .then(getUpdatedData)
       .then(onSlettSuccess)
-      .catch((error: FeilmeldingType) => settSlettAlert(error))
+      .catch((error: Feilmelding) => settSlettAlert(error))
       .then(() => settSlettLoading(false));
   };
 

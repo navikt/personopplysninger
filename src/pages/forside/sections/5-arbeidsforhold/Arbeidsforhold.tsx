@@ -5,10 +5,10 @@ import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Link } from "react-router-dom";
 import { basePath } from "App";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Kilde from "components/kilde/Kilde";
 import { useStore } from "../../../../store/Context";
 import { Locale } from "../../../../store/Store";
+import { Alert } from "@navikt/ds-react";
 
 const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
 
@@ -51,7 +51,7 @@ const Arbeidsforhold = () => {
         />
       </div>
       <div className="arbeidsforhold__disclaimer">
-        <AlertStripeInfo>
+        <Alert variant="info">
           <FormattedMessage
             id="arbeidsforhold.disclaimer"
             values={{
@@ -63,7 +63,7 @@ const Arbeidsforhold = () => {
               ),
             }}
           />
-        </AlertStripeInfo>
+        </Alert>
       </div>
       <Kilde kilde="arbeidsforhold.kilde" lenkeType="INGEN" />
     </Box>

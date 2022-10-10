@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
@@ -14,6 +13,7 @@ import Kilde from "../../components/kilde/Kilde";
 import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { Alert } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -48,11 +48,11 @@ const Tabell = (props: { instInfo: InstInfo }) => {
   // @ts-ignore
   return (
     <div className="arbeidsforhold__disclaimer">
-      <AlertStripeInfo>
+      <Alert variant="info">
         <Normaltekst>
           <FormattedMessage id="inst.disclaimer" />
         </Normaltekst>
-      </AlertStripeInfo>
+      </Alert>
       <div className={"inst__tabell"}>
         {instInfo.length > 0 ? (
           <>
@@ -128,9 +128,9 @@ const Tabell = (props: { instInfo: InstInfo }) => {
           </>
         ) : (
           <div className="historikk__ingen-data">
-            <AlertStripeInfo>
+            <Alert variant="info">
               <FormattedMessage id="inst.ingendata" />
-            </AlertStripeInfo>
+            </Alert>
           </div>
         )}
         {instInfo.length > 20 && instInfo.length >= viewAmount && (

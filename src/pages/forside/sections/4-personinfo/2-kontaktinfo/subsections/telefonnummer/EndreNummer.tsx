@@ -14,7 +14,7 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
-import HttpFeilmelding, { FeilmeldingType } from "components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
 import Modal from "nav-frontend-modal";
 
@@ -40,7 +40,7 @@ const EndreTelefonnummer = (props: Props) => {
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
-  const [alert, settAlert] = useState<FeilmeldingType | undefined>();
+  const [alert, settAlert] = useState<Feilmelding | undefined>();
   const { formatMessage: msg } = useIntl();
   const [{ formKey }, dispatch] = useStore();
 
@@ -110,7 +110,7 @@ const EndreTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: FeilmeldingType) => settAlert(error))
+        .catch((error: Feilmelding) => settAlert(error))
         .then(() => settEndreLoading(false));
     }
   };
@@ -130,7 +130,7 @@ const EndreTelefonnummer = (props: Props) => {
     slettTlfnummer(outbound)
       .then(getUpdatedData)
       .then(onDeleteSuccess)
-      .catch((error: FeilmeldingType) => {
+      .catch((error: Feilmelding) => {
         settSlettLoading(false);
         settAlert(error);
       });

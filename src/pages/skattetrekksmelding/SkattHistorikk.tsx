@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { Element } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
@@ -11,6 +10,7 @@ import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 import Lenke from "nav-frontend-lenker";
 import { Skattetrekksmelding } from "types/skattetrekksmeldinger";
+import { Alert } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -64,7 +64,7 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
       {Object.keys(data).length > 0 ? (
         <>
           <div className={"historikk__info"}>
-            <AlertStripeInfo>
+            <Alert variant="info">
               <FormattedMessage
                 id={"lenker.dsop.info"}
                 values={{
@@ -75,7 +75,7 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
                   ),
                 }}
               />
-            </AlertStripeInfo>
+            </Alert>
           </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
@@ -144,9 +144,9 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
         </>
       ) : (
         <div className="historikk__ingen-data">
-          <AlertStripeInfo>
+          <Alert variant="info">
             <FormattedMessage id="skattetrekksmeldinger.ingendata" />
-          </AlertStripeInfo>
+          </Alert>
         </div>
       )}
     </div>
