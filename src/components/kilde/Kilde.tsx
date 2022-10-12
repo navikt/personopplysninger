@@ -1,8 +1,8 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Normaltekst, Undertekst } from "nav-frontend-typografi";
-import Lenke from "nav-frontend-lenker";
-import { Link } from "react-router-dom";
+import { Link as ReactLink } from "react-router-dom";
+import { Link } from "@navikt/ds-react";
 
 type Props =
   | {
@@ -29,7 +29,7 @@ const Knapp = (props: Props) => {
     case "INTERN":
       return (
         <Normaltekst>
-          <Link to={props.lenke} className="kilde__lenke lenke">
+          <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
@@ -42,14 +42,14 @@ const Knapp = (props: Props) => {
     case "EKSTERN":
       return (
         <Normaltekst>
-          <Lenke href={props.lenke} className="kilde__lenke lenke">
+          <Link href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
                 <img src={props.ikon} alt="Ekstern lenke" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
-          </Lenke>
+          </Link>
         </Normaltekst>
       );
     case "KNAPP":

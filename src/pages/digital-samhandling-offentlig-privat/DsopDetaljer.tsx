@@ -5,10 +5,10 @@ import { FormattedMessage } from "react-intl";
 import { useParams } from "react-router-dom";
 import FileSaver from "file-saver";
 import moment from "moment";
-import { Hovedknapp } from "nav-frontend-knapper";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
+import { Button } from "@navikt/ds-react";
 
 interface Routes {
   id: string;
@@ -29,13 +29,13 @@ const DsopDetaljer = () => {
       backTo={"/dsop"}
       brodsmulesti={[
         { title: "dsop.tittel", path: "/dsop" },
-        { title: "dsop.levertedata" }
+        { title: "dsop.levertedata" },
       ]}
     >
       <WithDSOP>
         {({ data }) => {
           const innslag = data
-            .filter(d => d.uthentingsTidspunkt === id)
+            .filter((d) => d.uthentingsTidspunkt === id)
             .shift();
 
           return innslag ? (
@@ -44,7 +44,7 @@ const DsopDetaljer = () => {
                 const leverteData = JSON.parse(atob(innslag.leverteData));
                 const fileContent = JSON.stringify(leverteData, null, 2);
                 const fileBlob = new Blob([fileContent], {
-                  type: "application/json"
+                  type: "application/json",
                 });
                 const fileName = "utleverte-data.json";
                 FileSaver.saveAs(fileBlob, fileName);
@@ -85,9 +85,9 @@ const DsopDetaljer = () => {
                       </ul>
                     </div>
                     <div className="detaljer__container">
-                      <Hovedknapp onClick={onClick}>
+                      <Button onClick={onClick}>
                         <FormattedMessage id="dsop.lastned" />
-                      </Hovedknapp>
+                      </Button>
                     </div>
                   </div>
                 </div>

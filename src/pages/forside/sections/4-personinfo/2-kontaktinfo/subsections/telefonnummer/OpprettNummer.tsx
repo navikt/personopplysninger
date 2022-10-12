@@ -1,7 +1,6 @@
 import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { Knapp } from "nav-frontend-knapper";
 import {
   FieldsConfig,
   FormContext,
@@ -15,8 +14,11 @@ import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
-import HttpFeilmelding, { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
+import { Button } from "@navikt/ds-react";
 
 interface Props {
   prioritet: 1 | 2;
@@ -141,19 +143,18 @@ const OpprettTelefonnummer = (props: Props) => {
                 </div>
                 <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
-                    <Knapp
-                      type={"standard"}
-                      htmlType={"submit"}
+                    <Button
+                      variant={"primary"}
+                      type={"submit"}
                       disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={loading}
+                      loading={loading}
                     >
                       <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
+                    </Button>
                   </div>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  <Button
+                    variant={"tertiary"}
+                    type={"button"}
                     disabled={loading}
                     className={"tlfnummer__knapp"}
                     onClick={() => {
@@ -162,7 +163,7 @@ const OpprettTelefonnummer = (props: Props) => {
                     }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
-                  </Knapp>
+                  </Button>
                 </div>
                 {alert && <HttpFeilmelding {...alert} />}
               </div>

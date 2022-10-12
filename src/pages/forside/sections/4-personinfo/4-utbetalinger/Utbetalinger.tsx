@@ -15,11 +15,12 @@ import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/Ute
 import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Knapp } from "nav-frontend-knapper";
-import HttpFeilmelding, { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { Form, FormContext, Validation } from "calidation";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Button } from "@navikt/ds-react";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
@@ -86,7 +87,12 @@ const Utbetalinger = (props: Props) => {
   };
 
   return (
-    <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke={true}>
+    <Box
+      id="utbetaling"
+      tittel="utbetalinger.tittel"
+      icon={kontonummerIkon}
+      visAnkerlenke={true}
+    >
       <>
         {driftsmeldinger.pdl && (
           <div style={{ paddingBottom: "1rem" }}>
@@ -130,25 +136,24 @@ const Utbetalinger = (props: Props) => {
                   )}
                   <div className="utbetalinger__knapper">
                     <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"standard"}
-                        htmlType={"submit"}
+                      <Button
+                        variant={"primary"}
+                        type={"submit"}
                         disabled={submitted && !isValid}
-                        autoDisableVedSpinner={true}
-                        spinner={loading}
+                        loading={loading}
                       >
                         <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
+                      </Button>
                     </div>
                     <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"flat"}
-                        htmlType={"button"}
+                      <Button
+                        variant={"tertiary"}
+                        type={"button"}
                         disabled={loading}
                         onClick={() => settOpprettEllerEndre(false)}
                       >
                         <FormattedMessage id={"side.avbryt"} />
-                      </Knapp>
+                      </Button>
                     </div>
                   </div>
                   {alert && <HttpFeilmelding {...alert} />}

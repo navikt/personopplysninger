@@ -5,12 +5,11 @@ import moment from "moment";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
-import { Link, useLocation } from "react-router-dom";
+import { Link as ReactLink, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
-import Lenke from "nav-frontend-lenker";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Link } from "@navikt/ds-react";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -73,9 +72,9 @@ const Tabell = (props: Props) => {
                 id={"lenker.dsop.info"}
                 values={{
                   a: (text: String) => (
-                    <Lenke href="https://altinn.no" target="blank">
+                    <Link href="https://altinn.no" target="blank">
                       {text}
-                    </Lenke>
+                    </Link>
                   ),
                 }}
               />
@@ -128,6 +127,7 @@ const Tabell = (props: Props) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
+                            as={ReactLink}
                             to={`${location.pathname}/${innslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >

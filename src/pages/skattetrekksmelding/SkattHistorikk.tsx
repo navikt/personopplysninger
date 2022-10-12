@@ -4,13 +4,12 @@ import moment from "moment";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
-import { Link, useLocation } from "react-router-dom";
+import { Link as ReactLink, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
-import Lenke from "nav-frontend-lenker";
 import { Skattetrekksmelding } from "types/skattetrekksmeldinger";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Link } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -69,9 +68,9 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
                 id={"lenker.dsop.info"}
                 values={{
                   a: (text: String) => (
-                    <Lenke href="https://altinn.no" target="blank">
+                    <Link href="https://altinn.no" target="blank">
                       {text}
-                    </Lenke>
+                    </Link>
                   ),
                 }}
               />
@@ -130,6 +129,7 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
+                            as={ReactLink}
                             to={`${location.pathname}/${instInnslag.registreringstidspunkt}`}
                             className="lenke"
                           >

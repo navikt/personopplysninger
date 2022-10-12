@@ -12,8 +12,8 @@ import Apningstid from "./apningstid/Apningstid";
 import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
-import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
+import { Link } from "@navikt/ds-react";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -164,11 +164,11 @@ const DittNavKontor = (props: Props) => {
         <ListElement
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
-            <Lenke
+            <Link
               href={`/person/kontakt-oss/${locale === "en" ? "en" : "nb"}/`}
             >
               <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
-            </Lenke>
+            </Link>
           }
         />
       </ul>

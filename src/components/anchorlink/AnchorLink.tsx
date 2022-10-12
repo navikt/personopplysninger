@@ -1,16 +1,16 @@
 import React from "react";
-import Lenke from "nav-frontend-lenker";
 import linkIcon from "assets/img/AnchorLink.svg";
+import { Link } from "@navikt/ds-react";
 
 type Props = {
-    id: string;
+  id: string;
 };
 
-export const AnchorLink = ({id}: Props) => {
-
-    return (
-        <Lenke href={`#${id}`} className={"anchor-link"}>
-            <img src={linkIcon} alt={""}/>{"Lenke hit"}
-        </Lenke>
-    );
+export const AnchorLink = ({ id }: Props) => {
+  return (
+    <Link href={`#${id}`} className={"anchor-link"}>
+      <img src={linkIcon} alt={""} />
+      {"Lenke hit"}
+    </Link>
+  );
 };

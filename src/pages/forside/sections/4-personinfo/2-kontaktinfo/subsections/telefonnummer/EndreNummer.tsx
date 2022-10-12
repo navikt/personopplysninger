@@ -2,7 +2,6 @@ import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { Fareknapp, Flatknapp, Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
@@ -14,9 +13,12 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
-import HttpFeilmelding, { Feilmelding } from "components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
 import Modal from "nav-frontend-modal";
+import { Button } from "@navikt/ds-react";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -85,6 +87,7 @@ const EndreTelefonnummer = (props: Props) => {
 
   const onDeleteSuccess = () => {
     props.onDeleteSuccess();
+    settSlettLoading(false);
     settVisSlettModal(false);
   };
 
@@ -167,9 +170,10 @@ const EndreTelefonnummer = (props: Props) => {
               </div>
               {!endre && (
                 <div className={"tlfnummer__knapper"}>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  <Button
+                    as={"button"}
+                    variant={"tertiary"}
+                    type={"button"}
                     className={"tlfnummer__knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
                   >
@@ -179,10 +183,10 @@ const EndreTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.endre"} />
                     </div>
-                  </Knapp>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  </Button>
+                  <Button
+                    type={"button"}
+                    variant={"tertiary"}
                     className={"tlfnummer__knapp-med-ikon"}
                     onClick={apneSlettModal}
                   >
@@ -192,7 +196,7 @@ const EndreTelefonnummer = (props: Props) => {
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.slett"} />
                     </div>
-                  </Knapp>
+                  </Button>
                 </div>
               )}
             </div>
@@ -208,16 +212,22 @@ const EndreTelefonnummer = (props: Props) => {
                     <FormattedMessage id="personalia.tlfnr.slett.alert" />
                   </Normaltekst>
                   <div className="adresse__modal-knapper">
-                    <Fareknapp
+                    <Button
+                      as="button"
+                      variant="danger"
                       onClick={submitSlett}
-                      spinner={slettLoading}
-                      autoDisableVedSpinner={true}
+                      loading={slettLoading}
+                      disabled={slettLoading}
                     >
                       <FormattedMessage id={"side.slett"} />
-                    </Fareknapp>
-                    <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
+                    </Button>
+                    <Button
+                      variant="tertiary"
+                      onClick={lukkSlettModal}
+                      disabled={slettLoading}
+                    >
                       <FormattedMessage id="side.avbryt" />
-                    </Flatknapp>
+                    </Button>
                   </div>
                   {alert && <HttpFeilmelding {...alert} />}
                 </div>
@@ -249,19 +259,18 @@ const EndreTelefonnummer = (props: Props) => {
                 </div>
                 <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
-                    <Knapp
-                      type={"standard"}
-                      htmlType={"submit"}
+                    <Button
+                      variant={"secondary"}
+                      type={"submit"}
                       disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={endreLoading}
+                      loading={endreLoading}
                     >
                       <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
+                    </Button>
                   </div>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  <Button
+                    variant={"tertiary"}
+                    type={"button"}
                     className={"tlfnummer__knapp"}
                     onClick={() => {
                       settAlert(undefined);
@@ -269,7 +278,7 @@ const EndreTelefonnummer = (props: Props) => {
                     }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
-                  </Knapp>
+                  </Button>
                 </div>
               </div>
             )}

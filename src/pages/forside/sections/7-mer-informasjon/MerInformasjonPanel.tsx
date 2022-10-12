@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
+import { Link } from "@navikt/ds-react";
 
 interface Props {
   tittel: string;
@@ -36,7 +36,7 @@ const Alternativ = (props: Props) => {
                 </p>
               ),
               beskjedLenke: (text: string) => (
-                <Lenke
+                <Link
                   href={`/person/kontakt-oss/${
                     locale === "en" ? "en/write-to-us" : "nb/skriv-til-oss"
                   }`}
@@ -44,28 +44,28 @@ const Alternativ = (props: Props) => {
                   target="_blank"
                 >
                   {text}
-                </Lenke>
+                </Link>
               ),
               telefonLenke: (text: string) => (
-                <Lenke href="tel:004755553333">{text}</Lenke>
+                <Link href="tel:004755553333">{text}</Link>
               ),
               trygdeavtalerLenke: (text: string) => (
-                <Lenke
+                <Link
                   href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler"
                   rel="noopener noreferrer"
                   target="blank"
                 >
                   {text}
-                </Lenke>
+                </Link>
               ),
               datatilsynetLenke: (text: string) => (
-                <Lenke
+                <Link
                   href="https://www.datatilsynet.no/om-datatilsynet/kontakt-oss/hvordan-kan-jeg-klage-til-datatilsynet"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
                   {text}
-                </Lenke>
+                </Link>
               ),
             }}
           />

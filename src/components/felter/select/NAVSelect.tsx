@@ -1,7 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import { useIntl } from "react-intl";
-import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
 import { Input } from "nav-frontend-skjema";
@@ -12,6 +11,7 @@ import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { PopoverOrientering } from "nav-frontend-popover";
 import { HTTPError } from "../../error/Error";
+import { Loader } from "@navikt/ds-react";
 
 interface Props {
   id?: string;
@@ -39,7 +39,7 @@ interface OptionType {
 }
 
 const LoadingIndicator = () => (
-  <NavFrontendSpinner type="XS" className="KodeverkSelect__spinner" />
+  <Loader size="xsmall" className="KodeverkSelect__spinner" />
 );
 
 const DropdownIndicator = (props: any) => (

@@ -10,10 +10,9 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import Kilde from "../../components/kilde/Kilde";
-import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Button } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -135,7 +134,10 @@ const Tabell = (props: { instInfo: InstInfo }) => {
         )}
         {instInfo.length > 20 && instInfo.length >= viewAmount && (
           <div className={"inst__se-flere"}>
-            <Flatknapp onClick={() => setViewAmount(viewAmount + 20)}>
+            <Button
+              variant={"tertiary"}
+              onClick={() => setViewAmount(viewAmount + 20)}
+            >
               <span>
                 <Normaltekst>Se flere</Normaltekst>
               </span>
@@ -144,7 +146,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                 className={"inst__se-flere-icon"}
                 src={PilNed}
               />
-            </Flatknapp>
+            </Button>
           </div>
         )}
       </div>

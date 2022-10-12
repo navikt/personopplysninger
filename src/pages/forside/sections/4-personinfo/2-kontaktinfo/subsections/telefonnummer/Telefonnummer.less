@@ -51,17 +51,26 @@
     display: flex;
     margin-top: 1rem;
   }
-  &__knapp {
+  &__knapp.navds-button {
     margin-left: 0.25rem;
   }
   &__knapp-med-ikon {
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 0.275rem !important;
+
+    .navds-label {
+      display: inherit;
+    }
+
     &:last-child {
       margin-left: 0.25rem;
     }
+  }
+  &__knapp-ikon,
+  &__knapp-tekst {
+    display: flex;
+    align-items: center;
   }
   &__knapp-tekst {
     padding: 0 0.25rem;

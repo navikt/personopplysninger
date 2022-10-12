@@ -19,11 +19,10 @@ import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
-import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
 import { Feiloppsummering } from "nav-frontend-skjema";
 import { mapErrorsToSummary } from "utils/kontonummer";
-import { Alert } from "@navikt/ds-react";
+import { Alert, Link } from "@navikt/ds-react";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -244,9 +243,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                   id="felter.utenlandskkonto.info"
                   values={{
                     a: (text: String) => (
-                      <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
+                      <Link href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
                         {text}
-                      </Lenke>
+                      </Link>
                     ),
                   }}
                 />

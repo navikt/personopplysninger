@@ -4,7 +4,7 @@ import Modal from "nav-frontend-modal";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
-import Lenke from "nav-frontend-lenker";
+import { Link } from "@navikt/ds-react";
 
 interface HjelpetekstProps {
   beskrivelse: string;
@@ -57,16 +57,14 @@ function Infotekst(props: HjelpetekstProps) {
                       {text}
                     </>
                   ),
-                  b: (text: string) => (
-                      <b>{text}</b>
-                  ),
+                  b: (text: string) => <b>{text}</b>,
                   span: (text: string) => (
                     <span style={{ textTransform: "none" }}>{text}</span>
                   ),
                   lenkeAaRegisteret: (text: string) => (
-                    <Lenke href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
+                    <Link href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
                       {text}
-                    </Lenke>
+                    </Link>
                   ),
                 }}
               />

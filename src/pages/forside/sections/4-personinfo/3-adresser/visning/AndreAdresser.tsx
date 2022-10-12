@@ -7,14 +7,16 @@ import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adr
 import Adresse from "./Adresse";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
 import Modal from "nav-frontend-modal";
-import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import HttpFeilmelding, { Feilmelding } from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
 import {
   fetchPersonInfo,
   slettKontaktadresse,
 } from "../../../../../../clients/apiClient";
 import { PersonInfo } from "../../../../../../types/personInfo";
 import { useStore } from "../../../../../../store/Context";
+import { Button } from "@navikt/ds-react";
 
 interface Props {
   kontaktadresse?: IKontaktadresse;
@@ -115,16 +117,21 @@ const AndreAdresser = (props: Props) => {
                   />
                 </Normaltekst>
                 <div className="adresse__modal-knapper">
-                  <Fareknapp
+                  <Button
+                    variant={"danger"}
                     onClick={slettPdlKontaktadresse}
-                    spinner={slettLoading}
-                    autoDisableVedSpinner={true}
+                    loading={slettLoading}
+                    disabled={slettLoading}
                   >
                     <FormattedMessage id={"side.slett"} />
-                  </Fareknapp>
-                  <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
+                  </Button>
+                  <Button
+                    variant={"tertiary"}
+                    onClick={lukkSlettModal}
+                    disabled={slettLoading}
+                  >
                     <FormattedMessage id="side.avbryt" />
-                  </Flatknapp>
+                  </Button>
                 </div>
                 {slettAlert && <HttpFeilmelding {...slettAlert} />}
               </div>

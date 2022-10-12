@@ -9,9 +9,8 @@ import Check from "assets/img/Check.svg";
 import WithMEDL from "./MedlFetch";
 import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
 import { Element } from "nav-frontend-typografi";
-import Lenke from "nav-frontend-lenker";
 import ListElement from "../../components/listelement/ListElement";
-import { Accordion, Alert } from "@navikt/ds-react";
+import { Accordion, Alert, Link } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -103,7 +102,7 @@ const Perioder = (props: PerioderProps) => {
             id={`medl.folketrygden.ingress`}
             values={{
               lenkeTilFolketrygden: (text: string) => (
-                <Lenke href={lenkerTilFolketrygden[locale]}>{text}</Lenke>
+                <Link href={lenkerTilFolketrygden[locale]}>{text}</Link>
               ),
             }}
           />
