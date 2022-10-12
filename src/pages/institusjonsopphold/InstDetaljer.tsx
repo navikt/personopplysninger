@@ -9,7 +9,7 @@ import WithInst from "./InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
 import { formatOrgnr, RADIX_DECIMAL } from "../../utils/formattering";
 import Kilde from "../../components/kilde/Kilde";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 interface Routes {
   id: string;
@@ -81,9 +81,9 @@ const InstDetaljer = () => {
                               : ``
                           }`}
                           {innslag.fiktivSluttdato && (
-                            <Hjelpetekst>
+                            <CustomHelpText>
                               <FormattedMessage id={"inst.fiktivSluttdato"} />
-                            </Hjelpetekst>
+                            </CustomHelpText>
                           )}
                         </div>
                       }

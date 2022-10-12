@@ -1,7 +1,6 @@
 import React from "react";
 import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
-import PanelBase from "nav-frontend-paneler";
 import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
@@ -14,29 +13,27 @@ import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import { basePath } from "../../../../App";
 import { AnchorLink } from "../../../../components/anchorlink/AnchorLink";
+import { Panel } from "@navikt/ds-react";
 
-const {
-  REACT_APP_PDL_URL,
-  REACT_APP_BFT_URL,
-  REACT_APP_SKJERMING_URL,
-} = process.env;
+const { REACT_APP_PDL_URL, REACT_APP_BFT_URL, REACT_APP_SKJERMING_URL } =
+  process.env;
 
 const id = "flere-opplysninger";
 
 const LinksContainer = () => {
   const [{ featureToggles, locale }] = useStore();
   return (
-    <PanelBase className="el__panel" id={id}>
+    <Panel className="el__panel" id={id}>
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>
-            <FormattedMessage id="lenker.tittel"/>
+            <FormattedMessage id="lenker.tittel" />
           </Systemtittel>
         </div>
-        <AnchorLink id={id}/>
+        <AnchorLink id={id} />
         <div className="el__info">
           <Normaltekst>
-            <FormattedMessage id="lenker.beskrivelse"/>
+            <FormattedMessage id="lenker.beskrivelse" />
           </Normaltekst>
         </div>
         {lenker(locale).map((link) => (
@@ -96,17 +93,17 @@ const LinksContainer = () => {
           />
         )}
         {featureToggles.data["personopplysninger.fullmakt"] &&
-        featureToggles.data["pdl-fullmakt"] && (
-          <LinkBox
-            id={"fullmakt"}
-            icon={FullmaktIkon}
-            tittel={"lenker.fullmakt.tittel"}
-            beskrivelse={"lenker.fullmakt.beskrivelse"}
-            lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-            to={`${REACT_APP_PDL_URL}`}
-            component={"a"}
-          />
-        )}
+          featureToggles.data["pdl-fullmakt"] && (
+            <LinkBox
+              id={"fullmakt"}
+              icon={FullmaktIkon}
+              tittel={"lenker.fullmakt.tittel"}
+              beskrivelse={"lenker.fullmakt.beskrivelse"}
+              lenkeTekst={"lenker.fullmakt.lenkeTekst"}
+              to={`${REACT_APP_PDL_URL}`}
+              component={"a"}
+            />
+          )}
         {featureToggles.data["personopplysninger.tilrettelegging"] && (
           <LinkBox
             id={"tilrettelegging"}
@@ -128,7 +125,7 @@ const LinksContainer = () => {
           component={"a"}
         />
       </div>
-    </PanelBase>
+    </Panel>
   );
 };
 

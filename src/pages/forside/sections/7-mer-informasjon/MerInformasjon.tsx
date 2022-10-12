@@ -3,10 +3,10 @@ import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import MerInformasjonPanel from "./MerInformasjonPanel";
 import merInformasjon from "./MerInformasjonData";
-import PanelBase from "nav-frontend-paneler";
+import { Panel } from "@navikt/ds-react";
 
 const AlternativListe = () => (
-  <PanelBase className="el__panel">
+  <Panel className="el__panel">
     <div className="mi__content">
       <div className="mi__overskrift">
         <Systemtittel>
@@ -23,7 +23,7 @@ const AlternativListe = () => (
         </Fragment>
       ))}
     </div>
-  </PanelBase>
+  </Panel>
 );
 
 export default AlternativListe;

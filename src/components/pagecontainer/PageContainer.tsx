@@ -2,11 +2,11 @@ import React from "react";
 import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
-import PanelBase from "nav-frontend-paneler";
 import Tilbake from "components/tilbake/Tilbake";
 import Brodsmulesti, {
   BrodsmuleLenke,
 } from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
+import { Panel } from "@navikt/ds-react";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -39,7 +39,7 @@ const PageContainer = (props: Props) => {
         </div>
         <div className="da__filler" />
       </div>
-      <PanelBase className="da__innhold">{props.children}</PanelBase>
+      <Panel className="da__innhold">{props.children}</Panel>
     </div>
   );
 };
