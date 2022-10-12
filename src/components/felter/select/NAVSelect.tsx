@@ -5,13 +5,13 @@ import cls from "classnames";
 import { NedChevron } from "nav-frontend-chevron";
 import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { PopoverOrientering } from "nav-frontend-popover";
 import { HTTPError } from "../../error/Error";
 import { Loader } from "@navikt/ds-react";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 interface Props {
   id?: string;
@@ -116,7 +116,7 @@ const NAVSelect = React.memo((props: Props) => {
           <div className="skjemaelement__label">{props.label}</div>
         )}
         {props.hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre}>
+          <CustomHelpText placement={"right"}>
             <FormattedMessage
               id={props.hjelpetekst}
               values={{
@@ -130,7 +130,7 @@ const NAVSelect = React.memo((props: Props) => {
                 ),
               }}
             />
-          </Hjelpetekst>
+          </CustomHelpText>
         )}
       </div>
       <div

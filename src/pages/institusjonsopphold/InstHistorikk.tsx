@@ -11,8 +11,8 @@ import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import Kilde from "../../components/kilde/Kilde";
 import PilNed from "assets/img/PilNed.svg";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { Alert, Button } from "@navikt/ds-react";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 /*
   Hent data
@@ -106,9 +106,9 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                             </Moment>
                           )}
                           {innslag.fiktivSluttdato && (
-                            <Hjelpetekst>
+                            <CustomHelpText>
                               <FormattedMessage id={"inst.fiktivSluttdato"} />
-                            </Hjelpetekst>
+                            </CustomHelpText>
                           )}
                         </div>
                         <div className="historikk__flex-kolonne">

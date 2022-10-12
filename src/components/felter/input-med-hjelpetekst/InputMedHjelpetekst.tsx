@@ -1,8 +1,7 @@
 import React, { Fragment } from "react";
 import { Input, InputProps } from "nav-frontend-skjema";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { FormattedMessage } from "react-intl";
-import { PopoverOrientering } from "nav-frontend-popover";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 type IProps = Omit<InputProps, "onChange">;
 interface Props extends IProps {
@@ -29,7 +28,7 @@ const EndreKontonummerFelt = ({
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre}>
+          <CustomHelpText placement={"right"}>
             <FormattedMessage
               id={hjelpetekst}
               values={{
@@ -43,7 +42,7 @@ const EndreKontonummerFelt = ({
                 ),
               }}
             />
-          </Hjelpetekst>
+          </CustomHelpText>
         )}
       </div>
       <div className="ekf__input">

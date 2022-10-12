@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Element } from "nav-frontend-typografi";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 interface Props {
   title?: string;
@@ -18,14 +18,12 @@ const ListElement = (props: Props) => {
       <div className={"listelement__header"}>
         <Element>{titleId ? <FormattedMessage id={titleId} /> : title}</Element>
         {hjelpetekstId && (
-          <Hjelpetekst>
+          <CustomHelpText>
             <FormattedMessage id={hjelpetekstId} />
-          </Hjelpetekst>
+          </CustomHelpText>
         )}
       </div>
-      <div className={`content ${className || ""}`}>
-        {content}
-      </div>
+      <div className={`content ${className || ""}`}>{content}</div>
       {children}
     </li>
   ) : null;
