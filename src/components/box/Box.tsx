@@ -5,6 +5,7 @@ import Veilederpanel from "nav-frontend-veilederpanel";
 import Modal from "nav-frontend-modal";
 import Infotekst from "components/infotekst/Infotekst";
 import { AnchorLink } from "../anchorlink/AnchorLink";
+import { GuidePanel } from "@navikt/ds-react";
 
 interface Props {
   id: string;
@@ -22,24 +23,24 @@ const Box = (props: Props) => {
 
   return (
     <div className="box__wrapper" id={id}>
-      <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
+      <GuidePanel illustration={Veileder} poster>
         <div className="box__container">
           <div className="box__header">
             <div className="box__title-container">
-              <div className="box__line"/>
+              <div className="box__line" />
               {tittel && (
                 <Systemtittel className="box__title">
-                  <FormattedMessage id={tittel}/>
+                  <FormattedMessage id={tittel} />
                 </Systemtittel>
               )}
-              {beskrivelse && <Infotekst beskrivelse={beskrivelse}/>}
-              <div className="box__line"/>
+              {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
+              <div className="box__line" />
             </div>
-            {visAnkerlenke && <AnchorLink id={id}/>}
+            {visAnkerlenke && <AnchorLink id={id} />}
           </div>
           <div className="box__content">{children}</div>
         </div>
-      </Veilederpanel>
+      </GuidePanel>
     </div>
   );
 };
