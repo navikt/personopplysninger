@@ -1,12 +1,11 @@
 import React from "react";
-import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
 import Tilbake from "components/tilbake/Tilbake";
 import Brodsmulesti, {
   BrodsmuleLenke,
 } from "pages/forside/sections/2-brodsmulesti/Brodsmulesti";
-import { Panel } from "@navikt/ds-react";
+import { Heading, Panel } from "@navikt/ds-react";
 
 interface Props {
   children: JSX.Element | JSX.Element[];
@@ -30,12 +29,12 @@ const PageContainer = (props: Props) => {
           <Tilbake to={props.backTo} />
         </div>
         <div className="da__overskrift">
-          <Systemtittel>
+          <Heading size={"medium"} level={"2"}>
             <FormattedMessage
               id={props.tittelId}
               values={{ br: () => <br /> }}
             />
-          </Systemtittel>
+          </Heading>
         </div>
         <div className="da__filler" />
       </div>

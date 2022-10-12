@@ -1,6 +1,5 @@
 import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
-import { Link } from "@navikt/ds-react";
+import { Link, BodyShort } from "@navikt/ds-react";
 
 const lenker = [
   {
@@ -37,7 +36,7 @@ export const Meny = () => (
         {lenker.map((lenke) => (
           <li key={lenke.href}>
             <Link href={lenke.href}>
-              <Normaltekst>{lenke.navn}</Normaltekst>
+              <BodyShort>{lenke.navn}</BodyShort>
             </Link>
           </li>
         ))}

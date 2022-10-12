@@ -1,12 +1,11 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "assets/img/Veileder.svg";
 import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
-import { GuidePanel, Link } from "@navikt/ds-react";
+import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
 
 const Header = () => {
   const [{ authInfo }] = useStore();
@@ -26,7 +25,7 @@ const Header = () => {
         <div className="header">
           <GuidePanel illustration={Veileder} poster>
             <div className="box__container header__content">
-              <Systemtittel>
+              <Heading size={"medium"} level={"2"}>
                 {fornavn ? (
                   <FormattedMessage
                     id="header.hello.name"
@@ -35,14 +34,14 @@ const Header = () => {
                 ) : (
                   <FormattedMessage id="header.hello" />
                 )}
-              </Systemtittel>
+              </Heading>
               <div className="header__seksjon">
-                <Normaltekst>
+                <BodyLong>
                   <FormattedMessage id="header.obs" />
-                </Normaltekst>
+                </BodyLong>
               </div>
               <div className="header__seksjon">
-                <Normaltekst>
+                <BodyLong>
                   <FormattedMessage
                     id="header.description"
                     values={{
@@ -57,7 +56,7 @@ const Header = () => {
                       ),
                     }}
                   />
-                </Normaltekst>
+                </BodyLong>
               </div>
             </div>
           </GuidePanel>

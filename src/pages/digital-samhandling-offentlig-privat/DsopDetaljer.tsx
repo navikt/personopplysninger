@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import { useParams } from "react-router-dom";
@@ -8,7 +7,7 @@ import moment from "moment";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
-import { Button } from "@navikt/ds-react";
+import { BodyShort, Button, Label } from "@navikt/ds-react";
 
 interface Routes {
   id: string;
@@ -52,13 +51,13 @@ const DsopDetaljer = () => {
               return (
                 <div>
                   <div className="detaljer__tittel">
-                    <Undertittel>{innslag.mottakernavn}</Undertittel>
-                    <Normaltekst>
+                    <Label as="p">{innslag.mottakernavn}</Label>
+                    <BodyShort>
                       <FormattedMessage
                         id="side.organisasjonsnummer"
                         values={{ orgnr: innslag.mottaker }}
                       />
-                    </Normaltekst>
+                    </BodyShort>
                   </div>
                   <hr className="box__linje-bred" />
                   <div className="box">

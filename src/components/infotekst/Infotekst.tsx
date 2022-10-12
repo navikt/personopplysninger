@@ -1,10 +1,9 @@
 import React, { Fragment, useState } from "react";
-import { Normaltekst } from "nav-frontend-typografi";
 import Modal from "nav-frontend-modal";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
-import { Link } from "@navikt/ds-react";
+import { Link, BodyLong } from "@navikt/ds-react";
 
 interface HjelpetekstProps {
   beskrivelse: string;
@@ -40,7 +39,7 @@ function Infotekst(props: HjelpetekstProps) {
       >
         <div style={{ padding: "2rem 2.5rem" }}>
           <div className="infotekst__ingress">
-            <Normaltekst>
+            <BodyLong>
               <FormattedMessage
                 id={props.beskrivelse}
                 values={{
@@ -68,7 +67,7 @@ function Infotekst(props: HjelpetekstProps) {
                   ),
                 }}
               />
-            </Normaltekst>
+            </BodyLong>
           </div>
         </div>
       </Modal>

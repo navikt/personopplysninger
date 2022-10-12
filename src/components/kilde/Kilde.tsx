@@ -1,8 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Normaltekst, Undertekst } from "nav-frontend-typografi";
 import { Link as ReactLink } from "react-router-dom";
-import { Link } from "@navikt/ds-react";
+import { Link, BodyLong, Detail } from "@navikt/ds-react";
 
 type Props =
   | {
@@ -28,7 +27,7 @@ const Knapp = (props: Props) => {
   switch (props.lenkeType) {
     case "INTERN":
       return (
-        <Normaltekst>
+        <BodyLong>
           <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
@@ -37,11 +36,11 @@ const Knapp = (props: Props) => {
             )}
             <FormattedMessage id={props.lenkeTekst} />
           </Link>
-        </Normaltekst>
+        </BodyLong>
       );
     case "EKSTERN":
       return (
-        <Normaltekst>
+        <BodyLong>
           <Link href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
@@ -50,7 +49,7 @@ const Knapp = (props: Props) => {
             )}
             <FormattedMessage id={props.lenkeTekst} />
           </Link>
-        </Normaltekst>
+        </BodyLong>
       );
     case "KNAPP":
       return (
@@ -60,9 +59,9 @@ const Knapp = (props: Props) => {
               <img src={props.ikon} alt="Ekstern lenke" />
             </span>
           )}
-          <Normaltekst>
+          <BodyLong>
             <FormattedMessage id={props.lenkeTekst} />
-          </Normaltekst>
+          </BodyLong>
         </button>
       );
     case "INGEN":
@@ -78,7 +77,7 @@ const Kilde = (props: Props) => {
         <Knapp {...props} />
         <div className="kilde__tekst">
           {props.kilde && (
-            <Undertekst>
+            <Detail>
               <FormattedMessage
                 id={props.kilde}
                 values={{
@@ -93,7 +92,7 @@ const Kilde = (props: Props) => {
                   ),
                 }}
               />
-            </Undertekst>
+            </Detail>
           )}
         </div>
       </div>

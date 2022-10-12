@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { DsopInfo } from "types/dsop";
-import { Element } from "nav-frontend-typografi";
 import moment from "moment";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
@@ -9,7 +8,7 @@ import { Link as ReactLink, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
-import { Alert, Link } from "@navikt/ds-react";
+import { Alert, Label, Link } from "@navikt/ds-react";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -82,14 +81,14 @@ const Tabell = (props: Props) => {
           </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="dsop.uthentingstidspunkt" />
-              </Element>
+              </Label>
             </div>
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="dsop.mottaker" />
-              </Element>
+              </Label>
             </div>
           </div>
           {Object.keys(data)
