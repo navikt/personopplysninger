@@ -1,7 +1,7 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
 import { Postboksadresse as PostboksadresseType } from "types/adresser/adresse";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from "@navikt/ds-react";
 
 const Postboksadresse = (props: PostboksadresseType) => {
   const { postbokseier, postboks, postnummer, coAdressenavn } = props;
@@ -10,17 +10,17 @@ const Postboksadresse = (props: PostboksadresseType) => {
     <>
       {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{coAdressenavn}</Normaltekst>
+          <BodyShort>{coAdressenavn}</BodyShort>
         </div>
       )}
       {postbokseier && (
         <div className="adresse__linje">
-          <Normaltekst>{postbokseier}</Normaltekst>
+          <BodyShort>{postbokseier}</BodyShort>
         </div>
       )}
       {postboks && (
         <div className="adresse__linje">
-          <Normaltekst>{postboks}</Normaltekst>
+          <BodyShort>{postboks}</BodyShort>
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />

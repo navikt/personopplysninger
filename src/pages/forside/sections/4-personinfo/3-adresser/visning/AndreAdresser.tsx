@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Kilde from "components/kilde/Kilde";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
 import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adresser/oppholdsadresse";
@@ -16,7 +15,7 @@ import {
 } from "../../../../../../clients/apiClient";
 import { PersonInfo } from "../../../../../../types/personInfo";
 import { useStore } from "../../../../../../store/Context";
-import { Button } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Button, Heading } from "@navikt/ds-react";
 
 interface Props {
   kontaktadresse?: IKontaktadresse;
@@ -65,9 +64,9 @@ const AndreAdresser = (props: Props) => {
   return (
     <>
       <div className="underseksjon__header underseksjon__divider">
-        <Undertittel>
+        <Heading size={"small"} level={"3"}>
           <FormattedMessage id={"adresse.overskrift.ovrige"} />
-        </Undertittel>
+        </Heading>
       </div>
       {oppholdsadresse && (
         <Adresse
@@ -90,9 +89,9 @@ const AndreAdresser = (props: Props) => {
             <span className="kilde__icon">
               <img src={slettIkon} alt="Ekstern lenke" />
             </span>
-            <Normaltekst>
+            <BodyLong>
               <FormattedMessage id={"side.slett.kontaktadresse"} />
-            </Normaltekst>
+            </BodyLong>
           </button>
 
           {visSlettModal && (
@@ -103,7 +102,7 @@ const AndreAdresser = (props: Props) => {
               contentLabel={msg({ id: "side.slett" })}
             >
               <div style={{ padding: "2rem 2.5rem" }}>
-                <Normaltekst>
+                <BodyShort>
                   <FormattedMessage
                     id="adresse.slett.alert"
                     values={{
@@ -115,7 +114,7 @@ const AndreAdresser = (props: Props) => {
                       ),
                     }}
                   />
-                </Normaltekst>
+                </BodyShort>
                 <div className="adresse__modal-knapper">
                   <Button
                     variant={"danger"}

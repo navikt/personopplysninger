@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
@@ -10,6 +9,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import { formatOrgnr, RADIX_DECIMAL } from "../../utils/formattering";
 import Kilde from "../../components/kilde/Kilde";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { BodyShort, Heading } from "@navikt/ds-react";
 
 interface Routes {
   id: string;
@@ -42,9 +42,11 @@ const InstDetaljer = () => {
           return innslag ? (
             <div>
               <div className="detaljer__tittel">
-                <Undertittel>{innslag.institusjonsnavn}</Undertittel>
+                <Heading size={"small"} level={"2"}>
+                  {innslag.institusjonsnavn}
+                </Heading>
                 {innslag.organisasjonsnummer && (
-                  <Normaltekst>
+                  <BodyShort>
                     <FormattedMessage
                       id="side.organisasjonsnummer"
                       values={{
@@ -56,7 +58,7 @@ const InstDetaljer = () => {
                         ),
                       }}
                     />
-                  </Normaltekst>
+                  </BodyShort>
                 )}
               </div>
               <hr className="box__linje-bred" />

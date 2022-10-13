@@ -3,7 +3,6 @@ import Box from "components/box/Box";
 import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
-import { Normaltekst, Element } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Select } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
@@ -13,7 +12,7 @@ import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { useStore } from "store/Context";
-import { Link } from "@navikt/ds-react";
+import { BodyShort, Detail, Heading, Label, Link } from "@navikt/ds-react";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -46,10 +45,10 @@ const DittNavKontor = (props: Props) => {
     >
       <div className="dittnavkontor__header">
         <div className="dittnavkontor__ingress">
-          <Normaltekst>
+          <BodyShort>
             <FormattedMessage id="dittnavkontor.ingress" />
-          </Normaltekst>
-          <Element>{geografiskTilknytning.enhet}</Element>
+            <Label as="span">{geografiskTilknytning.enhet}</Label>
+          </BodyShort>
         </div>
         {publikumsmottak.length > 1 && (
           <Select
@@ -79,10 +78,10 @@ const DittNavKontor = (props: Props) => {
         <div className="dittnavkontor__adresser">
           {postadresse && (
             <div className="dittnavkontor__postadresse">
-              <Element>
+              <Heading size={"xsmall"} level={"3"}>
                 <FormattedMessage id="dittnavkontor.postadresse" />
-              </Element>
-              <Normaltekst>
+              </Heading>
+              <BodyShort>
                 {postadresse.type === "stedsadresse" &&
                   `${print(postadresse.gatenavn)} ${print(
                     postadresse.husnummer
@@ -93,27 +92,27 @@ const DittNavKontor = (props: Props) => {
                   })} ${print(postadresse.postboksnummer)} ${print(
                     postadresse.postboksanlegg
                   )}`}
-              </Normaltekst>
-              <Normaltekst>
+              </BodyShort>
+              <BodyShort>
                 {print(postadresse.postnummer)} {print(postadresse.poststed)}
-              </Normaltekst>
+              </BodyShort>
             </div>
           )}
           {valgtMottakId !== -1 && (
             <div className="dittnavkontor__publikumsmottak">
-              <Element>
+              <Heading size={"xsmall"} level={"3"}>
                 <FormattedMessage id="dittnavkontor.publikumsmottak" />
-              </Element>
-              <Normaltekst>
+              </Heading>
+              <BodyShort>
                 {`${print(publikumsmottak[valgtMottakId].gateadresse)} ${print(
                   publikumsmottak[valgtMottakId].husnummer
                 )}${print(publikumsmottak[valgtMottakId].husbokstav)}`}
-              </Normaltekst>
-              <Normaltekst>
+              </BodyShort>
+              <BodyShort>
                 {`${print(publikumsmottak[valgtMottakId].postnummer)} ${print(
                   publikumsmottak[valgtMottakId].poststed
                 )}`}
-              </Normaltekst>
+              </BodyShort>
             </div>
           )}
         </div>
@@ -121,9 +120,9 @@ const DittNavKontor = (props: Props) => {
       <div>
         {valgtMottakId !== -1 ? (
           <>
-            <Element>
+            <Heading size={"xsmall"} level={"3"}>
               <FormattedMessage id="dittnavkontor.apningstider" />
-            </Element>
+            </Heading>
             <div className="apningstid__container">
               <Apningstid
                 apningstid={publikumsmottak[valgtMottakId].aapningMandag}
@@ -143,9 +142,9 @@ const DittNavKontor = (props: Props) => {
             </div>
             {publikumsmottak[valgtMottakId].aapningAndre && (
               <>
-                <Element>
+                <Heading size={"xsmall"} level={"3"}>
                   <FormattedMessage id="dittnavkontor.andreapningstider" />
-                </Element>
+                </Heading>
                 <div className="apningstid__container">
                   {publikumsmottak[valgtMottakId].aapningAndre!.map(
                     (apningstid, id) => (

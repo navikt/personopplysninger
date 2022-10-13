@@ -1,17 +1,16 @@
 import React, { Fragment } from "react";
-import { Systemtittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import MerInformasjonPanel from "./MerInformasjonPanel";
 import merInformasjon from "./MerInformasjonData";
-import { Panel } from "@navikt/ds-react";
+import { Heading, Panel } from "@navikt/ds-react";
 
 const AlternativListe = () => (
   <Panel className="el__panel">
     <div className="mi__content">
       <div className="mi__overskrift">
-        <Systemtittel>
+        <Heading size={"medium"} level={"2"}>
           <FormattedMessage id="alternativer.tittel" />
-        </Systemtittel>
+        </Heading>
       </div>
       {merInformasjon.map((info, i) => (
         <Fragment key={i}>

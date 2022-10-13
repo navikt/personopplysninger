@@ -8,7 +8,6 @@ import {
   ValidatorContext,
 } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
-import { Element } from "nav-frontend-typografi";
 import SelectLandskode from "components/felter/select-kodeverk/SelectLandskode";
 import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
@@ -18,7 +17,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
-import { Button } from "@navikt/ds-react";
+import { Button, Label } from "@navikt/ds-react";
 
 interface Props {
   prioritet: 1 | 2;
@@ -113,9 +112,9 @@ const OpprettTelefonnummer = (props: Props) => {
             <>
               <div className={"tlfnummer__container"}>
                 <div className={"tlfnummer__verdi"}>
-                  <Element>
+                  <Label as="p">
                     <FormattedMessage id="side.leggtil" />
-                  </Element>
+                  </Label>
                 </div>
               </div>
               <div className="tlfnummer__form">

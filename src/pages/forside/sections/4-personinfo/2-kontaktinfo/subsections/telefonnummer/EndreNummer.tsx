@@ -1,4 +1,3 @@
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
@@ -18,7 +17,7 @@ import HttpFeilmelding, {
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
 import Modal from "nav-frontend-modal";
-import { Button } from "@navikt/ds-react";
+import { Button, BodyShort, Label } from "@navikt/ds-react";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -155,17 +154,17 @@ const EndreTelefonnummer = (props: Props) => {
           <>
             <div className={"tlfnummer__container"}>
               <div className={"tlfnummer__verdi"}>
-                <Element>
+                <Label as="p">
                   <FormattedMessage
                     id={titleId}
                     values={{ x: hasTwoNumbers ? prioritet : `` }}
                   />
-                </Element>
+                </Label>
                 {!endre && (
-                  <Normaltekst>
+                  <BodyShort>
                     {landskode && <span>{landskode} </span>}
                     {formatTelefonnummer(prioritet, tlfnummer, landskode)}
-                  </Normaltekst>
+                  </BodyShort>
                 )}
               </div>
               {!endre && (
@@ -208,9 +207,9 @@ const EndreTelefonnummer = (props: Props) => {
                 contentLabel={msg({ id: "side.opphor" })}
               >
                 <div style={{ padding: "2rem 2.5rem" }}>
-                  <Normaltekst>
+                  <BodyShort>
                     <FormattedMessage id="personalia.tlfnr.slett.alert" />
-                  </Normaltekst>
+                  </BodyShort>
                   <div className="adresse__modal-knapper">
                     <Button
                       as="button"

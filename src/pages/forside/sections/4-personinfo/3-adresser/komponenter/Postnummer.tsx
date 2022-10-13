@@ -1,5 +1,5 @@
 import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   postnummer?: string;
@@ -8,9 +8,9 @@ interface Props {
 
 const Postnummer = ({ postnummer, poststed }: Props) => (
   <div className="adresse__linje">
-    <Normaltekst>
+    <BodyShort>
       {postnummer && postnummer} {poststed && poststed}
-    </Normaltekst>
+    </BodyShort>
   </div>
 );
 

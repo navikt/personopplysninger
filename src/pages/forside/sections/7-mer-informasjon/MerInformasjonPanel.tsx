@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
-import { Link } from "@navikt/ds-react";
+import { BodyLong, BodyShort, Link } from "@navikt/ds-react";
 
 interface Props {
   tittel: string;
@@ -19,12 +18,12 @@ const Alternativ = (props: Props) => {
         onClick={() => settVisBeskrivelse(!visBeskrivelse)}
         aria-expanded={visBeskrivelse}
       >
-        <Normaltekst className="lenke mi__lenke">
+        <BodyShort className="lenke mi__lenke">
           <FormattedMessage id={tittel} />
-        </Normaltekst>
+        </BodyShort>
       </button>
       {visBeskrivelse && (
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage
             id={melding}
             values={{
@@ -69,7 +68,7 @@ const Alternativ = (props: Props) => {
               ),
             }}
           />
-        </Normaltekst>
+        </BodyLong>
       )}
     </>
   );

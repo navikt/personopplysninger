@@ -1,5 +1,4 @@
 import React, { useState, Fragment, useEffect } from "react";
-import { Element } from "nav-frontend-typografi";
 import moment from "moment";
 import Moment from "react-moment";
 import { NedChevron, OppChevron } from "nav-frontend-chevron";
@@ -9,7 +8,7 @@ import PageContainer from "components/pagecontainer/PageContainer";
 import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 import { Skattetrekksmelding } from "types/skattetrekksmeldinger";
-import { Alert, Link } from "@navikt/ds-react";
+import { Alert, Label, Link } from "@navikt/ds-react";
 
 /*
   Hent data
@@ -78,14 +77,14 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
           </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="inst.periode" />
-              </Element>
+              </Label>
             </div>
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="dsop.mottaker" />
-              </Element>
+              </Label>
             </div>
           </div>
           {Object.keys(data)

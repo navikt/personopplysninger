@@ -7,10 +7,15 @@ import MEDLIkon from "assets/img/MEDL.svg";
 import Kalender from "assets/img/Kalender.svg";
 import Check from "assets/img/Check.svg";
 import WithMEDL from "./MedlFetch";
-import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
-import { Element } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
-import { Accordion, Alert, Link } from "@navikt/ds-react";
+import {
+  Accordion,
+  Alert,
+  BodyLong,
+  Heading,
+  Label,
+  Link,
+} from "@navikt/ds-react";
 
 /*
   Hent data
@@ -65,9 +70,9 @@ const Perioder = (props: PerioderProps) => {
   return (
     <div className="medl__tabs-innhold">
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage id={`medl.oversikt.ingress`} />
-        </Normaltekst>
+        </BodyLong>
       </div>
       <div className={"medl__space"}>
         <Checkbox text={`medl.oversikt.1`} />
@@ -77,9 +82,9 @@ const Perioder = (props: PerioderProps) => {
       </div>
 
       <div className={"medl__section"}>
-        <Undertittel>
+        <Heading size={"small"} level={"2"}>
           <FormattedMessage id={"medl.situasjoner.tittel"} />
-        </Undertittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
         <Checkbox text={`medl.situasjoner.1`} />
@@ -92,12 +97,12 @@ const Perioder = (props: PerioderProps) => {
       </div>
 
       <div className={"medl__section"}>
-        <Undertittel>
+        <Heading size={"small"} level={"2"}>
           <FormattedMessage id={"medl.folketrygden.tittel"} />
-        </Undertittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage
             id={`medl.folketrygden.ingress`}
             values={{
@@ -106,18 +111,18 @@ const Perioder = (props: PerioderProps) => {
               ),
             }}
           />
-        </Normaltekst>
+        </BodyLong>
       </div>
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage id={`medl.folketrygden.lanekassen`} />
-        </Normaltekst>
+        </BodyLong>
       </div>
 
       <div className={"medl__section"}>
-        <Systemtittel>
+        <Heading size={"small"} level={"2"}>
           <FormattedMessage id={"medl.perioder.tittel"} />
-        </Systemtittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
         <Alert variant="info">
@@ -172,9 +177,9 @@ const Panel = (props: TabellProps) => {
           <FormattedMessage id={tittelId} />
         </Accordion.Header>
         <Accordion.Content>
-          <Normaltekst>
+          <BodyLong>
             <FormattedMessage id={tittelIdIngress} />
-          </Normaltekst>
+          </BodyLong>
           <div className={"medl__flex-table "}>
             {perioder.map((periode, i) => (
               <Periode key={i} periode={periode} />
@@ -193,9 +198,9 @@ interface PeriodeProps {
 const Checkbox = (props: { text: string }) => (
   <div className="medl__checkbox">
     <img className={"medl__kalender"} src={Check} alt="Sjekkboksikon" />
-    <Normaltekst>
+    <BodyLong>
       <FormattedMessage id={props.text} />
-    </Normaltekst>
+    </BodyLong>
   </div>
 );
 
@@ -206,12 +211,12 @@ export const Periode = (props: PeriodeProps) => {
       <div className="medl__flex-kolonne">
         <div className={"medl__heading"}>
           <img className={"medl__kalender"} src={Kalender} alt="Kalenderikon" />
-          <Element>
+          <Label as="p">
             <FormattedMessage id={"medl.periode"} />{" "}
             <Moment format="DD.MM.YY">{periode.fraOgMed}</Moment>
             {" - "}
             <Moment format="DD.MM.YY">{periode.tilOgMed}</Moment>
-          </Element>
+          </Label>
         </div>
         <div className={"medl__flex-grid box__content"}>
           <ul className="list-column-2">

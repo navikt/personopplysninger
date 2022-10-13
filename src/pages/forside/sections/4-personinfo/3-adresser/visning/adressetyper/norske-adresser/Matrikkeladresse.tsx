@@ -1,7 +1,7 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
 import { Matrikkeladresse as MatrikkeladresseType } from "types/adresser/adresse";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from "@navikt/ds-react";
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {
   const { tilleggsnavn, postnummer } = props;
@@ -10,12 +10,12 @@ const Matrikkeladresse = (props: MatrikkeladresseType) => {
     <>
       {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{coAdressenavn}</Normaltekst>
+          <BodyShort>{coAdressenavn}</BodyShort>
         </div>
       )}
       {tilleggsnavn && (
         <div className="adresse__linje">
-          <Normaltekst>{tilleggsnavn}</Normaltekst>
+          <BodyShort>{tilleggsnavn}</BodyShort>
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />

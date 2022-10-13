@@ -1,6 +1,6 @@
 import React from "react";
 import { Ukjentbosted as UkjentbostedType } from "types/adresser/adresse";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from "@navikt/ds-react";
 
 const Ukjentbosted = (props: UkjentbostedType) => {
   const { bostedskommune, coAdressenavn } = props;
@@ -8,12 +8,12 @@ const Ukjentbosted = (props: UkjentbostedType) => {
     <>
       {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{coAdressenavn}</Normaltekst>
+          <BodyShort>{coAdressenavn}</BodyShort>
         </div>
       )}
       {bostedskommune && (
         <div className="adresse__linje">
-          <Normaltekst>{bostedskommune}</Normaltekst>
+          <BodyShort>{bostedskommune}</BodyShort>
         </div>
       )}
     </>

@@ -1,9 +1,9 @@
 import React from "react";
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
 import { HoyreChevron } from "nav-frontend-chevron";
 import { Link } from "react-router-dom";
+import { BodyLong, Label } from "@navikt/ds-react";
 
 export interface Props {
   id: string;
@@ -25,15 +25,15 @@ const Box = (props: Props) => {
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
             <div className="lenke">
-              <Element>
+              <Label as="div">
                 <FormattedMessage id={props.tittel} />
-              </Element>
+              </Label>
             </div>
           </div>
           <div className="linkbox__beskrivelse">
-            <Normaltekst>
+            <BodyLong>
               <FormattedMessage id={props.beskrivelse} />
-            </Normaltekst>
+            </BodyLong>
           </div>
         </div>
       </div>

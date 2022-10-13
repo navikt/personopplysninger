@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
 import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
@@ -11,7 +10,7 @@ import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "./InstFetch";
 import Kilde from "../../components/kilde/Kilde";
 import PilNed from "assets/img/PilNed.svg";
-import { Alert, Button } from "@navikt/ds-react";
+import { Alert, BodyLong, BodyShort, Button, Label } from "@navikt/ds-react";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 /*
@@ -48,23 +47,23 @@ const Tabell = (props: { instInfo: InstInfo }) => {
   return (
     <div className="arbeidsforhold__disclaimer">
       <Alert variant="info">
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage id="inst.disclaimer" />
-        </Normaltekst>
+        </BodyLong>
       </Alert>
       <div className={"inst__tabell"}>
         {instInfo.length > 0 ? (
           <>
             <div className="historikk__flex-rad inst__head">
               <div className="historikk__flex-kolonne">
-                <Element>
+                <Label as="p">
                   <FormattedMessage id="inst.periode" />
-                </Element>
+                </Label>
               </div>
               <div className="historikk__flex-kolonne">
-                <Element>
+                <Label as="p">
                   <FormattedMessage id="inst.institusjon" />
-                </Element>
+                </Label>
               </div>
             </div>
             <TransitionGroup>
@@ -96,15 +95,17 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                     >
                       <div className="historikk__flex-rad">
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM.YYYY">
-                            {innslag.startdato}
-                          </Moment>
-                          {` - `}
-                          {innslag.faktiskSluttdato && (
+                          <BodyShort>
                             <Moment format="DD.MM.YYYY">
-                              {innslag.faktiskSluttdato}
+                              {innslag.startdato}
                             </Moment>
-                          )}
+                            {` - `}
+                            {innslag.faktiskSluttdato && (
+                              <Moment format="DD.MM.YYYY">
+                                {innslag.faktiskSluttdato}
+                              </Moment>
+                            )}
+                          </BodyShort>
                           {innslag.fiktivSluttdato && (
                             <CustomHelpText>
                               <FormattedMessage id={"inst.fiktivSluttdato"} />
@@ -116,7 +117,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
                             to={`${location.pathname}/${innslag.registreringstidspunkt}`}
                             className="lenke"
                           >
-                            {innslag.institusjonsnavn}
+                            <BodyShort>{innslag.institusjonsnavn}</BodyShort>
                           </Link>
                         </div>
                       </div>
@@ -139,7 +140,7 @@ const Tabell = (props: { instInfo: InstInfo }) => {
               onClick={() => setViewAmount(viewAmount + 20)}
             >
               <span>
-                <Normaltekst>Se flere</Normaltekst>
+                <BodyShort>Se flere</BodyShort>
               </span>
               <img
                 alt={"Se flere ikon"}

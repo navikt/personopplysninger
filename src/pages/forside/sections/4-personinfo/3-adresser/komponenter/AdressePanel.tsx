@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Element } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import Lesmerpanel from "nav-frontend-lesmerpanel";
 import ListElement from "../../../../../../components/listelement/ListElement";
+import { Heading, Label } from "@navikt/ds-react";
 
 interface Props {
   tittel: string;
@@ -18,9 +18,9 @@ const AdressePanel = (props: Props) => {
   return (
     <div className="adresse__box">
       <div className="underseksjon__header">
-        <Element>
+        <Heading level={"4"} size={"xsmall"}>
           <FormattedMessage id={props.tittel} />
-        </Element>
+        </Heading>
       </div>
       {props.children}
       {(props.bruksenhetsnummer ||

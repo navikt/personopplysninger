@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
+import { BodyShort, Heading } from "@navikt/ds-react";
 
 interface Routes {
   id: string;
@@ -30,19 +30,21 @@ const SkattekortDetaljer = () => {
       <WithSkatt>
         {({ data }) => {
           const instInnslag = data
-            .filter(d => d.registreringstidspunkt === id)
+            .filter((d) => d.registreringstidspunkt === id)
             .shift();
 
           return instInnslag ? (
             <div>
               <div className="detaljer__tittel">
-                <Undertittel>{instInnslag.institusjonsnavn}</Undertittel>
-                <Normaltekst>
+                <Heading size={"small"} level={"3"}>
+                  {instInnslag.institusjonsnavn}
+                </Heading>
+                <BodyShort>
                   <FormattedMessage
                     id="side.organisasjonsnummer"
                     values={{ orgnr: instInnslag.organisasjonsnummer }}
                   />
-                </Normaltekst>
+                </BodyShort>
               </div>
               <hr className="box__linje-bred" />
               <div className="box">
