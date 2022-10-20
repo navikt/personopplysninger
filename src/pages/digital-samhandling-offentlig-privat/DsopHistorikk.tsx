@@ -2,13 +2,13 @@ import React, { useState, Fragment, useEffect } from "react";
 import { DsopInfo } from "types/dsop";
 import moment from "moment";
 import Moment from "react-moment";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "./DsopFetch";
 import { Alert, Label, Link } from "@navikt/ds-react";
+import { Collapse, Expand } from "@navikt/ds-icons";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -111,8 +111,7 @@ const Tabell = (props: Props) => {
                       className="historikk__flex-kolonne af-liste__ekspander"
                       onClick={onClick}
                     >
-                      {year}{" "}
-                      {value.ekspandert ? <OppChevron /> : <NedChevron />}
+                      {year} {value.ekspandert ? <Collapse /> : <Expand />}
                     </div>
                     <div />
                   </div>

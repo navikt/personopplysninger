@@ -1,7 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import moment from "moment";
 import Moment from "react-moment";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
@@ -9,6 +8,7 @@ import SkattIkon from "assets/img/Skattekort.svg";
 import WithSkatt from "./SkattFetch";
 import { Skattetrekksmelding } from "types/skattetrekksmeldinger";
 import { Alert, Label, Link } from "@navikt/ds-react";
+import { Collapse, Expand } from "@navikt/ds-icons";
 
 /*
   Hent data
@@ -107,8 +107,7 @@ const Tabell = (props: { instInfo: Skattetrekksmelding[] }) => {
                       className="historikk__flex-kolonne af-liste__ekspander"
                       onClick={onClick}
                     >
-                      {year}{" "}
-                      {value.ekspandert ? <OppChevron /> : <NedChevron />}
+                      {year} {value.ekspandert ? <Collapse /> : <Expand />}
                     </div>
                     <div />
                   </div>

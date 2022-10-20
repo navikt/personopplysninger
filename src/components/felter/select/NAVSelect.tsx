@@ -2,16 +2,15 @@ import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import { useIntl } from "react-intl";
 import cls from "classnames";
-import { NedChevron } from "nav-frontend-chevron";
 import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
-import { PopoverOrientering } from "nav-frontend-popover";
 import { HTTPError } from "../../error/Error";
 import { Loader } from "@navikt/ds-react";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { Expand } from "@navikt/ds-icons";
 
 interface Props {
   id?: string;
@@ -44,7 +43,7 @@ const LoadingIndicator = () => (
 
 const DropdownIndicator = (props: any) => (
   <div className="KodeverkSelect__dropdown-indicator">
-    <NedChevron />
+    <Expand />
   </div>
 );
 

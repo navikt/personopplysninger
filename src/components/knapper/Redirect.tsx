@@ -2,8 +2,8 @@ import React from "react";
 import { redirects, validateAndDecodeRedirectUrl } from "utils/redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
-import { VenstreChevron } from "nav-frontend-chevron";
 import { useHistory, useLocation } from "react-router-dom";
+import { Back } from "@navikt/ds-icons";
 
 interface Props {
   tjeneste?: string;
@@ -41,7 +41,7 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
           <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
           <div className="redirect__lenke">
             <div className="redirect__chevron">
-              <VenstreChevron />
+              <Back />
             </div>
             <a href={redirectUrl}>{redirect.knapp}</a>
           </div>

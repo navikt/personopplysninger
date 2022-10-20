@@ -1,9 +1,9 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
-import { HoyreChevron } from "nav-frontend-chevron";
 import { Link } from "react-router-dom";
 import { BodyLong, Label } from "@navikt/ds-react";
+import { Next } from "@navikt/ds-icons";
 
 export interface Props {
   id: string;
@@ -37,7 +37,7 @@ const Box = (props: Props) => {
           </div>
         </div>
       </div>
-      <HoyreChevron />
+      <Next className="linkbox__next" />
     </>
   );
 };
