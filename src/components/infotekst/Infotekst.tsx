@@ -1,9 +1,8 @@
 import React, { Fragment, useState } from "react";
-import Modal from "nav-frontend-modal";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
-import { Link, BodyLong } from "@navikt/ds-react";
+import { Link, BodyLong, Modal } from "@navikt/ds-react";
 
 interface HjelpetekstProps {
   beskrivelse: string;
@@ -31,45 +30,46 @@ function Infotekst(props: HjelpetekstProps) {
         />
       </button>
       <Modal
-        isOpen={erSynlig}
-        onRequestClose={() => settErSynlig(false)}
+        open={erSynlig}
+        onClose={() => settErSynlig(false)}
         closeButton={true}
-        contentLabel="Min modalrute"
         className="infotekst__modal"
       >
-        <div style={{ padding: "2rem 2.5rem" }}>
-          <div className="infotekst__ingress">
-            <BodyLong>
-              <FormattedMessage
-                id={props.beskrivelse}
-                values={{
-                  p: (...chunks: string[]) => (
-                    <p>
-                      {chunks.map((chunk, i) => (
-                        <Fragment key={i}>{chunk}</Fragment>
-                      ))}
-                    </p>
-                  ),
-                  br: (text: string) => (
-                    <>
-                      <br />
-                      {text}
-                    </>
-                  ),
-                  b: (text: string) => <b>{text}</b>,
-                  span: (text: string) => (
-                    <span style={{ textTransform: "none" }}>{text}</span>
-                  ),
-                  lenkeAaRegisteret: (text: string) => (
-                    <Link href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
-                      {text}
-                    </Link>
-                  ),
-                }}
-              />
-            </BodyLong>
+        <Modal.Content>
+          <div style={{ padding: "2rem 2.5rem" }}>
+            <div className="infotekst__ingress">
+              <BodyLong>
+                <FormattedMessage
+                  id={props.beskrivelse}
+                  values={{
+                    p: (...chunks: string[]) => (
+                      <p>
+                        {chunks.map((chunk, i) => (
+                          <Fragment key={i}>{chunk}</Fragment>
+                        ))}
+                      </p>
+                    ),
+                    br: (text: string) => (
+                      <>
+                        <br />
+                        {text}
+                      </>
+                    ),
+                    b: (text: string) => <b>{text}</b>,
+                    span: (text: string) => (
+                      <span style={{ textTransform: "none" }}>{text}</span>
+                    ),
+                    lenkeAaRegisteret: (text: string) => (
+                      <Link href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
+                        {text}
+                      </Link>
+                    ),
+                  }}
+                />
+              </BodyLong>
+            </div>
           </div>
-        </div>
+        </Modal.Content>
       </Modal>
     </>
   );

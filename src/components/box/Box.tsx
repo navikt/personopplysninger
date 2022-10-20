@@ -1,6 +1,5 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import Modal from "nav-frontend-modal";
 import Infotekst from "components/infotekst/Infotekst";
 import { AnchorLink } from "../anchorlink/AnchorLink";
 import { GuidePanel, Heading } from "@navikt/ds-react";
@@ -14,7 +13,6 @@ interface Props {
   children: JSX.Element | JSX.Element[];
 }
 
-Modal.setAppElement("#app");
 const Box = (props: Props) => {
   const { tittel, beskrivelse, icon, children, id, visAnkerlenke } = props;
   const Veileder = <img src={icon} className="box__ikon" alt="Veileder" />;

@@ -16,8 +16,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
-import Modal from "nav-frontend-modal";
-import { Button, BodyShort, Label } from "@navikt/ds-react";
+import { Button, BodyShort, Label, Modal } from "@navikt/ds-react";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -202,34 +201,35 @@ const EndreTelefonnummer = (props: Props) => {
             {visSlettModal && (
               <Modal
                 closeButton={false}
-                isOpen={visSlettModal}
-                onRequestClose={lukkSlettModal}
-                contentLabel={msg({ id: "side.opphor" })}
+                open={visSlettModal}
+                onClose={lukkSlettModal}
               >
-                <div style={{ padding: "2rem 2.5rem" }}>
-                  <BodyShort>
-                    <FormattedMessage id="personalia.tlfnr.slett.alert" />
-                  </BodyShort>
-                  <div className="adresse__modal-knapper">
-                    <Button
-                      as="button"
-                      variant="danger"
-                      onClick={submitSlett}
-                      loading={slettLoading}
-                      disabled={slettLoading}
-                    >
-                      <FormattedMessage id={"side.slett"} />
-                    </Button>
-                    <Button
-                      variant="tertiary"
-                      onClick={lukkSlettModal}
-                      disabled={slettLoading}
-                    >
-                      <FormattedMessage id="side.avbryt" />
-                    </Button>
+                <Modal.Content>
+                  <div style={{ padding: "2rem 2.5rem" }}>
+                    <BodyShort>
+                      <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                    </BodyShort>
+                    <div className="adresse__modal-knapper">
+                      <Button
+                        as="button"
+                        variant="danger"
+                        onClick={submitSlett}
+                        loading={slettLoading}
+                        disabled={slettLoading}
+                      >
+                        <FormattedMessage id={"side.slett"} />
+                      </Button>
+                      <Button
+                        variant="tertiary"
+                        onClick={lukkSlettModal}
+                        disabled={slettLoading}
+                      >
+                        <FormattedMessage id="side.avbryt" />
+                      </Button>
+                    </div>
+                    {alert && <HttpFeilmelding {...alert} />}
                   </div>
-                  {alert && <HttpFeilmelding {...alert} />}
-                </div>
+                </Modal.Content>
               </Modal>
             )}
             {endre && (
