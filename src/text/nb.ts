@@ -262,6 +262,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "felter.bankens.adresse.label": "Bankens adresse",
   "felter.land.label": "Land",
   "felter.kontonummer.label": "Kontonummer",
+  "felter.kontonummer.grouplegend": "Velg norsk eller utenlandsk kontonummer",
   "felter.kontonummervalg.norsk": "Norsk kontonummer",
   "felter.kontonummervalg.utenlandsk": "Utenlandsk kontonummer",
   "felter.utenlandskkonto.info": `Vær nøye med utfylling av bankinformasjon for utenlandsk konto slik at betalingen kommer frem til riktig sted. NAV er ikke ansvarlig for at opplysningene er riktige. Gebyrer kan påløpe. Les mer om krav til <a> utenlandsk kontonummer </a>.`,

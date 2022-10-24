@@ -13,14 +13,13 @@ import { OutboundNorskKontonummer } from "./endring/NorskKontonummer";
 import OpprettEllerEndreUtenlandsbank from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import { FormattedMessage, useIntl } from "react-intl";
 import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Form, FormContext, Validation } from "calidation";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
-import { Alert, Button } from "@navikt/ds-react";
+import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
@@ -105,15 +104,19 @@ const Utbetalinger = (props: Props) => {
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
               return (
-                <RadioGruppe feil={submitted && errors.norskEllerUtenlandsk}>
+                <RadioGroup
+                  legend={msg({ id: "felter.kontonummer.grouplegend" })}
+                  error={submitted && errors.norskEllerUtenlandsk}
+                >
                   <Radio
-                    name={NORSK}
+                    value={NORSK}
                     checked={fields.norskEllerUtenlandsk === NORSK}
-                    label={msg({ id: "felter.kontonummervalg.norsk" })}
                     onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
+                      setField({ norskEllerUtenlandsk: e.target.value })
                     }
-                  />
+                  >
+                    {msg({ id: "felter.kontonummervalg.norsk" })}
+                  </Radio>
                   {fields.norskEllerUtenlandsk === NORSK && (
                     <OpprettEllerEndreNorskKontonr
                       personident={personident}
@@ -121,13 +124,14 @@ const Utbetalinger = (props: Props) => {
                     />
                   )}
                   <Radio
-                    name={UTENLANDSK}
+                    value={UTENLANDSK}
                     checked={fields.norskEllerUtenlandsk === UTENLANDSK}
-                    label={msg({ id: "felter.kontonummervalg.utenlandsk" })}
                     onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
+                      setField({ norskEllerUtenlandsk: e.target.value })
                     }
-                  />
+                  >
+                    {msg({ id: "felter.kontonummervalg.utenlandsk" })}
+                  </Radio>
                   {fields.norskEllerUtenlandsk === UTENLANDSK && (
                     <OpprettEllerEndreUtenlandsbank
                       personident={personident}
@@ -157,7 +161,7 @@ const Utbetalinger = (props: Props) => {
                     </div>
                   </div>
                   {alert && <HttpFeilmelding {...alert} />}
-                </RadioGruppe>
+                </RadioGroup>
               );
             }}
           </Validation>

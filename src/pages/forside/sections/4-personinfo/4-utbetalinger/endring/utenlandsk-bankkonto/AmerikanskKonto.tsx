@@ -32,7 +32,7 @@ const AmerikanskKonto = (props: Props) => {
           <InputMedHjelpetekst
             id={"bankkode"}
             label={``}
-            bredde={"M"}
+            size="medium"
             submitted={submitted}
             value={fields.bankkode}
             error={errors.bankkode}
@@ -44,7 +44,7 @@ const AmerikanskKonto = (props: Props) => {
       <div className="utbetalinger__adressefelter">
         <InputMedHjelpetekst
           id={"adresse1"}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse1}
           error={errors.adresse1}
@@ -55,7 +55,7 @@ const AmerikanskKonto = (props: Props) => {
         <InputMedHjelpetekst
           id={"adresse2"}
           label={""}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse2}
           error={errors.adresse2}
@@ -65,7 +65,7 @@ const AmerikanskKonto = (props: Props) => {
         <InputMedHjelpetekst
           id={"adresse3"}
           label={""}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse3}
           error={errors.adresse3}

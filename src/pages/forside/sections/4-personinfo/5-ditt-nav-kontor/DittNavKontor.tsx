@@ -4,7 +4,6 @@ import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
 import { FormattedMessage } from "react-intl";
-import { Select } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
 import ListElement from "components/listelement/ListElement";
 import Apningstid from "./apningstid/Apningstid";
@@ -12,7 +11,7 @@ import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { useStore } from "store/Context";
-import { BodyShort, Detail, Heading, Label, Link } from "@navikt/ds-react";
+import { BodyShort, Heading, Label, Link, Select } from "@navikt/ds-react";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;

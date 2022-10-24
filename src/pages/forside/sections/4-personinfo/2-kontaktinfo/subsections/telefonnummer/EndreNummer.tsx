@@ -1,5 +1,4 @@
 import { FormattedMessage } from "react-intl";
-import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo } from "clients/apiClient";
@@ -16,7 +15,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
-import { Button, BodyShort, Label, Modal } from "@navikt/ds-react";
+import { Button, BodyShort, Label, Modal, TextField } from "@navikt/ds-react";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -245,14 +244,14 @@ const EndreTelefonnummer = (props: Props) => {
                     />
                   </div>
                   <div className={"tlfnummer__input input--m"}>
-                    <Input
+                    <TextField
                       type={"tel"}
-                      bredde={"M"}
+                      size={"medium"}
                       value={fields.tlfnummer}
                       label={msg({ id: "felter.tlfnr.label" })}
                       onChange={(e) => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
-                      feil={submitted && errors.tlfnummer}
+                      error={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>

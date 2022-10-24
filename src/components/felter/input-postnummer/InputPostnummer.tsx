@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { fetchPostnummer } from "clients/apiClient";
 import { HTTPError } from "components/error/Error";
-import { Input } from "nav-frontend-skjema";
 import { useIntl } from "react-intl";
+import { TextField } from "@navikt/ds-react";
 
 interface Props {
   id?: string;
@@ -54,15 +54,15 @@ const SelectPostnummer = React.memo((props: Props) => {
 
   return (
     <div className="input-postnummer__container">
-      <Input
+      <TextField
         id={props.id}
         min={0}
         maxLength={4}
-        bredde={"S"}
+        size={"small"}
         type={"number"}
         value={props.value}
         label={props.label}
-        feil={props.submitted && props.error}
+        error={props.submitted && props.error}
         onChange={(e) => {
           if (e.target.value.length <= 4) {
             props.onChange(e.target.value);

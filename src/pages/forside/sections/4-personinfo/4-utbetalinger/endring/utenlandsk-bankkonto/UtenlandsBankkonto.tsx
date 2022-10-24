@@ -20,9 +20,8 @@ import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
 import { useStore } from "store/Context";
-import { Feiloppsummering } from "nav-frontend-skjema";
 import { mapErrorsToSummary } from "utils/kontonummer";
-import { Alert, Link } from "@navikt/ds-react";
+import { Alert, Link, ErrorSummary } from "@navikt/ds-react";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -284,7 +283,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
                 <InputMedHjelpetekst
                   id={"banknavn"}
-                  bredde={"L"}
+                  size="medium"
                   maxLength={35}
                   submitted={submitted}
                   value={fields.banknavn}
@@ -294,7 +293,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
                 <InputMedHjelpetekst
                   id={"kontonummer"}
-                  bredde={"L"}
+                  size="medium"
                   maxLength={36}
                   submitted={submitted}
                   value={fields.kontonummer}
@@ -328,10 +327,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               </>
             )}
             {submitted && hasErrors && fields?.land && (
-              <Feiloppsummering
-                tittel={msg({ id: "validation.fix.errors" })}
-                feil={mapErrorsToSummary(errors)}
-              />
+              <ErrorSummary title={msg({ id: "validation.fix.errors" })}>
+                {mapErrorsToSummary(errors)}
+              </ErrorSummary>
             )}
           </>
         );

@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
-import { Input, InputProps } from "nav-frontend-skjema";
 import { FormattedMessage } from "react-intl";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { TextField, TextFieldProps } from "@navikt/ds-react";
 
-type IProps = Omit<InputProps, "onChange">;
+type IProps = Omit<TextFieldProps, "onChange">;
 interface Props extends IProps {
   id?: string;
   value?: string;
@@ -46,12 +46,12 @@ const EndreKontonummerFelt = ({
         )}
       </div>
       <div className="ekf__input">
-        <Input
+        <TextField
           id={id}
           label={""}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          feil={submitted && error}
+          error={submitted && error}
           {...restProps}
         />
       </div>

@@ -1,5 +1,4 @@
 import { FormattedMessage } from "react-intl";
-import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
 import {
   FieldsConfig,
@@ -17,7 +16,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
-import { Button, Label } from "@navikt/ds-react";
+import { Button, Label, TextField } from "@navikt/ds-react";
 
 interface Props {
   prioritet: 1 | 2;
@@ -129,14 +128,14 @@ const OpprettTelefonnummer = (props: Props) => {
                     />
                   </div>
                   <div className={"tlfnummer__input input--m"}>
-                    <Input
+                    <TextField
                       type={"tel"}
-                      bredde={"M"}
+                      size={"medium"}
                       value={fields.tlfnummer}
                       maxLength={tlfNummerMaxLength}
                       label={msg({ id: "felter.tlfnr.label" })}
                       onChange={(e) => setField({ tlfnummer: e.target.value })}
-                      feil={submitted && errors.tlfnummer}
+                      error={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>

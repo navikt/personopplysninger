@@ -1,8 +1,8 @@
 import React from "react";
-import { Input } from "nav-frontend-skjema";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { useIntl } from "react-intl";
 import { useStore } from "../../../../../../store/Context";
+import { TextField } from "@navikt/ds-react";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -52,13 +52,13 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
       {({ errors, fields, submitted, setField }) => (
         <>
           <div className="utbetalinger__input input--m">
-            <Input
-              bredde={"M"}
+            <TextField
+              size={"medium"}
               maxLength={11}
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
               onChange={(e) => setField({ kontonummer: e.target.value })}
-              feil={submitted && errors.kontonummer}
+              error={submitted && errors.kontonummer}
             />
           </div>
         </>

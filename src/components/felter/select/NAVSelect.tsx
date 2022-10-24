@@ -2,13 +2,12 @@ import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import { useIntl } from "react-intl";
 import cls from "classnames";
-import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { HTTPError } from "../../error/Error";
-import { Loader } from "@navikt/ds-react";
+import { Loader, TextField } from "@navikt/ds-react";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 import { Expand } from "@navikt/ds-icons";
 
@@ -169,13 +168,13 @@ const NAVSelect = React.memo((props: Props) => {
       )}
     </div>
   ) : (
-    <Input
+    <TextField
       label={props.label}
       value={props.option && props.option.value}
       onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }
-      feil={props.submitted && props.error}
+      error={props.submitted && props.error}
       placeholder={"+"}
     />
   );

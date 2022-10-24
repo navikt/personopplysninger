@@ -262,6 +262,8 @@ A child who lives permanently with both mother and father can have two home addr
   "felter.bankens.adresse.label": "Bank address",
   "felter.land.label": "Country",
   "felter.kontonummer.label": "Account number",
+  "felter.kontonummer.grouplegend":
+    "Choose Norwegian or foreign account number",
   "felter.kontonummervalg.norsk": "Norwegian account number",
   "felter.kontonummervalg.utenlandsk": "Foreign account number",
   "felter.utenlandskkonto.info": `Be careful when you fill in bank information for foreign accounts so that the payment arrives at the correct location. NAV is not responsible for ensuring that the information is correct. Fees may apply. Read more about requirements for <a> foreign account numbers </a>.`,
