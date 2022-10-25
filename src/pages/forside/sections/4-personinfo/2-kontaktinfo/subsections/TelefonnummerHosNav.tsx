@@ -7,7 +7,7 @@ import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { Alert, BodyShort, Heading } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Heading } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -81,14 +81,18 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
 
       {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
-        <button onClick={onLeggTil} className="tlfnummer__leggtil lenke">
+        <Button
+          variant="tertiary"
+          onClick={onLeggTil}
+          className="tlfnummer__leggtil knapp-med-ikon lenke"
+        >
           <span className="kilde__icon">
             <img src={leggTilIkon} alt="Ekstern lenke" />
           </span>
           <BodyShort>
             <FormattedMessage id={"side.leggtil"} />
           </BodyShort>
-        </button>
+        </Button>
       )}
 
       {opprett && (

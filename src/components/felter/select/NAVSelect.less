@@ -21,33 +21,33 @@
   }
 
   &__control {
-    border: 1px solid @navGra60 !important;
+    border: 1px solid var(--navds-global-color-gray-600) !important;
     min-height: 40px !important;
 
     &-feil {
       .KodeverkSelect {
         &__control {
-          background-color: @pinkErrorBg;
-          border-color: @redError;
+          background-color: var(--navds-global-color-red-100) !important;
+          border-color: var(--navds-semantic-color-interaction-danger);
         }
       }
     }
 
     &:hover {
-      border-color: @navBla !important;
+      border-color: var(--navds-semantic-color-border) !important;
       transition: border-color 200ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     }
 
     &--is-focused {
-      box-shadow: 0 0 0 3px @fokusFarge;
+      box-shadow: 0 0 0 3px var(--navds-global-color-focus);
     }
 
     &--is-disabled {
-      background-color: @navLysGra;
+      background-color: var(--navds-color-gray-900);
     }
 
     &__single-value {
-      color: @navMorkGra;
+      color: var(--navds-color-gray-900);
     }
 
     &__spinner {

@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background-color: @navGraBakgrunn;
+  background-color: var(--navds-global-color-background);
   margin: 0;
 
   .capitalize {
@@ -57,6 +57,20 @@ body {
   }
   &__divider {
     padding-top: 2.5rem;
+  }
+}
+
+.knapp-med-ikon {
+  justify-content: center;
+  align-items: center;
+
+  .navds-label {
+    flex-direction: row;
+    display: flex;
+  }
+
+  &:last-child {
+    margin-left: 0.25rem;
   }
 }
 

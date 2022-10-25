@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Link as ReactLink } from "react-router-dom";
-import { Link, BodyLong, Detail } from "@navikt/ds-react";
+import { Link, BodyLong, Detail, Button } from "@navikt/ds-react";
 
 type Props =
   | {
@@ -53,7 +53,7 @@ const Knapp = (props: Props) => {
       );
     case "KNAPP":
       return (
-        <button onClick={props.onClick} className="kilde__lenke lenke">
+        <Button variant="tertiary" className="kilde__knapp knapp-med-ikon">
           {props.ikon && (
             <span className="kilde__icon">
               <img src={props.ikon} alt="Ekstern lenke" />
@@ -62,7 +62,7 @@ const Knapp = (props: Props) => {
           <BodyLong>
             <FormattedMessage id={props.lenkeTekst} />
           </BodyLong>
-        </button>
+        </Button>
       );
     case "INGEN":
     default:

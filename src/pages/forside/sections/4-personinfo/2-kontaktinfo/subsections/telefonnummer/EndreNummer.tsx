@@ -171,20 +171,20 @@ const EndreTelefonnummer = (props: Props) => {
                     as={"button"}
                     variant={"tertiary"}
                     type={"button"}
-                    className={"tlfnummer__knapp-med-ikon"}
+                    className={"knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
                   >
-                    <div className={"tlfnummer__knapp-ikon"}>
+                    <div className={"knapp-ikon"}>
                       <img alt={"Endre telefonnummer"} src={endreIkon} />
                     </div>
-                    <div className={"tlfnummer__knapp-tekst"}>
+                    <div className={"knapp-tekst"}>
                       <FormattedMessage id={"side.endre"} />
                     </div>
                   </Button>
                   <Button
                     type={"button"}
                     variant={"tertiary"}
-                    className={"tlfnummer__knapp-med-ikon"}
+                    className={"knapp-med-ikon"}
                     onClick={apneSlettModal}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
