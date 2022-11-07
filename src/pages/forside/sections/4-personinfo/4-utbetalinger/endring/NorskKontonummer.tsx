@@ -54,10 +54,12 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
           <div className="utbetalinger__input input--m">
             <Input
               bredde={"M"}
-              maxLength={11}
+              maxLength={16}
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
-              onChange={(e) => setField({ kontonummer: e.target.value })}
+              onChange={(e) =>
+                setField({ kontonummer: e.target.value.replace(/\D/g, "") })
+              }
               feil={submitted && errors.kontonummer}
             />
           </div>
