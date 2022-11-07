@@ -35,13 +35,6 @@ const TelefonnummerHosNav = (props: Props) => {
           <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
         </div>
       )}
-      <div style={{ paddingBottom: "1rem" }}>
-        <AlertStripeAdvarsel>
-          Endring og sletting av telefonnummer kan gå litt tregere enn vanlig.
-          Endringene går igjennom, men det kan ta litt tid før de blir synlige
-          på denne siden.
-        </AlertStripeAdvarsel>
-      </div>
       <div className="underseksjon__header">
         <Undertittel>
           <FormattedMessage id="personalia.tlfnr.oveskrift" />
