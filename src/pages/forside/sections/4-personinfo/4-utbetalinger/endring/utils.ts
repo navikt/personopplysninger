@@ -1,8 +1,8 @@
 import { OptionType } from "types/option";
 import { Fields } from "calidation";
 import {
-  LAND_MED_BANKKODE,
   BIC,
+  LAND_MED_BANKKODE,
 } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
 
 import { LandOppslag } from "./landOppslag";

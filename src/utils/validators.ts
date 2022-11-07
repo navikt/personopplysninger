@@ -1,5 +1,5 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
-import { isValidIBAN, isValidBIC } from "ibantools";
+import { isValidBIC, isValidIBAN } from "ibantools";
 import {
   getCountryAlpha2,
   getIbanPrefixAlternatives,
@@ -8,14 +8,18 @@ import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbet
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
+import { normalizeNummer } from "./formattering";
 
 export const extraValidators = {
   /*
     General validators
    */
 
+  isNormalizedLength: (config: SimpleValidatorConfig) => (value: string) =>
+    value && normalizeNummer(value).length !== 11 ? config.message : null,
+
   isMod11: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !isMod11(value) ? config.message : null,
+    value && !isMod11(normalizeNummer(value)) ? config.message : null,
 
   isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
     value && !value.match(/^[^\s].*/) ? config.message : null,
@@ -83,50 +87,51 @@ export const extraValidators = {
   isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidIBAN(value) ? config.message : null,
 
-  isIBANCountryCompliant: (
-    config: SimpleValidatorConfig,
-    { fields }: ValidatorContext
-  ) => (value: string) => {
-    if (!fields.land) {
-      return null;
-    }
-    const ibanPrefix = value && value.substring(0, 2);
-    const selectedCountryAlpha2 = getCountryAlpha2(fields.land.value);
-    const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
-      fields.land.value
-    );
+  isIBANCountryCompliant:
+    (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
+    (value: string) => {
+      if (!fields.land) {
+        return null;
+      }
+      const ibanPrefix = value && value.substring(0, 2);
+      const selectedCountryAlpha2 = getCountryAlpha2(fields.land.value);
+      const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
+        fields.land.value
+      );
 
-    return ibanPrefix !== selectedCountryAlpha2 &&
-      !selectedCountryPrefixAlternatives.includes(ibanPrefix)
-      ? config.message
-      : null;
-  },
+      return ibanPrefix !== selectedCountryAlpha2 &&
+        !selectedCountryPrefixAlternatives.includes(ibanPrefix)
+        ? config.message
+        : null;
+    },
 
   isBIC: (config: SimpleValidatorConfig) => (value: string) =>
     !isValidBIC(value) ? config.message : null,
 
-  isBICCountryCompliant: (
-    config: SimpleValidatorConfig,
-    { fields }: ValidatorContext
-  ) => (value: string) =>
-    fields.land && value.substring(4, 6) !== getCountryAlpha2(fields.land.value)
-      ? config.message
-      : null,
+  isBICCountryCompliant:
+    (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
+    (value: string) =>
+      fields.land &&
+      value.substring(4, 6) !== getCountryAlpha2(fields.land.value)
+        ? config.message
+        : null,
 
   isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
     isValidIBAN(value) ? config.message : null,
 
-  isBankkode: (config: any, { fields }: ValidatorContext) => (value: string) =>
-    value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
-      ? config.message({
-          land: fields.land.label,
-          siffer: BANKKODE_MAX_LENGTH[fields.land.value],
-        })
-      : null,
+  isBankkode:
+    (config: any, { fields }: ValidatorContext) =>
+    (value: string) =>
+      value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
+        ? config.message({
+            land: fields.land.label,
+            siffer: BANKKODE_MAX_LENGTH[fields.land.value],
+          })
+        : null,
 
-  hasMultipleCombinedSpaces: (config: SimpleValidatorConfig) => (
-    value: string
-  ) => (value && value.match(/\s\s/) ? config.message : null),
+  hasMultipleCombinedSpaces:
+    (config: SimpleValidatorConfig) => (value: string) =>
+      value && value.match(/\s\s/) ? config.message : null,
 
   notOnlySignsDigitsSpace: (config: SimpleValidatorConfig) => (value: string) =>
     value && normalizeInput(value).match(regExpPattern.onlyNonLetters)
