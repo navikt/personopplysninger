@@ -6,12 +6,13 @@ const getHtmlWithDecorator = (filePath) =>
       filePath: filePath,
       enforceLogin: false,
       breadcrumbs: [
-          { url: `https://www.nav.no/person/dittnav/`, title: "Ditt NAV" },
+          { url: `https://www.nav.no/minside/`, title: "Min side" },
           { url: `https://www.nav.no/person/personopplysninger/`, title: `Personopplysninger` },
       ],
       availableLanguages: [
           { url: `https://www.nav.no/person/personopplysninger/nb/`, locale: "nb" },
           { url: `https://www.nav.no/person/personopplysninger/en/`, locale: "en" },
+          { url: `https://www.nav.no/person/personopplysninger/nn/`, locale: "nn" },
       ],
   });
 

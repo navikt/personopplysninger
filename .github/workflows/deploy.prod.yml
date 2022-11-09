@@ -14,7 +14,7 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
           cache: 'npm'
       - name: Define build environment
@@ -23,7 +23,7 @@ jobs:
         run: |
           IMAGE_VERSION_RAW=$(echo ${GITHUB_WORKFLOW})-$(echo ${GITHUB_SHA})
           echo "CI=true" >> $GITHUB_ENV
-          echo "IMAGE_REGISTRY=docker.pkg.github.com/$(echo ${GITHUB_REPOSITORY})" >> $GITHUB_ENV
+          echo "IMAGE_REGISTRY=ghcr.io/$(echo ${GITHUB_REPOSITORY})" >> $GITHUB_ENV
           echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
           echo "IMAGE_VERSION=${IMAGE_VERSION_RAW,,}" >> $GITHUB_ENV
           echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
@@ -39,9 +39,9 @@ jobs:
           echo "REACT_APP_DSOP_URL=https://www.nav.no/person/dsop-api" >> $GITHUB_ENV
           echo "REACT_APP_TJENESTER_URL=https://tjenester.nav.no" >> $GITHUB_ENV
           echo "REACT_APP_LOGIN_URL=https://loginservice.nav.no/login" >> $GITHUB_ENV
-          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/person/dittnav" >> $GITHUB_ENV
+          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/minside" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www.nav.no/pensjon/opptjening" >> $GITHUB_ENV
-          echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.nav.no/person/innloggingsstatus/auth" >> $GITHUB_ENV
+          echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.nav.no/person/nav-dekoratoren-api/auth" >> $GITHUB_ENV
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}

@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { EtikettLiten, Normaltekst } from "nav-frontend-typografi";
+import { Normaltekst, Undertekst } from "nav-frontend-typografi";
 import Lenke from "nav-frontend-lenker";
 import { Link } from "react-router-dom";
 
@@ -78,7 +78,7 @@ const Kilde = (props: Props) => {
         <Knapp {...props} />
         <div className="kilde__tekst">
           {props.kilde && (
-            <EtikettLiten>
+            <Undertekst>
               <FormattedMessage
                 id={props.kilde}
                 values={{
@@ -93,7 +93,7 @@ const Kilde = (props: Props) => {
                   ),
                 }}
               />
-            </EtikettLiten>
+            </Undertekst>
           )}
         </div>
       </div>

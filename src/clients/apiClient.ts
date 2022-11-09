@@ -1,4 +1,4 @@
-import { logApiError, logEvent } from "../utils/logger";
+import { logApiError } from "../utils/logger";
 import { FeatureToggles } from "../store/Store";
 import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/EndreNummer";
 import { OutboundNorskKontonummer } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/NorskKontonummer";
@@ -87,7 +87,6 @@ type Outbound =
 
 const postJson = (url: string, data?: Outbound) => {
   console.log(url, data);
-  logEvent({ url });
   return fetch(url, {
     method: "POST",
     ...(data && {

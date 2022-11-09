@@ -37,6 +37,7 @@ const OpprettTelefonnummer = (props: Props) => {
       label: "Norge",
       value: "+47",
     },
+    tlfnummer: "",
   };
 
   const formConfig = {

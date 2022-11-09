@@ -31,7 +31,7 @@ export interface Personalia {
   spraak?: string;
   epostadr?: string;
   personstatus?: string;
-  statsborgerskap?: string;
+  statsborgerskap?: string[];
   foedested?: string;
   sivilstand?: string;
   kjoenn?: string;

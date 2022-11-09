@@ -26,8 +26,8 @@ import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
 
 export const basePath = "/person/personopplysninger";
-const basePathWithLanguage = `${basePath}/(nb|en)`;
-const localeUrlPattern = new RegExp(`${basePath}(/en|/nb)($|\\/)`);
+const basePathWithLanguage = `${basePath}/(nb|en|nn)`;
+const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 
 const App = () => {
   const { locale } = useIntl();

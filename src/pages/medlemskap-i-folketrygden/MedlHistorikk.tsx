@@ -60,6 +60,7 @@ const Perioder = (props: PerioderProps) => {
 
   const lenkerTilFolketrygden: { [key: string]: string } = {
     nb: `/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden`,
+    nn: `/no/person/flere-tema/arbeid-og-opphold-i-norge/nynorsk/medlemskap-i-folketrygda`,
     en: `/en/home/rules-and-regulations/membership-of-the-national-insurance-scheme`,
   };
 
