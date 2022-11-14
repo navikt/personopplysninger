@@ -16,12 +16,12 @@ interface Props {
   option?: OptionType;
   submitted: boolean;
   label: string;
+  htmlSize?: number;
   options: OptionType[];
   error: string | null;
   fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
-  bredde?: string;
   onChange: (value?: OptionType) => void;
   borderUnderNth?: number;
   loading?: boolean;
@@ -131,15 +131,12 @@ const NAVSelect = React.memo((props: Props) => {
           </CustomHelpText>
         )}
       </div>
-      <div
-        className={`${cls("KodeverkSelect--select-wrapper")} ${
-          props.bredde || "input--l"
-        }`}
-      >
+      <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
         <Select
           id={props.id}
           value={value}
           label={props.label}
+          htmlSize={props.htmlSize}
           placeholder={formatMessage({ id: "select.sok" })}
           classNamePrefix="KodeverkSelect"
           loadingMessage={() => formatMessage({ id: "select.loading" })}
@@ -171,6 +168,7 @@ const NAVSelect = React.memo((props: Props) => {
     <TextField
       label={props.label}
       value={props.option && props.option.value}
+      htmlSize={props.htmlSize}
       onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }

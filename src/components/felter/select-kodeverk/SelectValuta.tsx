@@ -63,6 +63,7 @@ const SelectValuta = (props: Props) => {
       error={props.error}
       options={options}
       fetchError={fetchError}
+      htmlSize={30}
       option={props.option}
       submitted={props.submitted}
       onChange={props.onChange}

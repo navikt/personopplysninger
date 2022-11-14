@@ -19,12 +19,13 @@ const EndreKontonummerFelt = ({
   onChange,
   submitted,
   error,
+  htmlSize,
   label,
   hjelpetekst,
   ...restProps
 }: Props) => {
   return (
-    <div>
+    <div className="skjemaelement">
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
@@ -50,6 +51,7 @@ const EndreKontonummerFelt = ({
           id={id}
           label={""}
           value={value}
+          htmlSize={htmlSize}
           onChange={(e) => onChange(e.target.value)}
           error={submitted && error}
           {...restProps}

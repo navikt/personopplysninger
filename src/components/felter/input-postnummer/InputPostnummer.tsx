@@ -58,7 +58,7 @@ const SelectPostnummer = React.memo((props: Props) => {
         id={props.id}
         min={0}
         maxLength={4}
-        size={"small"}
+        size={"medium"}
         type={"number"}
         value={props.value}
         label={props.label}

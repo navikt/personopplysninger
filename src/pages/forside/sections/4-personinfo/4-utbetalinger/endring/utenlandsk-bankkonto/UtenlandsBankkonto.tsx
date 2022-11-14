@@ -285,6 +285,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                   id={"banknavn"}
                   size="medium"
                   maxLength={35}
+                  htmlSize={37}
                   submitted={submitted}
                   value={fields.banknavn}
                   label={msg({ id: "felter.banknavn.label" })}
@@ -295,6 +296,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                   id={"kontonummer"}
                   size="medium"
                   maxLength={36}
+                  htmlSize={37}
                   submitted={submitted}
                   value={fields.kontonummer}
                   hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}

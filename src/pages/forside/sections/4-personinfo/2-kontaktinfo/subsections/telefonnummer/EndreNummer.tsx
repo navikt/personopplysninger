@@ -174,10 +174,10 @@ const EndreTelefonnummer = (props: Props) => {
                     className={"knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
                   >
-                    <div className={"knapp-ikon"}>
+                    <div className={"tlfnummer__knapp-ikon"}>
                       <img alt={"Endre telefonnummer"} src={endreIkon} />
                     </div>
-                    <div className={"knapp-tekst"}>
+                    <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.endre"} />
                     </div>
                   </Button>

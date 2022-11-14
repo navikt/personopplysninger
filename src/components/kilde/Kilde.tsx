@@ -53,7 +53,11 @@ const Knapp = (props: Props) => {
       );
     case "KNAPP":
       return (
-        <Button variant="tertiary" className="kilde__knapp knapp-med-ikon">
+        <Button
+          onClick={props.onClick}
+          variant="tertiary"
+          className="kilde__knapp knapp-med-ikon"
+        >
           {props.ikon && (
             <span className="kilde__icon">
               <img src={props.ikon} alt="Ekstern lenke" />
@@ -66,7 +70,7 @@ const Knapp = (props: Props) => {
       );
     case "INGEN":
     default:
-      return <></>;
+      return null;
   }
 };
 

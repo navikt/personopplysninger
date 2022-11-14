@@ -37,8 +37,8 @@ const Utbetalinger = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { kontonr, utenlandskbank, personident } = props;
   const [loading, settLoading] = useState<boolean>(false);
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
-  const [alert, settAlert] = useState<Feilmelding | undefined>();
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
+  const [alert, settAlert] = useState<Feilmelding | null>(null);
   const [, dispatch] = useStore();
 
   const initialValues = {

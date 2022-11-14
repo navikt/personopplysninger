@@ -54,6 +54,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
           <div className="utbetalinger__input input--m">
             <TextField
               size={"medium"}
+              htmlSize={14}
               maxLength={11}
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
