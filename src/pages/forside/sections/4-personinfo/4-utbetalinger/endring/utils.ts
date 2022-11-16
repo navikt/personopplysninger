@@ -49,15 +49,11 @@ export const validerBankkode = (fields: Fields) => {
   }
 
   if (brukerBankkode(fields.land)) {
-    if (harUtfylt(fields.bankkode) || !harUtfylt(fields.bickode)) {
-      return true;
-    }
+    return harUtfylt(fields.bankkode) || !harUtfylt(fields.bickode);
   }
-
-  return false;
 };
 
-export const harUtfylt = (value?: string) => (value ? true : false);
+export const harUtfylt = (value?: string) => !!value;
 
 export const erLandIEuropa = (land: OptionType): boolean => {
   if (!land) {

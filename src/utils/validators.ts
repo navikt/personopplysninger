@@ -1,9 +1,6 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidBIC, isValidIBAN } from "ibantools";
-import {
-  getCountryAlpha2,
-  getIbanPrefixAlternatives,
-} from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
+import { getIbanPrefixAlternatives } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
 import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
@@ -94,7 +91,7 @@ export const extraValidators = {
         return null;
       }
       const ibanPrefix = value && value.substring(0, 2);
-      const selectedCountryAlpha2 = getCountryAlpha2(fields.land.value);
+      const selectedCountryAlpha2 = fields.land.value;
       const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
         fields.land.value
       );
@@ -112,7 +109,7 @@ export const extraValidators = {
     (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
     (value: string) =>
       fields.land &&
-      value.substring(4, 6) !== getCountryAlpha2(fields.land.value)
+      value.substring(4, 6) !== fields.land.value
         ? config.message
         : null,
 

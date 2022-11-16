@@ -1,8 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { useIntl } from "react-intl";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/select-kodeverk/SelectLand";
@@ -11,12 +10,12 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { UNKNOWN } from "utils/text";
 import {
   brukerBankkode,
+  erLandIEuropa,
+  harValgtBic,
+  harValgtUSA,
   validerBankkode,
   validerBic,
-  erLandIEuropa,
-  getCountryAlpha2,
 } from "../utils";
-import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
