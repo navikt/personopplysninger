@@ -140,13 +140,13 @@ export const sendTilLogin = () => {
   );
 };
 
-const sjekkHttpFeil = (response: Response, showResponse = false) => {
+const sjekkHttpFeil = async (response: Response, showResponse = false) => {
   if (response.ok) {
     return response;
   } else {
     throw {
       code: response.status,
-      text: response.status === 400 ? response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
+      text: response.status === 400 ? await response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
     };
   }
 };
