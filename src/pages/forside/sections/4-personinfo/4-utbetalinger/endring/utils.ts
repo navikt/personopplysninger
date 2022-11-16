@@ -7,9 +7,6 @@ import {
 
 import { LandOppslag } from "./landOppslag";
 
-export const getCountryAlpha2 = (countryCode: string) =>
-  LandOppslag.has(countryCode) ? LandOppslag.get(countryCode)?.alpha2 : "";
-
 export const getIbanPrefixAlternatives = (countryCode: string): string[] => {
   return LandOppslag.has(countryCode)
     ? LandOppslag.get(countryCode)?.ibanPrefixAlternatives || []

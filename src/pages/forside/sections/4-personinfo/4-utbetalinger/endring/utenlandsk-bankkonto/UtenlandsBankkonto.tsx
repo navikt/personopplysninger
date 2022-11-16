@@ -73,12 +73,12 @@ export const BANKKODER: { [key: string]: string } = {
 };
 
 export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
-  USA: 9,
-  NZL: 6,
-  AUS: 6,
-  ZAF: 6,
-  CAN: 9,
-  RUS: 9,
+  US: 9,
+  NZ: 6,
+  AU: 6,
+  ZA: 6,
+  CA: 9,
+  RU: 9,
 };
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
