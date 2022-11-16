@@ -140,15 +140,14 @@ export const sendTilLogin = () => {
   );
 };
 
-const sjekkHttpFeil = (response: Response) => {
+const sjekkHttpFeil = (response: Response, showResponse = false) => {
   if (response.ok) {
     return response;
   } else {
-    const error = {
+    throw {
       code: response.status,
-      text: response.statusText || "Ukjent feil",
+      text: response.status === 400 ? response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
     };
-    throw error;
   }
 };
 
@@ -156,7 +155,7 @@ const sjekkTPSFeil = (response: TPSResponse) => {
   if (response.statusType === "OK") {
     return response;
   } else {
-    const error = {
+    throw {
       PENDING: {
         type: `info`,
         text: `Vi har sendt inn endringen din`,
@@ -176,7 +175,6 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         }`,
       },
     }[response.statusType];
-    throw error;
   }
 };
 
