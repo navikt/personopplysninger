@@ -356,7 +356,6 @@ export const setOutboundUtenlandsbankonto = (c: FormContext) => {
     value: electronicFormatIBAN(fields.kontonummer),
     utenlandskKontoInformasjon: {
       landkode: fields.land.value,
-      landkodeTobokstavs: getCountryAlpha2(fields.land.value),
       valuta: fields.valuta.value,
       ...(sendBICKode && {
         swift: bickode,
