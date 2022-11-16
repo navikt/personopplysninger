@@ -51,6 +51,8 @@ export const validerBankkode = (fields: Fields) => {
   if (brukerBankkode(fields.land)) {
     return harUtfylt(fields.bankkode) || !harUtfylt(fields.bickode);
   }
+
+  return false;
 };
 
 export const harUtfylt = (value?: string) => !!value;
