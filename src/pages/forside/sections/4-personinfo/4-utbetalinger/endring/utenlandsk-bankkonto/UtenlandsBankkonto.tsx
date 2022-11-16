@@ -62,14 +62,14 @@ export interface OutboundUtenlandsbankonto {
 
 export const BIC = "BIC";
 export const UTEN_BIC = "UTEN_BIC";
-export const LAND_MED_BANKKODE = ["USA", "NZL", "AUS", "ZAF", "CAN", "RUS"];
+export const LAND_MED_BANKKODE = ["US", "NZ", "AU", "ZA", "CA", "RU"];
 export const BANKKODER: { [key: string]: string } = {
-  USA: "FW",
-  NZL: "NZ",
-  AUS: "AU",
-  ZAF: "ZA",
-  CAN: "CC",
-  RUS: "RU",
+  US: "FW",
+  NZ: "NZ",
+  AU: "AU",
+  ZA: "ZA",
+  CA: "CC",
+  RU: "RU",
 };
 
 export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {

@@ -20,7 +20,7 @@ export const harValgtBic = (bankidentifier?: string) =>
   !!(bankidentifier && bankidentifier === BIC);
 
 export const harValgtUSA = (land?: OptionType) =>
-  !!(land && land.value === "USA");
+  !!(land && land.value === "US");
 
 export const brukerBankkode = (land?: OptionType) =>
   !!(land && LAND_MED_BANKKODE.includes(land.value));
