@@ -2,15 +2,11 @@ import { OptionType } from "types/option";
 import { Fields } from "calidation";
 import {
   BIC,
-  LAND_MED_BANKKODE,
+  IBAN_PREFIX_ALTERNATIVES,
 } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
 
-import { LandOppslag } from "./landOppslag";
-
 export const getIbanPrefixAlternatives = (countryCode: string): string[] => {
-  return LandOppslag.has(countryCode)
-    ? LandOppslag.get(countryCode)?.ibanPrefixAlternatives || []
-    : [];
+  return IBAN_PREFIX_ALTERNATIVES[countryCode] || [];
 };
 
 export const harValgtBic = (bankidentifier?: string) =>
@@ -20,7 +16,7 @@ export const harValgtUSA = (land?: OptionType) =>
   !!(land && land.value === "US");
 
 export const brukerBankkode = (land?: OptionType) =>
-  !!(land && LAND_MED_BANKKODE.includes(land.value));
+  !!(land && land.bankkodeLengde);
 
 export const validerBic = (fields: Fields) => {
   if (harValgtUSA(fields.land)) {
@@ -33,11 +29,7 @@ export const validerBic = (fields: Fields) => {
     }
   }
 
-  if (!brukerBankkode(fields.land)) {
-    return true;
-  }
-
-  return false;
+  return !brukerBankkode(fields.land);
 };
 
 export const validerBankkode = (fields: Fields) => {
@@ -53,12 +45,3 @@ export const validerBankkode = (fields: Fields) => {
 };
 
 export const harUtfylt = (value?: string) => !!value;
-
-export const erLandIEuropa = (land: OptionType): boolean => {
-  if (!land) {
-    return false;
-  }
-  return !!(
-    LandOppslag.has(land.value) && LandOppslag.get(land.value)?.isEurope
-  );
-};

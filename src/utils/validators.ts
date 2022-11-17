@@ -1,7 +1,6 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidBIC, isValidIBAN } from "ibantools";
 import { getIbanPrefixAlternatives } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
-import { BANKKODE_MAX_LENGTH } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
@@ -108,8 +107,7 @@ export const extraValidators = {
   isBICCountryCompliant:
     (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
     (value: string) =>
-      fields.land &&
-      value.substring(4, 6) !== fields.land.value
+      fields.land && value.substring(4, 6) !== fields.land.value
         ? config.message
         : null,
 
@@ -119,10 +117,10 @@ export const extraValidators = {
   isBankkode:
     (config: any, { fields }: ValidatorContext) =>
     (value: string) =>
-      value && value.length !== BANKKODE_MAX_LENGTH[fields.land.value]
+      value && value.length !== fields.land.bankkodeLengde
         ? config.message({
             land: fields.land.label,
-            siffer: BANKKODE_MAX_LENGTH[fields.land.value],
+            siffer: fields.land.bankkodeLengde,
           })
         : null,
 

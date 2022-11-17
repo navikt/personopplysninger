@@ -10,7 +10,6 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { UNKNOWN } from "utils/text";
 import {
   brukerBankkode,
-  erLandIEuropa,
   harValgtBic,
   harValgtUSA,
   validerBankkode,
@@ -62,7 +61,6 @@ export interface OutboundUtenlandsbankonto {
 
 export const BIC = "BIC";
 export const UTEN_BIC = "UTEN_BIC";
-export const LAND_MED_BANKKODE = ["US", "NZ", "AU", "ZA", "CA", "RU"];
 export const BANKKODER: { [key: string]: string } = {
   US: "FW",
   NZ: "NZ",
@@ -72,13 +70,10 @@ export const BANKKODER: { [key: string]: string } = {
   RU: "RU",
 };
 
-export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
-  US: 9,
-  NZ: 6,
-  AU: 6,
-  ZA: 6,
-  CA: 9,
-  RU: 9,
+export const IBAN_PREFIX_ALTERNATIVES: { [key: string]: string[] } = {
+  IM: ["GB"],
+  JE: ["GB"],
+  GG: ["GB"],
 };
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
@@ -129,13 +124,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     kontonummer: {
       isIBANRequired: {
         message: msg({ id: "validation.iban.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => fields.land.kreverIban,
       },
       isRequired: {
         message: msg({ id: "validation.kontonummer.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          !erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => !fields.land.kreverIban,
       },
       isLettersAndDigits: msg({ id: "validation.only.letters.and.digits" }),
 
@@ -145,8 +138,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
       isIBAN: {
         message: msg({ id: "validation.iban.gyldig" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => fields.land.kreverIban,
       },
       isIBANCountryCompliant: {
         message: msg({ id: "validation.iban.country" }),
