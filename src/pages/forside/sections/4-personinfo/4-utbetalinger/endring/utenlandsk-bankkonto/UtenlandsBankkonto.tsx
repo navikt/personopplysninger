@@ -124,11 +124,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     kontonummer: {
       isIBANRequired: {
         message: msg({ id: "validation.iban.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) => fields.land.kreverIban,
+        validateIf: ({ fields }: ValidatorContext) => fields.land && fields.land.kreverIban,
       },
       isRequired: {
         message: msg({ id: "validation.kontonummer.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) => !fields.land.kreverIban,
+        validateIf: ({ fields }: ValidatorContext) => fields.land && !fields.land.kreverIban,
       },
       isLettersAndDigits: msg({ id: "validation.only.letters.and.digits" }),
 
@@ -138,7 +138,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
       isIBAN: {
         message: msg({ id: "validation.iban.gyldig" }),
-        validateIf: ({ fields }: ValidatorContext) => fields.land.kreverIban,
+        validateIf: ({ fields }: ValidatorContext) => fields.land && fields.land.kreverIban,
       },
       isIBANCountryCompliant: {
         message: msg({ id: "validation.iban.country" }),
