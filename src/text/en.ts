@@ -57,7 +57,7 @@ export default {
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Account number / IBAN`,
   "personalia.kontonr.oveskrift": `Account number we make payments to`,
-  "personalia.kontonr.ingenData": `We have not registered your account number.`,
+  "personalia.kontonr.ingenData": `We have not registered your account number. <br></br>You can register your account number by clicking "Add"`,
   "personalia.bank": `Bank`,
   "personalia.valuta": `Currency`,
   "personalia.bickode": `BIC / SWIFT code`,
