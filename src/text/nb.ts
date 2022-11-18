@@ -57,7 +57,7 @@ export default {
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Kontonummer / IBAN`,
   "personalia.kontonr.oveskrift": `Kontonummer vi utbetaler til`,
-  "personalia.kontonr.ingenData": `Vi har ikke registrert kontonummer på deg.`,
+  "personalia.kontonr.ingenData": `Vi har ikke registrert kontonummer på deg. <br></br>Du kan registrere kontonummer ved å trykke på «Legg til»`,
   "personalia.bank": `Bank`,
   "personalia.valuta": `Valuta`,
   "personalia.bickode": `BIC / SWIFT-kode`,
