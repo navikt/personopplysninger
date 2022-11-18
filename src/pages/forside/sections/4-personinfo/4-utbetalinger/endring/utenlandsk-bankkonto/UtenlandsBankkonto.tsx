@@ -1,8 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
-import { useIntl } from "react-intl";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/select-kodeverk/SelectLand";
@@ -11,12 +10,11 @@ import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMe
 import { UNKNOWN } from "utils/text";
 import {
   brukerBankkode,
+  harValgtBic,
+  harValgtUSA,
   validerBankkode,
   validerBic,
-  erLandIEuropa,
-  getCountryAlpha2,
 } from "../utils";
-import { harValgtBic, harValgtUSA } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
@@ -63,23 +61,19 @@ export interface OutboundUtenlandsbankonto {
 
 export const BIC = "BIC";
 export const UTEN_BIC = "UTEN_BIC";
-export const LAND_MED_BANKKODE = ["USA", "NZL", "AUS", "ZAF", "CAN", "RUS"];
 export const BANKKODER: { [key: string]: string } = {
-  USA: "FW",
-  NZL: "NZ",
-  AUS: "AU",
-  ZAF: "ZA",
-  CAN: "CC",
-  RUS: "RU",
+  US: "FW",
+  NZ: "NZ",
+  AU: "AU",
+  ZA: "ZA",
+  CA: "CC",
+  RU: "RU",
 };
 
-export const BANKKODE_MAX_LENGTH: { [key: string]: number } = {
-  USA: 9,
-  NZL: 6,
-  AUS: 6,
-  ZAF: 6,
-  CAN: 9,
-  RUS: 9,
+export const IBAN_PREFIX_ALTERNATIVES: { [key: string]: string[] } = {
+  IM: ["GB"],
+  JE: ["GB"],
+  GG: ["GB"],
 };
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
@@ -130,13 +124,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     kontonummer: {
       isIBANRequired: {
         message: msg({ id: "validation.iban.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => fields.land && fields.land.kreverIban,
       },
       isRequired: {
         message: msg({ id: "validation.kontonummer.pakrevd" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          !erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => fields.land && !fields.land.kreverIban,
       },
       isLettersAndDigits: msg({ id: "validation.only.letters.and.digits" }),
 
@@ -146,8 +138,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
       },
       isIBAN: {
         message: msg({ id: "validation.iban.gyldig" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          erLandIEuropa(fields.land),
+        validateIf: ({ fields }: ValidatorContext) => fields.land && fields.land.kreverIban,
       },
       isIBANCountryCompliant: {
         message: msg({ id: "validation.iban.country" }),
@@ -356,7 +347,6 @@ export const setOutboundUtenlandsbankonto = (c: FormContext) => {
     value: electronicFormatIBAN(fields.kontonummer),
     utenlandskKontoInformasjon: {
       landkode: fields.land.value,
-      landkodeTobokstavs: getCountryAlpha2(fields.land.value),
       valuta: fields.valuta.value,
       ...(sendBICKode && {
         swift: bickode,
