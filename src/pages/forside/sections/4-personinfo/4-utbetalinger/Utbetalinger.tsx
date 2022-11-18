@@ -196,15 +196,7 @@ const Utbetalinger = (props: Props) => {
               />
             </div>
           )}
-          <Kilde
-            kilde="personalia.source.nav"
-            onClick={() => settOpprettEllerEndre(true)}
-            lenkeTekst={
-              kontonr || utenlandskbank ? "side.endre" : "side.leggtil"
-            }
-            lenkeType={"KNAPP"}
-            ikon={kontonr || utenlandskbank ? endreIkon : leggTilIkon}
-          />
+          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
         </>
       )}
     </Box>
