@@ -1,6 +1,5 @@
 import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
-import { BANKKODE_MAX_LENGTH } from "./UtenlandsBankkonto";
 import { useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
 
@@ -37,7 +36,7 @@ const AmerikanskKonto = (props: Props) => {
             value={fields.bankkode}
             error={errors.bankkode}
             onChange={(value) => setField({ bankkode: value })}
-            maxLength={fields.land && BANKKODE_MAX_LENGTH[fields.land.value]}
+            maxLength={fields.land && fields.land.bankkodeLengde}
           />
         </div>
       </div>
