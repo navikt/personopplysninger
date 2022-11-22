@@ -1,0 +1,196 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DsopHistorikk renders correctly 1`] = `
+<div
+  className="historikk__tabs-innhold historikk__flex-table"
+>
+  <div
+    className="historikk__info"
+  >
+    <div
+      className="alertstripe alertstripe--info"
+    >
+      <span
+        className="alertstripe__ikon"
+      >
+        <span
+          className="sr-only"
+        >
+          info
+        </span>
+        <svg
+          aria-label="info-ikon"
+          focusable="false"
+          height="1.5em"
+          kind="info-sirkel-fyll"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1.5em"
+        >
+          <g
+            fill="none"
+          >
+            <path
+              d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
+              fill="#337C9B"
+            />
+            <path
+              d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
+              fill="#FFF"
+            />
+          </g>
+        </svg>
+      </span>
+      <div
+        className="typo-normal alertstripe__tekst"
+      >
+        Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. 
+        <a
+          className="lenke"
+          href="https://altinn.no"
+          rel="noopener"
+          target="blank"
+        >
+          Se samtykket i Altinn.
+        </a>
+      </div>
+    </div>
+  </div>
+  <div
+    className="historikk__flex-rad historikk__head"
+  >
+    <div
+      className="historikk__flex-kolonne"
+    >
+      <p
+        className="typo-element"
+      >
+        Uthentingstidspunkt
+      </p>
+    </div>
+    <div
+      className="historikk__flex-kolonne"
+    >
+      <p
+        className="typo-element"
+      >
+        Selskap
+      </p>
+    </div>
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne af-liste__ekspander"
+      onClick={[Function]}
+    >
+      2019
+       
+      <span
+        className="nav-frontend-chevron chevronboks chevron--opp"
+      />
+    </div>
+    <div />
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne historikk__heading"
+    >
+      <time
+        dateTime={"2019-06-18T08:45:51.634Z"}
+      >
+        18.06 - 10:45
+      </time>
+    </div>
+    <div
+      className="historikk__flex-kolonne"
+    >
+      <div />
+    </div>
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne historikk__heading"
+    >
+      <time
+        dateTime={"2019-06-18T08:45:52.101Z"}
+      >
+        18.06 - 10:45
+      </time>
+    </div>
+    <div
+      className="historikk__flex-kolonne"
+    >
+      <div />
+    </div>
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne historikk__heading"
+    >
+      <time
+        dateTime={"2019-06-18T08:51:55.535Z"}
+      >
+        18.06 - 10:51
+      </time>
+    </div>
+    <div
+      className="historikk__flex-kolonne"
+    >
+      <div />
+    </div>
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne af-liste__ekspander"
+      onClick={[Function]}
+    >
+      2018
+       
+      <span
+        className="nav-frontend-chevron chevronboks chevron--ned"
+      />
+    </div>
+    <div />
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne af-liste__ekspander"
+      onClick={[Function]}
+    >
+      2017
+       
+      <span
+        className="nav-frontend-chevron chevronboks chevron--ned"
+      />
+    </div>
+    <div />
+  </div>
+  <div
+    className="historikk__flex-rad"
+  >
+    <div
+      className="historikk__flex-kolonne af-liste__ekspander"
+      onClick={[Function]}
+    >
+      2016
+       
+      <span
+        className="nav-frontend-chevron chevronboks chevron--ned"
+      />
+    </div>
+    <div />
+  </div>
+</div>
+`;

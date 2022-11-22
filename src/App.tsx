@@ -19,8 +19,8 @@ import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
 import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
 import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
 import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
-import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
-import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
+import DsopHistorikkPage from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkPage";
+import DsopDetaljerPage from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerPage";
 import Modal from "react-modal";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
@@ -83,14 +83,14 @@ const App = () => {
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/dsop`}
-                        component={DsopHistorikk}
+                        component={DsopHistorikkPage}
                       />
                     )}
                     {featureToggles.data["personopplysninger.dsop"] && (
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/dsop/:id`}
-                        component={DsopDetaljer}
+                        component={DsopDetaljerPage}
                       />
                     )}
                     {featureToggles.data["personopplysninger.inst"] && (
