@@ -105,11 +105,6 @@ const Utbetalinger = (props: Props) => {
           </div>
         )}
       </>
-      <div style={{ paddingBottom: "1rem" }}>
-        <AlertStripeAdvarsel>
-          <FormattedMessage id="personalia.bankkonto.alert" />
-        </AlertStripeAdvarsel>
-      </div>
       {opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
@@ -196,7 +191,15 @@ const Utbetalinger = (props: Props) => {
               />
             </div>
           )}
-          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+          <Kilde
+            kilde="personalia.source.nav"
+            onClick={() => settOpprettEllerEndre(true)}
+            lenkeTekst={
+              kontonr || utenlandskbank ? "side.endre" : "side.leggtil"
+            }
+            lenkeType={"KNAPP"}
+            ikon={kontonr || utenlandskbank ? endreIkon : leggTilIkon}
+          />
         </>
       )}
     </Box>
