@@ -107,9 +107,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const formConfig = {
     land: {
       isRequired: msg({ id: "validation.land.pakrevd" }),
+      isNotUnknown: msg({ id: "validation.land.pakrevd" }),
     },
     valuta: {
       isRequired: msg({ id: "validation.valuta.pakrevd" }),
+      isNotUnknown: msg({ id: "validation.valuta.pakrevd" }),
     },
     banknavn: {
       isRequired: msg({ id: "validation.banknavn.pakrevd" }),

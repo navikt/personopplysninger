@@ -5,6 +5,7 @@ import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
 import { normalizeNummer } from "./formattering";
+import { UNKNOWN } from "./text";
 
 export const extraValidators = {
   /*
@@ -147,6 +148,9 @@ export const extraValidators = {
     value && !normalizeInput(value).match(regExpPattern.validBankadresselinje)
       ? config.message
       : null,
+
+  isNotUnknown: (config: SimpleValidatorConfig) => (value: string) =>
+    value === UNKNOWN ? config.message : null,
 };
 
 /*
