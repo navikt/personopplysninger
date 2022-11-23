@@ -12,7 +12,7 @@ import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
-import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
+import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysningerPage";
 import PageNotFound from "./pages/404/404";
 import { getRedirectPathFromParam, tillatteTjenester } from "./utils/redirects";
 import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";

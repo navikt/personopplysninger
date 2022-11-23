@@ -1,56 +1,39 @@
 import React from "react";
-import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser";
+import AdresserVisning from "pages/forside/sections/4-personinfo/3-adresser/Adresser";
 import Utbetalinger from "pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import Box from "components/box/Box";
-import { useParams } from "react-router-dom";
 import kontaktIkon from "assets/img/Kontakt.svg";
-import RedirectKnapp from "components/knapper/Redirect";
 import TelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav";
-import MedPersonInfo from "store/providers/PersonInfo";
-import Spinner from "components/spinner/Spinner";
-import Error, { HTTPError } from "components/error/Error";
+import { Personalia } from "../../types/personalia";
+import { Adresser } from "../../types/adresser";
 
-interface Routes {
-  tjeneste?: string;
-  redirectUrl?: string;
+interface Props {
+  personalia?: Personalia;
+  adresser?: Adresser;
 }
 
-const EndreAlleOpplysninger = () => {
-  const params = useParams<Routes>();
-  const { tjeneste, redirectUrl } = params;
-
+const EndreOpplysninger = (props: Props) => {
+  const { personalia, adresser } = props;
   return (
-    <div className="endreOpplysninger__page">
-      <div className="endreOpplysninger__container pagecontent">
-        <RedirectKnapp tjeneste={tjeneste} encodedUrl={redirectUrl} />
-        <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
-          {({ personalia, adresser }) => {
-            return (
-              <>
-                {personalia && (
-                  <Box
-                    id="kontaktinformasjon"
-                    tittel="kontaktinfo.tittel"
-                    icon={kontaktIkon}
-                  >
-                    <TelefonnummerHosNav tlfnr={personalia.tlfnr} />
-                  </Box>
-                )}
-                {adresser && <Adresser adresser={adresser} />}
-                {personalia && (
-                  <Utbetalinger
-                    kontonr={personalia.kontonr}
-                    utenlandskbank={personalia.utenlandskbank}
-                  />
-                )}
-              </>
-            );
-          }}
-        </MedPersonInfo>
-      </div>
-    </div>
+    <>
+      {personalia && (
+        <Box
+          id="kontaktinformasjon"
+          tittel="kontaktinfo.tittel"
+          icon={kontaktIkon}
+        >
+          <TelefonnummerHosNav tlfnr={personalia.tlfnr} />
+        </Box>
+      )}
+      {adresser && <AdresserVisning adresser={adresser} />}
+      {personalia && (
+        <Utbetalinger
+          kontonr={personalia.kontonr}
+          utenlandskbank={personalia.utenlandskbank}
+        />
+      )}
+    </>
   );
 };
 
-export const ErrorFunc = (error: HTTPError) => <Error error={error} />;
-export default EndreAlleOpplysninger;
+export default EndreOpplysninger;
