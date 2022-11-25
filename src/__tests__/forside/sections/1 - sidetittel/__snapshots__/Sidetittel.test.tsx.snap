@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sidetittel renders correctly 1`] = `
+<div
+  className="sidetittel__container"
+>
+  <h1
+    className="typo-sidetittel"
+  >
+    Personopplysninger
+  </h1>
+</div>
+`;

@@ -11,7 +11,6 @@ import { ValidatorsProvider } from "calidation";
 import { extraValidators } from "../../utils/validators";
 
 jest.mock("react-modal");
-jest.mock("utils/validators");
 
 describe("EndreOpplysninger", () => {
   it("renders correctly", () => {

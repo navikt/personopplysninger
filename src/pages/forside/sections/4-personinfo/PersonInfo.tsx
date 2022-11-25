@@ -21,7 +21,7 @@ const Loader = () => (
   </Box>
 );
 
-const VisPersonInfo = () => {
+const PersonInfo = () => {
   return (
     <MedPersonInfo loader={<Loader />} error={ErrorWithBox}>
       {({ personalia, adresser, enhetKontaktInformasjon }) => (
@@ -59,4 +59,4 @@ export const ErrorWithBox = (error: HTTPError) => (
   </Box>
 );
 
-export default VisPersonInfo;
+export default PersonInfo;

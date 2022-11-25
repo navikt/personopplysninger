@@ -118,7 +118,6 @@
     "less-watch-compiler": "^1.16.3",
     "prettier": "^2.7.1",
     "react-test-renderer": "17.0.2",
-    "ts-jest": "^29.0.2",
     "tslint": "^6.1.3",
     "tslint-react": "^5.0.0"
   },
