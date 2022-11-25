@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Utbetalinger renders correctly 1`] = `
+<div
+  className="box__wrapper"
+  id="utbetaling"
+>
+  <div
+    className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+  >
+    <div
+      className="nav-veileder nav-veileder--flytende"
+    >
+      <div
+        className="nav-veileder__frame nav-veileder__frame--m"
+      >
+        <img
+          alt="Veileder"
+          className="box__ikon"
+          src="Kontonummer.svg"
+        />
+      </div>
+    </div>
+    <div
+      className="nav-veilederpanel__content"
+    >
+      <div
+        className="box__container"
+      >
+        <div
+          className="box__header"
+        >
+          <div
+            className="box__title-container"
+          >
+            <div
+              className="box__line"
+            />
+            <h2
+              className="typo-systemtittel box__title"
+            >
+              Kontonummer for utbetaling
+            </h2>
+            <div
+              className="box__line"
+            />
+          </div>
+          <a
+            className="lenke anchor-link"
+            href="#utbetaling"
+          >
+            <img
+              alt=""
+              src="AnchorLink.svg"
+            />
+            Lenke hit
+          </a>
+        </div>
+        <div
+          className="box__content"
+        >
+          
+          <ul
+            className="list-column-2"
+          >
+            <li>
+              <div
+                className="listelement__header"
+              >
+                <p
+                  className="typo-element"
+                >
+                  Kontonummer
+                </p>
+              </div>
+              <div
+                className="content "
+              >
+                1234 56 78911
+              </div>
+            </li>
+          </ul>
+          <div
+            className="kilde__container"
+          >
+            <button
+              className="kilde__lenke lenke"
+              onClick={[Function]}
+            >
+              <span
+                className="kilde__icon"
+              >
+                <img
+                  alt="Ekstern lenke"
+                  src="Pencil.svg"
+                />
+              </span>
+              <p
+                className="typo-normal"
+              >
+                Endre
+              </p>
+            </button>
+            <div
+              className="kilde__tekst"
+            >
+              <p
+                className="typo-undertekst"
+              >
+                Kilde: NAV
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

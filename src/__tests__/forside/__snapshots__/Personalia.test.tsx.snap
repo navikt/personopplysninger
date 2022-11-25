@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Personalia renders correctly 1`] = `
+<div
+  className="box__wrapper"
+  id="personalia"
+>
+  <div
+    className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+  >
+    <div
+      className="nav-veileder nav-veileder--flytende"
+    >
+      <div
+        className="nav-veileder__frame nav-veileder__frame--m"
+      >
+        <img
+          alt="Veileder"
+          className="box__ikon"
+          src="Personalia.svg"
+        />
+      </div>
+    </div>
+    <div
+      className="nav-veilederpanel__content"
+    >
+      <div
+        className="box__container"
+      >
+        <div
+          className="box__header"
+        >
+          <div
+            className="box__title-container"
+          >
+            <div
+              className="box__line"
+            />
+            <h2
+              className="typo-systemtittel box__title"
+            >
+              Personalia
+            </h2>
+            <button
+              aria-label="Informasjonstekst"
+              aria-pressed={false}
+              className="infotekst__title-i-button"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              title="Informasjon"
+            >
+              <img
+                alt="Vis mer informasjon"
+                className="infotekst__title-i-icon"
+                src="Informasjonstekst.svg"
+              />
+            </button>
+            <div
+              className="box__line"
+            />
+          </div>
+          <a
+            className="lenke anchor-link"
+            href="#personalia"
+          >
+            <img
+              alt=""
+              src="AnchorLink.svg"
+            />
+            Lenke hit
+          </a>
+        </div>
+        <div
+          className="box__content"
+        >
+          <ul
+            className="list-column-2"
+          />
+          <div
+            className="kilde__container"
+          >
+            <p
+              className="typo-normal"
+            >
+              <a
+                className="lenke kilde__lenke lenke"
+                href="https://www.skatteetaten.no/person/folkeregister/"
+              >
+                <span
+                  className="kilde__icon"
+                >
+                  <img
+                    alt="Ekstern lenke"
+                    src="Link.svg"
+                  />
+                </span>
+                Endre i Folkeregisteret
+              </a>
+            </p>
+            <div
+              className="kilde__tekst"
+            >
+              <p
+                className="typo-undertekst"
+              >
+                Kilde: Folkeregisteret
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

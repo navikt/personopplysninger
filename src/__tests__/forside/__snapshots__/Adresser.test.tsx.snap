@@ -1,0 +1,447 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Adresser renders correctly 1`] = `
+<div
+  className="box__wrapper"
+  id="adresser"
+>
+  <div
+    className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+  >
+    <div
+      className="nav-veileder nav-veileder--flytende"
+    >
+      <div
+        className="nav-veileder__frame nav-veileder__frame--m"
+      >
+        <img
+          alt="Veileder"
+          className="box__ikon"
+          src="Adresse.svg"
+        />
+      </div>
+    </div>
+    <div
+      className="nav-veilederpanel__content"
+    >
+      <div
+        className="box__container"
+      >
+        <div
+          className="box__header"
+        >
+          <div
+            className="box__title-container"
+          >
+            <div
+              className="box__line"
+            />
+            <h2
+              className="typo-systemtittel box__title"
+            >
+              Adresser
+            </h2>
+            <button
+              aria-label="Informasjonstekst"
+              aria-pressed={false}
+              className="infotekst__title-i-button"
+              onClick={[Function]}
+              onMouseEnter={[Function]}
+              onMouseLeave={[Function]}
+              title="Informasjon"
+            >
+              <img
+                alt="Vis mer informasjon"
+                className="infotekst__title-i-icon"
+                src="Informasjonstekst.svg"
+              />
+            </button>
+            <div
+              className="box__line"
+            />
+          </div>
+          <a
+            className="lenke anchor-link"
+            href="#adresser"
+          >
+            <img
+              alt=""
+              src="AnchorLink.svg"
+            />
+            Lenke hit
+          </a>
+        </div>
+        <div
+          className="box__content"
+        >
+          <div
+            className="adresse__box"
+          >
+            
+            <div>
+              <div
+                className="underseksjon__header"
+              >
+                <h2
+                  className="typo-undertittel"
+                >
+                  Adresser som er registert i Folkeregisteret
+                </h2>
+              </div>
+              <div
+                className="adresse__box"
+              >
+                <div
+                  className="underseksjon__header"
+                >
+                  <p
+                    className="typo-element"
+                  >
+                    Bostedsadresse
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    V/ Aremark Jr
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    JØRGENSENVEIEN
+                     
+                    14
+                     
+                    B
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    0194
+                     
+                    OSLO
+                  </p>
+                </div>
+                <div
+                  className="lesMerPanel adresse__lesmer"
+                  id="57675754-01578-9309-4572-262331968412423"
+                >
+                  <div
+                    className="lesMerPanel__merContainer"
+                  />
+                  <div
+                    className="lesMerPanel__toggle"
+                  >
+                    <button
+                      aria-controls="57675754-01578-9309-4572-262331968412423"
+                      aria-expanded={false}
+                      className="lesMerPanel__togglelink"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span
+                        className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                      />
+                      <div
+                        className="lesMerPanel__toggleTekst"
+                      >
+                        Vis detaljer
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="adresse__divider"
+                />
+              </div>
+              <div
+                className="adresse__box"
+              >
+                <div
+                  className="underseksjon__header"
+                >
+                  <p
+                    className="typo-element"
+                  >
+                    Delt bosted
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    V/ Aremark Jr
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    JØRGENSENVEIEN
+                     
+                    14
+                     
+                    B
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    0194
+                     
+                    OSLO
+                  </p>
+                </div>
+                <div
+                  className="lesMerPanel adresse__lesmer"
+                  id="1462130110-02927-13096-05067-3732112208146"
+                >
+                  <div
+                    className="lesMerPanel__merContainer"
+                  />
+                  <div
+                    className="lesMerPanel__toggle"
+                  >
+                    <button
+                      aria-controls="1462130110-02927-13096-05067-3732112208146"
+                      aria-expanded={false}
+                      className="lesMerPanel__togglelink"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      <span
+                        className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                      />
+                      <div
+                        className="lesMerPanel__toggleTekst"
+                      >
+                        Vis detaljer
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  className="adresse__divider"
+                />
+              </div>
+              <div
+                className="adresse__box"
+              >
+                <div
+                  className="underseksjon__header"
+                >
+                  <p
+                    className="typo-element"
+                  >
+                    Oppholdsadresse
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    V/ Aremark Jr
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    JØRGENSENVEIEN
+                     
+                    14
+                     
+                    B
+                  </p>
+                </div>
+                <div
+                  className="adresse__linje"
+                >
+                  <p
+                    className="typo-normal"
+                  >
+                    0194
+                     
+                    OSLO
+                  </p>
+                </div>
+                
+                <div
+                  className="adresse__divider"
+                />
+              </div>
+              <div
+                className="kilde__container"
+              >
+                <p
+                  className="typo-normal"
+                >
+                  <a
+                    className="lenke kilde__lenke lenke"
+                    href="https://www.skatteetaten.no/person/folkeregister/flytte/"
+                  >
+                    <span
+                      className="kilde__icon"
+                    >
+                      <img
+                        alt="Ekstern lenke"
+                        src="Link.svg"
+                      />
+                    </span>
+                    Endre adresse i Folkeregisteret
+                  </a>
+                </p>
+                <div
+                  className="kilde__tekst"
+                >
+                  <p
+                    className="typo-undertekst"
+                  >
+                    Kilde: Folkeregisteret
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              className="underseksjon__header underseksjon__divider"
+            >
+              <h2
+                className="typo-undertittel"
+              >
+                Øvrige registrerte adresser
+              </h2>
+            </div>
+            <div
+              className="adresse__box"
+            >
+              <div
+                className="underseksjon__header"
+              >
+                <p
+                  className="typo-element"
+                >
+                  Kontaktadresse registrert hos NAV
+                </p>
+              </div>
+              <div
+                className="adresse__linje"
+              >
+                <p
+                  className="typo-normal"
+                >
+                  V/ Aremark Jr
+                </p>
+              </div>
+              
+              <div
+                className="adresse__linje"
+              >
+                <p
+                  className="typo-normal"
+                >
+                  Postboks 10 Sørstrand
+                </p>
+              </div>
+              <div
+                className="adresse__linje"
+              >
+                <p
+                  className="typo-normal"
+                >
+                  0194
+                   
+                  OSLO
+                </p>
+              </div>
+              <div
+                className="lesMerPanel adresse__lesmer"
+                id="188102340-3696-1003-1436-29798027910782"
+              >
+                <div
+                  className="lesMerPanel__merContainer"
+                />
+                <div
+                  className="lesMerPanel__toggle"
+                >
+                  <button
+                    aria-controls="188102340-3696-1003-1436-29798027910782"
+                    aria-expanded={false}
+                    className="lesMerPanel__togglelink"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    <span
+                      className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                    />
+                    <div
+                      className="lesMerPanel__toggleTekst"
+                    >
+                      Vis detaljer
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <div
+                className="adresse__divider"
+              />
+            </div>
+            <button
+              className="kilde__lenke lenke"
+              onClick={[Function]}
+            >
+              <span
+                className="kilde__icon"
+              >
+                <img
+                  alt="Ekstern lenke"
+                  src="Slett.svg"
+                />
+              </span>
+              <p
+                className="typo-normal"
+              >
+                Slett kontaktadresse
+              </p>
+            </button>
+            <div
+              className="kilde__container"
+            >
+              <div
+                className="kilde__tekst"
+              >
+                <p
+                  className="typo-undertekst"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,267 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DKIF renders correctly 1`] = `
+Array [
+  <div
+    className="underseksjon__beskrivelse"
+  >
+    <p
+      className="typo-normal"
+    >
+      Du har 
+      <b>
+        ikke
+      </b>
+       reservert deg mot elektronisk kommunikasjon.
+    </p>
+  </div>,
+  <ul
+    className="list-column-2"
+  >
+    <li>
+      <div
+        className="listelement__header"
+      >
+        <p
+          className="typo-element"
+        >
+          Telefon
+        </p>
+      </div>
+      <div
+        className="content "
+      >
+        12131415
+      </div>
+    </li>
+    <li>
+      <div
+        className="listelement__header"
+      >
+        <p
+          className="typo-element"
+        >
+          Språk/målform
+        </p>
+      </div>
+      <div
+        className="content "
+      >
+        Norsk
+      </div>
+    </li>
+    <li>
+      <div
+        className="listelement__header"
+      >
+        <p
+          className="typo-element"
+        >
+          E-post
+        </p>
+      </div>
+      <div
+        className="content "
+      >
+        test@test.com
+      </div>
+    </li>
+  </ul>,
+  <div
+    className="kilde__container"
+  >
+    <p
+      className="typo-normal"
+    >
+      <a
+        className="lenke kilde__lenke lenke"
+        href="https://brukerprofil.difi.no/minprofil"
+      >
+        <span
+          className="kilde__icon"
+        >
+          <img
+            alt="Ekstern lenke"
+            src="Link.svg"
+          />
+        </span>
+        Endre i Kontakt- og reservasjonsregisteret 
+      </a>
+    </p>
+    <div
+      className="kilde__tekst"
+    >
+      <p
+        className="typo-undertekst"
+      >
+        Kilde: Kontakt - og reservasjonsregisteret
+      </p>
+    </div>
+  </div>,
+]
+`;
+
+exports[`TelefonnummerHosNav renders correctly 1`] = `
+Array [
+  "",
+  <div
+    className="underseksjon__header"
+  >
+    <h2
+      className="typo-undertittel"
+    >
+      Telefonnummer registrert hos NAV
+    </h2>
+  </div>,
+  <div>
+    <form
+      className="tlfnummer__rad"
+      noValidate={true}
+      onChange={[Function]}
+      onReset={[Function]}
+      onSubmit={[Function]}
+      validators={
+        Object {
+          "hasMultipleCombinedSpaces": [Function],
+          "isBIC": [Function],
+          "isBICCountryCompliant": [Function],
+          "isBankkode": [Function],
+          "isBlacklisted": [Function],
+          "isBlacklistedCommon": [Function],
+          "isEmail": [Function],
+          "isEqual": [Function],
+          "isExactLength": [Function],
+          "isFirstCharNotSpace": [Function],
+          "isGreaterThan": [Function],
+          "isHouseNumber": [Function],
+          "isIBAN": [Function],
+          "isIBANCountryCompliant": [Function],
+          "isIBANRequired": [Function],
+          "isLessThan": [Function],
+          "isLetters": [Function],
+          "isLettersAndDigits": [Function],
+          "isLettersAndSpace": [Function],
+          "isLettersSpaceAndDigits": [Function],
+          "isMaxLength": [Function],
+          "isMinLength": [Function],
+          "isMinOneLetter": [Function],
+          "isMod11": [Function],
+          "isNormalizedLength": [Function],
+          "isNotIBAN": [Function],
+          "isNotSSN": [Function],
+          "isNotYourSSN": [Function],
+          "isNumber": [Function],
+          "isPositive": [Function],
+          "isRegexMatch": [Function],
+          "isRequired": [Function],
+          "isValidAdresselinje": [Function],
+          "isValidBanknavn": [Function],
+          "isValidNorwegianNumber": [Function],
+          "isValidStreetName": [Function],
+          "isWhitelisted": [Function],
+          "notOnlySignsDigitsSpace": [Function],
+          "notOnlySignsSpace": [Function],
+        }
+      }
+    >
+      <div
+        className="tlfnummer__container"
+      >
+        <div
+          className="tlfnummer__verdi"
+        >
+          <p
+            className="typo-element"
+          >
+            Telefon 
+          </p>
+          <p
+            className="typo-normal"
+          >
+            <span>
+              +47
+               
+            </span>
+            408 53 158
+          </p>
+        </div>
+        <div
+          className="tlfnummer__knapper"
+        >
+          <button
+            className="knapp tlfnummer__knapp-med-ikon knapp--flat"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <div
+              className="tlfnummer__knapp-ikon"
+            >
+              <img
+                alt="Endre telefonnummer"
+                src="Pencil.svg"
+              />
+            </div>
+            <div
+              className="tlfnummer__knapp-tekst"
+            >
+              Endre
+            </div>
+          </button>
+          <button
+            className="knapp tlfnummer__knapp-med-ikon knapp--flat"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            <div
+              className="tlfnummer__knapp-ikon"
+            >
+              <img
+                alt="Slett telefonnummer"
+                src="Slett.svg"
+              />
+            </div>
+            <div
+              className="tlfnummer__knapp-tekst"
+            >
+              Slett
+            </div>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  <button
+    className="tlfnummer__leggtil lenke"
+    onClick={[Function]}
+  >
+    <span
+      className="kilde__icon"
+    >
+      <img
+        alt="Ekstern lenke"
+        src="LeggTil.svg"
+      />
+    </span>
+    <p
+      className="typo-normal"
+    >
+      Legg til
+    </p>
+  </button>,
+  <div
+    className="kilde__container"
+  >
+    <div
+      className="kilde__tekst"
+    >
+      <p
+        className="typo-undertekst"
+      >
+        Kilde: NAV
+      </p>
+    </div>
+  </div>,
+]
+`;
