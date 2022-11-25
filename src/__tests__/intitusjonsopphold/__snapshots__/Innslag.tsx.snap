@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Innslag renders correctly 1`] = `
+<div>
+  <div
+    className="detaljer__tittel"
+  >
+    <h2
+      className="typo-undertittel"
+    >
+      VIK FENGSEL
+    </h2>
+    <p
+      className="typo-normal"
+    >
+      Organisasjonsnummer 974 736 942
+    </p>
+  </div>
+  <hr
+    className="box__linje-bred"
+  />
+  <div
+    className="box"
+  >
+    <div
+      className="box__content"
+    >
+      <ul
+        className="list-column-2"
+      >
+        <li>
+          <div
+            className="listelement__header"
+          >
+            <p
+              className="typo-element"
+            >
+              Institusjonstype
+            </p>
+          </div>
+          <div
+            className="content "
+          >
+            FO
+          </div>
+        </li>
+        <li>
+          <div
+            className="listelement__header"
+          >
+            <p
+              className="typo-element"
+            >
+              Periode
+            </p>
+          </div>
+          <div
+            className="content "
+          >
+            <div
+              className="inst__periode"
+            >
+              13.06.2017 - 15.09.2017
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
