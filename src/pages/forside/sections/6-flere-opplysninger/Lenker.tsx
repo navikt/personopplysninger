@@ -15,11 +15,8 @@ import { useStore } from "store/Context";
 import { basePath } from "../../../../App";
 import { AnchorLink } from "../../../../components/anchorlink/AnchorLink";
 
-const {
-  REACT_APP_PDL_URL,
-  REACT_APP_BFT_URL,
-  REACT_APP_SKJERMING_URL,
-} = process.env;
+const { REACT_APP_PDL_URL, REACT_APP_BFT_URL, REACT_APP_SKJERMING_URL } =
+  process.env;
 
 const id = "flere-opplysninger";
 
@@ -30,13 +27,13 @@ const LinksContainer = () => {
       <div className="el__content">
         <div className="el__overskrift">
           <Systemtittel>
-            <FormattedMessage id="lenker.tittel"/>
+            <FormattedMessage id="lenker.tittel" />
           </Systemtittel>
         </div>
-        <AnchorLink id={id}/>
+        <AnchorLink id={id} />
         <div className="el__info">
           <Normaltekst>
-            <FormattedMessage id="lenker.beskrivelse"/>
+            <FormattedMessage id="lenker.beskrivelse" />
           </Normaltekst>
         </div>
         {lenker(locale).map((link) => (
@@ -73,17 +70,6 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
-        {featureToggles.data["personopplysninger.skatt"] && (
-          <LinkBox
-            id={"skatt"}
-            icon={SkattIkon}
-            tittel={"lenker.skattetrekksmelding.tittel"}
-            beskrivelse={"lenker.skattetrekksmelding.beskrivelse"}
-            lenkeTekst={"lenker.skattetrekksmelding.lenkeTekst"}
-            to={`${basePath}/${locale}/skattetrekksmelding`}
-            component={"Link"}
-          />
-        )}
         {featureToggles.data["personopplysninger.medl"] && (
           <LinkBox
             id={"medl"}
@@ -96,17 +82,17 @@ const LinksContainer = () => {
           />
         )}
         {featureToggles.data["personopplysninger.fullmakt"] &&
-        featureToggles.data["pdl-fullmakt"] && (
-          <LinkBox
-            id={"fullmakt"}
-            icon={FullmaktIkon}
-            tittel={"lenker.fullmakt.tittel"}
-            beskrivelse={"lenker.fullmakt.beskrivelse"}
-            lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-            to={`${REACT_APP_PDL_URL}`}
-            component={"a"}
-          />
-        )}
+          featureToggles.data["pdl-fullmakt"] && (
+            <LinkBox
+              id={"fullmakt"}
+              icon={FullmaktIkon}
+              tittel={"lenker.fullmakt.tittel"}
+              beskrivelse={"lenker.fullmakt.beskrivelse"}
+              lenkeTekst={"lenker.fullmakt.lenkeTekst"}
+              to={`${REACT_APP_PDL_URL}`}
+              component={"a"}
+            />
+          )}
         {featureToggles.data["personopplysninger.tilrettelegging"] && (
           <LinkBox
             id={"tilrettelegging"}

@@ -155,9 +155,6 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "inst.ingendata": "Ingen institusjonsopphald er registrert",
   "inst.fiktivSluttdato": `Sluttdato for opphaldet er ikkje mottatt. NAV har avslutta opphaldet maskinelt.`,
   "inst.kilde": `Kjelde: Den enkelte institusjon`,
-  "skattetrekksmeldinger.tittel": `Skattetrekksmeldingar`,
-  "skattetrekksmeldinger.ingendata":
-    "Ingen skattetrekksmeldingar har blitt henta",
   "medl.tittel": `Medlemskap og unntak frå <br></br> medlemskap i folketrygda`,
   "medl.ingendata": `Du har ingen registrerte periodar.`,
   "medl.oversikt.ingress": `Dersom du bur og jobbar i Norge, er du vanlegvis medlem i folketrygda. Periodar med denne type medlemskap blir ikkje vist i oversikta. Oversikta er berre aktuell for deg som har`,
@@ -218,8 +215,6 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "lenker.dsop.info": `Dette er ein logg som viser opplysningar vi har levert til forsikringsselskap basert på samtykke du har gitt på Altinn. <a>Se samtykket i Altinn.</a>`,
   "lenker.inst.tittel": `Institusjonsopphald`,
   "lenker.inst.beskrivelse": `Sjå institusjonsopphalda dine`,
-  "lenker.skattetrekksmelding.tittel": `Skattetrekksmeldingar`,
-  "lenker.skattetrekksmelding.beskrivelse": `Sjå skattetrekksmeldingane dine`,
   "lenker.medl.tittel": `Medlemskap og unntak frå medlemskap i folketrygda`,
   "lenker.medl.beskrivelse": `Sjå periodar ved utanlandsopphald, og periodar for deg som har jobba i Norge, men bur i eit anna land`,
   "lenker.fullmakt.tittel": `Fullmakter`,
