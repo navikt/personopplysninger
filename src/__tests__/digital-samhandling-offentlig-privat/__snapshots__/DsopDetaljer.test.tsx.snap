@@ -1,111 +1,111 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DsopDetaljerView renders correctly 1`] = `
-<div>
-  <div
-    className="detaljer__tittel"
-  >
-    <h2
-      className="typo-undertittel"
-    >
-      STOREBRAND LIVSFORSIKRING AS
-    </h2>
-    <p
-      className="typo-normal"
-    >
-      Organisasjonsnummer 958995369
-    </p>
-  </div>
-  <hr
-    className="box__linje-bred"
-  />
-  <div
-    className="box"
-  >
+<DocumentFragment>
+  <div>
     <div
-      className="box__content"
+      class="detaljer__tittel"
     >
-      <ul
-        className="list-column-2"
+      <h2
+        class="typo-undertittel"
       >
-        <li>
-          <div
-            className="listelement__header"
-          >
-            <p
-              className="typo-element"
-            >
-              Uthentingstidspunkt
-            </p>
-          </div>
-          <div
-            className="content "
-          >
-            18.06.2019 10:45
-          </div>
-        </li>
-        <li>
-          <div
-            className="listelement__header"
-          >
-            <p
-              className="typo-element"
-            >
-              Personnummer
-            </p>
-          </div>
-          <div
-            className="content "
-          >
-            04019727454
-          </div>
-        </li>
-        <li>
-          <div
-            className="listelement__header"
-          >
-            <p
-              className="typo-element"
-            >
-              Tema
-            </p>
-          </div>
-          <div
-            className="content "
-          >
-            AAP
-          </div>
-        </li>
-        <li>
-          <div
-            className="listelement__header"
-          >
-            <p
-              className="typo-element"
-            >
-              Behandlingsgrunnlag
-            </p>
-          </div>
-          <div
-            className="content "
-          >
-            Samtykke
-          </div>
-        </li>
-      </ul>
+        STOREBRAND LIVSFORSIKRING AS
+      </h2>
+      <p
+        class="typo-normal"
+      >
+        Organisasjonsnummer 958995369
+      </p>
     </div>
+    <hr
+      class="box__linje-bred"
+    />
     <div
-      className="detaljer__container"
+      class="box"
     >
-      <button
-        className="knapp knapp--hoved"
-        disabled={false}
-        onClick={[Function]}
-        type="submit"
+      <div
+        class="box__content"
       >
-        Last ned leverte data
-      </button>
+        <ul
+          class="list-column-2"
+        >
+          <li>
+            <div
+              class="listelement__header"
+            >
+              <p
+                class="typo-element"
+              >
+                Uthentingstidspunkt
+              </p>
+            </div>
+            <div
+              class="content "
+            >
+              18.06.2019 10:45
+            </div>
+          </li>
+          <li>
+            <div
+              class="listelement__header"
+            >
+              <p
+                class="typo-element"
+              >
+                Personnummer
+              </p>
+            </div>
+            <div
+              class="content "
+            >
+              04019727454
+            </div>
+          </li>
+          <li>
+            <div
+              class="listelement__header"
+            >
+              <p
+                class="typo-element"
+              >
+                Tema
+              </p>
+            </div>
+            <div
+              class="content "
+            >
+              AAP
+            </div>
+          </li>
+          <li>
+            <div
+              class="listelement__header"
+            >
+              <p
+                class="typo-element"
+              >
+                Behandlingsgrunnlag
+              </p>
+            </div>
+            <div
+              class="content "
+            >
+              Samtykke
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div
+        class="detaljer__container"
+      >
+        <button
+          class="knapp knapp--hoved"
+          type="submit"
+        >
+          Last ned leverte data
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

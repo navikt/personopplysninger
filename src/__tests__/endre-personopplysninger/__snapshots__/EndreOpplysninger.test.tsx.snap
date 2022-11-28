@@ -1,148 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`EndreOpplysningerView renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
-    className="box__wrapper"
+    class="box__wrapper"
     id="kontaktinformasjon"
   >
     <div
-      className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
     >
       <div
-        className="nav-veileder nav-veileder--flytende"
+        class="nav-veileder nav-veileder--flytende"
       >
         <div
-          className="nav-veileder__frame nav-veileder__frame--m"
+          class="nav-veileder__frame nav-veileder__frame--m"
         >
           <img
             alt="Veileder"
-            className="box__ikon"
+            class="box__ikon"
             src="Kontakt.svg"
           />
         </div>
       </div>
       <div
-        className="nav-veilederpanel__content"
+        class="nav-veilederpanel__content"
       >
         <div
-          className="box__container"
+          class="box__container"
         >
           <div
-            className="box__header"
+            class="box__header"
           >
             <div
-              className="box__title-container"
+              class="box__title-container"
             >
               <div
-                className="box__line"
+                class="box__line"
               />
               <h2
-                className="typo-systemtittel box__title"
+                class="typo-systemtittel box__title"
               >
                 Kontaktinformasjon
               </h2>
               <div
-                className="box__line"
+                class="box__line"
               />
             </div>
           </div>
           <div
-            className="box__content"
+            class="box__content"
           >
-            
             <div
-              className="underseksjon__header"
+              class="underseksjon__header"
             >
               <h2
-                className="typo-undertittel"
+                class="typo-undertittel"
               >
                 Telefonnummer registrert hos NAV
               </h2>
             </div>
             <div>
               <form
-                className="tlfnummer__rad"
-                noValidate={true}
-                onChange={[Function]}
-                onReset={[Function]}
-                onSubmit={[Function]}
-                validators={
-                  Object {
-                    "hasMultipleCombinedSpaces": [Function],
-                    "isBIC": [Function],
-                    "isBICCountryCompliant": [Function],
-                    "isBankkode": [Function],
-                    "isBlacklisted": [Function],
-                    "isBlacklistedCommon": [Function],
-                    "isEmail": [Function],
-                    "isEqual": [Function],
-                    "isExactLength": [Function],
-                    "isFirstCharNotSpace": [Function],
-                    "isGreaterThan": [Function],
-                    "isHouseNumber": [Function],
-                    "isIBAN": [Function],
-                    "isIBANCountryCompliant": [Function],
-                    "isIBANRequired": [Function],
-                    "isLessThan": [Function],
-                    "isLetters": [Function],
-                    "isLettersAndDigits": [Function],
-                    "isLettersAndSpace": [Function],
-                    "isLettersSpaceAndDigits": [Function],
-                    "isMaxLength": [Function],
-                    "isMinLength": [Function],
-                    "isMinOneLetter": [Function],
-                    "isMod11": [Function],
-                    "isNormalizedLength": [Function],
-                    "isNotIBAN": [Function],
-                    "isNotSSN": [Function],
-                    "isNotYourSSN": [Function],
-                    "isNumber": [Function],
-                    "isPositive": [Function],
-                    "isRegexMatch": [Function],
-                    "isRequired": [Function],
-                    "isValidAdresselinje": [Function],
-                    "isValidBanknavn": [Function],
-                    "isValidNorwegianNumber": [Function],
-                    "isValidStreetName": [Function],
-                    "isWhitelisted": [Function],
-                    "notOnlySignsDigitsSpace": [Function],
-                    "notOnlySignsSpace": [Function],
-                  }
-                }
+                class="tlfnummer__rad"
+                novalidate=""
+                validators="[object Object]"
               >
                 <div
-                  className="tlfnummer__container"
+                  class="tlfnummer__container"
                 >
                   <div
-                    className="tlfnummer__verdi"
+                    class="tlfnummer__verdi"
                   >
                     <p
-                      className="typo-element"
+                      class="typo-element"
                     >
                       Telefon 
                     </p>
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
                       <span>
-                        +47
-                         
+                        +47 
                       </span>
                       408 53 158
                     </p>
                   </div>
                   <div
-                    className="tlfnummer__knapper"
+                    class="tlfnummer__knapper"
                   >
                     <button
-                      className="knapp tlfnummer__knapp-med-ikon knapp--flat"
-                      disabled={false}
-                      onClick={[Function]}
+                      class="knapp tlfnummer__knapp-med-ikon knapp--flat"
                       type="button"
                     >
                       <div
-                        className="tlfnummer__knapp-ikon"
+                        class="tlfnummer__knapp-ikon"
                       >
                         <img
                           alt="Endre telefonnummer"
@@ -150,19 +101,17 @@ Array [
                         />
                       </div>
                       <div
-                        className="tlfnummer__knapp-tekst"
+                        class="tlfnummer__knapp-tekst"
                       >
                         Endre
                       </div>
                     </button>
                     <button
-                      className="knapp tlfnummer__knapp-med-ikon knapp--flat"
-                      disabled={false}
-                      onClick={[Function]}
+                      class="knapp tlfnummer__knapp-med-ikon knapp--flat"
                       type="button"
                     >
                       <div
-                        className="tlfnummer__knapp-ikon"
+                        class="tlfnummer__knapp-ikon"
                       >
                         <img
                           alt="Slett telefonnummer"
@@ -170,7 +119,7 @@ Array [
                         />
                       </div>
                       <div
-                        className="tlfnummer__knapp-tekst"
+                        class="tlfnummer__knapp-tekst"
                       >
                         Slett
                       </div>
@@ -180,11 +129,10 @@ Array [
               </form>
             </div>
             <button
-              className="tlfnummer__leggtil lenke"
-              onClick={[Function]}
+              class="tlfnummer__leggtil lenke"
             >
               <span
-                className="kilde__icon"
+                class="kilde__icon"
               >
                 <img
                   alt="Ekstern lenke"
@@ -192,19 +140,19 @@ Array [
                 />
               </span>
               <p
-                className="typo-normal"
+                class="typo-normal"
               >
                 Legg til
               </p>
             </button>
             <div
-              className="kilde__container"
+              class="kilde__container"
             >
               <div
-                className="kilde__tekst"
+                class="kilde__tekst"
               >
                 <p
-                  className="typo-undertekst"
+                  class="typo-undertekst"
                 >
                   Kilde: NAV
                 </p>
@@ -214,68 +162,65 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
-    className="box__wrapper"
+    class="box__wrapper"
     id="adresser"
   >
     <div
-      className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
     >
       <div
-        className="nav-veileder nav-veileder--flytende"
+        class="nav-veileder nav-veileder--flytende"
       >
         <div
-          className="nav-veileder__frame nav-veileder__frame--m"
+          class="nav-veileder__frame nav-veileder__frame--m"
         >
           <img
             alt="Veileder"
-            className="box__ikon"
+            class="box__ikon"
             src="Adresse.svg"
           />
         </div>
       </div>
       <div
-        className="nav-veilederpanel__content"
+        class="nav-veilederpanel__content"
       >
         <div
-          className="box__container"
+          class="box__container"
         >
           <div
-            className="box__header"
+            class="box__header"
           >
             <div
-              className="box__title-container"
+              class="box__title-container"
             >
               <div
-                className="box__line"
+                class="box__line"
               />
               <h2
-                className="typo-systemtittel box__title"
+                class="typo-systemtittel box__title"
               >
                 Adresser
               </h2>
               <button
                 aria-label="Informasjonstekst"
-                aria-pressed={false}
-                className="infotekst__title-i-button"
-                onClick={[Function]}
-                onMouseEnter={[Function]}
-                onMouseLeave={[Function]}
+                aria-pressed="false"
+                class="infotekst__title-i-button"
                 title="Informasjon"
               >
                 <img
                   alt="Vis mer informasjon"
-                  className="infotekst__title-i-icon"
+                  class="infotekst__title-i-icon"
                   src="Informasjonstekst.svg"
                 />
               </button>
               <div
-                className="box__line"
+                class="box__line"
               />
             </div>
             <a
-              className="lenke anchor-link"
+              class="lenke anchor-link"
               href="#adresser"
             >
               <img
@@ -286,89 +231,81 @@ Array [
             </a>
           </div>
           <div
-            className="box__content"
+            class="box__content"
           >
             <div
-              className="adresse__box"
+              class="adresse__box"
             >
-              
               <div>
                 <div
-                  className="underseksjon__header"
+                  class="underseksjon__header"
                 >
                   <h2
-                    className="typo-undertittel"
+                    class="typo-undertittel"
                   >
                     Adresser som er registert i Folkeregisteret
                   </h2>
                 </div>
                 <div
-                  className="adresse__box"
+                  class="adresse__box"
                 >
                   <div
-                    className="underseksjon__header"
+                    class="underseksjon__header"
                   >
                     <p
-                      className="typo-element"
+                      class="typo-element"
                     >
                       Bostedsadresse
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
                       V/ Aremark Jr
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      JØRGENSENVEIEN
-                       
-                      14
-                       
-                      B
+                      JØRGENSENVEIEN 14 B
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      0194
-                       
-                      OSLO
+                      0194 OSLO
                     </p>
                   </div>
                   <div
-                    className="lesMerPanel adresse__lesmer"
+                    class="lesMerPanel adresse__lesmer"
                     id="Mocked UUID"
                   >
                     <div
-                      className="lesMerPanel__merContainer"
+                      class="lesMerPanel__merContainer"
                     />
                     <div
-                      className="lesMerPanel__toggle"
+                      class="lesMerPanel__toggle"
                     >
                       <button
                         aria-controls="Mocked UUID"
-                        aria-expanded={false}
-                        className="lesMerPanel__togglelink"
-                        onClick={[Function]}
+                        aria-expanded="false"
+                        class="lesMerPanel__togglelink"
                         type="button"
                       >
                         <span
-                          className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
                         />
                         <div
-                          className="lesMerPanel__toggleTekst"
+                          class="lesMerPanel__toggleTekst"
                         >
                           Vis detaljer
                         </div>
@@ -376,76 +313,69 @@ Array [
                     </div>
                   </div>
                   <div
-                    className="adresse__divider"
+                    class="adresse__divider"
                   />
                 </div>
                 <div
-                  className="adresse__box"
+                  class="adresse__box"
                 >
                   <div
-                    className="underseksjon__header"
+                    class="underseksjon__header"
                   >
                     <p
-                      className="typo-element"
+                      class="typo-element"
                     >
                       Delt bosted
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
                       V/ Aremark Jr
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      JØRGENSENVEIEN
-                       
-                      14
-                       
-                      B
+                      JØRGENSENVEIEN 14 B
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      0194
-                       
-                      OSLO
+                      0194 OSLO
                     </p>
                   </div>
                   <div
-                    className="lesMerPanel adresse__lesmer"
+                    class="lesMerPanel adresse__lesmer"
                     id="Mocked UUID"
                   >
                     <div
-                      className="lesMerPanel__merContainer"
+                      class="lesMerPanel__merContainer"
                     />
                     <div
-                      className="lesMerPanel__toggle"
+                      class="lesMerPanel__toggle"
                     >
                       <button
                         aria-controls="Mocked UUID"
-                        aria-expanded={false}
-                        className="lesMerPanel__togglelink"
-                        onClick={[Function]}
+                        aria-expanded="false"
+                        class="lesMerPanel__togglelink"
                         type="button"
                       >
                         <span
-                          className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
                         />
                         <div
-                          className="lesMerPanel__toggleTekst"
+                          class="lesMerPanel__toggleTekst"
                         >
                           Vis detaljer
                         </div>
@@ -453,71 +383,64 @@ Array [
                     </div>
                   </div>
                   <div
-                    className="adresse__divider"
+                    class="adresse__divider"
                   />
                 </div>
                 <div
-                  className="adresse__box"
+                  class="adresse__box"
                 >
                   <div
-                    className="underseksjon__header"
+                    class="underseksjon__header"
                   >
                     <p
-                      className="typo-element"
+                      class="typo-element"
                     >
                       Oppholdsadresse
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
                       V/ Aremark Jr
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      JØRGENSENVEIEN
-                       
-                      14
-                       
-                      B
+                      JØRGENSENVEIEN 14 B
                     </p>
                   </div>
                   <div
-                    className="adresse__linje"
+                    class="adresse__linje"
                   >
                     <p
-                      className="typo-normal"
+                      class="typo-normal"
                     >
-                      0194
-                       
-                      OSLO
+                      0194 OSLO
                     </p>
                   </div>
-                  
                   <div
-                    className="adresse__divider"
+                    class="adresse__divider"
                   />
                 </div>
                 <div
-                  className="kilde__container"
+                  class="kilde__container"
                 >
                   <p
-                    className="typo-normal"
+                    class="typo-normal"
                   >
                     <a
-                      className="lenke kilde__lenke lenke"
+                      class="lenke kilde__lenke lenke"
                       href="https://www.skatteetaten.no/person/folkeregister/flytte/"
                     >
                       <span
-                        className="kilde__icon"
+                        class="kilde__icon"
                       >
                         <img
                           alt="Ekstern lenke"
@@ -528,10 +451,10 @@ Array [
                     </a>
                   </p>
                   <div
-                    className="kilde__tekst"
+                    class="kilde__tekst"
                   >
                     <p
-                      className="typo-undertekst"
+                      class="typo-undertekst"
                     >
                       Kilde: Folkeregisteret
                     </p>
@@ -539,78 +462,74 @@ Array [
                 </div>
               </div>
               <div
-                className="underseksjon__header underseksjon__divider"
+                class="underseksjon__header underseksjon__divider"
               >
                 <h2
-                  className="typo-undertittel"
+                  class="typo-undertittel"
                 >
                   Øvrige registrerte adresser
                 </h2>
               </div>
               <div
-                className="adresse__box"
+                class="adresse__box"
               >
                 <div
-                  className="underseksjon__header"
+                  class="underseksjon__header"
                 >
                   <p
-                    className="typo-element"
+                    class="typo-element"
                   >
                     Kontaktadresse registrert hos NAV
                   </p>
                 </div>
                 <div
-                  className="adresse__linje"
+                  class="adresse__linje"
                 >
                   <p
-                    className="typo-normal"
+                    class="typo-normal"
                   >
                     V/ Aremark Jr
                   </p>
                 </div>
-                
                 <div
-                  className="adresse__linje"
+                  class="adresse__linje"
                 >
                   <p
-                    className="typo-normal"
+                    class="typo-normal"
                   >
                     Postboks 10 Sørstrand
                   </p>
                 </div>
                 <div
-                  className="adresse__linje"
+                  class="adresse__linje"
                 >
                   <p
-                    className="typo-normal"
+                    class="typo-normal"
                   >
-                    0194
-                     
-                    OSLO
+                    0194 OSLO
                   </p>
                 </div>
                 <div
-                  className="lesMerPanel adresse__lesmer"
+                  class="lesMerPanel adresse__lesmer"
                   id="Mocked UUID"
                 >
                   <div
-                    className="lesMerPanel__merContainer"
+                    class="lesMerPanel__merContainer"
                   />
                   <div
-                    className="lesMerPanel__toggle"
+                    class="lesMerPanel__toggle"
                   >
                     <button
                       aria-controls="Mocked UUID"
-                      aria-expanded={false}
-                      className="lesMerPanel__togglelink"
-                      onClick={[Function]}
+                      aria-expanded="false"
+                      class="lesMerPanel__togglelink"
                       type="button"
                     >
                       <span
-                        className="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                        class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
                       />
                       <div
-                        className="lesMerPanel__toggleTekst"
+                        class="lesMerPanel__toggleTekst"
                       >
                         Vis detaljer
                       </div>
@@ -618,15 +537,14 @@ Array [
                   </div>
                 </div>
                 <div
-                  className="adresse__divider"
+                  class="adresse__divider"
                 />
               </div>
               <button
-                className="kilde__lenke lenke"
-                onClick={[Function]}
+                class="kilde__lenke lenke"
               >
                 <span
-                  className="kilde__icon"
+                  class="kilde__icon"
                 >
                   <img
                     alt="Ekstern lenke"
@@ -634,19 +552,19 @@ Array [
                   />
                 </span>
                 <p
-                  className="typo-normal"
+                  class="typo-normal"
                 >
                   Slett kontaktadresse
                 </p>
               </button>
               <div
-                className="kilde__container"
+                class="kilde__container"
               >
                 <div
-                  className="kilde__tekst"
+                  class="kilde__tekst"
                 >
                   <p
-                    className="typo-undertekst"
+                    class="typo-undertekst"
                   >
                     Kilde: NAV
                   </p>
@@ -657,53 +575,53 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
-    className="box__wrapper"
+    class="box__wrapper"
     id="utbetaling"
   >
     <div
-      className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
     >
       <div
-        className="nav-veileder nav-veileder--flytende"
+        class="nav-veileder nav-veileder--flytende"
       >
         <div
-          className="nav-veileder__frame nav-veileder__frame--m"
+          class="nav-veileder__frame nav-veileder__frame--m"
         >
           <img
             alt="Veileder"
-            className="box__ikon"
+            class="box__ikon"
             src="Kontonummer.svg"
           />
         </div>
       </div>
       <div
-        className="nav-veilederpanel__content"
+        class="nav-veilederpanel__content"
       >
         <div
-          className="box__container"
+          class="box__container"
         >
           <div
-            className="box__header"
+            class="box__header"
           >
             <div
-              className="box__title-container"
+              class="box__title-container"
             >
               <div
-                className="box__line"
+                class="box__line"
               />
               <h2
-                className="typo-systemtittel box__title"
+                class="typo-systemtittel box__title"
               >
                 Kontonummer for utbetaling
               </h2>
               <div
-                className="box__line"
+                class="box__line"
               />
             </div>
             <a
-              className="lenke anchor-link"
+              class="lenke anchor-link"
               href="#utbetaling"
             >
               <img
@@ -714,38 +632,36 @@ Array [
             </a>
           </div>
           <div
-            className="box__content"
+            class="box__content"
           >
-            
             <ul
-              className="list-column-2"
+              class="list-column-2"
             >
               <li>
                 <div
-                  className="listelement__header"
+                  class="listelement__header"
                 >
                   <p
-                    className="typo-element"
+                    class="typo-element"
                   >
                     Kontonummer
                   </p>
                 </div>
                 <div
-                  className="content "
+                  class="content "
                 >
                   1234 56 78911
                 </div>
               </li>
             </ul>
             <div
-              className="kilde__container"
+              class="kilde__container"
             >
               <button
-                className="kilde__lenke lenke"
-                onClick={[Function]}
+                class="kilde__lenke lenke"
               >
                 <span
-                  className="kilde__icon"
+                  class="kilde__icon"
                 >
                   <img
                     alt="Ekstern lenke"
@@ -753,16 +669,16 @@ Array [
                   />
                 </span>
                 <p
-                  className="typo-normal"
+                  class="typo-normal"
                 >
                   Endre
                 </p>
               </button>
               <div
-                className="kilde__tekst"
+                class="kilde__tekst"
               >
                 <p
-                  className="typo-undertekst"
+                  class="typo-undertekst"
                 >
                   Kilde: NAV
                 </p>
@@ -772,6 +688,6 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;

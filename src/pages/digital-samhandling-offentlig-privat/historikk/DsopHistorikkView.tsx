@@ -17,10 +17,6 @@ export const DsopHistorikkView = (props: Props) => {
   const location = useLocation();
   const { dsopInfo } = props;
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const initState: {
     [år: string]: {
       innslag: DsopInfo;

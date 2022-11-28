@@ -1,263 +1,261 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MedlHistorikkView renders correctly 1`] = `
-<div
-  className="medl__tabs-innhold"
->
+<DocumentFragment>
   <div
-    className="medl__space"
-  >
-    <p
-      className="typo-normal"
-    >
-      Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har
-    </p>
-  </div>
-  <div
-    className="medl__space"
+    class="medl__tabs-innhold"
   >
     <div
-      className="medl__checkbox"
+      class="medl__space"
     >
-      <img
-        alt="Sjekkboksikon"
-        className="medl__kalender"
-        src="Check.svg"
-      />
       <p
-        className="typo-normal"
+        class="typo-normal"
       >
-        bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det.
+        Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har
       </p>
     </div>
-  </div>
-  <div
-    className="medl__space"
-  >
     <div
-      className="medl__checkbox"
+      class="medl__space"
     >
-      <img
-        alt="Sjekkboksikon"
-        className="medl__kalender"
-        src="Check.svg"
-      />
-      <p
-        className="typo-normal"
+      <div
+        class="medl__checkbox"
       >
-        jobbet i Norge, men var med i trygdeordningen i et annet land.
+        <img
+          alt="Sjekkboksikon"
+          class="medl__kalender"
+          src="Check.svg"
+        />
+        <p
+          class="typo-normal"
+        >
+          bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det.
+        </p>
+      </div>
+    </div>
+    <div
+      class="medl__space"
+    >
+      <div
+        class="medl__checkbox"
+      >
+        <img
+          alt="Sjekkboksikon"
+          class="medl__kalender"
+          src="Check.svg"
+        />
+        <p
+          class="typo-normal"
+        >
+          jobbet i Norge, men var med i trygdeordningen i et annet land.
+        </p>
+      </div>
+    </div>
+    <div
+      class="medl__section"
+    >
+      <h2
+        class="typo-undertittel"
+      >
+        Ulike situasjoner
+      </h2>
+    </div>
+    <div
+      class="medl__space"
+    >
+      <div
+        class="medl__checkbox"
+      >
+        <img
+          alt="Sjekkboksikon"
+          class="medl__kalender"
+          src="Check.svg"
+        />
+        <p
+          class="typo-normal"
+        >
+          Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.
+        </p>
+      </div>
+    </div>
+    <div
+      class="medl__space"
+    >
+      <div
+        class="medl__checkbox"
+      >
+        <img
+          alt="Sjekkboksikon"
+          class="medl__kalender"
+          src="Check.svg"
+        />
+        <p
+          class="typo-normal"
+        >
+          Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.
+        </p>
+      </div>
+    </div>
+    <div
+      class="medl__space"
+    >
+      <div
+        class="medl__checkbox"
+      >
+        <img
+          alt="Sjekkboksikon"
+          class="medl__kalender"
+          src="Check.svg"
+        />
+        <p
+          class="typo-normal"
+        >
+          Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.
+        </p>
+      </div>
+    </div>
+    <div
+      class="medl__section"
+    >
+      <h2
+        class="typo-undertittel"
+      >
+        Hva betyr medlemskap i folketrygden?
+      </h2>
+    </div>
+    <div
+      class="medl__space"
+    >
+      <p
+        class="typo-normal"
+      >
+        Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. 
+        <a
+          class="lenke"
+          href="/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden"
+        >
+           Les om medlemskap i folketrygden
+        </a>
+        . Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.
       </p>
     </div>
-  </div>
-  <div
-    className="medl__section"
-  >
-    <h2
-      className="typo-undertittel"
-    >
-      Ulike situasjoner
-    </h2>
-  </div>
-  <div
-    className="medl__space"
-  >
     <div
-      className="medl__checkbox"
+      class="medl__space"
     >
-      <img
-        alt="Sjekkboksikon"
-        className="medl__kalender"
-        src="Check.svg"
-      />
       <p
-        className="typo-normal"
+        class="typo-normal"
       >
-        Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.
+        Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.
       </p>
     </div>
-  </div>
-  <div
-    className="medl__space"
-  >
     <div
-      className="medl__checkbox"
+      class="medl__section"
     >
-      <img
-        alt="Sjekkboksikon"
-        className="medl__kalender"
-        src="Check.svg"
-      />
-      <p
-        className="typo-normal"
+      <h2
+        class="typo-systemtittel"
       >
-        Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.
-      </p>
+        Oversikt over perioder
+      </h2>
     </div>
-  </div>
-  <div
-    className="medl__space"
-  >
     <div
-      className="medl__checkbox"
+      class="medl__space"
     >
-      <img
-        alt="Sjekkboksikon"
-        className="medl__kalender"
-        src="Check.svg"
-      />
-      <p
-        className="typo-normal"
-      >
-        Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.
-      </p>
-    </div>
-  </div>
-  <div
-    className="medl__section"
-  >
-    <h2
-      className="typo-undertittel"
-    >
-      Hva betyr medlemskap i folketrygden?
-    </h2>
-  </div>
-  <div
-    className="medl__space"
-  >
-    <p
-      className="typo-normal"
-    >
-      Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. 
-      <a
-        className="lenke"
-        href="/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden"
-      >
-         Les om medlemskap i folketrygden
-      </a>
-      . Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.
-    </p>
-  </div>
-  <div
-    className="medl__space"
-  >
-    <p
-      className="typo-normal"
-    >
-      Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.
-    </p>
-  </div>
-  <div
-    className="medl__section"
-  >
-    <h2
-      className="typo-systemtittel"
-    >
-      Oversikt over perioder
-    </h2>
-  </div>
-  <div
-    className="medl__space"
-  >
-    <div
-      className="alertstripe alertstripe--info"
-    >
-      <span
-        className="alertstripe__ikon"
+      <div
+        class="alertstripe alertstripe--info"
       >
         <span
-          className="sr-only"
+          class="alertstripe__ikon"
         >
-          info
-        </span>
-        <svg
-          aria-label="info-ikon"
-          focusable="false"
-          height="1.5em"
-          kind="info-sirkel-fyll"
-          role="img"
-          viewBox="0 0 24 24"
-          width="1.5em"
-        >
-          <g
-            fill="none"
+          <span
+            class="sr-only"
           >
-            <path
-              d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
-              fill="#337C9B"
-            />
-            <path
-              d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
-              fill="#FFF"
-            />
-          </g>
-        </svg>
-      </span>
-      <div
-        className="typo-normal alertstripe__tekst"
-      >
-        Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.
+            info
+          </span>
+          <svg
+            aria-label="info-ikon"
+            focusable="false"
+            height="1.5em"
+            kind="info-sirkel-fyll"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1.5em"
+          >
+            <g
+              fill="none"
+            >
+              <path
+                d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
+                fill="#337C9B"
+              />
+              <path
+                d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
+                fill="#FFF"
+              />
+            </g>
+          </svg>
+        </span>
+        <div
+          class="typo-normal alertstripe__tekst"
+        >
+          Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    className="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
-  >
-    <button
-      aria-controls="Mocked UUID"
-      className="ekspanderbartPanel__hode"
-      id="Mocked UUID"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
-    >
-      <div
-        className="ekspanderbartPanel__flex-wrapper"
-      >
-        <span
-          className="ekspanderbartPanel__tittel"
-        >
-          Med medlemskap
-        </span>
-        <span
-          className="ekspanderbartPanel__indikator"
-        />
-      </div>
-    </button>
     <div
-      aria-labelledby="Mocked UUID"
-      id="Mocked UUID"
-      role="region"
-    />
-  </div>
-  <div
-    className="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
-  >
-    <button
-      aria-controls="Mocked UUID"
-      className="ekspanderbartPanel__hode"
-      id="Mocked UUID"
-      onClick={[Function]}
-      onKeyDown={[Function]}
-      type="button"
+      class="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
     >
-      <div
-        className="ekspanderbartPanel__flex-wrapper"
+      <button
+        aria-controls="Mocked UUID"
+        class="ekspanderbartPanel__hode"
+        id="Mocked UUID"
+        type="button"
       >
-        <span
-          className="ekspanderbartPanel__tittel"
+        <div
+          class="ekspanderbartPanel__flex-wrapper"
         >
-          Uten medlemskap
-        </span>
-        <span
-          className="ekspanderbartPanel__indikator"
-        />
-      </div>
-    </button>
+          <span
+            class="ekspanderbartPanel__tittel"
+          >
+            Med medlemskap
+          </span>
+          <span
+            class="ekspanderbartPanel__indikator"
+          />
+        </div>
+      </button>
+      <div
+        aria-labelledby="Mocked UUID"
+        id="Mocked UUID"
+        role="region"
+      />
+    </div>
     <div
-      aria-labelledby="Mocked UUID"
-      id="Mocked UUID"
-      role="region"
-    />
+      class="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
+    >
+      <button
+        aria-controls="Mocked UUID"
+        class="ekspanderbartPanel__hode"
+        id="Mocked UUID"
+        type="button"
+      >
+        <div
+          class="ekspanderbartPanel__flex-wrapper"
+        >
+          <span
+            class="ekspanderbartPanel__tittel"
+          >
+            Uten medlemskap
+          </span>
+          <span
+            class="ekspanderbartPanel__indikator"
+          />
+        </div>
+      </button>
+      <div
+        aria-labelledby="Mocked UUID"
+        id="Mocked UUID"
+        role="region"
+      />
+    </div>
   </div>
-</div>
+</DocumentFragment>
 `;

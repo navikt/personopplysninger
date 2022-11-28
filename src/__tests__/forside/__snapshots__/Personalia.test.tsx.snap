@@ -1,116 +1,115 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Personalia renders correctly 1`] = `
-<div
-  className="box__wrapper"
-  id="personalia"
->
+<DocumentFragment>
   <div
-    className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+    class="box__wrapper"
+    id="personalia"
   >
     <div
-      className="nav-veileder nav-veileder--flytende"
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
     >
       <div
-        className="nav-veileder__frame nav-veileder__frame--m"
-      >
-        <img
-          alt="Veileder"
-          className="box__ikon"
-          src="Personalia.svg"
-        />
-      </div>
-    </div>
-    <div
-      className="nav-veilederpanel__content"
-    >
-      <div
-        className="box__container"
+        class="nav-veileder nav-veileder--flytende"
       >
         <div
-          className="box__header"
+          class="nav-veileder__frame nav-veileder__frame--m"
+        >
+          <img
+            alt="Veileder"
+            class="box__ikon"
+            src="Personalia.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="nav-veilederpanel__content"
+      >
+        <div
+          class="box__container"
         >
           <div
-            className="box__title-container"
+            class="box__header"
           >
             <div
-              className="box__line"
-            />
-            <h2
-              className="typo-systemtittel box__title"
+              class="box__title-container"
             >
-              Personalia
-            </h2>
-            <button
-              aria-label="Informasjonstekst"
-              aria-pressed={false}
-              className="infotekst__title-i-button"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              title="Informasjon"
+              <div
+                class="box__line"
+              />
+              <h2
+                class="typo-systemtittel box__title"
+              >
+                Personalia
+              </h2>
+              <button
+                aria-label="Informasjonstekst"
+                aria-pressed="false"
+                class="infotekst__title-i-button"
+                title="Informasjon"
+              >
+                <img
+                  alt="Vis mer informasjon"
+                  class="infotekst__title-i-icon"
+                  src="Informasjonstekst.svg"
+                />
+              </button>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              class="lenke anchor-link"
+              href="#personalia"
             >
               <img
-                alt="Vis mer informasjon"
-                className="infotekst__title-i-icon"
-                src="Informasjonstekst.svg"
+                alt=""
+                src="AnchorLink.svg"
               />
-            </button>
-            <div
-              className="box__line"
-            />
+              Lenke hit
+            </a>
           </div>
-          <a
-            className="lenke anchor-link"
-            href="#personalia"
-          >
-            <img
-              alt=""
-              src="AnchorLink.svg"
-            />
-            Lenke hit
-          </a>
-        </div>
-        <div
-          className="box__content"
-        >
-          <ul
-            className="list-column-2"
-          />
           <div
-            className="kilde__container"
+            class="box__content"
           >
-            <p
-              className="typo-normal"
-            >
-              <a
-                className="lenke kilde__lenke lenke"
-                href="https://www.skatteetaten.no/person/folkeregister/"
-              >
-                <span
-                  className="kilde__icon"
-                >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Link.svg"
-                  />
-                </span>
-                Endre i Folkeregisteret
-              </a>
-            </p>
+            <ul
+              class="list-column-2"
+            />
             <div
-              className="kilde__tekst"
+              class="kilde__container"
             >
               <p
-                className="typo-undertekst"
+                class="typo-normal"
               >
-                Kilde: Folkeregisteret
+                <a
+                  class="lenke kilde__lenke lenke"
+                  href="https://www.skatteetaten.no/person/folkeregister/"
+                >
+                  <span
+                    class="kilde__icon"
+                  >
+                    <img
+                      alt="Ekstern lenke"
+                      src="Link.svg"
+                    />
+                  </span>
+                  Endre i Folkeregisteret
+                </a>
               </p>
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="typo-undertekst"
+                >
+                  Kilde: Folkeregisteret
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

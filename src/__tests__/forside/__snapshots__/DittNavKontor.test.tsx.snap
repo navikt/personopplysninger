@@ -1,320 +1,314 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DittNavKontor renders correctly 1`] = `
-<div
-  className="box__wrapper"
-  id="ditt-nav-kontor"
->
+<DocumentFragment>
   <div
-    className="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+    class="box__wrapper"
+    id="ditt-nav-kontor"
   >
     <div
-      className="nav-veileder nav-veileder--flytende"
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
     >
       <div
-        className="nav-veileder__frame nav-veileder__frame--m"
-      >
-        <img
-          alt="Veileder"
-          className="box__ikon"
-          src="DittNavKontor.svg"
-        />
-      </div>
-    </div>
-    <div
-      className="nav-veilederpanel__content"
-    >
-      <div
-        className="box__container"
+        class="nav-veileder nav-veileder--flytende"
       >
         <div
-          className="box__header"
+          class="nav-veileder__frame nav-veileder__frame--m"
+        >
+          <img
+            alt="Veileder"
+            class="box__ikon"
+            src="DittNavKontor.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="nav-veilederpanel__content"
+      >
+        <div
+          class="box__container"
         >
           <div
-            className="box__title-container"
+            class="box__header"
           >
             <div
-              className="box__line"
-            />
-            <h2
-              className="typo-systemtittel box__title"
+              class="box__title-container"
             >
-              Ditt NAV-kontor
-            </h2>
-            <button
-              aria-label="Informasjonstekst"
-              aria-pressed={false}
-              className="infotekst__title-i-button"
-              onClick={[Function]}
-              onMouseEnter={[Function]}
-              onMouseLeave={[Function]}
-              title="Informasjon"
+              <div
+                class="box__line"
+              />
+              <h2
+                class="typo-systemtittel box__title"
+              >
+                Ditt NAV-kontor
+              </h2>
+              <button
+                aria-label="Informasjonstekst"
+                aria-pressed="false"
+                class="infotekst__title-i-button"
+                title="Informasjon"
+              >
+                <img
+                  alt="Vis mer informasjon"
+                  class="infotekst__title-i-icon"
+                  src="Informasjonstekst.svg"
+                />
+              </button>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              class="lenke anchor-link"
+              href="#ditt-nav-kontor"
             >
               <img
-                alt="Vis mer informasjon"
-                className="infotekst__title-i-icon"
-                src="Informasjonstekst.svg"
+                alt=""
+                src="AnchorLink.svg"
               />
-            </button>
-            <div
-              className="box__line"
-            />
+              Lenke hit
+            </a>
           </div>
-          <a
-            className="lenke anchor-link"
-            href="#ditt-nav-kontor"
-          >
-            <img
-              alt=""
-              src="AnchorLink.svg"
-            />
-            Lenke hit
-          </a>
-        </div>
-        <div
-          className="box__content"
-        >
           <div
-            className="dittnavkontor__header"
+            class="box__content"
           >
             <div
-              className="dittnavkontor__ingress"
+              class="dittnavkontor__header"
             >
-              <p
-                className="typo-normal"
-              >
-                Ditt kontor er 
-              </p>
-              <p
-                className="typo-element"
-              >
-                NAV Halden-Aremark
-              </p>
-            </div>
-            <div
-              className="skjemaelement"
-            >
-              
               <div
-                className="selectContainer input--fullbredde"
+                class="dittnavkontor__ingress"
               >
-                <select
-                  aria-invalid={false}
-                  className="skjemaelement__input"
-                  disabled={false}
-                  id="Mocked UUID"
-                  onChange={[Function]}
+                <p
+                  class="typo-normal"
                 >
-                  <option
-                    value="-1"
+                  Ditt kontor er 
+                </p>
+                <p
+                  class="typo-element"
+                >
+                  NAV Halden-Aremark
+                </p>
+              </div>
+              <div
+                class="skjemaelement"
+              >
+                <div
+                  class="selectContainer input--fullbredde"
+                >
+                  <select
+                    aria-invalid="false"
+                    class="skjemaelement__input"
+                    id="Mocked UUID"
                   >
-                    Publikumsmottak for NAV Halden-Aremark
-                  </option>
-                  <option
-                    value={0}
+                    <option
+                      value="-1"
+                    >
+                      Publikumsmottak for NAV Halden-Aremark
+                    </option>
+                    <option
+                      value="0"
+                    >
+                      HALDEN - Storgata 8, 1771 HALDEN
+                    </option>
+                    <option
+                      value="1"
+                    >
+                      AREMARK - Aremark Rådhus , 1798 AREMARK
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div
+                class="dittnavkontor__adresser"
+              >
+                <div
+                  class="dittnavkontor__postadresse"
+                >
+                  <p
+                    class="typo-element"
                   >
-                    HALDEN - Storgata 8, 1771 HALDEN
-                  </option>
-                  <option
-                    value={1}
+                    Postadresse
+                  </p>
+                  <p
+                    class="typo-normal"
                   >
-                    AREMARK - Aremark Rådhus , 1798 AREMARK
-                  </option>
-                </select>
-              </div>
-            </div>
-            <div
-              className="dittnavkontor__adresser"
-            >
-              <div
-                className="dittnavkontor__postadresse"
-              >
-                <p
-                  className="typo-element"
-                >
-                  Postadresse
-                </p>
-                <p
-                  className="typo-normal"
-                >
-                  Postboks 56 
-                </p>
-                <p
-                  className="typo-normal"
-                >
-                  1751
-                   
-                  HALDEN
-                </p>
-              </div>
-              <div
-                className="dittnavkontor__publikumsmottak"
-              >
-                <p
-                  className="typo-element"
-                >
-                  Publikumsmottak
-                </p>
-                <p
-                  className="typo-normal"
-                >
-                  Storgata 8
-                </p>
-                <p
-                  className="typo-normal"
-                >
-                  1771 HALDEN
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <p
-              className="typo-element"
-            >
-              Åpningstider
-            </p>
-            <div
-              className="apningstid__container"
-            >
-              <div
-                className="apningstid__row"
-              >
-                <div
-                  className="apningstid__column apningstid__dag"
-                >
-                  Mandag
+                    Postboks 56 
+                  </p>
+                  <p
+                    class="typo-normal"
+                  >
+                    1751 HALDEN
+                  </p>
                 </div>
                 <div
-                  className="apningstid__column apningstid__tidspunkt"
+                  class="dittnavkontor__publikumsmottak"
                 >
-                  12:00 - 14:30
-                </div>
-                <div
-                  className="apningstid__column apningstid__kommentar"
-                >
-                  Timeavtaler i tidsrommet 09.00 - 14.30
-                </div>
-              </div>
-              <div
-                className="apningstid__row"
-              >
-                <div
-                  className="apningstid__column apningstid__dag"
-                >
-                  Tirsdag
-                </div>
-                <div
-                  className="apningstid__column apningstid__tidspunkt"
-                >
-                  12:00 - 14:30
-                </div>
-                <div
-                  className="apningstid__column apningstid__kommentar"
-                >
-                  Timeavtaler i tidsrommet 09.00 - 14.30
-                </div>
-              </div>
-              <div
-                className="apningstid__row"
-              >
-                <div
-                  className="apningstid__column apningstid__dag"
-                >
-                  Onsdag
-                </div>
-                <div
-                  className="apningstid__column apningstid__tidspunkt"
-                >
-                  12:00 - 14:30
-                </div>
-                <div
-                  className="apningstid__column apningstid__kommentar"
-                >
-                  Timeavtaler i tidsrommet 09.00 - 14.30
-                </div>
-              </div>
-              <div
-                className="apningstid__row"
-              >
-                <div
-                  className="apningstid__column apningstid__dag"
-                >
-                  Torsdag
-                </div>
-                <div
-                  className="apningstid__column apningstid__tidspunkt"
-                >
-                  12:00 - 14:30
-                </div>
-                <div
-                  className="apningstid__column apningstid__kommentar"
-                >
-                  Timeavtaler i tidsrommet 09.00 - 14.30
-                </div>
-              </div>
-              <div
-                className="apningstid__row"
-              >
-                <div
-                  className="apningstid__column apningstid__dag"
-                >
-                  Fredag
-                </div>
-                <div
-                  className="apningstid__column apningstid__tidspunkt"
-                >
-                  12:00 - 14:30
-                </div>
-                <div
-                  className="apningstid__column apningstid__kommentar"
-                >
-                  Timeavtaler i tidsrommet 09.00 - 14.30
+                  <p
+                    class="typo-element"
+                  >
+                    Publikumsmottak
+                  </p>
+                  <p
+                    class="typo-normal"
+                  >
+                    Storgata 8
+                  </p>
+                  <p
+                    class="typo-normal"
+                  >
+                    1771 HALDEN
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
-          <ul
-            className="dittnavkontor__footer list-column-2"
-          >
-            <li>
-              <div
-                className="listelement__header"
-              >
-                <p
-                  className="typo-element"
-                >
-                  Kontakt NAV
-                </p>
-              </div>
-              <div
-                className="content "
-              >
-                <a
-                  className="lenke"
-                  href="/person/kontakt-oss/nb/"
-                >
-                  Gå til kontaktinformasjon
-                </a>
-              </div>
-            </li>
-          </ul>
-          <div
-            className="kilde__container"
-          >
-            <div
-              className="kilde__tekst"
-            >
+            <div>
               <p
-                className="typo-undertekst"
+                class="typo-element"
               >
-                Kilde: NAV
+                Åpningstider
               </p>
+              <div
+                class="apningstid__container"
+              >
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Mandag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Tirsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Onsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Torsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Fredag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul
+              class="dittnavkontor__footer list-column-2"
+            >
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    Kontakt NAV
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  <a
+                    class="lenke"
+                    href="/person/kontakt-oss/nb/"
+                  >
+                    Gå til kontaktinformasjon
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <div
+              class="kilde__container"
+            >
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="typo-undertekst"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</DocumentFragment>
 `;

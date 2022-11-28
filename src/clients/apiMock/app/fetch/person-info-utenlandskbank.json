@@ -1,0 +1,225 @@
+{
+  "personalia": {
+    "fornavn": "VINAYAGUM-MASK",
+    "etternavn": "AMIZIC",
+    "personident": {
+      "verdi": "10108000398",
+      "type": "FNR"
+    },
+    "kontonr": null,
+    "tlfnr": {
+      "telefonAlternativ": "40853158",
+      "landskodeAlternativ": "+47",
+      "telefonHoved": null,
+      "landskodeHoved": null
+    },
+    "utenlandskbank": {
+      "adresse1": "",
+      "adresse2": "",
+      "adresse3": "",
+      "bankkode": null,
+      "banknavn": "Dominion Bank",
+      "iban": null,
+      "kontonummer": "AE460090000000123456789",
+      "land": "Forente Arabiske Emirater",
+      "swiftkode": "EBILAEADXXX",
+      "valuta": "Amerikansk dollar"
+    },
+    "spraak": "Nynorsk",
+    "epostadr": null,
+    "personstatus": "Bosatt",
+    "statsborgerskap": [
+      "NORGE",
+      "SVERIGE"
+    ],
+    "foedested": "Oslo, NORGE",
+    "sivilstand": "Ugift",
+    "kjoenn": "Mann"
+  },
+  "adresser": {
+    "geografiskTilknytning": {
+      "bydel": null,
+      "datoFraOgMed": "2001-04-04",
+      "kommune": "3012",
+      "land": null,
+      "enhet": "NAV Halden-Aremark"
+    },
+    "kontaktadresser": [
+      {
+        "gyldigFraOgMed": "2020-07-14T00:00",
+        "gyldigTilOgMed": "2020-07-20T23:59:59",
+        "coAdressenavn": "V/ Aremark Jr",
+        "kilde": "pdl",
+        "adresse": {
+          "postbokseier": "",
+          "postboks": "Postboks 10 Sørstrand",
+          "postnummer": "0194",
+          "poststed": "OSLO",
+          "type": "POSTBOKSADRESSE"
+        }
+      }
+    ],
+    "deltBosted": {
+      "startdatoForKontrakt": "2020-07-14T00:00",
+      "sluttdatoForKontrakt": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "kilde": "pdl",
+      "adresse": {
+        "husnummer": "14",
+        "husbokstav": "B",
+        "bruksenhetsnummer": "H0301",
+        "adressenavn": "JØRGENSENVEIEN",
+        "kommunenummer": "4737",
+        "kommune": "EVJE OG HORNNES",
+        "tilleggsnavn": null,
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "VEGADRESSE"
+      }
+    },
+    "oppholdsadresser": [
+      {
+        "gyldigFraOgMed": "2020-07-14T00:00",
+        "gyldigTilOgMed": "2020-07-20T23:59:59",
+        "coAdressenavn": "V/ Aremark Jr",
+        "kilde": "freg",
+        "adresse": {
+          "husnummer": "14",
+          "husbokstav": "B",
+          "adressenavn": "JØRGENSENVEIEN",
+          "kommunenummer": "4737",
+          "tilleggsnavn": null,
+          "postnummer": "0194",
+          "poststed": "OSLO",
+          "type": "VEGADRESSE"
+        }
+      }
+    ],
+    "bostedsadresse": {
+      "angittFlyttedato": "2020-07-14",
+      "gyldigFraOgMed": "2020-07-14T00:00",
+      "gyldigTilOgMed": "2020-07-20T23:59:59",
+      "coAdressenavn": "V/ Aremark Jr",
+      "kilde": "freg",
+      "adresse": {
+        "husnummer": "14",
+        "husbokstav": "B",
+        "bruksenhetsnummer": "H0301",
+        "adressenavn": "JØRGENSENVEIEN",
+        "kommunenummer": "4737",
+        "kommune": "EVJE OG HORNNES",
+        "tilleggsnavn": null,
+        "postnummer": "0194",
+        "poststed": "OSLO",
+        "type": "VEGADRESSE"
+      }
+    }
+  },
+  "enhetKontaktInformasjon": {
+    "enhet": {
+      "postadresse": {
+        "type": "postboksadresse",
+        "postnummer": "1751",
+        "poststed": "HALDEN",
+        "postboksnummer": "56",
+        "postboksanlegg": null,
+        "gatenavn": null,
+        "husnummer": null,
+        "husbokstav": null,
+        "adresseTilleggsnavn": null
+      },
+      "publikumsmottak": [
+        {
+          "gateadresse": "Storgata",
+          "poststed": "HALDEN",
+          "husnummer": "8",
+          "husbokstav": null,
+          "postnummer": "1771",
+          "stedsbeskrivelse": "Halden",
+          "aapningMandag": {
+            "dag": "Mandag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningTirsdag": {
+            "dag": "Tirsdag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningOnsdag": {
+            "dag": "Onsdag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningTorsdag": {
+            "dag": "Torsdag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningFredag": {
+            "dag": "Fredag",
+            "fra": "12:00",
+            "til": "14:30",
+            "stengt": "false",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
+          },
+          "aapningAndre": null
+        },
+        {
+          "gateadresse": "Aremark Rådhus",
+          "poststed": "AREMARK",
+          "husnummer": null,
+          "husbokstav": null,
+          "postnummer": "1798",
+          "stedsbeskrivelse": "Aremark",
+          "aapningMandag": {
+            "dag": "Mandag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
+          },
+          "aapningTirsdag": {
+            "dag": "Tirsdag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
+          },
+          "aapningOnsdag": {
+            "dag": "Onsdag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
+          },
+          "aapningTorsdag": {
+            "dag": "Torsdag",
+            "fra": "09:00",
+            "til": "15:00",
+            "stengt": "false",
+            "kommentar": null
+          },
+          "aapningFredag": {
+            "dag": "Fredag",
+            "fra": null,
+            "til": null,
+            "stengt": "true",
+            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
+          },
+          "aapningAndre": null
+        }
+      ],
+      "tlfperson": "55553333",
+      "spesielleopplysninger": null
+    }
+  }
+}

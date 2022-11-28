@@ -1,10 +1,10 @@
 import "@testing-library/jest-dom";
-import renderer from "react-test-renderer";
 import PageNotFound from "../../pages/404/404";
+import { render } from "@testing-library/react";
 
 describe("PageNotFound", () => {
   it("renders correctly", () => {
-    const tree = renderer.create(<PageNotFound />).toJSON();
-    expect(tree).toMatchSnapshot();
+    const { asFragment } = render(<PageNotFound />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

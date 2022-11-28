@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
-import renderer from "react-test-renderer";
 import dsopInfo from "../../clients/apiMock/app/fetch/dsop-info.json";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
 import DsopHistorikkView from "../../pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
+import { render } from "@testing-library/react";
 
 jest.mock("react-router-dom", () => ({
   Link: () => <div />,
@@ -14,13 +14,11 @@ jest.mock("react-router-dom", () => ({
 
 describe("DsopHistorikkView", () => {
   it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <IntlProvider locale={"nb"} messages={nbMessages}>
-          <DsopHistorikkView dsopInfo={dsopInfo} />
-        </IntlProvider>
-      )
-      .toJSON();
-    expect(tree).toMatchSnapshot();
+    const { asFragment } = render(
+      <IntlProvider locale={"nb"} messages={nbMessages}>
+        <DsopHistorikkView dsopInfo={dsopInfo} />
+      </IntlProvider>
+    );
+    expect(asFragment()).toMatchSnapshot();
   });
 });

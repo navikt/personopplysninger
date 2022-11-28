@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { MedlInfo } from "types/medl";
 import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -15,10 +15,6 @@ const MedlHistorikkView = (props: Props) => {
   const { medlInfo } = props;
   const { locale } = useIntl();
   const perioder = medlInfo?.perioder || [];
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const medMedlemskap = perioder.filter(
     (periode) => periode.medlem && !periode.studieinformasjon

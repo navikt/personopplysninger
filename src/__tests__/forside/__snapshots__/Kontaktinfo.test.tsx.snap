@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`DKIF renders correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
-    className="underseksjon__beskrivelse"
+    class="underseksjon__beskrivelse"
   >
     <p
-      className="typo-normal"
+      class="typo-normal"
     >
       Du har 
       <b>
@@ -14,71 +14,71 @@ Array [
       </b>
        reservert deg mot elektronisk kommunikasjon.
     </p>
-  </div>,
+  </div>
   <ul
-    className="list-column-2"
+    class="list-column-2"
   >
     <li>
       <div
-        className="listelement__header"
+        class="listelement__header"
       >
         <p
-          className="typo-element"
+          class="typo-element"
         >
           Telefon
         </p>
       </div>
       <div
-        className="content "
+        class="content "
       >
         12131415
       </div>
     </li>
     <li>
       <div
-        className="listelement__header"
+        class="listelement__header"
       >
         <p
-          className="typo-element"
+          class="typo-element"
         >
           Språk/målform
         </p>
       </div>
       <div
-        className="content "
+        class="content "
       >
         Norsk
       </div>
     </li>
     <li>
       <div
-        className="listelement__header"
+        class="listelement__header"
       >
         <p
-          className="typo-element"
+          class="typo-element"
         >
           E-post
         </p>
       </div>
       <div
-        className="content "
+        class="content "
       >
         test@test.com
       </div>
     </li>
-  </ul>,
+  </ul>
   <div
-    className="kilde__container"
+    class="kilde__container"
   >
     <p
-      className="typo-normal"
+      class="typo-normal"
     >
       <a
-        className="lenke kilde__lenke lenke"
+        class="lenke kilde__lenke lenke"
         href="https://brukerprofil.difi.no/minprofil"
       >
         <span
-          className="kilde__icon"
+          class="kilde__icon"
         >
           <img
             alt="Ekstern lenke"
@@ -89,113 +89,64 @@ Array [
       </a>
     </p>
     <div
-      className="kilde__tekst"
+      class="kilde__tekst"
     >
       <p
-        className="typo-undertekst"
+        class="typo-undertekst"
       >
         Kilde: Kontakt - og reservasjonsregisteret
       </p>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`TelefonnummerHosNav renders correctly 1`] = `
-Array [
-  "",
+<DocumentFragment>
   <div
-    className="underseksjon__header"
+    class="underseksjon__header"
   >
     <h2
-      className="typo-undertittel"
+      class="typo-undertittel"
     >
       Telefonnummer registrert hos NAV
     </h2>
-  </div>,
+  </div>
   <div>
     <form
-      className="tlfnummer__rad"
-      noValidate={true}
-      onChange={[Function]}
-      onReset={[Function]}
-      onSubmit={[Function]}
-      validators={
-        Object {
-          "hasMultipleCombinedSpaces": [Function],
-          "isBIC": [Function],
-          "isBICCountryCompliant": [Function],
-          "isBankkode": [Function],
-          "isBlacklisted": [Function],
-          "isBlacklistedCommon": [Function],
-          "isEmail": [Function],
-          "isEqual": [Function],
-          "isExactLength": [Function],
-          "isFirstCharNotSpace": [Function],
-          "isGreaterThan": [Function],
-          "isHouseNumber": [Function],
-          "isIBAN": [Function],
-          "isIBANCountryCompliant": [Function],
-          "isIBANRequired": [Function],
-          "isLessThan": [Function],
-          "isLetters": [Function],
-          "isLettersAndDigits": [Function],
-          "isLettersAndSpace": [Function],
-          "isLettersSpaceAndDigits": [Function],
-          "isMaxLength": [Function],
-          "isMinLength": [Function],
-          "isMinOneLetter": [Function],
-          "isMod11": [Function],
-          "isNormalizedLength": [Function],
-          "isNotIBAN": [Function],
-          "isNotSSN": [Function],
-          "isNotYourSSN": [Function],
-          "isNumber": [Function],
-          "isPositive": [Function],
-          "isRegexMatch": [Function],
-          "isRequired": [Function],
-          "isValidAdresselinje": [Function],
-          "isValidBanknavn": [Function],
-          "isValidNorwegianNumber": [Function],
-          "isValidStreetName": [Function],
-          "isWhitelisted": [Function],
-          "notOnlySignsDigitsSpace": [Function],
-          "notOnlySignsSpace": [Function],
-        }
-      }
+      class="tlfnummer__rad"
+      novalidate=""
+      validators="[object Object]"
     >
       <div
-        className="tlfnummer__container"
+        class="tlfnummer__container"
       >
         <div
-          className="tlfnummer__verdi"
+          class="tlfnummer__verdi"
         >
           <p
-            className="typo-element"
+            class="typo-element"
           >
             Telefon 
           </p>
           <p
-            className="typo-normal"
+            class="typo-normal"
           >
             <span>
-              +47
-               
+              +47 
             </span>
             408 53 158
           </p>
         </div>
         <div
-          className="tlfnummer__knapper"
+          class="tlfnummer__knapper"
         >
           <button
-            className="knapp tlfnummer__knapp-med-ikon knapp--flat"
-            disabled={false}
-            onClick={[Function]}
+            class="knapp tlfnummer__knapp-med-ikon knapp--flat"
             type="button"
           >
             <div
-              className="tlfnummer__knapp-ikon"
+              class="tlfnummer__knapp-ikon"
             >
               <img
                 alt="Endre telefonnummer"
@@ -203,19 +154,17 @@ Array [
               />
             </div>
             <div
-              className="tlfnummer__knapp-tekst"
+              class="tlfnummer__knapp-tekst"
             >
               Endre
             </div>
           </button>
           <button
-            className="knapp tlfnummer__knapp-med-ikon knapp--flat"
-            disabled={false}
-            onClick={[Function]}
+            class="knapp tlfnummer__knapp-med-ikon knapp--flat"
             type="button"
           >
             <div
-              className="tlfnummer__knapp-ikon"
+              class="tlfnummer__knapp-ikon"
             >
               <img
                 alt="Slett telefonnummer"
@@ -223,7 +172,7 @@ Array [
               />
             </div>
             <div
-              className="tlfnummer__knapp-tekst"
+              class="tlfnummer__knapp-tekst"
             >
               Slett
             </div>
@@ -231,13 +180,12 @@ Array [
         </div>
       </div>
     </form>
-  </div>,
+  </div>
   <button
-    className="tlfnummer__leggtil lenke"
-    onClick={[Function]}
+    class="tlfnummer__leggtil lenke"
   >
     <span
-      className="kilde__icon"
+      class="kilde__icon"
     >
       <img
         alt="Ekstern lenke"
@@ -245,23 +193,23 @@ Array [
       />
     </span>
     <p
-      className="typo-normal"
+      class="typo-normal"
     >
       Legg til
     </p>
-  </button>,
+  </button>
   <div
-    className="kilde__container"
+    class="kilde__container"
   >
     <div
-      className="kilde__tekst"
+      class="kilde__tekst"
     >
       <p
-        className="typo-undertekst"
+        class="typo-undertekst"
       >
         Kilde: NAV
       </p>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
