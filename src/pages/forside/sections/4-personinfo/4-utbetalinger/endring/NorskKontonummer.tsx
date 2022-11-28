@@ -31,8 +31,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const formConfig = {
     kontonummer: {
       isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
-      isNumber: msg({ id: "validation.kontonummer.siffer" }),
-      isExactLength: {
+      isNormalizedLength: {
         message: msg({ id: "validation.kontonummer.elleve" }),
         length: 11,
       },
@@ -55,7 +54,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
             <TextField
               size={"medium"}
               htmlSize={14}
-              maxLength={11}
+              maxLength={16}
               value={fields.kontonummer}
               label={msg({ id: "felter.kontonummer.label" })}
               onChange={(e) => setField({ kontonummer: e.target.value })}

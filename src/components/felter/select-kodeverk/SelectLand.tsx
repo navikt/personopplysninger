@@ -21,6 +21,10 @@ interface OptionType {
 export interface Land {
   kode: string;
   tekst: string;
+  kreverIban: boolean;
+  ibanLengde?: number;
+  kreverBankkode: boolean;
+  bankkodeLengde?: number;
 }
 
 const SelectLand = (props: Props) => {
@@ -48,6 +52,10 @@ const SelectLand = (props: Props) => {
     koder.map((k) => ({
       label: k.tekst,
       value: k.kode,
+      kreverIban: k.kreverIban,
+      ibanLengde: k.ibanLengde,
+      kreverBankkode: k.kreverBankkode,
+      bankkodeLengde: k.bankkodeLengde,
     }));
 
   const disallowedCountries = ["NORGE", "UOPPGITT/UKJENT", "UOPPGITT"];

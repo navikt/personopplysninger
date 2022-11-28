@@ -7,12 +7,14 @@ import endreIkon from "assets/img/Pencil.svg";
 import leggTilIkon from "assets/img/Pencil.svg";
 import NorskKontonummer from "./visning/NorskKontonummer";
 import Utenlandskonto from "./visning/UtenlandsBankkonto";
-import OpprettEllerEndreNorskKontonr from "./endring/NorskKontonummer";
-import { setOutboundNorskKontonummer } from "./endring/NorskKontonummer";
-import { OutboundNorskKontonummer } from "./endring/NorskKontonummer";
-import OpprettEllerEndreUtenlandsbank from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { setOutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { OutboundUtenlandsbankonto } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
+import OpprettEllerEndreNorskKontonr, {
+  OutboundNorskKontonummer,
+  setOutboundNorskKontonummer,
+} from "./endring/NorskKontonummer";
+import OpprettEllerEndreUtenlandsbank, {
+  OutboundUtenlandsbankonto,
+  setOutboundUtenlandsbankonto,
+} from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
 import { FormattedMessage, useIntl } from "react-intl";
 import HttpFeilmelding, {
   Feilmelding,
@@ -23,6 +25,7 @@ import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
+import { normalizeNummer } from "../../../../../utils/formattering";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -60,7 +63,10 @@ const Utbetalinger = (props: Props) => {
     if (isValid) {
       type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
       const outbound: { [key: string]: () => Outbound } = {
-        NORSK: () => setOutboundNorskKontonummer(context),
+        NORSK: () => {
+          fields.kontonummer = normalizeNummer(fields.kontonummer);
+          return setOutboundNorskKontonummer(context);
+        },
         UTENLANDSK: () => setOutboundUtenlandsbankonto(context),
       };
 

@@ -1,255 +1,2002 @@
 [
-  { "kode": "AFG", "tekst": "AFGHANISTAN" },
-  { "kode": "ALB", "tekst": "ALBANIA" },
-  { "kode": "DZA", "tekst": "ALGERIE" },
-  { "kode": "ASM", "tekst": "AM. SAMOA" },
-  { "kode": "AND", "tekst": "ANDORRA" },
-  { "kode": "AGO", "tekst": "ANGOLA" },
-  { "kode": "AIA", "tekst": "ANGUILLA" },
-  { "kode": "ATG", "tekst": "ANTIGUA OG BARBUDA" },
-  { "kode": "ARG", "tekst": "ARGENTINA" },
-  { "kode": "ARM", "tekst": "ARMENIA" },
-  { "kode": "ABW", "tekst": "ARUBA" },
-  { "kode": "AZE", "tekst": "ASERBAJDSJAN" },
-  { "kode": "AUS", "tekst": "AUSTRALIA" },
-  { "kode": "BHS", "tekst": "BAHAMAS" },
-  { "kode": "BHR", "tekst": "BAHRAIN" },
-  { "kode": "BGD", "tekst": "BANGLADESH" },
-  { "kode": "BRB", "tekst": "BARBADOS" },
-  { "kode": "BEL", "tekst": "BELGIA" },
-  { "kode": "BLZ", "tekst": "BELIZE" },
-  { "kode": "BEN", "tekst": "BENIN" },
-  { "kode": "BMU", "tekst": "BERMUDA" },
-  { "kode": "BTN", "tekst": "BHUTAN" },
-  { "kode": "BOL", "tekst": "BOLIVIA" },
-  { "kode": "BES", "tekst": "BONAIRE, SINT EUSTATIUS OG SABA" },
-  { "kode": "BIH", "tekst": "BOSNIA-HERCEGOVINA" },
-  { "kode": "BWA", "tekst": "BOTSWANA" },
-  { "kode": "BVT", "tekst": "BOUVETØYA" },
-  { "kode": "BRA", "tekst": "BRASIL" },
-  { "kode": "BRN", "tekst": "BRUNEI" },
-  { "kode": "BGR", "tekst": "BULGARIA" },
-  { "kode": "BFA", "tekst": "BURKINA FASO" },
-  { "kode": "BDI", "tekst": "BURUNDI" },
-  { "kode": "CAN", "tekst": "CANADA" },
-  { "kode": "CYM", "tekst": "CAYMANØYENE" },
-  { "kode": "CHL", "tekst": "CHILE" },
-  { "kode": "CXR", "tekst": "CHRISTMASØYA" },
-  { "kode": "COL", "tekst": "COLOMBIA" },
-  { "kode": "COK", "tekst": "COOKØYENE" },
-  { "kode": "CRI", "tekst": "COSTA RICA" },
-  { "kode": "CUB", "tekst": "CUBA" },
-  { "kode": "CUW", "tekst": "CURACAO" },
-  { "kode": "DNK", "tekst": "DANMARK" },
-  { "kode": "VIR", "tekst": "DE AMERIKANSKE JOMFRUØYER" },
-  { "kode": "VGB", "tekst": "DE BRITISKE JOMFRUØYER" },
-  { "kode": "ARE", "tekst": "DE FORENTE ARABISKE EMIRATER" },
-  { "kode": "ANT", "tekst": "DE NEDERLANDSKE ANTILLENE" },
-  { "kode": "DOM", "tekst": "DEN DOMINIKANSKE REPUBLIKK" },
-  { "kode": "CAF", "tekst": "DEN SENTRALAFRIKANSKE REPUBLIKK" },
-  { "kode": "IOT", "tekst": "DET BRITISKE TERRITORIET I INDIAHAVET" },
-  { "kode": "DJI", "tekst": "DJIBOUTI" },
-  { "kode": "DMA", "tekst": "DOMINICA" },
-  { "kode": "ECU", "tekst": "ECUADOR" },
-  { "kode": "EGY", "tekst": "EGYPT" },
-  { "kode": "GNQ", "tekst": "EKVATORIAL-GUINEA" },
-  { "kode": "SLV", "tekst": "EL SALVADOR" },
-  { "kode": "CIV", "tekst": "ELFENBENSKYSTEN" },
-  { "kode": "ERI", "tekst": "ERITREA" },
-  { "kode": "EST", "tekst": "ESTLAND" },
-  { "kode": "SWZ", "tekst": "ESWATINI" },
-  { "kode": "ETH", "tekst": "ETIOPIA" },
-  { "kode": "FLK", "tekst": "FALKLANDSØYENE" },
-  { "kode": "FJI", "tekst": "FIJI" },
-  { "kode": "PHL", "tekst": "FILIPPINENE" },
-  { "kode": "FIN", "tekst": "FINLAND" },
-  { "kode": "FRA", "tekst": "FRANKRIKE" },
-  { "kode": "GUF", "tekst": "FRANSK GUYANA" },
-  { "kode": "PYF", "tekst": "FRANSK POLYNESIA" },
-  { "kode": "FRO", "tekst": "FÆRØYENE" },
-  { "kode": "GAB", "tekst": "GABON" },
-  { "kode": "GMB", "tekst": "GAMBIA" },
-  { "kode": "GEO", "tekst": "GEORGIA" },
-  { "kode": "GHA", "tekst": "GHANA" },
-  { "kode": "GIB", "tekst": "GIBRALTAR" },
-  { "kode": "GRD", "tekst": "GRENADA" },
-  { "kode": "GRL", "tekst": "GRØNLAND" },
-  { "kode": "GLP", "tekst": "GUADELOUPE" },
-  { "kode": "GUM", "tekst": "GUAM" },
-  { "kode": "GTM", "tekst": "GUATEMALA" },
-  { "kode": "GGY", "tekst": "GUERNSEY" },
-  { "kode": "GIN", "tekst": "GUINEA" },
-  { "kode": "GNB", "tekst": "GUINEA-BISSAU" },
-  { "kode": "GUY", "tekst": "GUYANA" },
-  { "kode": "HTI", "tekst": "HAITI" },
-  { "kode": "HMD", "tekst": "HEARD- OG MCDONALD-ØYENE" },
-  { "kode": "GRC", "tekst": "HELLAS" },
-  { "kode": "HND", "tekst": "HONDURAS" },
-  { "kode": "HKG", "tekst": "HONGKONG" },
-  { "kode": "BLR", "tekst": "HVITERUSSLAND" },
-  { "kode": "IND", "tekst": "INDIA" },
-  { "kode": "IDN", "tekst": "INDONESIA" },
-  { "kode": "IRQ", "tekst": "IRAK" },
-  { "kode": "IRN", "tekst": "IRAN" },
-  { "kode": "IRL", "tekst": "IRLAND" },
-  { "kode": "ISL", "tekst": "ISLAND" },
-  { "kode": "IMN", "tekst": "ISLE OF MAN" },
-  { "kode": "ISR", "tekst": "ISRAEL" },
-  { "kode": "ITA", "tekst": "ITALIA" },
-  { "kode": "JAM", "tekst": "JAMAICA" },
-  { "kode": "JPN", "tekst": "JAPAN" },
-  { "kode": "YEM", "tekst": "JEMEN" },
-  { "kode": "JEY", "tekst": "JERSEY" },
-  { "kode": "JOR", "tekst": "JORDAN" },
-  { "kode": "KHM", "tekst": "KAMBODSJA" },
-  { "kode": "CMR", "tekst": "KAMERUN" },
-  { "kode": "CPV", "tekst": "KAPP VERDE" },
-  { "kode": "KAZ", "tekst": "KASAKHSTAN" },
-  { "kode": "KEN", "tekst": "KENYA" },
-  { "kode": "CHN", "tekst": "KINA" },
-  { "kode": "KGZ", "tekst": "KIRGISISTAN" },
-  { "kode": "KIR", "tekst": "KIRIBATI" },
-  { "kode": "CCK", "tekst": "KOKOSØYENE (KEELINGØYENE)" },
-  { "kode": "COM", "tekst": "KOMORENE" },
-  { "kode": "COD", "tekst": "KONGO" },
-  { "kode": "COG", "tekst": "KONGO-BRAZZAVILLE" },
-  { "kode": "XXK", "tekst": "KOSOVO" },
-  { "kode": "HRV", "tekst": "KROATIA" },
-  { "kode": "KWT", "tekst": "KUWAIT" },
-  { "kode": "CYP", "tekst": "KYPROS" },
-  { "kode": "LAO", "tekst": "LAOS" },
-  { "kode": "LVA", "tekst": "LATVIA" },
-  { "kode": "LSO", "tekst": "LESOTHO" },
-  { "kode": "LBN", "tekst": "LIBANON" },
-  { "kode": "LBR", "tekst": "LIBERIA" },
-  { "kode": "LBY", "tekst": "LIBYA" },
-  { "kode": "LIE", "tekst": "LIECHTENSTEIN" },
-  { "kode": "LTU", "tekst": "LITAUEN" },
-  { "kode": "LUX", "tekst": "LUXEMBOURG" },
-  { "kode": "MAC", "tekst": "MACAO" },
-  { "kode": "MDG", "tekst": "MADAGASKAR" },
-  { "kode": "MWI", "tekst": "MALAWI" },
-  { "kode": "MYS", "tekst": "MALAYSIA" },
-  { "kode": "MDV", "tekst": "MALDIVENE" },
-  { "kode": "MLI", "tekst": "MALI" },
-  { "kode": "MLT", "tekst": "MALTA" },
-  { "kode": "MAR", "tekst": "MAROKKO" },
-  { "kode": "MHL", "tekst": "MARSHALLØYENE" },
-  { "kode": "MTQ", "tekst": "MARTINIQUE" },
-  { "kode": "MRT", "tekst": "MAURITANIA" },
-  { "kode": "MUS", "tekst": "MAURITIUS" },
-  { "kode": "MYT", "tekst": "MAYOTTE" },
-  { "kode": "MEX", "tekst": "MEXICO" },
-  { "kode": "FSM", "tekst": "MIKRONESIAFØDERASJONEN" },
-  { "kode": "MDA", "tekst": "MOLDOVA" },
-  { "kode": "MCO", "tekst": "MONACO" },
-  { "kode": "MNG", "tekst": "MONGOLIA" },
-  { "kode": "MNE", "tekst": "MONTENEGRO" },
-  { "kode": "MSR", "tekst": "MONTSERRAT" },
-  { "kode": "MOZ", "tekst": "MOSAMBIK" },
-  { "kode": "MMR", "tekst": "MYANMAR (BURMA)" },
-  { "kode": "NAM", "tekst": "NAMIBIA" },
-  { "kode": "NRU", "tekst": "NAURU" },
-  { "kode": "NLD", "tekst": "NEDERLAND" },
-  { "kode": "NPL", "tekst": "NEPAL" },
-  { "kode": "NZL", "tekst": "NEW ZEALAND" },
-  { "kode": "NIC", "tekst": "NICARAGUA" },
-  { "kode": "NER", "tekst": "NIGER" },
-  { "kode": "NGA", "tekst": "NIGERIA" },
-  { "kode": "NIU", "tekst": "NIUE" },
-  { "kode": "PRK", "tekst": "NORD-KOREA" },
-  { "kode": "MKD", "tekst": "NORD-MAKEDONIA" },
-  { "kode": "MNP", "tekst": "NORD-MARIANENE" },
-  { "kode": "NFK", "tekst": "NORFOLKØYA" },
-  { "kode": "NOR", "tekst": "NORGE" },
-  { "kode": "NCL", "tekst": "NY-CALEDONIA" },
-  { "kode": "OMN", "tekst": "OMAN" },
-  { "kode": "PAK", "tekst": "PAKISTAN" },
-  { "kode": "PLW", "tekst": "PALAU" },
-  { "kode": "PSE", "tekst": "PALESTINA" },
-  { "kode": "PAN", "tekst": "PANAMA" },
-  { "kode": "PNG", "tekst": "PAPUA NY-GUINEA" },
-  { "kode": "PRY", "tekst": "PARAGUAY" },
-  { "kode": "PER", "tekst": "PERU" },
-  { "kode": "PCN", "tekst": "PITCAIRN" },
-  { "kode": "POL", "tekst": "POLEN" },
-  { "kode": "PRT", "tekst": "PORTUGAL" },
-  { "kode": "PRI", "tekst": "PUERTO RICO" },
-  { "kode": "QAT", "tekst": "QATAR" },
-  { "kode": "REU", "tekst": "REUNION" },
-  { "kode": "ROU", "tekst": "ROMANIA" },
-  { "kode": "RUS", "tekst": "RUSSLAND" },
-  { "kode": "RWA", "tekst": "RWANDA" },
-  { "kode": "BLM", "tekst": "SAINT BARTHELEMY" },
-  { "kode": "KNA", "tekst": "SAINT KITTS OG NEVIS" },
-  { "kode": "LCA", "tekst": "SAINT LUCIA" },
-  { "kode": "MAF", "tekst": "SAINT MARTIN" },
-  { "kode": "VCT", "tekst": "SAINT VINCENT OG GRENADINENE" },
-  { "kode": "SPM", "tekst": "SAINT-PIERRE OG MIQUELON" },
-  { "kode": "SLB", "tekst": "SALOMONØYENE" },
-  { "kode": "WSM", "tekst": "SAMOA" },
-  { "kode": "SMR", "tekst": "SAN MARINO" },
-  { "kode": "SHN", "tekst": "SANKT HELENA, ASCENSION OG TRISTAN DA CUNHA" },
-  { "kode": "STP", "tekst": "SAO TOME OG PRINCIPE" },
-  { "kode": "SAU", "tekst": "SAUDI-ARABIA" },
-  { "kode": "SEN", "tekst": "SENEGAL" },
-  { "kode": "SRB", "tekst": "SERBIA" },
-  { "kode": "SCG", "tekst": "SERBIA OG MONTENEGRO" },
-  { "kode": "SYC", "tekst": "SEYCHELLENE" },
-  { "kode": "SLE", "tekst": "SIERRA LEONE" },
-  { "kode": "SGP", "tekst": "SINGAPORE" },
-  { "kode": "SXM", "tekst": "SINT MAARTEN" },
-  { "kode": "SVK", "tekst": "SLOVAKIA" },
-  { "kode": "SVN", "tekst": "SLOVENIA" },
-  { "kode": "SOM", "tekst": "SOMALIA" },
-  { "kode": "ESP", "tekst": "SPANIA" },
-  { "kode": "LKA", "tekst": "SRI LANKA" },
-  { "kode": "XXX", "tekst": "STATSLØS" },
-  { "kode": "GBR", "tekst": "STORBRITANNIA" },
-  { "kode": "SDN", "tekst": "SUDAN" },
-  { "kode": "SUR", "tekst": "SURINAM" },
-  { "kode": "SJM", "tekst": "SVALBARD OG JAN MAYEN" },
-  { "kode": "CHE", "tekst": "SVEITS" },
-  { "kode": "SWE", "tekst": "SVERIGE" },
-  { "kode": "SYR", "tekst": "SYRIA" },
-  { "kode": "ZAF", "tekst": "SØR-AFRIKA" },
-  { "kode": "SGS", "tekst": "SØR-GEORGIA OG SØR-SANDWICHØYE" },
-  { "kode": "KOR", "tekst": "SØR-KOREA" },
-  { "kode": "SSD", "tekst": "SØR-SUDAN" },
-  { "kode": "TJK", "tekst": "TADSJIKISTAN" },
-  { "kode": "TWN", "tekst": "TAIWAN" },
-  { "kode": "TZA", "tekst": "TANZANIA" },
-  { "kode": "THA", "tekst": "THAILAND" },
-  { "kode": "TGO", "tekst": "TOGO" },
-  { "kode": "TKL", "tekst": "TOKELAU" },
-  { "kode": "TON", "tekst": "TONGA" },
-  { "kode": "TTO", "tekst": "TRINIDAD OG TOBAGO" },
-  { "kode": "TCD", "tekst": "TSJAD" },
-  { "kode": "CZE", "tekst": "TSJEKKIA" },
-  { "kode": "TUN", "tekst": "TUNISIA" },
-  { "kode": "TKM", "tekst": "TURKMENISTAN" },
-  { "kode": "TCA", "tekst": "TURKS- OG CAICOSØYENE" },
-  { "kode": "TUV", "tekst": "TUVALU" },
-  { "kode": "TUR", "tekst": "TYRKIA" },
-  { "kode": "DEU", "tekst": "TYSKLAND" },
-  { "kode": "UGA", "tekst": "UGANDA" },
-  { "kode": "UKR", "tekst": "UKRAINA" },
-  { "kode": "HUN", "tekst": "UNGARN" },
-  { "kode": "??? ", "tekst": "UOPPGITT/UKJENT" },
-  { "kode": "URY", "tekst": "URUGUAY" },
-  { "kode": "USA", "tekst": "USA" },
-  { "kode": "UMI", "tekst": "USAS YTRE SMÅØYER" },
-  { "kode": "UZB", "tekst": "USBEKISTAN" },
-  { "kode": "9999", "tekst": "Uoppgitt" },
-  { "kode": "VUT", "tekst": "VANUATU" },
-  { "kode": "VAT", "tekst": "VATIKANSTATEN" },
-  { "kode": "VEN", "tekst": "VENEZUELA" },
-  { "kode": "ESH", "tekst": "VEST-SAHARA" },
-  { "kode": "VNM", "tekst": "VIETNAM" },
-  { "kode": "WLF", "tekst": "WALLIS OG FUTUNA" },
-  { "kode": "ZMB", "tekst": "ZAMBIA" },
-  { "kode": "ZWE", "tekst": "ZIMBABWE" },
-  { "kode": "ALA", "tekst": "ÅLAND" },
-  { "kode": "TLS", "tekst": "ØST-TIMOR" },
-  { "kode": "AUT", "tekst": "ØSTERRIKE" }
+  {
+    "kode": "AF",
+    "tekst": "Afghanistan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AL",
+    "tekst": "Albania",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DZ",
+    "tekst": "Algerie",
+    "kreverIban": false,
+    "ibanLengde": 26,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AS",
+    "tekst": "Amerikansk Samoa",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AD",
+    "tekst": "Andorra",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AO",
+    "tekst": "Angola",
+    "kreverIban": false,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AI",
+    "tekst": "Anguilla",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AQ",
+    "tekst": "Antarktika",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AG",
+    "tekst": "Antigua og Barbuda",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AR",
+    "tekst": "Argentina",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AM",
+    "tekst": "Armenia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AW",
+    "tekst": "Aruba",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AZ",
+    "tekst": "Aserbajdsjan",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AU",
+    "tekst": "Australia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 6
+  },
+  {
+    "kode": "BS",
+    "tekst": "Bahamas",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BH",
+    "tekst": "Bahrain",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BD",
+    "tekst": "Bangladesh",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BB",
+    "tekst": "Barbados",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BE",
+    "tekst": "Belgia",
+    "kreverIban": true,
+    "ibanLengde": 16,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BZ",
+    "tekst": "Belize",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BJ",
+    "tekst": "Benin",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BM",
+    "tekst": "Bermuda",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BT",
+    "tekst": "Bhutan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BO",
+    "tekst": "Bolivia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BQ",
+    "tekst": "Bonaire, Sint Eustatius og Saba",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BA",
+    "tekst": "Bosnia-Hercegovina",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BW",
+    "tekst": "Botswana",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BV",
+    "tekst": "Bouvetøya",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BR",
+    "tekst": "Brasil",
+    "kreverIban": true,
+    "ibanLengde": 29,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BN",
+    "tekst": "Brunei",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BG",
+    "tekst": "Bulgaria",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BF",
+    "tekst": "Burkina Faso",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BI",
+    "tekst": "Burundi",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CA",
+    "tekst": "Canada",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 9
+  },
+  {
+    "kode": "KY",
+    "tekst": "Caymanøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CL",
+    "tekst": "Chile",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CX",
+    "tekst": "Christmasøya",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CO",
+    "tekst": "Colombia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CK",
+    "tekst": "Cookøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CR",
+    "tekst": "Costa Rica",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CU",
+    "tekst": "Cuba",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CW",
+    "tekst": "CuraÃ§ao",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DK",
+    "tekst": "Danmark",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TF",
+    "tekst": "De franske sørterritorier",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DO",
+    "tekst": "Den Dominikanske Republikk",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CF",
+    "tekst": "Den sentralafrikanske republikk",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IO",
+    "tekst": "Det britiske territoriet i Indiahavet",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DJ",
+    "tekst": "Djibouti",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DM",
+    "tekst": "Dominica",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "EC",
+    "tekst": "Ecuador",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "EG",
+    "tekst": "Egypt",
+    "kreverIban": true,
+    "ibanLengde": 29,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GQ",
+    "tekst": "Ekvatorial-Guinea",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SV",
+    "tekst": "El Salvador",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CI",
+    "tekst": "Elfenbenskysten",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ER",
+    "tekst": "Eritrea",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "EE",
+    "tekst": "Estland",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ET",
+    "tekst": "Etiopia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FK",
+    "tekst": "Falklandsøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FJ",
+    "tekst": "Fiji",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PH",
+    "tekst": "Filippinene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FI",
+    "tekst": "Finland",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AE",
+    "tekst": "Forente Arabiske Emirater",
+    "kreverIban": true,
+    "ibanLengde": 23,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FR",
+    "tekst": "Frankrike",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GF",
+    "tekst": "Fransk Guyana",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PF",
+    "tekst": "Fransk Polynesia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FO",
+    "tekst": "Færøyene",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GA",
+    "tekst": "Gabon",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GM",
+    "tekst": "Gambia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GE",
+    "tekst": "Georgia",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GH",
+    "tekst": "Ghana",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GI",
+    "tekst": "Gibraltar",
+    "kreverIban": true,
+    "ibanLengde": 23,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GD",
+    "tekst": "Grenada",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GL",
+    "tekst": "Grønland",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GP",
+    "tekst": "Guadeloupe",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GU",
+    "tekst": "Guam",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GT",
+    "tekst": "Guatemala",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GG",
+    "tekst": "Guernsey",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GN",
+    "tekst": "Guinea",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GW",
+    "tekst": "Guinea-Bissau",
+    "kreverIban": false,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GY",
+    "tekst": "Guyana",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HT",
+    "tekst": "Haiti",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HM",
+    "tekst": "Heard- og McDonaldøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GR",
+    "tekst": "Hellas",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HN",
+    "tekst": "Honduras",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HK",
+    "tekst": "Hongkong",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BY",
+    "tekst": "Hviterussland",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IN",
+    "tekst": "India",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 11
+  },
+  {
+    "kode": "ID",
+    "tekst": "Indonesia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IQ",
+    "tekst": "Irak",
+    "kreverIban": true,
+    "ibanLengde": 23,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IR",
+    "tekst": "Iran",
+    "kreverIban": false,
+    "ibanLengde": 26,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IE",
+    "tekst": "Irland",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IS",
+    "tekst": "Island",
+    "kreverIban": true,
+    "ibanLengde": 26,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IM",
+    "tekst": "Isle of Man",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IL",
+    "tekst": "Israel",
+    "kreverIban": true,
+    "ibanLengde": 23,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "IT",
+    "tekst": "Italia",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "JM",
+    "tekst": "Jamaica",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "JP",
+    "tekst": "Japan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "YE",
+    "tekst": "Jemen",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "JE",
+    "tekst": "Jersey",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VG",
+    "tekst": "Jomfruøyene",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VI",
+    "tekst": "Jomfruøyene, De amerikanske",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "JO",
+    "tekst": "Jordan",
+    "kreverIban": true,
+    "ibanLengde": 30,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KH",
+    "tekst": "Kambodsja",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CM",
+    "tekst": "Kamerun",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CV",
+    "tekst": "Kapp Verde",
+    "kreverIban": false,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KZ",
+    "tekst": "Kasakhstan",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KE",
+    "tekst": "Kenya",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CN",
+    "tekst": "Kina",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KG",
+    "tekst": "Kirgisistan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KI",
+    "tekst": "Kiribati",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CC",
+    "tekst": "Kokosøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KM",
+    "tekst": "Komorene",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CD",
+    "tekst": "Kongo, Den demokratiske republikken",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CG",
+    "tekst": "Kongo, Republikken",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "XK",
+    "tekst": "Kosovo",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HR",
+    "tekst": "Kroatia",
+    "kreverIban": true,
+    "ibanLengde": 21,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KW",
+    "tekst": "Kuwait",
+    "kreverIban": true,
+    "ibanLengde": 30,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CY",
+    "tekst": "Kypros",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LA",
+    "tekst": "Laos",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LV",
+    "tekst": "Latvia",
+    "kreverIban": true,
+    "ibanLengde": 21,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LS",
+    "tekst": "Lesotho",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LB",
+    "tekst": "Libanon",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LR",
+    "tekst": "Liberia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LY",
+    "tekst": "Libya",
+    "kreverIban": true,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LI",
+    "tekst": "Liechtenstein",
+    "kreverIban": true,
+    "ibanLengde": 21,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LT",
+    "tekst": "Litauen",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LU",
+    "tekst": "Luxembourg",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MO",
+    "tekst": "Macao",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MG",
+    "tekst": "Madagaskar",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MK",
+    "tekst": "Makedonia",
+    "kreverIban": true,
+    "ibanLengde": 19,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MW",
+    "tekst": "Malawi",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MY",
+    "tekst": "Malaysia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MV",
+    "tekst": "Maldivene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ML",
+    "tekst": "Mali",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MT",
+    "tekst": "Malta",
+    "kreverIban": true,
+    "ibanLengde": 31,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MA",
+    "tekst": "Marokko",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MH",
+    "tekst": "Marshalløyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MQ",
+    "tekst": "Martinique",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MR",
+    "tekst": "Mauritania",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MU",
+    "tekst": "Mauritius",
+    "kreverIban": true,
+    "ibanLengde": 30,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "YT",
+    "tekst": "Mayotte",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MX",
+    "tekst": "Mexico",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "FM",
+    "tekst": "Mikronesiaføderasjonen",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MD",
+    "tekst": "Moldova",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MC",
+    "tekst": "Monaco",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MN",
+    "tekst": "Mongolia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ME",
+    "tekst": "Montenegro",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MS",
+    "tekst": "Montserrat",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MZ",
+    "tekst": "Mosambik",
+    "kreverIban": false,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MM",
+    "tekst": "Myanmar",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NA",
+    "tekst": "Namibia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NR",
+    "tekst": "Nauru",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NL",
+    "tekst": "Nederland",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NP",
+    "tekst": "Nepal",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NZ",
+    "tekst": "New Zeland",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 6
+  },
+  {
+    "kode": "NI",
+    "tekst": "Nicaragua",
+    "kreverIban": false,
+    "ibanLengde": 32,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NE",
+    "tekst": "Niger",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NG",
+    "tekst": "Nigeria",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NU",
+    "tekst": "Niue",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KP",
+    "tekst": "Nord-Korea",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MP",
+    "tekst": "Nord-Marianene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NF",
+    "tekst": "Norfolkøya",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NO",
+    "tekst": "Norge",
+    "kreverIban": true,
+    "ibanLengde": 15,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "NC",
+    "tekst": "Ny-Caledonia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "OM",
+    "tekst": "Oman",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PK",
+    "tekst": "Pakistan",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PW",
+    "tekst": "Palau",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PS",
+    "tekst": "Palestina",
+    "kreverIban": true,
+    "ibanLengde": 29,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PA",
+    "tekst": "Panama",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PG",
+    "tekst": "Papua Ny-Guinea",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PY",
+    "tekst": "Paraguay",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PE",
+    "tekst": "Peru",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PN",
+    "tekst": "Pitcairnøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PL",
+    "tekst": "Polen",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PT",
+    "tekst": "Portugal",
+    "kreverIban": true,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PR",
+    "tekst": "Puerto Rico",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "QA",
+    "tekst": "Qatar",
+    "kreverIban": true,
+    "ibanLengde": 29,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "RO",
+    "tekst": "Romania",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "RU",
+    "tekst": "Russland",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 9
+  },
+  {
+    "kode": "RW",
+    "tekst": "Rwanda",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "RE",
+    "tekst": "RÃ©union",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KN",
+    "tekst": "Saint Kitts og Nevis",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LC",
+    "tekst": "Saint Lucia",
+    "kreverIban": true,
+    "ibanLengde": 32,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VC",
+    "tekst": "Saint Vincent og Grenadinene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "BL",
+    "tekst": "Saint-BarthÃ©lemy",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "MF",
+    "tekst": "Saint-Martin",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "PM",
+    "tekst": "Saint-Pierre og Miquelon",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SB",
+    "tekst": "Salomonøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "WS",
+    "tekst": "Samoa",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SM",
+    "tekst": "San Marino",
+    "kreverIban": true,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SA",
+    "tekst": "Saudi Arabia",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SN",
+    "tekst": "Senegal",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "RS",
+    "tekst": "Serbia",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SC",
+    "tekst": "Seychellene",
+    "kreverIban": true,
+    "ibanLengde": 31,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SL",
+    "tekst": "Sierra Leone",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SG",
+    "tekst": "Singapore",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SX",
+    "tekst": "Sint Maarten",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SK",
+    "tekst": "Slovakia",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SI",
+    "tekst": "Slovenia",
+    "kreverIban": true,
+    "ibanLengde": 19,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SO",
+    "tekst": "Somalia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ES",
+    "tekst": "Spania",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "LK",
+    "tekst": "Sri Lanka",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SH",
+    "tekst": "St. Helena, Ascension og Tristan da Cunha",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "GB",
+    "tekst": "Storbritannia",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SD",
+    "tekst": "Sudan",
+    "kreverIban": true,
+    "ibanLengde": 18,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SR",
+    "tekst": "Surinam",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SJ",
+    "tekst": "Svalbard og Jan Mayen",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CH",
+    "tekst": "Sveits",
+    "kreverIban": true,
+    "ibanLengde": 21,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SE",
+    "tekst": "Sverige",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SZ",
+    "tekst": "Swaziland",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SY",
+    "tekst": "Syria",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ST",
+    "tekst": "SÃ£o TomÃ© og PrÃ­ncipe",
+    "kreverIban": true,
+    "ibanLengde": 25,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ZA",
+    "tekst": "Sør-Afrika",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 6
+  },
+  {
+    "kode": "GS",
+    "tekst": "Sør-Georgia og Sør-Sandwichøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "KR",
+    "tekst": "Sør-Korea",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "SS",
+    "tekst": "Sør-Sudan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TJ",
+    "tekst": "Tadsjikistan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TW",
+    "tekst": "Taiwan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TZ",
+    "tekst": "Tanzania",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TH",
+    "tekst": "Thailand",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TG",
+    "tekst": "Togo",
+    "kreverIban": false,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TK",
+    "tekst": "Tokelau",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TO",
+    "tekst": "Tonga",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TT",
+    "tekst": "Trinidad og Tobago",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TD",
+    "tekst": "Tsjad",
+    "kreverIban": false,
+    "ibanLengde": 27,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "CZ",
+    "tekst": "Tsjekkia",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TN",
+    "tekst": "Tunisia",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TM",
+    "tekst": "Turkmenistan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TC",
+    "tekst": "Turks- og Caicosøyene",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TV",
+    "tekst": "Tuvalu",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TR",
+    "tekst": "Tyrkia",
+    "kreverIban": true,
+    "ibanLengde": 26,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "DE",
+    "tekst": "Tyskland",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "US",
+    "tekst": "USA",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": true,
+    "bankkodeLengde": 9
+  },
+  {
+    "kode": "UM",
+    "tekst": "USAs ytre smÃ¥øyer",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "UG",
+    "tekst": "Uganda",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "UA",
+    "tekst": "Ukraina",
+    "kreverIban": true,
+    "ibanLengde": 29,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "HU",
+    "tekst": "Ungarn",
+    "kreverIban": true,
+    "ibanLengde": 28,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "UY",
+    "tekst": "Uruguay",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "UZ",
+    "tekst": "Usbekistan",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VU",
+    "tekst": "Vanuatu",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VA",
+    "tekst": "Vatikanstaten",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VE",
+    "tekst": "Venezuela",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "EH",
+    "tekst": "Vest-Sahara",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "VN",
+    "tekst": "Vietnam",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "WF",
+    "tekst": "Wallis og Futuna",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ZM",
+    "tekst": "Zambia",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "ZW",
+    "tekst": "Zimbabwe",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AX",
+    "tekst": "Ã…land",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "TL",
+    "tekst": "Ã˜st-Timor",
+    "kreverIban": true,
+    "ibanLengde": 23,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  },
+  {
+    "kode": "AT",
+    "tekst": "Ã˜sterrike",
+    "kreverIban": true,
+    "ibanLengde": 20,
+    "kreverBankkode": false,
+    "bankkodeLengde": null
+  }
 ]
