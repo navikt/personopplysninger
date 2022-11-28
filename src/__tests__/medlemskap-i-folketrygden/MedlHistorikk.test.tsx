@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import renderer from "react-test-renderer";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
-import Perioder from "../../pages/medlemskap-i-folketrygden/Perioder";
+import MedlHistorikkView from "../../pages/medlemskap-i-folketrygden/MedlHistorikkView";
 import medlInfo from "../../clients/apiMock/app/fetch/medl-info.json";
 import { MedlInfo } from "../../types/medl";
 
@@ -19,12 +19,12 @@ jest.mock("nav-frontend-js-utils", () => ({
 
 jest.mock("nav-frontend-hjelpetekst");
 
-describe("Perioder", () => {
+describe("MedlHistorikkView", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
         <IntlProvider locale={"nb"} messages={nbMessages}>
-          <Perioder medlInfo={medlInfo as unknown as MedlInfo} />
+          <MedlHistorikkView medlInfo={medlInfo as unknown as MedlInfo} />
         </IntlProvider>
       )
       .toJSON();

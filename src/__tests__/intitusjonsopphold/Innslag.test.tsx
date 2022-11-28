@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
 import instInfo from "../../clients/apiMock/app/fetch/inst-info.json";
-import Innslag from "../../pages/institusjonsopphold/detaljer/Innslag";
+import InstDetaljerView from "../../pages/institusjonsopphold/detaljer/InstDetaljerView";
 
 jest.mock("react-router-dom", () => ({
   Link: () => <div />,
@@ -14,12 +14,12 @@ jest.mock("react-router-dom", () => ({
 
 jest.mock("nav-frontend-hjelpetekst");
 
-describe("Innslag", () => {
+describe("InstDetaljerView", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
         <IntlProvider locale={"nb"} messages={nbMessages}>
-          <Innslag innslag={instInfo[0]} />
+          <InstDetaljerView innslag={instInfo[0]} />
         </IntlProvider>
       )
       .toJSON();

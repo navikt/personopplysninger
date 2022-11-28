@@ -12,13 +12,13 @@ import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
 import WithFeatureToggles from "./store/providers/FeatureToggles";
-import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysningerPage";
+import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { getRedirectPathFromParam, tillatteTjenester } from "./utils/redirects";
 import InstHistorikk from "./pages/institusjonsopphold/historikk/InstHistorikk";
 import InstDetaljer from "./pages/institusjonsopphold/detaljer/InstDetaljer";
-import DsopHistorikkPage from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkPage";
-import DsopDetaljerPage from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerPage";
+import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
+import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
 import Modal from "react-modal";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
@@ -81,14 +81,14 @@ const App = () => {
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/dsop`}
-                        component={DsopHistorikkPage}
+                        component={DsopHistorikk}
                       />
                     )}
                     {featureToggles.data["personopplysninger.dsop"] && (
                       <Route
                         exact={true}
                         path={`${basePathWithLanguage}/dsop/:id`}
-                        component={DsopDetaljerPage}
+                        component={DsopDetaljer}
                       />
                     )}
                     {featureToggles.data["personopplysninger.inst"] && (

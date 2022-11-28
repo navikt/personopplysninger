@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import personInfo from "../../clients/apiMock/app/fetch/person-info.json";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
-import EndreOpplysninger from "../../pages/endre-personopplysninger/EndreOpplysninger";
+import EndreOpplysningerView from "../../pages/endre-personopplysninger/EndreOpplysningerView";
 import { Adresser } from "../../types/adresser";
 import { Personalia } from "../../types/personalia";
 import { StoreProvider } from "store/Context";
@@ -16,14 +16,14 @@ jest.mock("nav-frontend-js-utils", () => ({
   guid: () => "Mocked UUID",
 }));
 
-describe("EndreOpplysninger", () => {
+describe("EndreOpplysningerView", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
         <ValidatorsProvider validators={extraValidators}>
           <StoreProvider>
             <IntlProvider locale={"nb"} messages={nbMessages}>
-              <EndreOpplysninger
+              <EndreOpplysningerView
                 adresser={personInfo.adresser as unknown as Adresser}
                 personalia={personInfo.personalia as unknown as Personalia}
               />

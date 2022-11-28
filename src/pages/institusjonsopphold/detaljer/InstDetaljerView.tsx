@@ -7,7 +7,7 @@ import { formatOrgnr, RADIX_DECIMAL } from "../../../utils/formattering";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { InstInnslag } from "../../../types/inst";
 
-const Innslag = (props: { innslag: InstInnslag }) => {
+const InstDetaljerView = (props: { innslag: InstInnslag }) => {
   const { innslag } = props;
 
   return (
@@ -62,4 +62,4 @@ const Innslag = (props: { innslag: InstInnslag }) => {
   );
 };
 
-export default Innslag;
+export default InstDetaljerView;

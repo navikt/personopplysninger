@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import dsopInfo from "../../clients/apiMock/app/fetch/dsop-info.json";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
-import DsopHistorikk from "../../pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
+import DsopHistorikkView from "../../pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
 
 jest.mock("react-router-dom", () => ({
   Link: () => <div />,
@@ -12,12 +12,12 @@ jest.mock("react-router-dom", () => ({
   }),
 }));
 
-describe("DsopHistorikk", () => {
+describe("DsopHistorikkView", () => {
   it("renders correctly", () => {
     const tree = renderer
       .create(
         <IntlProvider locale={"nb"} messages={nbMessages}>
-          <DsopHistorikk dsopInfo={dsopInfo} />
+          <DsopHistorikkView dsopInfo={dsopInfo} />
         </IntlProvider>
       )
       .toJSON();

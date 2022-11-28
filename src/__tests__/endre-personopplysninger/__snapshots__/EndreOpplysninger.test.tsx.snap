@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EndreOpplysninger renders correctly 1`] = `
+exports[`EndreOpplysningerView renders correctly 1`] = `
 Array [
   <div
     className="box__wrapper"

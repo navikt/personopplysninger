@@ -2,7 +2,7 @@ import React from "react";
 import PageContainer from "components/pagecontainer/PageContainer";
 import MEDLIkon from "assets/img/MEDL.svg";
 import WithMEDL from "./MedlFetch";
-import Perioder from "./Perioder";
+import MedlHistorikkView from "./MedlHistorikkView";
 
 /*
   Hent data
@@ -17,7 +17,7 @@ const MedlHistorikk = () => (
     backTo={"/#flere-opplysninger"}
     brodsmulesti={[{ title: "medl.tittel" }]}
   >
-    <WithMEDL>{({ data }) => <Perioder medlInfo={data} />}</WithMEDL>
+    <WithMEDL>{({ data }) => <MedlHistorikkView medlInfo={data} />}</WithMEDL>
   </PageContainer>
 );
 

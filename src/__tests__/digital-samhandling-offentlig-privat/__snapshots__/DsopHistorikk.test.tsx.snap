@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DsopHistorikk renders correctly 1`] = `
+exports[`DsopHistorikkView renders correctly 1`] = `
 <div
   className="historikk__tabs-innhold historikk__flex-table"
 >

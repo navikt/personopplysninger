@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Perioder renders correctly 1`] = `
+exports[`MedlHistorikkView renders correctly 1`] = `
 <div
   className="medl__tabs-innhold"
 >

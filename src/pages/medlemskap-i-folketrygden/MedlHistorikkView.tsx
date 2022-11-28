@@ -11,7 +11,7 @@ interface Props {
   medlInfo: MedlInfo;
 }
 
-const Perioder = (props: Props) => {
+const MedlHistorikkView = (props: Props) => {
   const { medlInfo } = props;
   const { locale } = useIntl();
   const perioder = medlInfo?.perioder || [];
@@ -139,4 +139,4 @@ const Checkbox = (props: { text: string }) => (
   </div>
 );
 
-export default Perioder;
+export default MedlHistorikkView;

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import PageContainer from "components/pagecontainer/PageContainer";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "../InstFetch";
-import Tabell from "./Tabell";
+import InstHistorikkView from "./InstHistorikkView";
 
 const InstHistorikk = () => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const InstHistorikk = () => {
       backTo={"/#flere-opplysninger"}
       brodsmulesti={[{ title: "inst.tittel" }]}
     >
-      <WithInst>{({ data }) => <Tabell instInfo={data} />}</WithInst>
+      <WithInst>{({ data }) => <InstHistorikkView instInfo={data} />}</WithInst>
     </PageContainer>
   );
 };

@@ -12,7 +12,7 @@ import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 
-const Tabell = (props: { instInfo: InstInfo }) => {
+const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   const [viewAmount, setViewAmount] = useState(20);
   const location = useLocation();
   const { instInfo } = props;
@@ -131,4 +131,4 @@ const Tabell = (props: { instInfo: InstInfo }) => {
   );
 };
 
-export default Tabell;
+export default InstHistorikkView;

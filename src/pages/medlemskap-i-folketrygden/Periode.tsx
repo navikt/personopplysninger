@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
-import { MedlInfo, MedlInnslag } from "types/medl";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
+import React from "react";
+import { MedlInnslag } from "types/medl";
 import Moment from "react-moment";
-import { FormattedMessage, useIntl } from "react-intl";
-import PageContainer from "components/pagecontainer/PageContainer";
-import MEDLIkon from "assets/img/MEDL.svg";
+import { FormattedMessage } from "react-intl";
 import Kalender from "assets/img/Kalender.svg";
-import Check from "assets/img/Check.svg";
-import WithMEDL from "./MedlFetch";
-import Ekspanderbartpanel from "nav-frontend-ekspanderbartpanel";
-import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
 import { Element } from "nav-frontend-typografi";
-import Lenke from "nav-frontend-lenker";
 import ListElement from "../../components/listelement/ListElement";
 
 interface Props {

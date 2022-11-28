@@ -5,7 +5,7 @@ import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "../InstFetch";
 import PageContainer from "components/pagecontainer/PageContainer";
 import Kilde from "../../../components/kilde/Kilde";
-import Innslag from "./Innslag";
+import InstDetaljerView from "./InstDetaljerView";
 
 interface Routes {
   id: string;
@@ -36,7 +36,7 @@ const InstDetaljer = () => {
             .shift();
 
           return innslag ? (
-            <Innslag innslag={innslag} />
+            <InstDetaljerView innslag={innslag} />
           ) : (
             <div>
               <FormattedMessage id="inst.ingendata" />
