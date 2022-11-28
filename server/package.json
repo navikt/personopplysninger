@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@navikt/nav-dekoratoren-moduler": "^1.6.9",
-    "dotenv": "^16.0.2",
+    "dotenv": "^16.0.3",
     "express": "^4.18.1",
     "html-react-parser": "^3.0.4",
     "jsdom": "^20.0.0",
