@@ -9,6 +9,10 @@ import DittNavKontor from "../../pages/forside/sections/4-personinfo/5-ditt-nav-
 import { EnhetKontaktInfo } from "../../types/enhetKontaktInfo";
 
 jest.mock("react-modal");
+jest.mock("nav-frontend-js-utils", () => ({
+  ...jest.requireActual("nav-frontend-js-utils"),
+  guid: () => "Mocked UUID",
+}));
 
 describe("DittNavKontor", () => {
   it("renders correctly", () => {

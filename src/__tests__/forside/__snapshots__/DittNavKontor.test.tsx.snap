@@ -102,7 +102,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                   aria-invalid={false}
                   className="skjemaelement__input"
                   disabled={false}
-                  id="89217640-0830-7242-09302-10897243546917"
+                  id="Mocked UUID"
                   onChange={[Function]}
                 >
                   <option

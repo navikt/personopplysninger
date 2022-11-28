@@ -203,9 +203,9 @@ exports[`Perioder renders correctly 1`] = `
     className="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
   >
     <button
-      aria-controls="0963719029-00912-05058-9365-6609205610604"
+      aria-controls="Mocked UUID"
       className="ekspanderbartPanel__hode"
-      id="1418810825-2052-06958-7137-22437230626995"
+      id="Mocked UUID"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -224,8 +224,8 @@ exports[`Perioder renders correctly 1`] = `
       </div>
     </button>
     <div
-      aria-labelledby="1418810825-2052-06958-7137-22437230626995"
-      id="0963719029-00912-05058-9365-6609205610604"
+      aria-labelledby="Mocked UUID"
+      id="Mocked UUID"
       role="region"
     />
   </div>
@@ -233,9 +233,9 @@ exports[`Perioder renders correctly 1`] = `
     className="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
   >
     <button
-      aria-controls="994528511-0785-29705-26833-1673297017292"
+      aria-controls="Mocked UUID"
       className="ekspanderbartPanel__hode"
-      id="060296419-2894-6971-18071-6581268817265"
+      id="Mocked UUID"
       onClick={[Function]}
       onKeyDown={[Function]}
       type="button"
@@ -254,8 +254,8 @@ exports[`Perioder renders correctly 1`] = `
       </div>
     </button>
     <div
-      aria-labelledby="060296419-2894-6971-18071-6581268817265"
-      id="994528511-0785-29705-26833-1673297017292"
+      aria-labelledby="Mocked UUID"
+      id="Mocked UUID"
       role="region"
     />
   </div>

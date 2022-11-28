@@ -135,7 +135,7 @@ exports[`Adresser renders correctly 1`] = `
                 </div>
                 <div
                   className="lesMerPanel adresse__lesmer"
-                  id="57675754-01578-9309-4572-262331968412423"
+                  id="Mocked UUID"
                 >
                   <div
                     className="lesMerPanel__merContainer"
@@ -144,7 +144,7 @@ exports[`Adresser renders correctly 1`] = `
                     className="lesMerPanel__toggle"
                   >
                     <button
-                      aria-controls="57675754-01578-9309-4572-262331968412423"
+                      aria-controls="Mocked UUID"
                       aria-expanded={false}
                       className="lesMerPanel__togglelink"
                       onClick={[Function]}
@@ -212,7 +212,7 @@ exports[`Adresser renders correctly 1`] = `
                 </div>
                 <div
                   className="lesMerPanel adresse__lesmer"
-                  id="1462130110-02927-13096-05067-3732112208146"
+                  id="Mocked UUID"
                 >
                   <div
                     className="lesMerPanel__merContainer"
@@ -221,7 +221,7 @@ exports[`Adresser renders correctly 1`] = `
                     className="lesMerPanel__toggle"
                   >
                     <button
-                      aria-controls="1462130110-02927-13096-05067-3732112208146"
+                      aria-controls="Mocked UUID"
                       aria-expanded={false}
                       className="lesMerPanel__togglelink"
                       onClick={[Function]}
@@ -377,7 +377,7 @@ exports[`Adresser renders correctly 1`] = `
               </div>
               <div
                 className="lesMerPanel adresse__lesmer"
-                id="188102340-3696-1003-1436-29798027910782"
+                id="Mocked UUID"
               >
                 <div
                   className="lesMerPanel__merContainer"
@@ -386,7 +386,7 @@ exports[`Adresser renders correctly 1`] = `
                   className="lesMerPanel__toggle"
                 >
                   <button
-                    aria-controls="188102340-3696-1003-1436-29798027910782"
+                    aria-controls="Mocked UUID"
                     aria-expanded={false}
                     className="lesMerPanel__togglelink"
                     onClick={[Function]}

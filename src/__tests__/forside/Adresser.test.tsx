@@ -8,7 +8,10 @@ import { Adresser as AdresserType } from "types/adresser";
 import { StoreProvider } from "../../store/Context";
 
 jest.mock("react-modal");
-jest.mock("draft-js/lib/generateRandomKey", () => () => "123");
+jest.mock("nav-frontend-js-utils", () => ({
+  ...jest.requireActual("nav-frontend-js-utils"),
+  guid: () => "Mocked UUID",
+}));
 
 describe("Adresser", () => {
   it("renders correctly", () => {

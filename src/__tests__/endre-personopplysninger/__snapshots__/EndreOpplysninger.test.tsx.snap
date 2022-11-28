@@ -69,45 +69,45 @@ Array [
                 onSubmit={[Function]}
                 validators={
                   Object {
-                    "hasMultipleCombinedSpaces": [MockFunction],
-                    "isBIC": [MockFunction],
-                    "isBICCountryCompliant": [MockFunction],
-                    "isBankkode": [MockFunction],
+                    "hasMultipleCombinedSpaces": [Function],
+                    "isBIC": [Function],
+                    "isBICCountryCompliant": [Function],
+                    "isBankkode": [Function],
                     "isBlacklisted": [Function],
-                    "isBlacklistedCommon": [MockFunction],
+                    "isBlacklistedCommon": [Function],
                     "isEmail": [Function],
                     "isEqual": [Function],
                     "isExactLength": [Function],
-                    "isFirstCharNotSpace": [MockFunction],
+                    "isFirstCharNotSpace": [Function],
                     "isGreaterThan": [Function],
-                    "isHouseNumber": [MockFunction],
-                    "isIBAN": [MockFunction],
-                    "isIBANCountryCompliant": [MockFunction],
-                    "isIBANRequired": [MockFunction],
+                    "isHouseNumber": [Function],
+                    "isIBAN": [Function],
+                    "isIBANCountryCompliant": [Function],
+                    "isIBANRequired": [Function],
                     "isLessThan": [Function],
-                    "isLetters": [MockFunction],
-                    "isLettersAndDigits": [MockFunction],
-                    "isLettersAndSpace": [MockFunction],
-                    "isLettersSpaceAndDigits": [MockFunction],
+                    "isLetters": [Function],
+                    "isLettersAndDigits": [Function],
+                    "isLettersAndSpace": [Function],
+                    "isLettersSpaceAndDigits": [Function],
                     "isMaxLength": [Function],
                     "isMinLength": [Function],
-                    "isMinOneLetter": [MockFunction],
-                    "isMod11": [MockFunction],
-                    "isNormalizedLength": [MockFunction],
-                    "isNotIBAN": [MockFunction],
-                    "isNotSSN": [MockFunction],
-                    "isNotYourSSN": [MockFunction],
+                    "isMinOneLetter": [Function],
+                    "isMod11": [Function],
+                    "isNormalizedLength": [Function],
+                    "isNotIBAN": [Function],
+                    "isNotSSN": [Function],
+                    "isNotYourSSN": [Function],
                     "isNumber": [Function],
-                    "isPositive": [MockFunction],
+                    "isPositive": [Function],
                     "isRegexMatch": [Function],
                     "isRequired": [Function],
-                    "isValidAdresselinje": [MockFunction],
-                    "isValidBanknavn": [MockFunction],
-                    "isValidNorwegianNumber": [MockFunction],
-                    "isValidStreetName": [MockFunction],
+                    "isValidAdresselinje": [Function],
+                    "isValidBanknavn": [Function],
+                    "isValidNorwegianNumber": [Function],
+                    "isValidStreetName": [Function],
                     "isWhitelisted": [Function],
-                    "notOnlySignsDigitsSpace": [MockFunction],
-                    "notOnlySignsSpace": [MockFunction],
+                    "notOnlySignsDigitsSpace": [Function],
+                    "notOnlySignsSpace": [Function],
                   }
                 }
               >
@@ -349,7 +349,7 @@ Array [
                   </div>
                   <div
                     className="lesMerPanel adresse__lesmer"
-                    id="2628904363-28563-11001-6774-025902743622297"
+                    id="Mocked UUID"
                   >
                     <div
                       className="lesMerPanel__merContainer"
@@ -358,7 +358,7 @@ Array [
                       className="lesMerPanel__toggle"
                     >
                       <button
-                        aria-controls="2628904363-28563-11001-6774-025902743622297"
+                        aria-controls="Mocked UUID"
                         aria-expanded={false}
                         className="lesMerPanel__togglelink"
                         onClick={[Function]}
@@ -426,7 +426,7 @@ Array [
                   </div>
                   <div
                     className="lesMerPanel adresse__lesmer"
-                    id="206207735-04186-4124-23899-93100468114064"
+                    id="Mocked UUID"
                   >
                     <div
                       className="lesMerPanel__merContainer"
@@ -435,7 +435,7 @@ Array [
                       className="lesMerPanel__toggle"
                     >
                       <button
-                        aria-controls="206207735-04186-4124-23899-93100468114064"
+                        aria-controls="Mocked UUID"
                         aria-expanded={false}
                         className="lesMerPanel__togglelink"
                         onClick={[Function]}
@@ -591,7 +591,7 @@ Array [
                 </div>
                 <div
                   className="lesMerPanel adresse__lesmer"
-                  id="959524167-26378-7848-3935-028472509495"
+                  id="Mocked UUID"
                 >
                   <div
                     className="lesMerPanel__merContainer"
@@ -600,7 +600,7 @@ Array [
                     className="lesMerPanel__toggle"
                   >
                     <button
-                      aria-controls="959524167-26378-7848-3935-028472509495"
+                      aria-controls="Mocked UUID"
                       aria-expanded={false}
                       className="lesMerPanel__togglelink"
                       onClick={[Function]}
@@ -717,13 +717,26 @@ Array [
             className="box__content"
           >
             
-            <div
-              className="underseksjon__beskrivelse"
+            <ul
+              className="list-column-2"
             >
-              Vi har ikke registrert kontonummer på deg. 
-              <br />
-              Du kan registrere kontonummer ved å trykke på «Legg til»
-            </div>
+              <li>
+                <div
+                  className="listelement__header"
+                >
+                  <p
+                    className="typo-element"
+                  >
+                    Kontonummer
+                  </p>
+                </div>
+                <div
+                  className="content "
+                >
+                  1234 56 78911
+                </div>
+              </li>
+            </ul>
             <div
               className="kilde__container"
             >
@@ -742,7 +755,7 @@ Array [
                 <p
                   className="typo-normal"
                 >
-                  Legg til
+                  Endre
                 </p>
               </button>
               <div
