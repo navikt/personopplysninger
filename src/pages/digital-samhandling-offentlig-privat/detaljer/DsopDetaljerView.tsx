@@ -1,11 +1,10 @@
 import React from "react";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import FileSaver from "file-saver";
 import moment from "moment";
-import { Hovedknapp } from "nav-frontend-knapper";
 import { DsopInfo } from "../../../types/dsop";
+import { BodyShort, Button, Heading } from "@navikt/ds-react";
 
 interface Props {
   id: string;
@@ -30,13 +29,15 @@ const DsopDetaljerView = (props: Props) => {
       return (
         <div>
           <div className="detaljer__tittel">
-            <Undertittel>{innslag.mottakernavn}</Undertittel>
-            <Normaltekst>
+            <Heading level="2" size="small">
+              {innslag.mottakernavn}
+            </Heading>
+            <BodyShort>
               <FormattedMessage
                 id="side.organisasjonsnummer"
                 values={{ orgnr: innslag.mottaker }}
               />
-            </Normaltekst>
+            </BodyShort>
           </div>
           <hr className="box__linje-bred" />
           <div className="box">
@@ -60,9 +61,9 @@ const DsopDetaljerView = (props: Props) => {
               </ul>
             </div>
             <div className="detaljer__container">
-              <Hovedknapp onClick={onClick}>
+              <Button variant="primary" onClick={onClick}>
                 <FormattedMessage id="dsop.lastned" />
-              </Hovedknapp>
+              </Button>
             </div>
           </div>
         </div>

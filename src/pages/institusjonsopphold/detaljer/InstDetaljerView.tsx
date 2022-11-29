@@ -1,11 +1,10 @@
 import React from "react";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import moment from "moment";
 import { formatOrgnr, RADIX_DECIMAL } from "../../../utils/formattering";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { InstInnslag } from "../../../types/inst";
+import { BodyShort, Heading, HelpText } from "@navikt/ds-react";
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
   const { innslag } = props;
@@ -13,9 +12,11 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
   return (
     <div>
       <div className="detaljer__tittel">
-        <Undertittel>{innslag.institusjonsnavn}</Undertittel>
+        <Heading level="2" size="small">
+          {innslag.institusjonsnavn}
+        </Heading>
         {innslag.organisasjonsnummer && (
-          <Normaltekst>
+          <BodyShort>
             <FormattedMessage
               id="side.organisasjonsnummer"
               values={{
@@ -27,7 +28,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                 ),
               }}
             />
-          </Normaltekst>
+          </BodyShort>
         )}
       </div>
       <hr className="box__linje-bred" />
@@ -48,9 +49,9 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                       : ``
                   }`}
                   {innslag.fiktivSluttdato && (
-                    <Hjelpetekst>
+                    <HelpText>
                       <FormattedMessage id={"inst.fiktivSluttdato"} />
-                    </Hjelpetekst>
+                    </HelpText>
                   )}
                 </div>
               }

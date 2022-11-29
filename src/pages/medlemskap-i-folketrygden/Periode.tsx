@@ -3,8 +3,8 @@ import { MedlInnslag } from "types/medl";
 import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import Kalender from "assets/img/Kalender.svg";
-import { Element } from "nav-frontend-typografi";
 import ListElement from "../../components/listelement/ListElement";
+import { BodyLong } from "@navikt/ds-react";
 
 interface Props {
   periode: MedlInnslag;
@@ -17,12 +17,12 @@ const Periode = (props: Props) => {
       <div className="medl__flex-kolonne">
         <div className={"medl__heading"}>
           <img className={"medl__kalender"} src={Kalender} alt="Kalenderikon" />
-          <Element>
+          <BodyLong>
             <FormattedMessage id={"medl.periode"} />{" "}
             <Moment format="DD.MM.YY">{periode.fraOgMed}</Moment>
             {" - "}
             <Moment format="DD.MM.YY">{periode.tilOgMed}</Moment>
-          </Element>
+          </BodyLong>
         </div>
         <div className={"medl__flex-grid box__content"}>
           <ul className="list-column-2">

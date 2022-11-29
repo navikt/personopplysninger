@@ -1,11 +1,9 @@
 import React from "react";
 import { MedlInfo } from "types/medl";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Normaltekst, Systemtittel, Undertittel } from "nav-frontend-typografi";
-import Lenke from "nav-frontend-lenker";
 import Panel from "./Panel";
 import Check from "../../assets/img/Check.svg";
+import { Alert, BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
 
 interface Props {
   medlInfo: MedlInfo;
@@ -35,9 +33,9 @@ const MedlHistorikkView = (props: Props) => {
   return (
     <div className="medl__tabs-innhold">
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage id={`medl.oversikt.ingress`} />
-        </Normaltekst>
+        </BodyLong>
       </div>
       <div className={"medl__space"}>
         <Checkbox text={`medl.oversikt.1`} />
@@ -47,9 +45,9 @@ const MedlHistorikkView = (props: Props) => {
       </div>
 
       <div className={"medl__section"}>
-        <Undertittel>
+        <Heading level="3" size="small">
           <FormattedMessage id={"medl.situasjoner.tittel"} />
-        </Undertittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
         <Checkbox text={`medl.situasjoner.1`} />
@@ -62,37 +60,37 @@ const MedlHistorikkView = (props: Props) => {
       </div>
 
       <div className={"medl__section"}>
-        <Undertittel>
+        <Heading level="3" size="small">
           <FormattedMessage id={"medl.folketrygden.tittel"} />
-        </Undertittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyLong>
           <FormattedMessage
             id={`medl.folketrygden.ingress`}
             values={{
               lenkeTilFolketrygden: (text: string) => (
-                <Lenke href={lenkerTilFolketrygden[locale]}>{text}</Lenke>
+                <Link href={lenkerTilFolketrygden[locale]}>{text}</Link>
               ),
             }}
           />
-        </Normaltekst>
+        </BodyLong>
       </div>
       <div className={"medl__space"}>
-        <Normaltekst>
+        <BodyShort>
           <FormattedMessage id={`medl.folketrygden.lanekassen`} />
-        </Normaltekst>
+        </BodyShort>
       </div>
 
       <div className={"medl__section"}>
-        <Systemtittel>
+        <Heading level="3" size="small">
           <FormattedMessage id={"medl.perioder.tittel"} />
-        </Systemtittel>
+        </Heading>
       </div>
       <div className={"medl__space"}>
-        <AlertStripeInfo>
+        <Alert variant="info">
           <FormattedMessage id={"medl.perioder.alert"} />
-        </AlertStripeInfo>
+        </Alert>
       </div>
       {medMedlemskap.length > 0 ? (
         <Panel
@@ -117,9 +115,9 @@ const MedlHistorikkView = (props: Props) => {
       ) : null}
       {ingenPerioder && (
         <div className={"medl__space"}>
-          <AlertStripeInfo>
+          <Alert variant="info">
             <FormattedMessage id={"medl.ingendata"} />
-          </AlertStripeInfo>
+          </Alert>
         </div>
       )}
     </div>
@@ -129,9 +127,9 @@ const MedlHistorikkView = (props: Props) => {
 const Checkbox = (props: { text: string }) => (
   <div className="medl__checkbox">
     <img className={"medl__kalender"} src={Check} alt="Sjekkboksikon" />
-    <Normaltekst>
+    <BodyLong>
       <FormattedMessage id={props.text} />
-    </Normaltekst>
+    </BodyLong>
   </div>
 );
 
