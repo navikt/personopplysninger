@@ -6,18 +6,32 @@
       "verdi": "10108000398",
       "type": "FNR"
     },
-    "kontonr": "12345678911",
+    "kontonr": null,
     "tlfnr": {
       "telefonAlternativ": "40853158",
       "landskodeAlternativ": "+47",
       "telefonHoved": null,
       "landskodeHoved": null
     },
-    "utenlandskbank": null,
+    "utenlandskbank": {
+      "adresse1": "",
+      "adresse2": "",
+      "adresse3": "",
+      "bankkode": null,
+      "banknavn": "Dominion Bank",
+      "iban": null,
+      "kontonummer": "AE460090000000123456789",
+      "land": "Forente Arabiske Emirater",
+      "swiftkode": "EBILAEADXXX",
+      "valuta": "Amerikansk dollar"
+    },
     "spraak": "Nynorsk",
     "epostadr": null,
     "personstatus": "Bosatt",
-    "statsborgerskap": ["NORGE", "SVERIGE"],
+    "statsborgerskap": [
+      "NORGE",
+      "SVERIGE"
+    ],
     "foedested": "Oslo, NORGE",
     "sivilstand": "Ugift",
     "kjoenn": "Mann"

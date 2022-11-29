@@ -153,9 +153,6 @@ A child who lives permanently with both mother and father can have two home addr
   "inst.ingendata": "No institutional stay is registered",
   "inst.fiktivSluttdato": `The termination of the stay at the institution has not been reported. NAV has automatically terminated the stay.`,
   "inst.kilde": `Source: The individual institution`,
-  "skattetrekksmeldinger.tittel": `Tax deduction notices`,
-  "skattetrekksmeldinger.ingendata":
-    "No tax deduction notices have been collected",
   "medl.tittel": `Membership of the National Insurance Scheme`,
   "medl.ingendata": `You have no registered periods.`,
   "medl.oversikt.ingress": `If you work and live in Norway, you are normally a member of the National Insurance Scheme. Periods with this type of membership will not be shown in this page. This page is only relevant if you have`,
@@ -218,8 +215,6 @@ A child who lives permanently with both mother and father can have two home addr
   "lenker.dsop.info": `This is a log showing the information we have disclosed to insurance companies based on the consent you have given on Altinn.<a>See the consent in Altinn.</a>`,
   "lenker.inst.tittel": `Institutional stays`,
   "lenker.inst.beskrivelse": `See your institutional stays`,
-  "lenker.skattetrekksmelding.tittel": `Tax deduction notices`,
-  "lenker.skattetrekksmelding.beskrivelse": `See your tax deduction notices`,
   "lenker.medl.tittel": `Membership and exemption from membership in the National Insurance Scheme`,
   "lenker.medl.beskrivelse": `See periods where you've stayed abroad, and periods where you have worked in Norway, and lived in a different country`,
   "lenker.fullmakt.tittel": `Powers of attorney (text in norwegian)`,

@@ -69,17 +69,6 @@ const LinksContainer = () => {
             component={"Link"}
           />
         )}
-        {featureToggles.data["personopplysninger.skatt"] && (
-          <LinkBox
-            id={"skatt"}
-            icon={SkattIkon}
-            tittel={"lenker.skattetrekksmelding.tittel"}
-            beskrivelse={"lenker.skattetrekksmelding.beskrivelse"}
-            lenkeTekst={"lenker.skattetrekksmelding.lenkeTekst"}
-            to={`${basePath}/${locale}/skattetrekksmelding`}
-            component={"Link"}
-          />
-        )}
         {featureToggles.data["personopplysninger.medl"] && (
           <LinkBox
             id={"medl"}

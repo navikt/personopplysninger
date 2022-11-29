@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="notfound__container"
+  >
+    <h1
+      class="typo-sidetittel"
+    >
+      404
+    </h1>
+  </div>
+</DocumentFragment>
+`;

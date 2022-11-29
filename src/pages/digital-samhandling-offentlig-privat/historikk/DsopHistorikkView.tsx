@@ -1,12 +1,9 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { DsopInfo } from "types/dsop";
 import moment from "moment";
 import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link as ReactLink, useLocation } from "react-router-dom";
-import PageContainer from "components/pagecontainer/PageContainer";
-import DSOPIkon from "assets/img/DSOP.svg";
-import WithDSOP from "./DsopFetch";
 import { Alert, Label, Link } from "@navikt/ds-react";
 import { Collapse, Expand } from "@navikt/ds-icons";
 
@@ -14,30 +11,9 @@ interface Props {
   dsopInfo: DsopInfo;
 }
 
-/*
-  Hent data
-*/
-const DsopHistorikk = () => (
-  <PageContainer
-    tittelId={"dsop.tittel"}
-    icon={DSOPIkon}
-    backTo={"/#flere-opplysninger"}
-    brodsmulesti={[{ title: "dsop.tittel" }]}
-  >
-    <WithDSOP>{({ data }) => <Tabell dsopInfo={data} />}</WithDSOP>
-  </PageContainer>
-);
-
-/*
-  Visning
-*/
-const Tabell = (props: Props) => {
+export const DsopHistorikkView = (props: Props) => {
   const location = useLocation();
   const { dsopInfo } = props;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const initState: {
     [år: string]: {
@@ -149,4 +125,4 @@ const Tabell = (props: Props) => {
   );
 };
 
-export default DsopHistorikk;
+export default DsopHistorikkView;

@@ -1,21 +1,17 @@
 import React from "react";
-import Adresser from "pages/forside/sections/4-personinfo/3-adresser/Adresser";
-import Utbetalinger from "pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
-import Box from "components/box/Box";
 import { useParams } from "react-router-dom";
-import kontaktIkon from "assets/img/Kontakt.svg";
 import RedirectKnapp from "components/knapper/Redirect";
-import TelefonnummerHosNav from "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav";
 import MedPersonInfo from "store/providers/PersonInfo";
 import Spinner from "components/spinner/Spinner";
 import Error, { HTTPError } from "components/error/Error";
+import EndreOpplysningerView from "./EndreOpplysningerView";
 
 interface Routes {
   tjeneste?: string;
   redirectUrl?: string;
 }
 
-const EndreAlleOpplysninger = () => {
+const EndreOpplysninger = () => {
   const params = useParams<Routes>();
   const { tjeneste, redirectUrl } = params;
 
@@ -24,28 +20,12 @@ const EndreAlleOpplysninger = () => {
       <div className="endreOpplysninger__container pagecontent">
         <RedirectKnapp tjeneste={tjeneste} encodedUrl={redirectUrl} />
         <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
-          {({ personalia, adresser }) => {
-            return (
-              <>
-                {personalia && (
-                  <Box
-                    id="kontaktinformasjon"
-                    tittel="kontaktinfo.tittel"
-                    icon={kontaktIkon}
-                  >
-                    <TelefonnummerHosNav tlfnr={personalia.tlfnr} />
-                  </Box>
-                )}
-                {adresser && <Adresser adresser={adresser} />}
-                {personalia && (
-                  <Utbetalinger
-                    kontonr={personalia.kontonr}
-                    utenlandskbank={personalia.utenlandskbank}
-                  />
-                )}
-              </>
-            );
-          }}
+          {({ personalia, adresser }) => (
+            <EndreOpplysningerView
+              personalia={personalia}
+              adresser={adresser}
+            />
+          )}
         </MedPersonInfo>
       </div>
     </div>
@@ -53,4 +33,4 @@ const EndreAlleOpplysninger = () => {
 };
 
 export const ErrorFunc = (error: HTTPError) => <Error error={error} />;
-export default EndreAlleOpplysninger;
+export default EndreOpplysninger;

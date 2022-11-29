@@ -15,12 +15,10 @@ import WithFeatureToggles from "./store/providers/FeatureToggles";
 import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
 import PageNotFound from "./pages/404/404";
 import { getRedirectPathFromParam, tillatteTjenester } from "./utils/redirects";
-import SkattkortHistorikk from "./pages/skattetrekksmelding/SkattHistorikk";
-import SkattekortDetaljer from "./pages/skattetrekksmelding/SkattDetaljer";
-import InstHistorikk from "./pages/institusjonsopphold/InstHistorikk";
-import InstDetaljer from "./pages/institusjonsopphold/InstDetaljer";
-import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/DsopHistorikk";
-import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/DsopDetaljer";
+import InstHistorikk from "./pages/institusjonsopphold/historikk/InstHistorikk";
+import InstDetaljer from "./pages/institusjonsopphold/detaljer/InstDetaljer";
+import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
+import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
 import Modal from "react-modal";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
@@ -116,20 +114,6 @@ const App = () => {
                         exact={true}
                         path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`}
                         component={EndreOpplysninger}
-                      />
-                    )}
-                    {featureToggles.data["personopplysninger.skatt"] && (
-                      <Route
-                        exact={true}
-                        path={`${basePathWithLanguage}/skattetrekksmelding`}
-                        component={SkattkortHistorikk}
-                      />
-                    )}
-                    {featureToggles.data["personopplysninger.skatt"] && (
-                      <Route
-                        exact={true}
-                        path={`${basePathWithLanguage}/skattetrekksmelding/:id`}
-                        component={SkattekortDetaljer}
                       />
                     )}
                     {featureToggles.data["personopplysninger.medl"] && (

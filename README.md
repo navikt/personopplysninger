@@ -36,7 +36,19 @@ Start applikasjonen lokalt:
 
 ## Mock-serveren
 
-Ved enkelte post-kall vil mock-serveren alltid returnere en feilet case. Se feks /clients/apiMock/app/post/endre-kontonr.json. For å teste andre TPS-svar, endre denne json tilsvarende.
+Ved enkelte post-kall vil mock-serveren alltid returnere en feilet case. Se feks
+/clients/apiMock/app/post/endre-kontonr.json. For å teste andre TPS-svar, endre denne json tilsvarende.
+
+## Tester
+
+Tester ligger under `/src/__tests__`. Disse kan kjøres med kommandoen `npm test`.
+
+#### Snapshot-tester
+
+En del av testene er snapshot-tester. Hensikten med disse testene er å avdekke utilsiktede endringer i UIet. En typisk
+snapshot test rendrer en komponent, tar et snapshot og sammenligner dette med en referanse-snapshot som er lagret i
+repoet. Testen vil feile dersom de to snapshotene ikke er like. Man kan oppdatere snapshotet i repoet ved å kjøre
+kommandoen `npm test -- -u`.
 
 ## Feature toggles
 
@@ -45,7 +57,8 @@ https://unleash.nais.io
 
 ## Deployering
 
-Merk: Bruk develop-branchen når vi deployer til dev. Dermed unngår vi at feks to utviklere overskriver hverandres features når de deployes individuelt til dev.
+Merk: Bruk develop-branchen når vi deployer til dev. Dermed unngår vi at feks to utviklere overskriver hverandres
+features når de deployes individuelt til dev.
 
 ### Dev
 
