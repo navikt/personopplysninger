@@ -25,6 +25,7 @@ export interface Land {
   ibanLengde?: number;
   kreverBankkode: boolean;
   bankkodeLengde?: number;
+  alternativLandkode?: string;
 }
 
 const SelectLand = (props: Props) => {
@@ -56,6 +57,7 @@ const SelectLand = (props: Props) => {
       ibanLengde: k.ibanLengde,
       kreverBankkode: k.kreverBankkode,
       bankkodeLengde: k.bankkodeLengde,
+      alternativLandkode: k.alternativLandkode,
     }));
 
   const disallowedCountries = ["NORGE", "UOPPGITT/UKJENT", "UOPPGITT"];

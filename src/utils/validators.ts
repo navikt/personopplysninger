@@ -1,6 +1,5 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidBIC, isValidIBAN } from "ibantools";
-import { getIbanPrefixAlternatives } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
 import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
@@ -91,12 +90,10 @@ export const extraValidators = {
       }
       const ibanPrefix = value && value.substring(0, 2);
       const selectedCountryAlpha2 = fields.land.value;
-      const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
-        fields.land.value
-      );
+      const selectedCountryPrefixAlternative = fields.land.alternativLandkode;
 
       return ibanPrefix !== selectedCountryAlpha2 &&
-        !selectedCountryPrefixAlternatives.includes(ibanPrefix)
+        ibanPrefix !== selectedCountryPrefixAlternative
         ? config.message
         : null;
     },
