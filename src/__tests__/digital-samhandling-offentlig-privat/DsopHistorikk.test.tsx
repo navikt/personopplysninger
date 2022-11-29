@@ -4,6 +4,9 @@ import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
 import DsopHistorikkView from "../../pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
 import { render } from "@testing-library/react";
+import moment from "moment-timezone";
+
+moment.tz.setDefault("GMT+1");
 
 jest.mock("react-router-dom", () => ({
   Link: () => <div />,
