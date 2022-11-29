@@ -18,7 +18,7 @@
     "build": "npm-run-all -p build:*",
     "build:js": "react-scripts build",
     "build:css": "less-watch-compiler --run-once",
-    "test": "SET TZ='Europe/Oslo' && react-scripts test --watchAll=false",
+    "test": "react-scripts test --watchAll=false",
     "preversion": "npm test && npm run build",
     "postversion": "git push && git push --tags"
   },
