@@ -1,0 +1,215 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DKIF renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="underseksjon__beskrivelse"
+  >
+    <p
+      class="typo-normal"
+    >
+      Du har 
+      <b>
+        ikke
+      </b>
+       reservert deg mot elektronisk kommunikasjon.
+    </p>
+  </div>
+  <ul
+    class="list-column-2"
+  >
+    <li>
+      <div
+        class="listelement__header"
+      >
+        <p
+          class="typo-element"
+        >
+          Telefon
+        </p>
+      </div>
+      <div
+        class="content "
+      >
+        12131415
+      </div>
+    </li>
+    <li>
+      <div
+        class="listelement__header"
+      >
+        <p
+          class="typo-element"
+        >
+          Språk/målform
+        </p>
+      </div>
+      <div
+        class="content "
+      >
+        Norsk
+      </div>
+    </li>
+    <li>
+      <div
+        class="listelement__header"
+      >
+        <p
+          class="typo-element"
+        >
+          E-post
+        </p>
+      </div>
+      <div
+        class="content "
+      >
+        test@test.com
+      </div>
+    </li>
+  </ul>
+  <div
+    class="kilde__container"
+  >
+    <p
+      class="typo-normal"
+    >
+      <a
+        class="lenke kilde__lenke lenke"
+        href="https://brukerprofil.difi.no/minprofil"
+      >
+        <span
+          class="kilde__icon"
+        >
+          <img
+            alt="Ekstern lenke"
+            src="Link.svg"
+          />
+        </span>
+        Endre i Kontakt- og reservasjonsregisteret 
+      </a>
+    </p>
+    <div
+      class="kilde__tekst"
+    >
+      <p
+        class="typo-undertekst"
+      >
+        Kilde: Kontakt - og reservasjonsregisteret
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TelefonnummerHosNav renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="underseksjon__header"
+  >
+    <h2
+      class="typo-undertittel"
+    >
+      Telefonnummer registrert hos NAV
+    </h2>
+  </div>
+  <div>
+    <form
+      class="tlfnummer__rad"
+      novalidate=""
+      validators="[object Object]"
+    >
+      <div
+        class="tlfnummer__container"
+      >
+        <div
+          class="tlfnummer__verdi"
+        >
+          <p
+            class="typo-element"
+          >
+            Telefon 
+          </p>
+          <p
+            class="typo-normal"
+          >
+            <span>
+              +47 
+            </span>
+            408 53 158
+          </p>
+        </div>
+        <div
+          class="tlfnummer__knapper"
+        >
+          <button
+            class="knapp tlfnummer__knapp-med-ikon knapp--flat"
+            type="button"
+          >
+            <div
+              class="tlfnummer__knapp-ikon"
+            >
+              <img
+                alt="Endre telefonnummer"
+                src="Pencil.svg"
+              />
+            </div>
+            <div
+              class="tlfnummer__knapp-tekst"
+            >
+              Endre
+            </div>
+          </button>
+          <button
+            class="knapp tlfnummer__knapp-med-ikon knapp--flat"
+            type="button"
+          >
+            <div
+              class="tlfnummer__knapp-ikon"
+            >
+              <img
+                alt="Slett telefonnummer"
+                src="Slett.svg"
+              />
+            </div>
+            <div
+              class="tlfnummer__knapp-tekst"
+            >
+              Slett
+            </div>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button
+    class="tlfnummer__leggtil lenke"
+  >
+    <span
+      class="kilde__icon"
+    >
+      <img
+        alt="Ekstern lenke"
+        src="LeggTil.svg"
+      />
+    </span>
+    <p
+      class="typo-normal"
+    >
+      Legg til
+    </p>
+  </button>
+  <div
+    class="kilde__container"
+  >
+    <div
+      class="kilde__tekst"
+    >
+      <p
+        class="typo-undertekst"
+      >
+        Kilde: NAV
+      </p>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,419 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Adresser renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="box__wrapper"
+    id="adresser"
+  >
+    <div
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+    >
+      <div
+        class="nav-veileder nav-veileder--flytende"
+      >
+        <div
+          class="nav-veileder__frame nav-veileder__frame--m"
+        >
+          <img
+            alt="Veileder"
+            class="box__ikon"
+            src="Adresse.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="nav-veilederpanel__content"
+      >
+        <div
+          class="box__container"
+        >
+          <div
+            class="box__header"
+          >
+            <div
+              class="box__title-container"
+            >
+              <div
+                class="box__line"
+              />
+              <h2
+                class="typo-systemtittel box__title"
+              >
+                Adresser
+              </h2>
+              <button
+                aria-label="Informasjonstekst"
+                aria-pressed="false"
+                class="infotekst__title-i-button"
+                title="Informasjon"
+              >
+                <img
+                  alt="Vis mer informasjon"
+                  class="infotekst__title-i-icon"
+                  src="Informasjonstekst.svg"
+                />
+              </button>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              class="lenke anchor-link"
+              href="#adresser"
+            >
+              <img
+                alt=""
+                src="AnchorLink.svg"
+              />
+              Lenke hit
+            </a>
+          </div>
+          <div
+            class="box__content"
+          >
+            <div
+              class="adresse__box"
+            >
+              <div>
+                <div
+                  class="underseksjon__header"
+                >
+                  <h2
+                    class="typo-undertittel"
+                  >
+                    Adresser som er registert i Folkeregisteret
+                  </h2>
+                </div>
+                <div
+                  class="adresse__box"
+                >
+                  <div
+                    class="underseksjon__header"
+                  >
+                    <p
+                      class="typo-element"
+                    >
+                      Bostedsadresse
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      V/ Aremark Jr
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      JØRGENSENVEIEN 14 B
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      0194 OSLO
+                    </p>
+                  </div>
+                  <div
+                    class="lesMerPanel adresse__lesmer"
+                    id="Mocked UUID"
+                  >
+                    <div
+                      class="lesMerPanel__merContainer"
+                    />
+                    <div
+                      class="lesMerPanel__toggle"
+                    >
+                      <button
+                        aria-controls="Mocked UUID"
+                        aria-expanded="false"
+                        class="lesMerPanel__togglelink"
+                        type="button"
+                      >
+                        <span
+                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                        />
+                        <div
+                          class="lesMerPanel__toggleTekst"
+                        >
+                          Vis detaljer
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="adresse__divider"
+                  />
+                </div>
+                <div
+                  class="adresse__box"
+                >
+                  <div
+                    class="underseksjon__header"
+                  >
+                    <p
+                      class="typo-element"
+                    >
+                      Delt bosted
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      V/ Aremark Jr
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      JØRGENSENVEIEN 14 B
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      0194 OSLO
+                    </p>
+                  </div>
+                  <div
+                    class="lesMerPanel adresse__lesmer"
+                    id="Mocked UUID"
+                  >
+                    <div
+                      class="lesMerPanel__merContainer"
+                    />
+                    <div
+                      class="lesMerPanel__toggle"
+                    >
+                      <button
+                        aria-controls="Mocked UUID"
+                        aria-expanded="false"
+                        class="lesMerPanel__togglelink"
+                        type="button"
+                      >
+                        <span
+                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                        />
+                        <div
+                          class="lesMerPanel__toggleTekst"
+                        >
+                          Vis detaljer
+                        </div>
+                      </button>
+                    </div>
+                  </div>
+                  <div
+                    class="adresse__divider"
+                  />
+                </div>
+                <div
+                  class="adresse__box"
+                >
+                  <div
+                    class="underseksjon__header"
+                  >
+                    <p
+                      class="typo-element"
+                    >
+                      Oppholdsadresse
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      V/ Aremark Jr
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      JØRGENSENVEIEN 14 B
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__linje"
+                  >
+                    <p
+                      class="typo-normal"
+                    >
+                      0194 OSLO
+                    </p>
+                  </div>
+                  <div
+                    class="adresse__divider"
+                  />
+                </div>
+                <div
+                  class="kilde__container"
+                >
+                  <p
+                    class="typo-normal"
+                  >
+                    <a
+                      class="lenke kilde__lenke lenke"
+                      href="https://www.skatteetaten.no/person/folkeregister/flytte/"
+                    >
+                      <span
+                        class="kilde__icon"
+                      >
+                        <img
+                          alt="Ekstern lenke"
+                          src="Link.svg"
+                        />
+                      </span>
+                      Endre adresse i Folkeregisteret
+                    </a>
+                  </p>
+                  <div
+                    class="kilde__tekst"
+                  >
+                    <p
+                      class="typo-undertekst"
+                    >
+                      Kilde: Folkeregisteret
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="underseksjon__header underseksjon__divider"
+              >
+                <h2
+                  class="typo-undertittel"
+                >
+                  Øvrige registrerte adresser
+                </h2>
+              </div>
+              <div
+                class="adresse__box"
+              >
+                <div
+                  class="underseksjon__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    Kontaktadresse registrert hos NAV
+                  </p>
+                </div>
+                <div
+                  class="adresse__linje"
+                >
+                  <p
+                    class="typo-normal"
+                  >
+                    V/ Aremark Jr
+                  </p>
+                </div>
+                <div
+                  class="adresse__linje"
+                >
+                  <p
+                    class="typo-normal"
+                  >
+                    Postboks 10 Sørstrand
+                  </p>
+                </div>
+                <div
+                  class="adresse__linje"
+                >
+                  <p
+                    class="typo-normal"
+                  >
+                    0194 OSLO
+                  </p>
+                </div>
+                <div
+                  class="lesMerPanel adresse__lesmer"
+                  id="Mocked UUID"
+                >
+                  <div
+                    class="lesMerPanel__merContainer"
+                  />
+                  <div
+                    class="lesMerPanel__toggle"
+                  >
+                    <button
+                      aria-controls="Mocked UUID"
+                      aria-expanded="false"
+                      class="lesMerPanel__togglelink"
+                      type="button"
+                    >
+                      <span
+                        class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                      />
+                      <div
+                        class="lesMerPanel__toggleTekst"
+                      >
+                        Vis detaljer
+                      </div>
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="adresse__divider"
+                />
+              </div>
+              <button
+                class="kilde__lenke lenke"
+              >
+                <span
+                  class="kilde__icon"
+                >
+                  <img
+                    alt="Ekstern lenke"
+                    src="Slett.svg"
+                  />
+                </span>
+                <p
+                  class="typo-normal"
+                >
+                  Slett kontaktadresse
+                </p>
+              </button>
+              <div
+                class="kilde__container"
+              >
+                <div
+                  class="kilde__tekst"
+                >
+                  <p
+                    class="typo-undertekst"
+                  >
+                    Kilde: NAV
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

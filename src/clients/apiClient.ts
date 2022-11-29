@@ -56,9 +56,6 @@ export const fetchRetningsnumre = () =>
 export const fetchInstInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/institusjonsopphold`);
 
-export const fetchskattetrekksmeldinger = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/skattetrekksmeldinger`);
-
 export const fetchMedlInfo = () =>
   sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
 
@@ -146,7 +143,10 @@ const sjekkHttpFeil = async (response: Response, showResponse = false) => {
   } else {
     throw {
       code: response.status,
-      text: response.status === 400 ? await response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
+      text:
+        response.status === 400
+          ? await response.text()
+          : "Oisann, noe gikk galt! Prøv igjen senere.",
     };
   }
 };

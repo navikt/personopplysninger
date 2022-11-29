@@ -8,11 +8,9 @@ import { DsopInfo } from "../types/dsop";
 import { FetchPersonInfo } from "./providers/PersonInfo";
 import { InstInfo } from "../types/inst";
 import { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
-import { Fetchskattetrekksmeldinger } from "../pages/skattetrekksmelding/SkattFetch";
 import { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import { MedlInfo } from "../types/medl";
 import { Auth, FetchAuth } from "../types/authInfo";
-import { Skattetrekksmeldinger } from "../types/skattetrekksmeldinger";
 
 export interface FeatureToggles {
   [key: string]: boolean;
@@ -43,7 +41,6 @@ export const initialState = {
   instInfo: { status: "LOADING" } as FetchInstInfo,
   personInfo: { status: "LOADING" } as FetchPersonInfo,
   kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
-  skattetrekksmeldinger: { status: "LOADING" } as Fetchskattetrekksmeldinger,
   medlInfo: { status: "LOADING" } as FetchMedlInfo,
 };
 export type Locale = "nb" | "en" | "nn";
@@ -57,7 +54,6 @@ export interface Store {
   dsopInfo: FetchDsopInfo;
   instInfo: FetchInstInfo;
   kontaktInfo: FetchKontaktInfo;
-  skattetrekksmeldinger: Fetchskattetrekksmeldinger;
   medlInfo: FetchMedlInfo;
 }
 
@@ -109,10 +105,6 @@ export type Action =
   | {
       type: "SETT_INST_INFO_ERROR";
       payload: HTTPError;
-    }
-  | {
-      type: "SETT_SKATT_RESULT";
-      payload: Skattetrekksmeldinger;
     }
   | {
       type: "SETT_SKATT_ERROR";
@@ -224,22 +216,6 @@ export const reducer = (state: Store, action: Action) => {
           status: "ERROR",
           error: action.payload,
         } as FetchInstInfo,
-      };
-    case "SETT_SKATT_RESULT":
-      return {
-        ...state,
-        skattetrekksmeldinger: {
-          status: "RESULT",
-          data: action.payload,
-        } as Fetchskattetrekksmeldinger,
-      };
-    case "SETT_SKATT_ERROR":
-      return {
-        ...state,
-        skattetrekksmeldinger: {
-          status: "ERROR",
-          error: action.payload,
-        } as Fetchskattetrekksmeldinger,
       };
     case "SETT_MEDL_INFO_RESULT":
       return {

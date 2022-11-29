@@ -10,10 +10,6 @@ export type FetchDsopInfo =
   | { status: "RESULT"; data: DsopInfo }
   | { status: "ERROR"; error: HTTPError };
 
-interface Routes {
-  id: string;
-}
-
 interface Props {
   children: (data: { data: DsopInfo; id?: string }) => JSX.Element;
 }
@@ -25,16 +21,16 @@ const WithDSOP = (props: Props) => {
   useEffect(() => {
     if (dsopInfo.status === "LOADING") {
       fetchDsopInfo()
-        .then(dsopInfo =>
+        .then((dsopInfo) =>
           dispatch({
             type: "SETT_DSOP_INFO_RESULT",
-            payload: dsopInfo as DsopInfo
+            payload: dsopInfo as DsopInfo,
           })
         )
         .catch((error: HTTPError) =>
           dispatch({
             type: "SETT_DSOP_INFO_ERROR",
-            payload: error
+            payload: error,
           })
         );
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
@@ -7,32 +7,12 @@ import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
-import PageContainer from "components/pagecontainer/PageContainer";
-import INSTIkon from "assets/img/Institusjonsopphold.svg";
-import WithInst from "./InstFetch";
-import Kilde from "../../components/kilde/Kilde";
+import Kilde from "../../../components/kilde/Kilde";
 import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
 import Hjelpetekst from "nav-frontend-hjelpetekst";
 
-/*
-  Hent data
-*/
-const InstHistorikk = () => (
-  <PageContainer
-    tittelId={"inst.tittel"}
-    icon={INSTIkon}
-    backTo={"/#flere-opplysninger"}
-    brodsmulesti={[{ title: "inst.tittel" }]}
-  >
-    <WithInst>{({ data }) => <Tabell instInfo={data} />}</WithInst>
-  </PageContainer>
-);
-
-/*
-  Visning
-*/
-const Tabell = (props: { instInfo: InstInfo }) => {
+const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   const [viewAmount, setViewAmount] = useState(20);
   const location = useLocation();
   const { instInfo } = props;
@@ -40,10 +20,6 @@ const Tabell = (props: { instInfo: InstInfo }) => {
   let animateDelay = 0;
   let animateDelayKey = 0;
   let animateDelaySum = 0;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   // @ts-ignore
   return (
@@ -155,4 +131,4 @@ const Tabell = (props: { instInfo: InstInfo }) => {
   );
 };
 
-export default InstHistorikk;
+export default InstHistorikkView;

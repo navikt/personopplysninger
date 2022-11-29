@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Utbetalinger with kontonummer renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="box__wrapper"
+    id="utbetaling"
+  >
+    <div
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+    >
+      <div
+        class="nav-veileder nav-veileder--flytende"
+      >
+        <div
+          class="nav-veileder__frame nav-veileder__frame--m"
+        >
+          <img
+            alt="Veileder"
+            class="box__ikon"
+            src="Kontonummer.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="nav-veilederpanel__content"
+      >
+        <div
+          class="box__container"
+        >
+          <div
+            class="box__header"
+          >
+            <div
+              class="box__title-container"
+            >
+              <div
+                class="box__line"
+              />
+              <h2
+                class="typo-systemtittel box__title"
+              >
+                Kontonummer for utbetaling
+              </h2>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              class="lenke anchor-link"
+              href="#utbetaling"
+            >
+              <img
+                alt=""
+                src="AnchorLink.svg"
+              />
+              Lenke hit
+            </a>
+          </div>
+          <div
+            class="box__content"
+          >
+            <ul
+              class="list-column-2"
+            >
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    Kontonummer
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  1234 56 78911
+                </div>
+              </li>
+            </ul>
+            <div
+              class="kilde__container"
+            >
+              <button
+                class="kilde__lenke lenke"
+              >
+                <span
+                  class="kilde__icon"
+                >
+                  <img
+                    alt="Ekstern lenke"
+                    src="Pencil.svg"
+                  />
+                </span>
+                <p
+                  class="typo-normal"
+                >
+                  Endre
+                </p>
+              </button>
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="typo-undertekst"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="box__wrapper"
+    id="utbetaling"
+  >
+    <div
+      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+    >
+      <div
+        class="nav-veileder nav-veileder--flytende"
+      >
+        <div
+          class="nav-veileder__frame nav-veileder__frame--m"
+        >
+          <img
+            alt="Veileder"
+            class="box__ikon"
+            src="Kontonummer.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="nav-veilederpanel__content"
+      >
+        <div
+          class="box__container"
+        >
+          <div
+            class="box__header"
+          >
+            <div
+              class="box__title-container"
+            >
+              <div
+                class="box__line"
+              />
+              <h2
+                class="typo-systemtittel box__title"
+              >
+                Kontonummer for utbetaling
+              </h2>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              class="lenke anchor-link"
+              href="#utbetaling"
+            >
+              <img
+                alt=""
+                src="AnchorLink.svg"
+              />
+              Lenke hit
+            </a>
+          </div>
+          <div
+            class="box__content"
+          >
+            <ul
+              class="list-column-2"
+            >
+              <li>
+                <p
+                  class="typo-element"
+                >
+                  Bank
+                </p>
+                <p
+                  class="typo-normal"
+                >
+                  Dominion Bank
+                </p>
+                <p
+                  class="typo-normal"
+                >
+                  Forente Arabiske Emirater
+                </p>
+              </li>
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    Kontonummer / IBAN
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  AE460090000000123456789
+                </div>
+              </li>
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    Valuta
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  Amerikansk dollar
+                </div>
+              </li>
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="typo-element"
+                  >
+                    BIC / SWIFT-kode
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  EBILAEADXXX
+                </div>
+              </li>
+            </ul>
+            <div
+              class="kilde__container"
+            >
+              <button
+                class="kilde__lenke lenke"
+              >
+                <span
+                  class="kilde__icon"
+                >
+                  <img
+                    alt="Ekstern lenke"
+                    src="Pencil.svg"
+                  />
+                </span>
+                <p
+                  class="typo-normal"
+                >
+                  Endre
+                </p>
+              </button>
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="typo-undertekst"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
