@@ -12,12 +12,6 @@ jest.mock("react-router-dom", () => ({
     pathname: "pathname",
   }),
 }));
-jest.mock("nav-frontend-js-utils", () => ({
-  ...jest.requireActual("nav-frontend-js-utils"),
-  guid: () => "Mocked UUID",
-}));
-
-jest.mock("nav-frontend-hjelpetekst");
 
 describe("MedlHistorikkView", () => {
   it("renders correctly", () => {

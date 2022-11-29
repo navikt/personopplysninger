@@ -8,10 +8,6 @@ import { StoreProvider } from "../../store/Context";
 import { render } from "@testing-library/react";
 
 jest.mock("react-modal");
-jest.mock("nav-frontend-js-utils", () => ({
-  ...jest.requireActual("nav-frontend-js-utils"),
-  guid: () => "Mocked UUID",
-}));
 
 describe("Adresser", () => {
   it("renders correctly", () => {

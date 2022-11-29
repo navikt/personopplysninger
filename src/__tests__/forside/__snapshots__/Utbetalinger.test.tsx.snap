@@ -7,13 +7,13 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
     id="utbetaling"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
         <div
-          class="nav-veileder__frame nav-veileder__frame--m"
+          class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
             alt="Veileder"
@@ -23,7 +23,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -38,7 +38,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Kontonummer for utbetaling
               </h2>
@@ -47,7 +47,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link"
               href="#utbetaling"
             >
               <img
@@ -68,7 +68,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                   class="listelement__header"
                 >
                   <p
-                    class="typo-element"
+                    class="navds-label"
                   >
                     Kontonummer
                   </p>
@@ -78,33 +78,41 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                 >
                   1234 56 78911
                 </div>
+                <p
+                  class="navds-body-short"
+                />
               </li>
             </ul>
             <div
               class="kilde__container"
             >
               <button
-                class="kilde__lenke lenke"
+                class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
-                  class="kilde__icon"
+                  aria-live="polite"
+                  class="navds-label"
                 >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Pencil.svg"
-                  />
+                  <span
+                    class="kilde__icon"
+                  >
+                    <img
+                      alt="Ekstern lenke"
+                      src="Pencil.svg"
+                    />
+                  </span>
+                  <p
+                    class="navds-body-long"
+                  >
+                    Endre
+                  </p>
                 </span>
-                <p
-                  class="typo-normal"
-                >
-                  Endre
-                </p>
               </button>
               <div
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: NAV
                 </p>
@@ -125,13 +133,13 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
     id="utbetaling"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
         <div
-          class="nav-veileder__frame nav-veileder__frame--m"
+          class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
             alt="Veileder"
@@ -141,7 +149,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -156,7 +164,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Kontonummer for utbetaling
               </h2>
@@ -165,7 +173,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link"
               href="#utbetaling"
             >
               <img
@@ -182,18 +190,18 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               class="list-column-2"
             >
               <li>
-                <p
-                  class="typo-element"
+                <h3
+                  class="navds-heading navds-heading--small"
                 >
                   Bank
-                </p>
+                </h3>
                 <p
-                  class="typo-normal"
+                  class="navds-body-short"
                 >
                   Dominion Bank
                 </p>
                 <p
-                  class="typo-normal"
+                  class="navds-body-short"
                 >
                   Forente Arabiske Emirater
                 </p>
@@ -203,7 +211,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                   class="listelement__header"
                 >
                   <p
-                    class="typo-element"
+                    class="navds-label"
                   >
                     Kontonummer / IBAN
                   </p>
@@ -213,13 +221,16 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 >
                   AE460090000000123456789
                 </div>
+                <p
+                  class="navds-body-short"
+                />
               </li>
               <li>
                 <div
                   class="listelement__header"
                 >
                   <p
-                    class="typo-element"
+                    class="navds-label"
                   >
                     Valuta
                   </p>
@@ -229,13 +240,16 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 >
                   Amerikansk dollar
                 </div>
+                <p
+                  class="navds-body-short"
+                />
               </li>
               <li>
                 <div
                   class="listelement__header"
                 >
                   <p
-                    class="typo-element"
+                    class="navds-label"
                   >
                     BIC / SWIFT-kode
                   </p>
@@ -245,33 +259,41 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 >
                   EBILAEADXXX
                 </div>
+                <p
+                  class="navds-body-short"
+                />
               </li>
             </ul>
             <div
               class="kilde__container"
             >
               <button
-                class="kilde__lenke lenke"
+                class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
-                  class="kilde__icon"
+                  aria-live="polite"
+                  class="navds-label"
                 >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Pencil.svg"
-                  />
+                  <span
+                    class="kilde__icon"
+                  >
+                    <img
+                      alt="Ekstern lenke"
+                      src="Pencil.svg"
+                    />
+                  </span>
+                  <p
+                    class="navds-body-long"
+                  >
+                    Endre
+                  </p>
                 </span>
-                <p
-                  class="typo-normal"
-                >
-                  Endre
-                </p>
               </button>
               <div
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: NAV
                 </p>

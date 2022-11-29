@@ -15,19 +15,21 @@ const Panel = (props: Props) => {
   const { tittelId, tittelIdIngress } = props;
   return (
     <Accordion className={"medl__space"}>
-      <Accordion.Header>
-        <FormattedMessage id={tittelId} />
-      </Accordion.Header>
-      <Accordion.Content>
-        <BodyLong>
-          <FormattedMessage id={tittelIdIngress} />
-        </BodyLong>
-        <div className={"medl__flex-table "}>
-          {perioder.map((periode, i) => (
-            <Periode key={i} periode={periode} />
-          ))}
-        </div>
-      </Accordion.Content>
+      <Accordion.Item>
+        <Accordion.Header>
+          <FormattedMessage id={tittelId} />
+        </Accordion.Header>
+        <Accordion.Content>
+          <BodyLong>
+            <FormattedMessage id={tittelIdIngress} />
+          </BodyLong>
+          <div className={"medl__flex-table "}>
+            {perioder.map((periode, i) => (
+              <Periode key={i} periode={periode} />
+            ))}
+          </div>
+        </Accordion.Content>
+      </Accordion.Item>
     </Accordion>
   );
 };

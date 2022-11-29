@@ -7,13 +7,13 @@ exports[`Personalia renders correctly 1`] = `
     id="personalia"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
         <div
-          class="nav-veileder__frame nav-veileder__frame--m"
+          class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
             alt="Veileder"
@@ -23,7 +23,7 @@ exports[`Personalia renders correctly 1`] = `
         </div>
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -38,7 +38,7 @@ exports[`Personalia renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Personalia
               </h2>
@@ -59,7 +59,7 @@ exports[`Personalia renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link"
               href="#personalia"
             >
               <img
@@ -79,10 +79,10 @@ exports[`Personalia renders correctly 1`] = `
               class="kilde__container"
             >
               <p
-                class="typo-normal"
+                class="navds-body-long"
               >
                 <a
-                  class="lenke kilde__lenke lenke"
+                  class="navds-link kilde__lenke lenke"
                   href="https://www.skatteetaten.no/person/folkeregister/"
                 >
                   <span
@@ -100,7 +100,7 @@ exports[`Personalia renders correctly 1`] = `
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: Folkeregisteret
                 </p>
