@@ -45,6 +45,10 @@ const App = () => {
     dispatch({ type: "INCREASE_FORM_KEY" });
   }, [locale, dispatch]);
 
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
+
   return (
     <div role={"main"} className="pagecontent">
       <div className="wrapper">
