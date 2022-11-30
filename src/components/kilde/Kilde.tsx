@@ -31,7 +31,7 @@ const Knapp = (props: Props) => {
           <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
-                <img src={props.ikon} alt="Ekstern lenke" />
+                <img src={props.ikon} alt="" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
@@ -44,7 +44,7 @@ const Knapp = (props: Props) => {
           <Link href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
-                <img src={props.ikon} alt="Ekstern lenke" />
+                <img src={props.ikon} alt="" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
@@ -60,7 +60,7 @@ const Knapp = (props: Props) => {
         >
           {props.ikon && (
             <span className="kilde__icon">
-              <img src={props.ikon} alt="Ekstern lenke" />
+              <img src={props.ikon} aria-display="hidden" />
             </span>
           )}
           <BodyLong>

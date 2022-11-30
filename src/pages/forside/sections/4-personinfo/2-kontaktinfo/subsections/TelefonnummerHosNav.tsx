@@ -85,9 +85,10 @@ const TelefonnummerHosNav = (props: Props) => {
           variant="tertiary"
           onClick={onLeggTil}
           className="tlfnummer__leggtil knapp-med-ikon lenke"
+          aria-label="Legg til telefonnummer"
         >
           <span className="kilde__icon">
-            <img src={leggTilIkon} alt="Ekstern lenke" />
+            <img src={leggTilIkon} alt="" />
           </span>
           <BodyShort>
             <FormattedMessage id={"side.leggtil"} />

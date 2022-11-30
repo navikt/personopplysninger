@@ -19,7 +19,7 @@ const Box = (props: Props) => {
   return (
     <>
       <div className="linkbox__icon-container icon__container">
-        <Icon backgroundImage={props.icon} />
+        <Icon backgroundImage={props.icon} ariaVisible="hidden" />
       </div>
       <div className="linkbox__content">
         <div className="linkbox__seksjon">

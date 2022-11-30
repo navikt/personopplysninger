@@ -8,8 +8,12 @@ type Props = {
 
 export const AnchorLink = ({ id }: Props) => {
   return (
-    <Link href={`#${id}`} className={"anchor-link"}>
-      <img src={linkIcon} alt={""} />
+    <Link
+      href={`#${id}`}
+      className={"anchor-link"}
+      aria-label="Direktelenke til denne seksjonen"
+    >
+      <img src={linkIcon} alt="" />
       {"Lenke hit"}
     </Link>
   );

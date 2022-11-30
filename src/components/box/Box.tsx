@@ -15,7 +15,7 @@ interface Props {
 
 const Box = (props: Props) => {
   const { tittel, beskrivelse, icon, children, id, visAnkerlenke } = props;
-  const Veileder = <img src={icon} className="box__ikon" alt="Veileder" />;
+  const Veileder = <img src={icon} className="box__ikon" alt="" />;
 
   return (
     <div className="box__wrapper" id={id}>

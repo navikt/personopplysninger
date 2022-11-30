@@ -173,9 +173,10 @@ const EndreTelefonnummer = (props: Props) => {
                     type={"button"}
                     className={"knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
+                    aria-label={"Endre telefonnummer"}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Endre telefonnummer"} src={endreIkon} />
+                      <img alt="" src={endreIkon} />
                     </div>
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.endre"} />
@@ -185,10 +186,11 @@ const EndreTelefonnummer = (props: Props) => {
                     type={"button"}
                     variant={"tertiary"}
                     className={"knapp-med-ikon"}
+                    aria-label="Slett telefonnummer"
                     onClick={apneSlettModal}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                      <img alt="" src={slettIkon} />
                     </div>
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.slett"} />

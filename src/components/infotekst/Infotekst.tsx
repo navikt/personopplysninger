@@ -19,14 +19,13 @@ function Infotekst(props: HjelpetekstProps) {
         onClick={() => settErSynlig(!erSynlig)}
         onMouseEnter={() => settHover(true)}
         onMouseLeave={() => settHover(false)}
-        title={"Informasjon"}
-        aria-label={"Informasjonstekst"}
+        aria-label={"Les mer om denne seksjonen."}
         aria-pressed={erSynlig}
       >
         <img
           src={hover ? infoIkonFylt : infoIkon}
           className="infotekst__title-i-icon"
-          alt="Vis mer informasjon"
+          alt=""
         />
       </button>
       <Modal
