@@ -153,13 +153,14 @@ const NAVSelect = React.memo((props: Props) => {
         />
       </div>
       {props.submitted && props.error && (
-        <div
+        <Label
+          as="p"
           role="alert"
           aria-live="assertive"
-          className="skjemaelement__feilmelding typo-feilmelding"
+          className="KodeverkSelect__feilmelding"
         >
           {props.error}
-        </div>
+        </Label>
       )}
     </div>
   ) : (

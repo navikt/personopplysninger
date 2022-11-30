@@ -292,7 +292,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "validation.tlfnr.norske": "Norske telefonnummer må ha 8 tall",
   "validation.tlfnr.makslengde": "Telefonnummeret kan ha maksimalt 16 tall",
   "validation.tlfnr.eksisterer": "Dette telefonnummeret er allerede registrert",
-  "validation.retningsnr.pakrevd": "Retningsnummer er nødvendig",
+  "validation.retningsnr.pakrevd": "Landkode er nødvendig",
   "validation.postnummer.pakrevd": "Postnummer er nødvendig",
   "validation.postboksnummer.pakrevd": "Nødvendig",
   "validation.tomdato.pakrevd": "Gyldig dato er nødvendig",

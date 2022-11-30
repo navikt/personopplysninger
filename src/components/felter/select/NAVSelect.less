@@ -65,4 +65,15 @@
       min-width: 305px;
     }
   }
+  &__feilmelding,
+  &__feilmelding.navds-label {
+    display: flex;
+    gap: var(--a-spacing-2);
+    margin-top: var(--a-spacing-2);
+    color: var(--ac-typo-error-text, var(--a-text-danger));
+
+    &::before {
+      content: "•";
+    }
+  }
 }
