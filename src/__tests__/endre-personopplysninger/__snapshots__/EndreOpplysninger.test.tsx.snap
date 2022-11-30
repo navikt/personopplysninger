@@ -16,7 +16,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
-            alt="Veileder"
+            alt=""
             class="box__ikon"
             src="Kontakt.svg"
           />
@@ -89,6 +89,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                     class="tlfnummer__knapper"
                   >
                     <button
+                      aria-label="Endre telefonnummer"
                       class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
                       type="button"
                     >
@@ -100,7 +101,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                           class="tlfnummer__knapp-ikon"
                         >
                           <img
-                            alt="Endre telefonnummer"
+                            alt=""
                             src="Pencil.svg"
                           />
                         </div>
@@ -112,6 +113,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                       </span>
                     </button>
                     <button
+                      aria-label="Slett telefonnummer"
                       class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
                       type="button"
                     >
@@ -123,7 +125,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                           class="tlfnummer__knapp-ikon"
                         >
                           <img
-                            alt="Slett telefonnummer"
+                            alt=""
                             src="Slett.svg"
                           />
                         </div>
@@ -139,6 +141,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               </form>
             </div>
             <button
+              aria-label="Legg til telefonnummer"
               class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
             >
               <span
@@ -149,7 +152,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                   class="kilde__icon"
                 >
                   <img
-                    alt="Ekstern lenke"
+                    alt=""
                     src="LeggTil.svg"
                   />
                 </span>
@@ -192,7 +195,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
-            alt="Veileder"
+            alt=""
             class="box__ikon"
             src="Adresse.svg"
           />
@@ -219,13 +222,12 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 Adresser
               </h2>
               <button
-                aria-label="Informasjonstekst"
+                aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
                 class="infotekst__title-i-button"
-                title="Informasjon"
               >
                 <img
-                  alt="Vis mer informasjon"
+                  alt=""
                   class="infotekst__title-i-icon"
                   src="Informasjonstekst.svg"
                 />
@@ -235,6 +237,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               />
             </div>
             <a
+              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#adresser"
             >
@@ -631,7 +634,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         class="kilde__icon"
                       >
                         <img
-                          alt="Ekstern lenke"
+                          alt=""
                           src="Link.svg"
                         />
                       </span>
@@ -841,7 +844,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
-            alt="Veileder"
+            alt=""
             class="box__ikon"
             src="Kontonummer.svg"
           />
@@ -872,6 +875,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               />
             </div>
             <a
+              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -922,7 +926,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                     class="kilde__icon"
                   >
                     <img
-                      alt="Ekstern lenke"
+                      alt=""
                       src="Pencil.svg"
                     />
                   </span>

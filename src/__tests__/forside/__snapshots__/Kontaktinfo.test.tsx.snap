@@ -90,7 +90,7 @@ exports[`DKIF renders correctly 1`] = `
           class="kilde__icon"
         >
           <img
-            alt="Ekstern lenke"
+            alt=""
             src="Link.svg"
           />
         </span>
@@ -151,6 +151,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
           class="tlfnummer__knapper"
         >
           <button
+            aria-label="Endre telefonnummer"
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
             type="button"
           >
@@ -162,7 +163,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
                 class="tlfnummer__knapp-ikon"
               >
                 <img
-                  alt="Endre telefonnummer"
+                  alt=""
                   src="Pencil.svg"
                 />
               </div>
@@ -174,6 +175,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
             </span>
           </button>
           <button
+            aria-label="Slett telefonnummer"
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
             type="button"
           >
@@ -185,7 +187,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
                 class="tlfnummer__knapp-ikon"
               >
                 <img
-                  alt="Slett telefonnummer"
+                  alt=""
                   src="Slett.svg"
                 />
               </div>
@@ -201,6 +203,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     </form>
   </div>
   <button
+    aria-label="Legg til telefonnummer"
     class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
   >
     <span
@@ -211,7 +214,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
         class="kilde__icon"
       >
         <img
-          alt="Ekstern lenke"
+          alt=""
           src="LeggTil.svg"
         />
       </span>

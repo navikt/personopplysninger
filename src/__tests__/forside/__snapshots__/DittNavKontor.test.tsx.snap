@@ -16,7 +16,7 @@ exports[`DittNavKontor renders correctly 1`] = `
           class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
-            alt="Veileder"
+            alt=""
             class="box__ikon"
             src="DittNavKontor.svg"
           />
@@ -43,13 +43,12 @@ exports[`DittNavKontor renders correctly 1`] = `
                 Ditt NAV-kontor
               </h2>
               <button
-                aria-label="Informasjonstekst"
+                aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
                 class="infotekst__title-i-button"
-                title="Informasjon"
               >
                 <img
-                  alt="Vis mer informasjon"
+                  alt=""
                   class="infotekst__title-i-icon"
                   src="Informasjonstekst.svg"
                 />
@@ -59,6 +58,7 @@ exports[`DittNavKontor renders correctly 1`] = `
               />
             </div>
             <a
+              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#ditt-nav-kontor"
             >
