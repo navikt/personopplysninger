@@ -69,12 +69,6 @@ export const BANKKODER: { [key: string]: string } = {
   RU: "RU",
 };
 
-export const IBAN_PREFIX_ALTERNATIVES: { [key: string]: string[] } = {
-  IM: ["GB"],
-  JE: ["GB"],
-  GG: ["GB"],
-};
-
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [{ formKey }] = useStore();

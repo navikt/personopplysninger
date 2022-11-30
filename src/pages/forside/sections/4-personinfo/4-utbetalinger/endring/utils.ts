@@ -1,13 +1,6 @@
 import { OptionType } from "types/option";
 import { Fields } from "calidation";
-import {
-  BIC,
-  IBAN_PREFIX_ALTERNATIVES,
-} from "./utenlandsk-bankkonto/UtenlandsBankkonto";
-
-export const getIbanPrefixAlternatives = (countryCode: string): string[] => {
-  return IBAN_PREFIX_ALTERNATIVES[countryCode] || [];
-};
+import { BIC } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
 
 export const harValgtBic = (bankidentifier?: string) =>
   !!(bankidentifier && bankidentifier === BIC);

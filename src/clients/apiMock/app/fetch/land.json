@@ -5,7 +5,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AL",
@@ -13,7 +14,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DZ",
@@ -21,7 +23,8 @@
     "kreverIban": false,
     "ibanLengde": 26,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AS",
@@ -29,7 +32,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AD",
@@ -37,7 +41,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AO",
@@ -45,7 +50,8 @@
     "kreverIban": false,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AI",
@@ -53,7 +59,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AQ",
@@ -61,7 +68,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AG",
@@ -69,7 +77,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AR",
@@ -77,7 +86,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AM",
@@ -85,7 +95,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AW",
@@ -93,7 +104,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AZ",
@@ -101,7 +113,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AU",
@@ -109,7 +122,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 6
+    "bankkodeLengde": 6,
+    "alternativLandkode": null
   },
   {
     "kode": "BS",
@@ -117,7 +131,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BH",
@@ -125,7 +140,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BD",
@@ -133,7 +149,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BB",
@@ -141,7 +158,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BE",
@@ -149,7 +167,8 @@
     "kreverIban": true,
     "ibanLengde": 16,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BZ",
@@ -157,7 +176,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BJ",
@@ -165,7 +185,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BM",
@@ -173,7 +194,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BT",
@@ -181,7 +203,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BO",
@@ -189,7 +212,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BQ",
@@ -197,7 +221,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BA",
@@ -205,7 +230,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BW",
@@ -213,7 +239,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BV",
@@ -221,7 +248,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BR",
@@ -229,7 +257,8 @@
     "kreverIban": true,
     "ibanLengde": 29,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BN",
@@ -237,7 +266,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BG",
@@ -245,7 +275,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BF",
@@ -253,7 +284,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BI",
@@ -261,7 +293,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CA",
@@ -269,7 +302,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 9
+    "bankkodeLengde": 9,
+    "alternativLandkode": null
   },
   {
     "kode": "KY",
@@ -277,7 +311,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CL",
@@ -285,7 +320,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CX",
@@ -293,7 +329,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CO",
@@ -301,7 +338,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CK",
@@ -309,7 +347,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CR",
@@ -317,7 +356,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CU",
@@ -325,15 +365,17 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CW",
-    "tekst": "CuraÃ§ao",
+    "tekst": "Curaçao",
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DK",
@@ -341,7 +383,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TF",
@@ -349,7 +392,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DO",
@@ -357,7 +401,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CF",
@@ -365,7 +410,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IO",
@@ -373,7 +419,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DJ",
@@ -381,7 +428,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DM",
@@ -389,7 +437,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "EC",
@@ -397,7 +446,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "EG",
@@ -405,7 +455,8 @@
     "kreverIban": true,
     "ibanLengde": 29,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GQ",
@@ -413,7 +464,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SV",
@@ -421,7 +473,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CI",
@@ -429,7 +482,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ER",
@@ -437,7 +491,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "EE",
@@ -445,7 +500,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ET",
@@ -453,7 +509,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FK",
@@ -461,7 +518,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FJ",
@@ -469,7 +527,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PH",
@@ -477,7 +536,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FI",
@@ -485,7 +545,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AE",
@@ -493,7 +554,8 @@
     "kreverIban": true,
     "ibanLengde": 23,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FR",
@@ -501,7 +563,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GF",
@@ -509,7 +572,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PF",
@@ -517,7 +581,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FO",
@@ -525,7 +590,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GA",
@@ -533,7 +599,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GM",
@@ -541,7 +608,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GE",
@@ -549,7 +617,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GH",
@@ -557,7 +626,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GI",
@@ -565,7 +635,8 @@
     "kreverIban": true,
     "ibanLengde": 23,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GD",
@@ -573,7 +644,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GL",
@@ -581,7 +653,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GP",
@@ -589,7 +662,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GU",
@@ -597,7 +671,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GT",
@@ -605,7 +680,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GG",
@@ -613,7 +689,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": "GB"
   },
   {
     "kode": "GN",
@@ -621,7 +698,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GW",
@@ -629,7 +707,8 @@
     "kreverIban": false,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GY",
@@ -637,7 +716,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HT",
@@ -645,7 +725,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HM",
@@ -653,7 +734,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GR",
@@ -661,7 +743,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HN",
@@ -669,7 +752,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HK",
@@ -677,7 +761,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BY",
@@ -685,7 +770,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IN",
@@ -693,7 +779,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 11
+    "bankkodeLengde": 11,
+    "alternativLandkode": null
   },
   {
     "kode": "ID",
@@ -701,7 +788,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IQ",
@@ -709,7 +797,8 @@
     "kreverIban": true,
     "ibanLengde": 23,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IR",
@@ -717,7 +806,8 @@
     "kreverIban": false,
     "ibanLengde": 26,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IE",
@@ -725,7 +815,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IS",
@@ -733,7 +824,8 @@
     "kreverIban": true,
     "ibanLengde": 26,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IM",
@@ -741,7 +833,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": "GB"
   },
   {
     "kode": "IL",
@@ -749,7 +842,8 @@
     "kreverIban": true,
     "ibanLengde": 23,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "IT",
@@ -757,7 +851,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "JM",
@@ -765,7 +860,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "JP",
@@ -773,7 +869,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "YE",
@@ -781,7 +878,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "JE",
@@ -789,7 +887,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": "GB"
   },
   {
     "kode": "VG",
@@ -797,7 +896,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VI",
@@ -805,7 +905,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "JO",
@@ -813,7 +914,8 @@
     "kreverIban": true,
     "ibanLengde": 30,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KH",
@@ -821,7 +923,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CM",
@@ -829,7 +932,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CV",
@@ -837,7 +941,8 @@
     "kreverIban": false,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KZ",
@@ -845,7 +950,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KE",
@@ -853,7 +959,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CN",
@@ -861,7 +968,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KG",
@@ -869,7 +977,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KI",
@@ -877,7 +986,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CC",
@@ -885,7 +995,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KM",
@@ -893,7 +1004,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CD",
@@ -901,7 +1013,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CG",
@@ -909,7 +1022,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "XK",
@@ -917,7 +1031,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HR",
@@ -925,7 +1040,8 @@
     "kreverIban": true,
     "ibanLengde": 21,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KW",
@@ -933,7 +1049,8 @@
     "kreverIban": true,
     "ibanLengde": 30,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CY",
@@ -941,7 +1058,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LA",
@@ -949,7 +1067,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LV",
@@ -957,7 +1076,8 @@
     "kreverIban": true,
     "ibanLengde": 21,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LS",
@@ -965,7 +1085,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LB",
@@ -973,7 +1094,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LR",
@@ -981,7 +1103,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LY",
@@ -989,7 +1112,8 @@
     "kreverIban": true,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LI",
@@ -997,7 +1121,8 @@
     "kreverIban": true,
     "ibanLengde": 21,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LT",
@@ -1005,7 +1130,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LU",
@@ -1013,7 +1139,8 @@
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MO",
@@ -1021,7 +1148,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MG",
@@ -1029,7 +1157,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MK",
@@ -1037,7 +1166,8 @@
     "kreverIban": true,
     "ibanLengde": 19,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MW",
@@ -1045,7 +1175,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MY",
@@ -1053,7 +1184,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MV",
@@ -1061,7 +1193,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ML",
@@ -1069,7 +1202,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MT",
@@ -1077,7 +1211,8 @@
     "kreverIban": true,
     "ibanLengde": 31,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MA",
@@ -1085,7 +1220,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MH",
@@ -1093,7 +1229,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MQ",
@@ -1101,7 +1238,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MR",
@@ -1109,7 +1247,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MU",
@@ -1117,7 +1256,8 @@
     "kreverIban": true,
     "ibanLengde": 30,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "YT",
@@ -1125,7 +1265,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": "FR"
   },
   {
     "kode": "MX",
@@ -1133,7 +1274,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "FM",
@@ -1141,7 +1283,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MD",
@@ -1149,7 +1292,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MC",
@@ -1157,7 +1301,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MN",
@@ -1165,7 +1310,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ME",
@@ -1173,7 +1319,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MS",
@@ -1181,7 +1328,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MZ",
@@ -1189,7 +1337,8 @@
     "kreverIban": false,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MM",
@@ -1197,7 +1346,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NA",
@@ -1205,7 +1355,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NR",
@@ -1213,7 +1364,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NL",
@@ -1221,7 +1373,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NP",
@@ -1229,7 +1382,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NZ",
@@ -1237,7 +1391,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 6
+    "bankkodeLengde": 6,
+    "alternativLandkode": null
   },
   {
     "kode": "NI",
@@ -1245,7 +1400,8 @@
     "kreverIban": false,
     "ibanLengde": 32,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NE",
@@ -1253,7 +1409,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NG",
@@ -1261,7 +1418,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NU",
@@ -1269,7 +1427,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KP",
@@ -1277,7 +1436,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MP",
@@ -1285,7 +1445,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NF",
@@ -1293,7 +1454,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NO",
@@ -1301,7 +1463,8 @@
     "kreverIban": true,
     "ibanLengde": 15,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "NC",
@@ -1309,7 +1472,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "OM",
@@ -1317,7 +1481,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PK",
@@ -1325,7 +1490,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PW",
@@ -1333,7 +1499,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PS",
@@ -1341,7 +1508,8 @@
     "kreverIban": true,
     "ibanLengde": 29,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PA",
@@ -1349,7 +1517,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PG",
@@ -1357,7 +1526,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PY",
@@ -1365,7 +1535,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PE",
@@ -1373,7 +1544,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PN",
@@ -1381,7 +1553,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PL",
@@ -1389,7 +1562,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PT",
@@ -1397,7 +1571,8 @@
     "kreverIban": true,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PR",
@@ -1405,7 +1580,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "QA",
@@ -1413,7 +1589,8 @@
     "kreverIban": true,
     "ibanLengde": 29,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "RO",
@@ -1421,7 +1598,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "RU",
@@ -1429,7 +1607,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 9
+    "bankkodeLengde": 9,
+    "alternativLandkode": null
   },
   {
     "kode": "RW",
@@ -1437,15 +1616,17 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "RE",
-    "tekst": "RÃ©union",
+    "tekst": "Réunion",
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KN",
@@ -1453,7 +1634,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LC",
@@ -1461,7 +1643,8 @@
     "kreverIban": true,
     "ibanLengde": 32,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VC",
@@ -1469,15 +1652,17 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "BL",
-    "tekst": "Saint-BarthÃ©lemy",
+    "tekst": "Saint-Barthélemy",
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "MF",
@@ -1485,7 +1670,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "PM",
@@ -1493,7 +1679,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SB",
@@ -1501,7 +1688,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "WS",
@@ -1509,7 +1697,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SM",
@@ -1517,7 +1706,8 @@
     "kreverIban": true,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SA",
@@ -1525,7 +1715,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SN",
@@ -1533,7 +1724,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "RS",
@@ -1541,7 +1733,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SC",
@@ -1549,7 +1742,8 @@
     "kreverIban": true,
     "ibanLengde": 31,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SL",
@@ -1557,7 +1751,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SG",
@@ -1565,7 +1760,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SX",
@@ -1573,7 +1769,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SK",
@@ -1581,7 +1778,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SI",
@@ -1589,7 +1787,8 @@
     "kreverIban": true,
     "ibanLengde": 19,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SO",
@@ -1597,7 +1796,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ES",
@@ -1605,7 +1805,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "LK",
@@ -1613,7 +1814,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SH",
@@ -1621,7 +1823,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "GB",
@@ -1629,7 +1832,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SD",
@@ -1637,7 +1841,8 @@
     "kreverIban": true,
     "ibanLengde": 18,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SR",
@@ -1645,7 +1850,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SJ",
@@ -1653,7 +1859,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CH",
@@ -1661,7 +1868,8 @@
     "kreverIban": true,
     "ibanLengde": 21,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SE",
@@ -1669,7 +1877,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SZ",
@@ -1677,7 +1886,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SY",
@@ -1685,15 +1895,17 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ST",
-    "tekst": "SÃ£o TomÃ© og PrÃ­ncipe",
+    "tekst": "São Tomé og Príncipe",
     "kreverIban": true,
     "ibanLengde": 25,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ZA",
@@ -1701,7 +1913,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": 6
+    "bankkodeLengde": 6,
+    "alternativLandkode": null
   },
   {
     "kode": "GS",
@@ -1709,7 +1922,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "KR",
@@ -1717,7 +1931,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "SS",
@@ -1725,7 +1940,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TJ",
@@ -1733,7 +1949,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TW",
@@ -1741,7 +1958,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TZ",
@@ -1749,7 +1967,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TH",
@@ -1757,7 +1976,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TG",
@@ -1765,7 +1985,8 @@
     "kreverIban": false,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TK",
@@ -1773,7 +1994,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TO",
@@ -1781,7 +2003,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TT",
@@ -1789,7 +2012,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TD",
@@ -1797,7 +2021,8 @@
     "kreverIban": false,
     "ibanLengde": 27,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "CZ",
@@ -1805,7 +2030,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TN",
@@ -1813,7 +2039,8 @@
     "kreverIban": true,
     "ibanLengde": 24,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TM",
@@ -1821,7 +2048,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TC",
@@ -1829,7 +2057,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TV",
@@ -1837,7 +2066,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "TR",
@@ -1845,7 +2075,8 @@
     "kreverIban": true,
     "ibanLengde": 26,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "DE",
@@ -1853,7 +2084,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "US",
@@ -1861,15 +2093,17 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": true,
-    "bankkodeLengde": 9
+    "bankkodeLengde": 9,
+    "alternativLandkode": null
   },
   {
     "kode": "UM",
-    "tekst": "USAs ytre smÃ¥øyer",
+    "tekst": "USAs ytre småøyer",
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "UG",
@@ -1877,7 +2111,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "UA",
@@ -1885,7 +2120,8 @@
     "kreverIban": true,
     "ibanLengde": 29,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "HU",
@@ -1893,7 +2129,8 @@
     "kreverIban": true,
     "ibanLengde": 28,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "UY",
@@ -1901,7 +2138,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "UZ",
@@ -1909,7 +2147,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VU",
@@ -1917,7 +2156,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VA",
@@ -1925,7 +2165,8 @@
     "kreverIban": true,
     "ibanLengde": 22,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VE",
@@ -1933,7 +2174,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "EH",
@@ -1941,7 +2183,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "VN",
@@ -1949,7 +2192,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "WF",
@@ -1957,7 +2201,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ZM",
@@ -1965,7 +2210,8 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "ZW",
@@ -1973,30 +2219,34 @@
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AX",
-    "tekst": "Ã…land",
+    "tekst": "Åland",
     "kreverIban": false,
     "ibanLengde": null,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": "FI"
   },
   {
     "kode": "TL",
-    "tekst": "Ã˜st-Timor",
+    "tekst": "Øst-Timor",
     "kreverIban": true,
     "ibanLengde": 23,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   },
   {
     "kode": "AT",
-    "tekst": "Ã˜sterrike",
+    "tekst": "Østerrike",
     "kreverIban": true,
     "ibanLengde": 20,
     "kreverBankkode": false,
-    "bankkodeLengde": null
+    "bankkodeLengde": null,
+    "alternativLandkode": null
   }
 ]
