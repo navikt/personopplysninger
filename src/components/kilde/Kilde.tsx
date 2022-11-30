@@ -60,7 +60,7 @@ const Knapp = (props: Props) => {
         >
           {props.ikon && (
             <span className="kilde__icon">
-              <img src={props.ikon} aria-display="hidden" />
+              <img src={props.ikon} alt="" />
             </span>
           )}
           <BodyLong>
