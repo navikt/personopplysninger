@@ -5,4 +5,5 @@ export interface OptionType {
   ibanLengde?: number;
   kreverBankkode?: boolean;
   bankkodeLengde?: number;
+  alternativLandkode?: string;
 }
