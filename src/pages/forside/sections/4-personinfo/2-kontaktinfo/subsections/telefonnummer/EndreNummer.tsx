@@ -16,6 +16,7 @@ import HttpFeilmelding, {
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
 import { Button, BodyShort, Label, Modal, TextField } from "@navikt/ds-react";
+import classNames from "classnames";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -236,7 +237,12 @@ const EndreTelefonnummer = (props: Props) => {
             {endre && (
               <div className={"tlfnummer__form"}>
                 <div className={"tlfnummer__input-container"}>
-                  <div className={"tlfnummer__input input--s"}>
+                  <div
+                    className={classNames(
+                      "tlfnummer__input",
+                      "tlfnummer__inputLandkode"
+                    )}
+                  >
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
@@ -245,7 +251,7 @@ const EndreTelefonnummer = (props: Props) => {
                       submitted={submitted}
                     />
                   </div>
-                  <div className={"tlfnummer__input input--m"}>
+                  <div className={"tlfnummer__input"}>
                     <TextField
                       type={"tel"}
                       size={"medium"}

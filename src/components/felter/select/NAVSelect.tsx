@@ -7,7 +7,7 @@ import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { HTTPError } from "../../error/Error";
-import { Loader, TextField } from "@navikt/ds-react";
+import { Label, Loader, TextField } from "@navikt/ds-react";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 import { Expand } from "@navikt/ds-icons";
 
@@ -110,9 +110,7 @@ const NAVSelect = React.memo((props: Props) => {
   return !props.fetchError ? (
     <div className={containerClasses}>
       <div className="KodeverkSelect__header">
-        {props.label && (
-          <div className="skjemaelement__label">{props.label}</div>
-        )}
+        {props.label && <Label>{props.label}</Label>}
         {props.hjelpetekst && (
           <CustomHelpText placement={"right"}>
             <FormattedMessage

@@ -17,6 +17,7 @@ import HttpFeilmelding, {
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
 import { Button, Label, TextField } from "@navikt/ds-react";
+import classNames from "classnames";
 
 interface Props {
   prioritet: 1 | 2;
@@ -118,7 +119,12 @@ const OpprettTelefonnummer = (props: Props) => {
               </div>
               <div className="tlfnummer__form">
                 <div className={"tlfnummer__input-container"}>
-                  <div className={"tlfnummer__input input--s"}>
+                  <div
+                    className={classNames(
+                      "tlfnummer__input",
+                      "tlfnummer__inputLandkode"
+                    )}
+                  >
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
