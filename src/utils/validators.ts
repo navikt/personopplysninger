@@ -104,7 +104,9 @@ export const extraValidators = {
   isBICCountryCompliant:
     (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
     (value: string) =>
-      fields.land && value.substring(4, 6) !== fields.land.value
+      fields.land &&
+      value.substring(4, 6) !== fields.land.value &&
+      value.substring(4, 6) !== fields.land.alternativLandkode
         ? config.message
         : null,
 
