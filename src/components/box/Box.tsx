@@ -19,7 +19,7 @@ const Box = (props: Props) => {
 
   return (
     <div className="box__wrapper" id={id}>
-      <GuidePanel illustration={Veileder} poster>
+      <GuidePanel illustration={Veileder} poster={true}>
         <div className="box__container">
           <div className="box__header">
             <div className="box__title-container">

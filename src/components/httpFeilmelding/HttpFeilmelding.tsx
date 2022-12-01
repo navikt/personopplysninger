@@ -16,7 +16,7 @@ const HttpFeilmelding = (props: Feilmelding) => {
     feil: "error",
   };
 
-  const variant = alertVarianter[props.type] || alertVarianter["info"];
+  const variant = alertVarianter[props.type] || alertVarianter.info;
 
   return (
     <div className="error__container">

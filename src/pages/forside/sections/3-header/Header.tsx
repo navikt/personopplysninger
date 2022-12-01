@@ -23,7 +23,7 @@ const Header = () => {
 
       return (
         <div className="header">
-          <GuidePanel illustration={Veileder} poster>
+          <GuidePanel illustration={Veileder} poster={true}>
             <div className="box__container header__content">
               <Heading size={"medium"} level={"2"}>
                 {fornavn ? (
