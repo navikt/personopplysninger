@@ -109,14 +109,15 @@ const Utbetalinger = (props: Props) => {
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
+              console.log(fields);
               return (
                 <RadioGroup
                   legend={msg({ id: "felter.kontonummer.grouplegend" })}
                   error={submitted && errors.norskEllerUtenlandsk}
+                  value={fields.norskEllerUtenlandsk}
                 >
                   <Radio
                     value={NORSK}
-                    checked={fields.norskEllerUtenlandsk === NORSK}
                     onChange={(e) =>
                       setField({ norskEllerUtenlandsk: e.target.value })
                     }
@@ -131,7 +132,6 @@ const Utbetalinger = (props: Props) => {
                   )}
                   <Radio
                     value={UTENLANDSK}
-                    checked={fields.norskEllerUtenlandsk === UTENLANDSK}
                     onChange={(e) =>
                       setField({ norskEllerUtenlandsk: e.target.value })
                     }
