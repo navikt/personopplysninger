@@ -50,6 +50,7 @@ const Header = () => {
                           href="/personvern"
                           target="blank"
                           rel="noopener noreferrer"
+                          className="header__link"
                         >
                           {text}
                         </Link>

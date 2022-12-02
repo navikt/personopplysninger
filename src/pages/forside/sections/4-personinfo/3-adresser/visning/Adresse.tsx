@@ -43,7 +43,6 @@ const Adresse = (props: Props) => {
   const flyttedatoFormatert = flyttedato
     ? moment(flyttedato).format("DD/MM/YYYY")
     : "";
-  console.log(flyttedato, flyttedatoFormatert);
 
   let adresse;
   let kommune;
