@@ -53,6 +53,7 @@ const EndreTelefonnummer = (props: Props) => {
   };
 
   const formConfig = {
+    // todo: Kan dette settes likt et eksisterende nummer? ikke bra
     landskode: {
       isRequired: msg({ id: "validation.retningsnr.pakrevd" }),
     },
@@ -247,7 +248,7 @@ const EndreTelefonnummer = (props: Props) => {
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
                       onChange={(option) => setField({ landskode: option })}
-                      error={errors.landskode}
+                      error={errors.landskode || undefined} // todo: midlertidig fiks
                       submitted={submitted}
                     />
                   </div>

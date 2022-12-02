@@ -18,7 +18,7 @@ interface Props {
   label: string;
   htmlSize?: number;
   options: OptionType[];
-  error: string | null;
+  error?: string | null; // todo: ikke tillat null
   fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
@@ -40,7 +40,7 @@ const LoadingIndicator = () => (
   <Loader size="xsmall" className="KodeverkSelect__spinner" />
 );
 
-const DropdownIndicator = (props: any) => (
+const DropdownIndicator = () => (
   <div className="KodeverkSelect__dropdown-indicator">
     <Expand />
   </div>

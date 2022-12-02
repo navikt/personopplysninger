@@ -8,7 +8,7 @@ interface Props {
   option: OptionType;
   submitted: boolean;
   label: string;
-  error: string | null;
+  error?: string;
   onChange: (value?: OptionType) => void;
 }
 
