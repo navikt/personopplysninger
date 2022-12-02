@@ -109,7 +109,6 @@ const Utbetalinger = (props: Props) => {
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
-              console.log(fields);
               return (
                 <RadioGroup
                   legend={msg({ id: "felter.kontonummer.grouplegend" })}

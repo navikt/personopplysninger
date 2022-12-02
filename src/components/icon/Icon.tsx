@@ -3,17 +3,19 @@ import React from "react";
 interface Props {
   backgroundImage?: string;
   backgroundColor?: string;
-  ariaVisible?: string;
+  ariaHidden?: boolean;
 }
-const Icon = (props: Props) => (
-  <div
-    className="icon__circle"
-    aria-visible={props.ariaVisible}
-    style={{
-      backgroundImage: `url(${props.backgroundImage})`,
-      backgroundColor: props.backgroundColor,
-    }}
-  />
-);
+const Icon = (props: Props) => {
+  return (
+    <div
+      className="icon__circle"
+      aria-hidden={props.ariaHidden}
+      style={{
+        backgroundImage: `url(${props.backgroundImage})`,
+        backgroundColor: props.backgroundColor,
+      }}
+    />
+  );
+};
 
 export default Icon;
