@@ -3,8 +3,8 @@ import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "types/personalia";
 import leggTilIkon from "assets/img/LeggTil.svg";
 import Kilde from "components/kilde/Kilde";
-import EndreNummer from "./telefonnummer/EndreNummer";
-import OpprettNummer from "./telefonnummer/OpprettNummer";
+import Telefonnummer from "./Telefonnummer";
+import TelefonnummerForm from "./TelefonnummerForm";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
 import { Alert, BodyShort, Button, Heading } from "@navikt/ds-react";
@@ -42,7 +42,7 @@ const TelefonnummerHosNav = (props: Props) => {
       {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
         <div>
           {tlfnr.telefonHoved && (
-            <EndreNummer
+            <Telefonnummer
               prioritet={1}
               titleId="personalia.tlfnr.telefon"
               hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
@@ -53,7 +53,7 @@ const TelefonnummerHosNav = (props: Props) => {
             />
           )}
           {tlfnr.telefonAlternativ && (
-            <EndreNummer
+            <Telefonnummer
               prioritet={2}
               titleId="personalia.tlfnr.telefon"
               hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
@@ -97,11 +97,19 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
 
       {opprett && (
-        <OpprettNummer
+        <TelefonnummerForm
+          type={"opprett"}
           prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
           onCancelClick={() => settOpprett(false)}
           onChangeSuccess={onChangeSuccess}
           tlfnr={tlfnr}
+          defaultValues={{
+            landskode: {
+              label: "Norge",
+              value: "+47",
+            },
+            tlfnummer: "",
+          }}
         />
       )}
 

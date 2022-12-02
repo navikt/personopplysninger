@@ -18,7 +18,7 @@ interface Props {
   label: string;
   htmlSize?: number;
   options: OptionType[];
-  error?: string | null; // todo: ikke tillat null
+  error?: string | null;
   fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;

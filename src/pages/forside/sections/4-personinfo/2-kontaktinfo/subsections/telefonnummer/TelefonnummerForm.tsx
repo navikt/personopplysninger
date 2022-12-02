@@ -22,9 +22,14 @@ interface Props {
   onCancelClick: () => void;
   onChangeSuccess: () => void;
   tlfnr?: Tlfnr;
+  type: "endre" | "opprett";
+  defaultValues?: {
+    landskode: { label: string; value: string };
+    tlfnummer: string;
+  };
 }
 
-const OpprettTelefonnummer = (props: Props) => {
+const TelefonnummerForm = (props: Props) => {
   const {
     register,
     handleSubmit,
@@ -33,13 +38,7 @@ const OpprettTelefonnummer = (props: Props) => {
     formState: { errors, isValid, isSubmitted },
   } = useForm({
     reValidateMode: "onChange",
-    defaultValues: {
-      landskode: {
-        label: "Norge",
-        value: "+47",
-      },
-      tlfnummer: "",
-    },
+    defaultValues: props.defaultValues,
   });
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
@@ -117,6 +116,7 @@ const OpprettTelefonnummer = (props: Props) => {
                       isNumeric: (v) =>
                         isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
                       isNotAlreadyRegistered: (v) =>
+                        props.type === "endre" ||
                         (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
                         msg({ id: "validation.tlfnr.eksisterer" }),
                       isValidNorwegianNumber: (v) =>
@@ -137,7 +137,7 @@ const OpprettTelefonnummer = (props: Props) => {
             <div className={"tlfnummer__knapper"}>
               <div className={"tlfnummer__submit"}>
                 <Button
-                  variant={"primary"}
+                  variant={props.type === "opprett" ? "primary" : "secondary"}
                   type={"submit"}
                   disabled={isSubmitted && !isValid}
                   loading={loading}
@@ -165,4 +165,4 @@ const OpprettTelefonnummer = (props: Props) => {
     </>
   );
 };
-export default OpprettTelefonnummer;
+export default TelefonnummerForm;

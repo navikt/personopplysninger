@@ -4,7 +4,7 @@ import nbMessages from "text/nb";
 import kontaktInfo from "../../clients/apiMock/app/fetch/kontakt-info.json";
 import personInfo from "../../clients/apiMock/app/fetch/person-info.json";
 import DKIF from "../../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF";
-import TelefonnummerHosNav from "../../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/TelefonnummerHosNav";
+import TelefonnummerHosNav from "../../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav";
 import { Tlfnr } from "types/personalia";
 import { StoreProvider } from "../../store/Context";
 import { extraValidators } from "../../utils/validators";
