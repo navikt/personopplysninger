@@ -313,7 +313,7 @@ A child who lives permanently with both mother and father can have two home addr
   "validation.kontonummer.idnr": `Account number cannot be a national identity number or D-number.`,
   "validation.ikke.iban": `US account numbers cannot be IBAN`,
   "validation.iban.pakrevd": "IBAN is required",
-  "validation.iban.gyldig": "Gyldig IBAN is required",
+  "validation.iban.gyldig": "Valid IBAN is required",
   "validation.iban.country": `You must enter an IBAN number from the country you have selected.`,
   "validation.banknavn.pakrevd": "Bank name is required",
   "validation.banknavn.ugyldig": `Contains invalid characters`,
