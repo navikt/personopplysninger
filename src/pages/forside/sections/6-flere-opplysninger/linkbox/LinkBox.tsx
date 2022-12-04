@@ -24,7 +24,7 @@ const Box = (props: Props) => {
       <div className="linkbox__content">
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
-            <div className="lenke">
+            <div className="linkbox__lenke">
               <Label as="div">
                 <FormattedMessage id={props.tittel} />
               </Label>
