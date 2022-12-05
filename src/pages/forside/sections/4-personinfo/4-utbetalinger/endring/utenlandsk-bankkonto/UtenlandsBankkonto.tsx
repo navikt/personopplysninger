@@ -225,6 +225,8 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     <Validation key={formKey} config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => {
         const hasErrors = Object.values(errors).find((error) => error);
+
+        console.log(errors);
         return (
           <>
             <div className="utbetalinger__alert">
@@ -321,7 +323,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
             )}
             {submitted && hasErrors && fields?.land && (
               <ErrorSummary title={msg({ id: "validation.fix.errors" })}>
-                {mapErrorsToSummary(errors)}
+                {mapErrorsToSummary(errors).map((error, index) => (
+                  <ErrorSummary.Item
+                    key={error.skjemaelementId}
+                    href={`#${error.skjemaelementId}`}
+                  >
+                    {error.feilmelding}
+                  </ErrorSummary.Item>
+                ))}
               </ErrorSummary>
             )}
           </>

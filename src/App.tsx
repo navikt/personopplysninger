@@ -27,6 +27,7 @@ export const basePath = "/person/personopplysninger";
 
 // Import this early, to ensure our own CSS gets higher specificity
 import "@navikt/ds-css/dist/index.css";
+import moment from "moment";
 
 const basePathWithLanguage = `${basePath}/(nb|en|nn)`;
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
@@ -47,6 +48,7 @@ const App = () => {
 
   useEffect(() => {
     document.documentElement.lang = locale;
+    moment.locale(locale);
   }, [locale]);
 
   return (

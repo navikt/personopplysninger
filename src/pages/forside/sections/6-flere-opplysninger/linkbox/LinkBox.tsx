@@ -19,12 +19,12 @@ const Box = (props: Props) => {
   return (
     <>
       <div className="linkbox__icon-container icon__container">
-        <Icon backgroundImage={props.icon} ariaVisible="hidden" />
+        <Icon backgroundImage={props.icon} ariaHidden={true} />
       </div>
       <div className="linkbox__content">
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
-            <div className="lenke">
+            <div className="linkbox__lenke">
               <Label as="div">
                 <FormattedMessage id={props.tittel} />
               </Label>
