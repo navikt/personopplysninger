@@ -60,85 +60,79 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               </h3>
             </div>
             <div>
-              <form
-                class="tlfnummer__rad"
-                novalidate=""
-                validators="[object Object]"
+              <div
+                class="tlfnummer__container"
               >
                 <div
-                  class="tlfnummer__container"
+                  class="tlfnummer__verdi"
                 >
-                  <div
-                    class="tlfnummer__verdi"
+                  <p
+                    class="navds-label"
                   >
-                    <p
+                    Telefon 
+                  </p>
+                  <p
+                    class="navds-body-short"
+                  >
+                    <span>
+                      +47 
+                    </span>
+                    408 53 158
+                  </p>
+                </div>
+                <div
+                  class="tlfnummer__knapper"
+                >
+                  <button
+                    aria-label="Endre telefonnummer"
+                    class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+                    type="button"
+                  >
+                    <span
+                      aria-live="polite"
                       class="navds-label"
                     >
-                      Telefon 
-                    </p>
-                    <p
-                      class="navds-body-short"
-                    >
-                      <span>
-                        +47 
-                      </span>
-                      408 53 158
-                    </p>
-                  </div>
-                  <div
-                    class="tlfnummer__knapper"
+                      <div
+                        class="tlfnummer__knapp-ikon"
+                      >
+                        <img
+                          alt=""
+                          src="Pencil.svg"
+                        />
+                      </div>
+                      <div
+                        class="tlfnummer__knapp-tekst"
+                      >
+                        Endre
+                      </div>
+                    </span>
+                  </button>
+                  <button
+                    aria-label="Slett telefonnummer"
+                    class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+                    type="button"
                   >
-                    <button
-                      aria-label="Endre telefonnummer"
-                      class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-                      type="button"
+                    <span
+                      aria-live="polite"
+                      class="navds-label"
                     >
-                      <span
-                        aria-live="polite"
-                        class="navds-label"
+                      <div
+                        class="tlfnummer__knapp-ikon"
                       >
-                        <div
-                          class="tlfnummer__knapp-ikon"
-                        >
-                          <img
-                            alt=""
-                            src="Pencil.svg"
-                          />
-                        </div>
-                        <div
-                          class="tlfnummer__knapp-tekst"
-                        >
-                          Endre
-                        </div>
-                      </span>
-                    </button>
-                    <button
-                      aria-label="Slett telefonnummer"
-                      class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-                      type="button"
-                    >
-                      <span
-                        aria-live="polite"
-                        class="navds-label"
+                        <img
+                          alt=""
+                          src="Slett.svg"
+                        />
+                      </div>
+                      <div
+                        class="tlfnummer__knapp-tekst"
                       >
-                        <div
-                          class="tlfnummer__knapp-ikon"
-                        >
-                          <img
-                            alt=""
-                            src="Slett.svg"
-                          />
-                        </div>
-                        <div
-                          class="tlfnummer__knapp-tekst"
-                        >
-                          Slett
-                        </div>
-                      </span>
-                    </button>
-                  </div>
+                        Slett
+                      </div>
+                    </span>
+                  </button>
                 </div>
-              </form>
+              </div>
             </div>
             <button
               aria-label="Legg til telefonnummer"
