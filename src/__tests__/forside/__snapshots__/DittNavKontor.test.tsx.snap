@@ -1,0 +1,345 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DittNavKontor renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="box__wrapper"
+    id="ditt-nav-kontor"
+  >
+    <div
+      class="navds-guide-panel navds-guide-panel--poster"
+    >
+      <div
+        class="navds-guide"
+      >
+        <div
+          class="navds-guide__illustration navds-guide__illustration--medium"
+        >
+          <img
+            alt=""
+            class="box__ikon"
+            src="DittNavKontor.svg"
+          />
+        </div>
+      </div>
+      <div
+        class="navds-guide-panel__content"
+      >
+        <div
+          class="box__container"
+        >
+          <div
+            class="box__header"
+          >
+            <div
+              class="box__title-container"
+            >
+              <div
+                class="box__line"
+              />
+              <h2
+                class="box__title navds-heading navds-heading--medium"
+              >
+                Ditt NAV-kontor
+              </h2>
+              <button
+                aria-label="Les mer om denne seksjonen."
+                aria-pressed="false"
+                class="infotekst__title-i-button"
+              >
+                <img
+                  alt=""
+                  class="infotekst__title-i-icon"
+                  src="Informasjonstekst.svg"
+                />
+              </button>
+              <div
+                class="box__line"
+              />
+            </div>
+            <a
+              aria-label="Direktelenke til denne seksjonen"
+              class="navds-link anchor-link"
+              href="#ditt-nav-kontor"
+            >
+              <img
+                alt=""
+                src="AnchorLink.svg"
+              />
+              Lenke hit
+            </a>
+          </div>
+          <div
+            class="box__content"
+          >
+            <div
+              class="dittnavkontor__header"
+            >
+              <div
+                class="dittnavkontor__ingress"
+              >
+                <p
+                  class="navds-body-short"
+                >
+                  Ditt kontor er 
+                  <span
+                    class="navds-label"
+                  >
+                    NAV Halden-Aremark
+                  </span>
+                </p>
+              </div>
+              <div
+                class="navds-form-field navds-form-field--medium"
+              >
+                <label
+                  class="navds-form-field__label navds-label"
+                  for="textField-aksel-id-1"
+                />
+                <div
+                  class="navds-select__container"
+                >
+                  <select
+                    aria-invalid="false"
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="textField-aksel-id-1"
+                  >
+                    <option
+                      value="-1"
+                    >
+                      Publikumsmottak for NAV Halden-Aremark
+                    </option>
+                    <option
+                      value="0"
+                    >
+                      HALDEN - Storgata 8, 1771 HALDEN
+                    </option>
+                    <option
+                      value="1"
+                    >
+                      AREMARK - Aremark Rådhus , 1798 AREMARK
+                    </option>
+                  </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="textField-error-aksel-id-1"
+                />
+              </div>
+              <div
+                class="dittnavkontor__adresser"
+              >
+                <div
+                  class="dittnavkontor__postadresse"
+                >
+                  <h3
+                    class="navds-heading navds-heading--xsmall"
+                  >
+                    Postadresse
+                  </h3>
+                  <p
+                    class="navds-body-short"
+                  >
+                    Postboks 56 
+                  </p>
+                  <p
+                    class="navds-body-short"
+                  >
+                    1751 HALDEN
+                  </p>
+                </div>
+                <div
+                  class="dittnavkontor__publikumsmottak"
+                >
+                  <h3
+                    class="navds-heading navds-heading--xsmall"
+                  >
+                    Publikumsmottak
+                  </h3>
+                  <p
+                    class="navds-body-short"
+                  >
+                    Storgata 8
+                  </p>
+                  <p
+                    class="navds-body-short"
+                  >
+                    1771 HALDEN
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3
+                class="navds-heading navds-heading--xsmall"
+              >
+                Åpningstider
+              </h3>
+              <div
+                class="apningstid__container"
+              >
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Mandag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Tirsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Onsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Torsdag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+                <div
+                  class="apningstid__row"
+                >
+                  <div
+                    class="apningstid__column apningstid__dag"
+                  >
+                    Fredag
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__tidspunkt"
+                  >
+                    12:00 - 14:30
+                  </div>
+                  <div
+                    class="apningstid__column apningstid__kommentar"
+                  >
+                    Timeavtaler i tidsrommet 09.00 - 14.30
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ul
+              class="dittnavkontor__footer list-column-2"
+            >
+              <li>
+                <div
+                  class="listelement__header"
+                >
+                  <p
+                    class="navds-label"
+                  >
+                    Kontakt NAV
+                  </p>
+                </div>
+                <div
+                  class="content "
+                >
+                  <a
+                    class="navds-link"
+                    href="/person/kontakt-oss/nb/"
+                  >
+                    Gå til kontaktinformasjon
+                  </a>
+                </div>
+                <p
+                  class="navds-body-short"
+                />
+              </li>
+            </ul>
+            <div
+              class="kilde__container"
+            >
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="navds-detail"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

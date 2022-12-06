@@ -1,20 +1,20 @@
 import "@testing-library/jest-dom";
 import { IntlProvider } from "react-intl";
 import nbMessages from "text/nb";
-import personInfo from "../../../clients/apiMock/app/fetch/person-info.json";
-import Adresser from "../../../pages/forside/sections/4-personinfo/3-adresser/Adresser";
-import { Adresser as AdresserType } from "types/adresser";
-import { StoreProvider } from "../../../store/Context";
+import personInfo from "../../clients/apiMock/app/fetch/person-info.json";
+import Personalia from "../../pages/forside/sections/4-personinfo/1-personalia/Personalia";
+import { Personalia as PersonaliaType } from "types/personalia";
+import { StoreProvider } from "../../store/Context";
 import { render } from "@testing-library/react";
 
 jest.mock("react-modal");
 
-describe("Adresser", () => {
+describe("Personalia", () => {
   it("renders correctly", () => {
     const { asFragment } = render(
       <StoreProvider>
         <IntlProvider locale={"nb"} messages={nbMessages}>
-          <Adresser adresser={personInfo.adresser as unknown as AdresserType} />
+          <Personalia personalia={personInfo as unknown as PersonaliaType} />
         </IntlProvider>
       </StoreProvider>
     );
