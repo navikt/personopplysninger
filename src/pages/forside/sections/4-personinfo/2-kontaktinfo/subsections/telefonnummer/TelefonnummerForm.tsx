@@ -127,7 +127,6 @@ const TelefonnummerForm = (props: Props) => {
                   })}
                   type={"tel"}
                   size={"medium"}
-                  value={watch().tlfnummer}
                   maxLength={tlfNummerMaxLength}
                   label={msg({ id: "felter.tlfnr.label" })}
                   error={errors?.tlfnummer?.message}
