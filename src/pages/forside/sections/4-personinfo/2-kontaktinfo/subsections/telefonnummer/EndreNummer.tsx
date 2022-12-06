@@ -1,8 +1,5 @@
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
-import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { Fareknapp, Flatknapp, Knapp } from "nav-frontend-knapper";
 import { FormContext, FormValidation, ValidatorContext } from "calidation";
 import { fetchPersonInfo } from "clients/apiClient";
 import { postTlfnummer, slettTlfnummer } from "clients/apiClient";
@@ -14,9 +11,12 @@ import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
 import { isNorwegianNumber } from "utils/validators";
-import Alert, { AlertType } from "components/alert/Alert";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { UNKNOWN } from "utils/text";
-import Modal from "nav-frontend-modal";
+import { Button, BodyShort, Label, Modal, TextField } from "@navikt/ds-react";
+import classNames from "classnames";
 
 export interface OutboundTlfnummer {
   prioritet: 1 | 2;
@@ -40,7 +40,7 @@ const EndreTelefonnummer = (props: Props) => {
   const [endreLoading, settEndreLoading] = useState(false);
   const [slettLoading, settSlettLoading] = useState(false);
   const [endre, settEndre] = useState(false);
-  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [alert, settAlert] = useState<Feilmelding | undefined>();
   const { formatMessage: msg } = useIntl();
   const [{ formKey }, dispatch] = useStore();
 
@@ -85,6 +85,7 @@ const EndreTelefonnummer = (props: Props) => {
 
   const onDeleteSuccess = () => {
     props.onDeleteSuccess();
+    settSlettLoading(false);
     settVisSlettModal(false);
   };
 
@@ -110,7 +111,7 @@ const EndreTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => settAlert(error))
+        .catch((error: Feilmelding) => settAlert(error))
         .then(() => settEndreLoading(false));
     }
   };
@@ -130,7 +131,7 @@ const EndreTelefonnummer = (props: Props) => {
     slettTlfnummer(outbound)
       .then(getUpdatedData)
       .then(onDeleteSuccess)
-      .catch((error: AlertType) => {
+      .catch((error: Feilmelding) => {
         settSlettLoading(false);
         settAlert(error);
       });
@@ -152,81 +153,96 @@ const EndreTelefonnummer = (props: Props) => {
           <>
             <div className={"tlfnummer__container"}>
               <div className={"tlfnummer__verdi"}>
-                <Element>
+                <Label as="p">
                   <FormattedMessage
                     id={titleId}
                     values={{ x: hasTwoNumbers ? prioritet : `` }}
                   />
-                </Element>
+                </Label>
                 {!endre && (
-                  <Normaltekst>
+                  <BodyShort>
                     {landskode && <span>{landskode} </span>}
                     {formatTelefonnummer(prioritet, tlfnummer, landskode)}
-                  </Normaltekst>
+                  </BodyShort>
                 )}
               </div>
               {!endre && (
                 <div className={"tlfnummer__knapper"}>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
-                    className={"tlfnummer__knapp-med-ikon"}
+                  <Button
+                    as={"button"}
+                    variant={"tertiary"}
+                    type={"button"}
+                    className={"knapp-med-ikon"}
                     onClick={() => settEndre(!endre)}
+                    aria-label={"Endre telefonnummer"}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Endre telefonnummer"} src={endreIkon} />
+                      <img alt="" src={endreIkon} />
                     </div>
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.endre"} />
                     </div>
-                  </Knapp>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
-                    className={"tlfnummer__knapp-med-ikon"}
+                  </Button>
+                  <Button
+                    type={"button"}
+                    variant={"tertiary"}
+                    className={"knapp-med-ikon"}
+                    aria-label="Slett telefonnummer"
                     onClick={apneSlettModal}
                   >
                     <div className={"tlfnummer__knapp-ikon"}>
-                      <img alt={"Slett telefonnummer"} src={slettIkon} />
+                      <img alt="" src={slettIkon} />
                     </div>
                     <div className={"tlfnummer__knapp-tekst"}>
                       <FormattedMessage id={"side.slett"} />
                     </div>
-                  </Knapp>
+                  </Button>
                 </div>
               )}
             </div>
             {visSlettModal && (
               <Modal
                 closeButton={false}
-                isOpen={visSlettModal}
-                onRequestClose={lukkSlettModal}
-                contentLabel={msg({ id: "side.opphor" })}
+                open={visSlettModal}
+                onClose={lukkSlettModal}
               >
-                <div style={{ padding: "2rem 2.5rem" }}>
-                  <Normaltekst>
-                    <FormattedMessage id="personalia.tlfnr.slett.alert" />
-                  </Normaltekst>
-                  <div className="adresse__modal-knapper">
-                    <Fareknapp
-                      onClick={submitSlett}
-                      spinner={slettLoading}
-                      autoDisableVedSpinner={true}
-                    >
-                      <FormattedMessage id={"side.slett"} />
-                    </Fareknapp>
-                    <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
-                      <FormattedMessage id="side.avbryt" />
-                    </Flatknapp>
+                <Modal.Content>
+                  <div style={{ padding: "2rem 2.5rem" }}>
+                    <BodyShort>
+                      <FormattedMessage id="personalia.tlfnr.slett.alert" />
+                    </BodyShort>
+                    <div className="adresse__modal-knapper">
+                      <Button
+                        as="button"
+                        variant="danger"
+                        onClick={submitSlett}
+                        loading={slettLoading}
+                        disabled={slettLoading}
+                      >
+                        <FormattedMessage id={"side.slett"} />
+                      </Button>
+                      <Button
+                        variant="tertiary"
+                        onClick={lukkSlettModal}
+                        disabled={slettLoading}
+                      >
+                        <FormattedMessage id="side.avbryt" />
+                      </Button>
+                    </div>
+                    {alert && <HttpFeilmelding {...alert} />}
                   </div>
-                  {alert && <Alert {...alert} />}
-                </div>
+                </Modal.Content>
               </Modal>
             )}
             {endre && (
               <div className={"tlfnummer__form"}>
                 <div className={"tlfnummer__input-container"}>
-                  <div className={"tlfnummer__input input--s"}>
+                  <div
+                    className={classNames(
+                      "tlfnummer__input",
+                      "tlfnummer__inputLandkode"
+                    )}
+                  >
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
@@ -235,33 +251,32 @@ const EndreTelefonnummer = (props: Props) => {
                       submitted={submitted}
                     />
                   </div>
-                  <div className={"tlfnummer__input input--m"}>
-                    <Input
+                  <div className={"tlfnummer__input"}>
+                    <TextField
                       type={"tel"}
-                      bredde={"M"}
+                      size={"medium"}
                       value={fields.tlfnummer}
                       label={msg({ id: "felter.tlfnr.label" })}
                       onChange={(e) => setField({ tlfnummer: e.target.value })}
                       maxLength={tlfNummerMaxLength}
-                      feil={submitted && errors.tlfnummer}
+                      error={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>
                 <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
-                    <Knapp
-                      type={"standard"}
-                      htmlType={"submit"}
+                    <Button
+                      variant={"secondary"}
+                      type={"submit"}
                       disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={endreLoading}
+                      loading={endreLoading}
                     >
                       <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
+                    </Button>
                   </div>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  <Button
+                    variant={"tertiary"}
+                    type={"button"}
                     className={"tlfnummer__knapp"}
                     onClick={() => {
                       settAlert(undefined);
@@ -269,11 +284,11 @@ const EndreTelefonnummer = (props: Props) => {
                     }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
-                  </Knapp>
+                  </Button>
                 </div>
               </div>
             )}
-            {alert && <Alert {...alert} />}
+            {alert && <HttpFeilmelding {...alert} />}
           </>
         );
       }}

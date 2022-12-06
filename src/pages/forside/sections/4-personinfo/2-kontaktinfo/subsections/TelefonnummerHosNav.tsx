@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import { Tlfnr } from "types/personalia";
 import leggTilIkon from "assets/img/LeggTil.svg";
@@ -8,7 +7,7 @@ import EndreNummer from "./telefonnummer/EndreNummer";
 import OpprettNummer from "./telefonnummer/OpprettNummer";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert, BodyShort, Button, Heading } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -32,13 +31,13 @@ const TelefonnummerHosNav = (props: Props) => {
     <>
       {driftsmeldinger.pdl && (
         <div style={{ paddingBottom: "1rem" }}>
-          <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+          <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
         </div>
       )}
       <div className="underseksjon__header">
-        <Undertittel>
+        <Heading size={"small"} level={"3"}>
           <FormattedMessage id="personalia.tlfnr.oveskrift" />
-        </Undertittel>
+        </Heading>
       </div>
       {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
         <div>
@@ -82,14 +81,19 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
 
       {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
-        <button onClick={onLeggTil} className="tlfnummer__leggtil lenke">
+        <Button
+          variant="tertiary"
+          onClick={onLeggTil}
+          className="tlfnummer__leggtil knapp-med-ikon lenke"
+          aria-label="Legg til telefonnummer"
+        >
           <span className="kilde__icon">
-            <img src={leggTilIkon} alt="Ekstern lenke" />
+            <img src={leggTilIkon} alt="" />
           </span>
-          <Normaltekst>
+          <BodyShort>
             <FormattedMessage id={"side.leggtil"} />
-          </Normaltekst>
-        </button>
+          </BodyShort>
+        </Button>
       )}
 
       {opprett && (

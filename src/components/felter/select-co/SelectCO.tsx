@@ -32,7 +32,7 @@ const SelectCO = (props: Props) => {
     <div className={"KodeverkSelect__margin"}>
       <NAVSelect
         id={props.id}
-        bredde={"input--s"}
+        htmlSize={20}
         label={props.label}
         error={props.error}
         options={options}

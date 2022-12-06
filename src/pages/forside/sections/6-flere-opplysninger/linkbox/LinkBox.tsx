@@ -1,9 +1,9 @@
 import React from "react";
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import Icon from "components/icon/Icon";
-import { HoyreChevron } from "nav-frontend-chevron";
 import { Link } from "react-router-dom";
+import { BodyLong, Label } from "@navikt/ds-react";
+import { Next } from "@navikt/ds-icons";
 
 export interface Props {
   id: string;
@@ -19,25 +19,25 @@ const Box = (props: Props) => {
   return (
     <>
       <div className="linkbox__icon-container icon__container">
-        <Icon backgroundImage={props.icon} />
+        <Icon backgroundImage={props.icon} ariaHidden={true} />
       </div>
       <div className="linkbox__content">
         <div className="linkbox__seksjon">
           <div className="linkbox__tittel">
-            <div className="lenke">
-              <Element>
+            <div className="linkbox__lenke">
+              <Label as="div">
                 <FormattedMessage id={props.tittel} />
-              </Element>
+              </Label>
             </div>
           </div>
           <div className="linkbox__beskrivelse">
-            <Normaltekst>
+            <BodyLong>
               <FormattedMessage id={props.beskrivelse} />
-            </Normaltekst>
+            </BodyLong>
           </div>
         </div>
       </div>
-      <HoyreChevron />
+      <Next className="linkbox__next" />
     </>
   );
 };

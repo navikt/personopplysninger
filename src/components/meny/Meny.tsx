@@ -1,32 +1,31 @@
 import React from "react";
-import Lenke from "nav-frontend-lenker";
-import { Normaltekst } from "nav-frontend-typografi";
+import { Link, BodyShort } from "@navikt/ds-react";
 
 const lenker = [
   {
     navn: "Personalia",
-    href: "#personalia"
+    href: "#personalia",
   },
   {
     navn: "Adresse",
-    href: "#adresse"
+    href: "#adresse",
   },
   {
     navn: "Pensjonsopptjening",
-    href: "#pensjonsopptjening"
+    href: "#pensjonsopptjening",
   },
   {
     navn: "Dine saker",
-    href: "#dine-saker"
+    href: "#dine-saker",
   },
   {
     navn: "Utbetalinger",
-    href: "#utbetalinger"
+    href: "#utbetalinger",
   },
   {
     navn: "Jobbsøk",
-    href: "#cv"
-  }
+    href: "#cv",
+  },
 ];
 
 export const Filler = () => <div className="meny__filler" />;
@@ -34,9 +33,11 @@ export const Meny = () => (
   <div className="meny__wrapper">
     <div className="meny">
       <ul>
-        {lenker.map(lenke => (
+        {lenker.map((lenke) => (
           <li key={lenke.href}>
-            <Lenke href={lenke.href}><Normaltekst>{lenke.navn}</Normaltekst></Lenke>
+            <Link href={lenke.href}>
+              <BodyShort>{lenke.navn}</BodyShort>
+            </Link>
           </li>
         ))}
       </ul>

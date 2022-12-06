@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Kilde from "components/kilde/Kilde";
-import { Normaltekst, Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
 import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adresser/oppholdsadresse";
 import Adresse from "./Adresse";
 import slettIkon from "../../../../../../assets/img/Slett.svg";
-import Modal from "nav-frontend-modal";
-import { Fareknapp, Flatknapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "../../../../../../components/alert/Alert";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
 import {
   fetchPersonInfo,
   slettKontaktadresse,
 } from "../../../../../../clients/apiClient";
 import { PersonInfo } from "../../../../../../types/personInfo";
 import { useStore } from "../../../../../../store/Context";
+import { BodyLong, BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
 
 interface Props {
   kontaktadresse?: IKontaktadresse;
@@ -27,7 +27,7 @@ const AndreAdresser = (props: Props) => {
 
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
-  const [slettAlert, settSlettAlert] = useState<AlertType | undefined>();
+  const [slettAlert, settSlettAlert] = useState<Feilmelding | undefined>();
   const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
 
   const apneSlettModal = () => {
@@ -56,16 +56,16 @@ const AndreAdresser = (props: Props) => {
     slettKontaktadresse()
       .then(getUpdatedData)
       .then(onSlettSuccess)
-      .catch((error: AlertType) => settSlettAlert(error))
+      .catch((error: Feilmelding) => settSlettAlert(error))
       .then(() => settSlettLoading(false));
   };
 
   return (
     <>
       <div className="underseksjon__header underseksjon__divider">
-        <Undertittel>
+        <Heading size={"small"} level={"3"}>
           <FormattedMessage id={"adresse.overskrift.ovrige"} />
-        </Undertittel>
+        </Heading>
       </div>
       {oppholdsadresse && (
         <Adresse
@@ -84,50 +84,60 @@ const AndreAdresser = (props: Props) => {
               tittel={"adresse.kontaktadresse.nav"}
             />
           )}
-          <button onClick={apneSlettModal} className="kilde__lenke lenke">
+          <Button
+            variant="tertiary"
+            onClick={apneSlettModal}
+            className="adresse__slett-kontaktadresse knapp-med-ikon"
+          >
             <span className="kilde__icon">
               <img src={slettIkon} alt="Ekstern lenke" />
             </span>
-            <Normaltekst>
+            <BodyLong>
               <FormattedMessage id={"side.slett.kontaktadresse"} />
-            </Normaltekst>
-          </button>
+            </BodyLong>
+          </Button>
 
           {visSlettModal && (
             <Modal
               closeButton={false}
-              isOpen={visSlettModal}
-              onRequestClose={lukkSlettModal}
-              contentLabel={msg({ id: "side.slett" })}
+              open={visSlettModal}
+              onClose={lukkSlettModal}
             >
-              <div style={{ padding: "2rem 2.5rem" }}>
-                <Normaltekst>
-                  <FormattedMessage
-                    id="adresse.slett.alert"
-                    values={{
-                      br: (text: String) => (
-                        <>
-                          <br />
-                          {text}
-                        </>
-                      ),
-                    }}
-                  />
-                </Normaltekst>
-                <div className="adresse__modal-knapper">
-                  <Fareknapp
-                    onClick={slettPdlKontaktadresse}
-                    spinner={slettLoading}
-                    autoDisableVedSpinner={true}
-                  >
-                    <FormattedMessage id={"side.slett"} />
-                  </Fareknapp>
-                  <Flatknapp onClick={lukkSlettModal} disabled={slettLoading}>
-                    <FormattedMessage id="side.avbryt" />
-                  </Flatknapp>
+              <Modal.Content>
+                <div style={{ padding: "2rem 2.5rem" }}>
+                  <BodyShort>
+                    <FormattedMessage
+                      id="adresse.slett.alert"
+                      values={{
+                        br: (text: String) => (
+                          <>
+                            <br />
+                            {text}
+                          </>
+                        ),
+                      }}
+                    />
+                  </BodyShort>
+                  <div className="adresse__modal-knapper">
+                    <Button
+                      variant={"danger"}
+                      onClick={slettPdlKontaktadresse}
+                      loading={slettLoading}
+                      disabled={slettLoading}
+                    >
+                      <FormattedMessage id={"side.slett"} />
+                    </Button>
+                    <Button
+                      variant={"tertiary"}
+                      onClick={lukkSlettModal}
+                      disabled={slettLoading}
+                    >
+                      <FormattedMessage id="side.avbryt" />
+                    </Button>
+                  </div>
+                  {slettAlert && <HttpFeilmelding {...slettAlert} />}
                 </div>
-                {slettAlert && <Alert {...slettAlert} />}
-              </div>
+              </Modal.Content>
             </Modal>
           )}
         </>

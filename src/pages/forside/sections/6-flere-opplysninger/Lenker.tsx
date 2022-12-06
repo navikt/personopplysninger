@@ -1,8 +1,6 @@
 import React from "react";
 import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
-import PanelBase from "nav-frontend-paneler";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import DSOPIkon from "assets/img/DSOP.svg";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import SkattIkon from "assets/img/Skattekort.svg";
@@ -14,6 +12,7 @@ import { FormattedMessage } from "react-intl";
 import { useStore } from "store/Context";
 import { basePath } from "../../../../App";
 import { AnchorLink } from "../../../../components/anchorlink/AnchorLink";
+import { BodyLong, Heading, Panel } from "@navikt/ds-react";
 
 const { REACT_APP_PDL_URL, REACT_APP_BFT_URL, REACT_APP_SKJERMING_URL } =
   process.env;
@@ -23,18 +22,18 @@ const id = "flere-opplysninger";
 const LinksContainer = () => {
   const [{ featureToggles, locale }] = useStore();
   return (
-    <PanelBase className="el__panel" id={id}>
+    <Panel className="el__panel" id={id}>
       <div className="el__content">
         <div className="el__overskrift">
-          <Systemtittel>
+          <Heading size={"medium"} level={"2"}>
             <FormattedMessage id="lenker.tittel" />
-          </Systemtittel>
+          </Heading>
         </div>
         <AnchorLink id={id} />
         <div className="el__info">
-          <Normaltekst>
+          <BodyLong>
             <FormattedMessage id="lenker.beskrivelse" />
-          </Normaltekst>
+          </BodyLong>
         </div>
         {lenker(locale).map((link) => (
           <LinkBox
@@ -114,7 +113,7 @@ const LinksContainer = () => {
           component={"a"}
         />
       </div>
-    </PanelBase>
+    </Panel>
   );
 };
 

@@ -7,11 +7,16 @@
     border-bottom: 1px solid #c6c2bf;
   }
   &__leggtil {
-    padding-left: 0;
-    margin: 0.5rem 0;
-    align-items: center;
-    display: flex;
-    border: 0;
+    &.navds-button {
+      margin: 0.5rem 0 0.5rem -1.3rem;
+      align-items: center;
+      display: flex;
+      border: 0;
+    }
+
+    .kilde__icon {
+      display: flex;
+    }
   }
   &__divider {
     height: 1px;
@@ -47,26 +52,28 @@
       margin-right: 0.5rem;
     }
   }
+  &__inputLandkode {
+    width: 8rem;
+  }
   &__knapper {
     display: flex;
     margin-top: 1rem;
   }
-  &__knapp {
-    margin-left: 0.25rem;
+  &__knapp:last-child {
+    margin-left: 0.5rem;
   }
-  &__knapp-med-ikon {
+  &__knapp-ikon,
+  &__knapp-tekst {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 0.275rem !important;
-    &:last-child {
-      margin-left: 0.25rem;
-    }
   }
   &__knapp-tekst {
     padding: 0 0.25rem;
   }
   &__chevron {
     margin: 0.5rem 0;
+  }
+  &__landkode {
+    width: 10rem;
   }
 }

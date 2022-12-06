@@ -1,13 +1,11 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { DsopInfo } from "types/dsop";
-import { Element } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
-import { NedChevron, OppChevron } from "nav-frontend-chevron";
 import { FormattedMessage } from "react-intl";
-import { Link, useLocation } from "react-router-dom";
-import Lenke from "nav-frontend-lenker";
+import { Link as ReactLink, useLocation } from "react-router-dom";
+import { Alert, Label, Link } from "@navikt/ds-react";
+import { Collapse, Expand } from "@navikt/ds-icons";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -44,29 +42,29 @@ export const DsopHistorikkView = (props: Props) => {
       {Object.keys(data).length > 0 ? (
         <>
           <div className={"historikk__info"}>
-            <AlertStripeInfo>
+            <Alert variant="info">
               <FormattedMessage
                 id={"lenker.dsop.info"}
                 values={{
                   a: (text: String) => (
-                    <Lenke href="https://altinn.no" target="blank">
+                    <Link href="https://altinn.no" target="blank">
                       {text}
-                    </Lenke>
+                    </Link>
                   ),
                 }}
               />
-            </AlertStripeInfo>
+            </Alert>
           </div>
           <div className="historikk__flex-rad historikk__head">
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="dsop.uthentingstidspunkt" />
-              </Element>
+              </Label>
             </div>
             <div className="historikk__flex-kolonne">
-              <Element>
+              <Label as="p">
                 <FormattedMessage id="dsop.mottaker" />
-              </Element>
+              </Label>
             </div>
           </div>
           {Object.keys(data)
@@ -89,8 +87,7 @@ export const DsopHistorikkView = (props: Props) => {
                       className="historikk__flex-kolonne af-liste__ekspander"
                       onClick={onClick}
                     >
-                      {year}{" "}
-                      {value.ekspandert ? <OppChevron /> : <NedChevron />}
+                      {year} {value.ekspandert ? <Collapse /> : <Expand />}
                     </div>
                     <div />
                   </div>
@@ -104,6 +101,7 @@ export const DsopHistorikkView = (props: Props) => {
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link
+                            as={ReactLink}
                             to={`${location.pathname}/${innslag.uthentingsTidspunkt}`}
                             className="lenke"
                           >
@@ -118,9 +116,9 @@ export const DsopHistorikkView = (props: Props) => {
         </>
       ) : (
         <div className="historikk__ingen-data">
-          <AlertStripeInfo>
+          <Alert variant="info">
             <FormattedMessage id="dsop.ingendata" />
-          </AlertStripeInfo>
+          </Alert>
         </div>
       )}
     </div>

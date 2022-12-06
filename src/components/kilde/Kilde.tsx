@@ -1,8 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Normaltekst, Undertekst } from "nav-frontend-typografi";
-import Lenke from "nav-frontend-lenker";
-import { Link } from "react-router-dom";
+import { Link as ReactLink } from "react-router-dom";
+import { Link, BodyLong, Detail, Button } from "@navikt/ds-react";
 
 type Props =
   | {
@@ -28,46 +27,50 @@ const Knapp = (props: Props) => {
   switch (props.lenkeType) {
     case "INTERN":
       return (
-        <Normaltekst>
-          <Link to={props.lenke} className="kilde__lenke lenke">
+        <BodyLong>
+          <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
-                <img src={props.ikon} alt="Ekstern lenke" />
+                <img src={props.ikon} alt="" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
           </Link>
-        </Normaltekst>
+        </BodyLong>
       );
     case "EKSTERN":
       return (
-        <Normaltekst>
-          <Lenke href={props.lenke} className="kilde__lenke lenke">
+        <BodyLong>
+          <Link href={props.lenke} className="kilde__lenke lenke">
             {props.ikon && (
               <span className="kilde__icon">
-                <img src={props.ikon} alt="Ekstern lenke" />
+                <img src={props.ikon} alt="" />
               </span>
             )}
             <FormattedMessage id={props.lenkeTekst} />
-          </Lenke>
-        </Normaltekst>
+          </Link>
+        </BodyLong>
       );
     case "KNAPP":
       return (
-        <button onClick={props.onClick} className="kilde__lenke lenke">
+        <Button
+          onClick={props.onClick}
+          variant="tertiary"
+          className="kilde__knapp knapp-med-ikon"
+        >
           {props.ikon && (
             <span className="kilde__icon">
-              <img src={props.ikon} alt="Ekstern lenke" />
+              <img src={props.ikon} alt="" />
             </span>
           )}
-          <Normaltekst>
+          <BodyLong>
             <FormattedMessage id={props.lenkeTekst} />
-          </Normaltekst>
-        </button>
+          </BodyLong>
+        </Button>
       );
     case "INGEN":
     default:
-      return <></>;
+      return null;
   }
 };
 
@@ -78,7 +81,7 @@ const Kilde = (props: Props) => {
         <Knapp {...props} />
         <div className="kilde__tekst">
           {props.kilde && (
-            <Undertekst>
+            <Detail>
               <FormattedMessage
                 id={props.kilde}
                 values={{
@@ -93,7 +96,7 @@ const Kilde = (props: Props) => {
                   ),
                 }}
               />
-            </Undertekst>
+            </Detail>
           )}
         </div>
       </div>

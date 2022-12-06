@@ -1,10 +1,18 @@
 .KodeverkSelect {
+  margin-bottom: 1.5rem;
+
   &__header {
     display: flex;
+    min-height: 2rem;
   }
 
   &__dropdown-indicator {
-    padding: 0 0.5rem;
+    padding: 0.4rem 0.5rem 0 0.5rem;
+
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
 
   &__margin {
@@ -16,33 +24,33 @@
   }
 
   &__control {
-    border: 1px solid @navGra60 !important;
-    min-height: 40px !important;
+    border: 1px solid var(--a-gray-600) !important;
+    min-height: 50px !important;
 
     &-feil {
       .KodeverkSelect {
         &__control {
-          background-color: @pinkErrorBg;
-          border-color: @redError;
+          background-color: var(--a-red-100) !important;
+          border-color: var(--a-surface-danger);
         }
       }
     }
 
     &:hover {
-      border-color: @navBla !important;
+      border-color: var(--a-border-default) !important;
       transition: border-color 200ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
     }
 
     &--is-focused {
-      box-shadow: 0 0 0 3px @fokusFarge;
+      box-shadow: 0 0 0 3px var(--a-border-focus);
     }
 
     &--is-disabled {
-      background-color: @navLysGra;
+      background-color: var(--a-gray-900);
     }
 
     &__single-value {
-      color: @navMorkGra;
+      color: var(--a-gray-900);
     }
 
     &__spinner {
@@ -55,6 +63,17 @@
   &__menu {
     @media @minDesktop {
       min-width: 305px;
+    }
+  }
+  &__feilmelding,
+  &__feilmelding.navds-label {
+    display: flex;
+    gap: var(--a-spacing-2);
+    margin-top: var(--a-spacing-2);
+    color: var(--ac-typo-error-text, var(--a-text-danger));
+
+    &::before {
+      content: "•";
     }
   }
 }

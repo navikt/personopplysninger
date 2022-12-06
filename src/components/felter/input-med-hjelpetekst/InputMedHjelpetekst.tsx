@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
-import { Input, InputProps } from "nav-frontend-skjema";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { FormattedMessage } from "react-intl";
-import { PopoverOrientering } from "nav-frontend-popover";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { TextField, TextFieldProps } from "@navikt/ds-react";
 
-type IProps = Omit<InputProps, "onChange">;
+type IProps = Omit<TextFieldProps, "onChange">;
 interface Props extends IProps {
   id?: string;
   value?: string;
@@ -20,16 +19,17 @@ const EndreKontonummerFelt = ({
   onChange,
   submitted,
   error,
+  htmlSize,
   label,
   hjelpetekst,
   ...restProps
 }: Props) => {
   return (
-    <div>
+    <div className="skjemaelement">
       <div className="ekf__header">
         {label && <div className="skjemaelement__label">{label}</div>}
         {hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre}>
+          <CustomHelpText placement={"right"}>
             <FormattedMessage
               id={hjelpetekst}
               values={{
@@ -43,16 +43,17 @@ const EndreKontonummerFelt = ({
                 ),
               }}
             />
-          </Hjelpetekst>
+          </CustomHelpText>
         )}
       </div>
       <div className="ekf__input">
-        <Input
+        <TextField
           id={id}
           label={""}
           value={value}
+          htmlSize={htmlSize}
           onChange={(e) => onChange(e.target.value)}
-          feil={submitted && error}
+          error={submitted && error}
           {...restProps}
         />
       </div>

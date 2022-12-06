@@ -1,11 +1,11 @@
 import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import ListElement from "components/listelement/ListElement";
 import { KontaktInfo } from "types/kontaktInfo";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
 import { useStore } from "../../../../../../../store/Context";
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   info: KontaktInfo;
@@ -17,7 +17,7 @@ const KontaktInformasjon = (props: Props) => {
   return mobiltelefonnummer || epostadresse || kanVarsles ? (
     <>
       <div className="underseksjon__beskrivelse">
-        <Normaltekst>
+        <BodyShort>
           {kanVarsles ? (
             <FormattedMessage
               id="personalia.dkif.kanVarsles"
@@ -28,7 +28,7 @@ const KontaktInformasjon = (props: Props) => {
           ) : (
             <FormattedMessage id="personalia.dkif.kanIkkeVarsles" />
           )}
-        </Normaltekst>
+        </BodyShort>
       </div>
       <ul className="list-column-2">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />

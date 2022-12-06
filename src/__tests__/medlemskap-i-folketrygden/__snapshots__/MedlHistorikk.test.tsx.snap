@@ -9,7 +9,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
       class="medl__space"
     >
       <p
-        class="typo-normal"
+        class="navds-body-long"
       >
         Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har
       </p>
@@ -26,7 +26,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           src="Check.svg"
         />
         <p
-          class="typo-normal"
+          class="navds-body-long"
         >
           bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det.
         </p>
@@ -44,7 +44,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           src="Check.svg"
         />
         <p
-          class="typo-normal"
+          class="navds-body-long"
         >
           jobbet i Norge, men var med i trygdeordningen i et annet land.
         </p>
@@ -53,11 +53,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
     <div
       class="medl__section"
     >
-      <h2
-        class="typo-undertittel"
+      <h3
+        class="navds-heading navds-heading--small"
       >
         Ulike situasjoner
-      </h2>
+      </h3>
     </div>
     <div
       class="medl__space"
@@ -71,7 +71,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           src="Check.svg"
         />
         <p
-          class="typo-normal"
+          class="navds-body-long"
         >
           Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.
         </p>
@@ -89,7 +89,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           src="Check.svg"
         />
         <p
-          class="typo-normal"
+          class="navds-body-long"
         >
           Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.
         </p>
@@ -107,7 +107,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           src="Check.svg"
         />
         <p
-          class="typo-normal"
+          class="navds-body-long"
         >
           Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.
         </p>
@@ -116,21 +116,21 @@ exports[`MedlHistorikkView renders correctly 1`] = `
     <div
       class="medl__section"
     >
-      <h2
-        class="typo-undertittel"
+      <h3
+        class="navds-heading navds-heading--small"
       >
         Hva betyr medlemskap i folketrygden?
-      </h2>
+      </h3>
     </div>
     <div
       class="medl__space"
     >
       <p
-        class="typo-normal"
+        class="navds-body-long"
       >
         Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. 
         <a
-          class="lenke"
+          class="navds-link"
           href="/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden"
         >
            Les om medlemskap i folketrygden
@@ -142,7 +142,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
       class="medl__space"
     >
       <p
-        class="typo-normal"
+        class="navds-body-short"
       >
         Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.
       </p>
@@ -150,111 +150,3094 @@ exports[`MedlHistorikkView renders correctly 1`] = `
     <div
       class="medl__section"
     >
-      <h2
-        class="typo-systemtittel"
+      <h3
+        class="navds-heading navds-heading--small"
       >
         Oversikt over perioder
-      </h2>
+      </h3>
     </div>
     <div
       class="medl__space"
     >
       <div
-        class="alertstripe alertstripe--info"
+        class="navds-alert navds-alert--info navds-alert--medium"
       >
-        <span
-          class="alertstripe__ikon"
+        <svg
+          aria-labelledby="title-aksel-icon-1"
+          class="navds-alert__icon"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <span
-            class="sr-only"
+          <title
+            id="title-aksel-icon-1"
           >
-            info
-          </span>
-          <svg
-            aria-label="info-ikon"
-            focusable="false"
-            height="1.5em"
-            kind="info-sirkel-fyll"
-            role="img"
-            viewBox="0 0 24 24"
-            width="1.5em"
-          >
-            <g
-              fill="none"
-            >
-              <path
-                d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
-                fill="#337C9B"
-              />
-              <path
-                d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
-                fill="#FFF"
-              />
-            </g>
-          </svg>
-        </span>
+            Informasjon
+          </title>
+          <path
+            clip-rule="evenodd"
+            d="M0 12C0 5.382 5.382 0 12 0c6.617 0 12 5.382 12 12s-5.383 12-12 12C5.382 24 0 18.618 0 12Zm12-7a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM9 19v-2h2v-5H9v-2h4v7h2v2H9Z"
+            fill="#368DA8"
+            fill-rule="evenodd"
+          />
+        </svg>
         <div
-          class="typo-normal alertstripe__tekst"
+          class="navds-alert__wrapper navds-body-long"
         >
           Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.
         </div>
       </div>
     </div>
     <div
-      class="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
+      class="navds-accordion medl__space"
     >
-      <button
-        aria-controls="Mocked UUID"
-        class="ekspanderbartPanel__hode"
-        id="Mocked UUID"
-        type="button"
+      <div
+        class="navds-accordion__item"
       >
-        <div
-          class="ekspanderbartPanel__flex-wrapper"
+        <button
+          aria-expanded="false"
+          class="navds-accordion__header"
+          type="button"
         >
           <span
-            class="ekspanderbartPanel__tittel"
+            class="navds-accordion__header-content navds-heading navds-heading--small"
           >
             Med medlemskap
           </span>
-          <span
-            class="ekspanderbartPanel__indikator"
-          />
+          <svg
+            aria-hidden="true"
+            class="navds-accordion__expand-icon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="navds-accordion__expand-icon navds-accordion__expand-icon--filled"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="m12 18.121-8.06-8.06 2.12-2.122L12 13.88l5.94-5.94 2.12 2.122L12 18.12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          style="height: 0px; overflow: hidden;"
+        >
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <div
+              class="navds-accordion__content navds-body-long"
+            >
+              <p
+                class="navds-body-long"
+              >
+                Oversikten viser perioder der du har søkt NAV om medlemskap i folketrygden og fått bekreftet det.
+              </p>
+              <div
+                class="medl__flex-table "
+              >
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1449615600000"
+                        >
+                          09.12.15
+                        </time>
+                         - 
+                        <time
+                          datetime="1451084400000"
+                        >
+                          26.12.15
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Australia
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helse -og pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1546297200000"
+                        >
+                          01.01.19
+                        </time>
+                         - 
+                        <time
+                          datetime="1577746800000"
+                        >
+                          31.12.19
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Folketrygdloven
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helsedel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1569880800000"
+                        >
+                          01.10.19
+                        </time>
+                         - 
+                        <time
+                          datetime="1570658400000"
+                        >
+                          10.10.19
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Full
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1575846000000"
+                        >
+                          09.12.19
+                        </time>
+                         - 
+                        <time
+                          datetime="1577660400000"
+                        >
+                          30.12.19
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Bosnia og Hecegovina
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Full
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1577833200000"
+                        >
+                          01.01.20
+                        </time>
+                         - 
+                        <time
+                          datetime="1609369200000"
+                        >
+                          31.12.20
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Folketrygdloven
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Full
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1577833200000"
+                        >
+                          01.01.20
+                        </time>
+                         - 
+                        <time
+                          datetime="1590962400000"
+                        >
+                          01.06.20
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Folketrygdloven
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helse -og pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1577833200000"
+                        >
+                          01.01.20
+                        </time>
+                         - 
+                        <time
+                          datetime="1583017200000"
+                        >
+                          01.03.20
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            EØS-forordning 883/2004
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Full
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1577833200000"
+                        >
+                          01.01.20
+                        </time>
+                         - 
+                        <time
+                          datetime="1609369200000"
+                        >
+                          31.12.20
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            EØS-forordning 883/2004
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Full
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1593122400000"
+                        >
+                          26.06.20
+                        </time>
+                         - 
+                        <time
+                          datetime="1614553200000"
+                        >
+                          01.03.21
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Folketrygdloven
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helse -og pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1640991600000"
+                        >
+                          01.01.22
+                        </time>
+                         - 
+                        <time
+                          datetime="1702940400000"
+                        >
+                          19.12.23
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Australia
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helse -og pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1640991600000"
+                        >
+                          01.01.22
+                        </time>
+                         - 
+                        <time
+                          datetime="1702940400000"
+                        >
+                          19.12.23
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Australia
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Helse -og pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </button>
-      <div
-        aria-labelledby="Mocked UUID"
-        id="Mocked UUID"
-        role="region"
-      />
+      </div>
     </div>
     <div
-      class="ekspanderbartPanel medl__space ekspanderbartPanel--lukket ekspanderbartPanel--border"
+      class="navds-accordion medl__space"
     >
-      <button
-        aria-controls="Mocked UUID"
-        class="ekspanderbartPanel__hode"
-        id="Mocked UUID"
-        type="button"
+      <div
+        class="navds-accordion__item"
       >
-        <div
-          class="ekspanderbartPanel__flex-wrapper"
+        <button
+          aria-expanded="false"
+          class="navds-accordion__header"
+          type="button"
         >
           <span
-            class="ekspanderbartPanel__tittel"
+            class="navds-accordion__header-content navds-heading navds-heading--small"
           >
             Uten medlemskap
           </span>
-          <span
-            class="ekspanderbartPanel__indikator"
-          />
+          <svg
+            aria-hidden="true"
+            class="navds-accordion__expand-icon"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <svg
+            aria-hidden="true"
+            class="navds-accordion__expand-icon navds-accordion__expand-icon--filled"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="m12 18.121-8.06-8.06 2.12-2.122L12 13.88l5.94-5.94 2.12 2.122L12 18.12Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          style="height: 0px; overflow: hidden;"
+        >
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          >
+            <div
+              class="navds-accordion__content navds-body-long"
+            >
+              <p
+                class="navds-body-long"
+              >
+                Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
+              </p>
+              <div
+                class="medl__flex-table "
+              >
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1419980400000"
+                        >
+                          31.12.14
+                        </time>
+                         - 
+                        <time
+                          datetime="1420066800000"
+                        >
+                          01.01.15
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            EØS-forordning 883/2004
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Ikke medlem - eller unntatt fra medlemskap
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Land
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Land viser hvilket lands trygdeordning du var med i, i perioden du var unntatt fra medlemskap i folketrygden
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content medl__land"
+                          >
+                            DANMARK
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1420066800000"
+                        >
+                          01.01.15
+                        </time>
+                         - 
+                        <time
+                          datetime="1446246000000"
+                        >
+                          31.10.15
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Folketrygdloven
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Ikke medlem - eller unntatt fra medlemskap
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Land
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Land viser hvilket lands trygdeordning du var med i, i perioden du var unntatt fra medlemskap i folketrygden
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content medl__land"
+                          >
+                            SVERIGE
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1514761200000"
+                        >
+                          01.01.18
+                        </time>
+                         - 
+                        <time
+                          datetime="1546210800000"
+                        >
+                          31.12.18
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Canada
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Ikke pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Land
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Land viser hvilket lands trygdeordning du var med i, i perioden du var unntatt fra medlemskap i folketrygden
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content medl__land"
+                          >
+                            CANADA
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="medl__flex-rad"
+                >
+                  <div
+                    class="medl__flex-kolonne"
+                  >
+                    <div
+                      class="medl__heading"
+                    >
+                      <img
+                        alt="Kalenderikon"
+                        class="medl__kalender"
+                        src="Kalender.svg"
+                      />
+                      <p
+                        class="navds-body-long"
+                      >
+                        Periode 
+                        <time
+                          datetime="1546297200000"
+                        >
+                          01.01.19
+                        </time>
+                         - 
+                        <time
+                          datetime="1548975600000"
+                        >
+                          01.02.19
+                        </time>
+                      </p>
+                    </div>
+                    <div
+                      class="medl__flex-grid box__content"
+                    >
+                      <ul
+                        class="list-column-2"
+                      >
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Trygdeavtale Canada
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Trygdedekning viser hva slags medlemskap du har i folketrygden.
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content "
+                          >
+                            Ikke pensjonsdel
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                        <li>
+                          <div
+                            class="listelement__header"
+                          >
+                            <p
+                              class="navds-label"
+                            >
+                              Land
+                            </p>
+                            <div
+                              class="customHelpText"
+                            >
+                              <button
+                                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                                type="button"
+                              >
+                                <span
+                                  aria-live="polite"
+                                  class="navds-label"
+                                >
+                                  <svg
+                                    class="customHelpText__icon"
+                                    fill="none"
+                                    focusable="false"
+                                    height="1em"
+                                    role="img"
+                                    viewBox="0 0 24 24"
+                                    width="1em"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      clip-rule="evenodd"
+                                      d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0Zm0 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm0 14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm0-11c2.205 0 4 1.657 4 3.693 0 .986-.416 1.914-1.172 2.612l-.593.54-.294.28c-.477.466-.869.94-.936 1.417l-.01.144v.814h-1.991v-.814c0-1.254.84-2.214 1.675-3.002l.74-.68c.38-.35.59-.816.59-1.31 0-1.024-.901-1.856-2.01-1.856-1.054 0-1.922.755-2.002 1.71l-.006.145H8C8 6.657 9.794 5 12 5Z"
+                                      fill="currentColor"
+                                      fill-rule="evenodd"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                              <div
+                                aria-hidden="true"
+                                class="navds-popover customHelpText__popover navds-popover--hidden"
+                                data-placement="top"
+                                style="position: absolute; top: 0px; left: 0px;"
+                                tabindex="-1"
+                              >
+                                <div
+                                  class="navds-popover__content"
+                                >
+                                  Land viser hvilket lands trygdeordning du var med i, i perioden du var unntatt fra medlemskap i folketrygden
+                                </div>
+                                <div
+                                  class="navds-popover__arrow"
+                                  style="bottom: -0.5rem;"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="content medl__land"
+                          >
+                            CANADA
+                          </div>
+                          <p
+                            class="navds-body-short"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </button>
-      <div
-        aria-labelledby="Mocked UUID"
-        id="Mocked UUID"
-        role="region"
-      />
+      </div>
     </div>
   </div>
 </DocumentFragment>

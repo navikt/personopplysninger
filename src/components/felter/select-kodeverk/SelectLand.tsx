@@ -81,6 +81,7 @@ const SelectLand = (props: Props) => {
       submitted={props.submitted}
       onChange={props.onChange}
       hjelpetekst={props.hjelpetekst}
+      htmlSize={30}
     />
   );
 };

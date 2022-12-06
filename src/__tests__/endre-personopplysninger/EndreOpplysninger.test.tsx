@@ -11,10 +11,6 @@ import { extraValidators } from "../../utils/validators";
 import { render } from "@testing-library/react";
 
 jest.mock("react-modal");
-jest.mock("nav-frontend-js-utils", () => ({
-  ...jest.requireActual("nav-frontend-js-utils"),
-  guid: () => "Mocked UUID",
-}));
 
 describe("EndreOpplysningerView", () => {
   it("renders correctly", () => {

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Element } from "nav-frontend-typografi";
+
 import { FormattedMessage, useIntl } from "react-intl";
-import Lesmerpanel from "nav-frontend-lesmerpanel";
 import ListElement from "../../../../../../components/listelement/ListElement";
+import { Heading, Label, ReadMore } from "@navikt/ds-react";
 
 interface Props {
   tittel: string;
@@ -15,22 +15,31 @@ interface Props {
 
 const AdressePanel = (props: Props) => {
   const { formatMessage: msg } = useIntl();
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+
+  const toggleReadMore = () => {
+    setIsOpen(!isOpen);
+  };
+  const readMoreLabel = isOpen
+    ? msg({ id: "adresse.bostedsadresse.lukkTekst" })
+    : msg({ id: "adresse.bostedsadresse.apneTekst" });
+
   return (
     <div className="adresse__box">
       <div className="underseksjon__header">
-        <Element>
+        <Heading level={"4"} size={"xsmall"}>
           <FormattedMessage id={props.tittel} />
-        </Element>
+        </Heading>
       </div>
       {props.children}
       {(props.bruksenhetsnummer ||
         props.kommune ||
         props.flyttedatoFormatert ||
         props.gyldigTilOgMedFormatert) && (
-        <Lesmerpanel
+        <ReadMore
           className="adresse__lesmer"
-          apneTekst={msg({ id: "adresse.bostedsadresse.apneTekst" })}
-          lukkTekst={msg({ id: "adresse.bostedsadresse.lukkTekst" })}
+          header={readMoreLabel}
+          onClick={toggleReadMore}
         >
           <ul className="list-column-2 address-columns">
             {props.bruksenhetsnummer && (
@@ -55,7 +64,7 @@ const AdressePanel = (props: Props) => {
               />
             )}
           </ul>
-        </Lesmerpanel>
+        </ReadMore>
       )}
       <div className={"adresse__divider"} />
     </div>

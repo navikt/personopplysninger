@@ -1,7 +1,5 @@
 import { FormattedMessage } from "react-intl";
-import { Input } from "nav-frontend-skjema";
 import React, { useState } from "react";
-import { Knapp } from "nav-frontend-knapper";
 import {
   FieldsConfig,
   FormContext,
@@ -9,14 +7,17 @@ import {
   ValidatorContext,
 } from "calidation";
 import { fetchPersonInfo, postTlfnummer } from "clients/apiClient";
-import { Element } from "nav-frontend-typografi";
 import SelectLandskode from "components/felter/select-kodeverk/SelectLandskode";
 import { isNorwegianNumber } from "utils/validators";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import { useIntl } from "react-intl";
-import Alert, { AlertType } from "components/alert/Alert";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
+import { Button, Label, TextField } from "@navikt/ds-react";
+import classNames from "classnames";
 
 interface Props {
   prioritet: 1 | 2;
@@ -28,7 +29,7 @@ interface Props {
 const OpprettTelefonnummer = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState(false);
-  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [alert, settAlert] = useState<Feilmelding | undefined>();
   const { prioritet, tlfnr, onChangeSuccess } = props;
   const [{ formKey }, dispatch] = useStore();
 
@@ -89,7 +90,7 @@ const OpprettTelefonnummer = (props: Props) => {
       postTlfnummer(outbound)
         .then(getUpdatedData)
         .then(onChangeSuccess)
-        .catch((error: AlertType) => settAlert(error))
+        .catch((error: Feilmelding) => settAlert(error))
         .then(() => settLoading(false));
     }
   };
@@ -111,14 +112,19 @@ const OpprettTelefonnummer = (props: Props) => {
             <>
               <div className={"tlfnummer__container"}>
                 <div className={"tlfnummer__verdi"}>
-                  <Element>
+                  <Label as="p">
                     <FormattedMessage id="side.leggtil" />
-                  </Element>
+                  </Label>
                 </div>
               </div>
               <div className="tlfnummer__form">
                 <div className={"tlfnummer__input-container"}>
-                  <div className={"tlfnummer__input input--s"}>
+                  <div
+                    className={classNames(
+                      "tlfnummer__input",
+                      "tlfnummer__inputLandkode"
+                    )}
+                  >
                     <SelectLandskode
                       option={fields.landskode}
                       label={msg({ id: "felter.landkode.label" })}
@@ -128,32 +134,31 @@ const OpprettTelefonnummer = (props: Props) => {
                     />
                   </div>
                   <div className={"tlfnummer__input input--m"}>
-                    <Input
+                    <TextField
                       type={"tel"}
-                      bredde={"M"}
+                      size={"medium"}
                       value={fields.tlfnummer}
                       maxLength={tlfNummerMaxLength}
                       label={msg({ id: "felter.tlfnr.label" })}
                       onChange={(e) => setField({ tlfnummer: e.target.value })}
-                      feil={submitted && errors.tlfnummer}
+                      error={submitted && errors.tlfnummer}
                     />
                   </div>
                 </div>
                 <div className={"tlfnummer__knapper"}>
                   <div className={"tlfnummer__submit"}>
-                    <Knapp
-                      type={"standard"}
-                      htmlType={"submit"}
+                    <Button
+                      variant={"primary"}
+                      type={"submit"}
                       disabled={submitted && !isValid}
-                      autoDisableVedSpinner={true}
-                      spinner={loading}
+                      loading={loading}
                     >
                       <FormattedMessage id={"side.lagre"} />
-                    </Knapp>
+                    </Button>
                   </div>
-                  <Knapp
-                    type={"flat"}
-                    htmlType={"button"}
+                  <Button
+                    variant={"tertiary"}
+                    type={"button"}
                     disabled={loading}
                     className={"tlfnummer__knapp"}
                     onClick={() => {
@@ -162,9 +167,9 @@ const OpprettTelefonnummer = (props: Props) => {
                     }}
                   >
                     <FormattedMessage id={"side.avbryt"} />
-                  </Knapp>
+                  </Button>
                 </div>
-                {alert && <Alert {...alert} />}
+                {alert && <HttpFeilmelding {...alert} />}
               </div>
             </>
           );

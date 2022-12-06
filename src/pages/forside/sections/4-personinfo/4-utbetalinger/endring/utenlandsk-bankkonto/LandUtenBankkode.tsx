@@ -16,7 +16,7 @@ const LandUtenBankkode = (props: Props) => {
   return (
     <div className="utbetalinger__bank-identifier">
       <InputMedHjelpetekst
-        bredde={"M"}
+        size="medium"
         maxLength={11}
         submitted={submitted}
         value={fields.bickode}

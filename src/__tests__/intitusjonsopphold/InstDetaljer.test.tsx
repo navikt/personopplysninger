@@ -12,8 +12,6 @@ jest.mock("react-router-dom", () => ({
   }),
 }));
 
-jest.mock("nav-frontend-hjelpetekst");
-
 describe("InstDetaljerView", () => {
   it("renders correctly", () => {
     const { asFragment } = render(

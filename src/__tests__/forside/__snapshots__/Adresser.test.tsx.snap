@@ -7,23 +7,23 @@ exports[`Adresser renders correctly 1`] = `
     id="adresser"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
         <div
-          class="nav-veileder__frame nav-veileder__frame--m"
+          class="navds-guide__illustration navds-guide__illustration--medium"
         >
           <img
-            alt="Veileder"
+            alt=""
             class="box__ikon"
             src="Adresse.svg"
           />
         </div>
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -38,18 +38,17 @@ exports[`Adresser renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Adresser
               </h2>
               <button
-                aria-label="Informasjonstekst"
+                aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
                 class="infotekst__title-i-button"
-                title="Informasjon"
               >
                 <img
-                  alt="Vis mer informasjon"
+                  alt=""
                   class="infotekst__title-i-icon"
                   src="Informasjonstekst.svg"
                 />
@@ -59,7 +58,8 @@ exports[`Adresser renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              aria-label="Direktelenke til denne seksjonen"
+              class="navds-link anchor-link"
               href="#adresser"
             >
               <img
@@ -79,11 +79,11 @@ exports[`Adresser renders correctly 1`] = `
                 <div
                   class="underseksjon__header"
                 >
-                  <h2
-                    class="typo-undertittel"
+                  <h3
+                    class="navds-heading navds-heading--small"
                   >
                     Adresser som er registert i Folkeregisteret
-                  </h2>
+                  </h3>
                 </div>
                 <div
                   class="adresse__box"
@@ -91,17 +91,17 @@ exports[`Adresser renders correctly 1`] = `
                   <div
                     class="underseksjon__header"
                   >
-                    <p
-                      class="typo-element"
+                    <h4
+                      class="navds-heading navds-heading--xsmall"
                     >
                       Bostedsadresse
-                    </p>
+                    </h4>
                   </div>
                   <div
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       V/ Aremark Jr
                     </p>
@@ -110,7 +110,7 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       JØRGENSENVEIEN 14 B
                     </p>
@@ -119,36 +119,132 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       0194 OSLO
                     </p>
                   </div>
                   <div
-                    class="lesMerPanel adresse__lesmer"
-                    id="Mocked UUID"
+                    class="navds-read-more navds-read-more--medium adresse__lesmer"
                   >
-                    <div
-                      class="lesMerPanel__merContainer"
-                    />
-                    <div
-                      class="lesMerPanel__toggle"
+                    <button
+                      aria-expanded="false"
+                      class="navds-read-more__button navds-body-short"
+                      type="button"
                     >
-                      <button
-                        aria-controls="Mocked UUID"
-                        aria-expanded="false"
-                        class="lesMerPanel__togglelink"
-                        type="button"
+                      <svg
+                        aria-hidden="true"
+                        class="navds-read-more__expand-icon"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <span
-                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                        <path
+                          clip-rule="evenodd"
+                          d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
                         />
+                      </svg>
+                      <svg
+                        aria-hidden="true"
+                        class="navds-read-more__expand-icon navds-read-more__expand-icon--filled"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="m12 18.121-8.06-8.06 2.12-2.122L12 13.88l5.94-5.94 2.12 2.122L12 18.12Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span>
+                        Vis detaljer
+                      </span>
+                    </button>
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="display: none;"
+                      >
                         <div
-                          class="lesMerPanel__toggleTekst"
+                          class="navds-read-more__content navds-body-long"
                         >
-                          Vis detaljer
+                          <ul
+                            class="list-column-2 address-columns"
+                          >
+                            <li>
+                              <div
+                                class="listelement__header"
+                              >
+                                <p
+                                  class="navds-label"
+                                >
+                                  Bolignummer
+                                </p>
+                              </div>
+                              <div
+                                class="content "
+                              >
+                                H0301
+                              </div>
+                              <p
+                                class="navds-body-short"
+                              />
+                            </li>
+                            <li>
+                              <div
+                                class="listelement__header"
+                              >
+                                <p
+                                  class="navds-label"
+                                >
+                                  Kommune
+                                </p>
+                              </div>
+                              <div
+                                class="content "
+                              >
+                                EVJE OG HORNNES
+                              </div>
+                              <p
+                                class="navds-body-short"
+                              />
+                            </li>
+                            <li>
+                              <div
+                                class="listelement__header"
+                              >
+                                <p
+                                  class="navds-label"
+                                >
+                                  Flyttedato
+                                </p>
+                              </div>
+                              <div
+                                class="content "
+                              >
+                                14/07/2020
+                              </div>
+                              <p
+                                class="navds-body-short"
+                              />
+                            </li>
+                          </ul>
                         </div>
-                      </button>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -161,17 +257,17 @@ exports[`Adresser renders correctly 1`] = `
                   <div
                     class="underseksjon__header"
                   >
-                    <p
-                      class="typo-element"
+                    <h4
+                      class="navds-heading navds-heading--xsmall"
                     >
                       Delt bosted
-                    </p>
+                    </h4>
                   </div>
                   <div
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       V/ Aremark Jr
                     </p>
@@ -180,7 +276,7 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       JØRGENSENVEIEN 14 B
                     </p>
@@ -189,36 +285,113 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       0194 OSLO
                     </p>
                   </div>
                   <div
-                    class="lesMerPanel adresse__lesmer"
-                    id="Mocked UUID"
+                    class="navds-read-more navds-read-more--medium adresse__lesmer"
                   >
-                    <div
-                      class="lesMerPanel__merContainer"
-                    />
-                    <div
-                      class="lesMerPanel__toggle"
+                    <button
+                      aria-expanded="false"
+                      class="navds-read-more__button navds-body-short"
+                      type="button"
                     >
-                      <button
-                        aria-controls="Mocked UUID"
-                        aria-expanded="false"
-                        class="lesMerPanel__togglelink"
-                        type="button"
+                      <svg
+                        aria-hidden="true"
+                        class="navds-read-more__expand-icon"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <span
-                          class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                        <path
+                          clip-rule="evenodd"
+                          d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
                         />
+                      </svg>
+                      <svg
+                        aria-hidden="true"
+                        class="navds-read-more__expand-icon navds-read-more__expand-icon--filled"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          clip-rule="evenodd"
+                          d="m12 18.121-8.06-8.06 2.12-2.122L12 13.88l5.94-5.94 2.12 2.122L12 18.12Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                      <span>
+                        Vis detaljer
+                      </span>
+                    </button>
+                    <div
+                      style="height: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-hidden="true"
+                        style="display: none;"
+                      >
                         <div
-                          class="lesMerPanel__toggleTekst"
+                          class="navds-read-more__content navds-body-long"
                         >
-                          Vis detaljer
+                          <ul
+                            class="list-column-2 address-columns"
+                          >
+                            <li>
+                              <div
+                                class="listelement__header"
+                              >
+                                <p
+                                  class="navds-label"
+                                >
+                                  Bolignummer
+                                </p>
+                              </div>
+                              <div
+                                class="content "
+                              >
+                                H0301
+                              </div>
+                              <p
+                                class="navds-body-short"
+                              />
+                            </li>
+                            <li>
+                              <div
+                                class="listelement__header"
+                              >
+                                <p
+                                  class="navds-label"
+                                >
+                                  Kommune
+                                </p>
+                              </div>
+                              <div
+                                class="content "
+                              >
+                                EVJE OG HORNNES
+                              </div>
+                              <p
+                                class="navds-body-short"
+                              />
+                            </li>
+                          </ul>
                         </div>
-                      </button>
+                      </div>
                     </div>
                   </div>
                   <div
@@ -231,17 +404,17 @@ exports[`Adresser renders correctly 1`] = `
                   <div
                     class="underseksjon__header"
                   >
-                    <p
-                      class="typo-element"
+                    <h4
+                      class="navds-heading navds-heading--xsmall"
                     >
                       Oppholdsadresse
-                    </p>
+                    </h4>
                   </div>
                   <div
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       V/ Aremark Jr
                     </p>
@@ -250,7 +423,7 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       JØRGENSENVEIEN 14 B
                     </p>
@@ -259,7 +432,7 @@ exports[`Adresser renders correctly 1`] = `
                     class="adresse__linje"
                   >
                     <p
-                      class="typo-normal"
+                      class="navds-body-short"
                     >
                       0194 OSLO
                     </p>
@@ -272,17 +445,17 @@ exports[`Adresser renders correctly 1`] = `
                   class="kilde__container"
                 >
                   <p
-                    class="typo-normal"
+                    class="navds-body-long"
                   >
                     <a
-                      class="lenke kilde__lenke lenke"
+                      class="navds-link kilde__lenke lenke"
                       href="https://www.skatteetaten.no/person/folkeregister/flytte/"
                     >
                       <span
                         class="kilde__icon"
                       >
                         <img
-                          alt="Ekstern lenke"
+                          alt=""
                           src="Link.svg"
                         />
                       </span>
@@ -293,7 +466,7 @@ exports[`Adresser renders correctly 1`] = `
                     class="kilde__tekst"
                   >
                     <p
-                      class="typo-undertekst"
+                      class="navds-detail"
                     >
                       Kilde: Folkeregisteret
                     </p>
@@ -303,11 +476,11 @@ exports[`Adresser renders correctly 1`] = `
               <div
                 class="underseksjon__header underseksjon__divider"
               >
-                <h2
-                  class="typo-undertittel"
+                <h3
+                  class="navds-heading navds-heading--small"
                 >
                   Øvrige registrerte adresser
-                </h2>
+                </h3>
               </div>
               <div
                 class="adresse__box"
@@ -315,17 +488,17 @@ exports[`Adresser renders correctly 1`] = `
                 <div
                   class="underseksjon__header"
                 >
-                  <p
-                    class="typo-element"
+                  <h4
+                    class="navds-heading navds-heading--xsmall"
                   >
                     Kontaktadresse registrert hos NAV
-                  </p>
+                  </h4>
                 </div>
                 <div
                   class="adresse__linje"
                 >
                   <p
-                    class="typo-normal"
+                    class="navds-body-short"
                   >
                     V/ Aremark Jr
                   </p>
@@ -334,7 +507,7 @@ exports[`Adresser renders correctly 1`] = `
                   class="adresse__linje"
                 >
                   <p
-                    class="typo-normal"
+                    class="navds-body-short"
                   >
                     Postboks 10 Sørstrand
                   </p>
@@ -343,36 +516,94 @@ exports[`Adresser renders correctly 1`] = `
                   class="adresse__linje"
                 >
                   <p
-                    class="typo-normal"
+                    class="navds-body-short"
                   >
                     0194 OSLO
                   </p>
                 </div>
                 <div
-                  class="lesMerPanel adresse__lesmer"
-                  id="Mocked UUID"
+                  class="navds-read-more navds-read-more--medium adresse__lesmer"
                 >
-                  <div
-                    class="lesMerPanel__merContainer"
-                  />
-                  <div
-                    class="lesMerPanel__toggle"
+                  <button
+                    aria-expanded="false"
+                    class="navds-read-more__button navds-body-short"
+                    type="button"
                   >
-                    <button
-                      aria-controls="Mocked UUID"
-                      aria-expanded="false"
-                      class="lesMerPanel__togglelink"
-                      type="button"
+                    <svg
+                      aria-hidden="true"
+                      class="navds-read-more__expand-icon"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <span
-                        class="nav-frontend-chevron chevronboks lesMerPanel__toggleChevron chevron--ned"
+                      <path
+                        clip-rule="evenodd"
+                        d="M12 17.414 4.293 9.707l1.414-1.414L12 14.586l6.293-6.293 1.414 1.414L12 17.414Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
                       />
+                    </svg>
+                    <svg
+                      aria-hidden="true"
+                      class="navds-read-more__expand-icon navds-read-more__expand-icon--filled"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="m12 18.121-8.06-8.06 2.12-2.122L12 13.88l5.94-5.94 2.12 2.122L12 18.12Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                    <span>
+                      Vis detaljer
+                    </span>
+                  </button>
+                  <div
+                    style="height: 0px; overflow: hidden;"
+                  >
+                    <div
+                      aria-hidden="true"
+                      style="display: none;"
+                    >
                       <div
-                        class="lesMerPanel__toggleTekst"
+                        class="navds-read-more__content navds-body-long"
                       >
-                        Vis detaljer
+                        <ul
+                          class="list-column-2 address-columns"
+                        >
+                          <li>
+                            <div
+                              class="listelement__header"
+                            >
+                              <p
+                                class="navds-label"
+                              >
+                                Gyldig til og med
+                              </p>
+                            </div>
+                            <div
+                              class="content "
+                            >
+                              07/20/2020
+                            </div>
+                            <p
+                              class="navds-body-short"
+                            />
+                          </li>
+                        </ul>
                       </div>
-                    </button>
+                    </div>
                   </div>
                 </div>
                 <div
@@ -380,21 +611,26 @@ exports[`Adresser renders correctly 1`] = `
                 />
               </div>
               <button
-                class="kilde__lenke lenke"
+                class="adresse__slett-kontaktadresse knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
-                  class="kilde__icon"
+                  aria-live="polite"
+                  class="navds-label"
                 >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Slett.svg"
-                  />
+                  <span
+                    class="kilde__icon"
+                  >
+                    <img
+                      alt="Ekstern lenke"
+                      src="Slett.svg"
+                    />
+                  </span>
+                  <p
+                    class="navds-body-long"
+                  >
+                    Slett kontaktadresse
+                  </p>
                 </span>
-                <p
-                  class="typo-normal"
-                >
-                  Slett kontaktadresse
-                </p>
               </button>
               <div
                 class="kilde__container"
@@ -403,7 +639,7 @@ exports[`Adresser renders correctly 1`] = `
                   class="kilde__tekst"
                 >
                   <p
-                    class="typo-undertekst"
+                    class="navds-detail"
                   >
                     Kilde: NAV
                   </p>

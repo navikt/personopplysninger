@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import { Element, Normaltekst } from "nav-frontend-typografi";
 import moment from "moment";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
 import Kilde from "../../../components/kilde/Kilde";
-import { Flatknapp } from "nav-frontend-knapper";
 import PilNed from "assets/img/PilNed.svg";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
+import { Alert, BodyLong, BodyShort, Button, Label } from "@navikt/ds-react";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   const [viewAmount, setViewAmount] = useState(20);
@@ -24,24 +22,24 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   // @ts-ignore
   return (
     <div className="arbeidsforhold__disclaimer">
-      <AlertStripeInfo>
-        <Normaltekst>
+      <Alert variant="info">
+        <BodyLong>
           <FormattedMessage id="inst.disclaimer" />
-        </Normaltekst>
-      </AlertStripeInfo>
+        </BodyLong>
+      </Alert>
       <div className={"inst__tabell"}>
         {instInfo.length > 0 ? (
           <>
             <div className="historikk__flex-rad inst__head">
               <div className="historikk__flex-kolonne">
-                <Element>
+                <Label as="p">
                   <FormattedMessage id="inst.periode" />
-                </Element>
+                </Label>
               </div>
               <div className="historikk__flex-kolonne">
-                <Element>
+                <Label as="p">
                   <FormattedMessage id="inst.institusjon" />
-                </Element>
+                </Label>
               </div>
             </div>
             <TransitionGroup>
@@ -73,19 +71,21 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                     >
                       <div className="historikk__flex-rad">
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM.YYYY">
-                            {innslag.startdato}
-                          </Moment>
-                          {` - `}
-                          {innslag.faktiskSluttdato && (
+                          <BodyShort>
                             <Moment format="DD.MM.YYYY">
-                              {innslag.faktiskSluttdato}
+                              {innslag.startdato}
                             </Moment>
-                          )}
+                            {` - `}
+                            {innslag.faktiskSluttdato && (
+                              <Moment format="DD.MM.YYYY">
+                                {innslag.faktiskSluttdato}
+                              </Moment>
+                            )}
+                          </BodyShort>
                           {innslag.fiktivSluttdato && (
-                            <Hjelpetekst>
+                            <CustomHelpText>
                               <FormattedMessage id={"inst.fiktivSluttdato"} />
-                            </Hjelpetekst>
+                            </CustomHelpText>
                           )}
                         </div>
                         <div className="historikk__flex-kolonne">
@@ -93,7 +93,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                             to={`${location.pathname}/${innslag.registreringstidspunkt}`}
                             className="lenke"
                           >
-                            {innslag.institusjonsnavn}
+                            <BodyShort>{innslag.institusjonsnavn}</BodyShort>
                           </Link>
                         </div>
                       </div>
@@ -104,23 +104,26 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
           </>
         ) : (
           <div className="historikk__ingen-data">
-            <AlertStripeInfo>
+            <Alert variant="info">
               <FormattedMessage id="inst.ingendata" />
-            </AlertStripeInfo>
+            </Alert>
           </div>
         )}
         {instInfo.length > 20 && instInfo.length >= viewAmount && (
           <div className={"inst__se-flere"}>
-            <Flatknapp onClick={() => setViewAmount(viewAmount + 20)}>
+            <Button
+              variant={"tertiary"}
+              onClick={() => setViewAmount(viewAmount + 20)}
+            >
               <span>
-                <Normaltekst>Se flere</Normaltekst>
+                <BodyShort>Se flere</BodyShort>
               </span>
               <img
                 alt={"Se flere ikon"}
                 className={"inst__se-flere-icon"}
                 src={PilNed}
               />
-            </Flatknapp>
+            </Button>
           </div>
         )}
       </div>

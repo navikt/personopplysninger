@@ -1,13 +1,11 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-import { Normaltekst, Systemtittel } from "nav-frontend-typografi";
 import veilederIkon from "assets/img/Veileder.svg";
-import Veilederpanel from "nav-frontend-veilederpanel";
 import Error from "components/error/Error";
 import Spinner from "../4-personinfo/PersonInfo";
 import { formatName } from "utils/text";
 import { useStore } from "store/Context";
-import Lenke from "nav-frontend-lenker";
+import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
 
 const Header = () => {
   const [{ authInfo }] = useStore();
@@ -25,9 +23,9 @@ const Header = () => {
 
       return (
         <div className="header">
-          <Veilederpanel svg={Veileder} type={"plakat"} kompakt={true}>
+          <GuidePanel illustration={Veileder} poster>
             <div className="box__container header__content">
-              <Systemtittel>
+              <Heading size={"medium"} level={"2"}>
                 {fornavn ? (
                   <FormattedMessage
                     id="header.hello.name"
@@ -36,32 +34,33 @@ const Header = () => {
                 ) : (
                   <FormattedMessage id="header.hello" />
                 )}
-              </Systemtittel>
+              </Heading>
               <div className="header__seksjon">
-                <Normaltekst>
+                <BodyLong>
                   <FormattedMessage id="header.obs" />
-                </Normaltekst>
+                </BodyLong>
               </div>
               <div className="header__seksjon">
-                <Normaltekst>
+                <BodyLong>
                   <FormattedMessage
                     id="header.description"
                     values={{
                       a: (text: String) => (
-                        <Lenke
+                        <Link
                           href="/personvern"
                           target="blank"
                           rel="noopener noreferrer"
+                          className="header__link"
                         >
                           {text}
-                        </Lenke>
+                        </Link>
                       ),
                     }}
                   />
-                </Normaltekst>
+                </BodyLong>
               </div>
             </div>
-          </Veilederpanel>
+          </GuidePanel>
         </div>
       );
     case "ERROR":

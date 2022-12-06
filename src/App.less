@@ -6,7 +6,7 @@ body {
 }
 
 body {
-  background-color: @navGraBakgrunn;
+  background-color: var(--a-bg-subtle);
   margin: 0;
 
   .capitalize {
@@ -60,13 +60,14 @@ body {
   }
 }
 
-.input--xs,
-.input--s,
-.input--m,
-.input--l,
-.input--xl {
-  @media @maxMobile {
-    min-width: 100%;
+.knapp-med-ikon {
+  // Aligner ikon korrekt når de ligger i Button-komponent.
+  justify-content: center;
+  align-items: center;
+
+  .navds-label {
+    flex-direction: row;
+    display: flex;
   }
 }
 

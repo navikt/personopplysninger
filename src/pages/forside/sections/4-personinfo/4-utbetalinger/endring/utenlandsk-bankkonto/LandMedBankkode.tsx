@@ -2,7 +2,7 @@ import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Errors, Fields } from "calidation";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
+import { Alert } from "@navikt/ds-react";
 
 interface Props {
   errors: Errors;
@@ -18,7 +18,7 @@ const LandMedBankkode = (props: Props) => {
     <>
       <div className="utbetalinger__bic-bankkode">
         <div className="utbetalinger__alert">
-          <AlertStripeAdvarsel>
+          <Alert variant="warning">
             <FormattedMessage
               id="felter.landetbrukerbankkode.advarsel"
               values={{
@@ -28,11 +28,11 @@ const LandMedBankkode = (props: Props) => {
                 ),
               }}
             />
-          </AlertStripeAdvarsel>
+          </Alert>
         </div>
         <InputMedHjelpetekst
           id={"bickode"}
-          bredde={"M"}
+          size="medium"
           maxLength={11}
           submitted={submitted}
           value={fields.bickode}
@@ -57,7 +57,7 @@ const LandMedBankkode = (props: Props) => {
             <InputMedHjelpetekst
               id={"bankkode"}
               label={``}
-              bredde={"M"}
+              size="medium"
               submitted={submitted}
               value={fields.bankkode}
               error={errors.bankkode}
@@ -70,7 +70,7 @@ const LandMedBankkode = (props: Props) => {
       <div className="utbetalinger__adressefelter">
         <InputMedHjelpetekst
           id={"adresse1"}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse1}
           error={errors.adresse1}
@@ -81,7 +81,7 @@ const LandMedBankkode = (props: Props) => {
         <InputMedHjelpetekst
           id={"adresse2"}
           label={""}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse2}
           error={errors.adresse2}
@@ -91,7 +91,7 @@ const LandMedBankkode = (props: Props) => {
         <InputMedHjelpetekst
           id={"adresse3"}
           label={""}
-          bredde={"L"}
+          size="medium"
           maxLength={34}
           value={fields.adresse3}
           error={errors.adresse3}

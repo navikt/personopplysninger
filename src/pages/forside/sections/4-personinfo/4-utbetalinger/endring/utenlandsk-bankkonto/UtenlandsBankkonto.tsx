@@ -1,7 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
-import { AlertStripeInfo } from "nav-frontend-alertstriper";
 import { FormattedMessage, useIntl } from "react-intl";
+
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/select-kodeverk/SelectLand";
@@ -19,10 +19,9 @@ import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
 import { OptionType } from "types/option";
-import Lenke from "nav-frontend-lenker";
 import { useStore } from "store/Context";
-import { Feiloppsummering } from "nav-frontend-skjema";
 import { mapErrorsToSummary } from "utils/kontonummer";
+import { Alert, Link, ErrorSummary } from "@navikt/ds-react";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -226,21 +225,23 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     <Validation key={formKey} config={formConfig} initialValues={initialValues}>
       {({ errors, fields, submitted, setField }) => {
         const hasErrors = Object.values(errors).find((error) => error);
+
+        console.log(errors);
         return (
           <>
             <div className="utbetalinger__alert">
-              <AlertStripeInfo>
+              <Alert variant="info">
                 <FormattedMessage
                   id="felter.utenlandskkonto.info"
                   values={{
                     a: (text: String) => (
-                      <Lenke href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
+                      <Link href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
                         {text}
-                      </Lenke>
+                      </Link>
                     ),
                   }}
                 />
-              </AlertStripeInfo>
+              </Alert>
             </div>
             <SelectLand
               submitted={submitted}
@@ -275,8 +276,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
                 <InputMedHjelpetekst
                   id={"banknavn"}
-                  bredde={"L"}
+                  size="medium"
                   maxLength={35}
+                  htmlSize={37}
                   submitted={submitted}
                   value={fields.banknavn}
                   label={msg({ id: "felter.banknavn.label" })}
@@ -285,8 +287,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 />
                 <InputMedHjelpetekst
                   id={"kontonummer"}
-                  bredde={"L"}
+                  size="medium"
                   maxLength={36}
+                  htmlSize={37}
                   submitted={submitted}
                   value={fields.kontonummer}
                   hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
@@ -319,10 +322,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
               </>
             )}
             {submitted && hasErrors && fields?.land && (
-              <Feiloppsummering
-                tittel={msg({ id: "validation.fix.errors" })}
-                feil={mapErrorsToSummary(errors)}
-              />
+              <ErrorSummary title={msg({ id: "validation.fix.errors" })}>
+                {mapErrorsToSummary(errors).map((error, index) => (
+                  <ErrorSummary.Item
+                    key={error.skjemaelementId}
+                    href={`#${error.skjemaelementId}`}
+                  >
+                    {error.feilmelding}
+                  </ErrorSummary.Item>
+                ))}
+              </ErrorSummary>
             )}
           </>
         );

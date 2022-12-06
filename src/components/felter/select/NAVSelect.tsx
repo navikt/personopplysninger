@@ -1,29 +1,27 @@
 import React, { Fragment, useEffect } from "react";
 import Select, { components } from "react-select";
 import { useIntl } from "react-intl";
-import NavFrontendSpinner from "nav-frontend-spinner";
 import cls from "classnames";
-import { NedChevron } from "nav-frontend-chevron";
-import { Input } from "nav-frontend-skjema";
 import { FormatOptionLabelMeta } from "react-select/base";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
 import { FormattedMessage } from "react-intl";
 import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
-import { PopoverOrientering } from "nav-frontend-popover";
 import { HTTPError } from "../../error/Error";
+import { Label, Loader, TextField } from "@navikt/ds-react";
+import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { Expand } from "@navikt/ds-icons";
 
 interface Props {
   id?: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
+  htmlSize?: number;
   options: OptionType[];
   error: string | null;
   fetchError?: HTTPError;
   hjelpetekst?: string;
   openMenuOnClick?: boolean;
-  bredde?: string;
   onChange: (value?: OptionType) => void;
   borderUnderNth?: number;
   loading?: boolean;
@@ -39,12 +37,12 @@ interface OptionType {
 }
 
 const LoadingIndicator = () => (
-  <NavFrontendSpinner type="XS" className="KodeverkSelect__spinner" />
+  <Loader size="xsmall" className="KodeverkSelect__spinner" />
 );
 
 const DropdownIndicator = (props: any) => (
   <div className="KodeverkSelect__dropdown-indicator">
-    <NedChevron />
+    <Expand />
   </div>
 );
 
@@ -112,11 +110,9 @@ const NAVSelect = React.memo((props: Props) => {
   return !props.fetchError ? (
     <div className={containerClasses}>
       <div className="KodeverkSelect__header">
-        {props.label && (
-          <div className="skjemaelement__label">{props.label}</div>
-        )}
+        {props.label && <Label>{props.label}</Label>}
         {props.hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre}>
+          <CustomHelpText placement={"right"}>
             <FormattedMessage
               id={props.hjelpetekst}
               values={{
@@ -130,18 +126,15 @@ const NAVSelect = React.memo((props: Props) => {
                 ),
               }}
             />
-          </Hjelpetekst>
+          </CustomHelpText>
         )}
       </div>
-      <div
-        className={`${cls("KodeverkSelect--select-wrapper")} ${
-          props.bredde || "input--l"
-        }`}
-      >
+      <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
         <Select
           id={props.id}
           value={value}
           label={props.label}
+          htmlSize={props.htmlSize}
           placeholder={formatMessage({ id: "select.sok" })}
           classNamePrefix="KodeverkSelect"
           loadingMessage={() => formatMessage({ id: "select.loading" })}
@@ -160,23 +153,25 @@ const NAVSelect = React.memo((props: Props) => {
         />
       </div>
       {props.submitted && props.error && (
-        <div
+        <Label
+          as="p"
           role="alert"
           aria-live="assertive"
-          className="skjemaelement__feilmelding typo-feilmelding"
+          className="KodeverkSelect__feilmelding"
         >
           {props.error}
-        </div>
+        </Label>
       )}
     </div>
   ) : (
-    <Input
+    <TextField
       label={props.label}
       value={props.option && props.option.value}
+      htmlSize={props.htmlSize}
       onChange={(e) =>
         props.onChange({ label: props.label, value: e.target.value })
       }
-      feil={props.submitted && props.error}
+      error={props.submitted && props.error}
       placeholder={"+"}
     />
   );

@@ -257,6 +257,8 @@ A child who lives permanently with both mother and father can have two home addr
   "felter.bankens.adresse.label": "Bank address",
   "felter.land.label": "Country",
   "felter.kontonummer.label": "Account number",
+  "felter.kontonummer.grouplegend":
+    "Choose Norwegian or foreign account number",
   "felter.kontonummervalg.norsk": "Norwegian account number",
   "felter.kontonummervalg.utenlandsk": "Foreign account number",
   "felter.utenlandskkonto.info": `Be careful when you fill in bank information for foreign accounts so that the payment arrives at the correct location. NAV is not responsible for ensuring that the information is correct. Fees may apply. Read more about requirements for <a> foreign account numbers </a>.`,
@@ -311,7 +313,7 @@ A child who lives permanently with both mother and father can have two home addr
   "validation.kontonummer.idnr": `Account number cannot be a national identity number or D-number.`,
   "validation.ikke.iban": `US account numbers cannot be IBAN`,
   "validation.iban.pakrevd": "IBAN is required",
-  "validation.iban.gyldig": "Gyldig IBAN is required",
+  "validation.iban.gyldig": "Valid IBAN is required",
   "validation.iban.country": `You must enter an IBAN number from the country you have selected.`,
   "validation.banknavn.pakrevd": "Bank name is required",
   "validation.banknavn.ugyldig": `Contains invalid characters`,

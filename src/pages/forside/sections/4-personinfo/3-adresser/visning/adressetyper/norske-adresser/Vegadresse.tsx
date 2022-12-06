@@ -1,7 +1,7 @@
 import React from "react";
 import Postnummer from "../../../komponenter/Postnummer";
 import { Vegadresse as VegadresseType } from "types/adresser/adresse";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from "@navikt/ds-react";
 
 const Vegadresse = (props: VegadresseType) => {
   const { husnummer, husbokstav } = props;
@@ -11,19 +11,19 @@ const Vegadresse = (props: VegadresseType) => {
     <>
       {tilleggsnavn && (
         <div className="adresse__linje">
-          <Normaltekst>{tilleggsnavn}</Normaltekst>
+          <BodyShort>{tilleggsnavn}</BodyShort>
         </div>
       )}
       {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{coAdressenavn}</Normaltekst>
+          <BodyShort>{coAdressenavn}</BodyShort>
         </div>
       )}
       {(adressenavn || husnummer || husbokstav) && (
         <div className="adresse__linje">
-          <Normaltekst>
+          <BodyShort>
             {adressenavn || ""} {husnummer || ""} {husbokstav || ""}
-          </Normaltekst>
+          </BodyShort>
         </div>
       )}
       <Postnummer postnummer={postnummer} poststed={poststed} />

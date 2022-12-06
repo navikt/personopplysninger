@@ -1,7 +1,7 @@
 import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
 import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from "types/adresser/adresse";
 import GateAdresse from "../../../komponenter/GateAdresse";
+import { BodyShort } from "@navikt/ds-react";
 
 const UtenlanskAdresseIFrittFormat = (
   props: UtenlanskAdresseIFrittFormatType
@@ -17,7 +17,7 @@ const UtenlanskAdresseIFrittFormat = (
       />
       {land && (
         <div className="adresse__linje">
-          <Normaltekst>{land}</Normaltekst>
+          <BodyShort>{land}</BodyShort>
         </div>
       )}
     </>

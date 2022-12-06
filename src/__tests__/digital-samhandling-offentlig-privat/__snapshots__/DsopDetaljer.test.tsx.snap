@@ -7,12 +7,12 @@ exports[`DsopDetaljerView renders correctly 1`] = `
       class="detaljer__tittel"
     >
       <h2
-        class="typo-undertittel"
+        class="navds-heading navds-heading--small"
       >
         STOREBRAND LIVSFORSIKRING AS
       </h2>
       <p
-        class="typo-normal"
+        class="navds-body-short"
       >
         Organisasjonsnummer 958995369
       </p>
@@ -34,7 +34,7 @@ exports[`DsopDetaljerView renders correctly 1`] = `
               class="listelement__header"
             >
               <p
-                class="typo-element"
+                class="navds-label"
               >
                 Uthentingstidspunkt
               </p>
@@ -44,13 +44,16 @@ exports[`DsopDetaljerView renders correctly 1`] = `
             >
               18.06.2019 10:45
             </div>
+            <p
+              class="navds-body-short"
+            />
           </li>
           <li>
             <div
               class="listelement__header"
             >
               <p
-                class="typo-element"
+                class="navds-label"
               >
                 Personnummer
               </p>
@@ -60,13 +63,16 @@ exports[`DsopDetaljerView renders correctly 1`] = `
             >
               04019727454
             </div>
+            <p
+              class="navds-body-short"
+            />
           </li>
           <li>
             <div
               class="listelement__header"
             >
               <p
-                class="typo-element"
+                class="navds-label"
               >
                 Tema
               </p>
@@ -76,13 +82,16 @@ exports[`DsopDetaljerView renders correctly 1`] = `
             >
               AAP
             </div>
+            <p
+              class="navds-body-short"
+            />
           </li>
           <li>
             <div
               class="listelement__header"
             >
               <p
-                class="typo-element"
+                class="navds-label"
               >
                 Behandlingsgrunnlag
               </p>
@@ -92,6 +101,9 @@ exports[`DsopDetaljerView renders correctly 1`] = `
             >
               Samtykke
             </div>
+            <p
+              class="navds-body-short"
+            />
           </li>
         </ul>
       </div>
@@ -99,10 +111,14 @@ exports[`DsopDetaljerView renders correctly 1`] = `
         class="detaljer__container"
       >
         <button
-          class="knapp knapp--hoved"
-          type="submit"
+          class="navds-button navds-button--primary navds-button--medium"
         >
-          Last ned leverte data
+          <span
+            aria-live="polite"
+            class="navds-label"
+          >
+            Last ned leverte data
+          </span>
         </button>
       </div>
     </div>

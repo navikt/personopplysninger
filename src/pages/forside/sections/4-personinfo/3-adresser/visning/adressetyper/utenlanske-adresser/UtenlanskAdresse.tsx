@@ -1,6 +1,6 @@
 import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
 import { UtenlandskAdresse as UtenlandskAdresseType } from "types/adresser/adresse";
+import { BodyShort } from "@navikt/ds-react";
 
 const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
   const { postboksNummerNavn, postkode } = props;
@@ -11,39 +11,39 @@ const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
     <>
       {coAdressenavn && (
         <div className="adresse__linje">
-          <Normaltekst>{coAdressenavn}</Normaltekst>
+          <BodyShort>{coAdressenavn}</BodyShort>
         </div>
       )}
       {adressenavnNummer && (
         <div className="adresse__linje">
-          <Normaltekst>{adressenavnNummer}</Normaltekst>
+          <BodyShort>{adressenavnNummer}</BodyShort>
         </div>
       )}
       {bygningEtasjeLeilighet && (
         <div className="adresse__linje">
-          <Normaltekst>{bygningEtasjeLeilighet}</Normaltekst>
+          <BodyShort>{bygningEtasjeLeilighet}</BodyShort>
         </div>
       )}
       {postboksNummerNavn && (
         <div className="adresse__linje">
-          <Normaltekst>{postboksNummerNavn}</Normaltekst>
+          <BodyShort>{postboksNummerNavn}</BodyShort>
         </div>
       )}
       {(postkode || bySted) && (
         <div className="adresse__linje">
-          <Normaltekst>
+          <BodyShort>
             {postkode || ""} {bySted || ""}
-          </Normaltekst>
+          </BodyShort>
         </div>
       )}
       {regionDistriktOmraade && (
         <div className="adresse__linje">
-          <Normaltekst>{regionDistriktOmraade}</Normaltekst>
+          <BodyShort>{regionDistriktOmraade}</BodyShort>
         </div>
       )}
       {land && (
         <div className="adresse__linje">
-          <Normaltekst>{land}</Normaltekst>
+          <BodyShort>{land}</BodyShort>
         </div>
       )}
     </>

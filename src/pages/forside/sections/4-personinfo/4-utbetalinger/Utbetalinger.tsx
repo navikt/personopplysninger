@@ -15,16 +15,16 @@ import OpprettEllerEndreUtenlandsbank, {
   OutboundUtenlandsbankonto,
   setOutboundUtenlandsbankonto,
 } from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { Radio, RadioGruppe } from "nav-frontend-skjema";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Knapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "components/alert/Alert";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "components/httpFeilmelding/HttpFeilmelding";
 import { Form, FormContext, Validation } from "calidation";
 import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
+import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
 import { PersonInfo } from "types/personInfo";
 import { useStore } from "store/Context";
 import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
 import { normalizeNummer } from "../../../../../utils/formattering";
 
 interface Props {
@@ -40,8 +40,8 @@ const Utbetalinger = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const { kontonr, utenlandskbank, personident } = props;
   const [loading, settLoading] = useState<boolean>(false);
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
-  const [alert, settAlert] = useState<AlertType | undefined>();
+  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
+  const [alert, settAlert] = useState<Feilmelding | null>(null);
   const [, dispatch] = useStore();
 
   const initialValues = {
@@ -74,7 +74,7 @@ const Utbetalinger = (props: Props) => {
       postKontonummer(outbound[fields.norskEllerUtenlandsk]())
         .then(getUpdatedData)
         .then(onSuccess)
-        .catch((error: AlertType) => settAlert(error))
+        .catch((error: Feilmelding) => settAlert(error))
         .then(() => settLoading(false));
     }
   };
@@ -101,7 +101,7 @@ const Utbetalinger = (props: Props) => {
       <>
         {driftsmeldinger.pdl && (
           <div style={{ paddingBottom: "1rem" }}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
+            <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
           </div>
         )}
       </>
@@ -110,15 +110,19 @@ const Utbetalinger = (props: Props) => {
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
               return (
-                <RadioGruppe feil={submitted && errors.norskEllerUtenlandsk}>
+                <RadioGroup
+                  legend={msg({ id: "felter.kontonummer.grouplegend" })}
+                  error={submitted && errors.norskEllerUtenlandsk}
+                  value={fields.norskEllerUtenlandsk}
+                >
                   <Radio
-                    name={NORSK}
-                    checked={fields.norskEllerUtenlandsk === NORSK}
-                    label={msg({ id: "felter.kontonummervalg.norsk" })}
+                    value={NORSK}
                     onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
+                      setField({ norskEllerUtenlandsk: e.target.value })
                     }
-                  />
+                  >
+                    {msg({ id: "felter.kontonummervalg.norsk" })}
+                  </Radio>
                   {fields.norskEllerUtenlandsk === NORSK && (
                     <OpprettEllerEndreNorskKontonr
                       personident={personident}
@@ -126,13 +130,13 @@ const Utbetalinger = (props: Props) => {
                     />
                   )}
                   <Radio
-                    name={UTENLANDSK}
-                    checked={fields.norskEllerUtenlandsk === UTENLANDSK}
-                    label={msg({ id: "felter.kontonummervalg.utenlandsk" })}
+                    value={UTENLANDSK}
                     onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
+                      setField({ norskEllerUtenlandsk: e.target.value })
                     }
-                  />
+                  >
+                    {msg({ id: "felter.kontonummervalg.utenlandsk" })}
+                  </Radio>
                   {fields.norskEllerUtenlandsk === UTENLANDSK && (
                     <OpprettEllerEndreUtenlandsbank
                       personident={personident}
@@ -141,29 +145,28 @@ const Utbetalinger = (props: Props) => {
                   )}
                   <div className="utbetalinger__knapper">
                     <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"standard"}
-                        htmlType={"submit"}
+                      <Button
+                        variant={"primary"}
+                        type={"submit"}
                         disabled={submitted && !isValid}
-                        autoDisableVedSpinner={true}
-                        spinner={loading}
+                        loading={loading}
                       >
                         <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
+                      </Button>
                     </div>
                     <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"flat"}
-                        htmlType={"button"}
+                      <Button
+                        variant={"tertiary"}
+                        type={"button"}
                         disabled={loading}
                         onClick={() => settOpprettEllerEndre(false)}
                       >
                         <FormattedMessage id={"side.avbryt"} />
-                      </Knapp>
+                      </Button>
                     </div>
                   </div>
-                  {alert && <Alert {...alert} />}
-                </RadioGruppe>
+                  {alert && <HttpFeilmelding {...alert} />}
+                </RadioGroup>
               );
             }}
           </Validation>

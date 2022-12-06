@@ -1,6 +1,5 @@
 import React from "react";
 import Kilde from "components/kilde/Kilde";
-import { Undertittel } from "nav-frontend-typografi";
 import { FormattedMessage } from "react-intl";
 import eksternLenkeIkon from "../../../../../../assets/img/Link.svg";
 import { Bostedsadresse as IBostedsadresse } from "../../../../../../types/adresser/bostedsadresse";
@@ -9,6 +8,7 @@ import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adr
 import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
 import Adresse from "./Adresse";
 import { useStore } from "../../../../../../store/Context";
+import { Heading } from "@navikt/ds-react";
 
 interface Props {
   bostedsadresse?: IBostedsadresse;
@@ -19,12 +19,8 @@ interface Props {
 
 const Folkeregisteret = (props: Props) => {
   const [{ locale }] = useStore();
-  const {
-    bostedsadresse,
-    deltBosted,
-    oppholdsadresse,
-    kontaktadresser,
-  } = props;
+  const { bostedsadresse, deltBosted, oppholdsadresse, kontaktadresser } =
+    props;
 
   let key = 0;
 
@@ -35,9 +31,9 @@ const Folkeregisteret = (props: Props) => {
   return (
     <div>
       <div className="underseksjon__header">
-        <Undertittel>
+        <Heading size={"small"} level={"3"}>
           <FormattedMessage id="adresse.overskrift" />
-        </Undertittel>
+        </Heading>
       </div>
 
       {bostedsadresse && (

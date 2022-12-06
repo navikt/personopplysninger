@@ -6,7 +6,7 @@ exports[`PageNotFound renders correctly 1`] = `
     class="notfound__container"
   >
     <h1
-      class="typo-sidetittel"
+      class="navds-heading navds-heading--large"
     >
       404
     </h1>
