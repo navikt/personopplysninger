@@ -95,7 +95,7 @@ const Telefonnummer = (props: Props) => {
   };
 
   return (
-    <>
+    <div className={"tlfnummer__rad"}>
       <div className={"tlfnummer__container"}>
         <div className={"tlfnummer__verdi"}>
           <Label as="p">
@@ -148,7 +148,7 @@ const Telefonnummer = (props: Props) => {
         />
       )}
       {alert && <HttpFeilmelding {...alert} />}
-    </>
+    </div>
   );
 };
 

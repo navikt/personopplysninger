@@ -123,76 +123,80 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
   </div>
   <div>
     <div
-      class="tlfnummer__container"
+      class="tlfnummer__rad"
     >
       <div
-        class="tlfnummer__verdi"
+        class="tlfnummer__container"
       >
-        <p
-          class="navds-label"
+        <div
+          class="tlfnummer__verdi"
         >
-          Telefon 
-        </p>
-        <p
-          class="navds-body-short"
-        >
-          <span>
-            +47 
-          </span>
-          408 53 158
-        </p>
-      </div>
-      <div
-        class="tlfnummer__knapper"
-      >
-        <button
-          aria-label="Endre telefonnummer"
-          class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-          type="button"
-        >
-          <span
-            aria-live="polite"
+          <p
             class="navds-label"
           >
-            <div
-              class="tlfnummer__knapp-ikon"
-            >
-              <img
-                alt=""
-                src="Pencil.svg"
-              />
-            </div>
-            <div
-              class="tlfnummer__knapp-tekst"
-            >
-              Endre
-            </div>
-          </span>
-        </button>
-        <button
-          aria-label="Slett telefonnummer"
-          class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-          type="button"
-        >
-          <span
-            aria-live="polite"
-            class="navds-label"
+            Telefon 
+          </p>
+          <p
+            class="navds-body-short"
           >
-            <div
-              class="tlfnummer__knapp-ikon"
+            <span>
+              +47 
+            </span>
+            408 53 158
+          </p>
+        </div>
+        <div
+          class="tlfnummer__knapper"
+        >
+          <button
+            aria-label="Endre telefonnummer"
+            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+            type="button"
+          >
+            <span
+              aria-live="polite"
+              class="navds-label"
             >
-              <img
-                alt=""
-                src="Slett.svg"
-              />
-            </div>
-            <div
-              class="tlfnummer__knapp-tekst"
+              <div
+                class="tlfnummer__knapp-ikon"
+              >
+                <img
+                  alt=""
+                  src="Pencil.svg"
+                />
+              </div>
+              <div
+                class="tlfnummer__knapp-tekst"
+              >
+                Endre
+              </div>
+            </span>
+          </button>
+          <button
+            aria-label="Slett telefonnummer"
+            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+            type="button"
+          >
+            <span
+              aria-live="polite"
+              class="navds-label"
             >
-              Slett
-            </div>
-          </span>
-        </button>
+              <div
+                class="tlfnummer__knapp-ikon"
+              >
+                <img
+                  alt=""
+                  src="Slett.svg"
+                />
+              </div>
+              <div
+                class="tlfnummer__knapp-tekst"
+              >
+                Slett
+              </div>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
