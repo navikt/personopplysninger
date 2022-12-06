@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { Form, FormContext, Validation } from "calidation";
 import { Button, Radio, RadioGroup } from "@navikt/ds-react";
 import OpprettEllerEndreNorskKontonr, {
-  OutboundNorskKontonummer,
   setOutboundNorskKontonummer,
 } from "./norsk-bankkonto/NorskKontonummer";
 import OpprettEllerEndreUtenlandsbank, {
-  OutboundUtenlandsbankonto,
   setOutboundUtenlandsbankonto,
 } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -22,6 +19,12 @@ import {
 import { PersonInfo } from "../../../../../../types/personInfo";
 import { useStore } from "../../../../../../store/Context";
 import { UtenlandskBankkonto } from "../../../../../../types/personalia";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import {
+  FormFields,
+  OutboundNorskKontonummer,
+  OutboundUtenlandsbankonto,
+} from "./types";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -35,44 +38,41 @@ const UTENLANDSK = "UTENLANDSK";
 
 const KontonummerForm = (props: Props) => {
   const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
+
+  const methods = useForm<FormFields>({
+    reValidateMode: "onChange",
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    setValue,
+    formState: { errors, isValid, isSubmitted },
+  } = methods;
+
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState<boolean>(false);
   const [alert, settAlert] = useState<Feilmelding | null>(null);
+
   const [, dispatch] = useStore();
 
-  const initialValues = {
-    norskEllerUtenlandsk: kontonr
-      ? NORSK
-      : utenlandskbank
-      ? UTENLANDSK
-      : undefined,
-  };
+  const submitEndre = (values: FieldValues) => {
+    type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
+    const outbound: { [key: string]: () => Outbound } = {
+      NORSK: () => {
+        values.kontonummer = normalizeNummer(values.kontonummer);
+        return setOutboundNorskKontonummer(values);
+      },
+      UTENLANDSK: () => setOutboundUtenlandsbankonto(values),
+    };
 
-  const config = {
-    norskEllerUtenlandsk: {
-      isRequired: msg({ id: "felter.type.velg" }),
-    },
-  };
-
-  const submitEndre = (context: FormContext) => {
-    const { isValid, fields } = context;
-    if (isValid) {
-      type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
-      const outbound: { [key: string]: () => Outbound } = {
-        NORSK: () => {
-          fields.kontonummer = normalizeNummer(fields.kontonummer);
-          return setOutboundNorskKontonummer(context);
-        },
-        UTENLANDSK: () => setOutboundUtenlandsbankonto(context),
-      };
-
-      settLoading(true);
-      postKontonummer(outbound[fields.norskEllerUtenlandsk]())
-        .then(getUpdatedData)
-        .then(onSuccess)
-        .catch((error: Feilmelding) => settAlert(error))
-        .then(() => settLoading(false));
-    }
+    settLoading(true);
+    postKontonummer(outbound[values.norskEllerUtenlandsk]())
+      .then(getUpdatedData)
+      .then(onSuccess)
+      .catch((error: Feilmelding) => settAlert(error))
+      .then(() => settLoading(false));
   };
 
   const getUpdatedData = () =>
@@ -88,72 +88,70 @@ const KontonummerForm = (props: Props) => {
   };
 
   return (
-    <Form onSubmit={submitEndre}>
-      <Validation config={config} initialValues={initialValues}>
-        {({ submitted, isValid, errors, setField, fields }) => {
-          return (
-            <RadioGroup
-              legend={msg({ id: "felter.kontonummer.grouplegend" })}
-              error={submitted && errors.norskEllerUtenlandsk}
-              value={fields.norskEllerUtenlandsk}
-            >
-              <Radio
-                value={NORSK}
-                onChange={(e) =>
-                  setField({ norskEllerUtenlandsk: e.target.value })
-                }
+    <FormProvider {...methods}>
+      <form onSubmit={handleSubmit(submitEndre)}>
+        <RadioGroup
+          {...register("norskEllerUtenlandsk", {
+            required: msg({ id: "felter.type.velg" }),
+          })}
+          legend={msg({ id: "felter.kontonummer.grouplegend" })}
+          error={isSubmitted && errors?.norskEllerUtenlandsk?.message}
+          value={watch().norskEllerUtenlandsk}
+          defaultValue={
+            kontonr ? NORSK : utenlandskbank ? UTENLANDSK : undefined
+          }
+        >
+          <Radio
+            value={NORSK}
+            onChange={(e) => setValue("norskEllerUtenlandsk", e.target.value)}
+          >
+            {msg({ id: "felter.kontonummervalg.norsk" })}
+          </Radio>
+          {watch().norskEllerUtenlandsk === NORSK && (
+            <OpprettEllerEndreNorskKontonr
+              personident={personident}
+              kontonummer={kontonr}
+            />
+          )}
+          <Radio
+            value={UTENLANDSK}
+            onChange={(e) => setValue("norskEllerUtenlandsk", e.target.value)}
+          >
+            {msg({ id: "felter.kontonummervalg.utenlandsk" })}
+          </Radio>
+          {watch().norskEllerUtenlandsk === UTENLANDSK && (
+            <OpprettEllerEndreUtenlandsbank
+              personident={personident}
+              utenlandskbank={utenlandskbank}
+            />
+          )}
+          <div className="utbetalinger__knapper">
+            <div className="utbetalinger__knapp">
+              <Button
+                variant={"primary"}
+                type={"submit"}
+                disabled={isSubmitted && !isValid}
+                loading={loading}
               >
-                {msg({ id: "felter.kontonummervalg.norsk" })}
-              </Radio>
-              {fields.norskEllerUtenlandsk === NORSK && (
-                <OpprettEllerEndreNorskKontonr
-                  personident={personident}
-                  kontonummer={kontonr}
-                />
-              )}
-              <Radio
-                value={UTENLANDSK}
-                onChange={(e) =>
-                  setField({ norskEllerUtenlandsk: e.target.value })
-                }
+                <FormattedMessage id={"side.lagre"} />
+              </Button>
+            </div>
+            <div className="utbetalinger__knapp">
+              <Button
+                variant={"tertiary"}
+                type={"button"}
+                disabled={loading}
+                onClick={() => settOpprettEllerEndre(false)}
               >
-                {msg({ id: "felter.kontonummervalg.utenlandsk" })}
-              </Radio>
-              {fields.norskEllerUtenlandsk === UTENLANDSK && (
-                <OpprettEllerEndreUtenlandsbank
-                  personident={personident}
-                  utenlandskbank={utenlandskbank}
-                />
-              )}
-              <div className="utbetalinger__knapper">
-                <div className="utbetalinger__knapp">
-                  <Button
-                    variant={"primary"}
-                    type={"submit"}
-                    disabled={submitted && !isValid}
-                    loading={loading}
-                  >
-                    <FormattedMessage id={"side.lagre"} />
-                  </Button>
-                </div>
-                <div className="utbetalinger__knapp">
-                  <Button
-                    variant={"tertiary"}
-                    type={"button"}
-                    disabled={loading}
-                    onClick={() => settOpprettEllerEndre(false)}
-                  >
-                    <FormattedMessage id={"side.avbryt"} />
-                  </Button>
-                </div>
-              </div>
-              {alert && <HttpFeilmelding {...alert} />}
-            </RadioGroup>
-          );
-        }}
-      </Validation>
-      <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-    </Form>
+                <FormattedMessage id={"side.avbryt"} />
+              </Button>
+            </div>
+          </div>
+          {alert && <HttpFeilmelding {...alert} />}
+        </RadioGroup>
+        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+      </form>
+    </FormProvider>
   );
 };
 

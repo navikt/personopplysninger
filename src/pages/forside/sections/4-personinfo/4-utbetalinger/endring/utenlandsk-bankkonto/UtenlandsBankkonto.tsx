@@ -1,7 +1,6 @@
 import React from "react";
-import { FormContext, Validation, ValidatorContext } from "calidation";
+import { Validation, ValidatorContext } from "calidation";
 import { FormattedMessage, useIntl } from "react-intl";
-
 import { UtenlandskBankkonto } from "types/personalia";
 import { electronicFormatIBAN, isValidIBAN } from "ibantools";
 import SelectLand from "components/felter/select-kodeverk/SelectLand";
@@ -18,44 +17,15 @@ import {
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
-import { OptionType } from "types/option";
 import { useStore } from "store/Context";
 import { mapErrorsToSummary } from "utils/kontonummer";
-import { Alert, Link, ErrorSummary } from "@navikt/ds-react";
+import { Alert, ErrorSummary, Link } from "@navikt/ds-react";
+import { FieldValues } from "react-hook-form";
+import { FormFields } from "../types";
 
 interface Props {
   personident?: { verdi: string; type: string };
   utenlandskbank?: UtenlandskBankkonto;
-}
-
-interface FormFields {
-  land?: OptionType;
-  valuta?: OptionType;
-  banknavn?: string;
-  kontonummer?: string;
-  bickode?: string;
-  retningsnummer?: string;
-  bankkode?: string;
-  adresse1?: string;
-  adresse2?: string;
-  adresse3?: string;
-}
-
-export interface OutboundUtenlandsbankonto {
-  value: string | null;
-  utenlandskKontoInformasjon: {
-    landkode: string;
-    landkodeTobokstavs?: string;
-    valuta: string;
-    swift?: string;
-    bank: {
-      adresseLinje1?: string;
-      adresseLinje2?: string;
-      adresseLinje3?: string;
-      kode?: string;
-      navn: string;
-    };
-  };
 }
 
 export const BIC = "BIC";
@@ -340,11 +310,11 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   );
 };
 
-export const setOutboundUtenlandsbankonto = (c: FormContext) => {
-  const { bickode, ...fields } = c.fields;
+export const setOutboundUtenlandsbankonto = (values: FieldValues) => {
+  const { bickode, ...fields } = values;
 
-  const sendBankkode = validerBankkode(c.fields);
-  const sendBICKode = validerBic(c.fields);
+  const sendBankkode = validerBankkode(values);
+  const sendBICKode = validerBic(values);
   const sendAdresse = !(
     !brukerBankkode(fields.land) && harValgtBic(fields.bankidentifier)
   );

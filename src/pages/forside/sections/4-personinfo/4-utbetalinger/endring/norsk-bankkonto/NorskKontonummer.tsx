@@ -1,77 +1,61 @@
 import React from "react";
-import { FormContext, Validation, ValidatorContext } from "calidation";
 import { useIntl } from "react-intl";
-import { useStore } from "../../../../../../../store/Context";
 import { TextField } from "@navikt/ds-react";
+import { normalizeNummer } from "../../../../../../../utils/formattering";
+import { FieldValues, useFormContext } from "react-hook-form";
+import {
+  isNormalizedLength,
+  isNormalizedMod11,
+} from "../../../../../../../utils/validators";
 
 interface Props {
   personident?: { verdi: string; type: string };
   kontonummer?: string;
 }
 
-export interface OutboundNorskKontonummer {
-  value: string;
-}
-
-interface Fields {
-  kontonummer?: string;
-}
-
 const OpprettEllerEndreNorskKontonr = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const [{ formKey }] = useStore();
   const { kontonummer } = props;
 
-  const initialValues: Fields = {
-    ...(kontonummer && {
-      kontonummer: kontonummer,
-    }),
-  };
-
-  const formConfig = {
-    kontonummer: {
-      isRequired: msg({ id: "validation.kontonummer.pakrevd" }),
-      isNormalizedLength: {
-        message: msg({ id: "validation.kontonummer.elleve" }),
-        length: 11,
-      },
-      isMod11: {
-        message: msg({ id: "validation.kontonummer.mod11" }),
-      },
-      isNotYourSSN: {
-        message: msg({ id: "validation.kontonummer.idnr" }),
-        validateIf: ({ fields }: ValidatorContext) =>
-          fields.kontonummer === props.personident?.verdi,
-      },
-    },
-  };
+  const {
+    register,
+    formState: { errors, isSubmitted },
+  } = useFormContext();
 
   return (
-    <Validation key={formKey} config={formConfig} initialValues={initialValues}>
-      {({ errors, fields, submitted, setField }) => (
-        <>
-          <div className="utbetalinger__input input--m">
-            <TextField
-              size={"medium"}
-              htmlSize={14}
-              maxLength={16}
-              value={fields.kontonummer}
-              label={msg({ id: "felter.kontonummer.label" })}
-              onChange={(e) => setField({ kontonummer: e.target.value })}
-              error={submitted && errors.kontonummer}
-            />
-          </div>
-        </>
-      )}
-    </Validation>
+    <>
+      <div className="utbetalinger__input input--m">
+        <TextField
+          {...register("kontonummer", {
+            required: msg({ id: "validation.kontonummer.pakrevd" }),
+            validate: {
+              isNormalizedLength11: (v) =>
+                isNormalizedLength(v, 11) ||
+                msg({ id: "validation.kontonummer.elleve" }),
+              isMod11: (v) =>
+                isNormalizedMod11(v) ||
+                msg({ id: "validation.kontonummer.mod11" }),
+              isNotYourSSN: (v) =>
+                v !== props.personident?.verdi ||
+                msg({ id: "validation.kontonummer.idnr" }),
+            },
+          })}
+          defaultValue={kontonummer || undefined}
+          size={"medium"}
+          htmlSize={14}
+          maxLength={16}
+          label={msg({ id: "felter.kontonummer.label" })}
+          error={isSubmitted && errors?.kontonummer?.message}
+        />
+      </div>
+    </>
   );
 };
 
-export const setOutboundNorskKontonummer = (c: FormContext) => {
-  const { fields } = c;
-  const { kontonummer } = fields;
+export const setOutboundNorskKontonummer = (values: FieldValues) => {
+  const { kontonummer } = values;
   return {
-    value: kontonummer,
+    value: normalizeNummer(kontonummer),
   };
 };
 

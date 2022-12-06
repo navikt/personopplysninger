@@ -1,10 +1,10 @@
 import { SimpleValidatorConfig, ValidatorContext } from "calidation";
 import { isValidBIC, isValidIBAN } from "ibantools";
-import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
 import { normalizeNummer } from "./formattering";
 import { Tlfnr } from "../types/personalia";
+import { isMod11 } from "./kontonummer";
 
 export const isNumeric = (value: string) => {
   return /^\d+$/.test(value);
@@ -16,6 +16,13 @@ export const isNotAlreadyRegistered = (value: string, tlfnr: Tlfnr) => {
 
 export const isNorwegianNumber = (landskode: OptionType) =>
   landskode.value === "+47";
+
+export const isNormalizedLength = (value: string, length: number) => {
+  return normalizeNummer(value).length === length;
+};
+
+export const isNormalizedMod11 = (value: string) =>
+  isMod11(normalizeNummer(value));
 
 export const extraValidators = {
   /*
