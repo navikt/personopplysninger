@@ -75,93 +75,89 @@ const TelefonnummerForm = (props: Props) => {
     watch().landskode && watch().landskode.value === "+47" ? 8 : 16;
 
   return (
-    <>
-      <form
-        key={formKey}
-        onSubmit={handleSubmit(submit)}
-        className={"tlfnummer__rad-leggtil"}
-      >
-        <>
-          <div className={"tlfnummer__container"}>
-            <div className={"tlfnummer__verdi"}>
-              <Label as="p">
-                <FormattedMessage id="side.leggtil" />
-              </Label>
-            </div>
+    <form
+      key={formKey}
+      onSubmit={handleSubmit(submit)}
+      className={"tlfnummer__rad-leggtil"}
+    >
+      <div className={"tlfnummer__container"}>
+        <div className={"tlfnummer__verdi"}>
+          <Label as="p">
+            <FormattedMessage id="side.leggtil" />
+          </Label>
+        </div>
+      </div>
+      <div className="tlfnummer__form">
+        <div className={"tlfnummer__input-container"}>
+          <div
+            className={classNames(
+              "tlfnummer__input",
+              "tlfnummer__inputLandkode"
+            )}
+          >
+            <SelectLandskode
+              {...register("landskode", {
+                required: msg({ id: "validation.retningsnr.pakrevd" }),
+              })}
+              option={watch().landskode}
+              label={msg({ id: "felter.landkode.label" })}
+              onChange={(option) => option && setValue("landskode", option)}
+              error={errors?.landskode?.message}
+              submitted={isSubmitted}
+            />
           </div>
-          <div className="tlfnummer__form">
-            <div className={"tlfnummer__input-container"}>
-              <div
-                className={classNames(
-                  "tlfnummer__input",
-                  "tlfnummer__inputLandkode"
-                )}
-              >
-                <SelectLandskode
-                  {...register("landskode", {
-                    required: msg({ id: "validation.retningsnr.pakrevd" }),
-                  })}
-                  option={watch().landskode}
-                  label={msg({ id: "felter.landkode.label" })}
-                  onChange={(option) => option && setValue("landskode", option)}
-                  error={errors?.landskode?.message}
-                  submitted={isSubmitted}
-                />
-              </div>
-              <div className={"tlfnummer__input input--m"}>
-                <TextField
-                  {...register("tlfnummer", {
-                    required: msg({ id: "validation.tlfnr.pakrevd" }),
-                    validate: {
-                      isNumeric: (v) =>
-                        isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
-                      isNotAlreadyRegistered: (v) =>
-                        props.type === "endre" ||
-                        (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
-                        msg({ id: "validation.tlfnr.eksisterer" }),
-                      isValidNorwegianNumber: (v) =>
-                        isNorwegianNumber(watch().landskode) ||
-                        v.length === 8 ||
-                        msg({ id: "validation.tlfnr.norske" }),
-                    },
-                  })}
-                  type={"tel"}
-                  size={"medium"}
-                  maxLength={tlfNummerMaxLength}
-                  label={msg({ id: "felter.tlfnr.label" })}
-                  error={errors?.tlfnummer?.message}
-                />
-              </div>
-            </div>
-            <div className={"tlfnummer__knapper"}>
-              <div className={"tlfnummer__submit"}>
-                <Button
-                  variant={props.type === "opprett" ? "primary" : "secondary"}
-                  type={"submit"}
-                  disabled={isSubmitted && !isValid}
-                  loading={loading}
-                >
-                  <FormattedMessage id={"side.lagre"} />
-                </Button>
-              </div>
-              <Button
-                variant={"tertiary"}
-                type={"button"}
-                disabled={loading}
-                className={"tlfnummer__knapp"}
-                onClick={() => {
-                  settAlert(undefined);
-                  props.onCancelClick();
-                }}
-              >
-                <FormattedMessage id={"side.avbryt"} />
-              </Button>
-            </div>
-            {alert && <HttpFeilmelding {...alert} />}
+          <div className={"tlfnummer__input input--m"}>
+            <TextField
+              {...register("tlfnummer", {
+                required: msg({ id: "validation.tlfnr.pakrevd" }),
+                validate: {
+                  isNumeric: (v) =>
+                    isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
+                  isNotAlreadyRegistered: (v) =>
+                    props.type === "endre" ||
+                    (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
+                    msg({ id: "validation.tlfnr.eksisterer" }),
+                  isValidNorwegianNumber: (v) =>
+                    isNorwegianNumber(watch().landskode) ||
+                    v.length === 8 ||
+                    msg({ id: "validation.tlfnr.norske" }),
+                },
+              })}
+              type={"tel"}
+              size={"medium"}
+              maxLength={tlfNummerMaxLength}
+              label={msg({ id: "felter.tlfnr.label" })}
+              error={errors?.tlfnummer?.message}
+            />
           </div>
-        </>
-      </form>
-    </>
+        </div>
+        <div className={"tlfnummer__knapper"}>
+          <div className={"tlfnummer__submit"}>
+            <Button
+              variant={props.type === "opprett" ? "primary" : "secondary"}
+              type={"submit"}
+              disabled={isSubmitted && !isValid}
+              loading={loading}
+            >
+              <FormattedMessage id={"side.lagre"} />
+            </Button>
+          </div>
+          <Button
+            variant={"tertiary"}
+            type={"button"}
+            disabled={loading}
+            className={"tlfnummer__knapp"}
+            onClick={() => {
+              settAlert(undefined);
+              props.onCancelClick();
+            }}
+          >
+            <FormattedMessage id={"side.avbryt"} />
+          </Button>
+        </div>
+        {alert && <HttpFeilmelding {...alert} />}
+      </div>
+    </form>
   );
 };
 export default TelefonnummerForm;

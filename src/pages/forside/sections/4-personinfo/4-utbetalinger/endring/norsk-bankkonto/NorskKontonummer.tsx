@@ -1,7 +1,7 @@
 import React from "react";
 import { FormContext, Validation, ValidatorContext } from "calidation";
 import { useIntl } from "react-intl";
-import { useStore } from "../../../../../../store/Context";
+import { useStore } from "../../../../../../../store/Context";
 import { TextField } from "@navikt/ds-react";
 
 interface Props {
