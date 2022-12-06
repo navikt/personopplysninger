@@ -36,7 +36,7 @@ const Adresse = (props: Props) => {
 
   const gyldigTilOgMed = props.gyldigTilOgMed;
   const gyldigTilOgMedFormatert = gyldigTilOgMed
-    ? moment(gyldigTilOgMed).format("L")
+    ? moment(gyldigTilOgMed).format("DD.MM.YYYY")
     : "";
 
   const flyttedato = props.angittFlyttedato;
