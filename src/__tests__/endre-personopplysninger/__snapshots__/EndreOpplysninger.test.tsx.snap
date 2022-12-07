@@ -413,7 +413,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                               <div
                                 class="content "
                               >
-                                14/07/2020
+                                14.07.2020
                               </div>
                               <p
                                 class="navds-body-short"
@@ -772,7 +772,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                             <div
                               class="content "
                             >
-                              07/20/2020
+                              20.07.2020
                             </div>
                             <p
                               class="navds-body-short"
