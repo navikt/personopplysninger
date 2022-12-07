@@ -8,7 +8,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
-import { Button, Label, TextField } from "@navikt/ds-react";
+import { Button, TextField } from "@navikt/ds-react";
 import classNames from "classnames";
 import { FieldValues, useForm } from "react-hook-form";
 import {
@@ -107,9 +107,9 @@ const TelefonnummerForm = (props: Props) => {
                   (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
                   msg({ id: "validation.tlfnr.eksisterer" }),
                 isValidNorwegianNumber: (v) =>
-                  isNorwegianNumber(watch().landskode) ||
-                  v.length === 8 ||
-                  msg({ id: "validation.tlfnr.norske" }),
+                  isNorwegianNumber(watch().landskode)
+                    ? v.length === 8 || msg({ id: "validation.tlfnr.norske" })
+                    : true,
               },
             })}
             type={"tel"}
