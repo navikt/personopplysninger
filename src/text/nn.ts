@@ -66,6 +66,7 @@ export default {
   "personalia.tlfnr.ingenData": `Vi har ikkje registrert telefonnummer på deg i våre register. <br></br>Har du eit telefonnummer vi kan kontakte deg på?`,
   "personalia.tlfnr.telefon": `Telefon {x}`,
   "personalia.tlfnr.slett.alert": `Er du sikker på at du vil fjerne dette nummeret?`,
+  "personalia.tlfnr.paagaaendeendring.feilmelding": `Vi jobbar med å registrere telefonnummeret du har lagt til. Det vil snart bli synleg!`,
   "personalia.spraak": `Språk/målform`,
   "personalia.dkif.overskrift": `Opplysningar frå Kontakt - og reservasjonsregisteret`,
   "personalia.dkif.beskrivelse": `Kontakt- og reservasjonsregisteret er eit felles nasjonalt register. NAV må ha kontaktopplysningane dine i dette registeret for å kunne sende deg meldingar og dokument elektronisk.`,

@@ -12,7 +12,11 @@ import instInfo from "./app/fetch/inst-info.json";
 import medlInfo from "./app/fetch/medl-info.json";
 import auth from "./app/fetch/auth.json";
 
-const { REACT_APP_API_URL, REACT_APP_DSOP_URL, REACT_APP_INNLOGGINGSSTATUS_URL } = process.env;
+const {
+  REACT_APP_API_URL,
+  REACT_APP_DSOP_URL,
+  REACT_APP_INNLOGGINGSSTATUS_URL,
+} = process.env;
 
 // Config
 fetchMock.config.fallbackToNetwork = true;
@@ -91,7 +95,7 @@ export const setUpMock = async () => {
     );
   mockPostEndreTelefonnr &&
     fetchMock.post(`${REACT_APP_API_URL}/endreTelefonnummer`, () =>
-      delay(2000, 3000).then(() => ({ statusType: "OK" }))
+      delay(2000, 3000).then(() => ({ statusType: "REJECTED" }))
     );
   mockPostSlettTlfnr &&
     fetchMock.post(`${REACT_APP_API_URL}/slettTelefonnummer`, () =>
