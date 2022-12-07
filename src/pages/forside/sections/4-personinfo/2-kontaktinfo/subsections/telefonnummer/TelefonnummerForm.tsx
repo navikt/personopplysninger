@@ -8,7 +8,7 @@ import HttpFeilmelding, {
   Feilmelding,
 } from "components/httpFeilmelding/HttpFeilmelding";
 import { Tlfnr } from "../../../../../../../types/personalia";
-import { Button, Label, TextField } from "@navikt/ds-react";
+import { Button, TextField } from "@navikt/ds-react";
 import classNames from "classnames";
 import { FieldValues, useForm } from "react-hook-form";
 import {
@@ -35,6 +35,7 @@ const TelefonnummerForm = (props: Props) => {
     handleSubmit,
     watch,
     setValue,
+    trigger,
     formState: { errors, isValid, isSubmitted },
   } = useForm({
     reValidateMode: "onChange",
@@ -78,85 +79,76 @@ const TelefonnummerForm = (props: Props) => {
     <form
       key={formKey}
       onSubmit={handleSubmit(submit)}
-      className={"tlfnummer__rad-leggtil"}
+      className={"tlfnummer__form"}
     >
-      <div className={"tlfnummer__container"}>
-        <div className={"tlfnummer__verdi"}>
-          <Label as="p">
-            <FormattedMessage id="side.leggtil" />
-          </Label>
+      <div className={"tlfnummer__input-container"}>
+        <div
+          className={classNames("tlfnummer__input", "tlfnummer__inputLandkode")}
+        >
+          <SelectLandskode
+            {...register("landskode", {
+              required: msg({ id: "validation.retningsnr.pakrevd" }),
+            })}
+            option={watch().landskode}
+            label={msg({ id: "felter.landkode.label" })}
+            onChange={(option) => {
+              isSubmitted && trigger("tlfnummer");
+              option && setValue("landskode", option);
+            }}
+            error={errors?.landskode?.message}
+            submitted={isSubmitted}
+          />
+        </div>
+        <div className={"tlfnummer__input input--m"}>
+          <TextField
+            {...register("tlfnummer", {
+              required: msg({ id: "validation.tlfnr.pakrevd" }),
+              validate: {
+                isNumeric: (v) =>
+                  isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
+                isNotAlreadyRegistered: (v) =>
+                  props.type === "endre" ||
+                  (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
+                  msg({ id: "validation.tlfnr.eksisterer" }),
+                isValidNorwegianNumber: (v) =>
+                  isNorwegianNumber(watch().landskode)
+                    ? v.length === 8 || msg({ id: "validation.tlfnr.norske" })
+                    : true,
+              },
+            })}
+            type={"tel"}
+            size={"medium"}
+            maxLength={tlfNummerMaxLength}
+            label={msg({ id: "felter.tlfnr.label" })}
+            error={errors?.tlfnummer?.message}
+          />
         </div>
       </div>
-      <div className="tlfnummer__form">
-        <div className={"tlfnummer__input-container"}>
-          <div
-            className={classNames(
-              "tlfnummer__input",
-              "tlfnummer__inputLandkode"
-            )}
-          >
-            <SelectLandskode
-              {...register("landskode", {
-                required: msg({ id: "validation.retningsnr.pakrevd" }),
-              })}
-              option={watch().landskode}
-              label={msg({ id: "felter.landkode.label" })}
-              onChange={(option) => option && setValue("landskode", option)}
-              error={errors?.landskode?.message}
-              submitted={isSubmitted}
-            />
-          </div>
-          <div className={"tlfnummer__input input--m"}>
-            <TextField
-              {...register("tlfnummer", {
-                required: msg({ id: "validation.tlfnr.pakrevd" }),
-                validate: {
-                  isNumeric: (v) =>
-                    isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
-                  isNotAlreadyRegistered: (v) =>
-                    props.type === "endre" ||
-                    (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
-                    msg({ id: "validation.tlfnr.eksisterer" }),
-                  isValidNorwegianNumber: (v) =>
-                    isNorwegianNumber(watch().landskode) ||
-                    v.length === 8 ||
-                    msg({ id: "validation.tlfnr.norske" }),
-                },
-              })}
-              type={"tel"}
-              size={"medium"}
-              maxLength={tlfNummerMaxLength}
-              label={msg({ id: "felter.tlfnr.label" })}
-              error={errors?.tlfnummer?.message}
-            />
-          </div>
-        </div>
-        <div className={"tlfnummer__knapper"}>
-          <div className={"tlfnummer__submit"}>
-            <Button
-              variant={props.type === "opprett" ? "primary" : "secondary"}
-              type={"submit"}
-              disabled={isSubmitted && !isValid}
-              loading={loading}
-            >
-              <FormattedMessage id={"side.lagre"} />
-            </Button>
-          </div>
+      <div className={"tlfnummer__knapper"}>
+        <div className={"tlfnummer__submit"}>
           <Button
-            variant={"tertiary"}
-            type={"button"}
-            disabled={loading}
-            className={"tlfnummer__knapp"}
-            onClick={() => {
-              settAlert(undefined);
-              props.onCancelClick();
-            }}
+            variant={props.type === "opprett" ? "primary" : "secondary"}
+            type={"submit"}
+            disabled={isSubmitted && !isValid}
+            loading={loading}
           >
-            <FormattedMessage id={"side.avbryt"} />
+            <FormattedMessage id={"side.lagre"} />
           </Button>
         </div>
-        {alert && <HttpFeilmelding {...alert} />}
+        <Button
+          variant={"tertiary"}
+          type={"button"}
+          disabled={loading}
+          className={"tlfnummer__knapp"}
+          onClick={() => {
+            settAlert(undefined);
+            props.onCancelClick();
+          }}
+        >
+          <FormattedMessage id={"side.avbryt"} />
+        </Button>
       </div>
+      {alert && <HttpFeilmelding {...alert} />}
     </form>
   );
 };

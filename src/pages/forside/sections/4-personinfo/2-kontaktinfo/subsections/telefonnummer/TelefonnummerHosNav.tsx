@@ -7,7 +7,7 @@ import Telefonnummer from "./Telefonnummer";
 import TelefonnummerForm from "./TelefonnummerForm";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { Alert, BodyShort, Button, Heading } from "@navikt/ds-react";
+import { Alert, BodyShort, Button, Heading, Label } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -97,20 +97,29 @@ const TelefonnummerHosNav = (props: Props) => {
       )}
 
       {opprett && (
-        <TelefonnummerForm
-          type={"opprett"}
-          prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
-          onCancelClick={() => settOpprett(false)}
-          onChangeSuccess={onChangeSuccess}
-          tlfnr={tlfnr}
-          defaultValues={{
-            landskode: {
-              label: "Norge",
-              value: "+47",
-            },
-            tlfnummer: "",
-          }}
-        />
+        <div className={"tlfnummer__rad-leggtil"}>
+          <div className={"tlfnummer__container"}>
+            <div className={"tlfnummer__verdi"}>
+              <Label as="p">
+                <FormattedMessage id="side.leggtil" />
+              </Label>
+            </div>
+          </div>
+          <TelefonnummerForm
+            type={"opprett"}
+            prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
+            onCancelClick={() => settOpprett(false)}
+            onChangeSuccess={onChangeSuccess}
+            tlfnr={tlfnr}
+            defaultValues={{
+              landskode: {
+                label: "Norge",
+                value: "+47",
+              },
+              tlfnummer: "",
+            }}
+          />
+        </div>
       )}
 
       <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
