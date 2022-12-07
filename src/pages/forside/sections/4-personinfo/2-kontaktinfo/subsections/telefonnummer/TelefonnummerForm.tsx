@@ -35,6 +35,7 @@ const TelefonnummerForm = (props: Props) => {
     handleSubmit,
     watch,
     setValue,
+    trigger,
     formState: { errors, isValid, isSubmitted },
   } = useForm({
     reValidateMode: "onChange",
@@ -90,7 +91,10 @@ const TelefonnummerForm = (props: Props) => {
             })}
             option={watch().landskode}
             label={msg({ id: "felter.landkode.label" })}
-            onChange={(option) => option && setValue("landskode", option)}
+            onChange={(option) => {
+              isSubmitted && trigger("tlfnummer");
+              option && setValue("landskode", option);
+            }}
             error={errors?.landskode?.message}
             submitted={isSubmitted}
           />
