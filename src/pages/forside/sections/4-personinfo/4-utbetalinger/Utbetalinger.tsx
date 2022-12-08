@@ -106,9 +106,9 @@ const Utbetalinger = (props: Props) => {
         )}
       </>
       <div style={{ paddingBottom: "1rem" }}>
-        <AlertStripeAdvarsel>
+        <Alert variant={"warning"}>
           <FormattedMessage id="personalia.bankkonto.alert" />
-        </AlertStripeAdvarsel>
+        </Alert>
       </div>
       {opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>

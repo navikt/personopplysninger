@@ -52,7 +52,7 @@ export default {
   "personalia.link.brukerprofil.leggtil": `Add to Your Profile`,
   "personalia.link.dkif.endre": `Change in Contact and Reservation Register `,
   "personalia.link.dkif.leggtil": `Go to the Contact and Reservation Register `,
-  "personalia.bankkonto.alert": `Due to technical upgrades, it is not possible to register or change your bank account on Friday November 18th between 12.00 and 21.00. We apologize for this, and ask you to try again later.`,
+  "personalia.bankkonto.alert": `Due to technical upgrades, it is not possible to register or change your bank account on Friday December 9th between 16.00 and 21.00. We apologize for this, and ask you to try again later.`,
   "personalia.kontonr": `Account number`,
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Account number / IBAN`,
