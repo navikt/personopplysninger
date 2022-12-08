@@ -4,6 +4,18 @@ import { isMod11 } from "./kontonummer";
 import { OptionType } from "types/option";
 import validator from "@navikt/fnrvalidator";
 import { normalizeNummer } from "./formattering";
+import { Tlfnr } from "../types/personalia";
+
+export const isNumeric = (value: string) => {
+  return /^\d+$/.test(value);
+};
+
+export const isNotAlreadyRegistered = (value: string, tlfnr: Tlfnr) => {
+  return ![tlfnr.telefonHoved, tlfnr.telefonAlternativ].includes(value);
+};
+
+export const isNorwegianNumber = (landskode: OptionType) =>
+  landskode.value === "+47";
 
 export const extraValidators = {
   /*
@@ -74,7 +86,7 @@ export const extraValidators = {
    */
 
   isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value.length !== 8 || !erInteger(value) ? config.message : null,
+    value.length !== 8 || !isNumeric(value) ? config.message : null,
 
   isIBANRequired: (config: SimpleValidatorConfig) => (value: OptionType) =>
     !value ? config.message : null,
@@ -151,14 +163,6 @@ export const extraValidators = {
 /*
   Utils
  */
-
-export const erInteger = (str: string) => {
-  var n = Math.floor(Number(str));
-  return n !== Infinity && String(n) === str && n >= 0;
-};
-
-export const isNorwegianNumber = (landskode: OptionType) =>
-  landskode && landskode.value === "+47";
 
 export interface CustomValidator {
   message: (values: object) => string;

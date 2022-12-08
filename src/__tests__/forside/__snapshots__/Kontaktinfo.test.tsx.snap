@@ -122,10 +122,8 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     </h3>
   </div>
   <div>
-    <form
+    <div
       class="tlfnummer__rad"
-      novalidate=""
-      validators="[object Object]"
     >
       <div
         class="tlfnummer__container"
@@ -200,7 +198,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
           </button>
         </div>
       </div>
-    </form>
+    </div>
   </div>
   <button
     aria-label="Legg til telefonnummer"

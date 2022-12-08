@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "components/box/Box";
 import kontaktIkon from "assets/img/Kontakt.svg";
-import TelefonnummerHosNav from "./subsections/TelefonnummerHosNav";
+import TelefonnummerHosNav from "./subsections/telefonnummer/TelefonnummerHosNav";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import { Tlfnr } from "types/personalia";
 
