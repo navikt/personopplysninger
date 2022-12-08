@@ -31,6 +31,7 @@ interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   personident?: { verdi: string; type: string };
   kontonr?: string;
+  kontoregisterError: boolean;
 }
 
 const NORSK = "NORSK";
@@ -38,7 +39,7 @@ const UTENLANDSK = "UTENLANDSK";
 
 const Utbetalinger = (props: Props) => {
   const { formatMessage: msg } = useIntl();
-  const { kontonr, utenlandskbank, personident } = props;
+  const { kontonr, utenlandskbank, personident, kontoregisterError } = props;
   const [loading, settLoading] = useState<boolean>(false);
   const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
   const [alert, settAlert] = useState<Feilmelding | null>(null);
@@ -110,7 +111,10 @@ const Utbetalinger = (props: Props) => {
           <FormattedMessage id="personalia.bankkonto.alert" />
         </Alert>
       </div>
-      {opprettEllerEndre ? (
+
+      {kontoregisterError ? (
+        <></>
+      ) : opprettEllerEndre ? (
         <Form onSubmit={submitEndre}>
           <Validation config={config} initialValues={initialValues}>
             {({ submitted, isValid, errors, setField, fields }) => {
