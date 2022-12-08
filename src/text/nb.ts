@@ -52,6 +52,7 @@ export default {
   "personalia.link.brukerprofil.leggtil": `Legg til i Din profil`,
   "personalia.link.dkif.endre": `Endre i Kontakt- og reservasjonsregisteret `,
   "personalia.link.dkif.leggtil": `Gå til Kontakt- og reservasjonsregisteret `,
+  "personalia.bankkonto.alert": `På grunn av tekniske oppgraderinger er det ikke mulig å registrere eller endre kontonummer fredag 9. desember i tidsrommet 16.00-21.00. Vi beklager dette, og ber deg forsøke igjen senere.`,
   "personalia.kontonr": `Kontonummer`,
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Kontonummer / IBAN`,

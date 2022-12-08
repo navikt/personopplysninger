@@ -887,6 +887,42 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           <div
             class="box__content"
           >
+            <div
+              style="padding-bottom: 1rem;"
+            >
+              <div
+                class="navds-alert navds-alert--warning navds-alert--medium"
+              >
+                <svg
+                  aria-labelledby="title-aksel-icon-7"
+                  class="navds-alert__icon"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title
+                    id="title-aksel-icon-7"
+                  >
+                    Advarsel
+                  </title>
+                  <path
+                    clip-rule="evenodd"
+                    d="M11.126.564a.962.962 0 0 1 1.741-.021l11.011 21.912c.358.695-.117 1.54-.865 1.54H.987c-.738 0-1.215-.826-.876-1.519L11.126.564ZM11 7.996h2v7h-2v-7Zm1 12a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
+                    fill="#D47B00"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+                <div
+                  class="navds-alert__wrapper navds-body-long"
+                >
+                  På grunn av tekniske oppgraderinger er det ikke mulig å registrere eller endre kontonummer fredag 9. desember i tidsrommet 16.00-21.00. Vi beklager dette, og ber deg forsøke igjen senere.
+                </div>
+              </div>
+            </div>
             <ul
               class="list-column-2"
             >
