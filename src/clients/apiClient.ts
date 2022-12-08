@@ -163,8 +163,8 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         text: `Vi har sendt inn endringen din`,
       },
       REJECTED: {
-        type: `info`,
-        text: `Det eksisterer en pågående endring`,
+        type: `feil`,
+        text: `personalia.tlfnr.paagaaendeendring.feilmelding`,
       },
       ERROR: {
         type: `feil`,
