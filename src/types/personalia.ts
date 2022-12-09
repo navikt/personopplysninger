@@ -26,7 +26,6 @@ export interface Personalia {
     type: string;
   };
   kontonr?: string;
-  kontoregisterError: boolean;
   utenlandskbank: UtenlandskBankkonto;
   tlfnr?: Tlfnr;
   spraak?: string;
