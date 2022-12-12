@@ -85,6 +85,6 @@ const SelectLand = React.forwardRef((props: Props, ref: ForwardedRef<any>) => {
       ref={ref}
     />
   );
-};);
+});
 
 export default SelectLand;
