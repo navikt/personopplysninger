@@ -314,7 +314,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "validation.iban.pakrevd": "IBAN er nødvendig",
   "validation.iban.gyldig": "Gyldig IBAN er nødvendig",
   "validation.iban.country": `Du må taste inn et IBAN-nummer fra det landet du har valgt.`,
-  "validation.banknavn.pakrevd": "Banknavn er nødvendig",
+  "validation.banknavn.pakrevd": "BanknavnField er nødvendig",
   "validation.banknavn.ugyldig": `Inneholder ugyldige tegn`,
   "validation.bankkode.pakrevd": "Bankkode er nødvendig",
   "validation.bankkode.lengde": `Bankkoder fra {land} må ha {siffer} tall`,

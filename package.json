@@ -31,7 +31,6 @@
     "@navikt/nav-dekoratoren-moduler": "^1.7.0",
     "@react-pdf/renderer": "^3.0.0",
     "buffer": "^6.0.3",
-    "calidation": "1.17.0",
     "core-js": "^3.25.3",
     "fetch-mock": "^9.11.0",
     "file-saver": "^2.0.5",
@@ -61,7 +60,6 @@
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",
     "@testing-library/react": "12.1.5",
-    "@types/calidation": "1.16.1",
     "@types/fetch-mock": "^7.3.5",
     "@types/file-saver": "^2.0.5",
     "@types/jest": "^29.0.3",

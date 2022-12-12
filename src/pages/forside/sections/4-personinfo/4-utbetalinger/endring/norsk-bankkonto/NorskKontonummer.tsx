@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ForwardedRef } from "react";
 import { useIntl } from "react-intl";
 import { TextField } from "@navikt/ds-react";
 import { normalizeNummer } from "../../../../../../../utils/formattering";
@@ -7,23 +7,22 @@ import {
   isNormalizedLength,
   isNormalizedMod11,
 } from "../../../../../../../utils/validators";
+import { FormFields } from "../types";
 
 interface Props {
   personident?: { verdi: string; type: string };
-  kontonummer?: string;
 }
 
-const OpprettEllerEndreNorskKontonr = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
-  const { kontonummer } = props;
+const OpprettEllerEndreNorskKontonr = React.forwardRef(
+  (props: Props, ref: ForwardedRef<any>) => {
+    const { formatMessage: msg } = useIntl();
 
-  const {
-    register,
-    formState: { errors, isSubmitted },
-  } = useFormContext();
+    const {
+      register,
+      formState: { errors, isSubmitted },
+    } = useFormContext<FormFields>();
 
-  return (
-    <>
+    return (
       <div className="utbetalinger__input input--m">
         <TextField
           {...register("kontonummer", {
@@ -40,17 +39,17 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
                 msg({ id: "validation.kontonummer.idnr" }),
             },
           })}
-          defaultValue={kontonummer || undefined}
           size={"medium"}
           htmlSize={14}
           maxLength={16}
           label={msg({ id: "felter.kontonummer.label" })}
           error={isSubmitted && errors?.kontonummer?.message}
+          ref={ref}
         />
       </div>
-    </>
-  );
-};
+    );
+  }
+);
 
 export const setOutboundNorskKontonummer = (values: FieldValues) => {
   const { kontonummer } = values;

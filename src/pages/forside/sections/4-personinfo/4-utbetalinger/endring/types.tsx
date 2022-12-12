@@ -22,15 +22,15 @@ export interface OutboundUtenlandsbankonto {
 }
 
 export interface FormFields {
-  norskEllerUtenlandsk?: string;
+  norskEllerUtenlandsk: string;
   land?: OptionType;
   valuta?: OptionType;
-  banknavn?: string;
-  kontonummer?: string;
-  bickode?: string;
-  retningsnummer?: string;
-  bankkode?: string;
-  adresse1?: string;
-  adresse2?: string;
-  adresse3?: string;
+  banknavn: string;
+  kontonummer: string;
+  bickode: string;
+  retningsnummer: string;
+  bankkode: string;
+  adresse1: string;
+  adresse2: string;
+  adresse3: string;
 }
