@@ -62,12 +62,9 @@ const KontonummerForm = (props: Props) => {
   });
 
   const {
-    register,
     handleSubmit,
-    watch,
-    setValue,
     reset,
-    formState: { errors, isValid, isSubmitted },
+    formState: { isValid, isSubmitted },
   } = methods;
 
   const { formatMessage: msg } = useIntl();

@@ -19,7 +19,6 @@ const KontonummerIbanField = (props: Props) => {
 
   const {
     register,
-    setValue,
     watch,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();

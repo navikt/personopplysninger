@@ -14,7 +14,6 @@ const BankkodeField = () => {
 
   const {
     register,
-    setValue,
     watch,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();

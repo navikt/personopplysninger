@@ -21,6 +21,7 @@ const ValutaField = () => {
     register,
     setValue,
     watch,
+    trigger,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
 
@@ -33,7 +34,10 @@ const ValutaField = () => {
       label={formatIntl("felter.valuta.label")}
       hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
       option={watch().valuta}
-      onChange={(value) => setValue("valuta", value)}
+      onChange={(value) => {
+        setValue("valuta", value);
+        isSubmitted && trigger();
+      }}
       error={errors?.valuta?.message}
     />
   );

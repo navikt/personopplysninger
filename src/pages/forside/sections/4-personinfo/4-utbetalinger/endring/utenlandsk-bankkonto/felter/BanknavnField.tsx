@@ -16,7 +16,6 @@ const BanknavnField = () => {
 
   const {
     register,
-    setValue,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
 

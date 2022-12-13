@@ -20,6 +20,7 @@ const LandField = () => {
     register,
     setValue,
     watch,
+    trigger,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
 
@@ -34,10 +35,10 @@ const LandField = () => {
       option={watch().land}
       onChange={(option) => {
         const bankkodeRetningsnummer = option ? BANKKODER[option.value] : null;
-
         setValue("land", option);
         bankkodeRetningsnummer &&
           setValue("retningsnummer", bankkodeRetningsnummer);
+        isSubmitted && trigger();
       }}
     />
   );

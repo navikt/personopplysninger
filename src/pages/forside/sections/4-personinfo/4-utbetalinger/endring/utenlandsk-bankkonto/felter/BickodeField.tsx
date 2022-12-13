@@ -15,7 +15,6 @@ const BickodeField = () => {
 
   const {
     register,
-    setValue,
     watch,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();

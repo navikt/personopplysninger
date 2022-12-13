@@ -9,7 +9,6 @@ const RetningsnummerField = () => {
 
   const {
     register,
-    setValue,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
 
