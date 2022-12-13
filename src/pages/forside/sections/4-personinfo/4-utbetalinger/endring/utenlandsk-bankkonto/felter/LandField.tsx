@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import SelectLand from "components/felter/select-kodeverk/SelectLand";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
@@ -13,7 +13,7 @@ export const BANKKODER: { [key: string]: string } = {
   RU: "RU",
 };
 
-const LandField = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const LandField = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -39,9 +39,8 @@ const LandField = React.forwardRef((_, ref: ForwardedRef<any>) => {
         bankkodeRetningsnummer &&
           setValue("retningsnummer", bankkodeRetningsnummer);
       }}
-      ref={ref}
     />
   );
-});
+};
 
 export default LandField;

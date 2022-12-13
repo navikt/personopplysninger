@@ -1,26 +1,24 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import RetningsnummerField from "./felter/RetningsnummerField";
 import BankkodeField from "./felter/BankkodeField";
 import AdresseFields from "./felter/AdresseFields";
 
-interface Props {}
-
-const AmerikanskKonto = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const AmerikanskKonto = () => {
   return (
     <>
       <div className="utbetalinger__bankkode-rad">
         <div className="utbetalinger__bankkode-kolonne">
-          <RetningsnummerField ref={ref} />
+          <RetningsnummerField />
         </div>
         <div className="utbetalinger__bankkode-kolonne">
-          <BankkodeField ref={ref} />
+          <BankkodeField />
         </div>
       </div>
       <div className="utbetalinger__adressefelter">
-        <AdresseFields ref={ref} />
+        <AdresseFields />
       </div>
     </>
   );
-});
+};
 
 export default AmerikanskKonto;

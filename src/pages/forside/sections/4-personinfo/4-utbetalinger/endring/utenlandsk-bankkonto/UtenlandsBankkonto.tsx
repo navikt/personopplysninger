@@ -11,8 +11,7 @@ import {
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
-import { mapErrorsToSummary } from "utils/kontonummer";
-import { Alert, ErrorSummary, Link } from "@navikt/ds-react";
+import { Alert, Link } from "@navikt/ds-react";
 import { FieldValues, useFormContext } from "react-hook-form";
 import { FormFields } from "../types";
 import { useIntlFormatter } from "../../../../../../../hooks/useIntlFormatter";
@@ -53,37 +52,36 @@ const OpprettEllerEndreUtenlandsbank = React.forwardRef(
           </Alert>
         </div>
 
-        <LandField ref={ref} />
+        <LandField />
 
         {valgtLand && (
           <>
-            <ValutaField ref={ref} />
-            <BanknavnField ref={ref} />
-            <KontonummerIbanField personident={props.personident} ref={ref} />
+            <ValutaField />
+            <BanknavnField />
+            <KontonummerIbanField personident={props.personident} />
 
             {harValgtUSA(valgtLand) ? (
-              <AmerikanskKonto ref={ref} />
+              <AmerikanskKonto />
             ) : brukerBankkode(valgtLand) ? (
-              <LandMedBankkode
-                valgtLand={valgtLand.label.toLowerCase()}
-                ref={ref}
-              />
+              <LandMedBankkode valgtLand={valgtLand.label.toLowerCase()} />
             ) : (
-              <LandUtenBankkode ref={ref} />
+              <LandUtenBankkode />
             )}
           </>
         )}
         {isSubmitted && !isValid && watch().land && (
-          <ErrorSummary title={formatIntl("validation.fix.errors")}>
-            {mapErrorsToSummary(errors).map((error, index) => (
-              <ErrorSummary.Item
-                key={error.skjemaelementId}
-                href={`#${error.skjemaelementId}`}
-              >
-                {error.feilmelding}
-              </ErrorSummary.Item>
-            ))}
-          </ErrorSummary>
+          <></>
+          // TODO: FIX
+          // <ErrorSummary title={formatIntl("validation.fix.errors")}>
+          //   {mapErrorsToSummary(errors).map((error, index) => (
+          //     <ErrorSummary.Item
+          //       key={error.skjemaelementId}
+          //       href={`#${error.skjemaelementId}`}
+          //     >
+          //       {error.feilmelding}
+          //     </ErrorSummary.Item>
+          //   ))}
+          // </ErrorSummary>
         )}
       </>
     );

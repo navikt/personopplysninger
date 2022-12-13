@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import { useIntl } from "react-intl";
 import { TextField } from "@navikt/ds-react";
 import { normalizeNummer } from "../../../../../../../utils/formattering";
@@ -13,44 +13,41 @@ interface Props {
   personident?: { verdi: string; type: string };
 }
 
-const OpprettEllerEndreNorskKontonr = React.forwardRef(
-  (props: Props, ref: ForwardedRef<any>) => {
-    const { formatMessage: msg } = useIntl();
+const OpprettEllerEndreNorskKontonr = (props: Props) => {
+  const { formatMessage: msg } = useIntl();
 
-    const {
-      register,
-      formState: { errors, isSubmitted },
-    } = useFormContext<FormFields>();
+  const {
+    register,
+    formState: { errors, isSubmitted, defaultValues },
+  } = useFormContext<FormFields>();
 
-    return (
-      <div className="utbetalinger__input input--m">
-        <TextField
-          {...register("kontonummer", {
-            required: msg({ id: "validation.kontonummer.pakrevd" }),
-            validate: {
-              isNormalizedLength11: (v) =>
-                isNormalizedLength(v, 11) ||
-                msg({ id: "validation.kontonummer.elleve" }),
-              isMod11: (v) =>
-                isNormalizedMod11(v) ||
-                msg({ id: "validation.kontonummer.mod11" }),
-              isNotYourSSN: (v) =>
-                v !== props.personident?.verdi ||
-                msg({ id: "validation.kontonummer.idnr" }),
-            },
-          })}
-          size={"medium"}
-          htmlSize={14}
-          maxLength={16}
-          label={msg({ id: "felter.kontonummer.label" })}
-          error={isSubmitted && errors?.kontonummer?.message}
-          ref={ref}
-        />
-      </div>
-    );
-  }
-);
-
+  return (
+    <div className="utbetalinger__input input--m">
+      <TextField
+        {...register("kontonummer", {
+          required: msg({ id: "validation.kontonummer.pakrevd" }),
+          validate: {
+            isNormalizedLength11: (v) =>
+              isNormalizedLength(v, 11) ||
+              msg({ id: "validation.kontonummer.elleve" }),
+            isMod11: (v) =>
+              isNormalizedMod11(v) ||
+              msg({ id: "validation.kontonummer.mod11" }),
+            isNotYourSSN: (v) =>
+              v !== props.personident?.verdi ||
+              msg({ id: "validation.kontonummer.idnr" }),
+          },
+        })}
+        defaultValue={defaultValues?.kontonummer}
+        size={"medium"}
+        htmlSize={14}
+        maxLength={16}
+        label={msg({ id: "felter.kontonummer.label" })}
+        error={isSubmitted && errors?.kontonummer?.message}
+      />
+    </div>
+  );
+};
 export const setOutboundNorskKontonummer = (values: FieldValues) => {
   const { kontonummer } = values;
   return {

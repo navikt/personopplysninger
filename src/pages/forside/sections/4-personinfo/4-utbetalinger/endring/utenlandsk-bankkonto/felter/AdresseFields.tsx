@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
@@ -13,7 +13,7 @@ import {
   isValidAdresselinje,
 } from "../../../../../../../../utils/validators";
 
-const AdresseFields = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const AdresseFields = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -35,7 +35,8 @@ const AdresseFields = React.forwardRef((_, ref: ForwardedRef<any>) => {
             ) ||
               watch().adresse2 ||
               watch().adresse3) && {
-              required: (v) => v || formatIntl("validation.adresse.pakrevd"),
+              required: (v) =>
+                v.length > 0 || formatIntl("validation.adresse.pakrevd"),
             }),
             firstCharNotSpace: (v) =>
               isFirstCharNotSpace(v) ||
@@ -59,9 +60,7 @@ const AdresseFields = React.forwardRef((_, ref: ForwardedRef<any>) => {
         maxLength={34}
         error={errors?.adresse1?.message}
         submitted={isSubmitted}
-        onChange={(value) => setValue("adresse1", value)}
         label={formatIntl("felter.bankens.adresse.label")}
-        ref={ref}
       />
       <InputMedHjelpetekst
         {...register("adresse2", {
@@ -93,8 +92,6 @@ const AdresseFields = React.forwardRef((_, ref: ForwardedRef<any>) => {
         maxLength={34}
         error={errors?.adresse2?.message}
         submitted={isSubmitted}
-        onChange={(value) => setValue("adresse2", value)}
-        ref={ref}
       />
       <InputMedHjelpetekst
         {...register("adresse3", {
@@ -122,11 +119,9 @@ const AdresseFields = React.forwardRef((_, ref: ForwardedRef<any>) => {
         maxLength={34}
         error={errors?.adresse3?.message}
         submitted={isSubmitted}
-        onChange={(value) => setValue("adresse3", value)}
-        ref={ref}
       />
     </>
   );
-});
+};
 
 export default AdresseFields;

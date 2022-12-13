@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import SelectValuta from "components/felter/select-kodeverk/SelectValuta";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
@@ -14,7 +14,7 @@ export const BANKKODER: { [key: string]: string } = {
   RU: "RU",
 };
 
-const ValutaField = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const ValutaField = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -35,9 +35,8 @@ const ValutaField = React.forwardRef((_, ref: ForwardedRef<any>) => {
       option={watch().valuta}
       onChange={(value) => setValue("valuta", value)}
       error={errors?.valuta?.message}
-      ref={ref}
     />
   );
-});
+};
 
 export default ValutaField;

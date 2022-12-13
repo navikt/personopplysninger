@@ -1,5 +1,4 @@
 import { OptionType } from "types/option";
-import validator from "@navikt/fnrvalidator";
 import { normalizeNummer } from "./formattering";
 import { Tlfnr } from "../types/personalia";
 import { isMod11 } from "./kontonummer";
@@ -15,33 +14,17 @@ export const isNormalizedMod11 = (value: string) =>
   isMod11(normalizeNummer(value));
 
 export const hasMultipleCombinedSpaces = (value: string) =>
-  value && value.match(/\s\s/);
+  !!value.match(/\s\s/);
 
 export const isFirstCharNotSpace = (value: string) =>
   value && value.charAt(0) !== " ";
 
 export const isNumeric = (value: string) => {
-  return /^\d+$/.test(value);
-};
-
-export const isLetters = (value: string) => {
-  return value.match(/[^ÆØÅæøåA-Za-z]+/g);
-};
-
-export const isLettersAndSpace = (value: string) => {
-  return value.match(/[^ÆØÅæøåA-Za-z ]+/g);
+  return !!value.match(regExpPattern.onlyNumeric);
 };
 
 export const isLettersAndDigits = (value: string) => {
-  return value.match(/[^ÆØÅæøåA-Za-z0-9]+/g);
-};
-
-export const isLettersSpaceAndDigits = (value: string) => {
-  return value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g);
-};
-
-export const isMinOneLetter = (value: string) => {
-  return !value.match(/[[ÆØÅæøåA-z]+/g);
+  return !!value.match(regExpPattern.onlyAlphaNumeric);
 };
 
 export const isBlacklistedCommon = (value: string) =>
@@ -49,30 +32,9 @@ export const isBlacklistedCommon = (value: string) =>
     value.toLowerCase().includes(substring)
   );
 
-export const isPositive = (value: string) => {
-  var n = Math.floor(Number(value));
-  return !(n !== Infinity && String(n) === value && n > 0);
-};
-
-export const isNotSSN = (value: string) =>
-  validator.idnr(value).status === "valid";
-
-/*
-  Special validators - Address
-*/
-
-export const isHouseNumber = (value: string) =>
-  value && !value.match(/([LHUK]{1})([0-9]{4})/);
-
-export const isValidStreetName = (value: string) =>
-  value.match(/[^ÆØÅæøåA-Za-z _.-]+/g);
-
 /*
   Special validators - Account number
  */
-
-export const isValidNorwegianNumber = (value: string) =>
-  value.length === 8 && isNumeric(value);
 
 export const isIBANCountryCompliant = (value: string, land?: OptionType) => {
   const ibanPrefix = value && value.substring(0, 2);
@@ -86,20 +48,20 @@ export const isIBANCountryCompliant = (value: string, land?: OptionType) => {
 };
 
 export const isBICCountryCompliant = (value: string, land?: OptionType) =>
-  value.substring(4, 6) !== land?.value &&
-  value.substring(4, 6) !== land?.alternativLandkode;
+  value.substring(4, 6) === land?.value ||
+  value.substring(4, 6) === land?.alternativLandkode;
 
 export const isBankkodeValidLength = (value: string, land?: OptionType) =>
   value.length !== land?.bankkodeLengde;
 
 export const isOnlyNonLetters = (value: string) =>
-  normalizeInput(value).match(regExpPattern.onlyNonLetters);
+  !!normalizeInput(value).match(regExpPattern.onlyNonLetters);
 
 export const isOnlySignsSpace = (value: string) =>
-  normalizeInput(value).match(regExpPattern.onlySignsSpace);
+  !!normalizeInput(value).match(regExpPattern.onlySignsSpace);
 
 export const isValidBanknavn = (value: string) =>
-  !normalizeInput(value).match(regExpPattern.validBanknavn);
+  !!normalizeInput(value).match(regExpPattern.validBanknavn);
 
 export const isValidAdresselinje = (value: string) =>
   !normalizeInput(value).match(regExpPattern.validBankadresselinje);
@@ -144,6 +106,8 @@ export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp =>
 export const regExpPattern = {
   onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
   onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
+  onlyAlphaNumeric: regExpCreator(["^[", NORWEGIAN_LETTERS, DIGITS, "]+$"]),
+  onlyNumeric: regExpCreator(["^[", DIGITS, "]+$"]),
   validBankadresselinje: regExpCreator([
     "^[",
     ALL_LETTERS,

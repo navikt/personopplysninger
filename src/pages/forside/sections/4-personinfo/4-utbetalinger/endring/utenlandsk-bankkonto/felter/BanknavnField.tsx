@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import InputMedHjelpetekst from "components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
@@ -11,7 +11,7 @@ import {
 } from "../../../../../../../../utils/validators";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 
-const BanknavnField = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const BanknavnField = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -24,7 +24,8 @@ const BanknavnField = React.forwardRef((_, ref: ForwardedRef<any>) => {
     <InputMedHjelpetekst
       {...register("banknavn", {
         validate: {
-          required: (v) => v || formatIntl("validation.banknavn.pakrevd"),
+          required: (v) =>
+            v.length > 0 || formatIntl("validation.banknavn.pakrevd"),
           firstCharNotSpace: (v) =>
             isFirstCharNotSpace(v) ||
             formatIntl("validation.firstchar.notspace"),
@@ -47,11 +48,9 @@ const BanknavnField = React.forwardRef((_, ref: ForwardedRef<any>) => {
       htmlSize={37}
       submitted={isSubmitted}
       label={formatIntl("felter.banknavn.label")}
-      onChange={(value) => setValue("banknavn", value)}
       error={errors?.banknavn?.message}
-      ref={ref}
     />
   );
-});
+};
 
 export default BanknavnField;

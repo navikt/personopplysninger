@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
@@ -9,7 +9,7 @@ import {
   isNumeric,
 } from "../../../../../../../../utils/validators";
 
-const BankkodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const BankkodeField = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -28,11 +28,13 @@ const BankkodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
             watch().bickode,
             watch().bankkode
           ) && {
-            required: (v) => v || formatIntl("validation.bankkode.pakrevd"),
+            required: (v) =>
+              v.length > 0 || formatIntl("validation.bankkode.pakrevd"),
             numeric: (v) =>
               isNumeric(v) || formatIntl("validation.only.digits"),
             validLength: (v) =>
-              isBankkodeValidLength(v, watch().land) || formatIntl(""),
+              isBankkodeValidLength(v, watch().land) ||
+              formatIntl("validation.bankkode.lengde"),
           }),
         },
       })}
@@ -41,11 +43,9 @@ const BankkodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
       size="medium"
       submitted={isSubmitted}
       error={errors?.bankkode?.message}
-      onChange={(value) => setValue("bankkode", value)}
       maxLength={watch().land && watch().land?.bankkodeLengde}
-      ref={ref}
     />
   );
-});
+};
 
 export default BankkodeField;

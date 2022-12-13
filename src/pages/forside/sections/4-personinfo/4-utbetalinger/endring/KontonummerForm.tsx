@@ -116,23 +116,14 @@ const KontonummerForm = (props: Props) => {
           })}
           legend={msg({ id: "felter.kontonummer.grouplegend" })}
           error={isSubmitted && errors?.norskEllerUtenlandsk?.message}
-          value={watch().norskEllerUtenlandsk}
         >
-          <Radio
-            {...register("norskEllerUtenlandsk")}
-            value={NORSK}
-            onChange={(e) => setValue("norskEllerUtenlandsk", e.target.value)}
-          >
+          <Radio {...register("norskEllerUtenlandsk")} value={NORSK}>
             {msg({ id: "felter.kontonummervalg.norsk" })}
           </Radio>
           {watch().norskEllerUtenlandsk === NORSK && (
             <OpprettEllerEndreNorskKontonr personident={personident} />
           )}
-          <Radio
-            {...register("norskEllerUtenlandsk")}
-            value={UTENLANDSK}
-            onChange={(e) => setValue("norskEllerUtenlandsk", e.target.value)}
-          >
+          <Radio {...register("norskEllerUtenlandsk")} value={UTENLANDSK}>
             {msg({ id: "felter.kontonummervalg.utenlandsk" })}
           </Radio>
           {watch().norskEllerUtenlandsk === UTENLANDSK && (

@@ -3,14 +3,11 @@ import { FormattedMessage } from "react-intl";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 import { TextField, TextFieldProps } from "@navikt/ds-react";
 
-type IProps = Omit<TextFieldProps, "onChange">;
-
-interface Props extends IProps {
+interface Props extends TextFieldProps {
   id?: string;
   value?: string;
   error?: string | null;
   submitted: boolean;
-  onChange: (value: string) => void;
   hjelpetekst?: string;
 }
 
@@ -19,7 +16,6 @@ const EndreKontonummerFelt = React.forwardRef(
     {
       id,
       value,
-      onChange,
       submitted,
       error,
       htmlSize,
@@ -57,7 +53,6 @@ const EndreKontonummerFelt = React.forwardRef(
             label={""}
             value={value}
             htmlSize={htmlSize}
-            onChange={(e) => onChange(e.target.value)}
             error={submitted && error}
             ref={ref}
             {...restProps}

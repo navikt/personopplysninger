@@ -1,4 +1,4 @@
-import React, { ForwardedRef } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
@@ -10,7 +10,7 @@ import {
 } from "../../../../../../../../utils/validators";
 import { isValidBIC } from "ibantools";
 
-const BickodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
+const BickodeField = () => {
   const { formatIntl } = useIntlFormatter();
 
   const {
@@ -25,7 +25,8 @@ const BickodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
       {...register("bickode", {
         validate: {
           ...(validerBic(watch().land, watch().bickode, watch().bankkode) && {
-            required: (v) => v || formatIntl("validation.bic.pakrevd"),
+            required: (v) =>
+              v.length > 0 || formatIntl("validation.bic.pakrevd"),
             lettersAndDigits: (v) =>
               isLettersAndDigits(v) ||
               formatIntl("validation.only.letters.and.digits"),
@@ -43,11 +44,9 @@ const BickodeField = React.forwardRef((_, ref: ForwardedRef<any>) => {
       submitted={isSubmitted}
       hjelpetekst={"utbetalinger.hjelpetekster.bic"}
       label={formatIntl("felter.bic.label")}
-      onChange={(value) => setValue("bickode", value)}
       error={errors?.bickode?.message}
-      ref={ref}
     />
   );
-});
+};
 
 export default BickodeField;
