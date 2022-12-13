@@ -22,10 +22,11 @@ export interface OutboundUtenlandsbankonto {
 }
 
 export interface FormFields {
+  kontonummer: string;
   land?: OptionType;
   valuta?: OptionType;
   banknavn: string;
-  kontonummer: string;
+  kontonummerIban: string;
   bickode: string;
   retningsnummer: string;
   bankkode: string;

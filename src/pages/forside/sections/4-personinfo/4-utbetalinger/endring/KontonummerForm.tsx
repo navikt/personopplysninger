@@ -46,7 +46,7 @@ const KontonummerForm = (props: Props) => {
       ? {
           ...utenlandskbank,
           bickode: utenlandskbank.swiftkode,
-          kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
+          kontonummerIban: utenlandskbank.kontonummer || utenlandskbank.iban,
           land: {
             label: utenlandskbank.land.toUpperCase(),
             value: UNKNOWN,
@@ -66,6 +66,7 @@ const KontonummerForm = (props: Props) => {
     handleSubmit,
     watch,
     setValue,
+    reset,
     formState: { errors, isValid, isSubmitted },
   } = methods;
 
@@ -89,7 +90,7 @@ const KontonummerForm = (props: Props) => {
     };
 
     settLoading(true);
-    postKontonummer(outbound[values.norskEllerUtenlandsk]())
+    postKontonummer(outbound[kontonummerType]())
       .then(getUpdatedData)
       .then(onSuccess)
       .catch((error: Feilmelding) => settAlert(error))
@@ -117,7 +118,10 @@ const KontonummerForm = (props: Props) => {
         >
           <Radio
             value={NORSK}
-            onChange={(e) => setKontonummerType(e.target.value)}
+            onChange={(e) => {
+              setKontonummerType(e.target.value);
+              reset();
+            }}
           >
             {msg({ id: "felter.kontonummervalg.norsk" })}
           </Radio>
@@ -126,7 +130,10 @@ const KontonummerForm = (props: Props) => {
           )}
           <Radio
             value={UTENLANDSK}
-            onChange={(e) => setKontonummerType(e.target.value)}
+            onChange={(e) => {
+              setKontonummerType(e.target.value);
+              reset();
+            }}
           >
             {msg({ id: "felter.kontonummervalg.utenlandsk" })}
           </Radio>

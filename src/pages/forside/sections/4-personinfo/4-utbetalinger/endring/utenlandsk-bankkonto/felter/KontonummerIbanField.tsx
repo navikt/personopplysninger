@@ -26,7 +26,7 @@ const KontonummerIbanField = (props: Props) => {
 
   return (
     <InputMedHjelpetekst
-      {...register("kontonummer", {
+      {...register("kontonummerIban", {
         validate: {
           ...(watch().land?.kreverIban && {
             required: (v) =>
@@ -62,7 +62,7 @@ const KontonummerIbanField = (props: Props) => {
       submitted={isSubmitted}
       hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
       label={formatIntl("felter.kontonummer.kontonummer.label")}
-      error={errors?.kontonummer?.message}
+      error={errors?.kontonummerIban?.message}
     />
   );
 };

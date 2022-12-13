@@ -102,7 +102,7 @@ export const setOutboundUtenlandsbankonto = (values: FieldValues) => {
   );
 
   return {
-    value: electronicFormatIBAN(fields.kontonummer),
+    value: electronicFormatIBAN(fields.kontonummerIban),
     utenlandskKontoInformasjon: {
       landkode: fields.land.value,
       valuta: fields.valuta.value,

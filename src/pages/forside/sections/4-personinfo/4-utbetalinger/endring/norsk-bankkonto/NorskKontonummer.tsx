@@ -38,7 +38,6 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               msg({ id: "validation.kontonummer.idnr" }),
           },
         })}
-        defaultValue={defaultValues?.kontonummer}
         size={"medium"}
         htmlSize={14}
         maxLength={16}
