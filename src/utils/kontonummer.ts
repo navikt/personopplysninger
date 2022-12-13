@@ -27,5 +27,5 @@ export const mapErrorsToSummary = (errors: FieldErrors<FormFields>) =>
     .filter(([, value]) => value)
     .map(([key, value]) => ({
       skjemaelementId: key,
-      feilmelding: value as string,
+      feilmelding: value.message as string,
     }));

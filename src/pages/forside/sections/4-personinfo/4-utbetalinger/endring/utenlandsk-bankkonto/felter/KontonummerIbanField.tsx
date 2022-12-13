@@ -54,7 +54,7 @@ const KontonummerIbanField = (props: Props) => {
             formatIntl("validation.kontonummer.idnr"),
         },
       })}
-      id={"kontonummer"}
+      id={"kontonummerIban"}
       size="medium"
       maxLength={36}
       htmlSize={37}

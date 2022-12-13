@@ -11,13 +11,15 @@ import {
 import AmerikanskKonto from "./AmerikanskKonto";
 import LandMedBankkode from "./LandMedBankkode";
 import LandUtenBankkode from "./LandUtenBankkode";
-import { Alert, Link } from "@navikt/ds-react";
+import { Alert, ErrorSummary, Link } from "@navikt/ds-react";
 import { FieldValues, useFormContext } from "react-hook-form";
 import { FormFields } from "../types";
 import LandField from "./felter/LandField";
 import ValutaField from "./felter/ValutaField";
 import BanknavnField from "./felter/BanknavnField";
 import KontonummerIbanField from "./felter/KontonummerIbanField";
+import { mapErrorsToSummary } from "utils/kontonummer";
+import { useIntlFormatter } from "../../../../../../../hooks/useIntlFormatter";
 
 interface Props {
   personident?: { verdi: string; type: string };
@@ -26,8 +28,10 @@ interface Props {
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const {
     watch,
-    formState: { isSubmitted, isValid },
+    formState: { isSubmitted, isValid, errors },
   } = useFormContext<FormFields>();
+
+  const { formatIntl } = useIntlFormatter();
 
   const valgtLand = watch().land;
 
@@ -66,18 +70,16 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         </>
       )}
       {isSubmitted && !isValid && watch().land && (
-        <></>
-        // TODO: FIX
-        // <ErrorSummary title={formatIntl("validation.fix.errors")}>
-        //   {mapErrorsToSummary(errors).map((error, index) => (
-        //     <ErrorSummary.Item
-        //       key={error.skjemaelementId}
-        //       href={`#${error.skjemaelementId}`}
-        //     >
-        //       {error.feilmelding}
-        //     </ErrorSummary.Item>
-        //   ))}
-        // </ErrorSummary>
+        <ErrorSummary title={formatIntl("validation.fix.errors")}>
+          {mapErrorsToSummary(errors).map((error, index) => (
+            <ErrorSummary.Item
+              key={error.skjemaelementId}
+              href={`#${error.skjemaelementId}`}
+            >
+              {error.feilmelding}
+            </ErrorSummary.Item>
+          ))}
+        </ErrorSummary>
       )}
     </>
   );
