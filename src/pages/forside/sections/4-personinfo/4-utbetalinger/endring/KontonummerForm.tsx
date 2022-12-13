@@ -45,7 +45,6 @@ const KontonummerForm = (props: Props) => {
     defaultValues: utenlandskbank
       ? {
           ...utenlandskbank,
-          norskEllerUtenlandsk: UTENLANDSK,
           bickode: utenlandskbank.swiftkode,
           kontonummer: utenlandskbank.kontonummer || utenlandskbank.iban,
           land: {
@@ -58,7 +57,6 @@ const KontonummerForm = (props: Props) => {
           },
         }
       : {
-          norskEllerUtenlandsk: NORSK,
           kontonummer: kontonr,
         },
   });
@@ -74,6 +72,9 @@ const KontonummerForm = (props: Props) => {
   const { formatMessage: msg } = useIntl();
   const [loading, settLoading] = useState<boolean>(false);
   const [alert, settAlert] = useState<Feilmelding | null>(null);
+  const [kontonummerType, setKontonummerType] = useState(
+    utenlandskbank ? UTENLANDSK : NORSK
+  );
 
   const [, dispatch] = useStore();
 
@@ -111,22 +112,25 @@ const KontonummerForm = (props: Props) => {
     <FormProvider {...methods}>
       <form onSubmit={handleSubmit(submitEndre)}>
         <RadioGroup
-          {...register("norskEllerUtenlandsk", {
-            required: msg({ id: "felter.type.velg" }),
-          })}
           legend={msg({ id: "felter.kontonummer.grouplegend" })}
-          error={isSubmitted && errors?.norskEllerUtenlandsk?.message}
+          defaultValue={kontonummerType}
         >
-          <Radio {...register("norskEllerUtenlandsk")} value={NORSK}>
+          <Radio
+            value={NORSK}
+            onChange={(e) => setKontonummerType(e.target.value)}
+          >
             {msg({ id: "felter.kontonummervalg.norsk" })}
           </Radio>
-          {watch().norskEllerUtenlandsk === NORSK && (
+          {kontonummerType === NORSK && (
             <OpprettEllerEndreNorskKontonr personident={personident} />
           )}
-          <Radio {...register("norskEllerUtenlandsk")} value={UTENLANDSK}>
+          <Radio
+            value={UTENLANDSK}
+            onChange={(e) => setKontonummerType(e.target.value)}
+          >
             {msg({ id: "felter.kontonummervalg.utenlandsk" })}
           </Radio>
-          {watch().norskEllerUtenlandsk === UTENLANDSK && (
+          {kontonummerType === UTENLANDSK && (
             <OpprettEllerEndreUtenlandsbank personident={personident} />
           )}
           <div className="utbetalinger__knapper">

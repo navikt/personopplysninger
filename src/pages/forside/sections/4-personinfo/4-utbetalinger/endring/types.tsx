@@ -22,7 +22,6 @@ export interface OutboundUtenlandsbankonto {
 }
 
 export interface FormFields {
-  norskEllerUtenlandsk: string;
   land?: OptionType;
   valuta?: OptionType;
   banknavn: string;
