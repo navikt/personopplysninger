@@ -41,7 +41,7 @@ const KontonummerIbanField = (props: Props) => {
             notIban: (v) =>
               !isValidIBAN(v) || formatIntl("validation.ikke.iban"),
           }),
-          ...(isValidIBAN(watch().kontonummer) && {
+          ...(isValidIBAN(watch().kontonummerIban) && {
             ibanCountryCompliant: (v) =>
               isIBANCountryCompliant(v, watch().land) ||
               formatIntl("validation.iban.country"),
