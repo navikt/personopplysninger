@@ -45,8 +45,9 @@ const KontonummerForm = (props: Props) => {
     defaultValues: utenlandskbank
       ? {
           ...utenlandskbank,
-          bickode: utenlandskbank.swiftkode,
+          kontonummer: undefined,
           kontonummerIban: utenlandskbank.kontonummer || utenlandskbank.iban,
+          bickode: utenlandskbank.swiftkode,
           land: {
             label: utenlandskbank.land.toUpperCase(),
             value: UNKNOWN,

@@ -34,7 +34,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
               isNormalizedMod11(v) ||
               msg({ id: "validation.kontonummer.mod11" }),
             isNotYourSSN: (v) =>
-              v !== props.personident?.verdi ||
+              normalizeNummer(v) !== props.personident?.verdi ||
               msg({ id: "validation.kontonummer.idnr" }),
           },
         })}

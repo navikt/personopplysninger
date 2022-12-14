@@ -22,7 +22,6 @@ export const isMod11 = (accountNumber: string) =>
   mod11OfNumberWithControlDigit(accountNumber);
 
 export const mapErrorsToSummary = (errors: FieldErrors<FormFields>) =>
-  // todo: funker denne?
   Object.entries(errors)
     .filter(([, value]) => value)
     .map(([key, value]) => ({
