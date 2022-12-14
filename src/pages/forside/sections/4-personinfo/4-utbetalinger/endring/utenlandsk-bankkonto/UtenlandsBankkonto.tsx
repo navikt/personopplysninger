@@ -85,36 +85,32 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   );
 };
 export const setOutboundUtenlandsbankonto = (values: FieldValues) => {
-  const { bickode, ...fields } = values;
-
   const sendBankkode = validerBankkode(
     values.land,
     values.bickode,
     values.bankkode
   );
   const sendBICKode = validerBic(values.land, values.bickode, values.bankkode);
-  const sendAdresse = !(
-    !brukerBankkode(fields.land) && harValgtBic(fields.bankidentifier)
-  );
+  const sendAdresse = brukerBankkode(values.land);
 
   return {
-    value: electronicFormatIBAN(fields.kontonummerIban),
+    value: electronicFormatIBAN(values.kontonummerIban),
     utenlandskKontoInformasjon: {
-      landkode: fields.land.value,
-      valuta: fields.valuta.value,
+      landkode: values.land.value,
+      valuta: values.valuta.value,
       ...(sendBICKode && {
-        swift: bickode,
+        swift: values.bickode,
       }),
       bank: {
         ...(sendAdresse && {
-          adresseLinje1: fields.adresse1,
-          adresseLinje2: fields.adresse2,
-          adresseLinje3: fields.adresse3,
+          adresseLinje1: values.adresse1,
+          adresseLinje2: values.adresse2,
+          adresseLinje3: values.adresse3,
         }),
         ...(sendBankkode && {
-          kode: fields.bankkode,
+          kode: values.bankkode,
         }),
-        navn: fields.banknavn,
+        navn: values.banknavn,
       },
     },
   };
