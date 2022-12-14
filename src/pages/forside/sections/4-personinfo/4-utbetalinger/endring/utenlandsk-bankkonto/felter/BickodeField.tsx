@@ -16,12 +16,14 @@ const BickodeField = () => {
   const {
     register,
     watch,
+    trigger,
     formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
     <InputMedHjelpetekst
       {...register("bickode", {
+        onChange: () => trigger(),
         validate: {
           ...(validerBic(watch().land, watch().bickode, watch().bankkode) && {
             required: (v) => !!v || formatMessage("validation.bic.pakrevd"),

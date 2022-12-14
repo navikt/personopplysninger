@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 
-export const BANKKODER: { [key: string]: string } = {
+const BANKKODER: { [key: string]: string } = {
   US: "FW",
   NZ: "NZ",
   AU: "AU",
@@ -34,10 +34,9 @@ const LandField = () => {
       error={errors?.land?.message}
       option={watch().land}
       onChange={(option) => {
-        const bankkodeRetningsnummer = option ? BANKKODER[option.value] : null;
+        const bankkodeRetningsnummer = option ? BANKKODER[option.value] : "";
         setValue("land", option);
-        bankkodeRetningsnummer &&
-          setValue("retningsnummer", bankkodeRetningsnummer);
+        setValue("retningsnummer", bankkodeRetningsnummer);
         isSubmitted && trigger();
       }}
     />

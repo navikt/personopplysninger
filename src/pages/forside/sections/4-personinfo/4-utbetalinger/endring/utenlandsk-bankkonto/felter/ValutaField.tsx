@@ -4,16 +4,6 @@ import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 
-export const BIC = "BIC";
-export const BANKKODER: { [key: string]: string } = {
-  US: "FW",
-  NZ: "NZ",
-  AU: "AU",
-  ZA: "ZA",
-  CA: "CC",
-  RU: "RU",
-};
-
 const ValutaField = () => {
   const { formatMessage } = useIntlFormatter();
 
