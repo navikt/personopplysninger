@@ -16,13 +16,13 @@ const BankkodeField = () => {
     register,
     watch,
     trigger,
-    formState: { errors },
+    formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
 
   return (
     <InputMedHjelpetekst
       {...register("bankkode", {
-        onChange: () => trigger(),
+        onChange: () => isSubmitted && trigger(),
         validate: {
           ...(validerBankkode(
             watch().land,
