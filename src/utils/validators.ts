@@ -16,8 +16,7 @@ export const isNormalizedMod11 = (value: string) =>
 export const hasMultipleCombinedSpaces = (value: string) =>
   !!value.match(/\s\s/);
 
-export const isFirstCharNotSpace = (value: string) =>
-  value && value.charAt(0) !== " ";
+export const isFirstCharNotSpace = (value: string) => value.charAt(0) !== " ";
 
 export const isNumeric = (value: string) => {
   return !!value.match(regExpPattern.onlyNumeric);
@@ -64,7 +63,7 @@ export const isValidBanknavn = (value: string) =>
   !!normalizeInput(value).match(regExpPattern.validBanknavn);
 
 export const isValidAdresselinje = (value: string) =>
-  !normalizeInput(value).match(regExpPattern.validBankadresselinje);
+  !!normalizeInput(value).match(regExpPattern.validBankadresselinje);
 
 /*
   Special validators - Phone number

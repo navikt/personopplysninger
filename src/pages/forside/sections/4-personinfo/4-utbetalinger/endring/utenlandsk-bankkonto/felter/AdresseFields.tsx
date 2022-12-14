@@ -19,39 +19,49 @@ const AdresseFields = () => {
   const {
     register,
     watch,
+    trigger,
     formState: { errors, isSubmitted },
   } = useFormContext<FormFields>();
+
+  const shouldValidateAdresse = () =>
+    validerBankkode(watch().land, watch().bickode, watch().bankkode) ||
+    watch().adresse2 ||
+    watch().adresse3;
 
   return (
     <>
       <InputMedHjelpetekst
         {...register("adresse1", {
           validate: {
-            ...((validerBankkode(
-              watch().land,
-              watch().bickode,
-              watch().bankkode
-            ) ||
-              watch().adresse2 ||
-              watch().adresse3) && {
-              required: (v) =>
-                v.length > 0 || formatIntl("validation.adresse.pakrevd"),
-            }),
+            required: (v) =>
+              shouldValidateAdresse()
+                ? v.length > 0 || formatIntl("validation.adresse.pakrevd")
+                : true,
             firstCharNotSpace: (v) =>
-              isFirstCharNotSpace(v) ||
-              formatIntl("validation.firstchar.notspace"),
+              v.length > 0
+                ? isFirstCharNotSpace(v) ||
+                  formatIntl("validation.firstchar.notspace")
+                : true,
             notBlacklisted: (v) =>
-              !isBlacklistedCommon(v) ||
-              formatIntl("validation.svarteliste.felles"),
+              v.length > 0
+                ? !isBlacklistedCommon(v) ||
+                  formatIntl("validation.svarteliste.felles")
+                : true,
             noCombinedSpaces: (v) =>
-              !hasMultipleCombinedSpaces(v) ||
-              formatIntl("validation.multiple.spaces"),
+              v.length > 0
+                ? !hasMultipleCombinedSpaces(v) ||
+                  formatIntl("validation.multiple.spaces")
+                : true,
             notOnlyNonLetters: (v) =>
-              !isOnlyNonLetters(v) ||
-              formatIntl("validation.only.space.signs.or.digits"),
+              v.length > 0
+                ? !isOnlyNonLetters(v) ||
+                  formatIntl("validation.only.space.signs.or.digits")
+                : true,
             validAdresselinje: (v) =>
-              isValidAdresselinje(v) ||
-              formatIntl("validation.adresselinje.ugyldig"),
+              v.length > 0
+                ? isValidAdresselinje(v) ||
+                  formatIntl("validation.adresselinje.ugyldig")
+                : true,
           },
         })}
         id={"adresse1"}
@@ -63,26 +73,37 @@ const AdresseFields = () => {
       />
       <InputMedHjelpetekst
         {...register("adresse2", {
+          onChange: () => trigger(["adresse1", "adresse3"]),
           validate: {
-            ...(watch().adresse3 && {
-              required: (v) =>
-                v || formatIntl("validation.adresselinje.pakrevd"),
-            }),
+            required: (v) =>
+              watch().adresse3.length > 0
+                ? v.length > 0 || formatIntl("validation.adresselinje.pakrevd")
+                : true,
             firstCharNotSpace: (v) =>
-              isFirstCharNotSpace(v) ||
-              formatIntl("validation.firstchar.notspace"),
+              v.length > 0
+                ? isFirstCharNotSpace(v) ||
+                  formatIntl("validation.firstchar.notspace")
+                : true,
             notBlacklisted: (v) =>
-              !isBlacklistedCommon(v) ||
-              formatIntl("validation.svarteliste.felles"),
+              v.length > 0
+                ? !isBlacklistedCommon(v) ||
+                  formatIntl("validation.svarteliste.felles")
+                : true,
             noCombinedSpaces: (v) =>
-              !hasMultipleCombinedSpaces(v) ||
-              formatIntl("validation.multiple.spaces"),
+              v.length > 0
+                ? !hasMultipleCombinedSpaces(v) ||
+                  formatIntl("validation.multiple.spaces")
+                : true,
             notOnlySignsSpace: (v) =>
-              !isOnlySignsSpace(v) ||
-              formatIntl("validation.only.space.or.signs"),
+              v.length > 0
+                ? !isOnlySignsSpace(v) ||
+                  formatIntl("validation.only.space.or.signs")
+                : true,
             validAdresselinje: (v) =>
-              isValidAdresselinje(v) ||
-              formatIntl("validation.adresselinje.ugyldig"),
+              v.length > 0
+                ? isValidAdresselinje(v) ||
+                  formatIntl("validation.adresselinje.ugyldig")
+                : true,
           },
         })}
         id={"adresse2"}
@@ -94,22 +115,33 @@ const AdresseFields = () => {
       />
       <InputMedHjelpetekst
         {...register("adresse3", {
+          onChange: () => trigger(["adresse1", "adresse2"]),
           validate: {
             firstCharNotSpace: (v) =>
-              isFirstCharNotSpace(v) ||
-              formatIntl("validation.firstchar.notspace"),
+              v.length > 0
+                ? isFirstCharNotSpace(v) ||
+                  formatIntl("validation.firstchar.notspace")
+                : true,
             notBlacklisted: (v) =>
-              !isBlacklistedCommon(v) ||
-              formatIntl("validation.svarteliste.felles"),
+              v.length > 0
+                ? !isBlacklistedCommon(v) ||
+                  formatIntl("validation.svarteliste.felles")
+                : true,
             noCombinedSpaces: (v) =>
-              !hasMultipleCombinedSpaces(v) ||
-              formatIntl("validation.multiple.spaces"),
-            notOnlyNonLetters: (v) =>
-              !isOnlyNonLetters(v) ||
-              formatIntl("validation.only.space.signs.or.digits"),
+              v.length > 0
+                ? !hasMultipleCombinedSpaces(v) ||
+                  formatIntl("validation.multiple.spaces")
+                : true,
+            notOnlySignsSpace: (v) =>
+              v.length > 0
+                ? !isOnlySignsSpace(v) ||
+                  formatIntl("validation.only.space.or.signs")
+                : true,
             validAdresselinje: (v) =>
-              isValidAdresselinje(v) ||
-              formatIntl("validation.adresselinje.ugyldig"),
+              v.length > 0
+                ? isValidAdresselinje(v) ||
+                  formatIntl("validation.adresselinje.ugyldig")
+                : true,
           },
         })}
         id={"adresse3"}
