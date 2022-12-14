@@ -3,7 +3,6 @@ import { FormattedMessage } from "react-intl";
 import { electronicFormatIBAN } from "ibantools";
 import {
   brukerBankkode,
-  harValgtBic,
   harValgtUSA,
   validerBankkode,
   validerBic,
@@ -28,7 +27,7 @@ interface Props {
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
   const {
     watch,
-    formState: { isSubmitted, isValid, errors },
+    formState: { isSubmitted, errors },
   } = useFormContext<FormFields>();
 
   const { formatMessage } = useIntlFormatter();
@@ -69,7 +68,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
           )}
         </>
       )}
-      {isSubmitted && !isValid && watch().land && (
+      {isSubmitted && Object.keys(errors).length > 0 && (
         <ErrorSummary title={formatMessage("validation.fix.errors")}>
           {mapErrorsToSummary(errors).map((error, index) => (
             <ErrorSummary.Item
