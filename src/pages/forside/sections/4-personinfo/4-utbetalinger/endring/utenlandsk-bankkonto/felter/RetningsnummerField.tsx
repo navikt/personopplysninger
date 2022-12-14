@@ -5,7 +5,7 @@ import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter
 import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 
 const RetningsnummerField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -16,7 +16,7 @@ const RetningsnummerField = () => {
     <InputMedHjelpetekst
       {...register("retningsnummer")}
       disabled={true}
-      label={formatIntl("felter.bankkode.label")}
+      label={formatMessage("felter.bankkode.label")}
       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
       error={errors?.retningsnummer?.message}
     />

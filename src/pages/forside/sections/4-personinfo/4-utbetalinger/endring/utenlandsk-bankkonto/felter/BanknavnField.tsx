@@ -12,7 +12,7 @@ import {
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 
 const BanknavnField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -23,28 +23,28 @@ const BanknavnField = () => {
     <InputMedHjelpetekst
       {...register("banknavn", {
         validate: {
-          required: (v) => !!v || formatIntl("validation.banknavn.pakrevd"),
+          required: (v) => !!v || formatMessage("validation.banknavn.pakrevd"),
           firstCharNotSpace: (v) =>
             isFirstCharNotSpace(v) ||
-            formatIntl("validation.firstchar.notspace"),
+            formatMessage("validation.firstchar.notspace"),
           notBlacklisted: (v) =>
             !isBlacklistedCommon(v) ||
-            formatIntl("validation.svarteliste.felles"),
+            formatMessage("validation.svarteliste.felles"),
           noCombinedSpaces: (v) =>
             !hasMultipleCombinedSpaces(v) ||
-            formatIntl("validation.multiple.spaces"),
+            formatMessage("validation.multiple.spaces"),
           notOnlyNonLetters: (v) =>
             !isOnlyNonLetters(v) ||
-            formatIntl("validation.only.space.signs.or.digits"),
+            formatMessage("validation.only.space.signs.or.digits"),
           validBanknavn: (v) =>
-            isValidBanknavn(v) || formatIntl("validation.banknavn.ugyldig"),
+            isValidBanknavn(v) || formatMessage("validation.banknavn.ugyldig"),
         },
       })}
       id={"banknavn"}
       size="medium"
       maxLength={35}
       htmlSize={37}
-      label={formatIntl("felter.banknavn.label")}
+      label={formatMessage("felter.banknavn.label")}
       error={errors?.banknavn?.message}
     />
   );

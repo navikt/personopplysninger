@@ -11,7 +11,7 @@ import {
 import { isValidBIC } from "ibantools";
 
 const BickodeField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -24,15 +24,15 @@ const BickodeField = () => {
       {...register("bickode", {
         validate: {
           ...(validerBic(watch().land, watch().bickode, watch().bankkode) && {
-            required: (v) => !!v || formatIntl("validation.bic.pakrevd"),
+            required: (v) => !!v || formatMessage("validation.bic.pakrevd"),
             lettersAndDigits: (v) =>
               isLettersAndDigits(v) ||
-              formatIntl("validation.only.letters.and.digits"),
+              formatMessage("validation.only.letters.and.digits"),
             validBic: (v) =>
-              isValidBIC(v) || formatIntl("validation.bic.gyldig"),
+              isValidBIC(v) || formatMessage("validation.bic.gyldig"),
             bicCountryCompliant: (v) =>
               isBICCountryCompliant(v, watch().land) ||
-              formatIntl("validation.bic.country"),
+              formatMessage("validation.bic.country"),
           }),
         },
       })}
@@ -40,7 +40,7 @@ const BickodeField = () => {
       size="medium"
       maxLength={11}
       hjelpetekst={"utbetalinger.hjelpetekster.bic"}
-      label={formatIntl("felter.bic.label")}
+      label={formatMessage("felter.bic.label")}
       error={errors?.bickode?.message}
     />
   );

@@ -14,7 +14,7 @@ export const BANKKODER: { [key: string]: string } = {
 };
 
 const LandField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -27,10 +27,10 @@ const LandField = () => {
   return (
     <SelectLand
       {...register("land", {
-        required: formatIntl("validation.land.pakrevd"),
+        required: formatMessage("validation.land.pakrevd"),
       })}
       submitted={isSubmitted}
-      label={formatIntl("felter.bankensland.label")}
+      label={formatMessage("felter.bankensland.label")}
       error={errors?.land?.message}
       option={watch().land}
       onChange={(option) => {

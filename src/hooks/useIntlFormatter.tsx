@@ -4,5 +4,9 @@ import { useIntl } from "react-intl";
 export const useIntlFormatter = () => {
   const { formatMessage } = useIntl();
 
-  return { formatIntl: (id: string) => formatMessage({ id: id }) };
+  return {
+    formatMessage: (id: string) => formatMessage({ id: id }),
+    formatMessageWithValues: (id: string, values: {}) =>
+      formatMessage({ id: id }, values),
+  };
 };

@@ -14,7 +14,7 @@ import {
 } from "../../../../../../../../utils/validators";
 
 const AdresseFields = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -32,13 +32,13 @@ const AdresseFields = () => {
     value: string,
     validationResult: boolean,
     messageId: string
-  ) => (!!value ? validationResult || formatIntl(messageId) : true);
+  ) => (!!value ? validationResult || formatMessage(messageId) : true);
 
   const requiredOnCondition = (
     value: string,
     condition: boolean,
     messageId: string
-  ) => (condition ? !!value || formatIntl(messageId) : true);
+  ) => (condition ? !!value || formatMessage(messageId) : true);
 
   const adressePakrevd = "validation.adresse.pakrevd";
   const adresselinjePakrevd = "validation.adresselinje.pakrevd";
@@ -72,7 +72,7 @@ const AdresseFields = () => {
         size="medium"
         maxLength={34}
         error={errors?.adresse1?.message}
-        label={formatIntl("felter.bankens.adresse.label")}
+        label={formatMessage("felter.bankens.adresse.label")}
       />
       <InputMedHjelpetekst
         {...register("adresse2", {

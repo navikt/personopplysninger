@@ -51,7 +51,7 @@ export const isBICCountryCompliant = (value: string, land?: OptionType) =>
   value.substring(4, 6) === land?.alternativLandkode;
 
 export const isBankkodeValidLength = (value: string, land?: OptionType) =>
-  value.length !== land?.bankkodeLengde;
+  value.length === land?.bankkodeLengde;
 
 export const isOnlyNonLetters = (value: string) =>
   !!normalizeInput(value).match(regExpPattern.onlyNonLetters);

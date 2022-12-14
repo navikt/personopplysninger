@@ -31,7 +31,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     formState: { isSubmitted, isValid, errors },
   } = useFormContext<FormFields>();
 
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const valgtLand = watch().land;
 
@@ -70,7 +70,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
         </>
       )}
       {isSubmitted && !isValid && watch().land && (
-        <ErrorSummary title={formatIntl("validation.fix.errors")}>
+        <ErrorSummary title={formatMessage("validation.fix.errors")}>
           {mapErrorsToSummary(errors).map((error, index) => (
             <ErrorSummary.Item
               key={error.skjemaelementId}

@@ -15,7 +15,7 @@ export const BANKKODER: { [key: string]: string } = {
 };
 
 const ValutaField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -28,10 +28,10 @@ const ValutaField = () => {
   return (
     <SelectValuta
       {...register("valuta", {
-        required: formatIntl("validation.valuta.pakrevd"),
+        required: formatMessage("validation.valuta.pakrevd"),
       })}
       submitted={isSubmitted}
-      label={formatIntl("felter.valuta.label")}
+      label={formatMessage("felter.valuta.label")}
       hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
       option={watch().valuta}
       onChange={(value) => {

@@ -1,16 +1,16 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
-import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { validerBankkode } from "../../utils";
 import {
   isBankkodeValidLength,
   isNumeric,
 } from "../../../../../../../../utils/validators";
+import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 
 const BankkodeField = () => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage, formatMessageWithValues } = useIntlFormatter();
 
   const {
     register,
@@ -27,12 +27,16 @@ const BankkodeField = () => {
             watch().bickode,
             watch().bankkode
           ) && {
-            required: (v) => !!v || formatIntl("validation.bankkode.pakrevd"),
+            required: (v) =>
+              !!v || formatMessage("validation.bankkode.pakrevd"),
             numeric: (v) =>
-              isNumeric(v) || formatIntl("validation.only.digits"),
+              isNumeric(v) || formatMessage("validation.only.digits"),
             validLength: (v) =>
               isBankkodeValidLength(v, watch().land) ||
-              formatIntl("validation.bankkode.lengde"),
+              formatMessageWithValues("validation.bankkode.lengde", {
+                land: watch().land?.label,
+                siffer: watch().land?.bankkodeLengde,
+              }),
           }),
         },
       })}

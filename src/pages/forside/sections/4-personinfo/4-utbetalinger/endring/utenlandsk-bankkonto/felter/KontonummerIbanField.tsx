@@ -15,7 +15,7 @@ interface Props {
 }
 
 const KontonummerIbanField = (props: Props) => {
-  const { formatIntl } = useIntlFormatter();
+  const { formatMessage } = useIntlFormatter();
 
   const {
     register,
@@ -28,29 +28,29 @@ const KontonummerIbanField = (props: Props) => {
       {...register("kontonummerIban", {
         validate: {
           ...(watch().land?.kreverIban && {
-            required: (v) => !!v || formatIntl("validation.iban.pakrevd"),
+            required: (v) => !!v || formatMessage("validation.iban.pakrevd"),
             validIban: (v) =>
-              isValidIBAN(v) || formatIntl("validation.iban.gyldig"),
+              isValidIBAN(v) || formatMessage("validation.iban.gyldig"),
           }),
           ...(!watch().land?.kreverIban && {
             required: (v) =>
-              !!v || formatIntl("validation.kontonummer.pakrevd"),
+              !!v || formatMessage("validation.kontonummer.pakrevd"),
           }),
           ...(harValgtUSA(watch().land) && {
             notIban: (v) =>
-              !isValidIBAN(v) || formatIntl("validation.ikke.iban"),
+              !isValidIBAN(v) || formatMessage("validation.ikke.iban"),
           }),
           ...(isValidIBAN(watch().kontonummerIban) && {
             ibanCountryCompliant: (v) =>
               isIBANCountryCompliant(v, watch().land) ||
-              formatIntl("validation.iban.country"),
+              formatMessage("validation.iban.country"),
           }),
           lettersAndDigits: (v) =>
             isLettersAndDigits(v) ||
-            formatIntl("validation.only.letters.and.digits"),
+            formatMessage("validation.only.letters.and.digits"),
           notUsersSsn: (v) =>
             v !== props.personident?.verdi ||
-            formatIntl("validation.kontonummer.idnr"),
+            formatMessage("validation.kontonummer.idnr"),
         },
       })}
       id={"kontonummerIban"}
@@ -58,7 +58,7 @@ const KontonummerIbanField = (props: Props) => {
       maxLength={36}
       htmlSize={37}
       hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
-      label={formatIntl("felter.kontonummer.kontonummer.label")}
+      label={formatMessage("felter.kontonummer.kontonummer.label")}
       error={errors?.kontonummerIban?.message}
     />
   );
