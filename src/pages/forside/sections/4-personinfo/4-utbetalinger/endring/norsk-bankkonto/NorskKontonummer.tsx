@@ -18,7 +18,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
 
   const {
     register,
-    formState: { errors, isSubmitted, defaultValues },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
@@ -42,7 +42,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
         htmlSize={14}
         maxLength={16}
         label={msg({ id: "felter.kontonummer.label" })}
-        error={isSubmitted && errors?.kontonummer?.message}
+        error={errors?.kontonummer?.message}
       />
     </div>
   );

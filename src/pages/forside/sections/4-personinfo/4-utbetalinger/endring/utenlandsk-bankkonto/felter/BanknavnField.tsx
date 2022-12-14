@@ -16,7 +16,7 @@ const BanknavnField = () => {
 
   const {
     register,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
@@ -44,7 +44,6 @@ const BanknavnField = () => {
       size="medium"
       maxLength={35}
       htmlSize={37}
-      submitted={isSubmitted}
       label={formatIntl("felter.banknavn.label")}
       error={errors?.banknavn?.message}
     />

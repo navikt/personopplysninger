@@ -16,7 +16,7 @@ const BickodeField = () => {
   const {
     register,
     watch,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
@@ -39,7 +39,6 @@ const BickodeField = () => {
       id={"bickode"}
       size="medium"
       maxLength={11}
-      submitted={isSubmitted}
       hjelpetekst={"utbetalinger.hjelpetekster.bic"}
       label={formatIntl("felter.bic.label")}
       error={errors?.bickode?.message}

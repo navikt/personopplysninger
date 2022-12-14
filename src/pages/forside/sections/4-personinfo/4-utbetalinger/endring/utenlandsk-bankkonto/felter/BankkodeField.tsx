@@ -15,7 +15,7 @@ const BankkodeField = () => {
   const {
     register,
     watch,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
@@ -39,7 +39,6 @@ const BankkodeField = () => {
       id={"bankkode"}
       label={``}
       size="medium"
-      submitted={isSubmitted}
       error={errors?.bankkode?.message}
       maxLength={watch().land && watch().land?.bankkodeLengde}
     />

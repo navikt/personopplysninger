@@ -7,22 +7,12 @@ interface Props extends TextFieldProps {
   id?: string;
   value?: string;
   error?: string | null;
-  submitted: boolean;
   hjelpetekst?: string;
 }
 
 const EndreKontonummerFelt = React.forwardRef(
   (
-    {
-      id,
-      value,
-      submitted,
-      error,
-      htmlSize,
-      label,
-      hjelpetekst,
-      ...restProps
-    }: Props,
+    { id, value, error, htmlSize, label, hjelpetekst, ...restProps }: Props,
     ref: ForwardedRef<any>
   ) => {
     return (
@@ -53,7 +43,7 @@ const EndreKontonummerFelt = React.forwardRef(
             label={""}
             value={value}
             htmlSize={htmlSize}
-            error={submitted && error}
+            error={error}
             ref={ref}
             {...restProps}
           />

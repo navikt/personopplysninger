@@ -72,12 +72,11 @@ const AdresseFields = () => {
         size="medium"
         maxLength={34}
         error={errors?.adresse1?.message}
-        submitted={isSubmitted}
         label={formatIntl("felter.bankens.adresse.label")}
       />
       <InputMedHjelpetekst
         {...register("adresse2", {
-          onChange: () => trigger(["adresse1", "adresse3"]),
+          onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
           validate: {
             required: (v) =>
               requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
@@ -98,11 +97,10 @@ const AdresseFields = () => {
         size="medium"
         maxLength={34}
         error={errors?.adresse2?.message}
-        submitted={isSubmitted}
       />
       <InputMedHjelpetekst
         {...register("adresse3", {
-          onChange: () => trigger(["adresse1", "adresse2"]),
+          onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
           validate: {
             firstCharNotSpace: (v) =>
               validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
@@ -121,7 +119,6 @@ const AdresseFields = () => {
         size="medium"
         maxLength={34}
         error={errors?.adresse3?.message}
-        submitted={isSubmitted}
       />
     </>
   );

@@ -20,7 +20,7 @@ const KontonummerIbanField = (props: Props) => {
   const {
     register,
     watch,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
@@ -57,7 +57,6 @@ const KontonummerIbanField = (props: Props) => {
       size="medium"
       maxLength={36}
       htmlSize={37}
-      submitted={isSubmitted}
       hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
       label={formatIntl("felter.kontonummer.kontonummer.label")}
       error={errors?.kontonummerIban?.message}

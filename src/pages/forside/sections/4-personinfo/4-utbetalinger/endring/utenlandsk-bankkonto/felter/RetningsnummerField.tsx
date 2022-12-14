@@ -9,14 +9,13 @@ const RetningsnummerField = () => {
 
   const {
     register,
-    formState: { errors, isSubmitted },
+    formState: { errors },
   } = useFormContext<FormFields>();
 
   return (
     <InputMedHjelpetekst
       {...register("retningsnummer")}
       disabled={true}
-      submitted={isSubmitted}
       label={formatIntl("felter.bankkode.label")}
       hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
       error={errors?.retningsnummer?.message}
