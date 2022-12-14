@@ -23,8 +23,7 @@ const BanknavnField = () => {
     <InputMedHjelpetekst
       {...register("banknavn", {
         validate: {
-          required: (v) =>
-            v.length > 0 || formatIntl("validation.banknavn.pakrevd"),
+          required: (v) => !!v || formatIntl("validation.banknavn.pakrevd"),
           firstCharNotSpace: (v) =>
             isFirstCharNotSpace(v) ||
             formatIntl("validation.firstchar.notspace"),

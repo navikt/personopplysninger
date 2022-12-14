@@ -24,8 +24,7 @@ const BickodeField = () => {
       {...register("bickode", {
         validate: {
           ...(validerBic(watch().land, watch().bickode, watch().bankkode) && {
-            required: (v) =>
-              v.length > 0 || formatIntl("validation.bic.pakrevd"),
+            required: (v) => !!v || formatIntl("validation.bic.pakrevd"),
             lettersAndDigits: (v) =>
               isLettersAndDigits(v) ||
               formatIntl("validation.only.letters.and.digits"),

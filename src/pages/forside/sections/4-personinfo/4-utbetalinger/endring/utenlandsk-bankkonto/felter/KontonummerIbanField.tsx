@@ -28,14 +28,13 @@ const KontonummerIbanField = (props: Props) => {
       {...register("kontonummerIban", {
         validate: {
           ...(watch().land?.kreverIban && {
-            required: (v) =>
-              v.length > 0 || formatIntl("validation.iban.pakrevd"),
+            required: (v) => !!v || formatIntl("validation.iban.pakrevd"),
             validIban: (v) =>
               isValidIBAN(v) || formatIntl("validation.iban.gyldig"),
           }),
           ...(!watch().land?.kreverIban && {
             required: (v) =>
-              v.length > 0 || formatIntl("validation.kontonummer.pakrevd"),
+              !!v || formatIntl("validation.kontonummer.pakrevd"),
           }),
           ...(harValgtUSA(watch().land) && {
             notIban: (v) =>

@@ -27,8 +27,7 @@ const BankkodeField = () => {
             watch().bickode,
             watch().bankkode
           ) && {
-            required: (v) =>
-              v.length > 0 || formatIntl("validation.bankkode.pakrevd"),
+            required: (v) => !!v || formatIntl("validation.bankkode.pakrevd"),
             numeric: (v) =>
               isNumeric(v) || formatIntl("validation.only.digits"),
             validLength: (v) =>

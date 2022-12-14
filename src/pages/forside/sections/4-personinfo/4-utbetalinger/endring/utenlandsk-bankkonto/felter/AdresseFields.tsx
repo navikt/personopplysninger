@@ -25,8 +25,29 @@ const AdresseFields = () => {
 
   const shouldValidateAdresse = () =>
     validerBankkode(watch().land, watch().bickode, watch().bankkode) ||
-    watch().adresse2 ||
-    watch().adresse3;
+    !!watch().adresse2 ||
+    !!watch().adresse3;
+
+  const validateIfSet = (
+    value: string,
+    validationResult: boolean,
+    messageId: string
+  ) => (!!value ? validationResult || formatIntl(messageId) : true);
+
+  const requiredOnCondition = (
+    value: string,
+    condition: boolean,
+    messageId: string
+  ) => (condition ? !!value || formatIntl(messageId) : true);
+
+  const adressePakrevd = "validation.adresse.pakrevd";
+  const adresselinjePakrevd = "validation.adresselinje.pakrevd";
+  const firstCharNotSpace = "validation.firstchar.notspace";
+  const svartelisteFelles = "validation.svarteliste.felles";
+  const multipleSpaces = "validation.multiple.spaces";
+  const onlySpaceSignsDigits = "validation.only.space.signs.or.digits";
+  const onlySpaceSigns = "validation.only.space.or.signs";
+  const adresselinjeUgyldig = "validation.adresselinje.ugyldig";
 
   return (
     <>
@@ -34,34 +55,17 @@ const AdresseFields = () => {
         {...register("adresse1", {
           validate: {
             required: (v) =>
-              shouldValidateAdresse()
-                ? v.length > 0 || formatIntl("validation.adresse.pakrevd")
-                : true,
+              requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
             firstCharNotSpace: (v) =>
-              v.length > 0
-                ? isFirstCharNotSpace(v) ||
-                  formatIntl("validation.firstchar.notspace")
-                : true,
+              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
             notBlacklisted: (v) =>
-              v.length > 0
-                ? !isBlacklistedCommon(v) ||
-                  formatIntl("validation.svarteliste.felles")
-                : true,
+              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
             noCombinedSpaces: (v) =>
-              v.length > 0
-                ? !hasMultipleCombinedSpaces(v) ||
-                  formatIntl("validation.multiple.spaces")
-                : true,
+              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
             notOnlyNonLetters: (v) =>
-              v.length > 0
-                ? !isOnlyNonLetters(v) ||
-                  formatIntl("validation.only.space.signs.or.digits")
-                : true,
+              validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
             validAdresselinje: (v) =>
-              v.length > 0
-                ? isValidAdresselinje(v) ||
-                  formatIntl("validation.adresselinje.ugyldig")
-                : true,
+              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
           },
         })}
         id={"adresse1"}
@@ -76,34 +80,17 @@ const AdresseFields = () => {
           onChange: () => trigger(["adresse1", "adresse3"]),
           validate: {
             required: (v) =>
-              watch().adresse3.length > 0
-                ? v.length > 0 || formatIntl("validation.adresselinje.pakrevd")
-                : true,
+              requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
             firstCharNotSpace: (v) =>
-              v.length > 0
-                ? isFirstCharNotSpace(v) ||
-                  formatIntl("validation.firstchar.notspace")
-                : true,
+              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
             notBlacklisted: (v) =>
-              v.length > 0
-                ? !isBlacklistedCommon(v) ||
-                  formatIntl("validation.svarteliste.felles")
-                : true,
+              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
             noCombinedSpaces: (v) =>
-              v.length > 0
-                ? !hasMultipleCombinedSpaces(v) ||
-                  formatIntl("validation.multiple.spaces")
-                : true,
-            notOnlySignsSpace: (v) =>
-              v.length > 0
-                ? !isOnlySignsSpace(v) ||
-                  formatIntl("validation.only.space.or.signs")
-                : true,
+              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+            notOnlyNonLetters: (v) =>
+              validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
             validAdresselinje: (v) =>
-              v.length > 0
-                ? isValidAdresselinje(v) ||
-                  formatIntl("validation.adresselinje.ugyldig")
-                : true,
+              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
           },
         })}
         id={"adresse2"}
@@ -118,30 +105,15 @@ const AdresseFields = () => {
           onChange: () => trigger(["adresse1", "adresse2"]),
           validate: {
             firstCharNotSpace: (v) =>
-              v.length > 0
-                ? isFirstCharNotSpace(v) ||
-                  formatIntl("validation.firstchar.notspace")
-                : true,
+              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
             notBlacklisted: (v) =>
-              v.length > 0
-                ? !isBlacklistedCommon(v) ||
-                  formatIntl("validation.svarteliste.felles")
-                : true,
+              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
             noCombinedSpaces: (v) =>
-              v.length > 0
-                ? !hasMultipleCombinedSpaces(v) ||
-                  formatIntl("validation.multiple.spaces")
-                : true,
-            notOnlySignsSpace: (v) =>
-              v.length > 0
-                ? !isOnlySignsSpace(v) ||
-                  formatIntl("validation.only.space.or.signs")
-                : true,
+              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+            notOnlyNonLetters: (v) =>
+              validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
             validAdresselinje: (v) =>
-              v.length > 0
-                ? isValidAdresselinje(v) ||
-                  formatIntl("validation.adresselinje.ugyldig")
-                : true,
+              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
           },
         })}
         id={"adresse3"}
