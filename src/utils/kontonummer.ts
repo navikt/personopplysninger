@@ -1,4 +1,6 @@
 import { RADIX_DECIMAL } from "./formattering";
+import { FieldErrors } from "react-hook-form";
+import { FormFields } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const mod11OfNumberWithControlDigit = (input: string) => {
   let controlNumber: number = 2,
@@ -19,10 +21,10 @@ export const isMod11 = (accountNumber: string) =>
   parseInt(accountNumber.charAt(accountNumber.length - 1), 10) ===
   mod11OfNumberWithControlDigit(accountNumber);
 
-export const mapErrorsToSummary = (errors: { [key: string]: string | null }) =>
+export const mapErrorsToSummary = (errors: FieldErrors<FormFields>) =>
   Object.entries(errors)
     .filter(([, value]) => value)
     .map(([key, value]) => ({
       skjemaelementId: key,
-      feilmelding: value as string,
+      feilmelding: value.message as string,
     }));

@@ -1,6 +1,6 @@
 import { OptionType } from "types/option";
-import { Fields } from "calidation";
-import { BIC } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
+
+const BIC = "BIC";
 
 export const harValgtBic = (bankidentifier?: string) =>
   !!(bankidentifier && bankidentifier === BIC);
@@ -11,27 +11,35 @@ export const harValgtUSA = (land?: OptionType) =>
 export const brukerBankkode = (land?: OptionType) =>
   !!(land && land.bankkodeLengde);
 
-export const validerBic = (fields: Fields) => {
-  if (harValgtUSA(fields.land)) {
+export const validerBic = (
+  land?: OptionType,
+  bickode?: string,
+  bankkode?: string
+) => {
+  if (harValgtUSA(land)) {
     return false;
   }
 
-  if (brukerBankkode(fields.land)) {
-    if (harUtfylt(fields.bickode) || !harUtfylt(fields.bankkode)) {
+  if (brukerBankkode(land)) {
+    if (harUtfylt(bickode) || !harUtfylt(bankkode)) {
       return true;
     }
   }
 
-  return !brukerBankkode(fields.land);
+  return !brukerBankkode(land);
 };
 
-export const validerBankkode = (fields: Fields) => {
-  if (harValgtUSA(fields.land)) {
+export const validerBankkode = (
+  land?: OptionType,
+  bickode?: string,
+  bankkode?: string
+) => {
+  if (harValgtUSA(land)) {
     return true;
   }
 
-  if (brukerBankkode(fields.land)) {
-    return harUtfylt(fields.bankkode) || !harUtfylt(fields.bickode);
+  if (brukerBankkode(land)) {
+    return harUtfylt(bankkode) || !harUtfylt(bickode);
   }
 
   return false;

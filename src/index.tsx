@@ -2,9 +2,7 @@ import "./polyfills";
 import React from "react";
 import ReactDOM from "react-dom";
 import { StoreProvider } from "./store/Context";
-import { ValidatorsProvider } from "calidation";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
-import { extraValidators } from "./utils/validators";
 import WithLanguages from "./store/providers/Language";
 import App from "./App";
 
@@ -20,11 +18,9 @@ const init = async () => {
 
   ReactDOM.render(
     <StoreProvider>
-      <ValidatorsProvider validators={extraValidators}>
-        <WithLanguages>
-          <App />
-        </WithLanguages>
-      </ValidatorsProvider>
+      <WithLanguages>
+        <App />
+      </WithLanguages>
     </StoreProvider>,
     document.getElementById("app")
   );

@@ -2,16 +2,6 @@ export const normalizeNummer = (input: string) => {
   return input.replace(/\D/g, "");
 };
 
-export const formatKontonummer = (input: string) => {
-  if (input.length > 6) {
-    return input.replace(/^(.{4})(.{2})(.*)$/, "$1 $2 $3");
-  }
-  if (input.length > 4) {
-    return input.replace(/^(.{4})(.*)$/, "$1 $2");
-  }
-  return input;
-};
-
 export const formatOrgnr = (input: string) =>
   input.replace(/(?=.{3}$)/, " ").replace(/(?=.{7}$)/, " ");
 

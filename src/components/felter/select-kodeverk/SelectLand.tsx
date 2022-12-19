@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ForwardedRef, useEffect, useState } from "react";
 import { fetchLand } from "clients/apiClient";
 import { HTTPError } from "components/error/Error";
 import NAVSelect from "components/felter/select/NAVSelect";
@@ -8,7 +8,7 @@ interface Props {
   option?: OptionType;
   submitted: boolean;
   label: string;
-  error: string | null;
+  error?: string;
   onChange: (value?: OptionType) => void;
   hjelpetekst?: string;
 }
@@ -28,7 +28,7 @@ export interface Land {
   alternativLandkode?: string;
 }
 
-const SelectLand = (props: Props) => {
+const SelectLand = React.forwardRef((props: Props, ref: ForwardedRef<any>) => {
   const [loading, settLoading] = useState(false);
   const [land, settLand] = useState([] as Land[]);
   const [fetchError, settFetchError] = useState<HTTPError | undefined>();
@@ -82,8 +82,9 @@ const SelectLand = (props: Props) => {
       onChange={props.onChange}
       hjelpetekst={props.hjelpetekst}
       htmlSize={30}
+      ref={ref}
     />
   );
-};
+});
 
 export default SelectLand;
