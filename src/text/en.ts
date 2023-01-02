@@ -18,6 +18,7 @@ export default {
   "side.endre.kontonummer": "Change account number",
   "side.endretil": "Change to",
   "side.opphor": "Termination",
+  "anker.lenkehit": "Link",
   "brodsmulesti.minside": `My page`,
   "brodsmulesti.dinepersonopplysninger": `Personal data`,
   "brodsmulesti.arbeidsforhold": `Employment relationship`,

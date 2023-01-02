@@ -18,6 +18,7 @@ export default {
   "side.endre.kontonummer": "Endre kontonmmer",
   "side.endretil": "Endre til",
   "side.opphor": "Opphør",
+  "anker.lenkehit": "Lenke hit",
   "brodsmulesti.minside": `Min side`,
   "brodsmulesti.dinepersonopplysninger": `Personopplysninger`,
   "brodsmulesti.arbeidsforhold": `Arbeidsforhold`,
