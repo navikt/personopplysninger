@@ -53,6 +53,7 @@ export default {
   "personalia.link.brukerprofil.leggtil": `Legg til i Din profil`,
   "personalia.link.dkif.endre": `Endre i Kontakt- og reservasjonsregisteret `,
   "personalia.link.dkif.leggtil": `Gå til Kontakt- og reservasjonsregisteret `,
+  "personalia.kontonr.feilmelding": `Det skjedde en feil ved henting av kontoinformasjon. Prøv igjen senere.`,
   "personalia.kontonr": `Kontonummer`,
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Kontonummer / IBAN`,

@@ -11,16 +11,20 @@ import { FormattedMessage } from "react-intl";
 import { Alert } from "@navikt/ds-react";
 import driftsmeldinger from "driftsmeldinger";
 import KontonummerForm from "./endring/KontonummerForm";
+import { useIntlFormatter } from "../../../../../hooks/useIntlFormatter";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   personident?: { verdi: string; type: string };
   kontonr?: string;
+  kontoregisterStatus: string;
 }
 
 const Utbetalinger = (props: Props) => {
-  const { kontonr, utenlandskbank, personident } = props;
+  const { kontonr, utenlandskbank, personident, kontoregisterStatus } = props;
   const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
+
+  const { formatMessage } = useIntlFormatter();
 
   return (
     <Box
@@ -36,7 +40,11 @@ const Utbetalinger = (props: Props) => {
           </div>
         )}
       </>
-      {opprettEllerEndre ? (
+      {kontoregisterStatus === "ERROR" ? (
+        <Alert variant="error">
+          {formatMessage("personalia.kontonr.feilmelding")}
+        </Alert>
+      ) : opprettEllerEndre ? (
         <KontonummerForm
           utenlandskbank={utenlandskbank}
           personident={personident}

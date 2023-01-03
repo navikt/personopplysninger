@@ -54,6 +54,7 @@ export default {
   "personalia.link.dkif.endre": `Change in Contact and Reservation Register `,
   "personalia.link.dkif.leggtil": `Go to the Contact and Reservation Register `,
   "personalia.kontonr": `Account number`,
+  "personalia.kontonr.feilmelding": `An error occurred while trying to get account information. Please try again later.`,
   "personalia.iban": `IBAN`,
   "personalia.kontonrelleriban": `Account number / IBAN`,
   "personalia.kontonr.oveskrift": `Account number we make payments to`,

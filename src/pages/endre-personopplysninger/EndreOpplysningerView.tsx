@@ -30,6 +30,7 @@ const EndreOpplysningerView = (props: Props) => {
         <Utbetalinger
           kontonr={personalia.kontonr}
           utenlandskbank={personalia.utenlandskbank}
+          kontoregisterStatus={personalia.kontoregisterStatus}
         />
       )}
     </>
