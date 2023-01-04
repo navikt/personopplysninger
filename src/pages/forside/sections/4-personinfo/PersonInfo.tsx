@@ -34,6 +34,7 @@ const PersonInfo = () => {
               kontonr={personalia.kontonr}
               personident={personalia.personident}
               utenlandskbank={personalia.utenlandskbank}
+              kontoregisterStatus={personalia.kontoregisterStatus}
             />
           )}
           {adresser && enhetKontaktInformasjon && (

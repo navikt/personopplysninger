@@ -25,6 +25,7 @@ export interface Personalia {
     verdi: string;
     type: string;
   };
+  kontoregisterStatus: string;
   kontonr?: string;
   utenlandskbank: UtenlandskBankkonto;
   tlfnr?: Tlfnr;

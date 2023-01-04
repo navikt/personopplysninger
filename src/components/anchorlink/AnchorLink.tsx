@@ -1,12 +1,14 @@
 import React from "react";
 import linkIcon from "assets/img/AnchorLink.svg";
 import { Link } from "@navikt/ds-react";
+import { useIntlFormatter } from "../../hooks/useIntlFormatter";
 
 type Props = {
   id: string;
 };
 
 export const AnchorLink = ({ id }: Props) => {
+  const { formatMessage } = useIntlFormatter();
   return (
     <Link
       href={`#${id}`}
@@ -14,7 +16,7 @@ export const AnchorLink = ({ id }: Props) => {
       aria-label="Direktelenke til denne seksjonen"
     >
       <img src={linkIcon} alt="" />
-      {"Lenke hit"}
+      {formatMessage("anker.lenkehit")}
     </Link>
   );
 };
