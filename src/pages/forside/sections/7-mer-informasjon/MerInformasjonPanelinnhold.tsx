@@ -10,7 +10,7 @@ const Alternativ = (props: Props) => {
   const { melding } = props;
   const [{ locale }] = useStore();
   return (
-    <BodyLong>
+    <BodyLong as="div">
       <FormattedMessage
         id={melding}
         values={{
