@@ -26,7 +26,7 @@ import { WithAuth } from "./store/providers/WithAuth";
 export const basePath = "/person/personopplysninger";
 
 // Import this early, to ensure our own CSS gets higher specificity
-import "@navikt/ds-css/dist/index.css";
+import "@navikt/ds-css";
 import moment from "moment";
 
 const basePathWithLanguage = `${basePath}/(nb|en|nn)`;
