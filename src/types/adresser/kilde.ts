@@ -1,3 +1,1 @@
-export type Kilde = {
-  kilde?: "freg" | "pdl";
-};
+export type Kilde = "freg" | "pdl";
