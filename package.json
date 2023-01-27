@@ -20,7 +20,8 @@
     "build:css": "less-watch-compiler --run-once",
     "test": "react-scripts test --watchAll=false",
     "preversion": "npm test && npm run build",
-    "postversion": "git push && git push --tags"
+    "postversion": "git push && git push --tags",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@navikt/arbeidsforhold": "3.1.2",
@@ -74,6 +75,7 @@
     "@types/react-select": "^4.0.18",
     "@types/react-test-renderer": "17.0.1",
     "classnames": "2.3.2",
+    "husky": "8.0.3",
     "less": "4.1.3",
     "less-plugin-npm-import": "2.1.0",
     "less-watch-compiler": "1.16.3",
