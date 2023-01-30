@@ -310,7 +310,6 @@ A child who lives permanently with both mother and father can have two home addr
   "validation.bankidentifier.pakrevd": "You must select an option",
   "validation.bankidentifier.valid": `If you fill out the IBAN number, you must also fill out the BIC / SWIFT code`,
   "validation.kontonummer.pakrevd": "Account number is required",
-  "validation.kontonummer.siffer": "Account numbers must be numbers",
   "validation.kontonummer.elleve": `Norwegian account numbers must have 11 numbers`,
   "validation.kontonummer.mod11": `Enter a valid account number`,
   "validation.kontonummer.idnr": `Account number cannot be a national identity number or D-number.`,
