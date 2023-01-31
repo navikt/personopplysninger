@@ -5,6 +5,9 @@ import { IntlProvider } from "react-intl";
 import nbMessages from "../../../../text/nb";
 import { StoreProvider } from "../../../../store/Context";
 import React from "react";
+import land from "../../../../clients/apiMock/app/fetch/land.json";
+import { enableFetchMocks } from "jest-fetch-mock";
+import fetch from "jest-fetch-mock";
 
 const IDENT = "04918399092";
 
@@ -101,5 +104,23 @@ describe("Norsk kontonummer", () => {
         )
       ).toBeInTheDocument()
     );
+  });
+});
+
+// Denne feiler
+describe("Utenlandsk kontonummer", () => {
+  enableFetchMocks();
+  beforeEach(async () => {
+    fetch.mockResponseOnce(JSON.stringify(land));
+
+    fireEvent.click(
+      screen.getByRole("radio", { name: "Utenlandsk kontonummer" })
+    );
+  });
+
+  test("inneholder forventede felter", async () => {
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+
+    screen.debug();
   });
 });
