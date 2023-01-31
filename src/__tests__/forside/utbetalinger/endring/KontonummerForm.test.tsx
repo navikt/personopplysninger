@@ -8,13 +8,18 @@ import React from "react";
 
 const IDENT = "04918399092";
 
+const mockSubmit = jest.fn();
+
 beforeEach(() => {
+  mockSubmit.mockReset();
+
   render(
     <StoreProvider>
       <IntlProvider locale={"nb"} messages={nbMessages}>
         <KontonummerForm
           settOpprettEllerEndre={jest.fn()}
           personident={{ type: "", verdi: IDENT }}
+          submit={mockSubmit}
         />
       </IntlProvider>
     </StoreProvider>
@@ -32,6 +37,18 @@ describe("Norsk kontonummer", () => {
     ).toBeInTheDocument();
 
     expect(screen.getByRole("button", { name: "Lagre" })).toBeInTheDocument();
+  });
+
+  test("submitter ved gyldig input", async () => {
+    fireEvent.input(screen.getByRole("textbox", { name: "Kontonummer" }), {
+      target: { value: "12345678911" },
+    });
+
+    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+
+    await waitFor(() => {
+      expect(mockSubmit).toHaveBeenCalled();
+    });
   });
 
   test("får valideringsfeil med manglende kontonummer", async () => {

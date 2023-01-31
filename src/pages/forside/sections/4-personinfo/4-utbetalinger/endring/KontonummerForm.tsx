@@ -26,12 +26,14 @@ import {
   OutboundUtenlandsbankonto,
 } from "./types";
 import { UNKNOWN } from "../../../../../../utils/text";
+import { Action } from "../../../../../../store/Store";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
   personident?: { verdi: string; type: string };
   kontonr?: string;
   settOpprettEllerEndre: (arg: boolean) => void;
+  submit?: () => void;
 }
 
 const NORSK = "NORSK";
@@ -39,6 +41,8 @@ const UTENLANDSK = "UTENLANDSK";
 
 const KontonummerForm = (props: Props) => {
   const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
+
+  const { submit = submitKontonummer } = props;
 
   const methods = useForm<FormFields>({
     reValidateMode: "onChange",
@@ -77,39 +81,20 @@ const KontonummerForm = (props: Props) => {
 
   const [, dispatch] = useStore();
 
-  const submitEndre = (values: FieldValues) => {
-    type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
-    const outbound: { [key: string]: () => Outbound } = {
-      NORSK: () => {
-        values.kontonummer = normalizeNummer(values.kontonummer);
-        return setOutboundNorskKontonummer(values);
-      },
-      UTENLANDSK: () => setOutboundUtenlandsbankonto(values),
-    };
-
-    settLoading(true);
-    postKontonummer(outbound[kontonummerType]())
-      .then(getUpdatedData)
-      .then(onSuccess)
-      .catch((error: Feilmelding) => settAlert(error))
-      .then(() => settLoading(false));
-  };
-
-  const getUpdatedData = () =>
-    fetchPersonInfo().then((personInfo) => {
-      dispatch({
-        type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo,
-      });
-    });
-
-  const onSuccess = () => {
-    settOpprettEllerEndre(false);
+  const onSubmit = (values: FieldValues) => {
+    submit(
+      values,
+      kontonummerType,
+      settAlert,
+      settLoading,
+      settOpprettEllerEndre,
+      dispatch
+    );
   };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(submitEndre)}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <RadioGroup
           legend={msg({ id: "felter.kontonummer.grouplegend" })}
           defaultValue={kontonummerType}
@@ -167,5 +152,38 @@ const KontonummerForm = (props: Props) => {
     </FormProvider>
   );
 };
+
+const submitKontonummer = (
+  values: FieldValues,
+  kontonummerType: string,
+  settAlert: (value: Feilmelding) => void,
+  settLoading: (value: boolean) => void,
+  settOpprettEllerEndre: (value: boolean) => void,
+  dispatch: React.Dispatch<Action>
+) => {
+  type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
+  const outbound: { [key: string]: () => Outbound } = {
+    NORSK: () => {
+      values.kontonummer = normalizeNummer(values.kontonummer);
+      return setOutboundNorskKontonummer(values);
+    },
+    UTENLANDSK: () => setOutboundUtenlandsbankonto(values),
+  };
+
+  settLoading(true);
+  postKontonummer(outbound[kontonummerType]())
+    .then(() => getUpdatedData(dispatch))
+    .then(() => settOpprettEllerEndre(false))
+    .catch((error: Feilmelding) => settAlert(error))
+    .then(() => settLoading(false));
+};
+
+const getUpdatedData = (dispatch: React.Dispatch<Action>) =>
+  fetchPersonInfo().then((personInfo) => {
+    dispatch({
+      type: "SETT_PERSON_INFO_RESULT",
+      payload: personInfo as PersonInfo,
+    });
+  });
 
 export default KontonummerForm;
