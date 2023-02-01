@@ -33,23 +33,19 @@ beforeEach(() => {
 
 describe("Norsk kontonummer", () => {
   beforeEach(() => {
-    fireEvent.click(screen.getByRole("radio", { name: "Norsk kontonummer" }));
+    selectRadio("Norsk kontonummer");
   });
 
   test("inneholder forventede felter", () => {
-    expect(
-      screen.getByRole("textbox", { name: "Kontonummer" })
-    ).toBeInTheDocument();
+    expect(getByName("Kontonummer")).toBeInTheDocument();
 
     expect(screen.getByRole("button", { name: "Lagre" })).toBeInTheDocument();
   });
 
   test("submitter ved gyldig input", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Kontonummer" }), {
-      target: { value: "12345678911" },
-    });
+    inputTextbox("Kontonummer", "12345678911");
 
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() => {
       expect(mockSubmit).toHaveBeenCalled();
@@ -57,7 +53,7 @@ describe("Norsk kontonummer", () => {
   });
 
   test("får valideringsfeil med manglende kontonummer", async () => {
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() =>
       expect(screen.getByText("Kontonummer er nødvendig")).toBeInTheDocument()
@@ -65,11 +61,9 @@ describe("Norsk kontonummer", () => {
   });
 
   test("får valideringsfeil med ugyldig lengde på kontonummer", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Kontonummer" }), {
-      target: { value: "1234567891" },
-    });
+    inputTextbox("Kontonummer", "1234567891");
 
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() =>
       expect(
@@ -79,11 +73,9 @@ describe("Norsk kontonummer", () => {
   });
 
   test("får valideringsfeil med ugyldig kontonummer", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Kontonummer" }), {
-      target: { value: "12341234123" },
-    });
+    inputTextbox("Kontonummer", "12341234123");
 
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() =>
       expect(
@@ -93,11 +85,9 @@ describe("Norsk kontonummer", () => {
   });
 
   test("får valideringsfeil når kontonummer er likt fødselsnummer", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Kontonummer" }), {
-      target: { value: IDENT },
-    });
+    inputTextbox("Kontonummer", IDENT);
 
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() =>
       expect(
@@ -114,72 +104,66 @@ describe("Utenlandsk kontonummer", () => {
     fetch.mockResponseOnce(JSON.stringify(land));
     fetch.mockResponseOnce(JSON.stringify(valutaer));
 
-    fireEvent.click(
-      screen.getByRole("radio", { name: "Utenlandsk kontonummer" })
-    );
+    selectRadio("Utenlandsk kontonummer");
 
     await waitFor(() => {
-      screen.getByRole("textbox", { name: "Bankens land" });
+      getByName("Bankens land");
     });
   });
 
   test("inneholder forventede felter", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Bankens land" }), {
-      target: { value: "Albania" },
-    });
-    fireEvent.click(screen.getAllByText("Albania")[1]);
+    inputSelect("Bankens land", "Albania");
 
     await waitFor(() => {
-      expect(
-        screen.getByRole("textbox", { name: "Bankens land" })
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole("textbox", { name: "Valuta" })
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole("textbox", { name: "Bankens navn" })
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole("textbox", { name: "Kontonummer / IBAN" })
-      ).toBeInTheDocument();
-      expect(
-        screen.getByRole("textbox", { name: "BIC / Swift-kode" })
-      ).toBeInTheDocument();
+      expect(getByName("Bankens land")).toBeInTheDocument();
+      expect(getByName("Valuta")).toBeInTheDocument();
+      expect(getByName("Bankens navn")).toBeInTheDocument();
+      expect(getByName("Kontonummer / IBAN")).toBeInTheDocument();
+      expect(getByName("BIC / Swift-kode")).toBeInTheDocument();
     });
   });
 
   test("submitter ved gyldig input", async () => {
-    fireEvent.input(screen.getByRole("textbox", { name: "Bankens land" }), {
-      target: { value: "Sverige" },
-    });
-    fireEvent.click(screen.getAllByText("Sverige")[1]);
+    inputSelect("Bankens land", "Sverige");
 
     await waitFor(() => {
-      screen.getByRole("textbox", { name: "Valuta" });
+      getByName("Valuta");
     });
 
-    fireEvent.input(screen.getByRole("textbox", { name: "Valuta" }), {
-      target: { value: "Svenske kroner (SEK)" },
-    });
-    fireEvent.click(screen.getAllByText("Svenske kroner (SEK)")[1]);
+    inputSelect("Valuta", "Svenske kroner (SEK)");
+    inputTextbox("Bankens navn", "AKELIUS RESIDENTIAL PROPERTY AB");
+    inputTextbox("Kontonummer / IBAN", "SE7280000810340009783242");
+    inputTextbox("BIC / Swift-kode", "AKRPSESS");
 
-    fireEvent.input(screen.getByRole("textbox", { name: "Bankens navn" }), {
-      target: { value: "AKELIUS RESIDENTIAL PROPERTY AB" },
-    });
-    fireEvent.input(
-      screen.getByRole("textbox", { name: "Kontonummer / IBAN" }),
-      {
-        target: { value: "SE7280000810340009783242" },
-      }
-    );
-    fireEvent.input(screen.getByRole("textbox", { name: "BIC / Swift-kode" }), {
-      target: { value: "AKRPSESS" },
-    });
-
-    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+    submit();
 
     await waitFor(() => {
       expect(mockSubmit).toHaveBeenCalled();
     });
   });
 });
+
+const getByName = (name: string) => {
+  return screen.getByRole("textbox", { name: name });
+};
+
+const selectRadio = (name: string) => {
+  fireEvent.click(screen.getByRole("radio", { name: name }));
+};
+
+const inputSelect = (name: string, value: string) => {
+  fireEvent.input(screen.getByRole("textbox", { name: name }), {
+    target: { value: value },
+  });
+  fireEvent.click(screen.getAllByText(value)[1]);
+};
+
+const inputTextbox = (name: string, value: string) => {
+  fireEvent.input(screen.getByRole("textbox", { name: name }), {
+    target: { value: value },
+  });
+};
+
+const submit = () => {
+  fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+};
