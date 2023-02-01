@@ -6,12 +6,14 @@ import nbMessages from "../../../../text/nb";
 import { StoreProvider } from "../../../../store/Context";
 import React from "react";
 import land from "../../../../clients/apiMock/app/fetch/land.json";
-import { enableFetchMocks } from "jest-fetch-mock";
-import fetch from "jest-fetch-mock";
+import valutaer from "../../../../clients/apiMock/app/fetch/valutaer.json";
+import fetch, { enableFetchMocks } from "jest-fetch-mock";
 
 const IDENT = "04918399092";
 
 const mockSubmit = jest.fn();
+
+enableFetchMocks();
 
 beforeEach(() => {
   mockSubmit.mockReset();
@@ -107,21 +109,77 @@ describe("Norsk kontonummer", () => {
   });
 });
 
-/*
 describe("Utenlandsk kontonummer", () => {
-  enableFetchMocks();
   beforeEach(async () => {
     fetch.mockResponseOnce(JSON.stringify(land));
+    fetch.mockResponseOnce(JSON.stringify(valutaer));
 
     fireEvent.click(
       screen.getByRole("radio", { name: "Utenlandsk kontonummer" })
     );
+
+    await waitFor(() => {
+      screen.getByRole("textbox", { name: "Bankens land" });
+    });
   });
 
   test("inneholder forventede felter", async () => {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    fireEvent.input(screen.getByRole("textbox", { name: "Bankens land" }), {
+      target: { value: "Albania" },
+    });
+    fireEvent.click(screen.getAllByText("Albania")[1]);
 
-    screen.debug();
+    await waitFor(() => {
+      expect(
+        screen.getByRole("textbox", { name: "Bankens land" })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("textbox", { name: "Valuta" })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("textbox", { name: "Bankens navn" })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("textbox", { name: "Kontonummer / IBAN" })
+      ).toBeInTheDocument();
+      expect(
+        screen.getByRole("textbox", { name: "BIC / Swift-kode" })
+      ).toBeInTheDocument();
+    });
+  });
+
+  test("submitter ved gyldig input", async () => {
+    fireEvent.input(screen.getByRole("textbox", { name: "Bankens land" }), {
+      target: { value: "Sverige" },
+    });
+    fireEvent.click(screen.getAllByText("Sverige")[1]);
+
+    await waitFor(() => {
+      screen.getByRole("textbox", { name: "Valuta" });
+    });
+
+    fireEvent.input(screen.getByRole("textbox", { name: "Valuta" }), {
+      target: { value: "Svenske kroner (SEK)" },
+    });
+    fireEvent.click(screen.getAllByText("Svenske kroner (SEK)")[1]);
+
+    fireEvent.input(screen.getByRole("textbox", { name: "Bankens navn" }), {
+      target: { value: "AKELIUS RESIDENTIAL PROPERTY AB" },
+    });
+    fireEvent.input(
+      screen.getByRole("textbox", { name: "Kontonummer / IBAN" }),
+      {
+        target: { value: "SE7280000810340009783242" },
+      }
+    );
+    fireEvent.input(screen.getByRole("textbox", { name: "BIC / Swift-kode" }), {
+      target: { value: "AKRPSESS" },
+    });
+
+    fireEvent.submit(screen.getByRole("button", { name: "Lagre" }));
+
+    await waitFor(() => {
+      expect(mockSubmit).toHaveBeenCalled();
+    });
   });
 });
-*/
