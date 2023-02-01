@@ -1,7 +1,6 @@
-import React, { ForwardedRef, Fragment } from "react";
-import { FormattedMessage } from "react-intl";
-import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import React, { ForwardedRef } from "react";
 import { TextField, TextFieldProps } from "@navikt/ds-react";
+import LabelMedHjelpetekst from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props extends TextFieldProps {
   id?: string;
@@ -17,30 +16,12 @@ const EndreKontonummerFelt = React.forwardRef(
   ) => {
     return (
       <div className="skjemaelement">
-        <div className="ekf__header">
-          {label && <div className="skjemaelement__label">{label}</div>}
-          {hjelpetekst && (
-            <CustomHelpText placement={"right"}>
-              <FormattedMessage
-                id={hjelpetekst}
-                values={{
-                  b: (text: string) => <b>{text}</b>,
-                  p: (...chunks: string[]) => (
-                    <p>
-                      {chunks.map((chunk, i) => (
-                        <Fragment key={i}>{chunk}</Fragment>
-                      ))}
-                    </p>
-                  ),
-                }}
-              />
-            </CustomHelpText>
-          )}
-        </div>
         <div className="ekf__input">
           <TextField
             id={id}
-            label={""}
+            label={
+              <LabelMedHjelpetekst label={label} hjelpetekst={hjelpetekst} />
+            }
             value={value}
             htmlSize={htmlSize}
             error={error}
@@ -52,4 +33,5 @@ const EndreKontonummerFelt = React.forwardRef(
     );
   }
 );
+
 export default EndreKontonummerFelt;
