@@ -18,7 +18,7 @@ const EndreKontonummerFelt = React.forwardRef(
 
     return (
       <div className="skjemaelement">
-        <div className="ekf__header">
+        <div className="header">
           <LabelMedHjelpetekst
             label={label}
             hjelpetekst={hjelpetekst}
@@ -26,7 +26,7 @@ const EndreKontonummerFelt = React.forwardRef(
             labelForId={id}
           />
         </div>
-        <div className="ekf__input">
+        <div>
           <TextField
             label={undefined}
             id={id}
