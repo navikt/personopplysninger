@@ -13,7 +13,7 @@ interface Props {
 const LabelMedHjelpetekst = (props: Props) => {
   const { label, hjelpetekst, labelId, labelForId } = props;
   return (
-    <>
+    <div className="label-med-hjelpetekst">
       {label && (
         <Label htmlFor={labelForId} id={labelId}>
           {props.label}
@@ -36,7 +36,7 @@ const LabelMedHjelpetekst = (props: Props) => {
           />
         </CustomHelpText>
       )}
-    </>
+    </div>
   );
 };
 

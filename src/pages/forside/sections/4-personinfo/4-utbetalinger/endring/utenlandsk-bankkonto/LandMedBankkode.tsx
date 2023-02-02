@@ -2,7 +2,6 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 import { Alert } from "@navikt/ds-react";
 import BickodeField from "./felter/BickodeField";
-import RetningsnummerField from "./felter/RetningsnummerField";
 import BankkodeField from "./felter/BankkodeField";
 import AdresseFields from "./felter/AdresseFields";
 
@@ -30,14 +29,7 @@ const LandMedBankkode = (props: Props) => {
           </Alert>
         </div>
         <BickodeField />
-        <div className="utbetalinger__bankkode-rad">
-          <div className="utbetalinger__bankkode-kolonne">
-            <RetningsnummerField />
-          </div>
-          <div className="utbetalinger__bankkode-kolonne">
-            <BankkodeField />
-          </div>
-        </div>
+        <BankkodeField />
       </div>
       <div className="utbetalinger__adressefelter">
         <AdresseFields />
