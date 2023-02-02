@@ -116,7 +116,7 @@ const NAVSelect = React.memo(
             label={props.label}
             hjelpetekst={props.hjelpetekst}
             labelId={labelId}
-            forId={props.id}
+            labelForId={props.id}
           />
         </div>
         <div className={`${cls("KodeverkSelect--select-wrapper")}`}>

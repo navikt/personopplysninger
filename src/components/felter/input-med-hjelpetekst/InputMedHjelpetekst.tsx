@@ -14,14 +14,23 @@ const EndreKontonummerFelt = React.forwardRef(
     { id, value, error, htmlSize, label, hjelpetekst, ...restProps }: Props,
     ref: ForwardedRef<any>
   ) => {
+    const labelId = id + "_label";
+
     return (
       <div className="skjemaelement">
+        <div className="ekf__header">
+          <LabelMedHjelpetekst
+            label={label}
+            hjelpetekst={hjelpetekst}
+            labelId={labelId}
+            labelForId={id}
+          />
+        </div>
         <div className="ekf__input">
           <TextField
+            label={undefined}
             id={id}
-            label={
-              <LabelMedHjelpetekst label={label} hjelpetekst={hjelpetekst} />
-            }
+            aria-labelledby={labelId}
             value={value}
             htmlSize={htmlSize}
             error={error}

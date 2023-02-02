@@ -6,16 +6,16 @@ import { Label } from "@navikt/ds-react";
 interface Props {
   label: ReactNode;
   hjelpetekst?: string;
-  forId?: string;
   labelId?: string;
+  labelForId?: string;
 }
 
 const LabelMedHjelpetekst = (props: Props) => {
-  const { label, hjelpetekst, forId, labelId } = props;
+  const { label, hjelpetekst, labelId, labelForId } = props;
   return (
-    <div className="ekf__header">
+    <>
       {label && (
-        <Label htmlFor={forId} id={labelId}>
+        <Label htmlFor={labelForId} id={labelId}>
           {props.label}
         </Label>
       )}
@@ -36,7 +36,7 @@ const LabelMedHjelpetekst = (props: Props) => {
           />
         </CustomHelpText>
       )}
-    </div>
+    </>
   );
 };
 
