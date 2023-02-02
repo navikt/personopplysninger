@@ -2,7 +2,6 @@ import React from "react";
 import { useFormContext } from "react-hook-form";
 import { FormFields } from "../../types";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
-import InputMedHjelpetekst from "../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst";
 import { validerBankkode } from "../../utils";
 import {
   hasMultipleCombinedSpaces,
@@ -12,6 +11,7 @@ import {
   isOnlySignsSpace,
   isValidAdresselinje,
 } from "../../../../../../../../utils/validators";
+import { Label, TextField } from "@navikt/ds-react";
 
 const AdresseFields = () => {
   const { formatMessage } = useIntlFormatter();
@@ -51,75 +51,90 @@ const AdresseFields = () => {
 
   return (
     <>
-      <InputMedHjelpetekst
-        {...register("adresse1", {
-          validate: {
-            required: (v) =>
-              requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
-            firstCharNotSpace: (v) =>
-              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-            notBlacklisted: (v) =>
-              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-            noCombinedSpaces: (v) =>
-              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-            notOnlyNonLetters: (v) =>
-              validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
-            validAdresselinje: (v) =>
-              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
-          },
-        })}
-        id={"adresse1"}
-        size="medium"
-        maxLength={34}
-        error={errors?.adresse1?.message}
-        label={formatMessage("felter.bankens.adresse.label")}
-      />
-      <InputMedHjelpetekst
-        {...register("adresse2", {
-          onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
-          validate: {
-            required: (v) =>
-              requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
-            firstCharNotSpace: (v) =>
-              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-            notBlacklisted: (v) =>
-              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-            noCombinedSpaces: (v) =>
-              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-            notOnlyNonLetters: (v) =>
-              validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-            validAdresselinje: (v) =>
-              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
-          },
-        })}
-        id={"adresse2"}
-        label={""}
-        size="medium"
-        maxLength={34}
-        error={errors?.adresse2?.message}
-      />
-      <InputMedHjelpetekst
-        {...register("adresse3", {
-          onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
-          validate: {
-            firstCharNotSpace: (v) =>
-              validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-            notBlacklisted: (v) =>
-              validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-            noCombinedSpaces: (v) =>
-              validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-            notOnlyNonLetters: (v) =>
-              validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-            validAdresselinje: (v) =>
-              validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
-          },
-        })}
-        id={"adresse3"}
-        label={""}
-        size="medium"
-        maxLength={34}
-        error={errors?.adresse3?.message}
-      />
+      <div className="AdresseFields__header">
+        <Label>{formatMessage("felter.bankens.adresse.label")}</Label>
+      </div>
+
+      <div className="skjemaelement">
+        <TextField
+          {...register("adresse1", {
+            validate: {
+              required: (v) =>
+                requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
+              firstCharNotSpace: (v) =>
+                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
+              notBlacklisted: (v) =>
+                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
+              noCombinedSpaces: (v) =>
+                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+              notOnlyNonLetters: (v) =>
+                validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
+              validAdresselinje: (v) =>
+                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+            },
+          })}
+          id={"adresse1"}
+          label={"Adresselinje 1"}
+          hideLabel={true}
+          size="medium"
+          maxLength={34}
+          error={errors?.adresse1?.message}
+        />
+      </div>
+
+      <div className="skjemaelement">
+        <TextField
+          {...register("adresse2", {
+            onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
+            validate: {
+              required: (v) =>
+                requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
+              firstCharNotSpace: (v) =>
+                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
+              notBlacklisted: (v) =>
+                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
+              noCombinedSpaces: (v) =>
+                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+              notOnlyNonLetters: (v) =>
+                validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+              validAdresselinje: (v) =>
+                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+            },
+          })}
+          id={"adresse2"}
+          label={"Adresselinje 2"}
+          hideLabel={true}
+          size="medium"
+          maxLength={34}
+          error={errors?.adresse2?.message}
+        />
+      </div>
+
+      <div className="skjemaelement">
+        <TextField
+          {...register("adresse3", {
+            onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
+            validate: {
+              firstCharNotSpace: (v) =>
+                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
+              notBlacklisted: (v) =>
+                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
+              noCombinedSpaces: (v) =>
+                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+              notOnlyNonLetters: (v) =>
+                validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+              validAdresselinje: (v) =>
+                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+            },
+          })}
+          id={"adresse3"}
+          label={"Adresselinje 3"}
+          hideLabel={true}
+          size="medium"
+          maxLength={34}
+          error={errors?.adresse3?.message}
+        />
+      </div>
     </>
   );
 };
