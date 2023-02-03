@@ -27,7 +27,7 @@ const BankkodeField = () => {
     <>
       <LabelMedHjelpetekst
         label={formatMessage("felter.bankkode.label")}
-        hjelpetekst={formatMessage("utbetalinger.hjelpetekster.bankkode")}
+        hjelpetekst={"utbetalinger.hjelpetekster.bankkode"}
         labelId={labelId}
         labelForId={id}
       />

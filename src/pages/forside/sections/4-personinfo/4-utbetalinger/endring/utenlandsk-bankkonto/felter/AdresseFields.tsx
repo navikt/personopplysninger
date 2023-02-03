@@ -49,6 +49,17 @@ const AdresseFields = () => {
   const onlySpaceSigns = "validation.only.space.or.signs";
   const adresselinjeUgyldig = "validation.adresselinje.ugyldig";
 
+  const baseAdresseValidation = {
+    firstCharNotSpace: (v: string) =>
+      validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
+    notBlacklisted: (v: string) =>
+      validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
+    noCombinedSpaces: (v: string) =>
+      validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
+    validAdresselinje: (v: string) =>
+      validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+  };
+
   return (
     <>
       <div className="AdresseFields__header">
@@ -61,16 +72,9 @@ const AdresseFields = () => {
             validate: {
               required: (v) =>
                 requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
-              firstCharNotSpace: (v) =>
-                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-              notBlacklisted: (v) =>
-                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-              noCombinedSpaces: (v) =>
-                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
               notOnlyNonLetters: (v) =>
                 validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
-              validAdresselinje: (v) =>
-                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+              ...baseAdresseValidation,
             },
           })}
           id={"adresse1"}
@@ -89,16 +93,9 @@ const AdresseFields = () => {
             validate: {
               required: (v) =>
                 requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
-              firstCharNotSpace: (v) =>
-                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-              notBlacklisted: (v) =>
-                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-              noCombinedSpaces: (v) =>
-                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-              notOnlyNonLetters: (v) =>
+              notOnlyNonAlphanumeric: (v) =>
                 validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-              validAdresselinje: (v) =>
-                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+              ...baseAdresseValidation,
             },
           })}
           id={"adresse2"}
@@ -115,16 +112,9 @@ const AdresseFields = () => {
           {...register("adresse3", {
             onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
             validate: {
-              firstCharNotSpace: (v) =>
-                validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-              notBlacklisted: (v) =>
-                validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-              noCombinedSpaces: (v) =>
-                validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-              notOnlyNonLetters: (v) =>
+              notOnlyNonAlphanumeric: (v) =>
                 validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-              validAdresselinje: (v) =>
-                validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+              ...baseAdresseValidation,
             },
           })}
           id={"adresse3"}
