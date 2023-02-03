@@ -27,8 +27,8 @@ const LabelMedHjelpetekst = (props: Props) => {
               b: (text: string) => <b>{text}</b>,
               p: (...chunks: string[]) => (
                 <p>
-                  {chunks.map((chunk, i) => (
-                    <Fragment key={i}>{chunk}</Fragment>
+                  {chunks.map((chunk) => (
+                    <Fragment key={chunk}>{chunk}</Fragment>
                   ))}
                 </p>
               ),
