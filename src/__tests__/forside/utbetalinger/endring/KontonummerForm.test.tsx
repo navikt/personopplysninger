@@ -618,14 +618,14 @@ const selectRadio = (name: string) => {
 };
 
 const inputSelect = (name: string, value: string) => {
-  fireEvent.input(screen.getByRole("textbox", { name: name }), {
+  fireEvent.input(getByName(name), {
     target: { value: value },
   });
   fireEvent.click(screen.getAllByText(value)[1]);
 };
 
 const inputTextbox = (name: string, value: string) => {
-  fireEvent.input(screen.getByRole("textbox", { name: name }), {
+  fireEvent.input(getByName(name), {
     target: { value: value },
   });
 };
