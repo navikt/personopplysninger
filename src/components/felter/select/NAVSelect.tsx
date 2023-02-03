@@ -8,7 +8,7 @@ import { RADIX_DECIMAL } from "utils/formattering";
 import { HTTPError } from "../../error/Error";
 import { Label, Loader, TextField } from "@navikt/ds-react";
 import { Expand } from "@navikt/ds-icons";
-import LabelMedHjelpetekst from "../label-med-hjelpetekst/LabelMedHjelpetekst";
+import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props {
   id?: string;

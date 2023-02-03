@@ -10,7 +10,7 @@ interface Props {
   labelForId?: string;
 }
 
-const LabelMedHjelpetekst = (props: Props) => {
+export const LabelMedHjelpetekst = (props: Props) => {
   const { label, hjelpetekst, labelId, labelForId } = props;
   return (
     <div className="label-med-hjelpetekst">
@@ -39,5 +39,3 @@ const LabelMedHjelpetekst = (props: Props) => {
     </div>
   );
 };
-
-export default LabelMedHjelpetekst;

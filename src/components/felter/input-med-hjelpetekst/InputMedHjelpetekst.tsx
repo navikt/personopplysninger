@@ -1,6 +1,6 @@
 import React, { ForwardedRef } from "react";
 import { TextField, TextFieldProps } from "@navikt/ds-react";
-import LabelMedHjelpetekst from "../label-med-hjelpetekst/LabelMedHjelpetekst";
+import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props extends TextFieldProps {
   id?: string;

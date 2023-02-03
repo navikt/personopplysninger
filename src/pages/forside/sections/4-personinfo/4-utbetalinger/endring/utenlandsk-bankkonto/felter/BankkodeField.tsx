@@ -8,7 +8,7 @@ import {
 } from "../../../../../../../../utils/validators";
 import { useIntlFormatter } from "../../../../../../../../hooks/useIntlFormatter";
 import { TextField } from "@navikt/ds-react";
-import LabelMedHjelpetekst from "../../../../../../../../components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
+import { LabelMedHjelpetekst } from "../../../../../../../../components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
 
 const BankkodeField = () => {
   const { formatMessage, formatMessageWithValues } = useIntlFormatter();
