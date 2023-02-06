@@ -5,6 +5,9 @@
   "author": "NAV",
   "license": "MIT",
   "homepage": "/person/personopplysninger/",
+  "jest": {
+    "resetMocks": false
+  },
   "scripts": {
     "docker-build": "docker build . -t personopplysninger",
     "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
@@ -76,6 +79,7 @@
     "@types/react-test-renderer": "17.0.1",
     "classnames": "2.3.2",
     "husky": "8.0.3",
+    "jest-fetch-mock": "3.0.3",
     "less": "4.1.3",
     "less-plugin-npm-import": "2.1.0",
     "less-watch-compiler": "1.16.3",

@@ -15,7 +15,10 @@ describe("Utbetalinger", () => {
     const { asFragment } = render(
       <StoreProvider>
         <IntlProvider locale={"nb"} messages={nbMessages}>
-          <Utbetalinger kontonr={personInfo.personalia.kontonr} />
+          <Utbetalinger
+            kontonr={personInfo.personalia.kontonr}
+            kontoregisterStatus={"OK"}
+          />
         </IntlProvider>
       </StoreProvider>
     );
@@ -31,6 +34,7 @@ describe("Utbetalinger", () => {
               personInfoUtenlandskbank.personalia
                 .utenlandskbank as unknown as UtenlandskBankkonto
             }
+            kontoregisterStatus={"OK"}
           />
         </IntlProvider>
       </StoreProvider>

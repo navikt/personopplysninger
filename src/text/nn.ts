@@ -308,7 +308,6 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "validation.bankidentifier.pakrevd": "Du må velje eit alternativ",
   "validation.bankidentifier.valid": `Dersom du fyller ut IBAN-nummer, må du også fylle ut BIC / Swift-kode`,
   "validation.kontonummer.pakrevd": "Kontonummer er nødvendig",
-  "validation.kontonummer.siffer": "Kontonummer må være tal",
   "validation.kontonummer.elleve": `Norske kontonummer må ha 11 tal`,
   "validation.kontonummer.mod11": `Skriv inn eit gyldig kontonummer`,
   "validation.kontonummer.idnr": `Kontonummer kan ikkje være eit fødselsnummer eller d-nummer.`,

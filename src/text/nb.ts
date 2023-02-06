@@ -308,7 +308,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "validation.bankidentifier.pakrevd": "Du må velge et alternativ",
   "validation.bankidentifier.valid": `Dersom du fyller ut IBAN-nummer, må du også fylle ut BIC / Swift-kode`,
   "validation.kontonummer.pakrevd": "Kontonummer er nødvendig",
-  "validation.kontonummer.siffer": "Kontonummer må være tall",
   "validation.kontonummer.elleve": `Norske kontonummer må ha 11 tall`,
   "validation.kontonummer.mod11": `Skriv inn et gyldig kontonummer`,
   "validation.kontonummer.idnr": `Kontonummer kan ikke være et fødselsnummer eller d-nummer.`,
