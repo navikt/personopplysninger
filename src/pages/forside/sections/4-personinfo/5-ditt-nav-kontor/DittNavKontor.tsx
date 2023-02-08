@@ -3,8 +3,7 @@ import Box from "components/box/Box";
 import dittNavKontorIkon from "assets/img/DittNavKontor.svg";
 import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
-import { FormattedMessage } from "react-intl";
-import { useIntl } from "react-intl";
+import { FormattedMessage, useIntl } from "react-intl";
 import ListElement from "components/listelement/ListElement";
 import Apningstid from "./apningstid/Apningstid";
 import { print } from "utils/text";
@@ -51,7 +50,8 @@ const DittNavKontor = (props: Props) => {
         </div>
         {publikumsmottak.length > 1 && (
           <Select
-            label={``}
+            label={msg({ id: "dittnavkontor.select.label" })}
+            hideLabel={true}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
               settValgtMottakId(
                 parseInt(event.currentTarget.value, RADIX_DECIMAL)

@@ -61,6 +61,7 @@ const SelectLandskode = React.forwardRef(
 
     return (
       <NAVSelect
+        id={"landskode"}
         loading={loading}
         label={props.label}
         error={props.error}

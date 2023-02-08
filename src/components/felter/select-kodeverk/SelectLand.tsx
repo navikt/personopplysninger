@@ -4,7 +4,6 @@ import { HTTPError } from "components/error/Error";
 import NAVSelect from "components/felter/select/NAVSelect";
 
 interface Props {
-  id?: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
@@ -71,7 +70,7 @@ const SelectLand = React.forwardRef((props: Props, ref: ForwardedRef<any>) => {
 
   return (
     <NAVSelect
-      id={props.id}
+      id={"land"}
       loading={loading}
       label={props.label}
       error={props.error}

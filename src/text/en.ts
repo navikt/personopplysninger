@@ -190,6 +190,7 @@ A child who lives permanently with both mother and father can have two home addr
   "dittnavkontor.tittel": `Your NAV office`,
   "dittnavkontor.beskrivelse": `If you are already receiving follow-up at a NAV office, you should continue to use this office. If you don't get follow-up, you can use the office below.`,
   "dittnavkontor.ingress": `Your office is `,
+  "dittnavkontor.select.label": `NAV office`,
   "dittnavkontor.postadresse": `Postal address`,
   "dittnavkontor.postboks": `Mailbox`,
   "dittnavkontor.publikumsmottak": `Public reception area`,
