@@ -36,7 +36,6 @@
     "@navikt/nav-dekoratoren-moduler": "1.8.1",
     "@react-pdf/renderer": "3.0.2",
     "buffer": "6.0.3",
-    "compression": "1.7.4",
     "core-js": "3.27.1",
     "fetch-mock": "9.11.0",
     "file-saver": "2.0.5",
