@@ -74,13 +74,18 @@ const App = () => {
                     />
                     <Route
                       caseSensitive={true}
-                      path={`${basePathWithLanguage}/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`}
-                      element={<Forside />}
+                      path={`${basePathWithLanguage}/sendt-fra/*`}
+                      element={<Navigate to={`${basePath}/nb/`} />}
                     />
                     <Route
                       caseSensitive={true}
                       path={`${basePathWithLanguage}/arbeidsforhold`}
-                      element={<Navigate replace to="#arbeidsforhold" />}
+                      element={
+                        <Navigate
+                          replace
+                          to={`${basePathWithLanguage}/#arbeidsforhold`}
+                        />
+                      }
                     />
                     <Route
                       caseSensitive={true}
@@ -116,13 +121,17 @@ const App = () => {
                           element={<InstDetaljer />}
                         />
                       )}
-                      {featureToggles.data["personopplysninger.pdl"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/:tjeneste(${tillatteTjenester})/:redirectUrl`}
-                          element={<EndreOpplysninger />}
-                        />
-                      )}
+                      {featureToggles.data["personopplysninger.pdl"] &&
+                        tillatteTjenester.map((tjeneste) => (
+                          // react-router-dom no longes support regex in path
+                          // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
+                          <Route
+                            caseSensitive={true}
+                            path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
+                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                            key={tjeneste}
+                          />
+                        ))}
                       {featureToggles.data["personopplysninger.medl"] && (
                         <Route
                           caseSensitive={true}

@@ -11,9 +11,13 @@ interface Routes {
   redirectUrl?: string;
 }
 
-const EndreOpplysninger = () => {
+type EndreOpplysningerProps = {
+  tjeneste: string;
+};
+
+const EndreOpplysninger = ({ tjeneste }: EndreOpplysningerProps) => {
   const params = useParams<Readonly<Params<keyof Routes>>>();
-  const { tjeneste, redirectUrl } = params;
+  const { redirectUrl } = params;
 
   return (
     <div className="endreOpplysninger__page">
