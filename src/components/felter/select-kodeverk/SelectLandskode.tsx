@@ -8,6 +8,7 @@ interface Props {
   option: OptionType;
   submitted: boolean;
   label: string;
+  name: string;
   error?: string;
   onChange: (value?: OptionType) => void;
 }
@@ -61,7 +62,8 @@ const SelectLandskode = React.forwardRef(
 
     return (
       <NAVSelect
-        id={"landskode"}
+        id={props.name}
+        name={props.name}
         loading={loading}
         label={props.label}
         error={props.error}

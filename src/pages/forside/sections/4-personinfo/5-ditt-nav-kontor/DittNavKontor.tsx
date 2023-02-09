@@ -52,6 +52,7 @@ const DittNavKontor = (props: Props) => {
           <Select
             label={msg({ id: "dittnavkontor.select.label" })}
             hideLabel={true}
+            name={"NAV-kontor"}
             onChange={(event: ChangeEvent<HTMLSelectElement>) => {
               settValgtMottakId(
                 parseInt(event.currentTarget.value, RADIX_DECIMAL)

@@ -12,6 +12,7 @@ import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpeteks
 
 interface Props {
   id?: string;
+  name: string;
   option?: OptionType;
   submitted: boolean;
   label: string;
@@ -123,6 +124,7 @@ const NAVSelect = React.memo(
           <Select
             aria-labelledby={labelId}
             id={props.id}
+            name={props.name}
             value={value}
             htmlSize={props.htmlSize}
             placeholder={formatMessage({ id: "select.sok" })}
