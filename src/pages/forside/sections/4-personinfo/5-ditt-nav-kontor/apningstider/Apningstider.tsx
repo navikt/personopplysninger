@@ -11,21 +11,44 @@ interface Props {
 
 const Apningstider = (props: Props) => {
   const { publikumsmottak, valgtMottakId } = props;
+
   return (
     <>
-      <Heading size={"xsmall"} level={"3"}>
-        <FormattedMessage id="dittnavkontor.apningstider" />
-      </Heading>
-      <div className="apningstid__container">
-        <Apningstid apningstid={publikumsmottak[valgtMottakId].aapningMandag} />
-        <Apningstid
-          apningstid={publikumsmottak[valgtMottakId].aapningTirsdag}
-        />
-        <Apningstid apningstid={publikumsmottak[valgtMottakId].aapningOnsdag} />
-        <Apningstid
-          apningstid={publikumsmottak[valgtMottakId].aapningTorsdag}
-        />
-        <Apningstid apningstid={publikumsmottak[valgtMottakId].aapningFredag} />
+      <div className="apningstider">
+        <table className="apningstider__table">
+          <Heading
+            as="caption"
+            size={"xsmall"}
+            level={"3"}
+            className={"apningstider__caption"}
+          >
+            <FormattedMessage id="dittnavkontor.apningstider" />
+          </Heading>
+          <thead className={"sr-only"}>
+            <tr>
+              <th scope={"col"}>Ukedag</th>
+              <th scope={"col"}>Tidsrom</th>
+              <th scope={"col"}>Kommentar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <Apningstid
+              apningstid={publikumsmottak[valgtMottakId].aapningMandag}
+            />
+            <Apningstid
+              apningstid={publikumsmottak[valgtMottakId].aapningTirsdag}
+            />
+            <Apningstid
+              apningstid={publikumsmottak[valgtMottakId].aapningOnsdag}
+            />
+            <Apningstid
+              apningstid={publikumsmottak[valgtMottakId].aapningTorsdag}
+            />
+            <Apningstid
+              apningstid={publikumsmottak[valgtMottakId].aapningFredag}
+            />
+          </tbody>
+        </table>
       </div>
       {publikumsmottak[valgtMottakId].aapningAndre && (
         <>
