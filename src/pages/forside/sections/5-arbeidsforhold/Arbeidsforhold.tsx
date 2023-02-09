@@ -55,7 +55,7 @@ const Arbeidsforhold = () => {
           <FormattedMessage
             id="arbeidsforhold.disclaimer"
             values={{
-              br: (text: String) => (
+              br: (text) => (
                 <>
                   <br />
                   {text}

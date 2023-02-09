@@ -22,9 +22,7 @@ const LandMedBankkode = (props: Props) => {
               id="felter.landetbrukerbankkode.advarsel"
               values={{
                 land: valgtLand,
-                span: (text: string) => (
-                  <span className="capitalize">{text}</span>
-                ),
+                span: (text) => <span className="capitalize">{text}</span>,
               }}
             />
           </Alert>

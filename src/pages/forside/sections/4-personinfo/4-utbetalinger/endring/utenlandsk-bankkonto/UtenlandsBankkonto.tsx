@@ -41,7 +41,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
           <FormattedMessage
             id="felter.utenlandskkonto.info"
             values={{
-              a: (text: String) => (
+              a: (text) => (
                 <Link href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
                   {text}
                 </Link>

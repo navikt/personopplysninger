@@ -3,7 +3,7 @@ import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
 import { useIntl } from "react-intl";
 import arbeidsforholdIkon from "assets/img/Arbeidsforhold.svg";
 import PageContainer from "components/pagecontainer/PageContainer";
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import { useStore } from "../../store/Context";
 import { Locale } from "../../store/Store";
 
@@ -16,9 +16,9 @@ interface Routes {
 const radix = 10;
 const Arbeidsforhold = () => {
   const { locale } = useIntl();
-  const params = useParams<Routes>();
+  const params = useParams<Readonly<Params<keyof Routes>>>();
   const [{ personInfo }] = useStore();
-  const id: number = parseInt(params.id, radix);
+  const id: number = parseInt(params.id || "0", radix);
 
   const printName =
     personInfo.status === "RESULT"

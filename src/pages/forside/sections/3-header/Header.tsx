@@ -45,7 +45,7 @@ const Header = () => {
                   <FormattedMessage
                     id="header.description"
                     values={{
-                      a: (text: String) => (
+                      a: (text) => (
                         <Link
                           href="/personvern"
                           target="blank"

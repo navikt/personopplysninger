@@ -41,24 +41,24 @@ function Infotekst(props: HjelpetekstProps) {
                 <FormattedMessage
                   id={props.beskrivelse}
                   values={{
-                    p: (...chunks: string[]) => (
+                    p: (...chunks) => (
                       <p>
                         {chunks.map((chunk, i) => (
                           <Fragment key={i}>{chunk}</Fragment>
                         ))}
                       </p>
                     ),
-                    br: (text: string) => (
+                    br: (text) => (
                       <>
                         <br />
                         {text}
                       </>
                     ),
-                    b: (text: string) => <b>{text}</b>,
-                    span: (text: string) => (
+                    b: (text) => <b>{text}</b>,
+                    span: (text) => (
                       <span style={{ textTransform: "none" }}>{text}</span>
                     ),
-                    lenkeAaRegisteret: (text: string) => (
+                    lenkeAaRegisteret: (text) => (
                       <Link href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
                         {text}
                       </Link>

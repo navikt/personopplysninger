@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useIntl } from "react-intl";
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { setAvailableLanguages } from "@navikt/nav-dekoratoren-moduler";
 import { setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import { onLanguageSelect } from "@navikt/nav-dekoratoren-moduler";
@@ -22,16 +22,16 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
   const [{ locale }, dispatch] = useStore();
   const { formatMessage } = useIntl();
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
   const { hierarki } = props;
 
   onBreadcrumbClick((breadcrumb) => {
-    history.push(breadcrumb.url);
+    navigate(breadcrumb.url);
   });
 
   onLanguageSelect((language) => {
     dispatch({ type: "SETT_LOCALE", payload: language.locale as Locale });
-    history.push(language.url!);
+    navigate(language.url!);
   });
 
   useEffect(() => {

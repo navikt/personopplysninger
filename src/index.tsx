@@ -1,5 +1,6 @@
 import "./polyfills";
 import React from "react";
+import { createRoot } from "react-dom/client";
 import ReactDOM from "react-dom";
 import { StoreProvider } from "./store/Context";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
@@ -16,13 +17,18 @@ const init = async () => {
     });
   }
 
-  ReactDOM.render(
+  const container = document.getElementById("app");
+  if (!container) {
+    return;
+  }
+  const root = createRoot(container);
+
+  root.render(
     <StoreProvider>
       <WithLanguages>
         <App />
       </WithLanguages>
-    </StoreProvider>,
-    document.getElementById("app")
+    </StoreProvider>
   );
 };
 init();

@@ -24,8 +24,8 @@ const EndreKontonummerFelt = React.forwardRef(
               <FormattedMessage
                 id={hjelpetekst}
                 values={{
-                  b: (text: string) => <b>{text}</b>,
-                  p: (...chunks: string[]) => (
+                  b: (text) => <b>{text}</b>,
+                  p: (...chunks) => (
                     <p>
                       {chunks.map((chunk, i) => (
                         <Fragment key={i}>{chunk}</Fragment>

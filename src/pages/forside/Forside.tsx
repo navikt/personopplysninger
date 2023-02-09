@@ -6,7 +6,7 @@ import EksterneLenker from "./sections/6-flere-opplysninger/Lenker";
 import MerInformasjon from "./sections/7-mer-informasjon/MerInformasjon";
 import Header from "./sections/3-header/Header";
 import Brodsmulesti from "./sections/2-brodsmulesti/Brodsmulesti";
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import RedirectKnapp from "components/knapper/Redirect";
 import { smoothScrollToTarget } from "../../utils/scroll-to";
 import { useStore } from "../../store/Context";
@@ -17,7 +17,7 @@ interface Routes {
 }
 
 const Forside = () => {
-  const params = useParams<Routes>();
+  const params = useParams<Readonly<Params<keyof Routes>>>();
   const { tjeneste, redirectUrl } = params;
 
   const [{ authInfo, featureToggles, personInfo, kontaktInfo }] = useStore();

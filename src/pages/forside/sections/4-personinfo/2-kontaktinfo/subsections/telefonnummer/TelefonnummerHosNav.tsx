@@ -69,7 +69,7 @@ const TelefonnummerHosNav = (props: Props) => {
           <FormattedMessage
             id="personalia.tlfnr.ingenData"
             values={{
-              br: (text: String) => (
+              br: (text) => (
                 <>
                   <br />
                   {text}
@@ -80,21 +80,22 @@ const TelefonnummerHosNav = (props: Props) => {
         </div>
       )}
 
-      {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
-        <Button
-          variant="tertiary"
-          onClick={onLeggTil}
-          className="tlfnummer__leggtil knapp-med-ikon lenke"
-          aria-label="Legg til telefonnummer"
-        >
-          <span className="kilde__icon">
-            <img src={leggTilIkon} alt="" />
-          </span>
-          <BodyShort>
-            <FormattedMessage id={"side.leggtil"} />
-          </BodyShort>
-        </Button>
-      )}
+      {!opprett &&
+        !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
+          <Button
+            variant="tertiary"
+            onClick={onLeggTil}
+            className="tlfnummer__leggtil knapp-med-ikon lenke"
+            aria-label="Legg til telefonnummer"
+          >
+            <span className="kilde__icon">
+              <img src={leggTilIkon} alt="" />
+            </span>
+            <BodyShort>
+              <FormattedMessage id={"side.leggtil"} />
+            </BodyShort>
+          </Button>
+        )}
 
       {opprett && (
         <div className={"tlfnummer__rad-leggtil"}>
