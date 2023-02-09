@@ -1,0 +1,38 @@
+[
+  {
+    "kode": "IN",
+    "tekst": "India",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": false,
+    "bankkodeLengde": 11,
+    "alternativLandkode": null
+  },
+  {
+    "kode": "US",
+    "tekst": "USA",
+    "kreverIban": false,
+    "ibanLengde": null,
+    "kreverBankkode": true,
+    "bankkodeLengde": 9,
+    "alternativLandkode": null
+  },
+  {
+    "kode": "IM",
+    "tekst": "Isle of Man",
+    "kreverIban": true,
+    "ibanLengde": 22,
+    "kreverBankkode": false,
+    "bankkodeLengde": null,
+    "alternativLandkode": "GB"
+  },
+  {
+    "kode": "SE",
+    "tekst": "Sverige",
+    "kreverIban": true,
+    "ibanLengde": 24,
+    "kreverBankkode": false,
+    "bankkodeLengde": null,
+    "alternativLandkode": null
+  }
+]

@@ -1,13 +1,13 @@
-import React, { ForwardedRef, Fragment, useEffect } from "react";
-import Select, { components, OptionProps } from "react-select";
-import { FormattedMessage, useIntl } from "react-intl";
+import React, { ForwardedRef, useEffect } from "react";
+import Select, { components } from "react-select";
+import { useIntl } from "react-intl";
 import cls from "classnames";
 import { FormatOptionLabelMeta } from "react-select/base";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { HTTPError } from "../../error/Error";
 import { Label, Loader, TextField } from "@navikt/ds-react";
-import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 import { Expand } from "@navikt/ds-icons";
+import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props {
   id?: string;
@@ -46,6 +46,8 @@ const DropdownIndicator = () => (
 
 const NAVSelect = React.memo(
   React.forwardRef((props: Props, ref: ForwardedRef<any>) => {
+    const labelId = props.id + "_label";
+
     const { formatMessage } = useIntl();
     const controlClasses = cls({
       "KodeverkSelect__control-feil": props.submitted && props.error,
@@ -109,29 +111,19 @@ const NAVSelect = React.memo(
     return !props.fetchError ? (
       <div className={containerClasses}>
         <div className="KodeverkSelect__header">
-          {props.label && <Label>{props.label}</Label>}
-          {props.hjelpetekst && (
-            <CustomHelpText placement={"right"}>
-              <FormattedMessage
-                id={props.hjelpetekst}
-                values={{
-                  b: (text) => <b>{text}</b>,
-                  p: (...chunks) => (
-                    <p>
-                      {chunks.map((chunk, i) => (
-                        <Fragment key={i}>{chunk}</Fragment>
-                      ))}
-                    </p>
-                  ),
-                }}
-              />
-            </CustomHelpText>
-          )}
+          <LabelMedHjelpetekst
+            label={props.label}
+            hjelpetekst={props.hjelpetekst}
+            labelId={labelId}
+            labelForId={props.id}
+          />
         </div>
         <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
           <Select
+            aria-labelledby={labelId}
             id={props.id}
             value={value}
+            htmlSize={props.htmlSize}
             placeholder={formatMessage({ id: "select.sok" })}
             classNamePrefix="KodeverkSelect"
             loadingMessage={() => formatMessage({ id: "select.loading" })}

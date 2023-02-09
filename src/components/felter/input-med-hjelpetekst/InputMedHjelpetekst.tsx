@@ -1,7 +1,6 @@
-import React, { ForwardedRef, Fragment } from "react";
-import { FormattedMessage } from "react-intl";
-import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import React, { ForwardedRef } from "react";
 import { TextField, TextFieldProps } from "@navikt/ds-react";
+import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props extends TextFieldProps {
   id?: string;
@@ -15,41 +14,29 @@ const EndreKontonummerFelt = React.forwardRef(
     { id, value, error, htmlSize, label, hjelpetekst, ...restProps }: Props,
     ref: ForwardedRef<any>
   ) => {
+    const labelId = id + "_label";
+
     return (
       <div className="skjemaelement">
-        <div className="ekf__header">
-          {label && <div className="skjemaelement__label">{label}</div>}
-          {hjelpetekst && (
-            <CustomHelpText placement={"right"}>
-              <FormattedMessage
-                id={hjelpetekst}
-                values={{
-                  b: (text) => <b>{text}</b>,
-                  p: (...chunks) => (
-                    <p>
-                      {chunks.map((chunk, i) => (
-                        <Fragment key={i}>{chunk}</Fragment>
-                      ))}
-                    </p>
-                  ),
-                }}
-              />
-            </CustomHelpText>
-          )}
-        </div>
-        <div className="ekf__input">
-          <TextField
-            id={id}
-            label={""}
-            value={value}
-            htmlSize={htmlSize}
-            error={error}
-            ref={ref}
-            {...restProps}
-          />
-        </div>
+        <LabelMedHjelpetekst
+          label={label}
+          hjelpetekst={hjelpetekst}
+          labelId={labelId}
+          labelForId={id}
+        />
+        <TextField
+          label={undefined}
+          id={id}
+          aria-labelledby={labelId}
+          value={value}
+          htmlSize={htmlSize}
+          error={error}
+          ref={ref}
+          {...restProps}
+        />
       </div>
     );
   }
 );
+
 export default EndreKontonummerFelt;
