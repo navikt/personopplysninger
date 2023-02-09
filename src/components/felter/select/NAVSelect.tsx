@@ -1,5 +1,5 @@
 import React, { ForwardedRef, useEffect } from "react";
-import Select, { components } from "react-select";
+import Select, { components, OptionProps } from "react-select";
 import { useIntl } from "react-intl";
 import cls from "classnames";
 import { FormatOptionLabelMeta } from "react-select/base";
@@ -123,7 +123,6 @@ const NAVSelect = React.memo(
             aria-labelledby={labelId}
             id={props.id}
             value={value}
-            htmlSize={props.htmlSize}
             placeholder={formatMessage({ id: "select.sok" })}
             classNamePrefix="KodeverkSelect"
             loadingMessage={() => formatMessage({ id: "select.loading" })}
