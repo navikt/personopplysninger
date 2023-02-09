@@ -5,12 +5,12 @@ import { EnhetKontaktInfo } from "types/enhetKontaktInfo";
 import { GeografiskTilknytning } from "types/adresser";
 import { FormattedMessage, useIntl } from "react-intl";
 import ListElement from "components/listelement/ListElement";
-import Apningstid from "./apningstid/Apningstid";
 import { print } from "utils/text";
 import Kilde from "components/kilde/Kilde";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { useStore } from "store/Context";
 import { BodyShort, Heading, Label, Link, Select } from "@navikt/ds-react";
+import Apningstider from "./apningstider/Apningstider";
 
 interface Props {
   enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -119,42 +119,10 @@ const DittNavKontor = (props: Props) => {
       </div>
       <div>
         {valgtMottakId !== -1 ? (
-          <>
-            <Heading size={"xsmall"} level={"3"}>
-              <FormattedMessage id="dittnavkontor.apningstider" />
-            </Heading>
-            <div className="apningstid__container">
-              <Apningstid
-                apningstid={publikumsmottak[valgtMottakId].aapningMandag}
-              />
-              <Apningstid
-                apningstid={publikumsmottak[valgtMottakId].aapningTirsdag}
-              />
-              <Apningstid
-                apningstid={publikumsmottak[valgtMottakId].aapningOnsdag}
-              />
-              <Apningstid
-                apningstid={publikumsmottak[valgtMottakId].aapningTorsdag}
-              />
-              <Apningstid
-                apningstid={publikumsmottak[valgtMottakId].aapningFredag}
-              />
-            </div>
-            {publikumsmottak[valgtMottakId].aapningAndre && (
-              <>
-                <Heading size={"xsmall"} level={"3"}>
-                  <FormattedMessage id="dittnavkontor.andreapningstider" />
-                </Heading>
-                <div className="apningstid__container">
-                  {publikumsmottak[valgtMottakId].aapningAndre!.map(
-                    (apningstid, id) => (
-                      <Apningstid key={id} apningstid={apningstid} />
-                    )
-                  )}
-                </div>
-              </>
-            )}
-          </>
+          <Apningstider
+            publikumsmottak={publikumsmottak}
+            valgtMottakId={valgtMottakId}
+          />
         ) : (
           <hr />
         )}
