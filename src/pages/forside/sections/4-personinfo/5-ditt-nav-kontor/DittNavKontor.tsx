@@ -158,7 +158,7 @@ const DittNavKontor = (props: Props) => {
           <hr />
         )}
       </div>
-      <ul className="dittnavkontor__footer list-column-2">
+      <dl className="dittnavkontor__footer list-column-2">
         <ListElement
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={
@@ -169,7 +169,7 @@ const DittNavKontor = (props: Props) => {
             </Link>
           }
         />
-      </ul>
+      </dl>
       <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
     </Box>
   );

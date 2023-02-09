@@ -1,10 +1,9 @@
-import { FormattedMessage } from "react-intl";
 import GateAdresse from "../../3-adresser/komponenter/GateAdresse";
 import ListElement from "components/listelement/ListElement";
 import React from "react";
 import { UtenlandskBankkonto } from "types/personalia";
 import { friendlyFormatIBAN } from "ibantools";
-import { BodyShort, Heading } from "@navikt/ds-react";
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   utenlandskBankkonto?: UtenlandskBankkonto;
@@ -12,23 +11,25 @@ interface Props {
 
 const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
   return utenlandskBankkonto ? (
-    <ul className="list-column-2">
-      <li>
-        <Heading level={"3"} size={"small"}>
-          <FormattedMessage id="personalia.bank" />
-        </Heading>
-        {utenlandskBankkonto.banknavn && (
-          <BodyShort>{utenlandskBankkonto.banknavn}</BodyShort>
-        )}
-        <GateAdresse
-          adresse1={utenlandskBankkonto.adresse1}
-          adresse2={utenlandskBankkonto.adresse2}
-          adresse3={utenlandskBankkonto.adresse3}
-        />
-        {utenlandskBankkonto.land && (
-          <BodyShort>{utenlandskBankkonto.land}</BodyShort>
-        )}
-      </li>
+    <dl className="list-column-2">
+      <ListElement
+        titleId={"personalia.bank"}
+        content={
+          <>
+            {utenlandskBankkonto.banknavn && (
+              <BodyShort>{utenlandskBankkonto.banknavn}</BodyShort>
+            )}
+            <GateAdresse
+              adresse1={utenlandskBankkonto.adresse1}
+              adresse2={utenlandskBankkonto.adresse2}
+              adresse3={utenlandskBankkonto.adresse3}
+            />
+            {utenlandskBankkonto.land && (
+              <BodyShort>{utenlandskBankkonto.land}</BodyShort>
+            )}
+          </>
+        }
+      />
       {utenlandskBankkonto.kontonummer ? (
         <ListElement
           titleId="personalia.kontonrelleriban"
@@ -52,7 +53,7 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
         titleId="personalia.bickode"
         content={utenlandskBankkonto.swiftkode}
       />
-    </ul>
+    </dl>
   ) : null;
 };
 

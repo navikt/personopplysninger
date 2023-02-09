@@ -51,7 +51,7 @@ const Personalia = (props: Props) => {
       icon={personaliaIkon}
       visAnkerlenke={true}
     >
-      <ul className="list-column-2">
+      <dl className="list-column-2">
         <ListElement titleId={fornavnHeader} content={fornavn} />
         <ListElement
           className="capitalize"
@@ -80,7 +80,7 @@ const Personalia = (props: Props) => {
         <ListElement titleId="personalia.birthplace" content={foedested} />
         <ListElement titleId="personalia.civil_status" content={sivilstand} />
         <ListElement titleId="personalia.gender" content={kjoenn} />
-      </ul>
+      </dl>
       <Kilde
         kilde="personalia.source.folkeregisteret"
         lenke={

@@ -95,15 +95,14 @@
   }
 
   &__content {
-    ul.list-column-2 {
+    dl.list-column-2 {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      list-style-type: none;
       padding-left: 0;
       margin: 0;
 
-      > li {
+      > .list-item {
         width: 50%;
         flex-grow: 1;
         box-sizing: border-box;
@@ -114,6 +113,10 @@
           white-space: nowrap;
           text-overflow: ellipsis;
           overflow: hidden;
+        }
+
+        & dd {
+          margin: 0
         }
 
         @media @maxMobile {

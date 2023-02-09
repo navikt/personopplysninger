@@ -8,12 +8,12 @@ interface Props {
 
 const NorskKontonummer = ({ kontonummer }: Props) => {
   return kontonummer ? (
-    <ul className="list-column-2">
+    <dl className="list-column-2">
       <ListElement
         titleId="personalia.kontonr"
         content={formatterKontonr(kontonummer)}
       />
-    </ul>
+    </dl>
   ) : null;
 };
 

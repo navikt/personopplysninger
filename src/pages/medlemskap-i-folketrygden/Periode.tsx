@@ -25,7 +25,7 @@ const Periode = (props: Props) => {
           </BodyLong>
         </div>
         <div className={"medl__flex-grid box__content"}>
-          <ul className="list-column-2">
+          <dl className="list-column-2">
             <ListElement
               titleId="medl.hjemmel"
               content={periode.hjemmel}
@@ -52,7 +52,7 @@ const Periode = (props: Props) => {
               titleId="medl.studieland"
               content={periode.studieinformasjon?.studieland}
             />
-          </ul>
+          </dl>
         </div>
       </div>
     </div>
