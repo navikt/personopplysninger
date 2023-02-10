@@ -359,67 +359,85 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         <div
                           class="navds-read-more__content navds-body-long"
                         >
-                          <ul
+                          <dl
                             class="list-column-2 address-columns"
                           >
-                            <li>
+                            <div
+                              class="list-item"
+                            >
                               <div
                                 class="listelement__header"
                               >
-                                <p
-                                  class="navds-label"
-                                >
-                                  Bolignummer
-                                </p>
+                                <dt>
+                                  <p
+                                    class="navds-label"
+                                  >
+                                    Bolignummer
+                                  </p>
+                                </dt>
                               </div>
                               <div
                                 class="content "
                               >
-                                H0301
+                                <dd>
+                                  H0301
+                                </dd>
                               </div>
                               <p
                                 class="navds-body-short"
                               />
-                            </li>
-                            <li>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
                               <div
                                 class="listelement__header"
                               >
-                                <p
-                                  class="navds-label"
-                                >
-                                  Kommune
-                                </p>
+                                <dt>
+                                  <p
+                                    class="navds-label"
+                                  >
+                                    Kommune
+                                  </p>
+                                </dt>
                               </div>
                               <div
                                 class="content "
                               >
-                                EVJE OG HORNNES
+                                <dd>
+                                  EVJE OG HORNNES
+                                </dd>
                               </div>
                               <p
                                 class="navds-body-short"
                               />
-                            </li>
-                            <li>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
                               <div
                                 class="listelement__header"
                               >
-                                <p
-                                  class="navds-label"
-                                >
-                                  Flyttedato
-                                </p>
+                                <dt>
+                                  <p
+                                    class="navds-label"
+                                  >
+                                    Flyttedato
+                                  </p>
+                                </dt>
                               </div>
                               <div
                                 class="content "
                               >
-                                14.07.2020
+                                <dd>
+                                  14.07.2020
+                                </dd>
                               </div>
                               <p
                                 class="navds-body-short"
                               />
-                            </li>
-                          </ul>
+                            </div>
+                          </dl>
                         </div>
                       </div>
                     </div>
@@ -525,48 +543,60 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         <div
                           class="navds-read-more__content navds-body-long"
                         >
-                          <ul
+                          <dl
                             class="list-column-2 address-columns"
                           >
-                            <li>
+                            <div
+                              class="list-item"
+                            >
                               <div
                                 class="listelement__header"
                               >
-                                <p
-                                  class="navds-label"
-                                >
-                                  Bolignummer
-                                </p>
+                                <dt>
+                                  <p
+                                    class="navds-label"
+                                  >
+                                    Bolignummer
+                                  </p>
+                                </dt>
                               </div>
                               <div
                                 class="content "
                               >
-                                H0301
+                                <dd>
+                                  H0301
+                                </dd>
                               </div>
                               <p
                                 class="navds-body-short"
                               />
-                            </li>
-                            <li>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
                               <div
                                 class="listelement__header"
                               >
-                                <p
-                                  class="navds-label"
-                                >
-                                  Kommune
-                                </p>
+                                <dt>
+                                  <p
+                                    class="navds-label"
+                                  >
+                                    Kommune
+                                  </p>
+                                </dt>
                               </div>
                               <div
                                 class="content "
                               >
-                                EVJE OG HORNNES
+                                <dd>
+                                  EVJE OG HORNNES
+                                </dd>
                               </div>
                               <p
                                 class="navds-body-short"
                               />
-                            </li>
-                          </ul>
+                            </div>
+                          </dl>
                         </div>
                       </div>
                     </div>
@@ -756,29 +786,35 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                       <div
                         class="navds-read-more__content navds-body-long"
                       >
-                        <ul
+                        <dl
                           class="list-column-2 address-columns"
                         >
-                          <li>
+                          <div
+                            class="list-item"
+                          >
                             <div
                               class="listelement__header"
                             >
-                              <p
-                                class="navds-label"
-                              >
-                                Gyldig til og med
-                              </p>
+                              <dt>
+                                <p
+                                  class="navds-label"
+                                >
+                                  Gyldig til og med
+                                </p>
+                              </dt>
                             </div>
                             <div
                               class="content "
                             >
-                              20.07.2020
+                              <dd>
+                                20.07.2020
+                              </dd>
                             </div>
                             <p
                               class="navds-body-short"
                             />
-                          </li>
-                        </ul>
+                          </div>
+                        </dl>
                       </div>
                     </div>
                   </div>
@@ -887,29 +923,35 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <ul
+            <dl
               class="list-column-2"
             >
-              <li>
+              <div
+                class="list-item"
+              >
                 <div
                   class="listelement__header"
                 >
-                  <p
-                    class="navds-label"
-                  >
-                    Kontonummer
-                  </p>
+                  <dt>
+                    <p
+                      class="navds-label"
+                    >
+                      Kontonummer
+                    </p>
+                  </dt>
                 </div>
                 <div
                   class="content "
                 >
-                  1234 56 78911
+                  <dd>
+                    1234 56 78911
+                  </dd>
                 </div>
                 <p
                   class="navds-body-short"
                 />
-              </li>
-            </ul>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >

@@ -93,9 +93,11 @@ exports[`DittNavKontor renders correctly 1`] = `
                 class="navds-form-field navds-form-field--medium"
               >
                 <label
-                  class="navds-form-field__label navds-label"
+                  class="navds-form-field__label navds-sr-only navds-label"
                   for="textField-aksel-id-1"
-                />
+                >
+                  NAV-kontor
+                </label>
                 <div
                   class="navds-select__container"
                 >
@@ -103,6 +105,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                     aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
                     id="textField-aksel-id-1"
+                    name="NAV-kontor"
                   >
                     <option
                       value="-1"
@@ -190,139 +193,132 @@ exports[`DittNavKontor renders correctly 1`] = `
               </div>
             </div>
             <div>
-              <h3
-                class="navds-heading navds-heading--xsmall"
-              >
-                Åpningstider
-              </h3>
               <div
-                class="apningstid__container"
+                class="apningstider"
               >
-                <div
-                  class="apningstid__row"
+                <table
+                  class="apningstider__table"
                 >
-                  <div
-                    class="apningstid__column apningstid__dag"
+                  <caption
+                    class="apningstider__caption navds-heading navds-heading--xsmall"
                   >
-                    Mandag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
+                    Åpningstider
+                  </caption>
+                  <thead
+                    class="sr-only"
                   >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Tirsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Onsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Torsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Fredag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Ukedag
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Tidsrom
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Kommentar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Mandag
+                      </td>
+                      <td>
+                        12:00 - 14:30
+                      </td>
+                      <td>
+                        Timeavtaler i tidsrommet 09.00 - 14.30
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Tirsdag
+                      </td>
+                      <td>
+                        12:00 - 14:30
+                      </td>
+                      <td>
+                        Timeavtaler i tidsrommet 09.00 - 14.30
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Onsdag
+                      </td>
+                      <td>
+                        12:00 - 14:30
+                      </td>
+                      <td>
+                        Timeavtaler i tidsrommet 09.00 - 14.30
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Torsdag
+                      </td>
+                      <td>
+                        12:00 - 14:30
+                      </td>
+                      <td>
+                        Timeavtaler i tidsrommet 09.00 - 14.30
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        Fredag
+                      </td>
+                      <td>
+                        12:00 - 14:30
+                      </td>
+                      <td>
+                        Timeavtaler i tidsrommet 09.00 - 14.30
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <ul
+            <dl
               class="dittnavkontor__footer list-column-2"
             >
-              <li>
+              <div
+                class="list-item"
+              >
                 <div
                   class="listelement__header"
                 >
-                  <p
-                    class="navds-label"
-                  >
-                    Kontakt NAV
-                  </p>
+                  <dt>
+                    <p
+                      class="navds-label"
+                    >
+                      Kontakt NAV
+                    </p>
+                  </dt>
                 </div>
                 <div
                   class="content "
                 >
-                  <a
-                    class="navds-link"
-                    href="/person/kontakt-oss/nb/"
-                  >
-                    Gå til kontaktinformasjon
-                  </a>
+                  <dd>
+                    <a
+                      class="navds-link"
+                      href="/person/kontakt-oss/nb/"
+                    >
+                      Gå til kontaktinformasjon
+                    </a>
+                  </dd>
                 </div>
                 <p
                   class="navds-body-short"
                 />
-              </li>
-            </ul>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >

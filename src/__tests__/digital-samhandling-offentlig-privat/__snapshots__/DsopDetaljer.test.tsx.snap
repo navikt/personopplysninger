@@ -26,86 +26,110 @@ exports[`DsopDetaljerView renders correctly 1`] = `
       <div
         class="box__content"
       >
-        <ul
+        <dl
           class="list-column-2"
         >
-          <li>
+          <div
+            class="list-item"
+          >
             <div
               class="listelement__header"
             >
-              <p
-                class="navds-label"
-              >
-                Uthentingstidspunkt
-              </p>
+              <dt>
+                <p
+                  class="navds-label"
+                >
+                  Uthentingstidspunkt
+                </p>
+              </dt>
             </div>
             <div
               class="content "
             >
-              18.06.2019 10:45
+              <dd>
+                18.06.2019 10:45
+              </dd>
             </div>
             <p
               class="navds-body-short"
             />
-          </li>
-          <li>
+          </div>
+          <div
+            class="list-item"
+          >
             <div
               class="listelement__header"
             >
-              <p
-                class="navds-label"
-              >
-                Personnummer
-              </p>
+              <dt>
+                <p
+                  class="navds-label"
+                >
+                  Personnummer
+                </p>
+              </dt>
             </div>
             <div
               class="content "
             >
-              04019727454
+              <dd>
+                04019727454
+              </dd>
             </div>
             <p
               class="navds-body-short"
             />
-          </li>
-          <li>
+          </div>
+          <div
+            class="list-item"
+          >
             <div
               class="listelement__header"
             >
-              <p
-                class="navds-label"
-              >
-                Tema
-              </p>
+              <dt>
+                <p
+                  class="navds-label"
+                >
+                  Tema
+                </p>
+              </dt>
             </div>
             <div
               class="content "
             >
-              AAP
+              <dd>
+                AAP
+              </dd>
             </div>
             <p
               class="navds-body-short"
             />
-          </li>
-          <li>
+          </div>
+          <div
+            class="list-item"
+          >
             <div
               class="listelement__header"
             >
-              <p
-                class="navds-label"
-              >
-                Behandlingsgrunnlag
-              </p>
+              <dt>
+                <p
+                  class="navds-label"
+                >
+                  Behandlingsgrunnlag
+                </p>
+              </dt>
             </div>
             <div
               class="content "
             >
-              Samtykke
+              <dd>
+                Samtykke
+              </dd>
             </div>
             <p
               class="navds-body-short"
             />
-          </li>
-        </ul>
+          </div>
+        </dl>
       </div>
       <div
         class="detaljer__container"

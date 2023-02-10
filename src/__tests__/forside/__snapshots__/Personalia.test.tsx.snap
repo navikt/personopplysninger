@@ -72,7 +72,7 @@ exports[`Personalia renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <ul
+            <dl
               class="list-column-2"
             />
             <div
