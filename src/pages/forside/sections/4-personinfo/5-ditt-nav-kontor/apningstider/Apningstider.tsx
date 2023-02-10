@@ -2,7 +2,7 @@ import React from "react";
 import { Publikumsmottak } from "../../../../../../types/enhetKontaktInfo";
 import { Heading } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
-import Apningstid from "../apningstid/Apningstid";
+import Apningstid from "./Apningstid";
 
 interface Props {
   publikumsmottak: Publikumsmottak[];
