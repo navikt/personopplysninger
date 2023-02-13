@@ -1,16 +1,18 @@
 const express = require("express");
 const logger = require("./logger");
 const path = require("path");
+const compression = require("compression");
 const ENV = process.env.NODE_ENV;
 const ENV_LOCAL = ".env";
-if(ENV !== "production") {
-    require("dotenv").config(ENV_LOCAL);
+if (ENV !== "production") {
+  require("dotenv").config(ENV_LOCAL);
 }
 const getHtmlWithDecorator = require("./dekorator");
 const buildPath = path.resolve(__dirname, "../build");
 const basePath = "/person/personopplysninger";
 const server = express();
 
+server.use(compression());
 server.use(express.json());
 server.use(`${basePath}`, express.static(buildPath, { index: false }));
 server.get(`${basePath}/internal/isAlive|isReady`, (req, res) =>
