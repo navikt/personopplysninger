@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useIntl } from "react-intl";
 import {
   BrowserRouter as Router,
+  Navigate,
   Route,
   Routes,
-  useNavigate,
   useLocation,
-  Navigate,
+  useNavigate,
 } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
@@ -22,12 +22,11 @@ import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/detaljer/
 import Modal from "react-modal";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
-
-export const basePath = "/person/personopplysninger";
-
 // Import this early, to ensure our own CSS gets higher specificity
 import "@navikt/ds-css";
 import moment from "moment";
+
+export const basePath = "/person/personopplysninger";
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 
@@ -82,7 +81,7 @@ const App = () => {
                       path={`${basePathWithLanguage}/arbeidsforhold`}
                       element={
                         <Navigate
-                          replace
+                          replace={true}
                           to={`${basePathWithLanguage}/#arbeidsforhold`}
                         />
                       }

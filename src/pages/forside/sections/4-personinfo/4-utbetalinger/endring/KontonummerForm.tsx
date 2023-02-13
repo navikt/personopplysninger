@@ -1,19 +1,32 @@
-import React, {useState} from "react";
-import {Button, Radio, RadioGroup} from "@navikt/ds-react";
-import OpprettEllerEndreNorskKontonr, {setOutboundNorskKontonummer,} from "./norsk-bankkonto/NorskKontonummer";
-import OpprettEllerEndreUtenlandsbank, {setOutboundUtenlandsbankonto,} from "./utenlandsk-bankkonto/UtenlandsBankkonto";
-import {FormattedMessage, useIntl} from "react-intl";
-import HttpFeilmelding, {Feilmelding,} from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
+import React, { useState } from "react";
+import { Button, Radio, RadioGroup } from "@navikt/ds-react";
+import OpprettEllerEndreNorskKontonr, {
+  setOutboundNorskKontonummer,
+} from "./norsk-bankkonto/NorskKontonummer";
+import OpprettEllerEndreUtenlandsbank, {
+  setOutboundUtenlandsbankonto,
+} from "./utenlandsk-bankkonto/UtenlandsBankkonto";
+import { FormattedMessage, useIntl } from "react-intl";
+import HttpFeilmelding, {
+  Feilmelding,
+} from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
 import Kilde from "../../../../../../components/kilde/Kilde";
-import {normalizeNummer} from "../../../../../../utils/formattering";
-import {fetchPersonInfo, postKontonummer,} from "../../../../../../clients/apiClient";
-import {PersonInfo} from "../../../../../../types/personInfo";
-import {useStore} from "../../../../../../store/Context";
-import {UtenlandskBankkonto} from "../../../../../../types/personalia";
-import {FieldValues, FormProvider, useForm} from "react-hook-form";
-import {FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto,} from "./types";
-import {UNKNOWN} from "../../../../../../utils/text";
-import {Action} from "../../../../../../store/Store";
+import { normalizeNummer } from "../../../../../../utils/formattering";
+import {
+  fetchPersonInfo,
+  postKontonummer,
+} from "../../../../../../clients/apiClient";
+import { PersonInfo } from "../../../../../../types/personInfo";
+import { useStore } from "../../../../../../store/Context";
+import { UtenlandskBankkonto } from "../../../../../../types/personalia";
+import { FieldValues, FormProvider, useForm } from "react-hook-form";
+import {
+  FormFields,
+  OutboundNorskKontonummer,
+  OutboundUtenlandsbankonto,
+} from "./types";
+import { UNKNOWN } from "../../../../../../utils/text";
+import { Action } from "../../../../../../store/Store";
 
 interface Props {
   utenlandskbank?: UtenlandskBankkonto;
@@ -29,7 +42,7 @@ const UTENLANDSK = "UTENLANDSK";
 const KontonummerForm = (props: Props) => {
   const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
 
-  const {submit = defaultSubmitKontonummer} = props;
+  const { submit = defaultSubmitKontonummer } = props;
 
   const methods = useForm<FormFields>({
     reValidateMode: "onChange",

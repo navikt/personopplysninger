@@ -1,6 +1,4 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import fetch, { enableFetchMocks } from "jest-fetch-mock";
 import "@testing-library/jest-dom";
 import KontonummerForm from "../../../../pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
 import { IntlProvider } from "react-intl";
@@ -9,6 +7,7 @@ import { StoreProvider } from "../../../../store/Context";
 import React from "react";
 import land from "./land.json";
 import valutaer from "./valutaer.json";
+import fetch, { enableFetchMocks } from "jest-fetch-mock";
 
 const IDENT = "04918399092";
 
@@ -34,7 +33,7 @@ describe("Norsk bankkonto", () => {
   });
 
   test("inneholder forventede felter", () => {
-    expect(getByName(KONTONUMMER)).toBeInTheDocument();
+    expect(getTextboxByName(KONTONUMMER)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Lagre" })).toBeInTheDocument();
   });
 
@@ -100,14 +99,14 @@ describe("Utenlandsk bankkonto", () => {
     await inputValidUtenlandskKontonummer();
 
     await waitFor(() => {
-      expect(getByName(LAND)).toBeInTheDocument();
-      expect(getByName(VALUTA)).toBeInTheDocument();
-      expect(getByName(BANKNAVN)).toBeInTheDocument();
-      expect(getByName(KONTONUMMER_IBAN)).toBeInTheDocument();
-      expect(getByName(BIC_SWIFT)).toBeInTheDocument();
+      expect(getComboboxByName(LAND)).toBeInTheDocument();
+      expect(getComboboxByName(VALUTA)).toBeInTheDocument();
+      expect(getTextboxByName(BANKNAVN)).toBeInTheDocument();
+      expect(getTextboxByName(KONTONUMMER_IBAN)).toBeInTheDocument();
+      expect(getTextboxByName(BIC_SWIFT)).toBeInTheDocument();
     });
   });
-  /*
+
   test("submitter ved gyldig input", async () => {
     await inputValidUtenlandskKontonummer();
     submit();
@@ -203,11 +202,8 @@ describe("Utenlandsk bankkonto", () => {
       expect(screen.getAllByText("Inneholder ugyldige tegn")).toHaveLength(2)
     );
   });
-
-  */
 });
 
-/*
 describe("Utenlandsk bankkonto med IBAN", () => {
   beforeEach(async () => {
     await setupUtenlandskBankkonto();
@@ -361,15 +357,15 @@ describe("Utenlandsk bankkonto med bankkode", () => {
     await inputValidUtenlandskKontonummer("Bankkode");
 
     await waitFor(() => {
-      expect(getByName(LAND)).toBeInTheDocument();
-      expect(getByName(VALUTA)).toBeInTheDocument();
-      expect(getByName(BANKNAVN)).toBeInTheDocument();
-      expect(getByName(KONTONUMMER_IBAN)).toBeInTheDocument();
-      expect(getByName(BIC_SWIFT)).toBeInTheDocument();
-      expect(getByName(BANKKODE)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE1)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE2)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE3)).toBeInTheDocument();
+      expect(getComboboxByName(LAND)).toBeInTheDocument();
+      expect(getComboboxByName(VALUTA)).toBeInTheDocument();
+      expect(getTextboxByName(BANKNAVN)).toBeInTheDocument();
+      expect(getTextboxByName(KONTONUMMER_IBAN)).toBeInTheDocument();
+      expect(getTextboxByName(BIC_SWIFT)).toBeInTheDocument();
+      expect(getTextboxByName(BANKKODE)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE1)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE2)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE3)).toBeInTheDocument();
     });
   });
 
@@ -541,14 +537,14 @@ describe("Amerikansk bankkonto", () => {
     await inputValidUtenlandskKontonummer("Amerikansk");
 
     await waitFor(() => {
-      expect(getByName(LAND)).toBeInTheDocument();
-      expect(getByName(VALUTA)).toBeInTheDocument();
-      expect(getByName(BANKNAVN)).toBeInTheDocument();
-      expect(getByName(KONTONUMMER_IBAN)).toBeInTheDocument();
-      expect(getByName(BANKKODE)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE1)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE2)).toBeInTheDocument();
-      expect(getByName(ADRESSELINJE3)).toBeInTheDocument();
+      expect(getComboboxByName(LAND)).toBeInTheDocument();
+      expect(getComboboxByName(VALUTA)).toBeInTheDocument();
+      expect(getTextboxByName(BANKNAVN)).toBeInTheDocument();
+      expect(getTextboxByName(KONTONUMMER_IBAN)).toBeInTheDocument();
+      expect(getTextboxByName(BANKKODE)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE1)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE2)).toBeInTheDocument();
+      expect(getTextboxByName(ADRESSELINJE3)).toBeInTheDocument();
     });
   });
 
@@ -576,8 +572,6 @@ describe("Bankkode med alternativ landkode i IBAN", () => {
     });
   });
 });
-
-*/
 
 const commonSetup = () => {
   mockSubmit.mockReset();
@@ -611,35 +605,35 @@ const setupUtenlandskBankkonto = async () => {
   selectRadio("Utenlandsk kontonummer");
 
   await waitFor(() => {
-    getByName(LAND);
+    getComboboxByName(LAND);
   });
 };
 
-const getByName = (name: string) => {
-  let element;
-  try {
-    element = screen.getByRole("textbox", { name: name });
-  } catch (e) {
-    element = screen.getByRole("combobox", { name: name });
-  }
+const getTextboxByName = (name: string) => {
+  return screen.getByRole("textbox", { name: name });
+};
 
-  return element;
+const getComboboxByName = (name: string) => {
+  return screen.getByRole("combobox", { name: name });
 };
 
 const selectRadio = (name: string) => {
   fireEvent.click(screen.getByRole("radio", { name: name }));
 };
 
-const inputSelect = (name: string, value: string) => {
-  fireEvent.input(getByName(name), {
+const inputCombobox = async (name: string, value: string) => {
+  // Må først skrive inn verdien og deretter trykke på den i nedtrekksmenyen
+  fireEvent.input(getComboboxByName(name), {
     target: { value: value },
   });
 
-  userEvent.click(screen.getAllByText(value)[1]);
+  await waitFor(() => {
+    fireEvent.click(screen.getByText(value));
+  });
 };
 
 const inputTextbox = (name: string, value: string) => {
-  fireEvent.input(getByName(name), {
+  fireEvent.input(getTextboxByName(name), {
     target: { value: value },
   });
 };
@@ -705,13 +699,13 @@ const inputValidUtenlandskbankkontoWithOmission = async (
     return;
   }
 
-  inputSelect(LAND, land);
+  await inputCombobox(LAND, land);
 
   await waitFor(() => {
-    getByName(VALUTA);
+    getComboboxByName(VALUTA);
   });
 
-  omit !== VALUTA && inputSelect(VALUTA, valuta);
+  omit !== VALUTA && (await inputCombobox(VALUTA, valuta));
   omit !== BANKNAVN && inputTextbox(BANKNAVN, banknavn);
   omit !== KONTONUMMER_IBAN && inputTextbox(KONTONUMMER_IBAN, kontonummerIban);
 
