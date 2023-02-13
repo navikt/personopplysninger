@@ -8,6 +8,7 @@ import React from "react";
 import land from "./land.json";
 import valutaer from "./valutaer.json";
 import fetch, { enableFetchMocks } from "jest-fetch-mock";
+import userEvent from "@testing-library/user-event";
 
 const IDENT = "04918399092";
 
@@ -602,11 +603,7 @@ const setupUtenlandskBankkonto = async () => {
   fetch.mockResponseOnce(JSON.stringify(land));
   fetch.mockResponseOnce(JSON.stringify(valutaer));
 
-  selectRadio("Utenlandsk kontonummer");
-
-  await waitFor(() => {
-    getComboboxByName(LAND);
-  });
+  await selectRadio("Utenlandsk kontonummer");
 };
 
 const getTextboxByName = (name: string) => {
@@ -617,8 +614,8 @@ const getComboboxByName = (name: string) => {
   return screen.getByRole("combobox", { name: name });
 };
 
-const selectRadio = (name: string) => {
-  fireEvent.click(screen.getByRole("radio", { name: name }));
+const selectRadio = async (name: string) => {
+  await userEvent.click(screen.getByRole("radio", { name: name }));
 };
 
 const inputCombobox = async (name: string, value: string) => {
