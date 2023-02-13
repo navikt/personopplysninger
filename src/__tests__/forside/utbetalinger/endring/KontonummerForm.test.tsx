@@ -98,8 +98,6 @@ describe("Utenlandsk bankkonto", () => {
 
   test("inneholder forventede felter", async () => {
     await inputValidUtenlandskKontonummer();
-
-    await waitFor(() => {
       expect(getByName(LAND)).toBeInTheDocument();
       expect(getByName(VALUTA)).toBeInTheDocument();
       expect(getByName(BANKNAVN)).toBeInTheDocument();
@@ -604,11 +602,15 @@ const setupNorskBankkonto = () => {
 const setupUtenlandskBankkonto = async () => {
   commonSetup();
 
-  fetch.resetMocks();
-  fetch.mockResponseOnce(JSON.stringify(land));
-  fetch.mockResponseOnce(JSON.stringify(valutaer));
+  await waitFor(() => {
+    fetch.resetMocks();
+    fetch.mockResponseOnce(JSON.stringify(land));
+    fetch.mockResponseOnce(JSON.stringify(valutaer));
+  });
 
-  selectRadio("Utenlandsk kontonummer");
+  await waitFor(() => {
+    selectRadio("Utenlandsk kontonummer");
+  });
 
   await waitFor(() => {
     getByName(LAND);
@@ -627,15 +629,15 @@ const getByName = (name: string) => {
 };
 
 const selectRadio = (name: string) => {
-  fireEvent.click(screen.getByRole("radio", { name: name }));
+  userEvent.click(screen.getByRole("radio", { name: name }));
 };
 
-const inputSelect = (name: string, value: string) => {
+const inputSelect = async (name: string, value: string) => {
   fireEvent.input(getByName(name), {
     target: { value: value },
   });
 
-  userEvent.click(screen.getAllByText(value)[1]);
+  return userEvent.click(screen.getAllByText(value)[1]);
 };
 
 const inputTextbox = (name: string, value: string) => {
