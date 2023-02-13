@@ -98,6 +98,7 @@ describe("Utenlandsk bankkonto", () => {
 
   test("inneholder forventede felter", async () => {
     await inputValidUtenlandskKontonummer();
+    await waitFor(() => {
       expect(getByName(LAND)).toBeInTheDocument();
       expect(getByName(VALUTA)).toBeInTheDocument();
       expect(getByName(BANKNAVN)).toBeInTheDocument();
