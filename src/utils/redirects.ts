@@ -54,7 +54,7 @@ export const redirects: {
   },
 };
 
-export const tillatteTjenester = Object.keys(redirects).map((key) => key);
+export const tillatteTjenester = Object.keys(redirects);
 
 const navnoUrlPattern = new RegExp(
   `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)`,
