@@ -19,12 +19,14 @@ import BanknavnField from "./felter/BanknavnField";
 import KontonummerIbanField from "./felter/KontonummerIbanField";
 import { mapErrorsToSummary } from "utils/kontonummer";
 import { useIntlFormatter } from "../../../../../../../hooks/useIntlFormatter";
+import { useStore } from "store/Context";
 
 interface Props {
   personident?: { verdi: string; type: string };
 }
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
+  const [{ locale }] = useStore();
   const {
     watch,
     formState: { isSubmitted, errors },
@@ -34,6 +36,12 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
   const valgtLand = watch().land;
 
+  const utenlandskKontoInfoLenke = {
+    nb: "https://www.nav.no/utbetaling-utland",
+    nn: "https://www.nav.no/utbetaling-utland",
+    en: "https://www.nav.no/en/home/about-nav/relatert-informasjon/payment-of-benefits-from-nav-to-recipients-living-abroad",
+  };
+
   return (
     <>
       <div className="utbetalinger__alert">
@@ -42,9 +50,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
             id="felter.utenlandskkonto.info"
             values={{
               a: (text) => (
-                <Link href="/no/NAV+og+samfunn/Kontakt+NAV/Utbetalinger/Utbetalinger/utbetaling-av-ytelser-fra-nav-til-utlandet">
-                  {text}
-                </Link>
+                <Link href={utenlandskKontoInfoLenke[locale]}>{text}</Link>
               ),
             }}
           />

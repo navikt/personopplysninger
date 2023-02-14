@@ -91,7 +91,9 @@ const NAVSelect = React.memo(
       if (props.borderUnderNth) {
         const { innerProps } = optionProps;
         const matches = innerProps?.id?.match(/\d+$/);
+
         if (matches) {
+          console.log(matches, innerProps?.id);
           const num = matches[0];
           const id = parseInt(num, RADIX_DECIMAL);
           if (id === props.borderUnderNth) {
