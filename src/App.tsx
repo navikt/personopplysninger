@@ -73,11 +73,6 @@ const App = () => {
                     />
                     <Route
                       caseSensitive={true}
-                      path={`${basePathWithLanguage}/sendt-fra/*`}
-                      element={<Navigate to={`${basePath}/nb/`} />}
-                    />
-                    <Route
-                      caseSensitive={true}
                       path={`${basePathWithLanguage}/arbeidsforhold`}
                       element={
                         <Navigate
