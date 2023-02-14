@@ -126,6 +126,17 @@ const App = () => {
                           // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
                           <Route
                             caseSensitive={true}
+                            path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
+                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                            key={tjeneste}
+                          />
+                        ))}
+                      {featureToggles.data["personopplysninger.pdl"] &&
+                        tillatteTjenester.map((tjeneste) => (
+                          // react-router-dom no longes support regex in path
+                          // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
+                          <Route
+                            caseSensitive={true}
                             path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
                             element={<EndreOpplysninger tjeneste={tjeneste} />}
                             key={tjeneste}
