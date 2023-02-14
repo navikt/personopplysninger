@@ -127,7 +127,7 @@ const DittNavKontor = (props: Props) => {
           <hr />
         )}
       </div>
-      <dl className="dittnavkontor__footer list-column-2">
+      <dl className="dittnavkontor__footer list">
         <ListElement
           titleId="dittnavkontor.kontaktinfo.overskrift"
           content={

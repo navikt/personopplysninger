@@ -95,25 +95,14 @@
   }
 
   &__content {
-    dl.list-column-2 {
+    dl.list {
       display: flex;
-      flex-direction: row;
       flex-wrap: wrap;
-      padding-left: 0;
       margin: 0;
 
       > .list-item {
         width: 50%;
-        flex-grow: 1;
-        box-sizing: border-box;
-        padding: 0.5rem 2rem 0.5rem 0rem;
-
-        .title {
-          display: block;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-        }
+        padding: 0.5rem 2rem 0.5rem 0;
 
         & dd {
           margin: 0

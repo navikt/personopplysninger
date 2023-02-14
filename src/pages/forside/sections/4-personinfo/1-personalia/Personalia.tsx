@@ -51,7 +51,7 @@ const Personalia = (props: Props) => {
       icon={personaliaIkon}
       visAnkerlenke={true}
     >
-      <dl className="list-column-2">
+      <dl className="list">
         <ListElement titleId={fornavnHeader} content={fornavn} />
         <ListElement
           className="capitalize"

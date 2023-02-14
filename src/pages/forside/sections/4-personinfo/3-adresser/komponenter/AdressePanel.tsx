@@ -41,7 +41,7 @@ const AdressePanel = (props: Props) => {
           header={readMoreLabel}
           onClick={toggleReadMore}
         >
-          <dl className="list-column-2 address-columns">
+          <dl className="list address-columns">
             {props.bruksenhetsnummer && (
               <ListElement
                 titleId="adresse.bolignummer"

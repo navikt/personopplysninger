@@ -30,7 +30,7 @@ const KontaktInformasjon = (props: Props) => {
           )}
         </BodyShort>
       </div>
-      <dl className="list-column-2">
+      <dl className="list">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
         <ListElement titleId="personalia.spraak" content={spraak} />
         <ListElement titleId="personalia.email" content={epostadresse} />

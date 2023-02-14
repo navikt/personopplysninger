@@ -11,7 +11,7 @@ interface Props {
 
 const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
   return utenlandskBankkonto ? (
-    <dl className="list-column-2">
+    <dl className="list">
       <ListElement
         titleId={"personalia.bank"}
         content={
