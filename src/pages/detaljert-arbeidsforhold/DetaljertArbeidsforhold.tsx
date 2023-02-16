@@ -18,6 +18,10 @@ const Arbeidsforhold = () => {
   const params = useParams<Readonly<Params<keyof Routes>>>();
   const [{ personInfo }] = useStore();
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (typeof params.id === "undefined") {
     return null;
   }
@@ -33,10 +37,6 @@ const Arbeidsforhold = () => {
     personInfo.status === "RESULT"
       ? `${personInfo.data.personalia?.personident?.verdi}`
       : ``;
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <PageContainer
