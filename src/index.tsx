@@ -1,7 +1,6 @@
 import "./polyfills";
 import React from "react";
 import { createRoot } from "react-dom/client";
-import ReactDOM from "react-dom";
 import { StoreProvider } from "./store/Context";
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
 import WithLanguages from "./store/providers/Language";
