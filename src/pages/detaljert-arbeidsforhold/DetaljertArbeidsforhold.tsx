@@ -13,12 +13,16 @@ interface Routes {
   id: string;
 }
 
-const radix = 10;
 const Arbeidsforhold = () => {
   const { locale } = useIntl();
   const params = useParams<Readonly<Params<keyof Routes>>>();
   const [{ personInfo }] = useStore();
-  const id: number = parseInt(params.id || "0", radix);
+
+  if (typeof params.id === "undefined") {
+    return null;
+  }
+
+  const id: number = parseInt(params.id, 10);
 
   const printName =
     personInfo.status === "RESULT"
