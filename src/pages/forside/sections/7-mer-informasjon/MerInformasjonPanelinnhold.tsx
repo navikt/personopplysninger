@@ -14,14 +14,14 @@ const Alternativ = (props: Props) => {
       <FormattedMessage
         id={melding}
         values={{
-          p: (...chunks: string[]) => (
+          p: (...chunks) => (
             <p>
               {chunks.map((chunk, i) => (
                 <Fragment key={i}>{chunk}</Fragment>
               ))}
             </p>
           ),
-          beskjedLenke: (text: string) => (
+          beskjedLenke: (text) => (
             <Link
               href={`/person/kontakt-oss/${
                 locale === "en" ? "en/write-to-us" : "nb/skriv-til-oss"
@@ -32,10 +32,8 @@ const Alternativ = (props: Props) => {
               {text}
             </Link>
           ),
-          telefonLenke: (text: string) => (
-            <Link href="tel:004755553333">{text}</Link>
-          ),
-          trygdeavtalerLenke: (text: string) => (
+          telefonLenke: (text) => <Link href="tel:004755553333">{text}</Link>,
+          trygdeavtalerLenke: (text) => (
             <Link
               href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler"
               rel="noopener noreferrer"
@@ -44,7 +42,7 @@ const Alternativ = (props: Props) => {
               {text}
             </Link>
           ),
-          datatilsynetLenke: (text: string) => (
+          datatilsynetLenke: (text) => (
             <Link
               href="https://www.datatilsynet.no/om-datatilsynet/kontakt-oss/hvordan-kan-jeg-klage-til-datatilsynet"
               rel="noopener noreferrer"

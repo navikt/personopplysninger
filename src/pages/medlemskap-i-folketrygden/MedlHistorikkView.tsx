@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { MedlInfo } from "types/medl";
 import { FormattedMessage, useIntl } from "react-intl";
 import Panel from "./Panel";
@@ -69,7 +69,7 @@ const MedlHistorikkView = (props: Props) => {
           <FormattedMessage
             id={`medl.folketrygden.ingress`}
             values={{
-              lenkeTilFolketrygden: (text: string) => (
+              lenkeTilFolketrygden: (text) => (
                 <Link href={lenkerTilFolketrygden[locale]}>{text}</Link>
               ),
             }}

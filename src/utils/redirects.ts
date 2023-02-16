@@ -16,7 +16,7 @@ export const redirects: {
     2) Send brukeren til https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/[KEY]/[REDIRECT_URL]
 
     Eksempel på url:
-    https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/publisering/dinpensjon/https%3A%2F%2Fwww.nav.no%2Fpselv%2Fpublisering%2Fdinpensjon.jsf
+    https://www.dev.nav.no/person/personopplysninger/nb/endre-opplysninger/sendt-fra/dagpenger/forskudd/https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf
 
     Hvordan funker det?
     Beskrivelse og tekst på knappen vil bestemmes ut ifra [KEY].
@@ -54,9 +54,7 @@ export const redirects: {
   },
 };
 
-export const tillatteTjenester = Object.keys(redirects)
-  .map((key) => key)
-  .join("|");
+export const tillatteTjenester = Object.keys(redirects);
 
 const navnoUrlPattern = new RegExp(
   `^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)`,

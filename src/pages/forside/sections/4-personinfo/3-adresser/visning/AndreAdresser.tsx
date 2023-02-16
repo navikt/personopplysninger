@@ -109,7 +109,7 @@ const AndreAdresser = (props: Props) => {
                     <FormattedMessage
                       id="adresse.slett.alert"
                       values={{
-                        br: (text: String) => (
+                        br: (text) => (
                           <>
                             <br />
                             {text}

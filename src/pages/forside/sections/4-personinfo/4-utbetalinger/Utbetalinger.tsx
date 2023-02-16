@@ -63,7 +63,7 @@ const Utbetalinger = (props: Props) => {
               <FormattedMessage
                 id="personalia.kontonr.ingenData"
                 values={{
-                  br: (text: String) => (
+                  br: (text) => (
                     <>
                       <br />
                       {text}

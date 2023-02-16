@@ -2,7 +2,7 @@ import React from "react";
 import { redirects, validateAndDecodeRedirectUrl } from "utils/redirects";
 import veilederIkon from "assets/img/VeilederGul.svg";
 import naturIkon from "assets/img/Natur.svg";
-import { useHistory, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, NavigateOptions } from "react-router-dom";
 import { Back } from "@navikt/ds-icons";
 
 interface Props {
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const location = useLocation();
 
   if (!tjeneste || !encodedUrl) {
@@ -22,7 +22,8 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
   // If the redirect-url is not a valid nav.no url, redirect to the app front page
   if (!redirectUrl) {
     const basePath = location.pathname.split("sendt-fra")[0];
-    history.replace(basePath);
+    const navigateOptions: NavigateOptions = { replace: true };
+    navigate(basePath, navigateOptions);
     return null;
   }
 

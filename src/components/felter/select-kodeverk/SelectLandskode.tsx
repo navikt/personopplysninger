@@ -52,7 +52,7 @@ const SelectLandskode = React.forwardRef(
 
     const defineLabel = (
       option: OptionType,
-      context: FormatOptionLabelMeta<OptionType, any>
+      context: FormatOptionLabelMeta<OptionType>
     ) => (context.context === "value" ? `${option.value} ` : `${option.label}`);
 
     const options = mapKoderToOptions(retningsnumre)

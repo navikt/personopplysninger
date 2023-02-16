@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 import INSTIkon from "assets/img/Institusjonsopphold.svg";
 import WithInst from "../InstFetch";
@@ -12,7 +12,7 @@ interface Routes {
 }
 
 const InstDetaljer = () => {
-  const params = useParams<Routes>();
+  const params = useParams<Readonly<Params<keyof Routes>>>();
   const { id } = params;
 
   useEffect(() => {
