@@ -89,6 +89,7 @@ const TelefonnummerForm = (props: Props) => {
             {...register("landskode", {
               required: msg({ id: "validation.retningsnr.pakrevd" }),
             })}
+            id={"landskode"}
             option={watch().landskode}
             label={msg({ id: "felter.landkode.label" })}
             onChange={(option) => {
