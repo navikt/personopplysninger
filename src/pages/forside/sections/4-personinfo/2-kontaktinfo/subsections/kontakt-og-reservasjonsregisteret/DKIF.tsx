@@ -22,7 +22,7 @@ const KontaktInformasjon = (props: Props) => {
             <FormattedMessage
               id="personalia.dkif.kanVarsles"
               values={{
-                b: (text: string) => <b>{text}</b>,
+                b: (text) => <b>{text}</b>,
               }}
             />
           ) : (
@@ -51,7 +51,7 @@ const KontaktInformasjon = (props: Props) => {
         <FormattedMessage
           id={"personalia.dkif.ingenData"}
           values={{
-            b: (text: string) => <b>{text}</b>,
+            b: (text) => <b>{text}</b>,
           }}
         />
       </div>

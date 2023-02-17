@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import RedirectKnapp from "components/knapper/Redirect";
 import MedPersonInfo from "store/providers/PersonInfo";
 import Spinner from "components/spinner/Spinner";
@@ -11,9 +11,13 @@ interface Routes {
   redirectUrl?: string;
 }
 
-const EndreOpplysninger = () => {
-  const params = useParams<Routes>();
-  const { tjeneste, redirectUrl } = params;
+type EndreOpplysningerProps = {
+  tjeneste: string;
+};
+
+const EndreOpplysninger = ({ tjeneste }: EndreOpplysningerProps) => {
+  const params = useParams<Readonly<Params<keyof Routes>>>();
+  const { redirectUrl } = params;
 
   return (
     <div className="endreOpplysninger__page">

@@ -46,7 +46,7 @@ export const DsopHistorikkView = (props: Props) => {
               <FormattedMessage
                 id={"lenker.dsop.info"}
                 values={{
-                  a: (text: String) => (
+                  a: (text) => (
                     <Link href="https://altinn.no" target="blank">
                       {text}
                     </Link>

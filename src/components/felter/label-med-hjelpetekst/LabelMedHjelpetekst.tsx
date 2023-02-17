@@ -24,11 +24,11 @@ export const LabelMedHjelpetekst = (props: Props) => {
           <FormattedMessage
             id={hjelpetekst}
             values={{
-              b: (text: string) => <b>{text}</b>,
-              p: (...chunks: string[]) => (
+              b: (text) => <b>{text}</b>,
+              p: (...chunks) => (
                 <p>
-                  {chunks.map((chunk) => (
-                    <Fragment key={chunk}>{chunk}</Fragment>
+                  {chunks.map((chunk, index) => (
+                    <Fragment key={index}>{chunk}</Fragment>
                   ))}
                 </p>
               ),

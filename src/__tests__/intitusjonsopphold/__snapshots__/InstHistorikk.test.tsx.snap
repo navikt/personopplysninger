@@ -9,7 +9,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
       class="navds-alert navds-alert--info navds-alert--medium"
     >
       <svg
-        aria-labelledby="title-aksel-icon-1"
+        aria-labelledby="title-r0"
         class="navds-alert__icon"
         fill="none"
         focusable="false"
@@ -20,7 +20,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <title
-          id="title-aksel-icon-1"
+          id="title-r0"
         >
           Informasjon
         </title>

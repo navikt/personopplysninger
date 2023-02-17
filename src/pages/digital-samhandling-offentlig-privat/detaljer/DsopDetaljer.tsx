@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Params, useParams } from "react-router-dom";
 import PageContainer from "components/pagecontainer/PageContainer";
 import DSOPIkon from "assets/img/DSOP.svg";
 import WithDSOP from "../DsopFetch";
@@ -10,12 +10,16 @@ interface Routes {
 }
 
 const DsopDetaljer = () => {
-  const params = useParams<Routes>();
+  const params = useParams<Readonly<Params<keyof Routes>>>();
   const { id } = params;
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  if (typeof id === "undefined") {
+    return null;
+  }
 
   return (
     <PageContainer

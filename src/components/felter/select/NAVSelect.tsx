@@ -1,9 +1,8 @@
 import React, { ForwardedRef, useEffect } from "react";
-import Select, { components } from "react-select";
+import Select, { components, OptionProps } from "react-select";
 import { useIntl } from "react-intl";
 import cls from "classnames";
 import { FormatOptionLabelMeta } from "react-select/base";
-import { OptionProps } from "react-select/src/components/Option";
 import { RADIX_DECIMAL } from "utils/formattering";
 import { HTTPError } from "../../error/Error";
 import { Label, Loader, TextField } from "@navikt/ds-react";
@@ -27,7 +26,7 @@ interface Props {
   loading?: boolean;
   defineLabel?: (
     option: OptionType,
-    context: FormatOptionLabelMeta<OptionType, any>
+    context: FormatOptionLabelMeta<OptionType>
   ) => string;
 }
 
@@ -92,8 +91,10 @@ const NAVSelect = React.memo(
     const Option = (optionProps: OptionProps<any, any>) => {
       if (props.borderUnderNth) {
         const { innerProps } = optionProps;
-        const matches = innerProps.id.match(/\d+$/);
+        const matches = innerProps?.id?.match(/\d+$/);
+
         if (matches) {
+          console.log(matches, innerProps?.id);
           const num = matches[0];
           const id = parseInt(num, RADIX_DECIMAL);
           if (id === props.borderUnderNth) {
@@ -126,7 +127,6 @@ const NAVSelect = React.memo(
             id={props.id}
             name={props.name}
             value={value}
-            htmlSize={props.htmlSize}
             placeholder={formatMessage({ id: "select.sok" })}
             classNamePrefix="KodeverkSelect"
             loadingMessage={() => formatMessage({ id: "select.loading" })}
@@ -134,7 +134,6 @@ const NAVSelect = React.memo(
               `${formatMessage({ id: "select.no.hits" })} ${v.inputValue}...`
             }
             className={controlClasses}
-            cacheOptions={true}
             openMenuOnClick={props.openMenuOnClick}
             isLoading={props.loading}
             options={props.options}
