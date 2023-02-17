@@ -62,7 +62,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
             class="box__content"
           >
             <dl
-              class="list-column-2"
+              class="list"
             >
               <div
                 class="list-item"
@@ -195,7 +195,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
             class="box__content"
           >
             <dl
-              class="list-column-2"
+              class="list"
             >
               <div
                 class="list-item"

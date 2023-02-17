@@ -29,7 +29,6 @@ const LandField = () => {
       {...register("land", {
         required: formatMessage("validation.land.pakrevd"),
       })}
-      id="bankensland"
       submitted={isSubmitted}
       label={formatMessage("felter.bankensland.label")}
       error={errors?.land?.message}

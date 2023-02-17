@@ -298,7 +298,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -485,7 +485,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -672,7 +672,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -859,7 +859,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1046,7 +1046,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1233,7 +1233,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1420,7 +1420,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1607,7 +1607,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1794,7 +1794,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -1981,7 +1981,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -2168,7 +2168,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -2432,7 +2432,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -2692,7 +2692,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -2952,7 +2952,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"
@@ -3212,7 +3212,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                       class="medl__flex-grid box__content"
                     >
                       <dl
-                        class="list-column-2"
+                        class="list"
                       >
                         <div
                           class="list-item"

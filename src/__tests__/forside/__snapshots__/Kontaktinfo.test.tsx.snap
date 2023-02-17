@@ -16,7 +16,7 @@ exports[`DKIF renders correctly 1`] = `
     </p>
   </div>
   <dl
-    class="list-column-2"
+    class="list"
   >
     <div
       class="list-item"

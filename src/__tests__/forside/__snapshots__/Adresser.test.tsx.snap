@@ -183,7 +183,7 @@ exports[`Adresser renders correctly 1`] = `
                           class="navds-read-more__content navds-body-long"
                         >
                           <dl
-                            class="list-column-2 address-columns"
+                            class="list address-columns"
                           >
                             <div
                               class="list-item"
@@ -367,7 +367,7 @@ exports[`Adresser renders correctly 1`] = `
                           class="navds-read-more__content navds-body-long"
                         >
                           <dl
-                            class="list-column-2 address-columns"
+                            class="list address-columns"
                           >
                             <div
                               class="list-item"
@@ -610,7 +610,7 @@ exports[`Adresser renders correctly 1`] = `
                         class="navds-read-more__content navds-body-long"
                       >
                         <dl
-                          class="list-column-2 address-columns"
+                          class="list address-columns"
                         >
                           <div
                             class="list-item"
