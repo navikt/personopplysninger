@@ -56,11 +56,9 @@ const Apningstider = (props: Props) => {
             <FormattedMessage id="dittnavkontor.andreapningstider" />
           </Heading>
           <div className="apningstid__container">
-            {publikumsmottak[valgtMottakId].aapningAndre!.map(
-              (apningstid, id) => (
-                <Apningstid key={id} apningstid={apningstid} />
-              )
-            )}
+            {publikumsmottak[valgtMottakId].aapningAndre!.map((apningstid) => (
+              <Apningstid key={apningstid.dag} apningstid={apningstid} />
+            ))}
           </div>
         </>
       )}
