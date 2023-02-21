@@ -1,7 +1,7 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
-import { BodyShort, Label } from "@navikt/ds-react";
+import { Label } from "@navikt/ds-react";
 
 interface Props {
   title?: string;
@@ -15,23 +15,23 @@ interface Props {
 const ListElement = (props: Props) => {
   const { content, title, titleId, hjelpetekstId, children, className } = props;
   return content ? (
-    <div className={"list-item"}>
-      <div className={"listelement__header"}>
+    <div className="list-item">
         <dt>
           <Label as="p">
             {titleId ? <FormattedMessage id={titleId} /> : title}
           </Label>
+            {hjelpetekstId && (
+              <CustomHelpText>
+                <FormattedMessage id={hjelpetekstId} />
+              </CustomHelpText>
+            )}
         </dt>
-        {hjelpetekstId && (
-          <CustomHelpText>
-            <FormattedMessage id={hjelpetekstId} />
-          </CustomHelpText>
+        <dd className={className}>
+            {content}
+        </dd>
+        {children && (
+            <dd>{children}</dd>
         )}
-      </div>
-      <div className={`content ${className || ""}`}>
-        <dd>{content}</dd>
-      </div>
-      <BodyShort>{children}</BodyShort>
     </div>
   ) : null;
 };
