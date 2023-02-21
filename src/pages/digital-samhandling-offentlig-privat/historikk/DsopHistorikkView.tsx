@@ -95,7 +95,7 @@ export const DsopHistorikkView = (props: Props) => {
                       <div className="historikk__flex-rad" key={i}>
                         <div className="historikk__flex-kolonne historikk__heading">
                           {dayjs(innslag.uthentingsTidspunkt).format(
-                            "DD.MM - hh:mm"
+                            "DD.MM kl. hh:mm"
                           )}
                         </div>
                         <div className="historikk__flex-kolonne">
