@@ -21,77 +21,44 @@ exports[`DKIF renders correctly 1`] = `
     <div
       class="list-item"
     >
-      <div
-        class="listelement__header"
-      >
-        <dt>
-          <p
-            class="navds-label"
-          >
-            Telefon
-          </p>
-        </dt>
-      </div>
-      <div
-        class="content "
-      >
-        <dd>
-          12131415
-        </dd>
-      </div>
-      <p
-        class="navds-body-short"
-      />
+      <dt>
+        <span
+          class="navds-label"
+        >
+          Telefon
+        </span>
+      </dt>
+      <dd>
+        12131415
+      </dd>
     </div>
     <div
       class="list-item"
     >
-      <div
-        class="listelement__header"
-      >
-        <dt>
-          <p
-            class="navds-label"
-          >
-            Språk/målform
-          </p>
-        </dt>
-      </div>
-      <div
-        class="content "
-      >
-        <dd>
-          Norsk
-        </dd>
-      </div>
-      <p
-        class="navds-body-short"
-      />
+      <dt>
+        <span
+          class="navds-label"
+        >
+          Språk/målform
+        </span>
+      </dt>
+      <dd>
+        Norsk
+      </dd>
     </div>
     <div
       class="list-item"
     >
-      <div
-        class="listelement__header"
-      >
-        <dt>
-          <p
-            class="navds-label"
-          >
-            E-post
-          </p>
-        </dt>
-      </div>
-      <div
-        class="content "
-      >
-        <dd>
-          test@test.com
-        </dd>
-      </div>
-      <p
-        class="navds-body-short"
-      />
+      <dt>
+        <span
+          class="navds-label"
+        >
+          E-post
+        </span>
+      </dt>
+      <dd>
+        test@test.com
+      </dd>
     </div>
   </dl>
   <div

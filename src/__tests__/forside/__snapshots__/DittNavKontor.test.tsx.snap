@@ -291,32 +291,21 @@ exports[`DittNavKontor renders correctly 1`] = `
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      Kontakt NAV
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    <a
-                      class="navds-link"
-                      href="/person/kontakt-oss/nb/"
-                    >
-                      Gå til kontaktinformasjon
-                    </a>
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    Kontakt NAV
+                  </span>
+                </dt>
+                <dd>
+                  <a
+                    class="navds-link"
+                    href="/person/kontakt-oss/nb/"
+                  >
+                    Gå til kontaktinformasjon
+                  </a>
+                </dd>
               </div>
             </dl>
             <div

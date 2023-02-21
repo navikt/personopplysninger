@@ -188,77 +188,44 @@ exports[`Adresser renders correctly 1`] = `
                             <div
                               class="list-item"
                             >
-                              <div
-                                class="listelement__header"
-                              >
-                                <dt>
-                                  <p
-                                    class="navds-label"
-                                  >
-                                    Bolignummer
-                                  </p>
-                                </dt>
-                              </div>
-                              <div
-                                class="content "
-                              >
-                                <dd>
-                                  H0301
-                                </dd>
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
+                              <dt>
+                                <span
+                                  class="navds-label"
+                                >
+                                  Bolignummer
+                                </span>
+                              </dt>
+                              <dd>
+                                H0301
+                              </dd>
                             </div>
                             <div
                               class="list-item"
                             >
-                              <div
-                                class="listelement__header"
-                              >
-                                <dt>
-                                  <p
-                                    class="navds-label"
-                                  >
-                                    Kommune
-                                  </p>
-                                </dt>
-                              </div>
-                              <div
-                                class="content "
-                              >
-                                <dd>
-                                  EVJE OG HORNNES
-                                </dd>
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
+                              <dt>
+                                <span
+                                  class="navds-label"
+                                >
+                                  Kommune
+                                </span>
+                              </dt>
+                              <dd>
+                                EVJE OG HORNNES
+                              </dd>
                             </div>
                             <div
                               class="list-item"
                             >
-                              <div
-                                class="listelement__header"
-                              >
-                                <dt>
-                                  <p
-                                    class="navds-label"
-                                  >
-                                    Flyttedato
-                                  </p>
-                                </dt>
-                              </div>
-                              <div
-                                class="content "
-                              >
-                                <dd>
-                                  14.07.2020
-                                </dd>
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
+                              <dt>
+                                <span
+                                  class="navds-label"
+                                >
+                                  Flyttedato
+                                </span>
+                              </dt>
+                              <dd>
+                                14.07.2020
+                              </dd>
                             </div>
                           </dl>
                         </div>
@@ -372,52 +339,30 @@ exports[`Adresser renders correctly 1`] = `
                             <div
                               class="list-item"
                             >
-                              <div
-                                class="listelement__header"
-                              >
-                                <dt>
-                                  <p
-                                    class="navds-label"
-                                  >
-                                    Bolignummer
-                                  </p>
-                                </dt>
-                              </div>
-                              <div
-                                class="content "
-                              >
-                                <dd>
-                                  H0301
-                                </dd>
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
+                              <dt>
+                                <span
+                                  class="navds-label"
+                                >
+                                  Bolignummer
+                                </span>
+                              </dt>
+                              <dd>
+                                H0301
+                              </dd>
                             </div>
                             <div
                               class="list-item"
                             >
-                              <div
-                                class="listelement__header"
-                              >
-                                <dt>
-                                  <p
-                                    class="navds-label"
-                                  >
-                                    Kommune
-                                  </p>
-                                </dt>
-                              </div>
-                              <div
-                                class="content "
-                              >
-                                <dd>
-                                  EVJE OG HORNNES
-                                </dd>
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
+                              <dt>
+                                <span
+                                  class="navds-label"
+                                >
+                                  Kommune
+                                </span>
+                              </dt>
+                              <dd>
+                                EVJE OG HORNNES
+                              </dd>
                             </div>
                           </dl>
                         </div>
@@ -615,27 +560,16 @@ exports[`Adresser renders correctly 1`] = `
                           <div
                             class="list-item"
                           >
-                            <div
-                              class="listelement__header"
-                            >
-                              <dt>
-                                <p
-                                  class="navds-label"
-                                >
-                                  Gyldig til og med
-                                </p>
-                              </dt>
-                            </div>
-                            <div
-                              class="content "
-                            >
-                              <dd>
-                                20.07.2020
-                              </dd>
-                            </div>
-                            <p
-                              class="navds-body-short"
-                            />
+                            <dt>
+                              <span
+                                class="navds-label"
+                              >
+                                Gyldig til og med
+                              </span>
+                            </dt>
+                            <dd>
+                              20.07.2020
+                            </dd>
                           </div>
                         </dl>
                       </div>

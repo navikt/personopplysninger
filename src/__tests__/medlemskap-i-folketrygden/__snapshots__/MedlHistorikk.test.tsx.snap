@@ -303,17 +303,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -360,33 +356,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Australia
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Australia
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -433,18 +418,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helse -og pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helse -og pensjonsdel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -490,17 +468,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -547,33 +521,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Folketrygdloven
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Folketrygdloven
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -620,18 +583,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helsedel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helsedel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -677,17 +633,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -734,33 +686,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -807,18 +748,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Full
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Full
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -864,17 +798,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -921,33 +851,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Bosnia og Hecegovina
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Bosnia og Hecegovina
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -994,18 +913,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Full
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Full
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1051,17 +963,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1108,33 +1016,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Folketrygdloven
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Folketrygdloven
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1181,18 +1078,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Full
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Full
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1238,17 +1128,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1295,33 +1181,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Folketrygdloven
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Folketrygdloven
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1368,18 +1243,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helse -og pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helse -og pensjonsdel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1425,17 +1293,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1482,33 +1346,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              EØS-forordning 883/2004
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            EØS-forordning 883/2004
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1555,18 +1408,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Full
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Full
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1612,17 +1458,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1669,33 +1511,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              EØS-forordning 883/2004
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            EØS-forordning 883/2004
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1742,18 +1573,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Full
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Full
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1799,17 +1623,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1856,33 +1676,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Folketrygdloven
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Folketrygdloven
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -1929,18 +1738,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helse -og pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helse -og pensjonsdel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -1986,17 +1788,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2043,33 +1841,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Australia
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Australia
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2116,18 +1903,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helse -og pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helse -og pensjonsdel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -2173,17 +1953,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2230,33 +2006,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Australia
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Australia
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2303,18 +2068,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Helse -og pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Helse -og pensjonsdel
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -2437,17 +2195,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2494,33 +2248,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              EØS-forordning 883/2004
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            EØS-forordning 883/2004
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2567,33 +2310,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Ikke medlem - eller unntatt fra medlemskap
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Ikke medlem - eller unntatt fra medlemskap
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Land
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Land
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2640,18 +2372,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content medl__land"
+                            </span>
+                          </dt>
+                          <dd
+                            class="medl__land"
                           >
-                            <dd>
-                              DANMARK
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            DANMARK
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -2697,17 +2424,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2754,33 +2477,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Folketrygdloven
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Folketrygdloven
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2827,33 +2539,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Ikke medlem - eller unntatt fra medlemskap
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Ikke medlem - eller unntatt fra medlemskap
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Land
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Land
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -2900,18 +2601,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content medl__land"
+                            </span>
+                          </dt>
+                          <dd
+                            class="medl__land"
                           >
-                            <dd>
-                              SVERIGE
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            SVERIGE
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -2957,17 +2653,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3014,33 +2706,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Canada
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Canada
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3087,33 +2768,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Ikke pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Ikke pensjonsdel
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Land
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Land
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3160,18 +2830,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content medl__land"
+                            </span>
+                          </dt>
+                          <dd
+                            class="medl__land"
                           >
-                            <dd>
-                              CANADA
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            CANADA
+                          </dd>
                         </div>
                       </dl>
                     </div>
@@ -3217,17 +2882,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Hjemmel
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Hjemmel
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3274,33 +2935,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Trygdeavtale Canada
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Trygdeavtale Canada
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Trygdedekning
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Trygdedekning
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3347,33 +2997,22 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content "
-                          >
-                            <dd>
-                              Ikke pensjonsdel
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            </span>
+                          </dt>
+                          <dd>
+                            Ikke pensjonsdel
+                          </dd>
                         </div>
                         <div
                           class="list-item"
                         >
-                          <div
-                            class="listelement__header"
-                          >
-                            <dt>
-                              <p
-                                class="navds-label"
-                              >
-                                Land
-                              </p>
-                            </dt>
-                            <div
+                          <dt>
+                            <span
+                              class="navds-label"
+                            >
+                              Land
+                            </span>
+                            <span
                               class="customHelpText"
                             >
                               <button
@@ -3420,18 +3059,13 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </div>
-                          </div>
-                          <div
-                            class="content medl__land"
+                            </span>
+                          </dt>
+                          <dd
+                            class="medl__land"
                           >
-                            <dd>
-                              CANADA
-                            </dd>
-                          </div>
-                          <p
-                            class="navds-body-short"
-                          />
+                            CANADA
+                          </dd>
                         </div>
                       </dl>
                     </div>

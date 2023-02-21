@@ -67,27 +67,16 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      Kontonummer
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    1234 56 78911
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    Kontonummer
+                  </span>
+                </dt>
+                <dd>
+                  1234 56 78911
+                </dd>
               </div>
             </dl>
             <div
@@ -200,111 +189,67 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      Bank
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    <p
-                      class="navds-body-short"
-                    >
-                      Dominion Bank
-                    </p>
-                    <p
-                      class="navds-body-short"
-                    >
-                      Forente Arabiske Emirater
-                    </p>
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    Bank
+                  </span>
+                </dt>
+                <dd>
+                  <p
+                    class="navds-body-short"
+                  >
+                    Dominion Bank
+                  </p>
+                  <p
+                    class="navds-body-short"
+                  >
+                    Forente Arabiske Emirater
+                  </p>
+                </dd>
               </div>
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      Kontonummer / IBAN
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    AE460090000000123456789
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    Kontonummer / IBAN
+                  </span>
+                </dt>
+                <dd>
+                  AE460090000000123456789
+                </dd>
               </div>
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      Valuta
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    Amerikansk dollar
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    Valuta
+                  </span>
+                </dt>
+                <dd>
+                  Amerikansk dollar
+                </dd>
               </div>
               <div
                 class="list-item"
               >
-                <div
-                  class="listelement__header"
-                >
-                  <dt>
-                    <p
-                      class="navds-label"
-                    >
-                      BIC / SWIFT-kode
-                    </p>
-                  </dt>
-                </div>
-                <div
-                  class="content "
-                >
-                  <dd>
-                    EBILAEADXXX
-                  </dd>
-                </div>
-                <p
-                  class="navds-body-short"
-                />
+                <dt>
+                  <span
+                    class="navds-label"
+                  >
+                    BIC / SWIFT-kode
+                  </span>
+                </dt>
+                <dd>
+                  EBILAEADXXX
+                </dd>
               </div>
             </dl>
             <div

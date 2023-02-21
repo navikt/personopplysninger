@@ -32,56 +32,34 @@ exports[`InstDetaljerView renders correctly 1`] = `
           <div
             class="list-item"
           >
-            <div
-              class="listelement__header"
-            >
-              <dt>
-                <p
-                  class="navds-label"
-                >
-                  Institusjonstype
-                </p>
-              </dt>
-            </div>
-            <div
-              class="content "
-            >
-              <dd>
-                FO
-              </dd>
-            </div>
-            <p
-              class="navds-body-short"
-            />
+            <dt>
+              <span
+                class="navds-label"
+              >
+                Institusjonstype
+              </span>
+            </dt>
+            <dd>
+              FO
+            </dd>
           </div>
           <div
             class="list-item"
           >
-            <div
-              class="listelement__header"
-            >
-              <dt>
-                <p
-                  class="navds-label"
-                >
-                  Periode
-                </p>
-              </dt>
-            </div>
-            <div
-              class="content "
-            >
-              <dd>
-                <div
-                  class="inst__periode"
-                >
-                  13.06.2017 - 15.09.2017
-                </div>
-              </dd>
-            </div>
-            <p
-              class="navds-body-short"
-            />
+            <dt>
+              <span
+                class="navds-label"
+              >
+                Periode
+              </span>
+            </dt>
+            <dd>
+              <div
+                class="inst__periode"
+              >
+                13.06.2017 - 15.09.2017
+              </div>
+            </dd>
           </div>
         </dl>
       </div>
