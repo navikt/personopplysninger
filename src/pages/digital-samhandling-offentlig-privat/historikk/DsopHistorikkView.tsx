@@ -1,11 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { DsopInfo } from "types/dsop";
-import moment from "moment";
-import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import { Alert, Label, Link } from "@navikt/ds-react";
 import { Collapse, Expand } from "@navikt/ds-icons";
+import dayjs from "dayjs";
 
 interface Props {
   dsopInfo: DsopInfo;
@@ -16,14 +15,14 @@ export const DsopHistorikkView = (props: Props) => {
   const { dsopInfo } = props;
 
   const initState: {
-    [år: string]: {
+    [year: string]: {
       innslag: DsopInfo;
       ekspandert: boolean;
     };
   } = {};
 
   dsopInfo.forEach((innslag, i) => {
-    const year = moment(innslag.uthentingsTidspunkt).year();
+    const year = dayjs(innslag.uthentingsTidspunkt).year();
 
     if (!initState[year]) {
       initState[year] = {
@@ -95,9 +94,9 @@ export const DsopHistorikkView = (props: Props) => {
                     value.innslag.map((innslag, i) => (
                       <div className="historikk__flex-rad" key={i}>
                         <div className="historikk__flex-kolonne historikk__heading">
-                          <Moment format="DD.MM - hh:mm">
-                            {innslag.uthentingsTidspunkt}
-                          </Moment>
+                          {dayjs(innslag.uthentingsTidspunkt).format(
+                            "DD.MM - hh:mm"
+                          )}
                         </div>
                         <div className="historikk__flex-kolonne">
                           <Link

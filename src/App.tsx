@@ -24,7 +24,7 @@ import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
 // Import this early, to ensure our own CSS gets higher specificity
 import "@navikt/ds-css";
-import moment from "moment";
+import dayjs from "dayjs";
 
 export const basePath = "/person/personopplysninger";
 
@@ -46,7 +46,7 @@ const App = () => {
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    moment.locale(locale);
+    dayjs.locale(locale);
   }, [locale]);
 
   const basePathWithLanguage = `${basePath}/${locale}`;

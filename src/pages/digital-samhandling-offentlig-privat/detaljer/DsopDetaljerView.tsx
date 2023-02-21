@@ -2,9 +2,9 @@ import React from "react";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
 import FileSaver from "file-saver";
-import moment from "moment";
 import { DsopInfo } from "../../../types/dsop";
 import { BodyShort, Button, Heading } from "@navikt/ds-react";
+import dayjs from "dayjs";
 
 interface Props {
   id: string;
@@ -45,7 +45,7 @@ const DsopDetaljerView = (props: Props) => {
               <ul className="list-column-2">
                 <ListElement
                   titleId={"dsop.uthentingstidspunkt"}
-                  content={moment(innslag.uthentingsTidspunkt).format(
+                  content={dayjs(innslag.uthentingsTidspunkt).format(
                     "DD.MM.YYYY hh:mm"
                   )}
                 />
