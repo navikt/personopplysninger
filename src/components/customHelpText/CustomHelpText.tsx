@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
-import { Button, Popover, HelpTextProps } from "@navikt/ds-react";
-import { Helptext, HelptextFilled } from "@navikt/ds-icons";
+import { useRef, useState } from "react";
+import { Button, HelpTextProps, Popover } from "@navikt/ds-react";
+import { Helptext } from "@navikt/ds-icons";
 import classNames from "classnames";
 
 type CustomHelpTextProps = {
@@ -17,7 +17,7 @@ export const CustomHelpText = ({
   const inputRef = useRef(null);
   const [openState, setOpenState] = useState<boolean>(false);
   return (
-    <div className={classNames("customHelpText", className)}>
+    <span className={classNames("customHelpText", className)}>
       <Button
         type={"button"}
         variant={"tertiary"}
@@ -36,6 +36,6 @@ export const CustomHelpText = ({
       >
         <Popover.Content>{children}</Popover.Content>
       </Popover>
-    </div>
+    </span>
   );
 };

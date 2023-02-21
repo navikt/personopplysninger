@@ -16,22 +16,18 @@ const ListElement = (props: Props) => {
   const { content, title, titleId, hjelpetekstId, children, className } = props;
   return content ? (
     <div className="list-item">
-        <dt>
-          <Label as="p">
-            {titleId ? <FormattedMessage id={titleId} /> : title}
-          </Label>
-            {hjelpetekstId && (
-              <CustomHelpText>
-                <FormattedMessage id={hjelpetekstId} />
-              </CustomHelpText>
-            )}
-        </dt>
-        <dd className={className}>
-            {content}
-        </dd>
-        {children && (
-            <dd>{children}</dd>
+      <dt>
+        <Label as="span">
+          {titleId ? <FormattedMessage id={titleId} /> : title}
+        </Label>
+        {hjelpetekstId && (
+          <CustomHelpText>
+            <FormattedMessage id={hjelpetekstId} />
+          </CustomHelpText>
         )}
+      </dt>
+      <dd className={className}>{content}</dd>
+      {children && <dd>{children}</dd>}
     </div>
   ) : null;
 };
