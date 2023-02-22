@@ -5,10 +5,10 @@ import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
-import Kilde from "../../../components/kilde/Kilde";
-import PilNed from "assets/img/PilNed.svg";
-import { Alert, BodyLong, BodyShort, Button, Label } from "@navikt/ds-react";
+import Kilde from "components/kilde/Kilde";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
+import { Alert, BodyLong, BodyShort, Button, Label } from "@navikt/ds-react";
+import { Expand } from "@navikt/ds-icons";
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   const [viewAmount, setViewAmount] = useState(20);
@@ -114,15 +114,10 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
             <Button
               variant={"tertiary"}
               onClick={() => setViewAmount(viewAmount + 20)}
+              icon={<Expand aria-hidden={true} />}
+              iconPosition="right"
             >
-              <span>
-                <BodyShort>Se flere</BodyShort>
-              </span>
-              <img
-                alt={"Se flere ikon"}
-                className={"inst__se-flere-icon"}
-                src={PilNed}
-              />
+              Se flere
             </Button>
           </div>
         )}

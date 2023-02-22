@@ -14,17 +14,14 @@ const Knapp = (props: Props) => {
   return (
     <Button
       variant={"tertiary"}
-      type={"button"}
       className={"knapp-med-ikon"}
       onClick={onClick}
       aria-label={ariaLabel}
     >
-      <div className={"tlfnummer__knapp-ikon"}>
-        <img alt="" src={ikon} />
-      </div>
-      <div className={"tlfnummer__knapp-tekst"}>
+      <img className="tlfnummer__knapp-ikon" alt="" src={ikon} />
+      <span className={"tlfnummer__knapp-tekst"}>
         <FormattedMessage id={tekstId} />
-      </div>
+      </span>
     </Button>
   );
 };

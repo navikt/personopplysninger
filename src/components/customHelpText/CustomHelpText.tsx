@@ -17,7 +17,7 @@ export const CustomHelpText = ({
   const inputRef = useRef(null);
   const [openState, setOpenState] = useState<boolean>(false);
   return (
-    <span className={classNames("customHelpText", className)}>
+    <div className={classNames("customHelpText", className)}>
       <Button
         type={"button"}
         variant={"tertiary"}
@@ -36,6 +36,6 @@ export const CustomHelpText = ({
       >
         <Popover.Content>{children}</Popover.Content>
       </Popover>
-    </span>
+    </div>
   );
 };

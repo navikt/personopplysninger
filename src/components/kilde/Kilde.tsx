@@ -58,14 +58,10 @@ const Knapp = (props: Props) => {
           variant="tertiary"
           className="kilde__knapp knapp-med-ikon"
         >
-          {props.ikon && (
-            <span className="kilde__icon">
-              <img src={props.ikon} alt="" />
-            </span>
-          )}
-          <BodyLong>
+            {props.ikon && (
+                <img className="kilde__icon" src={props.ikon} alt="" />
+            )}
             <FormattedMessage id={props.lenkeTekst} />
-          </BodyLong>
         </Button>
       );
     case "INGEN":
