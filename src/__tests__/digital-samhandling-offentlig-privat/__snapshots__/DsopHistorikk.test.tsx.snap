@@ -102,11 +102,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847551634"
-        >
-          18.06 - 10:45
-        </time>
+        18.06 kl. 10:45
       </div>
       <div
         class="historikk__flex-kolonne"
@@ -120,11 +116,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847552101"
-        >
-          18.06 - 10:45
-        </time>
+        18.06 kl. 10:45
       </div>
       <div
         class="historikk__flex-kolonne"
@@ -138,11 +130,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847915535"
-        >
-          18.06 - 10:51
-        </time>
+        18.06 kl. 10:51
       </div>
       <div
         class="historikk__flex-kolonne"

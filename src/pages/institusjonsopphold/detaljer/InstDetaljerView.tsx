@@ -1,13 +1,18 @@
 import React from "react";
 import ListElement from "components/listelement/ListElement";
 import { FormattedMessage } from "react-intl";
-import moment from "moment";
 import { formatOrgnr, RADIX_DECIMAL } from "../../../utils/formattering";
 import { InstInnslag } from "../../../types/inst";
 import { BodyShort, Heading, HelpText } from "@navikt/ds-react";
+import dayjs from "dayjs";
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
   const { innslag } = props;
+
+  const startdato = dayjs(innslag.startdato).format("DD.MM.YYYY");
+  const faktiskSluttdato = innslag.faktiskSluttdato
+    ? dayjs(innslag.faktiskSluttdato).format("DD.MM.YYYY")
+    : "";
 
   return (
     <div>
@@ -43,11 +48,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
               titleId={"inst.periode"}
               content={
                 <div className={"inst__periode"}>
-                  {`${moment(innslag.startdato).format("DD.MM.YYYY")} - ${
-                    innslag.faktiskSluttdato
-                      ? moment(innslag.faktiskSluttdato).format("DD.MM.YYYY")
-                      : ``
-                  }`}
+                  {`${startdato} - ${faktiskSluttdato}`}
                   {innslag.fiktivSluttdato && (
                     <HelpText>
                       <FormattedMessage id={"inst.fiktivSluttdato"} />

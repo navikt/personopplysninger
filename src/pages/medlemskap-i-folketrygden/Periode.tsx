@@ -1,10 +1,10 @@
 import React from "react";
 import { MedlInnslag } from "types/medl";
-import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import Kalender from "assets/img/Kalender.svg";
 import ListElement from "../../components/listelement/ListElement";
 import { BodyLong } from "@navikt/ds-react";
+import dayjs from "dayjs";
 
 interface Props {
   periode: MedlInnslag;
@@ -19,9 +19,9 @@ const Periode = (props: Props) => {
           <img className={"medl__kalender"} src={Kalender} alt="Kalenderikon" />
           <BodyLong>
             <FormattedMessage id={"medl.periode"} />{" "}
-            <Moment format="DD.MM.YY">{periode.fraOgMed}</Moment>
+            {dayjs(periode.fraOgMed).format("DD.MM.YY")}
             {" - "}
-            <Moment format="DD.MM.YY">{periode.tilOgMed}</Moment>
+            {dayjs(periode.tilOgMed).format("DD.MM.YY")}
           </BodyLong>
         </div>
         <div className={"medl__flex-grid box__content"}>
