@@ -136,49 +136,41 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
           <button
             aria-label="Endre telefonnummer"
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-            type="button"
           >
             <span
               aria-live="polite"
               class="navds-label"
             >
-              <div
+              <img
+                alt=""
                 class="tlfnummer__knapp-ikon"
-              >
-                <img
-                  alt=""
-                  src="Pencil.svg"
-                />
-              </div>
-              <div
+                src="Pencil.svg"
+              />
+              <span
                 class="tlfnummer__knapp-tekst"
               >
                 Endre
-              </div>
+              </span>
             </span>
           </button>
           <button
             aria-label="Slett telefonnummer"
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-            type="button"
           >
             <span
               aria-live="polite"
               class="navds-label"
             >
-              <div
+              <img
+                alt=""
                 class="tlfnummer__knapp-ikon"
-              >
-                <img
-                  alt=""
-                  src="Slett.svg"
-                />
-              </div>
-              <div
+                src="Slett.svg"
+              />
+              <span
                 class="tlfnummer__knapp-tekst"
               >
                 Slett
-              </div>
+              </span>
             </span>
           </button>
         </div>
@@ -193,19 +185,12 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
       aria-live="polite"
       class="navds-label"
     >
-      <span
+      <img
+        alt=""
         class="kilde__icon"
-      >
-        <img
-          alt=""
-          src="LeggTil.svg"
-        />
-      </span>
-      <p
-        class="navds-body-short"
-      >
-        Legg til
-      </p>
+        src="LeggTil.svg"
+      />
+      Legg til
     </span>
   </button>
   <div

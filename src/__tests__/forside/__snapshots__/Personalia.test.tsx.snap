@@ -58,7 +58,6 @@ exports[`Personalia renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#personalia"
             >

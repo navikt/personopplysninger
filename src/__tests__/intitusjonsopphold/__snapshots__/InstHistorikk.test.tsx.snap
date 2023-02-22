@@ -118,7 +118,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
                 20.12.2020
               </time>
             </p>
-            <span
+            <div
               class="customHelpText"
             >
               <button
@@ -165,7 +165,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
                   style="bottom: -0.5rem;"
                 />
               </div>
-            </span>
+            </div>
           </div>
           <div
             class="historikk__flex-kolonne"

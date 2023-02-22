@@ -309,7 +309,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -356,7 +356,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Australia
@@ -371,7 +371,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -418,7 +418,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helse -og pensjonsdel
@@ -474,7 +474,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -521,7 +521,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Folketrygdloven
@@ -536,7 +536,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -583,7 +583,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helsedel
@@ -639,7 +639,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -686,7 +686,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale
@@ -701,7 +701,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -748,7 +748,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Full
@@ -804,7 +804,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -851,7 +851,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Bosnia og Hecegovina
@@ -866,7 +866,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -913,7 +913,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Full
@@ -969,7 +969,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1016,7 +1016,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Folketrygdloven
@@ -1031,7 +1031,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1078,7 +1078,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Full
@@ -1134,7 +1134,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1181,7 +1181,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Folketrygdloven
@@ -1196,7 +1196,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1243,7 +1243,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helse -og pensjonsdel
@@ -1299,7 +1299,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1346,7 +1346,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             EØS-forordning 883/2004
@@ -1361,7 +1361,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1408,7 +1408,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Full
@@ -1464,7 +1464,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1511,7 +1511,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             EØS-forordning 883/2004
@@ -1526,7 +1526,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1573,7 +1573,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Full
@@ -1629,7 +1629,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1676,7 +1676,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Folketrygdloven
@@ -1691,7 +1691,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1738,7 +1738,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helse -og pensjonsdel
@@ -1794,7 +1794,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1841,7 +1841,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Australia
@@ -1856,7 +1856,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -1903,7 +1903,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helse -og pensjonsdel
@@ -1959,7 +1959,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2006,7 +2006,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Australia
@@ -2021,7 +2021,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2068,7 +2068,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Helse -og pensjonsdel
@@ -2201,7 +2201,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2248,7 +2248,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             EØS-forordning 883/2004
@@ -2263,7 +2263,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2310,7 +2310,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Ikke medlem - eller unntatt fra medlemskap
@@ -2325,7 +2325,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Land
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2372,7 +2372,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd
                             class="medl__land"
@@ -2430,7 +2430,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2477,7 +2477,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Folketrygdloven
@@ -2492,7 +2492,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2539,7 +2539,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Ikke medlem - eller unntatt fra medlemskap
@@ -2554,7 +2554,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Land
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2601,7 +2601,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd
                             class="medl__land"
@@ -2659,7 +2659,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2706,7 +2706,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Canada
@@ -2721,7 +2721,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2768,7 +2768,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Ikke pensjonsdel
@@ -2783,7 +2783,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Land
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2830,7 +2830,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd
                             class="medl__land"
@@ -2888,7 +2888,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Hjemmel
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2935,7 +2935,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Trygdeavtale Canada
@@ -2950,7 +2950,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Trygdedekning
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -2997,7 +2997,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd>
                             Ikke pensjonsdel
@@ -3012,7 +3012,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             >
                               Land
                             </span>
-                            <span
+                            <div
                               class="customHelpText"
                             >
                               <button
@@ -3059,7 +3059,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                                   style="bottom: -0.5rem;"
                                 />
                               </div>
-                            </span>
+                            </div>
                           </dt>
                           <dd
                             class="medl__land"

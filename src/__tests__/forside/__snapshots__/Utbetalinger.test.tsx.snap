@@ -47,7 +47,6 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -89,19 +88,12 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
+                  <img
+                    alt=""
                     class="kilde__icon"
-                  >
-                    <img
-                      alt=""
-                      src="Pencil.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Endre
-                  </p>
+                    src="Pencil.svg"
+                  />
+                  Endre
                 </span>
               </button>
               <div
@@ -169,7 +161,6 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -262,19 +253,12 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
+                  <img
+                    alt=""
                     class="kilde__icon"
-                  >
-                    <img
-                      alt=""
-                      src="Pencil.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Endre
-                  </p>
+                    src="Pencil.svg"
+                  />
+                  Endre
                 </span>
               </button>
               <div

@@ -58,7 +58,6 @@ exports[`Adresser renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#adresser"
             >
@@ -584,22 +583,31 @@ exports[`Adresser renders correctly 1`] = `
                 class="adresse__slett-kontaktadresse knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
+                  class="navds-button__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10 3a1 1 0 0 0-1 1v1h6V4a1 1 0 0 0-1-1h-4Zm7 2V4a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v1H2v2h2.064l.814 12.2A3 3 0 0 0 7.87 22h8.258a3 3 0 0 0 2.993-2.8L19.936 7H22V5h-5Zm.931 2H6.07l.804 12.067a1 1 0 0 0 .998.933h8.258a1 1 0 0 0 .998-.933L17.93 7ZM9 18V9h2v9H9Zm4 0V9h2v9h-2Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <span
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
-                    class="kilde__icon"
-                  >
-                    <img
-                      alt="Ekstern lenke"
-                      src="Slett.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Slett kontaktadresse
-                  </p>
+                  Slett kontaktadresse
                 </span>
               </button>
               <div
