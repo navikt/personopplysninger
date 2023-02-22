@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
-import moment from "moment";
-import Moment from "react-moment";
 import { FormattedMessage } from "react-intl";
 import { Link, useLocation } from "react-router-dom";
 import { InstInfo } from "types/inst";
@@ -9,6 +7,7 @@ import Kilde from "components/kilde/Kilde";
 import { CustomHelpText } from "components/customHelpText/CustomHelpText";
 import { Alert, BodyLong, BodyShort, Button, Label } from "@navikt/ds-react";
 import { Expand } from "@navikt/ds-icons";
+import dayjs from "dayjs";
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
   const [viewAmount, setViewAmount] = useState(20);
@@ -45,7 +44,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
             <TransitionGroup>
               {instInfo
                 .sort((a, b) =>
-                  moment(a.startdato) > moment(b.startdato) ? -1 : 1
+                  dayjs(a.startdato) > dayjs(b.startdato) ? -1 : 1
                 )
                 .slice(0, viewAmount)
                 .map((innslag, i) => {
@@ -57,6 +56,13 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                   animateDelay = 50 + animateDelayKey * 15;
                   animateDelaySum = +animateDelay;
                   animateDelayKey++;
+
+                  const startdato = dayjs(innslag.startdato).format(
+                    "DD.MM.YYYY"
+                  );
+                  const faktiskSluttdato = innslag.faktiskSluttdato
+                    ? dayjs(innslag.faktiskSluttdato).format("DD.MM.YYYY")
+                    : "";
 
                   return (
                     <CSSTransition
@@ -72,15 +78,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                       <div className="historikk__flex-rad">
                         <div className="historikk__flex-kolonne historikk__heading">
                           <BodyShort>
-                            <Moment format="DD.MM.YYYY">
-                              {innslag.startdato}
-                            </Moment>
-                            {` - `}
-                            {innslag.faktiskSluttdato && (
-                              <Moment format="DD.MM.YYYY">
-                                {innslag.faktiskSluttdato}
-                              </Moment>
-                            )}
+                            {`${startdato} - ${faktiskSluttdato}`}
                           </BodyShort>
                           {innslag.fiktivSluttdato && (
                             <CustomHelpText>

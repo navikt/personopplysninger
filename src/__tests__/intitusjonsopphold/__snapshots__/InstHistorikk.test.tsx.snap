@@ -77,17 +77,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             <p
               class="navds-body-short"
             >
-              <time
-                datetime="1514502000000"
-              >
-                29.12.2017
-              </time>
-               - 
-              <time
-                datetime="1545001200000"
-              >
-                17.12.2018
-              </time>
+              29.12.2017 - 17.12.2018
             </p>
           </div>
           <div
@@ -106,17 +96,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             <p
               class="navds-body-short"
             >
-              <time
-                datetime="1514502000000"
-              >
-                29.12.2017
-              </time>
-               - 
-              <time
-                datetime="1608418800000"
-              >
-                20.12.2020
-              </time>
+              29.12.2017 - 20.12.2020
             </p>
             <div
               class="customHelpText"
@@ -183,17 +163,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             <p
               class="navds-body-short"
             >
-              <time
-                datetime="1497304800000"
-              >
-                13.06.2017
-              </time>
-               - 
-              <time
-                datetime="1505426400000"
-              >
-                15.09.2017
-              </time>
+              13.06.2017 - 15.09.2017
             </p>
           </div>
           <div

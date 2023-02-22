@@ -5,12 +5,11 @@ import Vegadresse from "./adressetyper/norske-adresser/Vegadresse";
 import Postboksadresse from "./adressetyper/norske-adresser/Postboksadresse";
 import UtenlanskAdresse from "./adressetyper/utenlanske-adresser/UtenlanskAdresse";
 import AdressePanel from "../komponenter/AdressePanel";
-import moment from "moment";
 import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./adressetyper/norske-adresser/Ukjentbosted";
-import { Adresse as IAdresse } from "../../../../../../types/adresser/adresse";
-import { useStore } from "../../../../../../store/Context";
+import { Adresse as IAdresse } from "types/adresser/adresse";
 import { FormattedMessage } from "react-intl";
+import dayjs from "dayjs";
 
 interface Props {
   adresse?: IAdresse;
@@ -22,13 +21,11 @@ interface Props {
 }
 
 const Adresse = (props: Props) => {
-  const [{ locale }] = useStore();
-
   if (props.adresse == null && props.oppholdAnnetSted != null) {
     return (
       <AdressePanel tittel={props.tittel}>
         <FormattedMessage
-          id={mapOppholdAnnetSted(props.oppholdAnnetSted, locale)}
+          id={mapOppholdAnnetSted(props.oppholdAnnetSted)}
         />
       </AdressePanel>
     );
@@ -36,12 +33,12 @@ const Adresse = (props: Props) => {
 
   const gyldigTilOgMed = props.gyldigTilOgMed;
   const gyldigTilOgMedFormatert = gyldigTilOgMed
-    ? moment(gyldigTilOgMed).format("DD.MM.YYYY")
+    ? dayjs(gyldigTilOgMed).format("DD.MM.YYYY")
     : "";
 
   const flyttedato = props.angittFlyttedato;
   const flyttedatoFormatert = flyttedato
-    ? moment(flyttedato).format("DD.MM.YYYY")
+    ? dayjs(flyttedato).format("DD.MM.YYYY")
     : "";
 
   let adresse;
@@ -111,7 +108,7 @@ const Adresse = (props: Props) => {
   );
 };
 
-function mapOppholdAnnetSted(oppholdAnnetSted: string, locale: string): string {
+function mapOppholdAnnetSted(oppholdAnnetSted: string): string {
   switch (oppholdAnnetSted) {
     case "MILITAER":
       return "adresse.oppholdsadresse.militaer";
