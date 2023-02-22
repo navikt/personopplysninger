@@ -1,5 +1,5 @@
 import React from "react";
-import { Publikumsmottak } from "../../../../../../types/enhetKontaktInfo";
+import { Publikumsmottak, Aapningstid } from "types/enhetKontaktInfo";
 import { Heading } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
 import Apningstid from "./Apningstid";
@@ -9,61 +9,67 @@ interface Props {
   valgtMottakId: number;
 }
 
-const Apningstider = (props: Props) => {
-  const { publikumsmottak, valgtMottakId } = props;
+interface Aapningstider {
+  apningstider: Aapningstid[];
+  andreApningstider: boolean;
+}
+
+const FormaterApningstider = (props: Aapningstider) => {
+  const { apningstider, andreApningstider } = props;
+  const headingID = `${andreApningstider ? "dittnavkontor.andreapningstider" : "dittnavkontor.apningstider" }`;
 
   return (
-    <>
-      <div className="apningstider">
-        <table className="apningstider__table">
-          <Heading
+      <table className="apningstider__table">
+        <Heading
             as="caption"
             size={"xsmall"}
             level={"3"}
             className={"apningstider__caption"}
-          >
-            <FormattedMessage id="dittnavkontor.apningstider" />
-          </Heading>
-          <thead className={"sr-only"}>
-            <tr>
+        >
+          <FormattedMessage
+              id={headingID}
+          />
+        </Heading>
+        <thead className={"sr-only"}>
+          <tr>
               <th scope={"col"}>Ukedag</th>
               <th scope={"col"}>Tidsrom</th>
               <th scope={"col"}>Kommentar</th>
-            </tr>
-          </thead>
-          <tbody>
-            <Apningstid
-              apningstid={publikumsmottak[valgtMottakId].aapningMandag}
-            />
-            <Apningstid
-              apningstid={publikumsmottak[valgtMottakId].aapningTirsdag}
-            />
-            <Apningstid
-              apningstid={publikumsmottak[valgtMottakId].aapningOnsdag}
-            />
-            <Apningstid
-              apningstid={publikumsmottak[valgtMottakId].aapningTorsdag}
-            />
-            <Apningstid
-              apningstid={publikumsmottak[valgtMottakId].aapningFredag}
-            />
-          </tbody>
-        </table>
-      </div>
-      {publikumsmottak[valgtMottakId].aapningAndre && (
-        <>
-          <Heading size={"xsmall"} level={"3"}>
-            <FormattedMessage id="dittnavkontor.andreapningstider" />
-          </Heading>
-          <div className="apningstid__container">
-            {publikumsmottak[valgtMottakId].aapningAndre!.map((apningstid) => (
-              <Apningstid key={apningstid.dag} apningstid={apningstid} />
-            ))}
-          </div>
-        </>
-      )}
-    </>
+          </tr>
+        </thead>
+        <tbody>
+          {apningstider.map((apningstid) => (
+              <Apningstid key={`${headingID} + ${apningstid.dag}`} apningstid={apningstid} />
+          ))}
+        </tbody>
+      </table>
   );
+};
+
+const Apningstider = (props: Props) => {
+    const { publikumsmottak, valgtMottakId } = props;
+    const mottak = publikumsmottak[valgtMottakId];
+    let aapningstider: Aapningstid[] = [];
+    if (mottak.aapningMandag) { aapningstider.push(mottak.aapningMandag); }
+    if (mottak.aapningTirsdag) { aapningstider.push(mottak.aapningTirsdag); }
+    if (mottak.aapningOnsdag) { aapningstider.push(mottak.aapningOnsdag); }
+    if (mottak.aapningTorsdag) { aapningstider.push(mottak.aapningTorsdag); }
+    if (mottak.aapningFredag) { aapningstider.push(mottak.aapningFredag); }
+
+    return (
+        <div className="apningstider">
+            <FormaterApningstider
+                andreApningstider={false}
+                apningstider={aapningstider}
+            />
+            {mottak.aapningAndre &&
+                <FormaterApningstider
+                    andreApningstider={true}
+                    apningstider={mottak.aapningAndre}
+                />
+            }
+        </div>
+    );
 };
 
 export default Apningstider;
