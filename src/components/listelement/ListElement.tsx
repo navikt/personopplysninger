@@ -16,7 +16,7 @@ const ListElement = (props: Props) => {
   const { content, title, titleId, hjelpetekstId, children, className } = props;
   return content ? (
     <div className="list-item">
-      <dt>
+      <dt className="list-element-heading">
         <Label as="span">
           {titleId ? <FormattedMessage id={titleId} /> : title}
         </Label>
