@@ -290,7 +290,9 @@ exports[`DittNavKontor renders correctly 1`] = `
               <div
                 class="list-item"
               >
-                <dt>
+                <dt
+                  class="list-element-heading"
+                >
                   <span
                     class="navds-label"
                   >
