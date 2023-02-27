@@ -27,7 +27,7 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "dependencies": {
-    "@navikt/arbeidsforhold": "3.2.1-beta.0",
+    "@navikt/arbeidsforhold": "3.2.3",
     "@navikt/ds-css": "2.1.6",
     "@navikt/ds-icons": "2.1.6",
     "@navikt/ds-react": "2.1.6",
