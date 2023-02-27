@@ -7,8 +7,7 @@ import UtenlanskAdresse from "./adressetyper/utenlanske-adresser/UtenlanskAdress
 import AdressePanel from "../komponenter/AdressePanel";
 import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
 import Ukjentbosted from "./adressetyper/norske-adresser/Ukjentbosted";
-import { Adresse as IAdresse } from "../../../../../../types/adresser/adresse";
-import { useStore } from "../../../../../../store/Context";
+import { Adresse as IAdresse } from "types/adresser/adresse";
 import { FormattedMessage } from "react-intl";
 import dayjs from "dayjs";
 
@@ -22,13 +21,11 @@ interface Props {
 }
 
 const Adresse = (props: Props) => {
-  const [{ locale }] = useStore();
-
   if (props.adresse == null && props.oppholdAnnetSted != null) {
     return (
       <AdressePanel tittel={props.tittel}>
         <FormattedMessage
-          id={mapOppholdAnnetSted(props.oppholdAnnetSted, locale)}
+          id={mapOppholdAnnetSted(props.oppholdAnnetSted)}
         />
       </AdressePanel>
     );
@@ -111,7 +108,7 @@ const Adresse = (props: Props) => {
   );
 };
 
-function mapOppholdAnnetSted(oppholdAnnetSted: string, locale: string): string {
+function mapOppholdAnnetSted(oppholdAnnetSted: string): string {
   switch (oppholdAnnetSted) {
     case "MILITAER":
       return "adresse.oppholdsadresse.militaer";

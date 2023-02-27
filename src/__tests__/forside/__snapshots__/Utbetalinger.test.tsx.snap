@@ -47,7 +47,6 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -61,29 +60,26 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <ul
-              class="list-column-2"
+            <dl
+              class="list"
             >
-              <li>
-                <div
-                  class="listelement__header"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
+                  <span
                     class="navds-label"
                   >
                     Kontonummer
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   1234 56 78911
-                </div>
-                <p
-                  class="navds-body-short"
-                />
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
@@ -94,19 +90,12 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
+                  <img
+                    alt=""
                     class="kilde__icon"
-                  >
-                    <img
-                      alt=""
-                      src="Pencil.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Endre
-                  </p>
+                    src="Pencil.svg"
+                  />
+                  Endre
                 </span>
               </button>
               <div
@@ -174,7 +163,6 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -188,84 +176,83 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <ul
-              class="list-column-2"
+            <dl
+              class="list"
             >
-              <li>
-                <h3
-                  class="navds-heading navds-heading--small"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  Bank
-                </h3>
-                <p
-                  class="navds-body-short"
-                >
-                  Dominion Bank
-                </p>
-                <p
-                  class="navds-body-short"
-                >
-                  Forente Arabiske Emirater
-                </p>
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
-                >
+                  <span
+                    class="navds-label"
+                  >
+                    Bank
+                  </span>
+                </dt>
+                <dd>
                   <p
+                    class="navds-body-short"
+                  >
+                    Dominion Bank
+                  </p>
+                  <p
+                    class="navds-body-short"
+                  >
+                    Forente Arabiske Emirater
+                  </p>
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
+                >
+                  <span
                     class="navds-label"
                   >
                     Kontonummer / IBAN
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   AE460090000000123456789
-                </div>
-                <p
-                  class="navds-body-short"
-                />
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
+                  <span
                     class="navds-label"
                   >
                     Valuta
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   Amerikansk dollar
-                </div>
-                <p
-                  class="navds-body-short"
-                />
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
+                  <span
                     class="navds-label"
                   >
                     BIC / SWIFT-kode
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   EBILAEADXXX
-                </div>
-                <p
-                  class="navds-body-short"
-                />
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
@@ -276,19 +263,12 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
+                  <img
+                    alt=""
                     class="kilde__icon"
-                  >
-                    <img
-                      alt=""
-                      src="Pencil.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Endre
-                  </p>
+                    src="Pencil.svg"
+                  />
+                  Endre
                 </span>
               </button>
               <div

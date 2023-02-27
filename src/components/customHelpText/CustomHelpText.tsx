@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
-import { Button, Popover, HelpTextProps } from "@navikt/ds-react";
-import { Helptext, HelptextFilled } from "@navikt/ds-icons";
+import { useRef, useState } from "react";
+import { Button, HelpTextProps, Popover } from "@navikt/ds-react";
+import { Helptext } from "@navikt/ds-icons";
 import classNames from "classnames";
 
 type CustomHelpTextProps = {

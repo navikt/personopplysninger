@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import Kilde from "components/kilde/Kilde";
-import { FormattedMessage, useIntl } from "react-intl";
-import { Kontaktadresse as IKontaktadresse } from "../../../../../../types/adresser/kontaktadresse";
-import { Oppholdsadresse as IOppholdsadresse } from "../../../../../../types/adresser/oppholdsadresse";
+import { FormattedMessage } from "react-intl";
+import { Kontaktadresse as IKontaktadresse } from "types/adresser/kontaktadresse";
+import { Oppholdsadresse as IOppholdsadresse } from "types/adresser/oppholdsadresse";
 import Adresse from "./Adresse";
-import slettIkon from "../../../../../../assets/img/Slett.svg";
 import HttpFeilmelding, {
   Feilmelding,
-} from "../../../../../../components/httpFeilmelding/HttpFeilmelding";
+} from "components/httpFeilmelding/HttpFeilmelding";
 import {
   fetchPersonInfo,
   slettKontaktadresse,
-} from "../../../../../../clients/apiClient";
-import { PersonInfo } from "../../../../../../types/personInfo";
-import { useStore } from "../../../../../../store/Context";
-import { BodyLong, BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
+} from "clients/apiClient";
+import { PersonInfo } from "types/personInfo";
+import { useStore } from "store/Context";
+import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
+import { Delete } from "@navikt/ds-icons";
 
 interface Props {
   kontaktadresse?: IKontaktadresse;
@@ -22,9 +22,7 @@ interface Props {
 }
 
 const AndreAdresser = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
   const { kontaktadresse, oppholdsadresse } = props;
-
   const [, dispatch] = useStore();
   const [slettLoading, settSlettLoading] = useState<boolean>();
   const [slettAlert, settSlettAlert] = useState<Feilmelding | undefined>();
@@ -88,13 +86,9 @@ const AndreAdresser = (props: Props) => {
             variant="tertiary"
             onClick={apneSlettModal}
             className="adresse__slett-kontaktadresse knapp-med-ikon"
+            icon={<Delete aria-hidden={true} />}
           >
-            <span className="kilde__icon">
-              <img src={slettIkon} alt="Ekstern lenke" />
-            </span>
-            <BodyLong>
               <FormattedMessage id={"side.slett.kontaktadresse"} />
-            </BodyLong>
           </Button>
 
           {visSlettModal && (

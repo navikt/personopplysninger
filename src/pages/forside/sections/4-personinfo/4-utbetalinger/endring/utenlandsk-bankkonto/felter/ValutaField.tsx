@@ -20,6 +20,7 @@ const ValutaField = () => {
       {...register("valuta", {
         required: formatMessage("validation.valuta.pakrevd"),
       })}
+      id={"valuta"}
       submitted={isSubmitted}
       label={formatMessage("felter.valuta.label")}
       hjelpetekst={"utbetalinger.hjelpetekster.valuta"}

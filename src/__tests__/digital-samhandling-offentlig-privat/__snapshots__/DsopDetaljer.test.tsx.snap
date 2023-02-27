@@ -26,86 +26,74 @@ exports[`DsopDetaljerView renders correctly 1`] = `
       <div
         class="box__content"
       >
-        <ul
-          class="list-column-2"
+        <dl
+          class="list"
         >
-          <li>
-            <div
-              class="listelement__header"
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
+              <span
                 class="navds-label"
               >
                 Uthentingstidspunkt
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               18.06.2019 10:45
-            </div>
-            <p
-              class="navds-body-short"
-            />
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
+              <span
                 class="navds-label"
               >
                 Personnummer
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               04019727454
-            </div>
-            <p
-              class="navds-body-short"
-            />
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
+              <span
                 class="navds-label"
               >
                 Tema
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               AAP
-            </div>
-            <p
-              class="navds-body-short"
-            />
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
+              <span
                 class="navds-label"
               >
                 Behandlingsgrunnlag
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               Samtykke
-            </div>
-            <p
-              class="navds-body-short"
-            />
-          </li>
-        </ul>
+            </dd>
+          </div>
+        </dl>
       </div>
       <div
         class="detaljer__container"

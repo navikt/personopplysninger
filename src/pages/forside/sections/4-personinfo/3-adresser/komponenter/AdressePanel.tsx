@@ -2,7 +2,7 @@ import * as React from "react";
 
 import { FormattedMessage, useIntl } from "react-intl";
 import ListElement from "../../../../../../components/listelement/ListElement";
-import { Heading, Label, ReadMore } from "@navikt/ds-react";
+import { Heading, ReadMore } from "@navikt/ds-react";
 
 interface Props {
   tittel: string;
@@ -41,7 +41,7 @@ const AdressePanel = (props: Props) => {
           header={readMoreLabel}
           onClick={toggleReadMore}
         >
-          <ul className="list-column-2 address-columns">
+          <dl className="list address-columns">
             {props.bruksenhetsnummer && (
               <ListElement
                 titleId="adresse.bolignummer"
@@ -63,7 +63,7 @@ const AdressePanel = (props: Props) => {
                 content={props.gyldigTilOgMedFormatert}
               />
             )}
-          </ul>
+          </dl>
         </ReadMore>
       )}
       <div className={"adresse__divider"} />

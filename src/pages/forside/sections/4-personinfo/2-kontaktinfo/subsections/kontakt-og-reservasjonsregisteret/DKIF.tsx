@@ -30,11 +30,11 @@ const KontaktInformasjon = (props: Props) => {
           )}
         </BodyShort>
       </div>
-      <ul className="list-column-2">
+      <dl className="list">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
         <ListElement titleId="personalia.spraak" content={spraak} />
         <ListElement titleId="personalia.email" content={epostadresse} />
-      </ul>
+      </dl>
       <Kilde
         kilde="personalia.source.dkif"
         lenke={`https://brukerprofil.difi.no/minprofil${

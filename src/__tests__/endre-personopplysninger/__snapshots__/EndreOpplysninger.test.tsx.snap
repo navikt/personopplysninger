@@ -89,49 +89,41 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                     <button
                       aria-label="Endre telefonnummer"
                       class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-                      type="button"
                     >
                       <span
                         aria-live="polite"
                         class="navds-label"
                       >
-                        <div
+                        <img
+                          alt=""
                           class="tlfnummer__knapp-ikon"
-                        >
-                          <img
-                            alt=""
-                            src="Pencil.svg"
-                          />
-                        </div>
-                        <div
+                          src="Pencil.svg"
+                        />
+                        <span
                           class="tlfnummer__knapp-tekst"
                         >
                           Endre
-                        </div>
+                        </span>
                       </span>
                     </button>
                     <button
                       aria-label="Slett telefonnummer"
                       class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-                      type="button"
                     >
                       <span
                         aria-live="polite"
                         class="navds-label"
                       >
-                        <div
+                        <img
+                          alt=""
                           class="tlfnummer__knapp-ikon"
-                        >
-                          <img
-                            alt=""
-                            src="Slett.svg"
-                          />
-                        </div>
-                        <div
+                          src="Slett.svg"
+                        />
+                        <span
                           class="tlfnummer__knapp-tekst"
                         >
                           Slett
-                        </div>
+                        </span>
                       </span>
                     </button>
                   </div>
@@ -146,19 +138,12 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 aria-live="polite"
                 class="navds-label"
               >
-                <span
+                <img
+                  alt=""
                   class="kilde__icon"
-                >
-                  <img
-                    alt=""
-                    src="LeggTil.svg"
-                  />
-                </span>
-                <p
-                  class="navds-body-short"
-                >
-                  Legg til
-                </p>
+                  src="LeggTil.svg"
+                />
+                Legg til
               </span>
             </button>
             <div
@@ -235,7 +220,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#adresser"
             >
@@ -359,67 +343,58 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         <div
                           class="navds-read-more__content navds-body-long"
                         >
-                          <ul
-                            class="list-column-2 address-columns"
+                          <dl
+                            class="list address-columns"
                           >
-                            <li>
-                              <div
-                                class="listelement__header"
+                            <div
+                              class="list-item"
+                            >
+                              <dt
+                                class="list-element-heading"
                               >
-                                <p
+                                <span
                                   class="navds-label"
                                 >
                                   Bolignummer
-                                </p>
-                              </div>
-                              <div
-                                class="content "
-                              >
+                                </span>
+                              </dt>
+                              <dd>
                                 H0301
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
-                            </li>
-                            <li>
-                              <div
-                                class="listelement__header"
+                              </dd>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
+                              <dt
+                                class="list-element-heading"
                               >
-                                <p
+                                <span
                                   class="navds-label"
                                 >
                                   Kommune
-                                </p>
-                              </div>
-                              <div
-                                class="content "
-                              >
+                                </span>
+                              </dt>
+                              <dd>
                                 EVJE OG HORNNES
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
-                            </li>
-                            <li>
-                              <div
-                                class="listelement__header"
+                              </dd>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
+                              <dt
+                                class="list-element-heading"
                               >
-                                <p
+                                <span
                                   class="navds-label"
                                 >
                                   Flyttedato
-                                </p>
-                              </div>
-                              <div
-                                class="content "
-                              >
+                                </span>
+                              </dt>
+                              <dd>
                                 14.07.2020
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
-                            </li>
-                          </ul>
+                              </dd>
+                            </div>
+                          </dl>
                         </div>
                       </div>
                     </div>
@@ -525,48 +500,42 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         <div
                           class="navds-read-more__content navds-body-long"
                         >
-                          <ul
-                            class="list-column-2 address-columns"
+                          <dl
+                            class="list address-columns"
                           >
-                            <li>
-                              <div
-                                class="listelement__header"
+                            <div
+                              class="list-item"
+                            >
+                              <dt
+                                class="list-element-heading"
                               >
-                                <p
+                                <span
                                   class="navds-label"
                                 >
                                   Bolignummer
-                                </p>
-                              </div>
-                              <div
-                                class="content "
-                              >
+                                </span>
+                              </dt>
+                              <dd>
                                 H0301
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
-                            </li>
-                            <li>
-                              <div
-                                class="listelement__header"
+                              </dd>
+                            </div>
+                            <div
+                              class="list-item"
+                            >
+                              <dt
+                                class="list-element-heading"
                               >
-                                <p
+                                <span
                                   class="navds-label"
                                 >
                                   Kommune
-                                </p>
-                              </div>
-                              <div
-                                class="content "
-                              >
+                                </span>
+                              </dt>
+                              <dd>
                                 EVJE OG HORNNES
-                              </div>
-                              <p
-                                class="navds-body-short"
-                              />
-                            </li>
-                          </ul>
+                              </dd>
+                            </div>
+                          </dl>
                         </div>
                       </div>
                     </div>
@@ -756,29 +725,26 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                       <div
                         class="navds-read-more__content navds-body-long"
                       >
-                        <ul
-                          class="list-column-2 address-columns"
+                        <dl
+                          class="list address-columns"
                         >
-                          <li>
-                            <div
-                              class="listelement__header"
+                          <div
+                            class="list-item"
+                          >
+                            <dt
+                              class="list-element-heading"
                             >
-                              <p
+                              <span
                                 class="navds-label"
                               >
                                 Gyldig til og med
-                              </p>
-                            </div>
-                            <div
-                              class="content "
-                            >
+                              </span>
+                            </dt>
+                            <dd>
                               20.07.2020
-                            </div>
-                            <p
-                              class="navds-body-short"
-                            />
-                          </li>
-                        </ul>
+                            </dd>
+                          </div>
+                        </dl>
                       </div>
                     </div>
                   </div>
@@ -791,22 +757,31 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 class="adresse__slett-kontaktadresse knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
+                  class="navds-button__icon"
+                >
+                  <svg
+                    aria-hidden="true"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M10 3a1 1 0 0 0-1 1v1h6V4a1 1 0 0 0-1-1h-4Zm7 2V4a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v1H2v2h2.064l.814 12.2A3 3 0 0 0 7.87 22h8.258a3 3 0 0 0 2.993-2.8L19.936 7H22V5h-5Zm.931 2H6.07l.804 12.067a1 1 0 0 0 .998.933h8.258a1 1 0 0 0 .998-.933L17.93 7ZM9 18V9h2v9H9Zm4 0V9h2v9h-2Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+                <span
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
-                    class="kilde__icon"
-                  >
-                    <img
-                      alt="Ekstern lenke"
-                      src="Slett.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Slett kontaktadresse
-                  </p>
+                  Slett kontaktadresse
                 </span>
               </button>
               <div
@@ -873,7 +848,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               />
             </div>
             <a
-              aria-label="Direktelenke til denne seksjonen"
               class="navds-link anchor-link"
               href="#utbetaling"
             >
@@ -887,29 +861,26 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <ul
-              class="list-column-2"
+            <dl
+              class="list"
             >
-              <li>
-                <div
-                  class="listelement__header"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
+                  <span
                     class="navds-label"
                   >
                     Kontonummer
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   1234 56 78911
-                </div>
-                <p
-                  class="navds-body-short"
-                />
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
@@ -920,19 +891,12 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                   aria-live="polite"
                   class="navds-label"
                 >
-                  <span
+                  <img
+                    alt=""
                     class="kilde__icon"
-                  >
-                    <img
-                      alt=""
-                      src="Pencil.svg"
-                    />
-                  </span>
-                  <p
-                    class="navds-body-long"
-                  >
-                    Endre
-                  </p>
+                    src="Pencil.svg"
+                  />
+                  Endre
                 </span>
               </button>
               <div

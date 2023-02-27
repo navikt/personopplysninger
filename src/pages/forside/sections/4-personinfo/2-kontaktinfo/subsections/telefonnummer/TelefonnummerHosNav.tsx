@@ -7,7 +7,7 @@ import Telefonnummer from "./Telefonnummer";
 import TelefonnummerForm from "./TelefonnummerForm";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { Alert, BodyShort, Button, Heading, Label } from "@navikt/ds-react";
+import { Alert, Button, Heading, Label } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -88,23 +88,17 @@ const TelefonnummerHosNav = (props: Props) => {
             className="tlfnummer__leggtil knapp-med-ikon lenke"
             aria-label="Legg til telefonnummer"
           >
-            <span className="kilde__icon">
-              <img src={leggTilIkon} alt="" />
-            </span>
-            <BodyShort>
-              <FormattedMessage id={"side.leggtil"} />
-            </BodyShort>
+            <img className="kilde__icon" src={leggTilIkon} alt="" />
+            <FormattedMessage id={"side.leggtil"} />
           </Button>
         )}
 
       {opprett && (
         <div className={"tlfnummer__rad-leggtil"}>
           <div className={"tlfnummer__container"}>
-            <div className={"tlfnummer__verdi"}>
-              <Label as="p">
-                <FormattedMessage id="side.leggtil" />
-              </Label>
-            </div>
+            <Label className="tlfnummer__verdi" as="p">
+              <FormattedMessage id="side.leggtil" />
+            </Label>
           </div>
           <TelefonnummerForm
             type={"opprett"}

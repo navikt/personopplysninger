@@ -39,7 +39,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
       <hr className="box__linje-bred" />
       <div className="box">
         <div className="box__content">
-          <ul className="list-column-2">
+          <dl className="list">
             <ListElement
               titleId={"inst.institusjonstype"}
               content={innslag.institusjonstype}
@@ -57,7 +57,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                 </div>
               }
             />
-          </ul>
+          </dl>
         </div>
       </div>
     </div>

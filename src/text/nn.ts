@@ -190,6 +190,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "dittnavkontor.tittel": `Ditt NAV-kontor`,
   "dittnavkontor.beskrivelse": `Dersom du allereie får oppfølging ved eit NAV-kontor, skal du fortsette å bruke dette kontoret. Dersom du ikkje får oppfølging, kan du bruke kontoret under.`,
   "dittnavkontor.ingress": `Kontoret ditt er `,
+  "dittnavkontor.select.label": `NAV-kontor`,
   "dittnavkontor.postadresse": `Postadresse`,
   "dittnavkontor.postboks": `Postboks`,
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
