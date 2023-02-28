@@ -1,75 +1,43 @@
 import React from "react";
-import { Publikumsmottak, Aapningstid } from "types/enhetKontaktInfo";
-import { Heading } from "@navikt/ds-react";
-import { FormattedMessage } from "react-intl";
-import Apningstid from "./Apningstid";
+import { Aapningstid, Publikumsmottak } from "types/enhetKontaktInfo";
+import FormaterApningstider from "./FormaterApningstider";
 
 interface Props {
   publikumsmottak: Publikumsmottak[];
   valgtMottakId: number;
 }
 
-interface Aapningstider {
-  apningstider: Aapningstid[];
-  andreApningstider: boolean;
-}
-
-const FormaterApningstider = (props: Aapningstider) => {
-  const { apningstider, andreApningstider } = props;
-  const headingID = `${andreApningstider ? "dittnavkontor.andreapningstider" : "dittnavkontor.apningstider" }`;
-
-  return (
-      <table className="apningstider__table">
-        <Heading
-            as="caption"
-            size={"xsmall"}
-            level={"3"}
-            className={"apningstider__caption"}
-        >
-          <FormattedMessage
-              id={headingID}
-          />
-        </Heading>
-        <thead className={"sr-only"}>
-          <tr>
-              <th scope={"col"}>Ukedag</th>
-              <th scope={"col"}>Tidsrom</th>
-              <th scope={"col"}>Kommentar</th>
-          </tr>
-        </thead>
-        <tbody>
-          {apningstider.map((apningstid) => (
-              <Apningstid key={`${headingID} + ${apningstid.dag}`} apningstid={apningstid} />
-          ))}
-        </tbody>
-      </table>
-  );
-};
+const UKEDAGER = ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag"];
 
 const Apningstider = (props: Props) => {
-    const { publikumsmottak, valgtMottakId } = props;
-    const mottak = publikumsmottak[valgtMottakId];
-    let aapningstider: Aapningstid[] = [];
-    if (mottak.aapningMandag) { aapningstider.push(mottak.aapningMandag); }
-    if (mottak.aapningTirsdag) { aapningstider.push(mottak.aapningTirsdag); }
-    if (mottak.aapningOnsdag) { aapningstider.push(mottak.aapningOnsdag); }
-    if (mottak.aapningTorsdag) { aapningstider.push(mottak.aapningTorsdag); }
-    if (mottak.aapningFredag) { aapningstider.push(mottak.aapningFredag); }
+  const { publikumsmottak, valgtMottakId } = props;
+  const mottak = publikumsmottak[valgtMottakId];
+  const aapningstider = mottak.aapningstider;
 
-    return (
-        <div className="apningstider">
-            <FormaterApningstider
-                andreApningstider={false}
-                apningstider={aapningstider}
-            />
-            {mottak.aapningAndre &&
-                <FormaterApningstider
-                    andreApningstider={true}
-                    apningstider={mottak.aapningAndre}
-                />
-            }
-        </div>
-    );
+  const ordinaereAapningstider = UKEDAGER.map((dag) =>
+    aapningstider?.find((a) => a.dag === dag)
+  ).filter(Boolean) as Aapningstid[];
+
+  const spesielleAapningstider = aapningstider?.filter(
+    (a) => !UKEDAGER.includes(a.dag)
+  );
+
+  return (
+    <div className="apningstider">
+      {ordinaereAapningstider && (
+        <FormaterApningstider
+          headingId={"dittnavkontor.apningstider"}
+          apningstider={ordinaereAapningstider}
+        />
+      )}
+      {spesielleAapningstider && (
+        <FormaterApningstider
+          headingId={"dittnavkontor.andreapningstider"}
+          apningstider={spesielleAapningstider}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Apningstider;
