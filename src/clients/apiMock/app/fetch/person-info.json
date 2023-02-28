@@ -18,7 +18,10 @@
     "spraak": "Nynorsk",
     "epostadr": null,
     "personstatus": "Bosatt",
-    "statsborgerskap": ["NORGE", "SVERIGE"],
+    "statsborgerskap": [
+      "NORGE",
+      "SVERIGE"
+    ],
     "foedested": "Oslo, NORGE",
     "sivilstand": "Ugift",
     "kjoenn": "Mann"
@@ -123,42 +126,43 @@
           "husbokstav": null,
           "postnummer": "1771",
           "stedsbeskrivelse": "Halden",
-          "aapningMandag": {
-            "dag": "Mandag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningTirsdag": {
-            "dag": "Tirsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningOnsdag": {
-            "dag": "Onsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningTorsdag": {
-            "dag": "Torsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningFredag": {
-            "dag": "Fredag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningAndre": null
+          "aapningstider": [
+            {
+              "dag": "Mandag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Tirsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Onsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Torsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Fredag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            }
+          ]
         },
         {
           "gateadresse": "Aremark Rådhus",
@@ -167,42 +171,43 @@
           "husbokstav": null,
           "postnummer": "1798",
           "stedsbeskrivelse": "Aremark",
-          "aapningMandag": {
-            "dag": "Mandag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningTirsdag": {
-            "dag": "Tirsdag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningOnsdag": {
-            "dag": "Onsdag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningTorsdag": {
-            "dag": "Torsdag",
-            "fra": "09:00",
-            "til": "15:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningFredag": {
-            "dag": "Fredag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningAndre": null
+          "aapningstider": [
+            {
+              "dag": "Mandag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Tirsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Onsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Torsdag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            },
+            {
+              "dag": "Fredag",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+            }
+          ]
         }
       ],
       "tlfperson": "55553333",

@@ -230,10 +230,10 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Mandag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        Stengt
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        Timeavtaler i tidsrommet 10.00 - 14.00
                       </td>
                     </tr>
                     <tr>
@@ -241,10 +241,10 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Tirsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        Stengt
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        Timeavtaler i tidsrommet 10.00 - 14.00
                       </td>
                     </tr>
                     <tr>
@@ -252,10 +252,10 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Onsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        Stengt
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        Timeavtaler i tidsrommet 10.00 - 14.00
                       </td>
                     </tr>
                     <tr>
@@ -263,10 +263,10 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Torsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        Stengt
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        Timeavtaler i tidsrommet 10.00 - 14.00
                       </td>
                     </tr>
                     <tr>
@@ -274,13 +274,44 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Fredag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        Stengt
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        Timeavtaler i tidsrommet 10.00 - 14.00
                       </td>
                     </tr>
                   </tbody>
+                </table>
+                <table
+                  class="apningstider__table"
+                >
+                  <caption
+                    class="apningstider__caption navds-heading navds-heading--xsmall"
+                  >
+                    Andre åpningstider
+                  </caption>
+                  <thead
+                    class="sr-only"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Ukedag
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Tidsrom
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Kommentar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody />
                 </table>
               </div>
             </div>
