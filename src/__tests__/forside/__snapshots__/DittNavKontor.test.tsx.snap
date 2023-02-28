@@ -282,37 +282,6 @@ exports[`DittNavKontor renders correctly 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <table
-                  class="apningstider__table"
-                >
-                  <caption
-                    class="apningstider__caption navds-heading navds-heading--xsmall"
-                  >
-                    Andre åpningstider
-                  </caption>
-                  <thead
-                    class="sr-only"
-                  >
-                    <tr>
-                      <th
-                        scope="col"
-                      >
-                        Ukedag
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Tidsrom
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Kommentar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody />
-                </table>
               </div>
             </div>
             <dl
