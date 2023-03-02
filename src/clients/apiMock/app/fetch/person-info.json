@@ -129,38 +129,61 @@
           "aapningstider": [
             {
               "dag": "Mandag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Tirsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Onsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Torsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Fredag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            }
+          ],
+          "spesielleAapningstider": [
+            {
+              "dag": null,
+              "dato": "2021-12-24",
+              "fra": "10:00",
+              "til": "11:30",
+              "stengt": "false",
+              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+            },
+            {
+              "dag": null,
+              "dato": "2021-12-31",
               "fra": null,
               "til": null,
               "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
             }
           ]
         },
@@ -174,38 +197,61 @@
           "aapningstider": [
             {
               "dag": "Mandag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Tirsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Onsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Torsdag",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
             },
             {
               "dag": "Fredag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            }
+          ],
+          "spesielleAapningstider": [
+            {
+              "dag": null,
+              "dato": "2021-12-24",
+              "fra": "10:00",
+              "til": "11:30",
+              "stengt": "false",
+              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+            },
+            {
+              "dag": null,
+              "dato": "2021-12-31",
               "fra": null,
               "til": null,
               "stengt": "true",
-              "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00"
+              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
             }
           ]
         }

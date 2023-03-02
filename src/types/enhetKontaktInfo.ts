@@ -7,7 +7,8 @@ export interface Aapningstid {
 }
 
 export interface Publikumsmottak {
-  aapningstider?: Aapningstid[];
+  aapningstider: Aapningstid[];
+  spesielleAapningstider: Aapningstid[];
   gateadresse?: string;
   husbokstav?: string;
   husnummer?: string;
