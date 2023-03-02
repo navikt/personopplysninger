@@ -9,7 +9,7 @@ interface Props {
 const Apningstid = (props: Props) =>
   props.apningstid ? (
     <tr>
-      <td>{props.apningstid.dag || "Alle dager"}</td>
+      <td>{props.apningstid.dag}</td>
       <td>
         {props.apningstid.stengt === "true"
           ? "Stengt"

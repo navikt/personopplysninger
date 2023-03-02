@@ -196,7 +196,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
   "dittnavkontor.publikumsmottakfor": `Publikumsmottak for`,
   "dittnavkontor.apningstider": `Opningstider`,
-  "dittnavkontor.andreapningstider": `Andre opningstider`,
+  "dittnavkontor.spesielleapningstider": `Spesielle opningstider`,
   "dittnavkontor.kontaktinfo.overskrift": `Kontakt NAV`,
   "dittnavkontor.kontaktinfo.lenke": `Gå til kontaktinformasjon`,
   "dittnavkontor.kilde": `Folkeregisteret`,

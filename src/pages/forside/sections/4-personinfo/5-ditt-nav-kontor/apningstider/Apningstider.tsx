@@ -18,7 +18,7 @@ const Apningstider = (props: Props) => {
     aapningstider?.find((a) => a.dag === dag)
   ).filter(Boolean) as Aapningstid[];
 
-  const andreAapningstider = aapningstider?.filter(
+  const spesielleAapningstider = aapningstider?.filter(
     (a) => !UKEDAGER.includes(a.dag)
   );
 
@@ -30,10 +30,10 @@ const Apningstider = (props: Props) => {
           apningstider={ordinaereAapningstider}
         />
       )}
-      {andreAapningstider && andreAapningstider.length > 0 && (
+      {spesielleAapningstider && spesielleAapningstider.length > 0 && (
         <FormaterApningstider
-          headingId={"dittnavkontor.andreapningstider"}
-          apningstider={andreAapningstider}
+          headingId={"dittnavkontor.spesielleapningstider"}
+          apningstider={spesielleAapningstider}
         />
       )}
     </div>

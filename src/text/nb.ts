@@ -196,7 +196,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "dittnavkontor.publikumsmottak": `Publikumsmottak`,
   "dittnavkontor.publikumsmottakfor": `Publikumsmottak for`,
   "dittnavkontor.apningstider": `Åpningstider`,
-  "dittnavkontor.andreapningstider": `Andre åpningstider`,
+  "dittnavkontor.spesielleapningstider": `Spesielle åpningstider`,
   "dittnavkontor.kontaktinfo.overskrift": `Kontakt NAV`,
   "dittnavkontor.kontaktinfo.lenke": `Gå til kontaktinformasjon`,
   "dittnavkontor.kilde": `Folkeregisteret`,
