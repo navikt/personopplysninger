@@ -18,7 +18,10 @@
     "spraak": "Nynorsk",
     "epostadr": null,
     "personstatus": "Bosatt",
-    "statsborgerskap": ["NORGE", "SVERIGE"],
+    "statsborgerskap": [
+      "NORGE",
+      "SVERIGE"
+    ],
     "foedested": "Oslo, NORGE",
     "sivilstand": "Ugift",
     "kjoenn": "Mann"
@@ -123,42 +126,66 @@
           "husbokstav": null,
           "postnummer": "1771",
           "stedsbeskrivelse": "Halden",
-          "aapningMandag": {
-            "dag": "Mandag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningTirsdag": {
-            "dag": "Tirsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningOnsdag": {
-            "dag": "Onsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningTorsdag": {
-            "dag": "Torsdag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningFredag": {
-            "dag": "Fredag",
-            "fra": "12:00",
-            "til": "14:30",
-            "stengt": "false",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-          },
-          "aapningAndre": null
+          "aapningstider": [
+            {
+              "dag": "Mandag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Tirsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Onsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Torsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Fredag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            }
+          ],
+          "spesielleAapningstider": [
+            {
+              "dag": null,
+              "dato": "2021-12-24",
+              "fra": "10:00",
+              "til": "11:30",
+              "stengt": "false",
+              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+            },
+            {
+              "dag": null,
+              "dato": "2021-12-31",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
+            }
+          ]
         },
         {
           "gateadresse": "Aremark Rådhus",
@@ -167,42 +194,66 @@
           "husbokstav": null,
           "postnummer": "1798",
           "stedsbeskrivelse": "Aremark",
-          "aapningMandag": {
-            "dag": "Mandag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningTirsdag": {
-            "dag": "Tirsdag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningOnsdag": {
-            "dag": "Onsdag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningTorsdag": {
-            "dag": "Torsdag",
-            "fra": "09:00",
-            "til": "15:00",
-            "stengt": "false",
-            "kommentar": null
-          },
-          "aapningFredag": {
-            "dag": "Fredag",
-            "fra": null,
-            "til": null,
-            "stengt": "true",
-            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-          },
-          "aapningAndre": null
+          "aapningstider": [
+            {
+              "dag": "Mandag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Tirsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Onsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Torsdag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            },
+            {
+              "dag": "Fredag",
+              "dato": null,
+              "fra": "12:30",
+              "til": "14:30",
+              "stengt": "false",
+              "kommentar": null
+            }
+          ],
+          "spesielleAapningstider": [
+            {
+              "dag": null,
+              "dato": "2021-12-24",
+              "fra": "10:00",
+              "til": "11:30",
+              "stengt": "false",
+              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+            },
+            {
+              "dag": null,
+              "dato": "2021-12-31",
+              "fra": null,
+              "til": null,
+              "stengt": "true",
+              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
+            }
+          ]
         }
       ],
       "tlfperson": "55553333",

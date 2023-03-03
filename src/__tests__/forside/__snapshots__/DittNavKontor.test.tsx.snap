@@ -230,54 +230,98 @@ exports[`DittNavKontor renders correctly 1`] = `
                         Mandag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        12:30 - 14:30
                       </td>
-                      <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
-                      </td>
+                      <td />
                     </tr>
                     <tr>
                       <td>
                         Tirsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        12:30 - 14:30
                       </td>
-                      <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
-                      </td>
+                      <td />
                     </tr>
                     <tr>
                       <td>
                         Onsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        12:30 - 14:30
                       </td>
-                      <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
-                      </td>
+                      <td />
                     </tr>
                     <tr>
                       <td>
                         Torsdag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        12:30 - 14:30
                       </td>
-                      <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
-                      </td>
+                      <td />
                     </tr>
                     <tr>
                       <td>
                         Fredag
                       </td>
                       <td>
-                        12:00 - 14:30
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+                <table
+                  class="apningstider__table"
+                >
+                  <caption
+                    class="apningstider__caption navds-heading navds-heading--xsmall"
+                  >
+                    Spesielle åpningstider
+                  </caption>
+                  <thead
+                    class="sr-only"
+                  >
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Dato
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Tidsrom
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Kommentar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        24.12.2021
                       </td>
                       <td>
-                        Timeavtaler i tidsrommet 09.00 - 14.30
+                        10:00 - 11:30
+                      </td>
+                      <td>
+                        Åpent for akutte behov for alle NAV-kontorer i Bergen kommune
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        31.12.2021
+                      </td>
+                      <td>
+                        Stengt
+                      </td>
+                      <td>
+                        NAV Bergen vest er åpent 10-11.30 for akutte behov
                       </td>
                     </tr>
                   </tbody>

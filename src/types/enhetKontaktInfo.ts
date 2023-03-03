@@ -1,5 +1,6 @@
 export interface Aapningstid {
   dag: string;
+  dato: string;
   fra: string;
   kommentar?: string;
   stengt: string;
@@ -7,12 +8,8 @@ export interface Aapningstid {
 }
 
 export interface Publikumsmottak {
-  aapningMandag?: Aapningstid;
-  aapningTirsdag?: Aapningstid;
-  aapningOnsdag?: Aapningstid;
-  aapningTorsdag?: Aapningstid;
-  aapningFredag?: Aapningstid;
-  aapningAndre?: Aapningstid[];
+  aapningstider: Aapningstid[];
+  spesielleAapningstider: Aapningstid[];
   gateadresse?: string;
   husbokstav?: string;
   husnummer?: string;

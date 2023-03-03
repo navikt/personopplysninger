@@ -196,7 +196,7 @@ A child who lives permanently with both mother and father can have two home addr
   "dittnavkontor.publikumsmottak": `Public reception area`,
   "dittnavkontor.publikumsmottakfor": `Public reception area for`,
   "dittnavkontor.apningstider": `Opening hours`,
-  "dittnavkontor.andreapningstider": `Other opening hours`,
+  "dittnavkontor.spesielleapningstider": `Special opening hours`,
   "dittnavkontor.kontaktinfo.overskrift": `Contact NAV`,
   "dittnavkontor.kontaktinfo.lenke": `Go to contact information`,
   "dittnavkontor.kilde": "National Population Register ",
