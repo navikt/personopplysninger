@@ -27,7 +27,7 @@ const FormaterApningstider = (props: Props) => {
       </Heading>
       <thead className={"sr-only"}>
         <tr>
-          <th scope={"col"}>{isSpesielleAapningstider ? "Dato" : "Dag"}</th>
+          <th scope={"col"}>{isSpesielleAapningstider ? "Dato" : "Ukedag"}</th>
           <th scope={"col"}>Tidsrom</th>
           <th scope={"col"}>Kommentar</th>
         </tr>

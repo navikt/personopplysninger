@@ -287,7 +287,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                       <th
                         scope="col"
                       >
-                        Ukedag
+                        Dato
                       </th>
                       <th
                         scope="col"
@@ -303,7 +303,9 @@ exports[`DittNavKontor renders correctly 1`] = `
                   </thead>
                   <tbody>
                     <tr>
-                      <td />
+                      <td>
+                        24.12.2021
+                      </td>
                       <td>
                         10:00 - 11:30
                       </td>
@@ -312,7 +314,9 @@ exports[`DittNavKontor renders correctly 1`] = `
                       </td>
                     </tr>
                     <tr>
-                      <td />
+                      <td>
+                        31.12.2021
+                      </td>
                       <td>
                         Stengt
                       </td>
