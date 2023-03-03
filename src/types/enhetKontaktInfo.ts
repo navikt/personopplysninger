@@ -1,5 +1,6 @@
 export interface Aapningstid {
   dag: string;
+  dato: string;
   fra: string;
   kommentar?: string;
   stengt: string;

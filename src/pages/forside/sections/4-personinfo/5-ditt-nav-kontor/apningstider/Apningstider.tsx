@@ -16,15 +16,12 @@ const Apningstider = (props: Props) => {
   return (
     <div className="apningstider">
       {aapningstider.length > 0 && (
-        <FormaterApningstider
-          headingId={"dittnavkontor.apningstider"}
-          apningstider={aapningstider}
-        />
+        <FormaterApningstider apningstider={aapningstider} />
       )}
       {spesielleAapningstider.length > 0 && (
         <FormaterApningstider
-          headingId={"dittnavkontor.spesielleapningstider"}
           apningstider={spesielleAapningstider}
+          isSpesielleAapningstider={true}
         />
       )}
     </div>

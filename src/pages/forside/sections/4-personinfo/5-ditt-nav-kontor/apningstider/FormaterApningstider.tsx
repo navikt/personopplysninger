@@ -6,11 +6,14 @@ import Apningstid from "./Apningstid";
 
 interface Props {
   apningstider: Aapningstid[];
-  headingId: string;
+  isSpesielleAapningstider?: boolean;
 }
 
 const FormaterApningstider = (props: Props) => {
-  const { apningstider, headingId } = props;
+  const { apningstider, isSpesielleAapningstider } = props;
+  const headingId = isSpesielleAapningstider
+    ? "dittnavkontor.spesielleapningstider"
+    : "dittnavkontor.apningstider";
 
   return (
     <table className="apningstider__table">
@@ -24,7 +27,7 @@ const FormaterApningstider = (props: Props) => {
       </Heading>
       <thead className={"sr-only"}>
         <tr>
-          <th scope={"col"}>Ukedag</th>
+          <th scope={"col"}>{isSpesielleAapningstider ? "Dato" : "Dag"}</th>
           <th scope={"col"}>Tidsrom</th>
           <th scope={"col"}>Kommentar</th>
         </tr>
@@ -32,8 +35,11 @@ const FormaterApningstider = (props: Props) => {
       <tbody>
         {apningstider.map((apningstid) => (
           <Apningstid
-            key={`${headingId} + ${apningstid.dag}`}
+            key={`${headingId} + ${
+              isSpesielleAapningstider ? apningstid.dato : apningstid.dag
+            }`}
             apningstid={apningstid}
+            isSpesielleAapningstider={isSpesielleAapningstider}
           />
         ))}
       </tbody>
