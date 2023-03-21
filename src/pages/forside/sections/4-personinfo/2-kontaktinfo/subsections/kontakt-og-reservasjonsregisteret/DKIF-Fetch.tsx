@@ -38,7 +38,7 @@ const DKIF = () => {
         <Heading size={"small"} level={"3"}>
           <FormattedMessage id="personalia.dkif.overskrift" />
         </Heading>
-        <Infotekst beskrivelse={"personalia.dkif.beskrivelse"} />
+        <Infotekst overskriftID="personalia.dkif.overskrift" beskrivelseID="personalia.dkif.beskrivelse" />
       </div>
       {(() => {
         switch (kontaktInfo.status) {

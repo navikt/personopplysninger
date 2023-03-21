@@ -1,16 +1,20 @@
 import React, { Fragment, useState } from "react";
+import { v4 as uuid } from "uuid";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
-import { Link, BodyLong, Modal } from "@navikt/ds-react";
+import { Link, BodyLong, Modal, Heading } from "@navikt/ds-react";
 
 interface HjelpetekstProps {
-  beskrivelse: string;
+    overskriftID: string;
+    beskrivelseID: string;
 }
 
 function Infotekst(props: HjelpetekstProps) {
   const [hover, settHover] = useState(false);
   const [erSynlig, settErSynlig] = useState(false);
+  const { overskriftID, beskrivelseID } = props;
+  const modalID = uuid();
 
   return (
     <>
@@ -33,40 +37,44 @@ function Infotekst(props: HjelpetekstProps) {
         onClose={() => settErSynlig(false)}
         closeButton={true}
         className="infotekst__modal"
+        aria-labelledby={modalID}
       >
         <Modal.Content>
           <div style={{ padding: "2rem 2.5rem" }}>
-            <div className="infotekst__ingress">
-              <BodyLong>
-                <FormattedMessage
-                  id={props.beskrivelse}
-                  values={{
-                    p: (...chunks) => (
-                      <p>
-                        {chunks.map((chunk, i) => (
-                          <Fragment key={i}>{chunk}</Fragment>
-                        ))}
-                      </p>
-                    ),
-                    br: (text) => (
-                      <>
-                        <br />
-                        {text}
-                      </>
-                    ),
-                    b: (text) => <b>{text}</b>,
-                    span: (text) => (
-                      <span style={{ textTransform: "none" }}>{text}</span>
-                    ),
-                    lenkeAaRegisteret: (text) => (
-                      <Link href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
-                        {text}
-                      </Link>
-                    ),
-                  }}
-                />
-              </BodyLong>
-            </div>
+              <Heading id={modalID} level="2" size="small">
+                  <FormattedMessage id={overskriftID}/>
+              </Heading>
+              <div className="infotekst__ingress">
+                  <BodyLong>
+                    <FormattedMessage
+                      id={beskrivelseID}
+                      values={{
+                        p: (...chunks) => (
+                          <p>
+                            {chunks.map((chunk, i) => (
+                              <Fragment key={i}>{chunk}</Fragment>
+                            ))}
+                          </p>
+                        ),
+                        br: (text) => (
+                          <>
+                            <br />
+                            {text}
+                          </>
+                        ),
+                        b: (text) => <b>{text}</b>,
+                        span: (text) => (
+                          <span style={{ textTransform: "none" }}>{text}</span>
+                        ),
+                        lenkeAaRegisteret: (text) => (
+                          <Link href={"/arbeidsgiver/aa-registeret"}>
+                            {text}
+                          </Link>
+                        ),
+                      }}
+                    />
+                  </BodyLong>
+              </div>
           </div>
         </Modal.Content>
       </Modal>
