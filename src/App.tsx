@@ -35,7 +35,7 @@ const App = () => {
   const redirectPath = getRedirectPathFromParam();
 
   useEffect(() => {
-    Modal.setAppElement("#app");
+    Modal.setAppElement?.("#app");
   }, []);
 
   useEffect(() => {
