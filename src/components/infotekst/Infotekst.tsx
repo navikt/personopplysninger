@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import { v4 as uuid } from "uuid";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
@@ -15,10 +15,6 @@ function Infotekst(props: HjelpetekstProps) {
   const [erSynlig, settErSynlig] = useState(false);
   const { overskriftID, beskrivelseID } = props;
   const modalID = uuid();
-
-  useEffect(() => {
-        Modal.setAppElement?.("#app");
-    }, []);
 
   return (
     <>

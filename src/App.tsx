@@ -19,7 +19,7 @@ import InstHistorikk from "./pages/institusjonsopphold/historikk/InstHistorikk";
 import InstDetaljer from "./pages/institusjonsopphold/detaljer/InstDetaljer";
 import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
 import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
-import Modal from "react-modal";
+import { Modal } from "@navikt/ds-react";
 import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { WithAuth } from "./store/providers/WithAuth";
 // Import this early, to ensure our own CSS gets higher specificity
