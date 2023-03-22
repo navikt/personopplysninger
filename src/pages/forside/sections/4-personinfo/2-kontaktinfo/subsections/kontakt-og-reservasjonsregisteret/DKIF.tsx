@@ -16,24 +16,14 @@ const KontaktInformasjon = (props: Props) => {
   const [{ locale }] = useStore();
   return mobiltelefonnummer || epostadresse || kanVarsles ? (
     <>
-      <div className="underseksjon__beskrivelse">
-        <BodyShort>
-          {kanVarsles ? (
-            <FormattedMessage
-              id="personalia.dkif.kanVarsles"
-              values={{
-                b: (text) => <b>{text}</b>,
-              }}
-            />
-          ) : (
-            <FormattedMessage id="personalia.dkif.kanIkkeVarsles" />
-          )}
-        </BodyShort>
-      </div>
       <dl className="list">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
-        <ListElement titleId="personalia.spraak" content={spraak} />
+      </dl>
+      <dl className="list">
         <ListElement titleId="personalia.email" content={epostadresse} />
+      </dl>
+      <dl className="list">
+        <ListElement titleId="personalia.spraak" content={spraak} />
       </dl>
       <Kilde
         kilde="personalia.source.dkif"
