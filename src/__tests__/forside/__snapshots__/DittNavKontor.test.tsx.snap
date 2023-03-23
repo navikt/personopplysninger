@@ -93,7 +93,7 @@ exports[`DittNavKontor renders correctly 1`] = `
               >
                 <label
                   class="navds-form-field__label navds-sr-only navds-label"
-                  for="textField-r0"
+                  for="textField-r1"
                 >
                   NAV-kontor
                 </label>
@@ -103,7 +103,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                   <select
                     aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
-                    id="textField-r0"
+                    id="textField-r1"
                     name="NAV-kontor"
                   >
                     <option
@@ -145,7 +145,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-r0"
+                  id="textField-error-r1"
                 />
               </div>
               <div
