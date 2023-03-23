@@ -67,6 +67,7 @@ export default {
   "personalia.tlfnr.oveskrift": `Phone number registered with NAV`,
   "personalia.tlfnr.ingenData": `We do not have a registered phone number for you in our registers. <br></br>Do you have a phone number we can contact you at?`,
   "personalia.tlfnr.telefon": `Phone {x}`,
+  "personalia.tlfnr.slett.overskrift": `Remove phone number`,
   "personalia.tlfnr.slett.alert": `Are you sure you want to remove this number?`,
   "personalia.tlfnr.paagaaendeendring.feilmelding": `We are working on registering the phone number you have added. It will soon be visible!`,
   "personalia.spraak": `Language`,

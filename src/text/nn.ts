@@ -67,6 +67,7 @@ export default {
   "personalia.tlfnr.oveskrift": `Telefonnummer registrert hos NAV`,
   "personalia.tlfnr.ingenData": `Vi har ikkje registrert telefonnummer på deg i våre register. <br></br>Har du eit telefonnummer vi kan kontakte deg på?`,
   "personalia.tlfnr.telefon": `Telefon {x}`,
+  "personalia.tlfnr.slett.overskrift": `Slett telefonnummer`,
   "personalia.tlfnr.slett.alert": `Er du sikker på at du vil fjerne dette nummeret?`,
   "personalia.tlfnr.paagaaendeendring.feilmelding": `Vi jobbar med å registrere telefonnummeret du har lagt til. Det vil snart bli synleg!`,
   "personalia.spraak": `Språk/målform`,
