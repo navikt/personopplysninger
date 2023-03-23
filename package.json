@@ -58,8 +58,7 @@
     "react-scripts": "5.0.1",
     "react-select": "5.7.0",
     "ssri": "9.0.1",
-    "typescript": "4.9.5",
-    "uuid": "9.0.0"
+    "typescript": "4.9.5"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.20.0",
@@ -79,7 +78,6 @@
     "@types/react-router-dom": "5.3.3",
     "@types/react-select": "5.0.1",
     "@types/react-test-renderer": "18.0.0",
-    "@types/uuid": "9.0.1",
     "classnames": "2.3.2",
     "jest-fetch-mock": "3.0.3",
     "less": "4.1.3",

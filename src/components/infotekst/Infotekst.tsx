@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from "react";
-import { v4 as uuid } from "uuid";
+import React, { Fragment, useState, useId } from "react";
 import infoIkon from "assets/img/Informasjonstekst.svg";
 import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
 import { FormattedMessage } from "react-intl";
@@ -14,7 +13,7 @@ function Infotekst(props: HjelpetekstProps) {
   const [hover, settHover] = useState(false);
   const [erSynlig, settErSynlig] = useState(false);
   const { overskriftID, beskrivelseID } = props;
-  const modalID = uuid();
+  const modalID = useId();
 
   return (
     <>
