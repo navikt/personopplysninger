@@ -5,7 +5,6 @@ import { KontaktInfo } from "types/kontaktInfo";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
 import { useStore } from "../../../../../../../store/Context";
-import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   info: KontaktInfo;
