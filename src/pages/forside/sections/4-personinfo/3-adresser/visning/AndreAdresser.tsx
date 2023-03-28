@@ -96,9 +96,13 @@ const AndreAdresser = (props: Props) => {
               closeButton={false}
               open={visSlettModal}
               onClose={lukkSlettModal}
+              aria-labelledby="slett-kontaktadresse-overskrift"
             >
               <Modal.Content>
                 <div style={{ padding: "2rem 2.5rem" }}>
+                  <Heading id="slett-kontaktadresse-overskrift" level="2" size="small">
+                    <FormattedMessage id="side.slett.kontaktadresse" />
+                  </Heading>
                   <BodyShort>
                     <FormattedMessage
                       id="adresse.slett.alert"

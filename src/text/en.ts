@@ -69,6 +69,7 @@ export default {
   "personalia.tlfnr.ingenData": `Would you instead like to add a phone number to <b>The NAV registry</b>?
   The new number you add will only be stored and used by NAV.`,
   "personalia.tlfnr.telefon": `Phone {x}`,
+  "personalia.tlfnr.slett.overskrift": `Remove phone number`,
   "personalia.tlfnr.slett.alert": `Are you sure you want to remove this number?`,
   "personalia.tlfnr.paagaaendeendring.feilmelding": `We are working on registering the phone number you have added. It will soon be visible!`,
   "personalia.spraak": `Language`,

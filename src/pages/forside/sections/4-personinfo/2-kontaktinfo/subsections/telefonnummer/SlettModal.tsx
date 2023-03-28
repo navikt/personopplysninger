@@ -1,9 +1,9 @@
 import React from "react";
-import { BodyShort, Button, Modal } from "@navikt/ds-react";
+import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
 import HttpFeilmelding, {
   Feilmelding,
-} from "../../../../../../../components/httpFeilmelding/HttpFeilmelding";
+} from "components/httpFeilmelding/HttpFeilmelding";
 
 interface Props {
   lukkSlettModal: () => void;
@@ -18,9 +18,17 @@ const SlettModal = (props: Props) => {
     props;
   return (
     <>
-      <Modal closeButton={false} open={visSlettModal} onClose={lukkSlettModal}>
+      <Modal
+          open={visSlettModal}
+          onClose={lukkSlettModal}
+          closeButton={false}
+          aria-labelledby="tlfnr-slett-overskrift"
+      >
         <Modal.Content>
           <div style={{ padding: "2rem 2.5rem" }}>
+            <Heading id="tlfnr-slett-overskrift" level="2" size="small">
+              <FormattedMessage id="personalia.tlfnr.slett.overskrift" />
+            </Heading>
             <BodyShort>
               <FormattedMessage id="personalia.tlfnr.slett.alert" />
             </BodyShort>

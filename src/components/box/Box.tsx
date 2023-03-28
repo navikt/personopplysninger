@@ -29,7 +29,7 @@ const Box = (props: Props) => {
                   <FormattedMessage id={tittel} />
                 </Heading>
               )}
-              {beskrivelse && <Infotekst beskrivelse={beskrivelse} />}
+              {beskrivelse && <Infotekst overskriftID={tittel} beskrivelseID={beskrivelse} />}
               <div className="box__line" />
             </div>
             {visAnkerlenke && <AnchorLink id={id} />}
