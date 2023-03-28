@@ -50,15 +50,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
           <div
             class="box__content"
           >
-            <div
-              class="underseksjon__header"
-            >
-              <h3
-                class="navds-heading navds-heading--small"
-              >
-                Telefonnummer registrert hos NAV
-              </h3>
-            </div>
             <div>
               <div
                 class="tlfnummer__rad"
@@ -131,7 +122,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               </div>
             </div>
             <button
-              aria-label="Legg til telefonnummer"
+              aria-label="Legg til telefonnummer i NAV sitt register"
               class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
             >
               <span
@@ -143,7 +134,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                   class="kilde__icon"
                   src="LeggTil.svg"
                 />
-                Legg til
+                Legg til nummer i NAV sitt register
               </span>
             </button>
             <div
