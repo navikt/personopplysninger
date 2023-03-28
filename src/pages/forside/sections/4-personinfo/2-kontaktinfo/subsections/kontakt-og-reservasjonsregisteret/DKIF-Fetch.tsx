@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 import Error, { HTTPError } from "components/error/Error";
 import Spinner from "components/spinner/Spinner";
 import { fetchKontaktInfo } from "clients/apiClient";
 import { KontaktInfo } from "types/kontaktInfo";
 import KontaktInformasjon from "./DKIF";
 import { useStore } from "store/Context";
+import Infotekst from "components/infotekst/Infotekst";
+import { Heading } from "@navikt/ds-react";
 
 export type FetchKontaktInfo =
   | { status: "LOADING" }
@@ -31,6 +34,12 @@ const DKIF = () => {
 
   return (
     <>
+      <div className="underseksjon__header underseksjon__divider dkif__overskrift-container">
+        <Heading size={"small"} level={"3"}>
+          <FormattedMessage id="personalia.dkif.overskrift" />
+        </Heading>
+        <Infotekst overskriftID="personalia.dkif.overskrift" beskrivelseID="personalia.dkif.beskrivelse" />
+      </div>
       {(() => {
         switch (kontaktInfo.status) {
           case "LOADING":

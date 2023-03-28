@@ -2,6 +2,19 @@
 
 exports[`DKIF renders correctly 1`] = `
 <DocumentFragment>
+  <div
+    class="underseksjon__beskrivelse"
+  >
+    <p
+      class="navds-body-short"
+    >
+      Du har 
+      <b>
+        ikke
+      </b>
+       reservert deg mot elektronisk kommunikasjon.
+    </p>
+  </div>
   <dl
     class="list"
   >
@@ -21,30 +34,6 @@ exports[`DKIF renders correctly 1`] = `
         12131415
       </dd>
     </div>
-  </dl>
-  <dl
-    class="list"
-  >
-    <div
-      class="list-item"
-    >
-      <dt
-        class="list-element-heading"
-      >
-        <span
-          class="navds-label"
-        >
-          E-post
-        </span>
-      </dt>
-      <dd>
-        test@test.com
-      </dd>
-    </div>
-  </dl>
-  <dl
-    class="list"
-  >
     <div
       class="list-item"
     >
@@ -59,6 +48,22 @@ exports[`DKIF renders correctly 1`] = `
       </dt>
       <dd>
         Norsk
+      </dd>
+    </div>
+    <div
+      class="list-item"
+    >
+      <dt
+        class="list-element-heading"
+      >
+        <span
+          class="navds-label"
+        >
+          E-post
+        </span>
+      </dt>
+      <dd>
+        test@test.com
       </dd>
     </div>
   </dl>
@@ -80,7 +85,7 @@ exports[`DKIF renders correctly 1`] = `
             src="Link.svg"
           />
         </span>
-        Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
+        Endre i Kontakt- og reservasjonsregisteret 
       </a>
     </p>
     <div
@@ -98,6 +103,15 @@ exports[`DKIF renders correctly 1`] = `
 
 exports[`TelefonnummerHosNav renders correctly 1`] = `
 <DocumentFragment>
+  <div
+    class="underseksjon__header"
+  >
+    <h3
+      class="navds-heading navds-heading--small"
+    >
+      Telefonnummer registrert hos NAV
+    </h3>
+  </div>
   <div>
     <div
       class="tlfnummer__rad"
@@ -170,7 +184,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     </div>
   </div>
   <button
-    aria-label="Legg til telefonnummer i NAV sitt register"
+    aria-label="Legg til telefonnummer"
     class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
   >
     <span
@@ -182,7 +196,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
         class="kilde__icon"
         src="LeggTil.svg"
       />
-      Legg til nummer i NAV sitt register
+      Legg til
     </span>
   </button>
   <div
