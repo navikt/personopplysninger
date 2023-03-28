@@ -19,17 +19,20 @@ const KontaktInfo = (props: Props) => {
       icon={kontaktIkon}
       visAnkerlenke={true}
     >
-      {props.tlfnr ? (
+      {props.tlfnr &&
+      (props.tlfnr.telefonHoved || props.tlfnr.telefonAlternativ) ? (
         <>
           <TelefonnummerHosNav tlfnr={props.tlfnr} />
-          <br />
-          <DKIF />
+          <div style={{ padding: "1rem 0" }}>
+            <DKIF />
+          </div>
         </>
       ) : (
         <>
           <DKIF />
-          <br />
-          <TelefonnummerHosNav tlfnr={props.tlfnr} />
+          <div style={{ padding: "1rem 0" }}>
+            <TelefonnummerHosNav tlfnr={props.tlfnr} />
+          </div>
         </>
       )}
       <div className="arbeidsforhold__disclaimer">
