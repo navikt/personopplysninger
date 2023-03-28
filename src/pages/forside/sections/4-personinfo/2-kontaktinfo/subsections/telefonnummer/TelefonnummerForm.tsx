@@ -149,7 +149,7 @@ const TelefonnummerForm = (props: Props) => {
           <FormattedMessage id={"side.avbryt"} />
         </Button>
       </div>
-      {alert && <HttpFeilmelding {...alert} type={"advarsel"} />}
+      {alert && <HttpFeilmelding {...alert} />}
     </form>
   );
 };

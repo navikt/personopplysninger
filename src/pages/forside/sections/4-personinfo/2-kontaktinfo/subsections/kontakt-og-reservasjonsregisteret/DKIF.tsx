@@ -5,6 +5,7 @@ import { KontaktInfo } from "types/kontaktInfo";
 import Kilde from "components/kilde/Kilde";
 import eksternLenkeIkon from "assets/img/Link.svg";
 import { useStore } from "../../../../../../../store/Context";
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
   info: KontaktInfo;
@@ -15,14 +16,24 @@ const KontaktInformasjon = (props: Props) => {
   const [{ locale }] = useStore();
   return mobiltelefonnummer || epostadresse || kanVarsles ? (
     <>
+      <div className="underseksjon__beskrivelse">
+        <BodyShort>
+          {kanVarsles ? (
+            <FormattedMessage
+              id="personalia.dkif.kanVarsles"
+              values={{
+                b: (text) => <b>{text}</b>,
+              }}
+            />
+          ) : (
+            <FormattedMessage id="personalia.dkif.kanIkkeVarsles" />
+          )}
+        </BodyShort>
+      </div>
       <dl className="list">
         <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
-      </dl>
-      <dl className="list">
-        <ListElement titleId="personalia.email" content={epostadresse} />
-      </dl>
-      <dl className="list">
         <ListElement titleId="personalia.spraak" content={spraak} />
+        <ListElement titleId="personalia.email" content={epostadresse} />
       </dl>
       <Kilde
         kilde="personalia.source.dkif"

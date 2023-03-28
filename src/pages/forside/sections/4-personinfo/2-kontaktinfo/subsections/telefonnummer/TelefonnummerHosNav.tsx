@@ -7,7 +7,7 @@ import Telefonnummer from "./Telefonnummer";
 import TelefonnummerForm from "./TelefonnummerForm";
 import { fjernMellorom } from "utils/formattering";
 import driftsmeldinger from "driftsmeldinger";
-import { Alert, Button, Label } from "@navikt/ds-react";
+import { Alert, Button, Heading, Label } from "@navikt/ds-react";
 
 interface Props {
   tlfnr?: Tlfnr;
@@ -34,6 +34,11 @@ const TelefonnummerHosNav = (props: Props) => {
           <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
         </div>
       )}
+      <div className="underseksjon__header">
+        <Heading size={"small"} level={"3"}>
+          <FormattedMessage id="personalia.tlfnr.oveskrift" />
+        </Heading>
+      </div>
       {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (
         <div>
           {tlfnr.telefonHoved && (
@@ -64,7 +69,6 @@ const TelefonnummerHosNav = (props: Props) => {
           <FormattedMessage
             id="personalia.tlfnr.ingenData"
             values={{
-              b: (text) => <b>{text}</b>,
               br: (text) => (
                 <>
                   <br />
@@ -82,10 +86,10 @@ const TelefonnummerHosNav = (props: Props) => {
             variant="tertiary"
             onClick={onLeggTil}
             className="tlfnummer__leggtil knapp-med-ikon lenke"
-            aria-label="Legg til telefonnummer i NAV sitt register"
+            aria-label="Legg til telefonnummer"
           >
             <img className="kilde__icon" src={leggTilIkon} alt="" />
-            <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
+            <FormattedMessage id={"side.leggtil"} />
           </Button>
         )}
 
@@ -93,7 +97,7 @@ const TelefonnummerHosNav = (props: Props) => {
         <div className={"tlfnummer__rad-leggtil"}>
           <div className={"tlfnummer__container"}>
             <Label className="tlfnummer__verdi" as="p">
-              <FormattedMessage id="side.leggtil.kontaktinformasjon" />
+              <FormattedMessage id="side.leggtil" />
             </Label>
           </div>
           <TelefonnummerForm
