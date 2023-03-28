@@ -30,6 +30,7 @@ const DKIF = () => {
   }, [kontaktInfo, dispatch]);
 
   return (
+    <>
       {(() => {
         switch (kontaktInfo.status) {
           case "LOADING":
