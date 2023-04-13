@@ -9,9 +9,9 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
-          registry-url: 'https://npm.pkg.github.com'
-          cache: 'npm'
+          node-version: "18"
+          registry-url: "https://npm.pkg.github.com"
+          cache: "npm"
       - name: Define build environment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -53,6 +53,10 @@ jobs:
           namespace: personbruker
           ingresses:
             - https://www.dev.nav.no/person/personopplysninger
+          externalHosts:
+            - www.dev.nav.no
+            - dev.nav.no
+            - person.ekstern.dev.nav.no
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           env: dev
