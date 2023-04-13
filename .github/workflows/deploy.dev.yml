@@ -57,6 +57,7 @@ jobs:
             - www.dev.nav.no
             - dev.nav.no
             - person.ekstern.dev.nav.no
+            - dekoratoren.dev.nav.no
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           env: dev
