@@ -69,6 +69,7 @@ export default {
   "personalia.tlfnr.ingenData": `Vil du heller legge inn et nummer i <b>NAV sitt register</b>?
   Det nye nummeret du legger inn, vil bare lagres hos oss.`,
   "personalia.tlfnr.telefon": `Telefon {x}`,
+  "personalia.tlfnr.slett.overskrift": `Slett telefonnummer`,
   "personalia.tlfnr.slett.alert": `Er du sikker på at du vil fjerne dette nummeret?`,
   "personalia.tlfnr.paagaaendeendring.feilmelding": `Vi jobber med å registrere telefonnummeret du har lagt til. Det vil snart bli synlig!`,
   "personalia.spraak": `Språk/målform`,
