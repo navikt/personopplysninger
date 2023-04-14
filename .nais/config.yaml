@@ -23,8 +23,9 @@ spec:
   accessPolicy:
     outbound:
       external:
-        - host: nav.no
-        - host: dekoratoren.dev.nav.no
+        {{#each externalHosts as |host|}}
+        - host: {{host}}
+        {{/each}}
   env:
     - name: ENV
       value: {{env}}
