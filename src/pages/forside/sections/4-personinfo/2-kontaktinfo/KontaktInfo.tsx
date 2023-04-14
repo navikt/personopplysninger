@@ -22,19 +22,24 @@ const KontaktInfo = (props: Props) => {
       {props.tlfnr &&
       (props.tlfnr.telefonHoved || props.tlfnr.telefonAlternativ) ? (
         <>
-          <TelefonnummerHosNav tlfnr={props.tlfnr} />
-          <div style={{ padding: "1rem 0" }}>
+          <div className="telefonnummer">
+            <TelefonnummerHosNav tlfnr={props.tlfnr} />
+          </div>
+          <div className="telefonnummer">
             <DKIF />
           </div>
         </>
       ) : (
         <>
-          <DKIF />
-          <div style={{ padding: "1rem 0" }}>
+          <div className="telefonnummer">
+            <DKIF />
+          </div>
+          <div className="telefonnummer">
             <TelefonnummerHosNav tlfnr={props.tlfnr} />
           </div>
         </>
       )}
+
       <div className="arbeidsforhold__disclaimer">
         <Alert variant="info">
           <FormattedMessage

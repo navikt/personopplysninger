@@ -58,6 +58,7 @@ const TelefonnummerHosNav = (props: Props) => {
               onChangeSuccess={onChangeSuccess}
             />
           )}
+          {<Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
         </div>
       ) : (
         <div className="underseksjon__beskrivelse">
@@ -112,8 +113,6 @@ const TelefonnummerHosNav = (props: Props) => {
           />
         </div>
       )}
-
-      <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
     </>
   );
 };
