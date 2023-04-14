@@ -65,6 +65,15 @@ exports[`DKIF renders correctly 1`] = `
   <div
     class="kilde__container"
   >
+    <div
+      class="kilde__tekst"
+    >
+      <p
+        class="navds-detail"
+      >
+        Kilde: Kontakt - og reservasjonsregisteret
+      </p>
+    </div>
     <p
       class="navds-body-long"
     >
@@ -83,91 +92,21 @@ exports[`DKIF renders correctly 1`] = `
         Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
       </a>
     </p>
-    <div
-      class="kilde__tekst"
-    >
-      <p
-        class="navds-detail"
-      >
-        Kilde: Kontakt - og reservasjonsregisteret
-      </p>
-    </div>
   </div>
 </DocumentFragment>
 `;
 
 exports[`TelefonnummerHosNav renders correctly 1`] = `
 <DocumentFragment>
-  <div>
-    <div
-      class="tlfnummer__rad"
-    >
-      <div
-        class="tlfnummer__container"
-      >
-        <div
-          class="tlfnummer__verdi"
-        >
-          <p
-            class="navds-label"
-          >
-            Telefon 
-          </p>
-          <p
-            class="navds-body-short"
-          >
-            <span>
-              +47 
-            </span>
-            408 53 158
-          </p>
-        </div>
-        <div
-          class="tlfnummer__knapper"
-        >
-          <button
-            aria-label="Endre telefonnummer"
-            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-          >
-            <span
-              aria-live="polite"
-              class="navds-label"
-            >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Pencil.svg"
-              />
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Endre
-              </span>
-            </span>
-          </button>
-          <button
-            aria-label="Slett telefonnummer"
-            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-          >
-            <span
-              aria-live="polite"
-              class="navds-label"
-            >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Slett.svg"
-              />
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Slett
-              </span>
-            </span>
-          </button>
-        </div>
-      </div>
-    </div>
+  <div
+    class="underseksjon__beskrivelse"
+  >
+    Vil du heller legge inn et nummer i 
+    <b>
+      NAV sitt register
+    </b>
+    ?
+  Det nye nummeret du legger inn, vil bare lagres hos oss.
   </div>
   <button
     aria-label="Legg til telefonnummer i NAV sitt register"
@@ -185,18 +124,5 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
       Legg til nummer i NAV sitt register
     </span>
   </button>
-  <div
-    class="kilde__container"
-  >
-    <div
-      class="kilde__tekst"
-    >
-      <p
-        class="navds-detail"
-      >
-        Kilde: NAV
-      </p>
-    </div>
-  </div>
 </DocumentFragment>
 `;
