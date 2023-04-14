@@ -120,6 +120,19 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                   </div>
                 </div>
               </div>
+              <div
+                class="kilde__container"
+              >
+                <div
+                  class="kilde__tekst"
+                >
+                  <p
+                    class="navds-detail"
+                  >
+                    Kilde: NAV
+                  </p>
+                </div>
+              </div>
             </div>
             <button
               aria-label="Legg til telefonnummer i NAV sitt register"
@@ -137,19 +150,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 Legg til nummer i NAV sitt register
               </span>
             </button>
-            <div
-              class="kilde__container"
-            >
-              <div
-                class="kilde__tekst"
-              >
-                <p
-                  class="navds-detail"
-                >
-                  Kilde: NAV
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -581,6 +581,15 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 <div
                   class="kilde__container"
                 >
+                  <div
+                    class="kilde__tekst"
+                  >
+                    <p
+                      class="navds-detail"
+                    >
+                      Kilde: Folkeregisteret
+                    </p>
+                  </div>
                   <p
                     class="navds-body-long"
                   >
@@ -599,15 +608,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                       Endre adresse i Folkeregisteret
                     </a>
                   </p>
-                  <div
-                    class="kilde__tekst"
-                  >
-                    <p
-                      class="navds-detail"
-                    >
-                      Kilde: Folkeregisteret
-                    </p>
-                  </div>
                 </div>
               </div>
               <div
@@ -875,6 +875,15 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
             <div
               class="kilde__container"
             >
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="navds-detail"
+                >
+                  Kilde: NAV
+                </p>
+              </div>
               <button
                 class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
@@ -890,15 +899,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                   Endre
                 </span>
               </button>
-              <div
-                class="kilde__tekst"
-              >
-                <p
-                  class="navds-detail"
-                >
-                  Kilde: NAV
-                </p>
-              </div>
             </div>
           </div>
         </div>

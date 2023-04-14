@@ -77,6 +77,15 @@ exports[`Personalia renders correctly 1`] = `
             <div
               class="kilde__container"
             >
+              <div
+                class="kilde__tekst"
+              >
+                <p
+                  class="navds-detail"
+                >
+                  Kilde: Folkeregisteret
+                </p>
+              </div>
               <p
                 class="navds-body-long"
               >
@@ -95,15 +104,6 @@ exports[`Personalia renders correctly 1`] = `
                   Endre i Folkeregisteret
                 </a>
               </p>
-              <div
-                class="kilde__tekst"
-              >
-                <p
-                  class="navds-detail"
-                >
-                  Kilde: Folkeregisteret
-                </p>
-              </div>
             </div>
           </div>
         </div>
