@@ -3,7 +3,7 @@ apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
   name: personopplysninger
-  namespace: {{namespace}}
+  namespace: personbruker
   labels:
     team: personbruker
 spec:
@@ -30,11 +30,13 @@ spec:
     - name: ENV
       value: {{env}}
   replicas:
-    min: 2
-    max: 3
+  {{#with replicas}}
+    min: {{min}}
+    max: {{max}}
+  {{/with}}
   resources:
     limits:
-      cpu: '3'
-      memory: 768Mi
-    requests:
       memory: 512Mi
+    requests:
+      cpu: {{ cpuReq }}
+      memory: 128Mi
