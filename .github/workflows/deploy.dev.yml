@@ -51,7 +51,7 @@ jobs:
         run: |
           cat > .nais/vars.yaml <<EOF
           ingresses:
-            - https://intern.dev.nav.no/person/personopplysninger
+            - https://www.intern.dev.nav.no/person/personopplysninger
           externalHosts:
             - www.intern.dev.nav.no
             - dev.nav.no
