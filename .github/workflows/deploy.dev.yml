@@ -53,7 +53,7 @@ jobs:
           ingresses:
             - https://intern.dev.nav.no/person/personopplysninger
           externalHosts:
-            - wwwintern.dev.nav.no
+            - www.intern.dev.nav.no
             - dev.nav.no
             - person.ekstern.dev.nav.no
             - dekoratoren.dev.nav.no
