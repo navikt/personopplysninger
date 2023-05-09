@@ -76,8 +76,6 @@ export const getLoginserviceRedirectUrl = () => {
   // The entire path including query params has to be whitelisted. Therefore, remove this for now
   // and revisit the functionality of redirecting with hash when we migrate
   // to wonderwal.
-  // const encodedPath = btoa(window.location.pathname + window.location.hash);
-  // return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
   return `${baseUrl}`;
 };
 
