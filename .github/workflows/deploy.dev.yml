@@ -54,10 +54,8 @@ jobs:
             - https://www.intern.dev.nav.no/person/personopplysninger
           externalHosts:
             - www.intern.dev.nav.no
-            - dev.nav.no
-            - person.ekstern.dev.nav.no
-            - person.intern.dev.nav.no
-            - dekoratoren.dev.nav.no
+            - www.ekstern.dev.nav.no
+            - dekoratoren.ekstern.dev.nav.no
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           env: dev
