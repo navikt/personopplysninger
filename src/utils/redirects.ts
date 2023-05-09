@@ -72,7 +72,11 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginserviceRedirectUrl = () => {
   // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
-  const encodedPath = btoa(window.location.pathname + window.location.hash);
+  // Note on increased whitelist enforcement from loginservice:
+  // The entire path including query params has to be whitelisted. Therefore, remove this for now
+  // and revisit the functionality of redirecting with hash when we migrate
+  // to wonderwal.
+  // const encodedPath = btoa(window.location.pathname + window.location.hash);
   // return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
   return `${baseUrl}`;
 };
