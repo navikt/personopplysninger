@@ -73,7 +73,8 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 export const getLoginserviceRedirectUrl = () => {
   // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
   const encodedPath = btoa(window.location.pathname + window.location.hash);
-  return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+  // return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+  return `${baseUrl}`;
 };
 
 export const getRedirectPathFromParam = () => {
