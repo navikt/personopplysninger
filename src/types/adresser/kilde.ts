@@ -1,1 +1,1 @@
-export type Kilde = "freg" | "pdl";
+export type Kilde = 'freg' | 'pdl';
