@@ -2,21 +2,16 @@ export const normalizeNummer = (input: string) => {
   return input.replace(/\D/g, "");
 };
 
-export const formatOrgnr = (input: string) =>
-  input.replace(/(?=.{3}$)/, " ").replace(/(?=.{7}$)/, " ");
+export const formatOrgnr = (input: string) => input.replace(/(?=.{3}$)/, " ").replace(/(?=.{7}$)/, " ");
 
 export const fjernMellorom = (value: string) => {
   if (value) {
-    return value.replace(/\s+/g, ``);
+    return value.replace(/\s+/g, "");
   }
   return value;
 };
 
-export const formatTelefonnummer = (
-  prioritet: 1 | 2,
-  input: string,
-  landskode?: string
-) => {
+export const formatTelefonnummer = (prioritet: 1 | 2, input: string, landskode?: string) => {
   if (landskode === "+47") {
     switch (input.charAt(0)) {
       case "4":

@@ -4,19 +4,11 @@ import { OutboundTlfnummer } from "../pages/forside/sections/4-personinfo/2-kont
 import { TPSResponse } from "../types/tps-response";
 import { Feilmelding } from "../components/httpFeilmelding/HttpFeilmelding";
 import { getLoginserviceRedirectUrl } from "../utils/redirects";
-import {
-  OutboundNorskKontonummer,
-  OutboundUtenlandsbankonto,
-} from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
+import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const parseJson = (data: Response) => data.json();
 
-const {
-  REACT_APP_API_URL,
-  REACT_APP_LOGIN_URL,
-  REACT_APP_DSOP_URL,
-  REACT_APP_INNLOGGINGSSTATUS_URL,
-} = process.env;
+const { REACT_APP_API_URL, REACT_APP_LOGIN_URL, REACT_APP_DSOP_URL, REACT_APP_INNLOGGINGSSTATUS_URL } = process.env;
 
 /*
    GET
@@ -41,48 +33,34 @@ const sjekkAuthHentJson = (url: string) =>
       throw error;
     });
 
-export const fetchInnloggingsStatus = () =>
-  sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || "");
 
 export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
-  sjekkAuthHentJson(
-    `${REACT_APP_API_URL}/feature-toggles${getFeatureToggleUrl(featureToggles)}`
-  );
+  sjekkAuthHentJson(`${REACT_APP_API_URL}/feature-toggles${getFeatureToggleUrl(featureToggles)}`);
 
-export const fetchKontaktInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/kontaktinformasjon`);
+export const fetchKontaktInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/kontaktinformasjon`);
 
-export const fetchRetningsnumre = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/retningsnumre`);
+export const fetchRetningsnumre = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/retningsnumre`);
 
-export const fetchInstInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/institusjonsopphold`);
+export const fetchInstInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/institusjonsopphold`);
 
-export const fetchMedlInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
+export const fetchMedlInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
 
-export const fetchPostnummer = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
+export const fetchPostnummer = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
 
-export const fetchPersonInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
+export const fetchPersonInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
 
 export const fetchLand = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/land`);
 
-export const fetchValutaer = () =>
-  sjekkAuthHentJson(`${REACT_APP_API_URL}/valuta`);
+export const fetchValutaer = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/valuta`);
 
-export const fetchDsopInfo = () =>
-  sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`);
+export const fetchDsopInfo = () => sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`);
 
 /*
     POST
  */
 
-type Outbound =
-  | OutboundTlfnummer
-  | OutboundNorskKontonummer
-  | OutboundUtenlandsbankonto;
+type Outbound = OutboundTlfnummer | OutboundNorskKontonummer | OutboundUtenlandsbankonto;
 
 const postJson = (url: string, data?: Outbound) => {
   console.log(url, data);
@@ -108,24 +86,20 @@ const postJson = (url: string, data?: Outbound) => {
     });
 };
 
-export const postTlfnummer = (data: OutboundTlfnummer) =>
-  postJson(`${REACT_APP_API_URL}/endreTelefonnummer`, data);
+export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_API_URL}/endreTelefonnummer`, data);
 
-export const slettTlfnummer = (data: OutboundTlfnummer) =>
-  postJson(`${REACT_APP_API_URL}/slettTelefonnummer`, data);
+export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_API_URL}/slettTelefonnummer`, data);
 
-export const postKontonummer = (
-  data: OutboundNorskKontonummer | OutboundUtenlandsbankonto
-) => postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
+export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto) =>
+  postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
 
-export const slettKontaktadresse = () =>
-  postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
+export const slettKontaktadresse = () => postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 
 /*
     UTILS
  */
 
-const sjekkAuth = (response: Response): any => {
+const sjekkAuth = (response: Response): Response => {
   if (response.status === 401 || response.status === 403) {
     sendTilLogin();
   }
@@ -134,21 +108,16 @@ const sjekkAuth = (response: Response): any => {
 
 export const sendTilLogin = () => {
   const redirectUrl = getLoginserviceRedirectUrl();
-  window.location.assign(
-    `${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`
-  );
+  window.location.assign(`${REACT_APP_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`);
 };
 
-const sjekkHttpFeil = async (response: Response, showResponse = false) => {
+const sjekkHttpFeil = async (response: Response) => {
   if (response.ok) {
     return response;
   } else {
     throw {
       code: response.status,
-      text:
-        response.status === 400
-          ? await response.text()
-          : "Oisann, noe gikk galt! Prøv igjen senere.",
+      text: response.status === 400 ? await response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
     };
   }
 };
@@ -159,21 +128,21 @@ const sjekkTPSFeil = (response: TPSResponse) => {
   } else {
     throw {
       PENDING: {
-        type: `info`,
-        text: `Vi har sendt inn endringen din`,
+        type: "info",
+        text: "Vi har sendt inn endringen din",
       },
       REJECTED: {
-        type: `feil`,
-        text: `personalia.tlfnr.paagaaendeendring.feilmelding`,
+        type: "feil",
+        text: "personalia.tlfnr.paagaaendeendring.feilmelding",
       },
       ERROR: {
-        type: `feil`,
+        type: "feil",
         text: `${response.error && response.error.message}${
           response.error && response.error.details
             ? `\n${Object.values(response.error.details)
                 .map((details) => details.join("\n"))
                 .join("\n")}`
-            : ``
+            : ""
         }`,
       },
     }[response.statusType];
@@ -182,5 +151,5 @@ const sjekkTPSFeil = (response: TPSResponse) => {
 
 export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
   Object.keys(featureToggles)
-    .map((feature: string, i: number) => `${!i ? `?` : ``}feature=${feature}`)
+    .map((feature: string, i: number) => `${!i ? "?" : ""}feature=${feature}`)
     .join("&");

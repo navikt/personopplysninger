@@ -3,7 +3,7 @@ import { FieldErrors } from "react-hook-form";
 import { FormFields } from "../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const mod11OfNumberWithControlDigit = (input: string) => {
-  let controlNumber: number = 2,
+  let controlNumber = 2,
     sumForMod = 0,
     i;
 
@@ -13,13 +13,12 @@ const mod11OfNumberWithControlDigit = (input: string) => {
       controlNumber = 2;
     }
   }
-  var result = 11 - (sumForMod % 11);
+  const result = 11 - (sumForMod % 11);
   return result === 11 ? 0 : result;
 };
 
 export const isMod11 = (accountNumber: string) =>
-  parseInt(accountNumber.charAt(accountNumber.length - 1), 10) ===
-  mod11OfNumberWithControlDigit(accountNumber);
+  parseInt(accountNumber.charAt(accountNumber.length - 1), 10) === mod11OfNumberWithControlDigit(accountNumber);
 
 export const mapErrorsToSummary = (errors: FieldErrors<FormFields>) =>
   Object.entries(errors)

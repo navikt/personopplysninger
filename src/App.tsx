@@ -1,13 +1,6 @@
 import React, { useEffect } from "react";
 import { useIntl } from "react-intl";
-import {
-  BrowserRouter as Router,
-  Navigate,
-  Route,
-  Routes,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useStore } from "./store/Context";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import Forside from "./pages/forside/Forside";
@@ -59,59 +52,27 @@ const App = () => {
                 <Routes>
                   {redirectPath && <Navigate to={redirectPath} />}
 
-                  <Route
-                    caseSensitive={true}
-                    path={"/"}
-                    element={<Navigate to={`${basePath}/nb/`} />}
-                  />
+                  <Route caseSensitive={true} path={"/"} element={<Navigate to={`${basePath}/nb/`} />} />
                   <>
-                    <Route
-                      path={`${basePathWithLanguage}/`}
-                      element={<Forside />}
-                    />
+                    <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
                     <Route
                       caseSensitive={true}
                       path={`${basePathWithLanguage}/arbeidsforhold`}
-                      element={
-                        <Navigate
-                          replace={true}
-                          to={`${basePathWithLanguage}/#arbeidsforhold`}
-                        />
-                      }
+                      element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
                     />
-                    <Route
-                      caseSensitive={true}
-                      path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                      element={<DetaljertArbeidsforhold />}
-                    />
+                    <Route caseSensitive={true} path={`${basePathWithLanguage}/arbeidsforhold/:id`} element={<DetaljertArbeidsforhold />} />
                     <>
                       {featureToggles.data["personopplysninger.dsop"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/dsop`}
-                          element={<DsopHistorikk />}
-                        />
+                        <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
                       )}
                       {featureToggles.data["personopplysninger.dsop"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/dsop/:id`}
-                          element={<DsopDetaljer />}
-                        />
+                        <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
                       )}
                       {featureToggles.data["personopplysninger.inst"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/institusjonsopphold`}
-                          element={<InstHistorikk />}
-                        />
+                        <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
                       )}
                       {featureToggles.data["personopplysninger.inst"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/institusjonsopphold/:id`}
-                          element={<InstDetaljer />}
-                        />
+                        <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold/:id`} element={<InstDetaljer />} />
                       )}
                       {featureToggles.data["personopplysninger.pdl"] &&
                         tillatteTjenester.map((tjeneste) => (
@@ -136,15 +97,9 @@ const App = () => {
                           />
                         ))}
                       {featureToggles.data["personopplysninger.medl"] && (
-                        <Route
-                          caseSensitive={true}
-                          path={`${basePathWithLanguage}/medlemskap-i-folketrygden`}
-                          element={<MedlHistorikk />}
-                        />
+                        <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
                       )}
-                      {featureToggles.status === "RESULT" && (
-                        <Route element={<PageNotFound />} />
-                      )}
+                      {featureToggles.status === "RESULT" && <Route element={<PageNotFound />} />}
                     </>
                   </>
                 </Routes>
@@ -166,10 +121,7 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
     const urlHasLocale = localeUrlPattern.test(location.pathname);
 
     if (!urlHasLocale) {
-      const redirectTo = `${location.pathname.replace(
-        `${basePath}`,
-        `${basePath}/${locale}`
-      )}${location.hash}`;
+      const redirectTo = `${location.pathname.replace(`${basePath}`, `${basePath}/${locale}`)}${location.hash}`;
 
       navigate(redirectTo);
     }
