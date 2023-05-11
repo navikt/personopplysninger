@@ -1,6 +1,8 @@
 const baseUrl = process.env.REACT_APP_URL;
 const redirectPathParam = 'path';
 
+const miljo = process.env.REACT_APP_MILJO as "LOCAL" | "DEV" | "PROD";
+
 export const redirects: {
     [key: string]: {
         beskrivelse: string;
@@ -74,9 +76,16 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 };
 
 export const getLoginserviceRedirectUrl = () => {
+<<<<<<< HEAD
     // encode the path to base64 to prevent URI-decoding in loginservice from altering the parameter
     const encodedPath = btoa(window.location.pathname + window.location.hash);
     return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+=======
+  const encodedPath = btoa(window.location.pathname + window.location.hash);
+  return miljo === "DEV"
+    ? baseUrl
+    : `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+>>>>>>> master
 };
 
 export const getRedirectPathFromParam = () => {
