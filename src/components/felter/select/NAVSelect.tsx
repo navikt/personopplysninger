@@ -81,7 +81,6 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     // Legg til border på option
     // TODO: Forenkling
     const Option = (optionProps: OptionProps<OptionType, boolean>) => {
-        console.log(optionProps);
         if (props.borderUnderNth) {
             const { innerProps } = optionProps;
             const matches = innerProps?.id?.match(/\d+$/);
