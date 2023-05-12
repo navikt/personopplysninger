@@ -4,8 +4,9 @@ import kontaktIkon from "assets/img/Kontakt.svg";
 import TelefonnummerHosNav from "./subsections/telefonnummer/TelefonnummerHosNav";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import { Tlfnr } from "types/personalia";
-import { Alert } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
+import { Heading } from "@navikt/ds-react";
+import Infotekst from "components/infotekst/Infotekst";
 interface Props {
   tlfnr?: Tlfnr;
 }
@@ -22,8 +23,23 @@ const KontaktInfo = (props: Props) => {
       {props.tlfnr &&
       (props.tlfnr.telefonHoved || props.tlfnr.telefonAlternativ) ? (
         <>
+          <div className="underseksjon__header">
+            <Heading size={"small"} level={"3"}>
+              <FormattedMessage id="personalia.tlfnr.oveskrift" />
+            </Heading>
+          </div>
+
           <div className="telefonnummer">
             <TelefonnummerHosNav tlfnr={props.tlfnr} />
+          </div>
+          <div className="underseksjon__header underseksjon__divider dkif__overskrift-container">
+            <Heading size={"small"} level={"3"}>
+              <FormattedMessage id="personalia.dkif.overskrift" />
+            </Heading>
+            <Infotekst
+              overskriftID="personalia.dkif.overskrift"
+              beskrivelseID="personalia.dkif.beskrivelse"
+            />
           </div>
           <div className="telefonnummer">
             <DKIF />
@@ -39,22 +55,6 @@ const KontaktInfo = (props: Props) => {
           </div>
         </>
       )}
-
-      <div className="arbeidsforhold__disclaimer">
-        <Alert variant="info">
-          <FormattedMessage
-            id="kontaktogreservasjonsregister-disclaimer"
-            values={{
-              br: (text) => (
-                <>
-                  <br />
-                  {text}
-                </>
-              ),
-            }}
-          />
-        </Alert>
-      </div>
     </Box>
   );
 };
