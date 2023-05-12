@@ -1,6 +1,6 @@
 import { useIntl } from 'react-intl';
 
-type ObjectType = Record<string, never>;
+type ObjectType = Record<string, string | undefined | number>;
 
 export const useIntlFormatter = () => {
     const { formatMessage } = useIntl();

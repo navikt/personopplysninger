@@ -16,9 +16,9 @@ Installer nødvendige pakker:
 
 Kopier environment-variabler fra eksempel-filen:
 
-```
+''`
 cp .env.sample .env
-```
+''`
 
 Start dekoratøren og mocks:
 Autentiser på Github container-registry hvis du ikke har gjort det allerede

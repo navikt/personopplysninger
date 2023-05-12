@@ -27,7 +27,7 @@ export interface UtenlandskAdresseIFrittFormat {
     adresselinje3?: string;
     postkode?: string;
     byEllerStedsnavn?: string;
-    landkode?: String;
+    landkode?: string;
     land?: string;
 }
 

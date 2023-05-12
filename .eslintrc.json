@@ -28,6 +28,8 @@
         "quotes": ["warn", "single", { "avoidEscape": true }],
         "semi": ["error", "always"],
         "max-len": [1, { "code": 150, "ignoreComments": true, "ignoreStrings": true }],
-        "indent": "off"
+        "indent": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "react/display-name": "off"
     }
 }
