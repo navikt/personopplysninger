@@ -4,8 +4,12 @@ on: workflow_dispatch
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      packages: 'write'
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
       - name: Setup node.js
         uses: actions/setup-node@v2
         with:
@@ -22,10 +26,11 @@ jobs:
           echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
           echo "IMAGE_VERSION=${IMAGE_VERSION_RAW,,}" >> $GITHUB_ENV
           echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
+          echo "PUBLIC_URL=https://cdn.nav.no/personbruker/personopplysninger/$(echo ${IMAGE_VERSION_RAW,,})/build" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
           echo "REACT_APP_MILJO=DEV" >> $GITHUB_ENV
-          echo "REACT_APP_DINE_SAKER_URL=https://person.intern.dev.nav.no/mine-saker" >> $GITHUB_ENV
+          echo "REACT_APP_DINE_SAKER_URL=https://www.intern.dev.nav.no/mine-saker" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
           echo "REACT_APP_BFT_URL=https://tilretteleggingsbehov-innsyn.ekstern.dev.nav.no/person/behov-for-tilrettelegging" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=https://www.intern.dev.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
@@ -47,6 +52,14 @@ jobs:
           echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u ${GITHUB_REPOSITORY} --password-stdin
           docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION .
           docker push $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION
+      - id: upload
+        uses: navikt/frontend/actions/cdn-upload/v1@main
+        with:
+          cdn-team-name: personbruker
+          source: ./build
+          destination: personopplysninger/${{ env.IMAGE_VERSION }}
+      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
+        shell: bash
       - name: Generate nais variables
         run: |
           cat > .nais/vars.yaml <<EOF
@@ -54,10 +67,8 @@ jobs:
             - https://www.intern.dev.nav.no/person/personopplysninger
           externalHosts:
             - www.intern.dev.nav.no
-            - dev.nav.no
-            - person.ekstern.dev.nav.no
-            - person.intern.dev.nav.no
-            - dekoratoren.dev.nav.no
+            - www.ekstern.dev.nav.no
+            - dekoratoren.ekstern.dev.nav.no
           image: $IMAGE_REGISTRY/$IMAGE_NAME
           version: $IMAGE_VERSION
           env: dev
