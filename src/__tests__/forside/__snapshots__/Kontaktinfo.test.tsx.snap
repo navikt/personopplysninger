@@ -2,172 +2,102 @@
 
 exports[`DKIF renders correctly 1`] = `
 <DocumentFragment>
-  <dl
-    class="list"
-  >
-    <div
-      class="list-item"
-    >
-      <dt
-        class="list-element-heading"
-      >
-        <span
-          class="navds-label"
-        >
-          Telefon
-        </span>
-      </dt>
-      <dd>
-        12131415
-      </dd>
-    </div>
-  </dl>
-  <dl
-    class="list"
-  >
-    <div
-      class="list-item"
-    >
-      <dt
-        class="list-element-heading"
-      >
-        <span
-          class="navds-label"
-        >
-          E-post
-        </span>
-      </dt>
-      <dd>
-        test@test.com
-      </dd>
-    </div>
-  </dl>
-  <dl
-    class="list"
-  >
-    <div
-      class="list-item"
-    >
-      <dt
-        class="list-element-heading"
-      >
-        <span
-          class="navds-label"
-        >
-          Språk/målform
-        </span>
-      </dt>
-      <dd>
-        Norsk
-      </dd>
-    </div>
-  </dl>
+   
   <div
-    class="kilde__container"
+    class="telefonnummer"
   >
-    <div
-      class="kilde__tekst"
-    >
-      <p
-        class="navds-detail"
-      >
-        Kilde: Kontakt - og reservasjonsregisteret
-      </p>
-    </div>
-    <p
-      class="navds-body-long"
-    >
-      <a
-        class="navds-link kilde__lenke lenke"
-        href="https://brukerprofil.difi.no/minprofil"
-      >
-        <span
-          class="kilde__icon"
-        >
-          <img
-            alt=""
-            src="Link.svg"
-          />
-        </span>
-        Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
-      </a>
-    </p>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`TelefonnummerHosNav renders correctly 1`] = `
-<DocumentFragment>
-  <div>
-    <div
-      class="tlfnummer__rad"
+    <dl
+      class="list"
     >
       <div
-        class="tlfnummer__container"
+        class="list-item"
       >
-        <div
-          class="tlfnummer__verdi"
+        <dt
+          class="list-element-heading"
         >
-          <p
+          <span
             class="navds-label"
           >
-            Telefon 
-          </p>
-          <p
-            class="navds-body-short"
-          >
-            <span>
-              +47 
-            </span>
-            408 53 158
-          </p>
-        </div>
-        <div
-          class="tlfnummer__knapper"
+            Telefon
+          </span>
+        </dt>
+        <dd>
+          12131415
+        </dd>
+      </div>
+      <div
+        class="list-item"
+      >
+        <dt
+          class="list-element-heading"
         >
-          <button
-            aria-label="Endre telefonnummer"
-            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+          <span
+            class="navds-label"
           >
-            <span
-              aria-live="polite"
-              class="navds-label"
-            >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Pencil.svg"
-              />
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Endre
-              </span>
-            </span>
-          </button>
-          <button
-            aria-label="Slett telefonnummer"
-            class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+            Språk/målform
+          </span>
+        </dt>
+        <dd>
+          Norsk
+        </dd>
+      </div>
+      <div
+        class="list-item"
+      >
+        <dt
+          class="list-element-heading"
+        >
+          <span
+            class="navds-label"
           >
-            <span
-              aria-live="polite"
-              class="navds-label"
-            >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Slett.svg"
-              />
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Slett
-              </span>
-            </span>
-          </button>
-        </div>
+            E-post
+          </span>
+        </dt>
+        <dd>
+          test@test.com
+        </dd>
+      </div>
+    </dl>
+  </div>
+  <div
+    class="telefonnummer"
+  >
+    <div
+      class="navds-alert navds-alert--info navds-alert--medium navds-alert--inline"
+    >
+      <svg
+        aria-labelledby="title-r0"
+        class="navds-alert__icon"
+        fill="none"
+        focusable="false"
+        height="1em"
+        role="img"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <title
+          id="title-r0"
+        >
+          Informasjon
+        </title>
+        <path
+          clip-rule="evenodd"
+          d="M12 0c6.627 0 12 5.373 12 12s-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0ZM9 19v-2h2v-5H9v-2h4v7h2v2H9Zm3-14a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <div
+        class="navds-alert__wrapper navds-body-long"
+      >
+        Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.
       </div>
     </div>
+  </div>
+  <div
+    class="margin-kilde"
+  >
     <div
       class="kilde__container"
     >
@@ -177,10 +107,43 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
         <p
           class="navds-detail"
         >
-          Kilde: NAV
+          Kilde: Kontakt - og reservasjonsregisteret
         </p>
       </div>
+      <p
+        class="navds-body-long"
+      >
+        <a
+          class="navds-link kilde__lenke lenke"
+          href="https://brukerprofil.difi.no/minprofil"
+        >
+          <span
+            class="kilde__icon"
+          >
+            <img
+              alt=""
+              src="Link.svg"
+            />
+          </span>
+          Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
+        </a>
+      </p>
     </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`TelefonnummerHosNav renders correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="underseksjon__beskrivelse"
+  >
+    Vil du heller legge inn et nummer i 
+    <b>
+      NAV sitt register
+    </b>
+    ?
+  Det nye nummeret du legger inn, vil bare lagres hos oss.
   </div>
   <button
     aria-label="Legg til telefonnummer i NAV sitt register"
