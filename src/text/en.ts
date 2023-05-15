@@ -67,7 +67,7 @@ export default {
   "personalia.tlfnr": `Phone`,
   "personalia.tlfnr.oveskrift": `Phone number registered with NAV`,
   "personalia.tlfnr.ingenData": `Would you instead like to add a phone number to <b>The NAV registry</b>?
-  The new number you add will only be stored and used by NAV.`,
+  The new phone number you add will only be stored and used by NAV.`,
   "personalia.tlfnr.telefon": `Phone {x}`,
   "personalia.tlfnr.slett.overskrift": `Remove phone number`,
   "personalia.tlfnr.slett.alert": `Are you sure you want to remove this number?`,
@@ -161,7 +161,7 @@ A child who lives permanently with both mother and father can have two home addr
   "inst.kilde": `Source: The individual institution`,
   "kontaktinformasjon-kilde": `Where is this contact information from?
   NAV uses your contact information from The common contact register. This is a joint national registry used by the government to send messages and documents. You can also register the phone number you want to be reached by in The NAV registry.`,
-  "kontaktogreservasjonsregister-disclaimer": `You receive mail and information electronically from the government. This is because you haven’t opted out of electronic communication.`,
+  "kontaktogreservasjonsregister-disclaimer": `You receive mail and information electronically from the government. This is because you have not opted out of electronic communication.`,
   "medl.tittel": `Membership of the National Insurance Scheme`,
   "medl.ingendata": `You have no registered periods.`,
   "medl.oversikt.ingress": `If you work and live in Norway, you are normally a member of the National Insurance Scheme. Periods with this type of membership will not be shown in this page. This page is only relevant if you have`,
