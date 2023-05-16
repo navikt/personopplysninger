@@ -58,10 +58,10 @@ const Knapp = (props: Props) => {
           variant="tertiary"
           className="kilde__knapp knapp-med-ikon"
         >
-            {props.ikon && (
-                <img className="kilde__icon" src={props.ikon} alt="" />
-            )}
-            <FormattedMessage id={props.lenkeTekst} />
+          {props.ikon && (
+            <img className="kilde__icon" src={props.ikon} alt="" />
+          )}
+          <FormattedMessage id={props.lenkeTekst} />
         </Button>
       );
     case "INGEN":
@@ -74,7 +74,6 @@ const Kilde = (props: Props) => {
   return (
     <>
       <div className="kilde__container">
-        <Knapp {...props} />
         <div className="kilde__tekst">
           {props.kilde && (
             <Detail>
@@ -95,6 +94,7 @@ const Kilde = (props: Props) => {
             </Detail>
           )}
         </div>
+        <Knapp {...props} />
       </div>
     </>
   );
