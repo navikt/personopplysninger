@@ -72,11 +72,9 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
   return navnoUrlPattern.test(decodedUrl) ? decodedUrl : null;
 };
 
-export const getLoginserviceRedirectUrl = () => {
+export const getLoginRedirectUrl = () => {
   const encodedPath = btoa(window.location.pathname + window.location.hash);
-  return miljo === "DEV"
-    ? baseUrl
-    : `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+  return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
 };
 
 export const getRedirectPathFromParam = () => {
