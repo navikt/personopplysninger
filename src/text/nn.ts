@@ -1,5 +1,4 @@
 import merInfo from './nn/informasjon';
-/* tslint:disable */
 export default {
     'side.tittel': 'Personopplysningar',
     'side.tilbake': 'Tilbake',

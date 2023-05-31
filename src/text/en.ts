@@ -1,5 +1,4 @@
 import merInfo from './en/information';
-/* tslint:disable */
 export default {
     'side.tittel': 'Personal data',
     'side.tilbake': 'Back',
