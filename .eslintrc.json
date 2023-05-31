@@ -24,7 +24,6 @@
     },
     "plugins": ["react", "@typescript-eslint"],
     "rules": {
-        "linebreak-style": ["warn", "unix"],
         "quotes": ["warn", "single", { "avoidEscape": true }],
         "semi": ["error", "always"],
         "max-len": [1, { "code": 150, "ignoreComments": true, "ignoreStrings": true }],
