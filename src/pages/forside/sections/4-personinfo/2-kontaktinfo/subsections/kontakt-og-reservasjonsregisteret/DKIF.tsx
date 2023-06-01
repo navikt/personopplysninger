@@ -28,7 +28,7 @@ const KontaktInformasjon = (props: Props) => {
         </dl>
       </div>
       <div className="telefonnummer">
-        <Alert variant="info" inline>
+        <Alert variant="info" inline={true}>
           <FormattedMessage
             id="kontaktogreservasjonsregister-disclaimer"
             values={{
@@ -65,7 +65,7 @@ const KontaktInformasjon = (props: Props) => {
         />
       </div>
       <div className="arbeidsforhold__disclaimer">
-        <Alert variant="info" inline>
+        <Alert variant="info" inline={true}>
           <FormattedMessage
             id="kontaktogreservasjonsregister-disclaimer"
             values={{

@@ -229,8 +229,6 @@ A child who lives permanently with both mother and father can have two home addr
   "lenker.medl.beskrivelse": `See periods where you've stayed abroad, and periods where you have worked in Norway, and lived in a different country`,
   "lenker.fullmakt.tittel": `Powers of attorney (text in norwegian)`,
   "lenker.fullmakt.beskrivelse": `See your powers of attorney`,
-  "lenker.tilrettelegging.tittel": `Need for facilitation (text in norwegian)`,
-  "lenker.tilrettelegging.beskrivelse": `See the needs you have for facilitation in order to work. The needs are registered by the supervisor.`,
   "lenker.skjerming.tittel": `Protection against access (text in norwegian)`,
   "lenker.skjerming.beskrivelse": `Applies to employees of NAV and family members.`,
   "felter.type.label": "Type",

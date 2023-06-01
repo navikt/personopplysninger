@@ -228,8 +228,6 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
   "lenker.medl.beskrivelse": `Sjå periodar ved utanlandsopphald, og periodar for deg som har jobba i Norge, men bur i eit anna land`,
   "lenker.fullmakt.tittel": `Fullmakter`,
   "lenker.fullmakt.beskrivelse": `Sjå fullmaktene dine`,
-  "lenker.tilrettelegging.tittel": `Behov for tilrettelegging`,
-  "lenker.tilrettelegging.beskrivelse": `Sjå kva behov du har for tilrettelegging for å kunne jobbe. Behova er registrert av rettleiar.`,
   "lenker.skjerming.tittel": `Skjerming mot innsyn`,
   "lenker.skjerming.beskrivelse": `Gjeld tilsette i NAV og familiemedlem.`,
   "felter.type.label": "Type",
