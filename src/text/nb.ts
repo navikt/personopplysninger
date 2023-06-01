@@ -229,8 +229,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   "lenker.medl.beskrivelse": `Se perioder ved utenlandsopphold, og perioder for deg som har jobbet i Norge, men bor i et annet land`,
   "lenker.fullmakt.tittel": `Fullmakter`,
   "lenker.fullmakt.beskrivelse": `Se dine fullmakter`,
-  "lenker.tilrettelegging.tittel": `Behov for tilrettelegging`,
-  "lenker.tilrettelegging.beskrivelse": `Se hvilke behov du har for tilrettelegging for å kunne jobbe. Behovene er registrert av veileder.`,
   "lenker.skjerming.tittel": `Skjerming mot innsyn`,
   "lenker.skjerming.beskrivelse": `Gjelder ansatte i NAV og familiemedlemmer.`,
   "felter.type.label": "Type",

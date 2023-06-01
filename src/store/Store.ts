@@ -33,7 +33,6 @@ export const initialState = {
       "personopplysninger.skatt": false,
       "personopplysninger.medl": false,
       "personopplysninger.fullmakt": false,
-      "personopplysninger.tilrettelegging": false,
       "pdl-fullmakt": false,
     },
   } as FetchFeatureToggles,
