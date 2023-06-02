@@ -73,7 +73,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2019 
@@ -93,7 +93,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </div>
+      </button>
       <div />
     </div>
     <div
@@ -141,7 +141,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2018 
@@ -161,13 +161,13 @@ exports[`DsopHistorikkView renders correctly 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </div>
+      </button>
       <div />
     </div>
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2017 
@@ -187,13 +187,13 @@ exports[`DsopHistorikkView renders correctly 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </div>
+      </button>
       <div />
     </div>
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2016 
@@ -213,7 +213,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
             fill-rule="evenodd"
           />
         </svg>
-      </div>
+      </button>
       <div />
     </div>
   </div>
