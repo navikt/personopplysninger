@@ -23,18 +23,18 @@ export const basePath = '/person/personopplysninger';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 
+initializeFaro({
+    url: process.env.REACT_APP_TELEMETRY_URL,
+    app: {
+        name: 'personopplysninger',
+        version: process.env.REACT_APP_VERSION,
+    },
+});
+
 const App = () => {
     const { locale } = useIntl();
     const [{ featureToggles }, dispatch] = useStore();
     const redirectPath = getRedirectPathFromParam();
-
-    initializeFaro({
-        url: process.env.REACT_APP_TELEMETRY_URL,
-        app: {
-            name: 'personopplysninger',
-            version: process.env.REACT_APP_VERSION,
-        },
-    });
 
     useEffect(() => {
         Modal.setAppElement?.('#app');
