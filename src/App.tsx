@@ -29,10 +29,10 @@ const App = () => {
     const redirectPath = getRedirectPathFromParam();
 
     initializeFaro({
-        url: 'https://telemetry.ekstern.dev.nav.no/collect',
+        url: process.env.REACT_APP_TELEMETRY_URL,
         app: {
-            name: 'personopplysninger', // required
-            version: '3.14.16',
+            name: 'personopplysninger',
+            version: process.env.REACT_APP_VERSION,
         },
     });
 

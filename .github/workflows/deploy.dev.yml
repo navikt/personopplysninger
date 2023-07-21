@@ -30,6 +30,7 @@ jobs:
       - name: Define client-side environment
         run: |
           echo "REACT_APP_MILJO=DEV" >> $GITHUB_ENV
+          echo "REACT_APP_VERSION=dev-${{ github.sha }}" >> $GITHUB_ENV
           echo "REACT_APP_DINE_SAKER_URL=https://www.intern.dev.nav.no/mine-saker" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=https://www.intern.dev.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
