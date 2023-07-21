@@ -46,6 +46,7 @@ jobs:
           echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/minside" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www.nav.no/pensjon/opptjening" >> $GITHUB_ENV
           echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.nav.no/person/nav-dekoratoren-api/auth" >> $GITHUB_ENV
+          echo "REACT_APP_TELEMETRY_URL=https://telemetry.nav.no/collect" >> $GITHUB_ENV
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}

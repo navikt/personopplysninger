@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from './store/Context';
+import { initializeFaro } from '@grafana/faro-web-sdk';
 import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
 import WithFeatureToggles from './store/providers/FeatureToggles';
@@ -26,6 +27,14 @@ const App = () => {
     const { locale } = useIntl();
     const [{ featureToggles }, dispatch] = useStore();
     const redirectPath = getRedirectPathFromParam();
+
+    initializeFaro({
+        url: 'https://telemetry.ekstern.dev.nav.no/collect',
+        app: {
+            name: 'personopplysninger', // required
+            version: '3.14.16',
+        },
+    });
 
     useEffect(() => {
         Modal.setAppElement?.('#app');
