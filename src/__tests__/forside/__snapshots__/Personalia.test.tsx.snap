@@ -47,11 +47,23 @@ exports[`Personalia renders correctly 1`] = `
                 aria-pressed="false"
                 class="infotekst__title-i-button"
               >
-                <img
-                  alt=""
+                <svg
                   class="infotekst__title-i-icon"
-                  src="Informasjonstekst.svg"
-                />
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M11 6.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.75 3a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v7.25H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-6.5H10a.75.75 0 0 1-.75-.75Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </button>
               <div
                 class="box__line"
@@ -61,10 +73,23 @@ exports[`Personalia renders correctly 1`] = `
               class="navds-link anchor-link"
               href="#personalia"
             >
-              <img
-                alt=""
-                src="AnchorLink.svg"
-              />
+              <svg
+                class="anchor-link__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               Lenke hit
             </a>
           </div>
@@ -96,10 +121,23 @@ exports[`Personalia renders correctly 1`] = `
                   <span
                     class="kilde__icon"
                   >
-                    <img
-                      alt=""
-                      src="Link.svg"
-                    />
+                    <svg
+                      class="kilde__icon-aksel"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M11.75 4a.75.75 0 0 1 .75-.75H20a.748.748 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0V5.81l-8.72 8.72a.75.75 0 1 1-1.06-1.06l8.72-8.72H12.5a.75.75 0 0 1-.75-.75ZM5 8.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h10a.25.25 0 0 0 .25-.25v-7a.75.75 0 0 1 1.5 0v7A1.75 1.75 0 0 1 15 20.75H5A1.75 1.75 0 0 1 3.25 19V9c0-.966.784-1.75 1.75-1.75h7a.75.75 0 0 1 0 1.5H5Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
                   </span>
                   Endre i Folkeregisteret
                 </a>

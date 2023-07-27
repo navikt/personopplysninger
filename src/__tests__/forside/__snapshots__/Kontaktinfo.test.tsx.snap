@@ -120,10 +120,23 @@ exports[`DKIF renders correctly 1`] = `
           <span
             class="kilde__icon"
           >
-            <img
-              alt=""
-              src="Link.svg"
-            />
+            <svg
+              class="kilde__icon-aksel"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                clip-rule="evenodd"
+                d="M11.75 4a.75.75 0 0 1 .75-.75H20a.748.748 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0V5.81l-8.72 8.72a.75.75 0 1 1-1.06-1.06l8.72-8.72H12.5a.75.75 0 0 1-.75-.75ZM5 8.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h10a.25.25 0 0 0 .25-.25v-7a.75.75 0 0 1 1.5 0v7A1.75 1.75 0 0 1 15 20.75H5A1.75 1.75 0 0 1 3.25 19V9c0-.966.784-1.75 1.75-1.75h7a.75.75 0 0 1 0 1.5H5Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
           </span>
           Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
         </a>
@@ -170,11 +183,23 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
               aria-live="polite"
               class="navds-label"
             >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Pencil.svg"
-              />
+              <svg
+                class="tlfnummer__ikon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M19.638 4.418a3.252 3.252 0 0 0-4.608-.009l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .009-4.591ZM16.09 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.478-2.479.23-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963L14.8 6.76Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <span
                 class="tlfnummer__knapp-tekst"
               >
@@ -190,11 +215,23 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
               aria-live="polite"
               class="navds-label"
             >
-              <img
-                alt=""
-                class="tlfnummer__knapp-ikon"
-                src="Slett.svg"
-              />
+              <svg
+                class="tlfnummer__ikon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M8.75 6c0-.69.56-1.25 1.25-1.25h4c.69 0 1.25.56 1.25 1.25v.25h-6.5V6Zm-1.5.25V6A2.75 2.75 0 0 1 10 3.25h4A2.75 2.75 0 0 1 16.75 6v.25h2.75a.75.75 0 0 1 0 1.5h-.805l-.876 11.384a1.75 1.75 0 0 1-1.745 1.616H7.926a1.75 1.75 0 0 1-1.745-1.616L5.305 7.75H4.5a.75.75 0 0 1 0-1.5h2.75Zm-.44 1.5h10.38l-.867 11.27a.25.25 0 0 1-.249.23H7.926a.25.25 0 0 1-.25-.23L6.81 7.75Zm3.19 2a.75.75 0 0 1 .75.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 .75-.75Zm4.75.75a.75.75 0 0 0-1.5 0v6a.75.75 0 0 0 1.5 0v-6Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               <span
                 class="tlfnummer__knapp-tekst"
               >
@@ -231,11 +268,23 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
       aria-live="polite"
       class="navds-label"
     >
-      <img
-        alt=""
+      <svg
         class="kilde__icon"
-        src="LeggTil.svg"
-      />
+        fill="none"
+        focusable="false"
+        height="1em"
+        role="img"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          clip-rule="evenodd"
+          d="M3.75 12a8.25 8.25 0 1 1 16.5 0 8.25 8.25 0 0 1-16.5 0ZM12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm0 4.5a.75.75 0 0 1 .75.75v3.75h3.75a.75.75 0 0 1 0 1.5h-3.75v3.75a.75.75 0 0 1-1.5 0v-3.75H7.5a.75.75 0 0 1 0-1.5h3.75V7.5a.75.75 0 0 1 .75-.75Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
       Legg til nummer i NAV sitt register
     </span>
   </button>
