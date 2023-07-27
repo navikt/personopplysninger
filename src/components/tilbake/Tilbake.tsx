@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { basePath } from 'App';
 import { FormattedMessage } from 'react-intl';
 import { useStore } from '../../store/Context';
-import { Back } from '@navikt/ds-icons';
+import { ChevronLeftIcon } from '@navikt/aksel-icons';
 
 interface Props {
     to: string;
@@ -14,7 +14,7 @@ const Tilbake = (props: Props) => {
 
     return (
         <Link to={`${basePath}/${locale}${to}`} className="lenke">
-            <Back />
+            <ChevronLeftIcon className="da__back-icon" />
             <FormattedMessage id="side.tilbake" />
         </Link>
     );

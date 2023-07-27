@@ -3,8 +3,6 @@ import Box from 'components/box/Box';
 import kontonummerIkon from 'assets/img/Kontonummer.svg';
 import { UtenlandskBankkonto } from 'types/personalia';
 import Kilde from 'components/kilde/Kilde';
-import endreIkon from 'assets/img/Pencil.svg';
-import leggTilIkon from 'assets/img/Pencil.svg';
 import NorskKontonummer from './visning/NorskKontonummer';
 import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage } from 'react-intl';
@@ -12,6 +10,7 @@ import { Alert } from '@navikt/ds-react';
 import driftsmeldinger from 'driftsmeldinger';
 import KontonummerForm from './endring/KontonummerForm';
 import { useIntlFormatter } from '../../../../../hooks/useIntlFormatter';
+import { PencilIcon } from '@navikt/aksel-icons';
 
 interface Props {
     utenlandskbank?: UtenlandskBankkonto;
@@ -71,7 +70,7 @@ const Utbetalinger = (props: Props) => {
                         onClick={() => settOpprettEllerEndre(true)}
                         lenkeTekst={kontonr || utenlandskbank ? 'side.endre' : 'side.leggtil'}
                         lenkeType={'KNAPP'}
-                        ikon={kontonr || utenlandskbank ? endreIkon : leggTilIkon}
+                        ikon={kontonr || utenlandskbank ? PencilIcon : PencilIcon}
                     />
                 </>
             )}

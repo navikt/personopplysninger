@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Button, HelpTextProps, Popover } from '@navikt/ds-react';
-import { Helptext } from '@navikt/ds-icons';
+import { QuestionmarkIcon } from '@navikt/aksel-icons';
 import classNames from 'classnames';
 
 type CustomHelpTextProps = {
@@ -15,7 +15,7 @@ export const CustomHelpText = ({ children, className, placement = 'top' }: Custo
     return (
         <div className={classNames('customHelpText', className)}>
             <Button type={'button'} variant={'tertiary'} onClick={() => setOpenState(true)} ref={inputRef} className={'customHelpText__help-button'}>
-                <Helptext className={'customHelpText__icon'} />
+                <QuestionmarkIcon className={'customHelpText__icon'} />
             </Button>
             <Popover
                 open={openState}

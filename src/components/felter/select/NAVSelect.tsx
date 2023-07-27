@@ -6,7 +6,7 @@ import { FormatOptionLabelMeta } from 'react-select/base';
 import { RADIX_DECIMAL } from 'utils/formattering';
 import { HTTPError } from '../../error/Error';
 import { Label, Loader, TextField } from '@navikt/ds-react';
-import { Expand } from '@navikt/ds-icons';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
 
 interface Props {
@@ -38,7 +38,7 @@ const LoadingIndicator = () => <Loader size="xsmall" className="KodeverkSelect__
 
 const DropdownIndicator = () => (
     <div className="KodeverkSelect__dropdown-indicator">
-        <Expand />
+        <ChevronDownIcon />
     </div>
 );
 /* eslint-disable-next-line*/

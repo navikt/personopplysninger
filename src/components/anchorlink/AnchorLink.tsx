@@ -1,4 +1,4 @@
-import linkIcon from 'assets/img/AnchorLink.svg';
+import { LinkIcon } from '@navikt/aksel-icons';
 import { Link } from '@navikt/ds-react';
 import { useIntlFormatter } from 'hooks/useIntlFormatter';
 
@@ -10,7 +10,7 @@ export const AnchorLink = ({ id }: Props) => {
     const { formatMessage } = useIntlFormatter();
     return (
         <Link href={`#${id}`} className={'anchor-link'}>
-            <img src={linkIcon} alt="" />
+            <LinkIcon className={'anchor-link__icon'} />
             {formatMessage('anker.lenkehit')}
         </Link>
     );

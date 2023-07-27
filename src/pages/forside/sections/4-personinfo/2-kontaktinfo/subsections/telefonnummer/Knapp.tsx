@@ -1,18 +1,19 @@
 import { Button } from '@navikt/ds-react';
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 interface Props {
     ariaLabel: string;
     onClick: () => void;
-    ikon: string;
+    ikon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
     tekstId: string;
 }
 
 const Knapp = (props: Props) => {
-    const { ariaLabel, onClick, ikon, tekstId } = props;
+    const { ariaLabel, onClick, ikon: Icon, tekstId } = props;
     return (
         <Button variant={'tertiary'} className={'knapp-med-ikon'} onClick={onClick} aria-label={ariaLabel}>
-            <img className="tlfnummer__knapp-ikon" alt="" src={ikon} />
+            <Icon className={'tlfnummer__ikon'} />
             <span className={'tlfnummer__knapp-tekst'}>
                 <FormattedMessage id={tekstId} />
             </span>

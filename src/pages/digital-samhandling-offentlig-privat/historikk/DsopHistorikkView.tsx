@@ -3,7 +3,7 @@ import { DsopInfo } from 'types/dsop';
 import { FormattedMessage } from 'react-intl';
 import { Link as ReactLink, useLocation } from 'react-router-dom';
 import { Alert, Label, Link } from '@navikt/ds-react';
-import { Collapse, Expand } from '@navikt/ds-icons';
+import { ChevronUpIcon, ChevronDownIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -85,7 +85,7 @@ export const DsopHistorikkView = (props: Props) => {
                                 <Fragment key={year}>
                                     <div className="historikk__flex-rad" key={year}>
                                         <button className="historikk__flex-kolonne af-liste__ekspander" onClick={onClick}>
-                                            {year} {value.ekspandert ? <Collapse /> : <Expand />}
+                                            {year} {value.ekspandert ? <ChevronUpIcon /> : <ChevronDownIcon />}
                                         </button>
                                         <div />
                                     </div>

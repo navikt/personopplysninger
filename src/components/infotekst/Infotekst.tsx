@@ -1,8 +1,8 @@
 import { Fragment, useState, useId } from 'react';
-import infoIkon from 'assets/img/Informasjonstekst.svg';
-import infoIkonFylt from 'assets/img/Informasjonstekst-fylt.svg';
 import { FormattedMessage } from 'react-intl';
 import { Link, BodyLong, Modal, Heading } from '@navikt/ds-react';
+import { InformationIcon } from '@navikt/aksel-icons';
+import classNames from 'classnames';
 
 interface HjelpetekstProps {
     overskriftID: string;
@@ -25,7 +25,7 @@ function Infotekst(props: HjelpetekstProps) {
                 aria-label={'Les mer om denne seksjonen.'}
                 aria-pressed={erSynlig}
             >
-                <img src={hover ? infoIkonFylt : infoIkon} className="infotekst__title-i-icon" alt="" />
+                <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} />
             </button>
             <Modal open={erSynlig} onClose={() => settErSynlig(false)} closeButton={true} className="infotekst__modal" aria-labelledby={modalID}>
                 <Modal.Content>
