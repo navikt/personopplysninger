@@ -9,9 +9,9 @@ const { REACT_APP_TJENESTER_URL, REACT_APP_DINE_SAKER_URL } = process.env;
 export default (locale: string) => [
     {
         id: 'dine-saker',
-        tittel: 'lenker.dinesaker.tittel',
-        beskrivelse: 'lenker.dinesaker.beskrivelse',
-        lenkeTekst: 'lenker.dinesaker.lenkeTekst',
+        tittel: 'lenker.dokumentarkiv.tittel',
+        beskrivelse: 'lenker.dokumentarkiv.beskrivelse',
+        lenkeTekst: 'lenker.dokumentarkiv.lenkeTekst',
         url: `${REACT_APP_DINE_SAKER_URL}${locale === 'en' ? '?lang=en' : ''}`,
         icon: dineSaker,
     },
