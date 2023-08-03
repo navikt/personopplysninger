@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { fetchPersonInfo, slettTlfnummer } from 'clients/apiClient';
-import endreIkon from 'assets/img/Pencil.svg';
-import slettIkon from 'assets/img/Slett.svg';
 import { PersonInfo } from 'types/personInfo';
 import { useStore } from 'store/Context';
 import HttpFeilmelding, { Feilmelding } from 'components/httpFeilmelding/HttpFeilmelding';
@@ -12,6 +10,7 @@ import TelefonnummerForm from './TelefonnummerForm';
 import { BodyShort, Label } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
 import { formatTelefonnummer } from '../../../../../../../utils/formattering';
+import { PencilIcon, TrashIcon } from '@navikt/aksel-icons';
 
 export interface OutboundTlfnummer {
     prioritet: 1 | 2;
@@ -109,8 +108,8 @@ const Telefonnummer = (props: Props) => {
 
                 {!endre && (
                     <div className={'tlfnummer__knapper'}>
-                        <Knapp ariaLabel={'Endre telefonnummer'} onClick={() => settEndre(!endre)} ikon={endreIkon} tekstId={'side.endre'} />
-                        <Knapp ariaLabel={'Slett telefonnummer'} onClick={apneSlettModal} ikon={slettIkon} tekstId={'side.slett'} />
+                        <Knapp ariaLabel={'Endre telefonnummer'} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={'side.endre'} />
+                        <Knapp ariaLabel={'Slett telefonnummer'} onClick={apneSlettModal} ikon={TrashIcon} tekstId={'side.slett'} />
                     </div>
                 )}
             </div>

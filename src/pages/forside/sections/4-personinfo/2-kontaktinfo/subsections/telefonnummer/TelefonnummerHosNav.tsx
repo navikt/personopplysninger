@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Tlfnr } from 'types/personalia';
-import leggTilIkon from 'assets/img/LeggTil.svg';
 import Kilde from 'components/kilde/Kilde';
 import Telefonnummer from './Telefonnummer';
 import TelefonnummerForm from './TelefonnummerForm';
 import { fjernMellorom } from 'utils/formattering';
 import driftsmeldinger from 'driftsmeldinger';
 import { Alert, Button, Label } from '@navikt/ds-react';
+import { PlusCircleIcon } from '@navikt/aksel-icons';
 
 interface Props {
     tlfnr?: Tlfnr;
@@ -88,7 +88,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
                     aria-label="Legg til telefonnummer i NAV sitt register"
                 >
-                    <img className="kilde__icon" src={leggTilIkon} alt="" />
+                    <PlusCircleIcon className={'kilde__icon'} aria-hidden="true" />
                     <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
                 </Button>
             )}

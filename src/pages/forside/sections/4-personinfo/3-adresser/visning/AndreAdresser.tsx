@@ -9,7 +9,7 @@ import { fetchPersonInfo, slettKontaktadresse } from 'clients/apiClient';
 import { PersonInfo } from 'types/personInfo';
 import { useStore } from 'store/Context';
 import { BodyShort, Button, Heading, Modal } from '@navikt/ds-react';
-import { Delete } from '@navikt/ds-icons';
+import { TrashIcon } from '@navikt/aksel-icons';
 
 interface Props {
     kontaktadresse?: IKontaktadresse;
@@ -77,7 +77,7 @@ const AndreAdresser = (props: Props) => {
                         variant="tertiary"
                         onClick={apneSlettModal}
                         className="adresse__slett-kontaktadresse knapp-med-ikon"
-                        icon={<Delete aria-hidden={true} />}
+                        icon={<TrashIcon aria-hidden={true} />}
                     >
                         <FormattedMessage id={'side.slett.kontaktadresse'} />
                     </Button>

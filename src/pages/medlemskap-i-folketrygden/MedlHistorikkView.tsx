@@ -1,8 +1,8 @@
 import { MedlInfo } from 'types/medl';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Panel from './Panel';
-import Check from '../../assets/img/Check.svg';
 import { Alert, BodyLong, BodyShort, Heading, Link } from '@navikt/ds-react';
+import { CheckmarkCircleIcon } from '@navikt/aksel-icons';
 
 interface Props {
     medlInfo: MedlInfo;
@@ -110,7 +110,7 @@ const MedlHistorikkView = (props: Props) => {
 
 const Checkbox = (props: { text: string }) => (
     <div className="medl__checkbox">
-        <img className={'medl__kalender'} src={Check} alt="Sjekkboksikon" />
+        <CheckmarkCircleIcon className={'medl__kalender'} aria-hidden="true" />
         <BodyLong>
             <FormattedMessage id={props.text} />
         </BodyLong>

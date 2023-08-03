@@ -47,11 +47,24 @@ exports[`DittNavKontor renders correctly 1`] = `
                 aria-pressed="false"
                 class="infotekst__title-i-button"
               >
-                <img
-                  alt=""
+                <svg
+                  aria-hidden="true"
                   class="infotekst__title-i-icon"
-                  src="Informasjonstekst.svg"
-                />
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M11 6.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.75 3a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v7.25H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-6.5H10a.75.75 0 0 1-.75-.75Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </button>
               <div
                 class="box__line"
@@ -61,10 +74,24 @@ exports[`DittNavKontor renders correctly 1`] = `
               class="navds-link anchor-link"
               href="#ditt-nav-kontor"
             >
-              <img
-                alt=""
-                src="AnchorLink.svg"
-              />
+              <svg
+                aria-hidden="true"
+                class="anchor-link__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               Lenke hit
             </a>
           </div>
@@ -93,7 +120,7 @@ exports[`DittNavKontor renders correctly 1`] = `
               >
                 <label
                   class="navds-form-field__label navds-sr-only navds-label"
-                  for="textField-r1"
+                  for="select-r3"
                 >
                   NAV-kontor
                 </label>
@@ -101,9 +128,8 @@ exports[`DittNavKontor renders correctly 1`] = `
                   class="navds-select__container"
                 >
                   <select
-                    aria-invalid="false"
                     class="navds-select__input navds-body-short navds-body--medium"
-                    id="textField-r1"
+                    id="select-r3"
                     name="NAV-kontor"
                   >
                     <option
@@ -145,7 +171,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                   aria-live="polite"
                   aria-relevant="additions removals"
                   class="navds-form-field__error"
-                  id="textField-error-r1"
+                  id="select-error-r3"
                 />
               </div>
               <div
