@@ -2,6 +2,8 @@ import { FormattedMessage } from 'react-intl';
 import { Link as ReactLink } from 'react-router-dom';
 import { Link, BodyLong, Detail, Button } from '@navikt/ds-react';
 
+type IconType = string | React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
+
 type Props =
     | {
           kilde: string;
@@ -12,15 +14,25 @@ type Props =
           lenke: string;
           lenkeTekst: string;
           lenkeType: 'INTERN' | 'EKSTERN';
-          ikon?: string;
+          ikon?: IconType;
       }
     | {
           kilde: string;
           lenkeTekst: string;
           lenkeType?: 'KNAPP';
           onClick: () => void;
-          ikon?: string;
+          ikon?: IconType;
       };
+
+const Icon = ({ icon }: { icon: IconType }) => {
+    if (typeof icon === 'string') {
+        return <img src={icon} alt="" />;
+    }
+
+    const IconComponent = icon;
+
+    return <IconComponent className={'kilde__icon-aksel'} />;
+};
 
 const Knapp = (props: Props) => {
     switch (props.lenkeType) {
@@ -30,7 +42,7 @@ const Knapp = (props: Props) => {
                     <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
                         {props.ikon && (
                             <span className="kilde__icon">
-                                <img src={props.ikon} alt="" />
+                                <Icon icon={props.ikon} aria-hidden="true" />
                             </span>
                         )}
                         <FormattedMessage id={props.lenkeTekst} />
@@ -43,7 +55,7 @@ const Knapp = (props: Props) => {
                     <Link href={props.lenke} className="kilde__lenke lenke">
                         {props.ikon && (
                             <span className="kilde__icon">
-                                <img src={props.ikon} alt="" />
+                                <Icon icon={props.ikon} aria-hidden="true" />
                             </span>
                         )}
                         <FormattedMessage id={props.lenkeTekst} />
@@ -53,7 +65,11 @@ const Knapp = (props: Props) => {
         case 'KNAPP':
             return (
                 <Button onClick={props.onClick} variant="tertiary" className="kilde__knapp knapp-med-ikon">
-                    {props.ikon && <img className="kilde__icon" src={props.ikon} alt="" />}
+                    {props.ikon && (
+                        <span className="kilde__icon">
+                            <Icon icon={props.ikon} aria-hidden="true" />
+                        </span>
+                    )}
                     <FormattedMessage id={props.lenkeTekst} />
                 </Button>
             );

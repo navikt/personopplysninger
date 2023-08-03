@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 import Icon from 'components/icon/Icon';
 import { Link } from 'react-router-dom';
 import { BodyLong, Label } from '@navikt/ds-react';
-import { Next } from '@navikt/ds-icons';
+import { ChevronRightIcon } from '@navikt/aksel-icons';
 
 export interface Props {
     id: string;
@@ -36,7 +36,7 @@ const Box = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <Next className="linkbox__next" />
+            <ChevronRightIcon className="linkbox__next" aria-hidden="true" />
         </>
     );
 };

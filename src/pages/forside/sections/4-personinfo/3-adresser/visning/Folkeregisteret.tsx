@@ -1,6 +1,5 @@
 import Kilde from 'components/kilde/Kilde';
 import { FormattedMessage } from 'react-intl';
-import eksternLenkeIkon from '../../../../../../assets/img/Link.svg';
 import { Bostedsadresse as IBostedsadresse } from '../../../../../../types/adresser/bostedsadresse';
 import { DeltBosted as IDeltBosted } from '../../../../../../types/adresser/deltbosted';
 import { Oppholdsadresse as IOppholdsadresse } from '../../../../../../types/adresser/oppholdsadresse';
@@ -8,6 +7,7 @@ import { Kontaktadresse as IKontaktadresse } from '../../../../../../types/adres
 import Adresse from './Adresse';
 import { useStore } from '../../../../../../store/Context';
 import { Heading } from '@navikt/ds-react';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 
 interface Props {
     bostedsadresse?: IBostedsadresse;
@@ -89,7 +89,7 @@ const Folkeregisteret = (props: Props) => {
                 }
                 lenkeTekst="personalia.link.folkeregisteret.adresse"
                 lenkeType={'EKSTERN'}
-                ikon={eksternLenkeIkon}
+                ikon={ExternalLinkIcon}
             />
         </div>
     );

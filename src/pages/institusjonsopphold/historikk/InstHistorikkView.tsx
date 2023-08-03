@@ -6,7 +6,7 @@ import { InstInfo } from 'types/inst';
 import Kilde from 'components/kilde/Kilde';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
 import { Alert, BodyLong, BodyShort, Button, Label } from '@navikt/ds-react';
-import { Expand } from '@navikt/ds-icons';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
@@ -99,7 +99,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                         <Button
                             variant={'tertiary'}
                             onClick={() => setViewAmount(viewAmount + 20)}
-                            icon={<Expand aria-hidden={true} />}
+                            icon={<ChevronDownIcon aria-hidden={true} />}
                             iconPosition="right"
                         >
                             Se flere

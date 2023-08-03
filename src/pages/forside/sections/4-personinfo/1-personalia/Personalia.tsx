@@ -3,8 +3,8 @@ import personaliaIkon from 'assets/img/Personalia.svg';
 import { Personalia as PersonaliaType } from 'types/personalia';
 import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
-import eksternLenkeIkon from 'assets/img/Link.svg';
 import { useStore } from '../../../../../store/Context';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 
 interface Props {
     personalia: PersonaliaType;
@@ -57,7 +57,7 @@ const Personalia = (props: Props) => {
                 }
                 lenkeTekst="personalia.link.folkeregisteret"
                 lenkeType={'EKSTERN'}
-                ikon={eksternLenkeIkon}
+                ikon={ExternalLinkIcon}
             />
         </Box>
     );
