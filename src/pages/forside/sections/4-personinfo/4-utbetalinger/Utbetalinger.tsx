@@ -70,7 +70,7 @@ const Utbetalinger = (props: Props) => {
                         onClick={() => settOpprettEllerEndre(true)}
                         lenkeTekst={kontonr || utenlandskbank ? 'side.endre' : 'side.leggtil'}
                         lenkeType={'KNAPP'}
-                        ikon={kontonr || utenlandskbank ? PencilIcon : PencilIcon}
+                        ikon={PencilIcon}
                     />
                 </>
             )}
