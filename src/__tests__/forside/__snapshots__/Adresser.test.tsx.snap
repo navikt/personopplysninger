@@ -48,6 +48,7 @@ exports[`Adresser renders correctly 1`] = `
                 class="infotekst__title-i-button"
               >
                 <svg
+                  aria-hidden="true"
                   class="infotekst__title-i-icon"
                   fill="none"
                   focusable="false"
@@ -74,6 +75,7 @@ exports[`Adresser renders correctly 1`] = `
               href="#adresser"
             >
               <svg
+                aria-hidden="true"
                 class="anchor-link__icon"
                 fill="none"
                 focusable="false"

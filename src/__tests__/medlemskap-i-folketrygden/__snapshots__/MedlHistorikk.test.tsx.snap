@@ -21,6 +21,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
         class="medl__checkbox"
       >
         <svg
+          aria-hidden="true"
           class="medl__kalender"
           fill="none"
           focusable="false"
@@ -51,6 +52,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
         class="medl__checkbox"
       >
         <svg
+          aria-hidden="true"
           class="medl__kalender"
           fill="none"
           focusable="false"
@@ -90,6 +92,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
         class="medl__checkbox"
       >
         <svg
+          aria-hidden="true"
           class="medl__kalender"
           fill="none"
           focusable="false"
@@ -120,6 +123,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
         class="medl__checkbox"
       >
         <svg
+          aria-hidden="true"
           class="medl__kalender"
           fill="none"
           focusable="false"
@@ -150,6 +154,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
         class="medl__checkbox"
       >
         <svg
+          aria-hidden="true"
           class="medl__kalender"
           fill="none"
           focusable="false"
@@ -318,6 +323,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -369,6 +375,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -433,6 +440,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -488,6 +496,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -539,6 +548,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -603,6 +613,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -658,6 +669,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -709,6 +721,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -773,6 +786,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -828,6 +842,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -879,6 +894,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -943,6 +959,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -998,6 +1015,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1049,6 +1067,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1113,6 +1132,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1168,6 +1188,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1219,6 +1240,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1283,6 +1305,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1338,6 +1361,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1389,6 +1413,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1453,6 +1478,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1508,6 +1534,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1559,6 +1586,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1623,6 +1651,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1678,6 +1707,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1729,6 +1759,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1793,6 +1824,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1848,6 +1880,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -1899,6 +1932,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -1963,6 +1997,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2018,6 +2053,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -2069,6 +2105,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2133,6 +2170,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2248,6 +2286,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -2299,6 +2338,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2363,6 +2403,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2427,6 +2468,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2484,6 +2526,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -2535,6 +2578,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2599,6 +2643,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2663,6 +2708,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2720,6 +2766,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -2771,6 +2818,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2835,6 +2883,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2899,6 +2948,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -2956,6 +3006,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                   class="medl__heading"
                 >
                   <svg
+                    aria-hidden="true"
                     class="medl__kalender"
                     fill="none"
                     focusable="false"
@@ -3007,6 +3058,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -3071,6 +3123,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"
@@ -3135,6 +3188,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                               class="navds-label"
                             >
                               <svg
+                                aria-hidden="true"
                                 class="customHelpText__icon"
                                 fill="none"
                                 focusable="false"

@@ -184,6 +184,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
               class="navds-label"
             >
               <svg
+                aria-hidden="true"
                 class="tlfnummer__ikon"
                 fill="none"
                 focusable="false"
@@ -216,6 +217,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
               class="navds-label"
             >
               <svg
+                aria-hidden="true"
                 class="tlfnummer__ikon"
                 fill="none"
                 focusable="false"
@@ -269,6 +271,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
       class="navds-label"
     >
       <svg
+        aria-hidden="true"
         class="kilde__icon"
         fill="none"
         focusable="false"

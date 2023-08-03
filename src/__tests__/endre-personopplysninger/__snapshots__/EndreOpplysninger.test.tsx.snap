@@ -86,6 +86,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         class="navds-label"
                       >
                         <svg
+                          aria-hidden="true"
                           class="tlfnummer__ikon"
                           fill="none"
                           focusable="false"
@@ -118,6 +119,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                         class="navds-label"
                       >
                         <svg
+                          aria-hidden="true"
                           class="tlfnummer__ikon"
                           fill="none"
                           focusable="false"
@@ -171,6 +173,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 class="navds-label"
               >
                 <svg
+                  aria-hidden="true"
                   class="kilde__icon"
                   fill="none"
                   focusable="false"
@@ -241,6 +244,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                 class="infotekst__title-i-button"
               >
                 <svg
+                  aria-hidden="true"
                   class="infotekst__title-i-icon"
                   fill="none"
                   focusable="false"
@@ -267,6 +271,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               href="#adresser"
             >
               <svg
+                aria-hidden="true"
                 class="anchor-link__icon"
                 fill="none"
                 focusable="false"
@@ -843,6 +848,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
               href="#utbetaling"
             >
               <svg
+                aria-hidden="true"
                 class="anchor-link__icon"
                 fill="none"
                 focusable="false"

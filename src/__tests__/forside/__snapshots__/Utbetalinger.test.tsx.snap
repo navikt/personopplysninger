@@ -51,6 +51,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               href="#utbetaling"
             >
               <svg
+                aria-hidden="true"
                 class="anchor-link__icon"
                 fill="none"
                 focusable="false"
@@ -196,6 +197,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               href="#utbetaling"
             >
               <svg
+                aria-hidden="true"
                 class="anchor-link__icon"
                 fill="none"
                 focusable="false"
