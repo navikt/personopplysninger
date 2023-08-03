@@ -38,7 +38,7 @@ const LoadingIndicator = () => <Loader size="xsmall" className="KodeverkSelect__
 
 const DropdownIndicator = () => (
     <div className="KodeverkSelect__dropdown-indicator">
-        <ChevronDownIcon />
+        <ChevronDownIcon aria-hidden="true"/>
     </div>
 );
 /* eslint-disable-next-line*/

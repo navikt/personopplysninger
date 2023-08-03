@@ -36,7 +36,7 @@ const Box = (props: Props) => {
                     </div>
                 </div>
             </div>
-            <ChevronRightIcon className="linkbox__next" />
+            <ChevronRightIcon className="linkbox__next" aria-hidden="true" />
         </>
     );
 };

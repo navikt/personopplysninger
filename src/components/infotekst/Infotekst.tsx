@@ -25,7 +25,7 @@ function Infotekst(props: HjelpetekstProps) {
                 aria-label={'Les mer om denne seksjonen.'}
                 aria-pressed={erSynlig}
             >
-                <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} />
+                <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} aria-hidden="true" />
             </button>
             <Modal open={erSynlig} onClose={() => settErSynlig(false)} closeButton={true} className="infotekst__modal" aria-labelledby={modalID}>
                 <Modal.Content>

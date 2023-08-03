@@ -85,7 +85,7 @@ export const DsopHistorikkView = (props: Props) => {
                                 <Fragment key={year}>
                                     <div className="historikk__flex-rad" key={year}>
                                         <button className="historikk__flex-kolonne af-liste__ekspander" onClick={onClick}>
-                                            {year} {value.ekspandert ? <ChevronUpIcon /> : <ChevronDownIcon />}
+                                            {year} {value.ekspandert ? <ChevronUpIcon aria-hidden="true" /> : <ChevronDownIcon aria-hidden="true" />}
                                         </button>
                                         <div />
                                     </div>

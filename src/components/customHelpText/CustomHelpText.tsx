@@ -15,7 +15,7 @@ export const CustomHelpText = ({ children, className, placement = 'top' }: Custo
     return (
         <div className={classNames('customHelpText', className)}>
             <Button type={'button'} variant={'tertiary'} onClick={() => setOpenState(true)} ref={inputRef} className={'customHelpText__help-button'}>
-                <QuestionmarkIcon className={'customHelpText__icon'} />
+                <QuestionmarkIcon className={'customHelpText__icon'} aria-hidden="true" />
             </Button>
             <Popover
                 open={openState}

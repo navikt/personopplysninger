@@ -110,7 +110,7 @@ const MedlHistorikkView = (props: Props) => {
 
 const Checkbox = (props: { text: string }) => (
     <div className="medl__checkbox">
-        <CheckmarkCircleIcon className={'medl__kalender'} />
+        <CheckmarkCircleIcon className={'medl__kalender'} aria-hidden="true" />
         <BodyLong>
             <FormattedMessage id={props.text} />
         </BodyLong>

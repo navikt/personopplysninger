@@ -38,7 +38,7 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
                     <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
                     <div className="redirect__lenke">
                         <div className="redirect__chevron">
-                            <ArrowLeftIcon />
+                            <ArrowLeftIcon aria-hidden="true" />
                         </div>
                         <a href={redirectUrl}>{redirect.knapp}</a>
                     </div>

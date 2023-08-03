@@ -14,7 +14,7 @@ const Tilbake = (props: Props) => {
 
     return (
         <Link to={`${basePath}/${locale}${to}`} className="lenke">
-            <ChevronLeftIcon className="da__back-icon" />
+            <ChevronLeftIcon className="da__back-icon" aria-hidden="true" />
             <FormattedMessage id="side.tilbake" />
         </Link>
     );

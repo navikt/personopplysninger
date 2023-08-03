@@ -15,7 +15,7 @@ const Periode = (props: Props) => {
         <div className="medl__flex-rad">
             <div className="medl__flex-kolonne">
                 <div className={'medl__heading'}>
-                    <CalendarIcon className="medl__kalender" />
+                    <CalendarIcon className="medl__kalender" aria-hidden="true" />
                     <BodyLong>
                         <FormattedMessage id={'medl.periode'} /> {dayjs(periode.fraOgMed).format('DD.MM.YY')}
                         {' - '}

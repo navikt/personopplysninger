@@ -10,7 +10,7 @@ export const AnchorLink = ({ id }: Props) => {
     const { formatMessage } = useIntlFormatter();
     return (
         <Link href={`#${id}`} className={'anchor-link'}>
-            <LinkIcon className={'anchor-link__icon'} />
+            <LinkIcon className={'anchor-link__icon'} aria-hidden="true" />
             {formatMessage('anker.lenkehit')}
         </Link>
     );
