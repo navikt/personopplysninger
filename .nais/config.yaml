@@ -20,6 +20,11 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      autoLogin: false
   accessPolicy:
     outbound:
       external:

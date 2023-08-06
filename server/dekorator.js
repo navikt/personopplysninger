@@ -14,6 +14,7 @@ const getHtmlWithDecorator = (filePath) =>
             { url: `https://www.nav.no/person/personopplysninger/en/`, locale: 'en' },
             { url: `https://www.nav.no/person/personopplysninger/nn/`, locale: 'nn' },
         ],
+        logoutWarning: true,
     });
 
 module.exports = getHtmlWithDecorator;
