@@ -12,7 +12,7 @@ const buildPath = path.resolve(__dirname, '../build');
 const basePath = '/person/personopplysninger';
 const server = express();
 console.info('Logging REACT_APP_URL');
-console.info(process.env.REACT_APP_URL);
+console.info(process.env);
 server.use(compression());
 server.use(express.json());
 server.use(`${basePath}`, express.static(buildPath, { index: false }));
