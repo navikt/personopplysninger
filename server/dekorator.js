@@ -2,7 +2,7 @@ const { injectDecoratorServerSide } = require('@navikt/nav-dekoratoren-moduler/s
 
 const sidecarBase =
     process.env.ENV === 'production' ? 'https://www.nav.no/person/personopplysninger' : 'https://www.intern.dev.nav.no/person/personopplysninger';
-
+console.log(process.env.REACT_APP_URL);
 const getHtmlWithDecorator = (filePath) =>
     injectDecoratorServerSide({
         env: process.env.ENV,
