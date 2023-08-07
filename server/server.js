@@ -11,7 +11,7 @@ const getHtmlWithDecorator = require('./dekorator');
 const buildPath = path.resolve(__dirname, '../build');
 const basePath = '/person/personopplysninger';
 const server = express();
-
+console.log(process.env);
 server.use(compression());
 server.use(express.json());
 server.use(`${basePath}`, express.static(buildPath, { index: false }));

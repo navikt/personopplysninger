@@ -16,6 +16,7 @@ const init = async () => {
                 simple: false,
                 chatbot: false,
                 logoutWarning: true,
+                sidecarBase: process.env.REACT_APP_URL,
             },
         });
     }
