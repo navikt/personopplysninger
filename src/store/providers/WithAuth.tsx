@@ -12,13 +12,17 @@ export const WithAuth = ({ children }: Props) => {
     const [{ authInfo }, dispatch] = useStore();
 
     useEffect(() => {
-        fetchInnloggingsStatus().then((auth: Auth) => {
-            if (!auth?.authenticated || auth.securityLevel !== '4') {
-                sendTilLogin();
-            } else {
-                dispatch({ type: 'SETT_AUTH_RESULT', payload: auth });
-            }
-        });
+        fetchInnloggingsStatus()
+            .then((auth: Auth) => {
+                if (!auth?.authenticated || auth.securityLevel !== '4') {
+                    sendTilLogin();
+                } else {
+                    dispatch({ type: 'SETT_AUTH_RESULT', payload: auth });
+                }
+            })
+            .catch((error) => {
+                throw new Error(`Could not fetch innloggingsstatus: ${error}`);
+            });
     }, [dispatch]);
 
     return authInfo.status === 'RESULT' ? children : <Spinner text={'Logger inn...'} />;

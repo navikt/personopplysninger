@@ -30,6 +30,7 @@ jobs:
       - name: Define client-side environment
         run: |
           echo "REACT_APP_MILJO=DEV" >> $GITHUB_ENV
+          echo "REACT_APP_VERSION=dev-${{ github.sha }}" >> $GITHUB_ENV
           echo "REACT_APP_DINE_SAKER_URL=https://www.intern.dev.nav.no/mine-saker" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=https://www.intern.dev.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
@@ -41,6 +42,7 @@ jobs:
           echo "REACT_APP_DITT_NAV_URL=https://www.intern.dev.nav.no/minside" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www-q0.nav.no/pensjon/opptjening" >> $GITHUB_ENV
           echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.ekstern.dev.nav.no/person/nav-dekoratoren-api/auth" >> $GITHUB_ENV
+          echo "REACT_APP_TELEMETRY_URL=https://telemetry.ekstern.dev.nav.no/collect" >> $GITHUB_ENV
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}

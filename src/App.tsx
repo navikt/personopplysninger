@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from './store/Context';
+import { initializeFaro } from '@grafana/faro-web-sdk';
 import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
 import WithFeatureToggles from './store/providers/FeatureToggles';
@@ -21,6 +22,14 @@ import '@navikt/ds-css';
 export const basePath = '/person/personopplysninger';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
+
+initializeFaro({
+    url: process.env.REACT_APP_TELEMETRY_URL,
+    app: {
+        name: 'personopplysninger',
+        version: process.env.REACT_APP_VERSION,
+    },
+});
 
 const App = () => {
     const { locale } = useIntl();
