@@ -1,6 +1,6 @@
 const { injectDecoratorServerSide } = require('@navikt/nav-dekoratoren-moduler/ssr');
 
-const sidecarBase =
+const appBase =
     process.env.ENV === 'production' ? 'https://www.nav.no/person/personopplysninger' : 'https://www.intern.dev.nav.no/person/personopplysninger';
 console.log(process.env.REACT_APP_URL);
 const getHtmlWithDecorator = (filePath) =>
@@ -18,7 +18,7 @@ const getHtmlWithDecorator = (filePath) =>
             { url: `https://www.nav.no/person/personopplysninger/nn/`, locale: 'nn' },
         ],
         logoutWarning: true,
-        sidecarBase,
+        appBase,
     });
 
 module.exports = getHtmlWithDecorator;
