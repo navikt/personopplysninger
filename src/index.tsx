@@ -15,6 +15,8 @@ const init = async () => {
             params: {
                 simple: false,
                 chatbot: false,
+                logoutWarning: true,
+                appBase: process.env.REACT_APP_URL,
             },
         });
     }
