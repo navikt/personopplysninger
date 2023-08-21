@@ -11,7 +11,7 @@ const init = async () => {
         await import('./clients/apiMock').then(({ setUpMock }) => setUpMock());
         injectDecoratorClientSide({
             env: 'localhost',
-            localUrl: 'http://localhost:8088/dekoratoren',
+            localUrl: 'http://localhost:8100/dekoratoren',
             params: {
                 simple: false,
                 chatbot: false,
