@@ -1,7 +1,7 @@
 const { injectDecoratorServerSide } = require('@navikt/nav-dekoratoren-moduler/ssr');
+const miljo = process.env.NODE_ENV;
 
-const appBase =
-    process.env.ENV === 'production' ? 'https://www.nav.no/person/personopplysninger' : 'https://www.intern.dev.nav.no/person/personopplysninger';
+const appBase = miljo === 'production' ? 'https://www.nav.no/person/personopplysninger' : 'https://www.intern.dev.nav.no/person/personopplysninger';
 const getHtmlWithDecorator = (filePath) =>
     injectDecoratorServerSide({
         env: process.env.ENV,
