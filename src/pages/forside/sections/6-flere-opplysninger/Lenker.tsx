@@ -16,7 +16,7 @@ const { REACT_APP_PDL_URL, REACT_APP_SKJERMING_URL } = process.env;
 const id = 'flere-opplysninger';
 
 const LinksContainer = () => {
-    const [{ featureToggles, locale }] = useStore();
+    const [{ locale }] = useStore();
     return (
         <Panel className="el__panel" id={id}>
             <div className="el__content">
@@ -43,50 +43,42 @@ const LinksContainer = () => {
                         component={'a'}
                     />
                 ))}
-                {featureToggles.data['personopplysninger.inst'] && (
-                    <LinkBox
-                        id={'inst'}
-                        icon={INSTIkon}
-                        tittel={'lenker.inst.tittel'}
-                        beskrivelse={'lenker.inst.beskrivelse'}
-                        lenkeTekst={'lenker.inst.lenkeTekst'}
-                        to={`${basePath}/${locale}/institusjonsopphold`}
-                        component={'Link'}
-                    />
-                )}
-                {featureToggles.data['personopplysninger.dsop'] && (
-                    <LinkBox
-                        id={'dsop'}
-                        icon={DSOPIkon}
-                        tittel={'lenker.dsop.tittel'}
-                        beskrivelse={'lenker.dsop.beskrivelse'}
-                        lenkeTekst={'lenker.dsop.lenkeTekst'}
-                        to={`${basePath}/${locale}/dsop`}
-                        component={'Link'}
-                    />
-                )}
-                {featureToggles.data['personopplysninger.medl'] && (
-                    <LinkBox
-                        id={'medl'}
-                        icon={MEDLIkon}
-                        tittel={'lenker.medl.tittel'}
-                        beskrivelse={'lenker.medl.beskrivelse'}
-                        lenkeTekst={'lenker.medl.lenkeTekst'}
-                        to={`${basePath}/${locale}/medlemskap-i-folketrygden`}
-                        component={'Link'}
-                    />
-                )}
-                {featureToggles.data['personopplysninger.fullmakt'] && featureToggles.data['pdl-fullmakt'] && (
-                    <LinkBox
-                        id={'fullmakt'}
-                        icon={FullmaktIkon}
-                        tittel={'lenker.fullmakt.tittel'}
-                        beskrivelse={'lenker.fullmakt.beskrivelse'}
-                        lenkeTekst={'lenker.fullmakt.lenkeTekst'}
-                        to={`${REACT_APP_PDL_URL}`}
-                        component={'a'}
-                    />
-                )}
+                <LinkBox
+                    id={'inst'}
+                    icon={INSTIkon}
+                    tittel={'lenker.inst.tittel'}
+                    beskrivelse={'lenker.inst.beskrivelse'}
+                    lenkeTekst={'lenker.inst.lenkeTekst'}
+                    to={`${basePath}/${locale}/institusjonsopphold`}
+                    component={'Link'}
+                />
+                <LinkBox
+                    id={'dsop'}
+                    icon={DSOPIkon}
+                    tittel={'lenker.dsop.tittel'}
+                    beskrivelse={'lenker.dsop.beskrivelse'}
+                    lenkeTekst={'lenker.dsop.lenkeTekst'}
+                    to={`${basePath}/${locale}/dsop`}
+                    component={'Link'}
+                />
+                <LinkBox
+                    id={'medl'}
+                    icon={MEDLIkon}
+                    tittel={'lenker.medl.tittel'}
+                    beskrivelse={'lenker.medl.beskrivelse'}
+                    lenkeTekst={'lenker.medl.lenkeTekst'}
+                    to={`${basePath}/${locale}/medlemskap-i-folketrygden`}
+                    component={'Link'}
+                />
+                <LinkBox
+                    id={'fullmakt'}
+                    icon={FullmaktIkon}
+                    tittel={'lenker.fullmakt.tittel'}
+                    beskrivelse={'lenker.fullmakt.beskrivelse'}
+                    lenkeTekst={'lenker.fullmakt.lenkeTekst'}
+                    to={`${REACT_APP_PDL_URL}`}
+                    component={'a'}
+                />
                 <LinkBox
                     id={'skjerming'}
                     icon={SkjermingIkon}

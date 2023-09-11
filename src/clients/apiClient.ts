@@ -1,5 +1,4 @@
 import { logApiError } from '../utils/logger';
-import { FeatureToggles } from '../store/Store';
 import { OutboundTlfnummer } from '../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
 import { TPSResponse } from '../types/tps-response';
 import { Feilmelding } from '../components/httpFeilmelding/HttpFeilmelding';
@@ -34,9 +33,6 @@ const sjekkAuthHentJson = (url: string) =>
         });
 
 export const fetchInnloggingsStatus = () => sjekkAuthHentJson(REACT_APP_INNLOGGINGSSTATUS_URL || '');
-
-export const fetchFeatureToggles = (featureToggles: FeatureToggles) =>
-    sjekkAuthHentJson(`${REACT_APP_API_URL}/feature-toggles${getFeatureToggleUrl(featureToggles)}`);
 
 export const fetchKontaktInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/kontaktinformasjon`);
 
@@ -148,8 +144,3 @@ const sjekkTPSFeil = (response: TPSResponse) => {
         }[response.statusType];
     }
 };
-
-export const getFeatureToggleUrl = (featureToggles: FeatureToggles) =>
-    Object.keys(featureToggles)
-        .map((feature: string, i: number) => `${!i ? '?' : ''}feature=${feature}`)
-        .join('&');

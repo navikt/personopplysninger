@@ -20,9 +20,9 @@ const Forside = () => {
     const params = useParams<Readonly<Params<keyof Routes>>>();
     const { tjeneste, redirectUrl } = params;
 
-    const [{ authInfo, featureToggles, personInfo, kontaktInfo }] = useStore();
+    const [{ authInfo, personInfo, kontaktInfo }] = useStore();
 
-    const isLoaded = ![authInfo, featureToggles, personInfo, kontaktInfo].some((item) => item.status === 'LOADING');
+    const isLoaded = ![authInfo, personInfo, kontaktInfo].some((item) => item.status === 'LOADING');
 
     useEffect(() => {
         if (isLoaded) {

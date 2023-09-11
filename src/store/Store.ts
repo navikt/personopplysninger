@@ -2,7 +2,6 @@ import { FetchKontaktInfo } from '../pages/forside/sections/4-personinfo/2-konta
 import { PersonInfo } from '../types/personInfo';
 import { KontaktInfo } from '../types/kontaktInfo';
 import { HTTPError } from '../components/error/Error';
-import { FetchFeatureToggles } from './providers/FeatureToggles';
 import { FetchDsopInfo } from '../pages/digital-samhandling-offentlig-privat/DsopFetch';
 import { DsopInfo } from '../types/dsop';
 import { FetchPersonInfo } from './providers/PersonInfo';
@@ -12,10 +11,6 @@ import { FetchMedlInfo } from '../pages/medlemskap-i-folketrygden/MedlFetch';
 import { MedlInfo } from '../types/medl';
 import { Auth, FetchAuth } from '../types/authInfo';
 
-export interface FeatureToggles {
-    [key: string]: boolean;
-}
-
 const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && 'en') ||
     (window.location.pathname.match(/\/nn($|\/)/) && 'nn') ||
     'nb') as Locale;
@@ -24,18 +19,6 @@ export const initialState = {
     formKey: 0,
     locale: initialLocale,
     authInfo: { status: 'LOADING' } as FetchAuth,
-    featureToggles: {
-        status: 'LOADING',
-        data: {
-            'personopplysninger.pdl': false,
-            'personopplysninger.dsop': false,
-            'personopplysninger.inst': false,
-            'personopplysninger.skatt': false,
-            'personopplysninger.medl': false,
-            'personopplysninger.fullmakt': false,
-            'pdl-fullmakt': false,
-        },
-    } as FetchFeatureToggles,
     dsopInfo: { status: 'LOADING' } as FetchDsopInfo,
     instInfo: { status: 'LOADING' } as FetchInstInfo,
     personInfo: { status: 'LOADING' } as FetchPersonInfo,
@@ -48,7 +31,6 @@ export interface Store {
     formKey: number;
     locale: Locale;
     authInfo: FetchAuth;
-    featureToggles: FetchFeatureToggles;
     personInfo: FetchPersonInfo;
     dsopInfo: FetchDsopInfo;
     instInfo: FetchInstInfo;
@@ -68,10 +50,6 @@ export type Action =
     | {
           type: 'SETT_AUTH_ERROR';
           payload: HTTPError;
-      }
-    | {
-          type: 'SETT_FEATURE_TOGGLES';
-          payload: FeatureToggles;
       }
     | {
           type: 'SETT_PERSON_INFO_RESULT';
@@ -143,14 +121,6 @@ export const reducer = (state: Store, action: Action) => {
                     status: 'ERROR',
                     error: action.payload,
                 } as FetchAuth,
-            };
-        case 'SETT_FEATURE_TOGGLES':
-            return {
-                ...state,
-                featureToggles: {
-                    status: 'RESULT',
-                    data: action.payload,
-                } as FetchFeatureToggles,
             };
         case 'SETT_PERSON_INFO_RESULT':
             return {

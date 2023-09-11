@@ -50,15 +50,9 @@ snapshot test rendrer en komponent, tar et snapshot og sammenligner dette med en
 repoet. Testen vil feile dersom de to snapshotene ikke er like. Man kan oppdatere snapshotet i repoet ved å kjøre
 kommandoen `npm test -- -u`.
 
-## Feature toggles
-
-Personopplysninger benytter Unleash til å skru av og på funksjonalitet som er under utvikling.<br>
-https://unleash.nais.io
-
 ## Deployering
 
-Merk: Bruk develop-branchen når vi deployer til dev. Dermed unngår vi at feks to utviklere overskriver hverandres
-features når de deployes individuelt til dev.
+Merk: Bruk develop-branchen når vi deployer til dev.
 
 ### Dev
 
