@@ -1,7 +1,6 @@
 import fetchMock from 'fetch-mock';
 import personInformasjon from './app/fetch/person-info.json';
 import kontaktInformasjon from './app/fetch/kontakt-info.json';
-import featureToggles from './app/fetch/feature-toggles.json';
 import dsopInfo from './app/fetch/dsop-info.json';
 import retningsnumre from './app/fetch/retningsnumre.json';
 import valutaer from './app/fetch/valutaer.json';
@@ -19,7 +18,6 @@ fetchMock.config.fallbackToNetwork = true;
 
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;
-const mockFetchFeatureToggles = true;
 const mockFetchDsopInfo = true;
 const mockFetchRetningsnumre = true;
 const mockFetchLand = true;
@@ -40,7 +38,6 @@ export const setUpMock = async () => {
    */
     mockFetchKontaktinfo && fetchMock.get(`${REACT_APP_API_URL}/kontaktinformasjon`, () => delay(200, 750).then(() => kontaktInformasjon));
     mockFetchPersonalia && fetchMock.get(`${REACT_APP_API_URL}/personalia`, () => delay(200, 750).then(() => personInformasjon));
-    mockFetchFeatureToggles && fetchMock.get(`begin:${REACT_APP_API_URL}/feature-toggles`, () => delay(200, 750).then(() => featureToggles));
     mockFetchRetningsnumre && fetchMock.get(`${REACT_APP_API_URL}/retningsnumre`, () => delay(400, 500).then(() => retningsnumre));
     mockFetchPostnummer && fetchMock.get(`${REACT_APP_API_URL}/postnummer`, () => delay(10, 50).then(() => postnummer));
     mockFetchValutaer && fetchMock.get(`${REACT_APP_API_URL}/valuta`, () => delay(100, 200).then(() => valutaer));

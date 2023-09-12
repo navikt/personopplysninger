@@ -5,7 +5,6 @@ import { useStore } from './store/Context';
 import { initializeFaro } from '@grafana/faro-web-sdk';
 import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
-import WithFeatureToggles from './store/providers/FeatureToggles';
 import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
 import PageNotFound from './pages/404/404';
 import { getRedirectPathFromParam, tillatteTjenester } from './utils/redirects';
@@ -33,7 +32,7 @@ initializeFaro({
 
 const App = () => {
     const { locale } = useIntl();
-    const [{ featureToggles }, dispatch] = useStore();
+    const [, dispatch] = useStore();
     const redirectPath = getRedirectPathFromParam();
 
     useEffect(() => {
@@ -57,78 +56,48 @@ const App = () => {
                 <Router>
                     <RedirectToLocale>
                         <WithAuth>
-                            <WithFeatureToggles>
-                                <Routes>
-                                    {redirectPath && <Navigate to={redirectPath} />}
+                            <Routes>
+                                {redirectPath && <Navigate to={redirectPath} />}
+                                <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
+                                <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/arbeidsforhold`}
+                                    element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
+                                />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/arbeidsforhold/:id`}
+                                    element={<DetaljertArbeidsforhold />}
+                                />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold/:id`} element={<InstDetaljer />} />
+                                {tillatteTjenester.map((tjeneste) => (
+                                    // react-router-dom no longes support regex in path
+                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
+                                    <Route
+                                        caseSensitive={true}
+                                        path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
+                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        key={tjeneste}
+                                    />
+                                ))}
+                                {tillatteTjenester.map((tjeneste) => (
+                                    // react-router-dom no longes support regex in path
+                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
+                                    <Route
+                                        caseSensitive={true}
+                                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
+                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        key={tjeneste}
+                                    />
+                                ))}
 
-                                    <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
-                                    <>
-                                        <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
-                                        <Route
-                                            caseSensitive={true}
-                                            path={`${basePathWithLanguage}/arbeidsforhold`}
-                                            element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
-                                        />
-                                        <Route
-                                            caseSensitive={true}
-                                            path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                                            element={<DetaljertArbeidsforhold />}
-                                        />
-                                        <>
-                                            {featureToggles.data['personopplysninger.dsop'] && (
-                                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
-                                            )}
-                                            {featureToggles.data['personopplysninger.dsop'] && (
-                                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
-                                            )}
-                                            {featureToggles.data['personopplysninger.inst'] && (
-                                                <Route
-                                                    caseSensitive={true}
-                                                    path={`${basePathWithLanguage}/institusjonsopphold`}
-                                                    element={<InstHistorikk />}
-                                                />
-                                            )}
-                                            {featureToggles.data['personopplysninger.inst'] && (
-                                                <Route
-                                                    caseSensitive={true}
-                                                    path={`${basePathWithLanguage}/institusjonsopphold/:id`}
-                                                    element={<InstDetaljer />}
-                                                />
-                                            )}
-                                            {featureToggles.data['personopplysninger.pdl'] &&
-                                                tillatteTjenester.map((tjeneste) => (
-                                                    // react-router-dom no longes support regex in path
-                                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                                    <Route
-                                                        caseSensitive={true}
-                                                        path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
-                                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                                        key={tjeneste}
-                                                    />
-                                                ))}
-                                            {featureToggles.data['personopplysninger.pdl'] &&
-                                                tillatteTjenester.map((tjeneste) => (
-                                                    // react-router-dom no longes support regex in path
-                                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                                    <Route
-                                                        caseSensitive={true}
-                                                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
-                                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                                        key={tjeneste}
-                                                    />
-                                                ))}
-                                            {featureToggles.data['personopplysninger.medl'] && (
-                                                <Route
-                                                    caseSensitive={true}
-                                                    path={`${basePathWithLanguage}/medlemskap-i-folketrygden`}
-                                                    element={<MedlHistorikk />}
-                                                />
-                                            )}
-                                            {featureToggles.status === 'RESULT' && <Route element={<PageNotFound />} />}
-                                        </>
-                                    </>
-                                </Routes>
-                            </WithFeatureToggles>
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
+                                <Route element={<PageNotFound />} />
+                            </Routes>
                         </WithAuth>
                     </RedirectToLocale>
                 </Router>
