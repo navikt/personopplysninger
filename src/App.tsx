@@ -58,63 +58,45 @@ const App = () => {
                         <WithAuth>
                             <Routes>
                                 {redirectPath && <Navigate to={redirectPath} />}
-
                                 <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
-                                <>
-                                    <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
+                                <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/arbeidsforhold`}
+                                    element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
+                                />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/arbeidsforhold/:id`}
+                                    element={<DetaljertArbeidsforhold />}
+                                />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold/:id`} element={<InstDetaljer />} />
+                                {tillatteTjenester.map((tjeneste) => (
+                                    // react-router-dom no longes support regex in path
+                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
                                     <Route
                                         caseSensitive={true}
-                                        path={`${basePathWithLanguage}/arbeidsforhold`}
-                                        element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
+                                        path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
+                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        key={tjeneste}
                                     />
+                                ))}
+                                {tillatteTjenester.map((tjeneste) => (
+                                    // react-router-dom no longes support regex in path
+                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
                                     <Route
                                         caseSensitive={true}
-                                        path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                                        element={<DetaljertArbeidsforhold />}
+                                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
+                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        key={tjeneste}
                                     />
-                                    <>
-                                        <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
-                                        <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
-                                        <Route
-                                            caseSensitive={true}
-                                            path={`${basePathWithLanguage}/institusjonsopphold`}
-                                            element={<InstHistorikk />}
-                                        />
-                                        <Route
-                                            caseSensitive={true}
-                                            path={`${basePathWithLanguage}/institusjonsopphold/:id`}
-                                            element={<InstDetaljer />}
-                                        />
-                                        {tillatteTjenester.map((tjeneste) => (
-                                            // react-router-dom no longes support regex in path
-                                            // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                            <Route
-                                                caseSensitive={true}
-                                                path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
-                                                element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                                key={tjeneste}
-                                            />
-                                        ))}
-                                        {tillatteTjenester.map((tjeneste) => (
-                                            // react-router-dom no longes support regex in path
-                                            // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                            <Route
-                                                caseSensitive={true}
-                                                path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
-                                                element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                                key={tjeneste}
-                                            />
-                                        ))}
+                                ))}
 
-                                        <Route
-                                            caseSensitive={true}
-                                            path={`${basePathWithLanguage}/medlemskap-i-folketrygden`}
-                                            element={<MedlHistorikk />}
-                                        />
-
-                                        <Route element={<PageNotFound />} />
-                                    </>
-                                </>
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
+                                <Route element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>
                     </RedirectToLocale>
