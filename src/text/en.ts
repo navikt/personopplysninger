@@ -1,4 +1,5 @@
 import merInfo from './en/information';
+
 export default {
     'side.tittel': 'Personal data',
     'side.tilbake': 'Back',
@@ -137,7 +138,7 @@ A child who lives permanently with both mother and father can have two home addr
         '<p>Additional address name is an addition to the official address.</p><p>For example, this may be a farm name, known institutions/buildings, hamlets, housing estates, cottage areas, etc.</p>',
     'arbeidsforhold.tittel': 'Employment relationship',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV needs information about your employment relationships in order to assess your need for follow-up and services from NAV, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (NAV) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>You will find more information here about the State Register of Employers and Employees</lenkeAaRegisteret>.</p>',
+        '<p>NAV needs information about your employment relationships in order to assess your need for follow-up and services from NAV, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (NAV) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
     'arbeidsforhold.kilde': 'Source: State Register of Employers and Employees<br></br><span>The data is reported by employers</span>',
     'arbeidsforhold.disclaimer':
         'The overview shows all employment relationships reported after 1 January 2015.<br></br>If there are errors in an employment relationship, the employer can change it through the a-melding (employee and payroll reporting).',
