@@ -12,15 +12,11 @@ exports[`Personalia renders correctly 1`] = `
       <div
         class="navds-guide"
       >
-        <div
-          class="navds-guide__illustration navds-guide__illustration--medium"
-        >
-          <img
-            alt=""
-            class="box__ikon"
-            src="Personalia.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="Personalia.svg"
+        />
       </div>
       <div
         class="navds-guide-panel__content"
@@ -66,12 +62,72 @@ exports[`Personalia renders correctly 1`] = `
                   />
                 </svg>
               </button>
+              <dialog
+                aria-labelledby=":r0:"
+                class="navds-modal infotekst__modal navds-modal--polyfilled navds-modal--autowidth"
+                role="dialog"
+              >
+                <div
+                  class="navds-modal__header"
+                >
+                  <button
+                    class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+                    type="button"
+                  >
+                    <span
+                      class="navds-button__icon"
+                    >
+                      <svg
+                        aria-labelledby="title-r4"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title
+                          id="title-r4"
+                        >
+                          Lukk modalvindu
+                        </title>
+                        <path
+                          clip-rule="evenodd"
+                          d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <h2
+                    class="navds-heading navds-heading--small"
+                    id=":r0:"
+                  >
+                    Personalia
+                  </h2>
+                </div>
+                <div
+                  class="navds-modal__body"
+                >
+                  <div
+                    class="infotekst__ingress"
+                  >
+                    <p
+                      class="navds-body-long navds-body-long--medium"
+                    >
+                      Vi må vite hvem du er og hvordan vi kan kontakte deg. Hvis du skal ha tjenester eller søker om økonomisk støtte, trenger vi opplysninger for å kunne vurdere hva du har krav på. For å kunne utbetale penger trenger vi kontonummeret ditt og en adresse.
+                    </p>
+                  </div>
+                </div>
+              </dialog>
               <div
                 class="box__line"
               />
             </div>
             <a
-              class="navds-link anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#personalia"
             >
               <svg
@@ -114,10 +170,10 @@ exports[`Personalia renders correctly 1`] = `
                 </p>
               </div>
               <p
-                class="navds-body-long"
+                class="navds-body-long navds-body-long--medium"
               >
                 <a
-                  class="navds-link kilde__lenke lenke"
+                  class="navds-link kilde__lenke lenke navds-link--action"
                   href="https://www.skatteetaten.no/person/folkeregister/"
                 >
                   <span

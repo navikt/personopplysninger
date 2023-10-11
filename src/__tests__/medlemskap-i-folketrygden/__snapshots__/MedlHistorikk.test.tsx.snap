@@ -9,7 +9,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
       class="medl__space"
     >
       <p
-        class="navds-body-long"
+        class="navds-body-long navds-body-long--medium"
       >
         Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har
       </p>
@@ -39,7 +39,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det.
         </p>
@@ -70,7 +70,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           jobbet i Norge, men var med i trygdeordningen i et annet land.
         </p>
@@ -110,7 +110,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.
         </p>
@@ -141,7 +141,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.
         </p>
@@ -172,7 +172,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.
         </p>
@@ -191,11 +191,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
       class="medl__space"
     >
       <p
-        class="navds-body-long"
+        class="navds-body-long navds-body-long--medium"
       >
         Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. 
         <a
-          class="navds-link"
+          class="navds-link navds-link--action"
           href="/no/person/flere-tema/arbeid-og-opphold-i-norge/relatert-informasjon/medlemskap-i-folketrygden"
         >
            Les om medlemskap i folketrygden
@@ -207,7 +207,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
       class="medl__space"
     >
       <p
-        class="navds-body-short"
+        class="navds-body-short navds-body-short--medium"
       >
         Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.
       </p>
@@ -251,7 +251,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           />
         </svg>
         <div
-          class="navds-alert__wrapper navds-body-long"
+          class="navds-alert__wrapper navds-body-long navds-body-long--medium"
         >
           Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.
         </div>
@@ -303,10 +303,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           </span>
         </button>
         <div
-          class="navds-accordion__content navds-accordion__content--closed navds-body-long"
+          aria-hidden="true"
+          class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
         >
           <p
-            class="navds-body-long"
+            class="navds-body-long navds-body-long--medium"
           >
             Oversikten viser perioder der du har søkt NAV om medlemskap i folketrygden og fått bekreftet det.
           </p>
@@ -341,7 +342,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 09.12.15 - 26.12.15
                   </p>
@@ -371,7 +372,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -399,7 +399,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -436,7 +435,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -464,7 +462,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -514,7 +511,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.19 - 31.12.19
                   </p>
@@ -544,7 +541,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -572,7 +568,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -609,7 +604,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -637,7 +631,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -687,7 +680,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.10.19 - 10.10.19
                   </p>
@@ -717,7 +710,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -745,7 +737,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -782,7 +773,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -810,7 +800,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -860,7 +849,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 09.12.19 - 30.12.19
                   </p>
@@ -890,7 +879,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -918,7 +906,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -955,7 +942,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -983,7 +969,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1033,7 +1018,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.20 - 31.12.20
                   </p>
@@ -1063,7 +1048,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1091,7 +1075,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1128,7 +1111,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1156,7 +1138,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1206,7 +1187,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.20 - 01.06.20
                   </p>
@@ -1236,7 +1217,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1264,7 +1244,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1301,7 +1280,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1329,7 +1307,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1379,7 +1356,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.20 - 01.03.20
                   </p>
@@ -1409,7 +1386,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1437,7 +1413,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1474,7 +1449,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1502,7 +1476,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1552,7 +1525,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.20 - 31.12.20
                   </p>
@@ -1582,7 +1555,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1610,7 +1582,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1647,7 +1618,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1675,7 +1645,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1725,7 +1694,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 26.06.20 - 01.03.21
                   </p>
@@ -1755,7 +1724,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1783,7 +1751,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1820,7 +1787,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1848,7 +1814,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1898,7 +1863,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.22 - 19.12.23
                   </p>
@@ -1928,7 +1893,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -1956,7 +1920,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -1993,7 +1956,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2021,7 +1983,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2071,7 +2032,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.22 - 19.12.23
                   </p>
@@ -2101,7 +2062,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2129,7 +2089,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2166,7 +2125,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2194,7 +2152,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2266,10 +2223,11 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           </span>
         </button>
         <div
-          class="navds-accordion__content navds-accordion__content--closed navds-body-long"
+          aria-hidden="true"
+          class="navds-accordion__content navds-accordion__content--closed navds-body-long navds-body-long--medium"
         >
           <p
-            class="navds-body-long"
+            class="navds-body-long navds-body-long--medium"
           >
             Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
           </p>
@@ -2304,7 +2262,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 31.12.14 - 01.01.15
                   </p>
@@ -2334,7 +2292,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2362,7 +2319,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2399,7 +2355,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2427,7 +2382,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2464,7 +2418,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2492,7 +2445,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2544,7 +2496,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.15 - 31.10.15
                   </p>
@@ -2574,7 +2526,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2602,7 +2553,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2639,7 +2589,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2667,7 +2616,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2704,7 +2652,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2732,7 +2679,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2784,7 +2730,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.18 - 31.12.18
                   </p>
@@ -2814,7 +2760,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2842,7 +2787,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2879,7 +2823,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2907,7 +2850,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -2944,7 +2886,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -2972,7 +2913,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -3024,7 +2964,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                     />
                   </svg>
                   <p
-                    class="navds-body-long"
+                    class="navds-body-long navds-body-long--medium"
                   >
                     Periode 01.01.19 - 01.02.19
                   </p>
@@ -3054,7 +2994,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -3082,7 +3021,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -3119,7 +3057,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -3147,7 +3084,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
@@ -3184,7 +3120,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             type="button"
                           >
                             <span
-                              aria-live="polite"
                               class="navds-label"
                             >
                               <svg
@@ -3212,7 +3147,6 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                             class="navds-popover customHelpText__popover navds-popover--hidden"
                             data-placement="top"
                             style="position: absolute; top: 0px; left: 0px;"
-                            tabindex="-1"
                           >
                             <div
                               class="navds-popover__content"
