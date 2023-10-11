@@ -12,7 +12,6 @@ import InstHistorikk from './pages/institusjonsopphold/historikk/InstHistorikk';
 import InstDetaljer from './pages/institusjonsopphold/detaljer/InstDetaljer';
 import DsopHistorikk from './pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk';
 import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer';
-import { Modal } from '@navikt/ds-react';
 import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 // Import this early, to ensure our own CSS gets higher specificity
@@ -34,10 +33,6 @@ const App = () => {
     const { locale } = useIntl();
     const [, dispatch] = useStore();
     const redirectPath = getRedirectPathFromParam();
-
-    useEffect(() => {
-        Modal.setAppElement?.('#app');
-    }, []);
 
     useEffect(() => {
         // Reset forms dersom locale endrer seg

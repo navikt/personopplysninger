@@ -83,36 +83,36 @@ const AndreAdresser = (props: Props) => {
                     </Button>
 
                     {visSlettModal && (
-                        <Modal closeButton={false} open={visSlettModal} onClose={lukkSlettModal} aria-labelledby="slett-kontaktadresse-overskrift">
-                            <Modal.Content>
-                                <div style={{ padding: '2rem 2.5rem' }}>
-                                    <Heading id="slett-kontaktadresse-overskrift" level="2" size="small">
-                                        <FormattedMessage id="side.slett.kontaktadresse" />
-                                    </Heading>
-                                    <BodyShort>
-                                        <FormattedMessage
-                                            id="adresse.slett.alert"
-                                            values={{
-                                                br: (text) => (
-                                                    <>
-                                                        <br />
-                                                        {text}
-                                                    </>
-                                                ),
-                                            }}
-                                        />
-                                    </BodyShort>
-                                    <div className="adresse__modal-knapper">
-                                        <Button variant={'danger'} onClick={slettPdlKontaktadresse} loading={slettLoading} disabled={slettLoading}>
-                                            <FormattedMessage id={'side.slett'} />
-                                        </Button>
-                                        <Button variant={'tertiary'} onClick={lukkSlettModal} disabled={slettLoading}>
-                                            <FormattedMessage id="side.avbryt" />
-                                        </Button>
-                                    </div>
-                                    {slettAlert && <HttpFeilmelding {...slettAlert} />}
+                        <Modal open={visSlettModal} onClose={lukkSlettModal} aria-labelledby="slett-kontaktadresse-overskrift">
+                            <Modal.Header closeButton={false}>
+                                <Heading id="slett-kontaktadresse-overskrift" level="2" size="small">
+                                    <FormattedMessage id="side.slett.kontaktadresse" />
+                                </Heading>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <BodyShort>
+                                    <FormattedMessage
+                                        id="adresse.slett.alert"
+                                        values={{
+                                            br: (text) => (
+                                                <>
+                                                    <br />
+                                                    {text}
+                                                </>
+                                            ),
+                                        }}
+                                    />
+                                </BodyShort>
+                                <div className="adresse__modal-knapper">
+                                    <Button variant={'tertiary'} onClick={lukkSlettModal} disabled={slettLoading}>
+                                        <FormattedMessage id="side.avbryt" />
+                                    </Button>
+                                    <Button variant={'danger'} onClick={slettPdlKontaktadresse} loading={slettLoading} disabled={slettLoading}>
+                                        <FormattedMessage id={'side.slett'} />
+                                    </Button>
                                 </div>
-                            </Modal.Content>
+                                {slettAlert && <HttpFeilmelding {...slettAlert} />}
+                            </Modal.Body>
                         </Modal>
                     )}
                 </>

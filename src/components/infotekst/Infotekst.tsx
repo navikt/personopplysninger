@@ -27,39 +27,39 @@ function Infotekst(props: HjelpetekstProps) {
             >
                 <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} aria-hidden="true" />
             </button>
-            <Modal open={erSynlig} onClose={() => settErSynlig(false)} closeButton={true} className="infotekst__modal" aria-labelledby={modalID}>
-                <Modal.Content>
-                    <div style={{ padding: '2rem 2.5rem' }}>
-                        <Heading id={modalID} level="2" size="small">
-                            <FormattedMessage id={overskriftID} />
-                        </Heading>
-                        <div className="infotekst__ingress">
-                            <BodyLong>
-                                <FormattedMessage
-                                    id={beskrivelseID}
-                                    values={{
-                                        p: (...chunks) => (
-                                            <p>
-                                                {chunks.map((chunk, i) => (
-                                                    <Fragment key={i}>{chunk}</Fragment>
-                                                ))}
-                                            </p>
-                                        ),
-                                        br: (text) => (
-                                            <>
-                                                <br />
-                                                {text}
-                                            </>
-                                        ),
-                                        b: (text) => <b>{text}</b>,
-                                        span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
-                                        lenkeAaRegisteret: (text) => <Link href={'/arbeidsgiver/aa-registeret'}>{text}</Link>,
-                                    }}
-                                />
-                            </BodyLong>
-                        </div>
+            <Modal open={erSynlig} onClose={() => settErSynlig(false)} className="infotekst__modal" aria-labelledby={modalID}>
+                <Modal.Header>
+                    <Heading id={modalID} level="2" size="small">
+                        <FormattedMessage id={overskriftID} />
+                    </Heading>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="infotekst__ingress">
+                        <BodyLong>
+                            <FormattedMessage
+                                id={beskrivelseID}
+                                values={{
+                                    p: (...chunks) => (
+                                        <p>
+                                            {chunks.map((chunk, i) => (
+                                                <Fragment key={i}>{chunk}</Fragment>
+                                            ))}
+                                        </p>
+                                    ),
+                                    br: (text) => (
+                                        <>
+                                            <br />
+                                            {text}
+                                        </>
+                                    ),
+                                    b: (text) => <b>{text}</b>,
+                                    span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
+                                    lenkeAaRegisteret: (text) => <Link href={'/arbeidsgiver/aa-registeret'}>{text}</Link>,
+                                }}
+                            />
+                        </BodyLong>
                     </div>
-                </Modal.Content>
+                </Modal.Body>
             </Modal>
         </>
     );

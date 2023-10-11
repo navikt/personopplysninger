@@ -1,120 +1,120 @@
 .adresse {
-  &__select-header {
-    display: flex;
-  }
+    &__select-header {
+        display: flex;
+    }
 
-  &__select {
-    margin-top: 1rem;
-  }
+    &__select {
+        margin-top: 1rem;
+    }
 
-  &__box {
-    .adresse__lesmer {
-      .lesMerPanel__toggle {
-        justify-content: flex-start;
-      }
+    &__box {
+        .adresse__lesmer {
+            .lesMerPanel__toggle {
+                justify-content: flex-start;
+            }
 
-      .navds-read-more__content {
+            .navds-read-more__content {
+                padding: 0;
+                margin: 0;
+                border: 0;
+            }
+        }
+    }
+    &__slett-kontaktadresse.navds-button {
+        margin-left: -1.5rem;
+    }
+    &__tittel {
+        padding: 0 0 1rem 0;
+    }
+    &__lesmer {
         padding: 0;
-        margin: 0;
-        border: 0;
-      }
-    }
-  }
-  &__slett-kontaktadresse.navds-button {
-    margin-left: -1.5rem;
-  }
-  &__tittel {
-    padding: 0 0 1rem 0;
-  }
-  &__lesmer {
-    padding: 0;
 
-    .navds-read-more__button {
-      margin-left: -0.5rem;
+        .navds-read-more__button {
+            margin-left: -0.5rem;
+        }
     }
-  }
-  &__linje {
-    width: 100%;
-  }
-  &__form {
-    margin-top: 0.5rem;
-  }
-  &__divider {
-    padding: 0.5rem;
-  }
-  &__land-select {
-    @media @maxMobile {
-      width: 100%;
+    &__linje {
+        width: 100%;
     }
-    @media @minMobile {
-      width: 40%;
+    &__form {
+        margin-top: 0.5rem;
     }
-  }
+    &__divider {
+        padding: 0.5rem;
+    }
+    &__land-select {
+        @media @maxMobile {
+            width: 100%;
+        }
+        @media @minMobile {
+            width: 40%;
+        }
+    }
 
-  &__without-label {
-    width: 100%;
-    @media @minMobile {
-      padding-top: 30px;
+    &__without-label {
+        width: 100%;
+        @media @minMobile {
+            padding-top: 30px;
+        }
     }
-  }
 
-  &__rad {
-    display: flex;
-    @media @maxMobile {
-      flex-direction: column;
+    &__rad {
+        display: flex;
+        @media @maxMobile {
+            flex-direction: column;
+        }
+        width: 100%;
     }
-    width: 100%;
-  }
-  &__kolonne {
-    @media @maxMobile {
-      width: 100%;
+    &__kolonne {
+        @media @maxMobile {
+            width: 100%;
+        }
+        @media @minMobile {
+            width: 50%;
+        }
     }
-    @media @minMobile {
-      width: 50%;
+    &__modal-knapper {
+        display: flex;
+        margin-top: 2rem;
+        justify-content: flex-end;
+        > *:first-child {
+            margin-right: 0.25rem;
+        }
+        > *:last-child {
+            margin-left: 0.25rem;
+        }
     }
-  }
-  &__modal-knapper {
-    display: flex;
-    margin-top: 2rem;
-    justify-content: center;
-    > *:first-child {
-      margin-right: 0.25rem;
+    &__endre-knapper {
+        display: flex;
     }
-    > *:last-child {
-      margin-left: 0.25rem;
+    &__form-knapper {
+        padding: 1rem 0;
+        display: flex;
     }
-  }
-  &__endre-knapper {
-    display: flex;
-  }
-  &__form-knapper {
-    padding: 1rem 0;
-    display: flex;
-  }
-  &__knapp:last-child {
-    margin-left: 0.5rem;
-  }
-  &__input-avstand {
-    padding-right: 0.5rem;
-  }
-  &__input-bolignummer {
-    @media @minMobile {
-      max-width: 148px;
+    &__knapp:last-child {
+        margin-left: 0.5rem;
     }
-  }
-  &__kolonne:first-child {
-    @media @minMobile {
-      padding-right: 0.25rem;
+    &__input-avstand {
+        padding-right: 0.5rem;
     }
-  }
-  &__kolonne:last-child {
-    @media @minMobile {
-      padding-left: 0.25rem;
+    &__input-bolignummer {
+        @media @minMobile {
+            max-width: 148px;
+        }
     }
-  }
-  &__submit-container {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0 0 0;
-  }
+    &__kolonne:first-child {
+        @media @minMobile {
+            padding-right: 0.25rem;
+        }
+    }
+    &__kolonne:last-child {
+        @media @minMobile {
+            padding-left: 0.25rem;
+        }
+    }
+    &__submit-container {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0 0 0;
+    }
 }
