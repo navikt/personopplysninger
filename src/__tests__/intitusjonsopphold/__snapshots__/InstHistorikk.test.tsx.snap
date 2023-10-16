@@ -32,10 +32,10 @@ exports[`InstHistorikkView renders correctly 1`] = `
         />
       </svg>
       <div
-        class="navds-alert__wrapper navds-body-long"
+        class="navds-alert__wrapper navds-body-long navds-body-long--medium"
       >
         <p
-          class="navds-body-long"
+          class="navds-body-long navds-body-long--medium"
         >
           Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.
         </p>
@@ -75,7 +75,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             class="historikk__flex-kolonne historikk__heading"
           >
             <p
-              class="navds-body-short"
+              class="navds-body-short navds-body-short--medium"
             >
               29.12.2017 - 17.12.2018
             </p>
@@ -94,7 +94,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             class="historikk__flex-kolonne historikk__heading"
           >
             <p
-              class="navds-body-short"
+              class="navds-body-short navds-body-short--medium"
             >
               29.12.2017 - 20.12.2020
             </p>
@@ -106,7 +106,6 @@ exports[`InstHistorikkView renders correctly 1`] = `
                 type="button"
               >
                 <span
-                  aria-live="polite"
                   class="navds-label"
                 >
                   <svg
@@ -134,7 +133,6 @@ exports[`InstHistorikkView renders correctly 1`] = `
                 class="navds-popover customHelpText__popover navds-popover--hidden"
                 data-placement="top"
                 style="position: absolute; top: 0px; left: 0px;"
-                tabindex="-1"
               >
                 <div
                   class="navds-popover__content"
@@ -162,7 +160,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
             class="historikk__flex-kolonne historikk__heading"
           >
             <p
-              class="navds-body-short"
+              class="navds-body-short navds-body-short--medium"
             >
               13.06.2017 - 15.09.2017
             </p>

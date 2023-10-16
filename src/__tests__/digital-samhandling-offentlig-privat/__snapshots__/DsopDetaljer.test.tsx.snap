@@ -12,7 +12,7 @@ exports[`DsopDetaljerView renders correctly 1`] = `
         STOREBRAND LIVSFORSIKRING AS
       </h2>
       <p
-        class="navds-body-short"
+        class="navds-body-short navds-body-short--medium"
       >
         Organisasjonsnummer 958995369
       </p>
@@ -102,7 +102,6 @@ exports[`DsopDetaljerView renders correctly 1`] = `
           class="navds-button navds-button--primary navds-button--medium"
         >
           <span
-            aria-live="polite"
             class="navds-label"
           >
             Last ned leverte data

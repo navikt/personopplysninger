@@ -35,11 +35,11 @@ exports[`DsopHistorikkView renders correctly 1`] = `
           />
         </svg>
         <div
-          class="navds-alert__wrapper navds-body-long"
+          class="navds-alert__wrapper navds-body-long navds-body-long--medium"
         >
           Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. 
           <a
-            class="navds-link"
+            class="navds-link navds-link--action"
             href="https://altinn.no"
             target="blank"
           >

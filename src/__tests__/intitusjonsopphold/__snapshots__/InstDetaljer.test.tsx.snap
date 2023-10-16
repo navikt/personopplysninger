@@ -12,7 +12,7 @@ exports[`InstDetaljerView renders correctly 1`] = `
         VIK FENGSEL
       </h2>
       <p
-        class="navds-body-short"
+        class="navds-body-short navds-body-short--medium"
       >
         Organisasjonsnummer 974 736 942
       </p>

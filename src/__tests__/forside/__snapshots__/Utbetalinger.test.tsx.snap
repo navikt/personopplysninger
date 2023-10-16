@@ -12,15 +12,11 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
       <div
         class="navds-guide"
       >
-        <div
-          class="navds-guide__illustration navds-guide__illustration--medium"
-        >
-          <img
-            alt=""
-            class="box__ikon"
-            src="Kontonummer.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="Kontonummer.svg"
+        />
       </div>
       <div
         class="navds-guide-panel__content"
@@ -47,7 +43,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               />
             </div>
             <a
-              class="navds-link anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#utbetaling"
             >
               <svg
@@ -110,7 +106,6 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                 class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
-                  aria-live="polite"
                   class="navds-label"
                 >
                   <span
@@ -128,7 +123,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M19.638 4.418a3.252 3.252 0 0 0-4.608-.009l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .009-4.591ZM16.09 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.478-2.479.23-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963L14.8 6.76Z"
+                        d="M19.638 4.417a3.252 3.252 0 0 0-4.608-.008l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .01-4.592ZM16.091 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.477-2.479.229-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963-2.478-2.478Z"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
@@ -158,15 +153,11 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
       <div
         class="navds-guide"
       >
-        <div
-          class="navds-guide__illustration navds-guide__illustration--medium"
-        >
-          <img
-            alt=""
-            class="box__ikon"
-            src="Kontonummer.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="Kontonummer.svg"
+        />
       </div>
       <div
         class="navds-guide-panel__content"
@@ -193,7 +184,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               />
             </div>
             <a
-              class="navds-link anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#utbetaling"
             >
               <svg
@@ -237,12 +228,12 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 </dt>
                 <dd>
                   <p
-                    class="navds-body-short"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     Dominion Bank
                   </p>
                   <p
-                    class="navds-body-short"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     Forente Arabiske Emirater
                   </p>
@@ -313,7 +304,6 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
               >
                 <span
-                  aria-live="polite"
                   class="navds-label"
                 >
                   <span
@@ -331,7 +321,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                     >
                       <path
                         clip-rule="evenodd"
-                        d="M19.638 4.418a3.252 3.252 0 0 0-4.608-.009l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .009-4.591ZM16.09 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.478-2.479.23-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963L14.8 6.76Z"
+                        d="M19.638 4.417a3.252 3.252 0 0 0-4.608-.008l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .01-4.592ZM16.091 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.477-2.479.229-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963-2.478-2.478Z"
                         fill="currentColor"
                         fill-rule="evenodd"
                       />
