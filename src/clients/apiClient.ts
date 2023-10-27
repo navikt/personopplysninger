@@ -59,7 +59,6 @@ export const fetchDsopInfo = () => sjekkAuthHentJson(`${REACT_APP_DSOP_URL}/get`
 type Outbound = OutboundTlfnummer | OutboundNorskKontonummer | OutboundUtenlandsbankonto;
 
 const postJson = (url: string, data?: Outbound) => {
-    console.log(url, data);
     return fetch(url, {
         method: 'POST',
         ...(data && {
