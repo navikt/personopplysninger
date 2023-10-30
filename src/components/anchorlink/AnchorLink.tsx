@@ -1,16 +1,17 @@
-import React from "react";
-import Lenke from "nav-frontend-lenker";
-import linkIcon from "assets/img/AnchorLink.svg";
+import { LinkIcon } from '@navikt/aksel-icons';
+import { Link } from '@navikt/ds-react';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
 
 type Props = {
     id: string;
 };
 
-export const AnchorLink = ({id}: Props) => {
-
+export const AnchorLink = ({ id }: Props) => {
+    const { formatMessage } = useIntlFormatter();
     return (
-        <Lenke href={`#${id}`} className={"anchor-link"}>
-            <img src={linkIcon} alt={""}/>{"Lenke hit"}
-        </Lenke>
+        <Link href={`#${id}`} className={'anchor-link'}>
+            <LinkIcon className={'anchor-link__icon'} aria-hidden="true" />
+            {formatMessage('anker.lenkehit')}
+        </Link>
     );
 };

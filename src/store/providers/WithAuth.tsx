@@ -1,25 +1,29 @@
-import React, { useEffect } from "react";
-import { useStore } from "../Context";
-import { fetchInnloggingsStatus, sendTilLogin } from "../../clients/apiClient";
-import { Auth } from "../../types/authInfo";
-import Spinner from "../../components/spinner/Spinner";
+import { useEffect } from 'react';
+import { useStore } from '../Context';
+import { fetchInnloggingsStatus, sendTilLogin } from '../../clients/apiClient';
+import { Auth } from '../../types/authInfo';
+import Spinner from '../../components/spinner/Spinner';
 
 type Props = {
-  children: JSX.Element;
+    children: JSX.Element;
 };
 
 export const WithAuth = ({ children }: Props) => {
-  const [{ authInfo }, dispatch] = useStore();
+    const [{ authInfo }, dispatch] = useStore();
 
-  useEffect(() => {
-    fetchInnloggingsStatus().then((auth: Auth) => {
-      if (!auth?.authenticated || auth.securityLevel !== "4") {
-        sendTilLogin();
-      } else {
-        dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
-      }
-    });
-  }, [dispatch]);
+    useEffect(() => {
+        fetchInnloggingsStatus()
+            .then((auth: Auth) => {
+                if (!auth?.authenticated || auth.securityLevel !== '4') {
+                    sendTilLogin();
+                } else {
+                    dispatch({ type: 'SETT_AUTH_RESULT', payload: auth });
+                }
+            })
+            .catch((error) => {
+                throw new Error(`Could not fetch innloggingsstatus: ${error}`);
+            });
+    }, [dispatch]);
 
-  return authInfo.status === "RESULT" ? children : <Spinner text={"Logger inn..."} />;
+    return authInfo.status === 'RESULT' ? children : <Spinner text={'Logger inn...'} />;
 };

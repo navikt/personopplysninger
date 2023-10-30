@@ -1,28 +1,37 @@
 .kilde {
-  &__lenke {
-    display: flex;
-    width: max-content;
-    max-width: 100%;
-    align-items: center;
-    margin: 1rem 0;
-    border: 0;
-    padding-left: 0;
-    &:first-child {
-      margin-right: 1rem;
+    &__lenke {
+        display: flex;
+        width: max-content;
+        max-width: 100%;
+        align-items: center;
+        margin: 1rem 0;
+        border: 0;
+        padding-left: 0;
+        &:first-child {
+            margin-right: 1rem;
+        }
     }
-  }
-  &__icon {
-    margin-right: 0.5rem;
-  }
-  &__linje {
-    border: 0.5px solid black;
-    width: 100%;
-    opacity: 0.5;
-    margin: 1rem 0;
-  }
-  &__tekst {
-    padding: 0.5rem 0;
-    color: @navGra60;
-    text-transform: uppercase;
-  }
+    &__icon {
+        margin-right: 0.5rem;
+    }
+    &__icon-aksel {
+        display: flex;
+        width: 1.8rem;
+        height: 1.8rem;
+        margin-top: -2px; // Balance against text.
+    }
+    &__linje {
+        border: 0.5px solid black;
+        width: 100%;
+        opacity: 0.5;
+        margin: 1rem 0;
+    }
+    &__tekst {
+        padding: 0.5rem 0;
+        color: var(--a-gray-900);
+        text-transform: uppercase;
+    }
+    &__knapp.navds-button {
+        margin-left: -1.5rem;
+    }
 }

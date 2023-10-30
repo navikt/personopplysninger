@@ -1,234 +1,114 @@
-import { SimpleValidatorConfig, ValidatorContext } from "calidation";
-import { isValidBIC, isValidIBAN } from "ibantools";
-import { getIbanPrefixAlternatives } from "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utils";
-import { isMod11 } from "./kontonummer";
-import { OptionType } from "types/option";
-import validator from "@navikt/fnrvalidator";
-import { normalizeNummer } from "./formattering";
-
-export const extraValidators = {
-  /*
-    General validators
-   */
-
-  isNormalizedLength: (config: SimpleValidatorConfig) => (value: string) =>
-    value && normalizeNummer(value).length !== 11 ? config.message : null,
-
-  isMod11: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !isMod11(normalizeNummer(value)) ? config.message : null,
-
-  isFirstCharNotSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !value.match(/^[^\s].*/) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isLetters: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z]+/g) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isLettersAndSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z ]+/g) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isLettersAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z0-9]+/g) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isLettersSpaceAndDigits: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z0-9 ]+/g) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isMinOneLetter: (config: SimpleValidatorConfig) => (value: string) =>
-    !value.match(/[[ÆØÅæøåA-z]+/g) ? config.message : null,
-
-  isBlacklistedCommon: (config: SimpleValidatorConfig) => (value: string) =>
-    BLACKLISTED_WORDS.some((substring) =>
-      value.toLowerCase().includes(substring)
-    )
-      ? config.message
-      : null,
-
-  isPositive: (config: SimpleValidatorConfig) => (value: string) => {
-    var n = Math.floor(Number(value));
-    return !(n !== Infinity && String(n) === value && n > 0)
-      ? config.message
-      : null;
-  },
-
-  isNotSSN: (config: SimpleValidatorConfig) => (value: string) =>
-    validator.idnr(value).status === "valid" ? config.message : null,
-
-  isNotYourSSN: (config: SimpleValidatorConfig) => () => config.message,
-
-  /*
-    Special validators - Address
-  */
-
-  isHouseNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !value.match(/([LHUK]{1})([0-9]{4})/) ? config.message : null,
-
-  // Todo: use regExpCreator
-  isValidStreetName: (config: SimpleValidatorConfig) => (value: string) =>
-    value.match(/[^ÆØÅæøåA-Za-z _.-]+/g) ? config.message : null,
-
-  /*
-    Special validators - Account number
-   */
-
-  isValidNorwegianNumber: (config: SimpleValidatorConfig) => (value: string) =>
-    value.length !== 8 || !erInteger(value) ? config.message : null,
-
-  isIBANRequired: (config: SimpleValidatorConfig) => (value: OptionType) =>
-    !value ? config.message : null,
-
-  isIBAN: (config: SimpleValidatorConfig) => (value: string) =>
-    !isValidIBAN(value) ? config.message : null,
-
-  isIBANCountryCompliant:
-    (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
-    (value: string) => {
-      if (!fields.land) {
-        return null;
-      }
-      const ibanPrefix = value && value.substring(0, 2);
-      const selectedCountryAlpha2 = fields.land.value;
-      const selectedCountryPrefixAlternatives = getIbanPrefixAlternatives(
-        fields.land.value
-      );
-
-      return ibanPrefix !== selectedCountryAlpha2 &&
-        !selectedCountryPrefixAlternatives.includes(ibanPrefix)
-        ? config.message
-        : null;
-    },
-
-  isBIC: (config: SimpleValidatorConfig) => (value: string) =>
-    !isValidBIC(value) ? config.message : null,
-
-  isBICCountryCompliant:
-    (config: SimpleValidatorConfig, { fields }: ValidatorContext) =>
-    (value: string) =>
-      fields.land && value.substring(4, 6) !== fields.land.value
-        ? config.message
-        : null,
-
-  isNotIBAN: (config: SimpleValidatorConfig) => (value: string) =>
-    isValidIBAN(value) ? config.message : null,
-
-  isBankkode:
-    (config: any, { fields }: ValidatorContext) =>
-    (value: string) =>
-      value && value.length !== fields.land.bankkodeLengde
-        ? config.message({
-            land: fields.land.label,
-            siffer: fields.land.bankkodeLengde,
-          })
-        : null,
-
-  hasMultipleCombinedSpaces:
-    (config: SimpleValidatorConfig) => (value: string) =>
-      value && value.match(/\s\s/) ? config.message : null,
-
-  notOnlySignsDigitsSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    value && normalizeInput(value).match(regExpPattern.onlyNonLetters)
-      ? config.message
-      : null,
-
-  notOnlySignsSpace: (config: SimpleValidatorConfig) => (value: string) =>
-    value && normalizeInput(value).match(regExpPattern.onlySignsSpace)
-      ? config.message
-      : null,
-
-  isValidBanknavn: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !normalizeInput(value).match(regExpPattern.validBanknavn)
-      ? config.message
-      : null,
-
-  isValidAdresselinje: (config: SimpleValidatorConfig) => (value: string) =>
-    value && !normalizeInput(value).match(regExpPattern.validBankadresselinje)
-      ? config.message
-      : null,
-};
+import { OptionType } from 'types/option';
+import { normalizeNummer } from './formattering';
+import { Tlfnr } from '../types/personalia';
+import { isMod11 } from './kontonummer';
 
 /*
-  Utils
+  General validators
  */
 
-export const erInteger = (str: string) => {
-  var n = Math.floor(Number(str));
-  return n !== Infinity && String(n) === str && n >= 0;
+export const isNormalizedLength = (value: string, length: number) => normalizeNummer(value).length === length;
+
+export const isNormalizedMod11 = (value: string) => isMod11(normalizeNummer(value));
+
+export const hasMultipleCombinedSpaces = (value: string) => !!value.match(/\s\s/);
+
+export const isFirstCharNotSpace = (value: string) => value.charAt(0) !== ' ';
+
+export const isNumeric = (value: string) => {
+    return !!value.match(regExpPattern.onlyNumeric);
 };
 
-export const isNorwegianNumber = (landskode: OptionType) =>
-  landskode && landskode.value === "+47";
+export const isLettersAndDigits = (value: string) => {
+    return !!value.match(regExpPattern.onlyAlphaNumeric);
+};
 
-export interface CustomValidator {
-  message: (values: object) => string;
-  validateIf?: ((context: ValidatorContext) => boolean) | boolean;
-}
+export const isBlacklistedCommon = (value: string) => BLACKLISTED_WORDS.some((substring) => value.toLowerCase().includes(substring));
+
+/*
+  Special validators - Account number
+ */
+
+export const isIBANCountryCompliant = (value: string, land?: OptionType) => {
+    const ibanPrefix = value && value.substring(0, 2);
+    const selectedCountryAlpha2 = land?.value;
+    const selectedCountryPrefixAlternative = land?.alternativLandkode;
+
+    return ibanPrefix === selectedCountryAlpha2 || ibanPrefix === selectedCountryPrefixAlternative;
+};
+
+export const isBICCountryCompliant = (value: string, land?: OptionType) =>
+    value.substring(4, 6) === land?.value || value.substring(4, 6) === land?.alternativLandkode;
+
+export const isBankkodeValidLength = (value: string, land?: OptionType) => value.length === land?.bankkodeLengde;
+
+export const isOnlyNonLetters = (value: string) => !!normalizeInput(value).match(regExpPattern.onlyNonLetters);
+
+export const isOnlySignsSpace = (value: string) => !!normalizeInput(value).match(regExpPattern.onlySignsSpace);
+
+export const isValidBanknavn = (value: string) => !!normalizeInput(value).match(regExpPattern.validBanknavn);
+
+export const isValidAdresselinje = (value: string) => !!normalizeInput(value).match(regExpPattern.validBankadresselinje);
+
+/*
+  Special validators - Phone number
+ */
+
+export const isNotAlreadyRegistered = (value: string, tlfnr: Tlfnr) => {
+    return ![tlfnr.telefonHoved, tlfnr.telefonAlternativ].includes(value);
+};
+
+export const isNorwegianNumber = (landskode: OptionType) => landskode.value === '+47';
+
+/*
+  Utilstext
+ */
 
 /*
   Regex
  */
 
-const LATIN_LETTERS = "A-Za-z";
-const NORWEGIAN_LETTERS = LATIN_LETTERS + "ÆØÅæøå";
-const SPECIAL_LETTERS = `ıłŁŊŋŦŧƁɓƊɗƓɠƘƙƤƥƬƭÞþßԈБ\\u0189\\u0256\\u00D0\\u00F0\\u00F0\\u0111\\u01E4\\u01E5\\u0187\\u0188\\u01B3\\u01B4`;
+const LATIN_LETTERS = 'A-Za-z';
+const NORWEGIAN_LETTERS = LATIN_LETTERS + 'ÆØÅæøå';
+const SPECIAL_LETTERS = 'ıłŁŊŋŦŧƁɓƊɗƓɠƘƙƤƥƬƭÞþßԈБ\\u0189\\u0256\\u00D0\\u00F0\\u00F0\\u0111\\u01E4\\u01E5\\u0187\\u0188\\u01B3\\u01B4';
 const ALL_LETTERS = NORWEGIAN_LETTERS + SPECIAL_LETTERS;
-const DIGITS = "0-9";
-const SPACE = " ";
-const HYPHEN = "\\-";
-const PERIOD = ".";
+const DIGITS = '0-9';
+const SPACE = ' ';
+const HYPHEN = '\\-';
+const PERIOD = '.';
 const APOSTROPHE = "'";
-const FORWARD_SLASH = "/";
-const COMMA = ",";
-const COLON = ":";
-const NUMBER_SIGN = "#";
-const AMPERSAND = "&";
+const FORWARD_SLASH = '/';
+const COMMA = ',';
+const COLON = ':';
+const NUMBER_SIGN = '#';
+const AMPERSAND = '&';
 
-export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp =>
-  new RegExp(regExpAsArray.join(""), flag);
+export const regExpCreator = (regExpAsArray: string[], flag = 'i'): RegExp => new RegExp(regExpAsArray.join(''), flag);
 
 export const regExpPattern = {
-  onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
-  onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
-  validBankadresselinje: regExpCreator([
-    "^[",
-    ALL_LETTERS,
-    DIGITS,
-    SPACE,
-    HYPHEN,
-    PERIOD,
-    COMMA,
-    COLON,
-    APOSTROPHE,
-    FORWARD_SLASH,
-    AMPERSAND,
-    NUMBER_SIGN,
-    "]+$",
-  ]),
-  validBanknavn: regExpCreator([
-    "^[",
-    ALL_LETTERS,
-    DIGITS,
-    SPACE,
-    HYPHEN,
-    PERIOD,
-    COMMA,
-    APOSTROPHE,
-    FORWARD_SLASH,
-    AMPERSAND,
-    "]+$",
-  ]),
+    onlyNonLetters: regExpCreator(['^[^', ALL_LETTERS, ']+$']),
+    onlySignsSpace: regExpCreator(['^[^', ALL_LETTERS, DIGITS, ']+$']),
+    onlyAlphaNumeric: regExpCreator(['^[', NORWEGIAN_LETTERS, DIGITS, ']+$']),
+    onlyNumeric: regExpCreator(['^[', DIGITS, ']+$']),
+    validBankadresselinje: regExpCreator([
+        '^[',
+        ALL_LETTERS,
+        DIGITS,
+        SPACE,
+        HYPHEN,
+        PERIOD,
+        COMMA,
+        COLON,
+        APOSTROPHE,
+        FORWARD_SLASH,
+        AMPERSAND,
+        NUMBER_SIGN,
+        ']+$',
+    ]),
+    validBanknavn: regExpCreator(['^[', ALL_LETTERS, DIGITS, SPACE, HYPHEN, PERIOD, COMMA, APOSTROPHE, FORWARD_SLASH, AMPERSAND, ']+$']),
 };
 
-export const BLACKLISTED_WORDS = [
-  "ukjent",
-  "ikke kjent",
-  "vet ikke",
-  "uoppgitt",
-  "n.n.",
-  "nomen nescio",
-];
+export const BLACKLISTED_WORDS = ['ukjent', 'ikke kjent', 'vet ikke', 'uoppgitt', 'n.n.', 'nomen nescio'];
 
 /*
  * Normalize-funksjonen vil først dekomponere en bokstav med spesialtegn til flere kodepunkter.
@@ -237,7 +117,6 @@ export const BLACKLISTED_WORDS = [
  * F.eks. i stringen \u0043\u0327 vil \u0327 bli gjenkjent som et diakritisk tegn og dermed strippes vekk.
  */
 const normalizeInput = (val: string): string => {
-  const dekomponert = val.normalize("NFD");
-  const utenDiakritiskeTegn = dekomponert.replace(/[\u0300-\u036f]/g, "");
-  return utenDiakritiskeTegn;
+    const dekomponert = val.normalize('NFD');
+    return dekomponert.replace(/[\u0300-\u036f]/g, '');
 };

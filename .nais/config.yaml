@@ -3,7 +3,7 @@ apiVersion: nais.io/v1alpha1
 kind: Application
 metadata:
   name: personopplysninger
-  namespace: {{namespace}}
+  namespace: personbruker
   labels:
     team: personbruker
 spec:
@@ -20,20 +20,28 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      autoLogin: false
   accessPolicy:
     outbound:
       external:
-        - host: nav.no
-        - host: dekoratoren.dev.nav.no
+        {{#each externalHosts as |host|}}
+        - host: {{host}}
+        {{/each}}
   env:
     - name: ENV
       value: {{env}}
   replicas:
-    min: 2
-    max: 3
+  {{#with replicas}}
+    min: {{min}}
+    max: {{max}}
+  {{/with}}
   resources:
     limits:
-      cpu: '3'
-      memory: 768Mi
-    requests:
       memory: 512Mi
+    requests:
+      cpu: {{ cpuReq }}
+      memory: 128Mi

@@ -1,81 +1,68 @@
-import React, { Fragment, useState } from "react";
-import { Normaltekst } from "nav-frontend-typografi";
-import Modal from "nav-frontend-modal";
-import infoIkon from "assets/img/Informasjonstekst.svg";
-import infoIkonFylt from "assets/img/Informasjonstekst-fylt.svg";
-import { FormattedMessage } from "react-intl";
-import Lenke from "nav-frontend-lenker";
+import { Fragment, useState, useId } from 'react';
+import { FormattedMessage } from 'react-intl';
+import { Link, BodyLong, Modal, Heading } from '@navikt/ds-react';
+import { InformationIcon } from '@navikt/aksel-icons';
+import classNames from 'classnames';
 
 interface HjelpetekstProps {
-  beskrivelse: string;
+    overskriftID: string;
+    beskrivelseID: string;
 }
 
 function Infotekst(props: HjelpetekstProps) {
-  const [hover, settHover] = useState(false);
-  const [erSynlig, settErSynlig] = useState(false);
+    const [hover, settHover] = useState(false);
+    const [erSynlig, settErSynlig] = useState(false);
+    const { overskriftID, beskrivelseID } = props;
+    const modalID = useId();
 
-  return (
-    <>
-      <button
-        className="infotekst__title-i-button"
-        onClick={() => settErSynlig(!erSynlig)}
-        onMouseEnter={() => settHover(true)}
-        onMouseLeave={() => settHover(false)}
-        title={"Informasjon"}
-        aria-label={"Informasjonstekst"}
-        aria-pressed={erSynlig}
-      >
-        <img
-          src={hover ? infoIkonFylt : infoIkon}
-          className="infotekst__title-i-icon"
-          alt="Vis mer informasjon"
-        />
-      </button>
-      <Modal
-        isOpen={erSynlig}
-        onRequestClose={() => settErSynlig(false)}
-        closeButton={true}
-        contentLabel="Min modalrute"
-        className="infotekst__modal"
-      >
-        <div style={{ padding: "2rem 2.5rem" }}>
-          <div className="infotekst__ingress">
-            <Normaltekst>
-              <FormattedMessage
-                id={props.beskrivelse}
-                values={{
-                  p: (...chunks: string[]) => (
-                    <p>
-                      {chunks.map((chunk, i) => (
-                        <Fragment key={i}>{chunk}</Fragment>
-                      ))}
-                    </p>
-                  ),
-                  br: (text: string) => (
-                    <>
-                      <br />
-                      {text}
-                    </>
-                  ),
-                  b: (text: string) => (
-                      <b>{text}</b>
-                  ),
-                  span: (text: string) => (
-                    <span style={{ textTransform: "none" }}>{text}</span>
-                  ),
-                  lenkeAaRegisteret: (text: string) => (
-                    <Lenke href="/no/Bedrift/Tjenester+og+skjemaer/Aa-registeret+og+a-meldingen">
-                      {text}
-                    </Lenke>
-                  ),
-                }}
-              />
-            </Normaltekst>
-          </div>
-        </div>
-      </Modal>
-    </>
-  );
+    return (
+        <>
+            <button
+                className="infotekst__title-i-button"
+                onClick={() => settErSynlig(!erSynlig)}
+                onMouseEnter={() => settHover(true)}
+                onMouseLeave={() => settHover(false)}
+                aria-label={'Les mer om denne seksjonen.'}
+                aria-pressed={erSynlig}
+            >
+                <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} aria-hidden="true" />
+            </button>
+            <Modal open={erSynlig} onClose={() => settErSynlig(false)} className="infotekst__modal" aria-labelledby={modalID}>
+                <Modal.Header>
+                    <Heading id={modalID} level="2" size="small">
+                        <FormattedMessage id={overskriftID} />
+                    </Heading>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className="infotekst__ingress">
+                        <BodyLong>
+                            <FormattedMessage
+                                id={beskrivelseID}
+                                values={{
+                                    p: (...chunks) => (
+                                        <p>
+                                            {chunks.map((chunk, i) => (
+                                                <Fragment key={i}>{chunk}</Fragment>
+                                            ))}
+                                        </p>
+                                    ),
+                                    br: (text) => (
+                                        <>
+                                            <br />
+                                            {text}
+                                        </>
+                                    ),
+                                    b: (text) => <b>{text}</b>,
+                                    span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
+                                    lenkeAaRegisteret: (text) => <Link href={'/arbeidsgiver/aa-registeret'}>{text}</Link>,
+                                }}
+                            />
+                        </BodyLong>
+                    </div>
+                </Modal.Body>
+            </Modal>
+        </>
+    );
 }
 
 export default Infotekst;

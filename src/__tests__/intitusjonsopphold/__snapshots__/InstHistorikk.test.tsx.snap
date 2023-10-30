@@ -6,44 +6,36 @@ exports[`InstHistorikkView renders correctly 1`] = `
     class="arbeidsforhold__disclaimer"
   >
     <div
-      class="alertstripe alertstripe--info"
+      class="navds-alert navds-alert--info navds-alert--medium"
     >
-      <span
-        class="alertstripe__ikon"
+      <svg
+        aria-labelledby="title-r0"
+        class="navds-alert__icon"
+        fill="none"
+        focusable="false"
+        height="1em"
+        role="img"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <span
-          class="sr-only"
+        <title
+          id="title-r0"
         >
-          info
-        </span>
-        <svg
-          aria-label="info-ikon"
-          focusable="false"
-          height="1.5em"
-          kind="info-sirkel-fyll"
-          role="img"
-          viewBox="0 0 24 24"
-          width="1.5em"
-        >
-          <g
-            fill="none"
-          >
-            <path
-              d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
-              fill="#337C9B"
-            />
-            <path
-              d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
-              fill="#FFF"
-            />
-          </g>
-        </svg>
-      </span>
+          Informasjon
+        </title>
+        <path
+          clip-rule="evenodd"
+          d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+        />
+      </svg>
       <div
-        class="typo-normal alertstripe__tekst"
+        class="navds-alert__wrapper navds-body-long navds-body-long--medium"
       >
         <p
-          class="typo-normal"
+          class="navds-body-long navds-body-long--medium"
         >
           Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.
         </p>
@@ -59,7 +51,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
           class="historikk__flex-kolonne"
         >
           <p
-            class="typo-element"
+            class="navds-label"
           >
             Periode
           </p>
@@ -68,7 +60,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
           class="historikk__flex-kolonne"
         >
           <p
-            class="typo-element"
+            class="navds-label"
           >
             Institusjon
           </p>
@@ -82,17 +74,11 @@ exports[`InstHistorikkView renders correctly 1`] = `
           <div
             class="historikk__flex-kolonne historikk__heading"
           >
-            <time
-              datetime="1514502000000"
+            <p
+              class="navds-body-short navds-body-short--medium"
             >
-              29.12.2017
-            </time>
-             - 
-            <time
-              datetime="1545001200000"
-            >
-              17.12.2018
-            </time>
+              29.12.2017 - 17.12.2018
+            </p>
           </div>
           <div
             class="historikk__flex-kolonne"
@@ -107,17 +93,58 @@ exports[`InstHistorikkView renders correctly 1`] = `
           <div
             class="historikk__flex-kolonne historikk__heading"
           >
-            <time
-              datetime="1514502000000"
+            <p
+              class="navds-body-short navds-body-short--medium"
             >
-              29.12.2017
-            </time>
-             - 
-            <time
-              datetime="1608418800000"
+              29.12.2017 - 20.12.2020
+            </p>
+            <div
+              class="customHelpText"
             >
-              20.12.2020
-            </time>
+              <button
+                class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                type="button"
+              >
+                <span
+                  class="navds-label"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="customHelpText__icon"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M9.75 9A2.25 2.25 0 0 1 12 6.75h.172a2.078 2.078 0 0 1 1.47 3.548l-1 1a4.75 4.75 0 0 0-1.392 3.359.75.75 0 0 0 1.5 0c0-.862.342-1.689.952-2.298l1-1a3.579 3.579 0 0 0-2.53-6.109H12A3.75 3.75 0 0 0 8.25 9v.5a.75.75 0 0 0 1.5 0V9ZM12 16.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </span>
+              </button>
+              <div
+                aria-hidden="true"
+                class="navds-popover customHelpText__popover navds-popover--hidden"
+                data-placement="top"
+                style="position: absolute; top: 0px; left: 0px;"
+              >
+                <div
+                  class="navds-popover__content"
+                >
+                  Sluttdato for oppholdet er ikke mottatt. NAV har avsluttet oppholdet maskinelt.
+                </div>
+                <div
+                  class="navds-popover__arrow"
+                  style="bottom: -0.5rem;"
+                />
+              </div>
+            </div>
           </div>
           <div
             class="historikk__flex-kolonne"
@@ -132,17 +159,11 @@ exports[`InstHistorikkView renders correctly 1`] = `
           <div
             class="historikk__flex-kolonne historikk__heading"
           >
-            <time
-              datetime="1497304800000"
+            <p
+              class="navds-body-short navds-body-short--medium"
             >
-              13.06.2017
-            </time>
-             - 
-            <time
-              datetime="1505426400000"
-            >
-              15.09.2017
-            </time>
+              13.06.2017 - 15.09.2017
+            </p>
           </div>
           <div
             class="historikk__flex-kolonne"
@@ -162,7 +183,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
           class="kilde__tekst"
         >
           <p
-            class="typo-undertekst"
+            class="navds-detail"
           >
             Kilde: Den enkelte institusjon
           </p>

@@ -1,9 +1,10 @@
-import React from "react";
-import { Sidetittel } from "nav-frontend-typografi";
+import { Heading } from '@navikt/ds-react';
 
 const PageNotFound = () => (
-  <div className="notfound__container">
-    <Sidetittel>404</Sidetittel>
-  </div>
+    <div className="notfound__container">
+        <Heading size={'large'} level={'1'}>
+            404
+        </Heading>
+    </div>
 );
 export default PageNotFound;

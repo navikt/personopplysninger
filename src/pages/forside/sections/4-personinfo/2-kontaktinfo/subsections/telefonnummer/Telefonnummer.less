@@ -1,72 +1,89 @@
 .tlfnummer {
-  &__rad,
-  &__rad-leggtil {
-    padding: 0.5rem 0;
-  }
-  &__rad {
-    border-bottom: 1px solid #c6c2bf;
-  }
-  &__leggtil {
-    padding-left: 0;
-    margin: 0.5rem 0;
-    align-items: center;
-    display: flex;
-    border: 0;
-  }
-  &__divider {
-    height: 1px;
-    border-top: 1px solid #e1e1e1;
-    &-hidden {
-      visibility: hidden;
+    &__rad,
+    &__rad-leggtil {
+        padding: 0.5rem 0;
     }
-  }
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-  }
-  &__form {
-    margin: 0.5rem 0;
-  }
-  &__verdi {
-    @media @maxMobile {
-      margin-bottom: 0.5rem;
-      width: 100%;
+    &__rad {
+        border-bottom: 1px solid #c6c2bf;
     }
-  }
-  &__input-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &__alert {
-    margin-top: 0.5rem;
-  }
-  &__input {
-    @media @maxTablet, @minDesktop {
-      margin-right: 0.5rem;
+    &__leggtil {
+        &.navds-button {
+            margin: 0.5rem 0 0.5rem -1.3rem;
+            align-items: center;
+            display: flex;
+            border: 0;
+        }
+
+        .kilde__icon {
+            display: flex;
+            width: 1.5rem;
+            height: 1.5rem;
+        }
     }
-  }
-  &__knapper {
-    display: flex;
+    &__ikon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    &__divider {
+        height: 1px;
+        border-top: 1px solid #e1e1e1;
+        &-hidden {
+            visibility: hidden;
+        }
+    }
+    &__container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__form {
+        margin: 0.5rem 0;
+    }
+    &__verdi {
+        @media @maxMobile {
+            margin-bottom: 0.5rem;
+            width: 100%;
+        }
+    }
+    &__input-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    &__alert {
+        margin-top: 0.5rem;
+    }
+    &__input {
+        @media @maxTablet, @minDesktop {
+            margin-right: 0.5rem;
+        }
+    }
+    &__inputLandkode {
+        width: 8rem;
+    }
+    &__knapper {
+        display: flex;
+        margin-top: 1rem;
+    }
+    &__knapp:last-child {
+        margin-left: 0.5rem;
+    }
+    &__knapp-ikon,
+    &__knapp-tekst {
+        display: flex;
+        align-items: center;
+    }
+    &__knapp-tekst {
+        padding: 0 0.25rem;
+    }
+    &__chevron {
+        margin: 0.5rem 0;
+    }
+    &__landkode {
+        width: 10rem;
+    }
+}
+.margin-kilde {
     margin-top: 1rem;
-  }
-  &__knapp {
-    margin-left: 0.25rem;
-  }
-  &__knapp-med-ikon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0.275rem !important;
-    &:last-child {
-      margin-left: 0.25rem;
-    }
-  }
-  &__knapp-tekst {
-    padding: 0 0.25rem;
-  }
-  &__chevron {
-    margin: 0.5rem 0;
-  }
 }

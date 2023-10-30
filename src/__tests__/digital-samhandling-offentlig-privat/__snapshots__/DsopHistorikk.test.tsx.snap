@@ -9,47 +9,38 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       class="historikk__info"
     >
       <div
-        class="alertstripe alertstripe--info"
+        class="navds-alert navds-alert--info navds-alert--medium"
       >
-        <span
-          class="alertstripe__ikon"
+        <svg
+          aria-labelledby="title-r0"
+          class="navds-alert__icon"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <span
-            class="sr-only"
+          <title
+            id="title-r0"
           >
-            info
-          </span>
-          <svg
-            aria-label="info-ikon"
-            focusable="false"
-            height="1.5em"
-            kind="info-sirkel-fyll"
-            role="img"
-            viewBox="0 0 24 24"
-            width="1.5em"
-          >
-            <g
-              fill="none"
-            >
-              <path
-                d="M12 0C5.382 0 0 5.382 0 12s5.382 12 12 12c6.617 0 12-5.382 12-12S18.617 0 12 0z"
-                fill="#337C9B"
-              />
-              <path
-                d="M12 5a1.566 1.566 0 1 1 .11 3.13A1.566 1.566 0 0 1 12 5zm2.976 12.01c.563 0 1.043.431 1.043.991s-.48.992-1.043.992H9.39c-.564 0-1.043-.431-1.043-.992 0-.56.479-.99 1.043-.99h1.6v-5.016h-.986c-.565 0-1.044-.43-1.044-.991 0-.56.48-.991 1.044-.991h2.03c.563 0 1.043.43 1.043.99v6.007h1.899z"
-                fill="#FFF"
-              />
-            </g>
-          </svg>
-        </span>
+            Informasjon
+          </title>
+          <path
+            clip-rule="evenodd"
+            d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
         <div
-          class="typo-normal alertstripe__tekst"
+          class="navds-alert__wrapper navds-body-long navds-body-long--medium"
         >
           Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. 
           <a
-            class="lenke"
+            class="navds-link navds-link--action"
             href="https://altinn.no"
-            rel="noopener"
             target="blank"
           >
             Se samtykket i Altinn.
@@ -64,7 +55,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         class="historikk__flex-kolonne"
       >
         <p
-          class="typo-element"
+          class="navds-label"
         >
           Uthentingstidspunkt
         </p>
@@ -73,7 +64,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         class="historikk__flex-kolonne"
       >
         <p
-          class="typo-element"
+          class="navds-label"
         >
           Selskap
         </p>
@@ -82,14 +73,28 @@ exports[`DsopHistorikkView renders correctly 1`] = `
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2019 
-        <span
-          class="nav-frontend-chevron chevronboks chevron--opp"
-        />
-      </div>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06l5.5-5.5Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
       <div />
     </div>
     <div
@@ -98,11 +103,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847551634"
-        >
-          18.06 - 10:45
-        </time>
+        18.06 kl. 10:45
       </div>
       <div
         class="historikk__flex-kolonne"
@@ -116,11 +117,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847552101"
-        >
-          18.06 - 10:45
-        </time>
+        18.06 kl. 10:45
       </div>
       <div
         class="historikk__flex-kolonne"
@@ -134,11 +131,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
       <div
         class="historikk__flex-kolonne historikk__heading"
       >
-        <time
-          datetime="1560847915535"
-        >
-          18.06 - 10:51
-        </time>
+        18.06 kl. 10:51
       </div>
       <div
         class="historikk__flex-kolonne"
@@ -149,40 +142,82 @@ exports[`DsopHistorikkView renders correctly 1`] = `
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2018 
-        <span
-          class="nav-frontend-chevron chevronboks chevron--ned"
-        />
-      </div>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
       <div />
     </div>
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2017 
-        <span
-          class="nav-frontend-chevron chevronboks chevron--ned"
-        />
-      </div>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
       <div />
     </div>
     <div
       class="historikk__flex-rad"
     >
-      <div
+      <button
         class="historikk__flex-kolonne af-liste__ekspander"
       >
         2016 
-        <span
-          class="nav-frontend-chevron chevronboks chevron--ned"
-        />
-      </div>
+        <svg
+          aria-hidden="true"
+          fill="none"
+          focusable="false"
+          height="1em"
+          role="img"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            clip-rule="evenodd"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </button>
       <div />
     </div>
   </div>

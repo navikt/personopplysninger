@@ -1,4 +1,4 @@
-FROM node:18-alpine
+FROM node:20-bullseye-slim
 # RUN apk add --no-cache bash
 ENV NODE_ENV production
 

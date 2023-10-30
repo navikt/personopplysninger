@@ -7,12 +7,12 @@ exports[`InstDetaljerView renders correctly 1`] = `
       class="detaljer__tittel"
     >
       <h2
-        class="typo-undertittel"
+        class="navds-heading navds-heading--small"
       >
         VIK FENGSEL
       </h2>
       <p
-        class="typo-normal"
+        class="navds-body-short navds-body-short--medium"
       >
         Organisasjonsnummer 974 736 942
       </p>
@@ -26,46 +26,46 @@ exports[`InstDetaljerView renders correctly 1`] = `
       <div
         class="box__content"
       >
-        <ul
-          class="list-column-2"
+        <dl
+          class="list"
         >
-          <li>
-            <div
-              class="listelement__header"
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Institusjonstype
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               FO
-            </div>
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Periode
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               <div
                 class="inst__periode"
               >
                 13.06.2017 - 15.09.2017
               </div>
-            </div>
-          </li>
-        </ul>
+            </dd>
+          </div>
+        </dl>
       </div>
     </div>
   </div>

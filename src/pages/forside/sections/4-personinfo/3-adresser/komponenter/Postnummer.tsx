@@ -1,17 +1,16 @@
-import React from "react";
-import { Normaltekst } from "nav-frontend-typografi";
+import { BodyShort } from '@navikt/ds-react';
 
 interface Props {
-  postnummer?: string;
-  poststed?: string;
+    postnummer?: string;
+    poststed?: string;
 }
 
 const Postnummer = ({ postnummer, poststed }: Props) => (
-  <div className="adresse__linje">
-    <Normaltekst>
-      {postnummer && postnummer} {poststed && poststed}
-    </Normaltekst>
-  </div>
+    <div className="adresse__linje">
+        <BodyShort>
+            {postnummer && postnummer} {poststed && poststed}
+        </BodyShort>
+    </div>
 );
 
 export default Postnummer;

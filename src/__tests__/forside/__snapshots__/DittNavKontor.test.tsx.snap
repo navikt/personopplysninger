@@ -7,23 +7,19 @@ exports[`DittNavKontor renders correctly 1`] = `
     id="ditt-nav-kontor"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
-        <div
-          class="nav-veileder__frame nav-veileder__frame--m"
-        >
-          <img
-            alt="Veileder"
-            class="box__ikon"
-            src="DittNavKontor.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="DittNavKontor.svg"
+        />
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -38,34 +34,120 @@ exports[`DittNavKontor renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Ditt NAV-kontor
               </h2>
               <button
-                aria-label="Informasjonstekst"
+                aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
                 class="infotekst__title-i-button"
-                title="Informasjon"
               >
-                <img
-                  alt="Vis mer informasjon"
+                <svg
+                  aria-hidden="true"
                   class="infotekst__title-i-icon"
-                  src="Informasjonstekst.svg"
-                />
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M11 6.5a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.75 3a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v7.25H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-6.5H10a.75.75 0 0 1-.75-.75Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
               </button>
+              <dialog
+                aria-labelledby=":r0:"
+                class="navds-modal infotekst__modal navds-modal--polyfilled navds-modal--autowidth"
+                role="dialog"
+              >
+                <div
+                  class="navds-modal__header"
+                >
+                  <button
+                    class="navds-modal__button navds-button navds-button--tertiary-neutral navds-button--small navds-button--icon-only"
+                    type="button"
+                  >
+                    <span
+                      class="navds-button__icon"
+                    >
+                      <svg
+                        aria-labelledby="title-r4"
+                        fill="none"
+                        focusable="false"
+                        height="1em"
+                        role="img"
+                        viewBox="0 0 24 24"
+                        width="1em"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <title
+                          id="title-r4"
+                        >
+                          Lukk modalvindu
+                        </title>
+                        <path
+                          clip-rule="evenodd"
+                          d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                          fill="currentColor"
+                          fill-rule="evenodd"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <h2
+                    class="navds-heading navds-heading--small"
+                    id=":r0:"
+                  >
+                    Ditt NAV-kontor
+                  </h2>
+                </div>
+                <div
+                  class="navds-modal__body"
+                >
+                  <div
+                    class="infotekst__ingress"
+                  >
+                    <p
+                      class="navds-body-long navds-body-long--medium"
+                    >
+                      Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.
+                    </p>
+                  </div>
+                </div>
+              </dialog>
               <div
                 class="box__line"
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#ditt-nav-kontor"
             >
-              <img
-                alt=""
-                src="AnchorLink.svg"
-              />
+              <svg
+                aria-hidden="true"
+                class="anchor-link__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               Lenke hit
             </a>
           </div>
@@ -79,26 +161,32 @@ exports[`DittNavKontor renders correctly 1`] = `
                 class="dittnavkontor__ingress"
               >
                 <p
-                  class="typo-normal"
+                  class="navds-body-short navds-body-short--medium"
                 >
                   Ditt kontor er 
-                </p>
-                <p
-                  class="typo-element"
-                >
-                  NAV Halden-Aremark
+                  <span
+                    class="navds-label"
+                  >
+                    NAV Halden-Aremark
+                  </span>
                 </p>
               </div>
               <div
-                class="skjemaelement"
+                class="navds-form-field navds-form-field--medium"
               >
+                <label
+                  class="navds-form-field__label navds-sr-only navds-label"
+                  for="select-r6"
+                >
+                  NAV-kontor
+                </label>
                 <div
-                  class="selectContainer input--fullbredde"
+                  class="navds-select__container"
                 >
                   <select
-                    aria-invalid="false"
-                    class="skjemaelement__input"
-                    id="Mocked UUID"
+                    class="navds-select__input navds-body-short navds-body--medium"
+                    id="select-r6"
+                    name="NAV-kontor"
                   >
                     <option
                       value="-1"
@@ -116,7 +204,31 @@ exports[`DittNavKontor renders correctly 1`] = `
                       AREMARK - Aremark Rådhus , 1798 AREMARK
                     </option>
                   </select>
+                  <svg
+                    aria-hidden="true"
+                    class="navds-select__chevron"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
                 </div>
+                <div
+                  aria-live="polite"
+                  aria-relevant="additions removals"
+                  class="navds-form-field__error"
+                  id="select-error-r6"
+                />
               </div>
               <div
                 class="dittnavkontor__adresser"
@@ -124,18 +236,18 @@ exports[`DittNavKontor renders correctly 1`] = `
                 <div
                   class="dittnavkontor__postadresse"
                 >
-                  <p
-                    class="typo-element"
+                  <h3
+                    class="navds-heading navds-heading--xsmall"
                   >
                     Postadresse
-                  </p>
+                  </h3>
                   <p
-                    class="typo-normal"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     Postboks 56 
                   </p>
                   <p
-                    class="typo-normal"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     1751 HALDEN
                   </p>
@@ -143,18 +255,18 @@ exports[`DittNavKontor renders correctly 1`] = `
                 <div
                   class="dittnavkontor__publikumsmottak"
                 >
-                  <p
-                    class="typo-element"
+                  <h3
+                    class="navds-heading navds-heading--xsmall"
                   >
                     Publikumsmottak
-                  </p>
+                  </h3>
                   <p
-                    class="typo-normal"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     Storgata 8
                   </p>
                   <p
-                    class="typo-normal"
+                    class="navds-body-short navds-body-short--medium"
                   >
                     1771 HALDEN
                   </p>
@@ -162,136 +274,167 @@ exports[`DittNavKontor renders correctly 1`] = `
               </div>
             </div>
             <div>
-              <p
-                class="typo-element"
-              >
-                Åpningstider
-              </p>
               <div
-                class="apningstid__container"
+                class="apningstider"
               >
-                <div
-                  class="apningstid__row"
+                <table
+                  class="apningstider__table"
                 >
-                  <div
-                    class="apningstid__column apningstid__dag"
+                  <caption
+                    class="apningstider__caption navds-heading navds-heading--xsmall"
                   >
-                    Mandag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
+                    Åpningstider
+                  </caption>
+                  <thead
+                    class="sr-only"
                   >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Ukedag
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Tidsrom
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Kommentar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        Mandag
+                      </td>
+                      <td>
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                    <tr>
+                      <td>
+                        Tirsdag
+                      </td>
+                      <td>
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                    <tr>
+                      <td>
+                        Onsdag
+                      </td>
+                      <td>
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                    <tr>
+                      <td>
+                        Torsdag
+                      </td>
+                      <td>
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                    <tr>
+                      <td>
+                        Fredag
+                      </td>
+                      <td>
+                        12:30 - 14:30
+                      </td>
+                      <td />
+                    </tr>
+                  </tbody>
+                </table>
+                <table
+                  class="apningstider__table"
                 >
-                  <div
-                    class="apningstid__column apningstid__dag"
+                  <caption
+                    class="apningstider__caption navds-heading navds-heading--xsmall"
                   >
-                    Tirsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
+                    Spesielle åpningstider
+                  </caption>
+                  <thead
+                    class="sr-only"
                   >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Onsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Torsdag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
-                <div
-                  class="apningstid__row"
-                >
-                  <div
-                    class="apningstid__column apningstid__dag"
-                  >
-                    Fredag
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__tidspunkt"
-                  >
-                    12:00 - 14:30
-                  </div>
-                  <div
-                    class="apningstid__column apningstid__kommentar"
-                  >
-                    Timeavtaler i tidsrommet 09.00 - 14.30
-                  </div>
-                </div>
+                    <tr>
+                      <th
+                        scope="col"
+                      >
+                        Dato
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Tidsrom
+                      </th>
+                      <th
+                        scope="col"
+                      >
+                        Kommentar
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        24.12.2021
+                      </td>
+                      <td>
+                        10:00 - 11:30
+                      </td>
+                      <td>
+                        Åpent for akutte behov for alle NAV-kontorer i Bergen kommune
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        31.12.2021
+                      </td>
+                      <td>
+                        Stengt
+                      </td>
+                      <td>
+                        NAV Bergen vest er åpent 10-11.30 for akutte behov
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <ul
-              class="dittnavkontor__footer list-column-2"
+            <dl
+              class="dittnavkontor__footer list"
             >
-              <li>
-                <div
-                  class="listelement__header"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
-                    class="typo-element"
+                  <span
+                    class="navds-label"
                   >
                     Kontakt NAV
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   <a
-                    class="lenke"
+                    class="navds-link navds-link--action"
                     href="/person/kontakt-oss/nb/"
                   >
                     Gå til kontaktinformasjon
                   </a>
-                </div>
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
@@ -299,7 +442,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: NAV
                 </p>

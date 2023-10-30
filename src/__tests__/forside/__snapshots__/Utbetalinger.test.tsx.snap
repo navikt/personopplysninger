@@ -7,23 +7,19 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
     id="utbetaling"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
-        <div
-          class="nav-veileder__frame nav-veileder__frame--m"
-        >
-          <img
-            alt="Veileder"
-            class="box__ikon"
-            src="Kontonummer.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="Kontonummer.svg"
+        />
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -38,7 +34,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Kontonummer for utbetaling
               </h2>
@@ -47,68 +43,95 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#utbetaling"
             >
-              <img
-                alt=""
-                src="AnchorLink.svg"
-              />
+              <svg
+                aria-hidden="true"
+                class="anchor-link__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               Lenke hit
             </a>
           </div>
           <div
             class="box__content"
           >
-            <ul
-              class="list-column-2"
+            <dl
+              class="list"
             >
-              <li>
-                <div
-                  class="listelement__header"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
-                    class="typo-element"
+                  <span
+                    class="navds-label"
                   >
                     Kontonummer
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   1234 56 78911
-                </div>
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
-              <button
-                class="kilde__lenke lenke"
-              >
-                <span
-                  class="kilde__icon"
-                >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Pencil.svg"
-                  />
-                </span>
-                <p
-                  class="typo-normal"
-                >
-                  Endre
-                </p>
-              </button>
               <div
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: NAV
                 </p>
               </div>
+              <button
+                class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+              >
+                <span
+                  class="navds-label"
+                >
+                  <span
+                    class="kilde__icon"
+                  >
+                    <svg
+                      class="kilde__icon-aksel"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M19.638 4.417a3.252 3.252 0 0 0-4.608-.008l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .01-4.592ZM16.091 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.477-2.479.229-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963-2.478-2.478Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Endre
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -125,23 +148,19 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
     id="utbetaling"
   >
     <div
-      class="nav-veilederpanel nav-veilederpanel--kompakt nav-veilederpanel--plakat"
+      class="navds-guide-panel navds-guide-panel--poster"
     >
       <div
-        class="nav-veileder nav-veileder--flytende"
+        class="navds-guide"
       >
-        <div
-          class="nav-veileder__frame nav-veileder__frame--m"
-        >
-          <img
-            alt="Veileder"
-            class="box__ikon"
-            src="Kontonummer.svg"
-          />
-        </div>
+        <img
+          alt=""
+          class="box__ikon"
+          src="Kontonummer.svg"
+        />
       </div>
       <div
-        class="nav-veilederpanel__content"
+        class="navds-guide-panel__content"
       >
         <div
           class="box__container"
@@ -156,7 +175,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
                 class="box__line"
               />
               <h2
-                class="typo-systemtittel box__title"
+                class="box__title navds-heading navds-heading--medium"
               >
                 Kontonummer for utbetaling
               </h2>
@@ -165,117 +184,152 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               />
             </div>
             <a
-              class="lenke anchor-link"
+              class="navds-link anchor-link navds-link--action"
               href="#utbetaling"
             >
-              <img
-                alt=""
-                src="AnchorLink.svg"
-              />
+              <svg
+                aria-hidden="true"
+                class="anchor-link__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  clip-rule="evenodd"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
               Lenke hit
             </a>
           </div>
           <div
             class="box__content"
           >
-            <ul
-              class="list-column-2"
+            <dl
+              class="list"
             >
-              <li>
-                <p
-                  class="typo-element"
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  Bank
-                </p>
-                <p
-                  class="typo-normal"
-                >
-                  Dominion Bank
-                </p>
-                <p
-                  class="typo-normal"
-                >
-                  Forente Arabiske Emirater
-                </p>
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
-                >
+                  <span
+                    class="navds-label"
+                  >
+                    Bank
+                  </span>
+                </dt>
+                <dd>
                   <p
-                    class="typo-element"
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    Dominion Bank
+                  </p>
+                  <p
+                    class="navds-body-short navds-body-short--medium"
+                  >
+                    Forente Arabiske Emirater
+                  </p>
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
+                >
+                  <span
+                    class="navds-label"
                   >
                     Kontonummer / IBAN
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   AE460090000000123456789
-                </div>
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
-                    class="typo-element"
+                  <span
+                    class="navds-label"
                   >
                     Valuta
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   Amerikansk dollar
-                </div>
-              </li>
-              <li>
-                <div
-                  class="listelement__header"
+                </dd>
+              </div>
+              <div
+                class="list-item"
+              >
+                <dt
+                  class="list-element-heading"
                 >
-                  <p
-                    class="typo-element"
+                  <span
+                    class="navds-label"
                   >
                     BIC / SWIFT-kode
-                  </p>
-                </div>
-                <div
-                  class="content "
-                >
+                  </span>
+                </dt>
+                <dd>
                   EBILAEADXXX
-                </div>
-              </li>
-            </ul>
+                </dd>
+              </div>
+            </dl>
             <div
               class="kilde__container"
             >
-              <button
-                class="kilde__lenke lenke"
-              >
-                <span
-                  class="kilde__icon"
-                >
-                  <img
-                    alt="Ekstern lenke"
-                    src="Pencil.svg"
-                  />
-                </span>
-                <p
-                  class="typo-normal"
-                >
-                  Endre
-                </p>
-              </button>
               <div
                 class="kilde__tekst"
               >
                 <p
-                  class="typo-undertekst"
+                  class="navds-detail"
                 >
                   Kilde: NAV
                 </p>
               </div>
+              <button
+                class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+              >
+                <span
+                  class="navds-label"
+                >
+                  <span
+                    class="kilde__icon"
+                  >
+                    <svg
+                      class="kilde__icon-aksel"
+                      fill="none"
+                      focusable="false"
+                      height="1em"
+                      role="img"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        clip-rule="evenodd"
+                        d="M19.638 4.417a3.252 3.252 0 0 0-4.608-.008l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .01-4.592ZM16.091 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.477-2.479.229-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963-2.478-2.478Z"
+                        fill="currentColor"
+                        fill-rule="evenodd"
+                      />
+                    </svg>
+                  </span>
+                  Endre
+                </span>
+              </button>
             </div>
           </div>
         </div>

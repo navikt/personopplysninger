@@ -5,42 +5,21 @@
 @maxMobile: ~"all and (max-width: 420px)";
 @minMobile: ~"all and (min-width: 420px)";
 
-@import (reference) "~nav-frontend-core/less/_variabler";
-@import (less) "~react-day-picker/lib/style.css";
-@import "~nav-frontend-spinner-style";
-@import "~nav-frontend-typografi-style";
-@import "~nav-frontend-ekspanderbartpanel-style";
-@import "~nav-frontend-paneler-style";
-@import "~nav-frontend-lesmerpanel-style";
-@import "~nav-frontend-chevron-style";
-@import "~nav-frontend-lenker-style";
-@import "~nav-frontend-lukknapp-style";
-@import "~nav-frontend-skjema-style";
-@import "~nav-frontend-modal-style";
-@import "~nav-frontend-veileder-style";
-@import "~nav-frontend-tabs-style";
-@import "~nav-frontend-hjelpetekst-style";
-@import "~nav-frontend-etiketter-style";
-@import "~nav-frontend-veilederpanel-style";
-@import "~nav-frontend-alertstriper-style";
-@import "~nav-frontend-knapper-style";
-@import "~nav-frontend-lenkepanel-style";
-@import "~nav-frontend-popover-style";
-
 @import "App.less";
 @import "pages/forside/sections/3-header/Header.less";
 @import "pages/forside/sections/4-personinfo/1-personalia/Personalia.less";
 @import "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.less";
 @import "pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer.less";
+@import "pages/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.less";
 @import "pages/forside/sections/4-personinfo/3-adresser/Adresser.less";
-@import "pages/forside/sections/4-personinfo/5-ditt-nav-kontor/apningstid/Apningstid.less";
+@import "pages/forside/sections/4-personinfo/5-ditt-nav-kontor/apningstider/Apningstider.less";
 @import "pages/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontor.less";
+@import "pages/forside/sections/4-personinfo/4-utbetalinger/endring/utenlandsk-bankkonto/felter/AdresseFields";
 @import "pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.less";
 @import "pages/forside/sections/5-arbeidsforhold/Arbeidsforhold.less";
 @import "pages/forside/sections/6-flere-opplysninger/Lenker.less";
 @import "pages/forside/sections/6-flere-opplysninger/linkbox/LinkBox.less";
 @import "pages/forside/sections/7-mer-informasjon/MerInformasjon.less";
-
 @import "pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.less";
 @import "pages/endre-personopplysninger/EndreOpplysninger.less";
 @import "pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk.less";
@@ -51,9 +30,9 @@
 
 @import "components/box/Box.less";
 @import "components/felter/input-med-hjelpetekst/InputMedHjelpetekst.less";
+@import "components/felter/label-med-hjelpetekst/LabelMedHjelpetekst.less";
 @import "components/felter/input-postnummer/InputPostnummer.less";
 @import "components/felter/select/NAVSelect.less";
-@import "components/felter/day-picker/DayPicker.less";
 @import "components/knapper/Redirect.less";
 @import "components/icon/Icon.less";
 @import "components/kilde/Kilde.less";
@@ -63,3 +42,4 @@
 @import "components/listelement/ListElement.less";
 @import "components/spinner/Spinner.less";
 @import "components/anchorlink/AnchorLink.less";
+@import "components/customHelpText/CustomHelpText.less";

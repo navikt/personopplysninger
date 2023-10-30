@@ -1,209 +1,81 @@
-import React, { useState } from "react";
-import Box from "components/box/Box";
-import kontonummerIkon from "assets/img/Kontonummer.svg";
-import { UtenlandskBankkonto } from "types/personalia";
-import Kilde from "components/kilde/Kilde";
-import endreIkon from "assets/img/Pencil.svg";
-import leggTilIkon from "assets/img/Pencil.svg";
-import NorskKontonummer from "./visning/NorskKontonummer";
-import Utenlandskonto from "./visning/UtenlandsBankkonto";
-import OpprettEllerEndreNorskKontonr, {
-  OutboundNorskKontonummer,
-  setOutboundNorskKontonummer,
-} from "./endring/NorskKontonummer";
-import OpprettEllerEndreUtenlandsbank, {
-  OutboundUtenlandsbankonto,
-  setOutboundUtenlandsbankonto,
-} from "./endring/utenlandsk-bankkonto/UtenlandsBankkonto";
-import { Radio, RadioGruppe } from "nav-frontend-skjema";
-import { FormattedMessage, useIntl } from "react-intl";
-import { Knapp } from "nav-frontend-knapper";
-import Alert, { AlertType } from "components/alert/Alert";
-import { Form, FormContext, Validation } from "calidation";
-import { fetchPersonInfo, postKontonummer } from "clients/apiClient";
-import { PersonInfo } from "types/personInfo";
-import { useStore } from "store/Context";
-import driftsmeldinger from "driftsmeldinger";
-import { AlertStripeAdvarsel } from "nav-frontend-alertstriper";
-import { normalizeNummer } from "../../../../../utils/formattering";
+import { useState } from 'react';
+import Box from 'components/box/Box';
+import kontonummerIkon from 'assets/img/Kontonummer.svg';
+import { UtenlandskBankkonto } from 'types/personalia';
+import Kilde from 'components/kilde/Kilde';
+import NorskKontonummer from './visning/NorskKontonummer';
+import Utenlandskonto from './visning/UtenlandsBankkonto';
+import { FormattedMessage } from 'react-intl';
+import { Alert } from '@navikt/ds-react';
+import driftsmeldinger from 'driftsmeldinger';
+import KontonummerForm from './endring/KontonummerForm';
+import { useIntlFormatter } from '../../../../../hooks/useIntlFormatter';
+import { PencilIcon } from '@navikt/aksel-icons';
 
 interface Props {
-  utenlandskbank?: UtenlandskBankkonto;
-  personident?: { verdi: string; type: string };
-  kontonr?: string;
+    utenlandskbank?: UtenlandskBankkonto;
+    personident?: { verdi: string; type: string };
+    kontonr?: string;
+    kontoregisterStatus: string;
 }
 
-const NORSK = "NORSK";
-const UTENLANDSK = "UTENLANDSK";
-
 const Utbetalinger = (props: Props) => {
-  const { formatMessage: msg } = useIntl();
-  const { kontonr, utenlandskbank, personident } = props;
-  const [loading, settLoading] = useState<boolean>(false);
-  const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>();
-  const [alert, settAlert] = useState<AlertType | undefined>();
-  const [, dispatch] = useStore();
+    const { kontonr, utenlandskbank, personident, kontoregisterStatus } = props;
+    const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
 
-  const initialValues = {
-    norskEllerUtenlandsk: kontonr
-      ? NORSK
-      : utenlandskbank
-      ? UTENLANDSK
-      : undefined,
-  };
+    const { formatMessage } = useIntlFormatter();
 
-  const config = {
-    norskEllerUtenlandsk: {
-      isRequired: msg({ id: "felter.type.velg" }),
-    },
-  };
-
-  const submitEndre = (context: FormContext) => {
-    const { isValid, fields } = context;
-    if (isValid) {
-      type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
-      const outbound: { [key: string]: () => Outbound } = {
-        NORSK: () => {
-          fields.kontonummer = normalizeNummer(fields.kontonummer);
-          return setOutboundNorskKontonummer(context);
-        },
-        UTENLANDSK: () => setOutboundUtenlandsbankonto(context),
-      };
-
-      settLoading(true);
-      postKontonummer(outbound[fields.norskEllerUtenlandsk]())
-        .then(getUpdatedData)
-        .then(onSuccess)
-        .catch((error: AlertType) => settAlert(error))
-        .then(() => settLoading(false));
-    }
-  };
-
-  const getUpdatedData = () =>
-    fetchPersonInfo().then((personInfo) => {
-      dispatch({
-        type: "SETT_PERSON_INFO_RESULT",
-        payload: personInfo as PersonInfo,
-      });
-    });
-
-  const onSuccess = () => {
-    settOpprettEllerEndre(false);
-  };
-
-  return (
-    <Box
-      id="utbetaling"
-      tittel="utbetalinger.tittel"
-      icon={kontonummerIkon}
-      visAnkerlenke={true}
-    >
-      <>
-        {driftsmeldinger.pdl && (
-          <div style={{ paddingBottom: "1rem" }}>
-            <AlertStripeAdvarsel>{driftsmeldinger.pdl}</AlertStripeAdvarsel>
-          </div>
-        )}
-      </>
-      {opprettEllerEndre ? (
-        <Form onSubmit={submitEndre}>
-          <Validation config={config} initialValues={initialValues}>
-            {({ submitted, isValid, errors, setField, fields }) => {
-              return (
-                <RadioGruppe feil={submitted && errors.norskEllerUtenlandsk}>
-                  <Radio
-                    name={NORSK}
-                    checked={fields.norskEllerUtenlandsk === NORSK}
-                    label={msg({ id: "felter.kontonummervalg.norsk" })}
-                    onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
-                    }
-                  />
-                  {fields.norskEllerUtenlandsk === NORSK && (
-                    <OpprettEllerEndreNorskKontonr
-                      personident={personident}
-                      kontonummer={kontonr}
-                    />
-                  )}
-                  <Radio
-                    name={UTENLANDSK}
-                    checked={fields.norskEllerUtenlandsk === UTENLANDSK}
-                    label={msg({ id: "felter.kontonummervalg.utenlandsk" })}
-                    onChange={(e) =>
-                      setField({ norskEllerUtenlandsk: e.target.name })
-                    }
-                  />
-                  {fields.norskEllerUtenlandsk === UTENLANDSK && (
-                    <OpprettEllerEndreUtenlandsbank
-                      personident={personident}
-                      utenlandskbank={utenlandskbank}
-                    />
-                  )}
-                  <div className="utbetalinger__knapper">
-                    <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"standard"}
-                        htmlType={"submit"}
-                        disabled={submitted && !isValid}
-                        autoDisableVedSpinner={true}
-                        spinner={loading}
-                      >
-                        <FormattedMessage id={"side.lagre"} />
-                      </Knapp>
-                    </div>
-                    <div className="utbetalinger__knapp">
-                      <Knapp
-                        type={"flat"}
-                        htmlType={"button"}
-                        disabled={loading}
-                        onClick={() => settOpprettEllerEndre(false)}
-                      >
-                        <FormattedMessage id={"side.avbryt"} />
-                      </Knapp>
-                    </div>
-                  </div>
-                  {alert && <Alert {...alert} />}
-                </RadioGruppe>
-              );
-            }}
-          </Validation>
-          <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-        </Form>
-      ) : (
-        <>
-          {kontonr || utenlandskbank ? (
+    return (
+        <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke={true}>
             <>
-              <NorskKontonummer kontonummer={kontonr} />
-              <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
+                {driftsmeldinger.pdl && (
+                    <div style={{ paddingBottom: '1rem' }}>
+                        <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
+                    </div>
+                )}
             </>
-          ) : (
-            <div className="underseksjon__beskrivelse">
-              <FormattedMessage
-                id="personalia.kontonr.ingenData"
-                values={{
-                  br: (text: String) => (
-                    <>
-                      <br />
-                      {text}
-                    </>
-                  ),
-                }}
-              />
-            </div>
-          )}
-          <Kilde
-            kilde="personalia.source.nav"
-            onClick={() => settOpprettEllerEndre(true)}
-            lenkeTekst={
-              kontonr || utenlandskbank ? "side.endre" : "side.leggtil"
-            }
-            lenkeType={"KNAPP"}
-            ikon={kontonr || utenlandskbank ? endreIkon : leggTilIkon}
-          />
-        </>
-      )}
-    </Box>
-  );
+            {kontoregisterStatus === 'ERROR' ? (
+                <Alert variant="error">{formatMessage('personalia.kontonr.feilmelding')}</Alert>
+            ) : opprettEllerEndre ? (
+                <KontonummerForm
+                    utenlandskbank={utenlandskbank}
+                    personident={personident}
+                    kontonr={kontonr}
+                    settOpprettEllerEndre={settOpprettEllerEndre}
+                />
+            ) : (
+                <>
+                    {kontonr || utenlandskbank ? (
+                        <>
+                            <NorskKontonummer kontonummer={kontonr} />
+                            <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
+                        </>
+                    ) : (
+                        <div className="underseksjon__beskrivelse">
+                            <FormattedMessage
+                                id="personalia.kontonr.ingenData"
+                                values={{
+                                    br: (text) => (
+                                        <>
+                                            <br />
+                                            {text}
+                                        </>
+                                    ),
+                                }}
+                            />
+                        </div>
+                    )}
+                    <Kilde
+                        kilde="personalia.source.nav"
+                        onClick={() => settOpprettEllerEndre(true)}
+                        lenkeTekst={kontonr || utenlandskbank ? 'side.endre' : 'side.leggtil'}
+                        lenkeType={'KNAPP'}
+                        ikon={PencilIcon}
+                    />
+                </>
+            )}
+        </Box>
+    );
 };
 
 export default Utbetalinger;

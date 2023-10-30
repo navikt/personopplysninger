@@ -7,12 +7,12 @@ exports[`DsopDetaljerView renders correctly 1`] = `
       class="detaljer__tittel"
     >
       <h2
-        class="typo-undertittel"
+        class="navds-heading navds-heading--small"
       >
         STOREBRAND LIVSFORSIKRING AS
       </h2>
       <p
-        class="typo-normal"
+        class="navds-body-short navds-body-short--medium"
       >
         Organisasjonsnummer 958995369
       </p>
@@ -26,83 +26,86 @@ exports[`DsopDetaljerView renders correctly 1`] = `
       <div
         class="box__content"
       >
-        <ul
-          class="list-column-2"
+        <dl
+          class="list"
         >
-          <li>
-            <div
-              class="listelement__header"
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Uthentingstidspunkt
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               18.06.2019 10:45
-            </div>
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Personnummer
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               04019727454
-            </div>
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Tema
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               AAP
-            </div>
-          </li>
-          <li>
-            <div
-              class="listelement__header"
+            </dd>
+          </div>
+          <div
+            class="list-item"
+          >
+            <dt
+              class="list-element-heading"
             >
-              <p
-                class="typo-element"
+              <span
+                class="navds-label"
               >
                 Behandlingsgrunnlag
-              </p>
-            </div>
-            <div
-              class="content "
-            >
+              </span>
+            </dt>
+            <dd>
               Samtykke
-            </div>
-          </li>
-        </ul>
+            </dd>
+          </div>
+        </dl>
       </div>
       <div
         class="detaljer__container"
       >
         <button
-          class="knapp knapp--hoved"
-          type="submit"
+          class="navds-button navds-button--primary navds-button--medium"
         >
-          Last ned leverte data
+          <span
+            class="navds-label"
+          >
+            Last ned leverte data
+          </span>
         </button>
       </div>
     </div>

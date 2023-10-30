@@ -1,27 +1,26 @@
-import React from "react";
-import { AlertStripeFeil } from "nav-frontend-alertstriper";
+import { Alert } from '@navikt/ds-react';
 
 export interface HTTPError {
-  code: number;
-  text: string;
+    code: number;
+    text: string;
 }
 
 interface Props {
-  error: HTTPError;
+    error: HTTPError;
 }
 
 const Error = (props: Props) => {
-  const { error } = props;
-  return (
-    <div className="error__container">
-      <AlertStripeFeil>
-        Oisann, noe gikk galt ved henting av data!
-        <br />
-        {error.code && <span>{`${error.code}: `}</span>}
-        {error.text && <span>{`${error.text}`}</span>}
-      </AlertStripeFeil>
-    </div>
-  );
+    const { error } = props;
+    return (
+        <div className="error__container">
+            <Alert variant="error">
+                Oisann, noe gikk galt ved henting av data!
+                <br />
+                {error.code && <span>{`${error.code}: `}</span>}
+                {error.text && <span>{`${error.text}`}</span>}
+            </Alert>
+        </div>
+    );
 };
 
 export default Error;

@@ -1,63 +1,34 @@
-import React, { Fragment } from "react";
-import { Input, InputProps } from "nav-frontend-skjema";
-import Hjelpetekst from "nav-frontend-hjelpetekst";
-import { FormattedMessage } from "react-intl";
-import { PopoverOrientering } from "nav-frontend-popover";
+import { ForwardedRef, forwardRef } from 'react';
+import { TextField, TextFieldProps } from '@navikt/ds-react';
+import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
 
-type IProps = Omit<InputProps, "onChange">;
-interface Props extends IProps {
-  id?: string;
-  value?: string;
-  error?: string | null;
-  submitted: boolean;
-  onChange: (value: string) => void;
-  hjelpetekst?: string;
+interface Props extends TextFieldProps {
+    id?: string;
+    value?: string;
+    error?: string | null;
+    hjelpetekst?: string;
 }
 
-const EndreKontonummerFelt = ({
-  id,
-  value,
-  onChange,
-  submitted,
-  error,
-  label,
-  hjelpetekst,
-  ...restProps
-}: Props) => {
-  return (
-    <div>
-      <div className="ekf__header">
-        {label && <div className="skjemaelement__label">{label}</div>}
-        {hjelpetekst && (
-          <Hjelpetekst type={PopoverOrientering.Hoyre}>
-            <FormattedMessage
-              id={hjelpetekst}
-              values={{
-                b: (text: string) => <b>{text}</b>,
-                p: (...chunks: string[]) => (
-                  <p>
-                    {chunks.map((chunk, i) => (
-                      <Fragment key={i}>{chunk}</Fragment>
-                    ))}
-                  </p>
-                ),
-              }}
-            />
-          </Hjelpetekst>
-        )}
-      </div>
-      <div className="ekf__input">
-        <Input
-          id={id}
-          label={""}
-          value={value}
-          onChange={(e) => onChange(e.target.value)}
-          feil={submitted && error}
-          {...restProps}
-        />
-      </div>
-    </div>
-  );
-};
+const EndreKontonummerFelt = forwardRef(
+    ({ id, value, error, htmlSize, label, hjelpetekst, ...restProps }: Props, ref: ForwardedRef<HTMLInputElement>) => {
+        const labelId = id + '_label';
+
+        return (
+            <div className="skjemaelement">
+                <LabelMedHjelpetekst label={label} hjelpetekst={hjelpetekst} labelId={labelId} labelForId={id} />
+                <TextField
+                    label={undefined}
+                    id={id}
+                    aria-labelledby={labelId}
+                    value={value}
+                    htmlSize={htmlSize}
+                    error={error}
+                    ref={ref}
+                    {...restProps}
+                />
+            </div>
+        );
+    }
+);
 
 export default EndreKontonummerFelt;

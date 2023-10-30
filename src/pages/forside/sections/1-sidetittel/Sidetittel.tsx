@@ -1,12 +1,11 @@
-import React from "react";
-import { Sidetittel } from "nav-frontend-typografi";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage } from 'react-intl';
+import { Heading } from '@navikt/ds-react';
 
 const Tittel = () => (
-  <div className="sidetittel__container">
-    <Sidetittel>
-      <FormattedMessage id="side.tittel" />
-    </Sidetittel>
-  </div>
+    <div className="sidetittel__container">
+        <Heading size={'xlarge'} level={'1'}>
+            <FormattedMessage id="side.tittel" />
+        </Heading>
+    </div>
 );
 export default Tittel;
