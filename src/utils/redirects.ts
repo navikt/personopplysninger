@@ -62,7 +62,7 @@ export const redirects: {
 
 export const tillatteTjenester = Object.keys(redirects);
 
-const navnoUrlPattern = new RegExp('^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)', 'i');
+const navnoUrlPattern = new RegExp('^https:\\/\\/((?:[a-z0-9_.-]+\\.(?!$))+)*nav\\.no($|/)', 'i');
 
 export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
     if (!encodedUrl) {
