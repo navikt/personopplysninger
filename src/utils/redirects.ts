@@ -70,7 +70,14 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
     }
 
     const decodedUrl = decodeURIComponent(encodedUrl);
-    return navnoUrlPattern.test(decodedUrl) ? decodedUrl : null;
+
+    // Leverage the DOM API to sanitise the URL and then
+    // building it back up using only valid parts
+    const a = document.createElement('a');
+    a.href = decodedUrl;
+    const sanitizedUrl = `${a.protocol}//${a.host}${a.pathname}${a.search}`;
+
+    return navnoUrlPattern.test(sanitizedUrl) ? sanitizedUrl : null;
 };
 
 export const getLoginRedirectUrl = () => {
