@@ -7,7 +7,7 @@ import MedPersonInfo from 'store/providers/PersonInfo';
 import personaliaIkon from 'assets/img/Personalia.svg';
 import Box from 'components/box/Box';
 import Spinner from 'components/spinner/Spinner';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorComponent, { HTTPError } from 'components/error/Error';
 
 const Loader = () => (
     <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon}>
@@ -42,7 +42,7 @@ const PersonInfo = () => {
 
 export const ErrorWithBox = (error: HTTPError) => (
     <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon}>
-        <Error error={error} />
+        <ErrorComponent error={error} />
     </Box>
 );
 

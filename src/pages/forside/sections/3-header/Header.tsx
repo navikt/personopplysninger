@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 import veilederIkon from 'assets/img/Veileder.svg';
-import Error from 'components/error/Error';
+import ErrorComponent from 'components/error/Error';
 import Spinner from '../4-personinfo/PersonInfo';
 import { formatName } from 'utils/text';
 import { useStore } from 'store/Context';
@@ -55,7 +55,7 @@ const Header = () => {
             );
         }
         case 'ERROR': {
-            return <Error error={authInfo.error} />;
+            return <ErrorComponent error={authInfo.error} />;
         }
     }
 };

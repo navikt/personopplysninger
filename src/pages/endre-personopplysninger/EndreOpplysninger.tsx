@@ -2,7 +2,7 @@ import { Params, useParams } from 'react-router-dom';
 import RedirectKnapp from 'components/knapper/Redirect';
 import MedPersonInfo from 'store/providers/PersonInfo';
 import Spinner from 'components/spinner/Spinner';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorComponent, { HTTPError } from 'components/error/Error';
 import EndreOpplysningerView from './EndreOpplysningerView';
 
 interface Routes {
@@ -30,5 +30,5 @@ const EndreOpplysninger = ({ tjeneste }: EndreOpplysningerProps) => {
     );
 };
 
-export const ErrorFunc = (error: HTTPError) => <Error error={error} />;
+export const ErrorFunc = (error: HTTPError) => <ErrorComponent error={error} />;
 export default EndreOpplysninger;

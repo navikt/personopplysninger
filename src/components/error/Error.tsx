@@ -9,7 +9,7 @@ interface Props {
     error: HTTPError;
 }
 
-const Error = (props: Props) => {
+const ErrorComponent = (props: Props) => {
     const { error } = props;
     return (
         <div className="error__container">
@@ -23,4 +23,4 @@ const Error = (props: Props) => {
     );
 };
 
-export default Error;
+export default ErrorComponent;
