@@ -23,7 +23,7 @@ const HttpFeilmelding = (props: Feilmelding) => {
         warning: 'status',
         info: undefined,
         error: 'alert'
-    }
+    };
     const variant = alertVarianter[props.type] || alertVarianter.info;
     const text = props.text in messages ? formatMessage({ id: props.text }) : props.text;
     return (

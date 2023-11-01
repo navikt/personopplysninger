@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link as ReactLink } from 'react-router-dom';
 import { Link, BodyLong, Detail, Button } from '@navikt/ds-react';
