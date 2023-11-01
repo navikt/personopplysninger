@@ -62,7 +62,7 @@ export const redirects: {
 
 export const tillatteTjenester = Object.keys(redirects);
 
-const navnoUrlPattern = new RegExp('^https:\\/\\/([a-z0-9_.-]+\\.)*nav\\.no($|/)', 'i');
+const navnoUrlPattern = new RegExp('^https:\\/\\/((?:[a-z0-9_.-]+\\.(?!$))+)*nav\\.no($|/)', 'i');
 
 export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
     if (!encodedUrl) {
@@ -70,7 +70,13 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
     }
 
     const decodedUrl = decodeURIComponent(encodedUrl);
-    return navnoUrlPattern.test(decodedUrl) ? decodedUrl : null;
+
+    // Leverage the DOM API to sanitise the URL and then
+    // building it back up using only valid parts
+    const url = new URL(decodedUrl);
+    const sanitizedUrl = `${url.protocol}//${url.host}${url.pathname}${url.search}`;
+
+    return navnoUrlPattern.test(sanitizedUrl) ? sanitizedUrl : null;
 };
 
 export const getLoginRedirectUrl = () => {
