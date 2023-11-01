@@ -8,7 +8,7 @@ interface Props {
 const Postnummer = ({ postnummer, poststed }: Props) => (
     <div className="adresse__linje">
         <BodyShort>
-            {postnummer && postnummer} {poststed && poststed}
+            {!!postnummer && postnummer} {!!poststed && poststed}
         </BodyShort>
     </div>
 );
