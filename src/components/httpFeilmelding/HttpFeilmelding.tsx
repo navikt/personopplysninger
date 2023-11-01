@@ -1,4 +1,4 @@
-import { HTTPError } from 'components/error/Error';
+import { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { Alert, AlertProps } from '@navikt/ds-react';
 import { useIntl } from 'react-intl';
 

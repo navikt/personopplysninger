@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { fetchInstInfo } from 'clients/apiClient';
-import ErrorComponent, { HTTPError } from 'components/error/Error';
+import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { useStore } from 'store/Context';
 import Spinner from 'components/spinner/Spinner';
 import { InstInfo } from 'types/inst';
@@ -38,7 +38,7 @@ const WithInst = ({ children }: Props) => {
         case 'RESULT':
             return children({ data: instInfo.data });
         case 'ERROR':
-            return <ErrorComponent error={instInfo.error} />;
+            return <ErrorMessage error={instInfo.error} />;
     }
 };
 

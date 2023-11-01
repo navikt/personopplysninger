@@ -1,7 +1,7 @@
 import { FetchKontaktInfo } from '../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch';
 import { PersonInfo } from '../types/personInfo';
 import { KontaktInfo } from '../types/kontaktInfo';
-import { HTTPError } from '../components/error/Error';
+import { HTTPError } from '../components/errorMessage/ErrorMessage';
 import { FetchDsopInfo } from '../pages/digital-samhandling-offentlig-privat/DsopFetch';
 import { DsopInfo } from '../types/dsop';
 import { FetchPersonInfo } from './providers/PersonInfo';
