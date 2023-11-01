@@ -4,7 +4,7 @@ import { useIntl } from 'react-intl';
 import cls from 'classnames';
 import { FormatOptionLabelMeta } from 'react-select/base';
 import { RADIX_DECIMAL } from 'utils/formattering';
-import { HTTPError } from '../../error/Error';
+import { HTTPError } from '../../errorMessage/ErrorMessage';
 import { Label, Loader, TextField } from '@navikt/ds-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
@@ -38,7 +38,7 @@ const LoadingIndicator = () => <Loader size="xsmall" className="KodeverkSelect__
 
 const DropdownIndicator = () => (
     <div className="KodeverkSelect__dropdown-indicator">
-        <ChevronDownIcon aria-hidden="true"/>
+        <ChevronDownIcon aria-hidden="true" />
     </div>
 );
 /* eslint-disable-next-line*/

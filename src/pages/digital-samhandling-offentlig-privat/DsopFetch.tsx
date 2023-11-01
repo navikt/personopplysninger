@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { fetchDsopInfo } from 'clients/apiClient';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { useStore } from 'store/Context';
 import { DsopInfo } from 'types/dsop';
 import Spinner from 'components/spinner/Spinner';
@@ -39,7 +39,7 @@ const WithDSOP = (props: Props) => {
         case 'RESULT':
             return children({ data: dsopInfo.data });
         case 'ERROR':
-            return <Error error={dsopInfo.error} />;
+            return <ErrorMessage error={dsopInfo.error} />;
     }
 };
 

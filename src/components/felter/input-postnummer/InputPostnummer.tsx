@@ -1,6 +1,6 @@
 import { useEffect, useState, memo } from 'react';
 import { fetchPostnummer } from 'clients/apiClient';
-import { HTTPError } from 'components/error/Error';
+import { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { useIntl } from 'react-intl';
 import { TextField } from '@navikt/ds-react';
 
