@@ -20,7 +20,7 @@ const init = async () => {
         });
     }
 
-    const container = document.getElementById('app');
+    const container = document.getElementById('maincontent');
     if (!container) {
         return;
     }
