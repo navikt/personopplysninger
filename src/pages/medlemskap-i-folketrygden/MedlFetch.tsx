@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { fetchMedlInfo } from 'clients/apiClient';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { useStore } from 'store/Context';
 import Spinner from 'components/spinner/Spinner';
 import { MedlInfo } from '../../types/medl';
@@ -39,7 +39,7 @@ const WithMEDL = (props: Props) => {
         case 'RESULT':
             return children({ data: medlInfo.data });
         case 'ERROR':
-            return <Error error={medlInfo.error} />;
+            return <ErrorMessage error={medlInfo.error} />;
     }
 };
 

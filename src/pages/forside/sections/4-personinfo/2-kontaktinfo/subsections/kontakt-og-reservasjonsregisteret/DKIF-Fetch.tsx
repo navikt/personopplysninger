@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
 import Spinner from 'components/spinner/Spinner';
 import { fetchKontaktInfo } from 'clients/apiClient';
 import { KontaktInfo } from 'types/kontaktInfo';
@@ -33,7 +33,7 @@ const DKIF = () => {
                     case 'RESULT':
                         return <KontaktInformasjon info={kontaktInfo.data} />;
                     case 'ERROR':
-                        return <Error error={kontaktInfo.error} />;
+                        return <ErrorMessage error={kontaktInfo.error} />;
                 }
             })()}
         </>

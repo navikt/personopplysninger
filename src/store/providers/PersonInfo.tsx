@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Error, { HTTPError } from 'components/error/Error';
+import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
 import { useStore } from 'store/Context';
 import { fetchPersonInfo } from 'clients/apiClient';
 import { PersonInfo } from 'types/personInfo';
@@ -42,7 +42,7 @@ const MedPersonInfo = (props: Props) => {
 
 export const PersonInfoErrorWithBox = (error: HTTPError) => (
     <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon}>
-        <Error error={error} />
+        <ErrorMessage error={error} />
     </Box>
 );
 

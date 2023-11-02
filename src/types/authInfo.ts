@@ -1,4 +1,4 @@
-import { HTTPError } from '../components/error/Error';
+import { HTTPError } from '../components/errorMessage/ErrorMessage';
 
 export type Auth = {
     authenticated: boolean;
