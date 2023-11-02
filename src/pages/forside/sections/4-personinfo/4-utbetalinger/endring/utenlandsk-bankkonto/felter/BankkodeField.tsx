@@ -35,6 +35,7 @@ const BankkodeField = () => {
                         label={'Retningsnummer'}
                         hideLabel={true}
                         error={errors?.retningsnummer?.message}
+                        autoComplete="off"
                     />
                 </div>
                 <div className="utbetalinger__bankkode-kolonne">
@@ -60,6 +61,7 @@ const BankkodeField = () => {
                         size="medium"
                         error={errors?.bankkode?.message}
                         maxLength={watch().land && watch().land?.bankkodeLengde}
+                        autoComplete="off"
                     />
                 </div>
             </div>

@@ -24,6 +24,7 @@ const EndreKontonummerFelt = forwardRef(
                     htmlSize={htmlSize}
                     error={error}
                     ref={ref}
+                    autoComplete="off"
                     {...restProps}
                 />
             </div>

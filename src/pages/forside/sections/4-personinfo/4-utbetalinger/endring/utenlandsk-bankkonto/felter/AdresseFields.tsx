@@ -62,6 +62,7 @@ const AdresseFields = () => {
                     })}
                     id={'adresse1'}
                     label={'Adresselinje 1'}
+                    autoComplete="address-line1"
                     hideLabel={true}
                     size="medium"
                     maxLength={34}
@@ -81,6 +82,7 @@ const AdresseFields = () => {
                     })}
                     id={'adresse2'}
                     label={'Adresselinje 2'}
+                    autoComplete="address-line2"
                     hideLabel={true}
                     size="medium"
                     maxLength={34}
@@ -99,6 +101,7 @@ const AdresseFields = () => {
                     })}
                     id={'adresse3'}
                     label={'Adresselinje 3'}
+                    autoComplete="address-line3"
                     hideLabel={true}
                     size="medium"
                     maxLength={34}

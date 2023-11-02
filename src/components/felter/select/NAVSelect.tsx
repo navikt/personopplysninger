@@ -137,6 +137,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
             onChange={(e) => props.onChange({ label: props.label, value: e.target.value })}
             error={props.submitted && props.error}
             placeholder={'+'}
+            autoComplete="off"
         />
     );
 });
