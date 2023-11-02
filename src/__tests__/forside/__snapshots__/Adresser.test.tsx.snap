@@ -521,6 +521,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                         class="kilde__icon"
                       >
                         <svg
+                          aria-hidden="true"
                           class="kilde__icon-aksel"
                           fill="none"
                           focusable="false"
