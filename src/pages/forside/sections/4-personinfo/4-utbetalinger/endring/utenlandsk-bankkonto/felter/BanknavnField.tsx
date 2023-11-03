@@ -7,8 +7,8 @@ import {
     isFirstCharNotSpace,
     isOnlyNonLetters,
     isValidBanknavn,
-} from '../../../../../../../../utils/validators';
-import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';
+} from 'utils/validators';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
 
 const BanknavnField = () => {
     const { formatMessage } = useIntlFormatter();
@@ -34,7 +34,8 @@ const BanknavnField = () => {
             size="medium"
             maxLength={35}
             htmlSize={37}
-            label={formatMessage('felter.banknavn.label')}
+            label={undefined}
+            labelText={formatMessage('felter.banknavn.label')}
             error={errors?.banknavn?.message}
         />
     );

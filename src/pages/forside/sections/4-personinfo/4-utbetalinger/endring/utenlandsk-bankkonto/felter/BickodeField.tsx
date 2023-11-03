@@ -1,9 +1,9 @@
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
-import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';
-import InputMedHjelpetekst from '../../../../../../../../components/felter/input-med-hjelpetekst/InputMedHjelpetekst';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
+import InputMedHjelpetekst from 'components/felter/input-med-hjelpetekst/InputMedHjelpetekst';
 import { validerBic } from '../../utils';
-import { isBICCountryCompliant, isLettersAndDigits } from '../../../../../../../../utils/validators';
+import { isBICCountryCompliant, isLettersAndDigits } from 'utils/validators';
 import { isValidBIC } from 'ibantools';
 
 const BickodeField = () => {
@@ -33,7 +33,8 @@ const BickodeField = () => {
             size="medium"
             maxLength={11}
             hjelpetekst={'utbetalinger.hjelpetekster.bic'}
-            label={formatMessage('felter.bic.label')}
+            label={undefined}
+            labelText={formatMessage('felter.bic.label')}
             error={errors?.bickode?.message}
         />
     );

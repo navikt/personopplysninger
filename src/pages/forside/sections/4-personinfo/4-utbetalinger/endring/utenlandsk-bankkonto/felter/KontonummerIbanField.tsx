@@ -1,10 +1,10 @@
 import InputMedHjelpetekst from 'components/felter/input-med-hjelpetekst/InputMedHjelpetekst';
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
-import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
 import { isValidIBAN } from 'ibantools';
 import { harValgtUSA } from '../../utils';
-import { isIBANCountryCompliant, isLettersAndDigits } from '../../../../../../../../utils/validators';
+import { isIBANCountryCompliant, isLettersAndDigits } from 'utils/validators';
 
 interface Props {
     personident?: { verdi: string; type: string };
@@ -45,7 +45,8 @@ const KontonummerIbanField = (props: Props) => {
             maxLength={36}
             htmlSize={37}
             hjelpetekst={'utbetalinger.hjelpetekster.kontonummer'}
-            label={formatMessage('felter.kontonummer.kontonummer.label')}
+            label={undefined}
+            labelText={formatMessage('felter.kontonummer.kontonummer.label')}
             error={errors?.kontonummerIban?.message}
         />
     );

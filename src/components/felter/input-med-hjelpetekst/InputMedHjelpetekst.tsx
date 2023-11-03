@@ -3,21 +3,21 @@ import { TextField, TextFieldProps } from '@navikt/ds-react';
 import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
 
 interface Props extends TextFieldProps {
+    labelText: string;
     id?: string;
     value?: string;
     error?: string | null;
     hjelpetekst?: string;
 }
 
-const EndreKontonummerFelt = forwardRef(
-    ({ id, value, error, htmlSize, label, hjelpetekst, ...restProps }: Props, ref: ForwardedRef<HTMLInputElement>) => {
+const InputMedHjelpetekst = forwardRef(
+    ({ labelText, id, value, error, htmlSize, hjelpetekst, ...restProps }: Props, ref: ForwardedRef<HTMLInputElement>) => {
         const labelId = id + '_label';
 
         return (
             <div className="skjemaelement">
-                <LabelMedHjelpetekst label={label} hjelpetekst={hjelpetekst} labelId={labelId} labelForId={id} />
+                <LabelMedHjelpetekst label={labelText} hjelpetekst={hjelpetekst} labelId={labelId} labelForId={id} />
                 <TextField
-                    label={undefined}
                     id={id}
                     aria-labelledby={labelId}
                     value={value}
@@ -32,4 +32,4 @@ const EndreKontonummerFelt = forwardRef(
     }
 );
 
-export default EndreKontonummerFelt;
+export default InputMedHjelpetekst;

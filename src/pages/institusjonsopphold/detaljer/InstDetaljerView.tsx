@@ -1,13 +1,12 @@
 import ListElement from 'components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
-import { formatOrgnr, RADIX_DECIMAL } from '../../../utils/formattering';
-import { InstInnslag } from '../../../types/inst';
+import { formatOrgnr, RADIX_DECIMAL } from 'utils/formattering';
+import { InstInnslag } from 'types/inst';
 import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
 import dayjs from 'dayjs';
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;
-
     const startdato = dayjs(innslag.startdato).format('DD.MM.YYYY');
     const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format('DD.MM.YYYY') : '';
 

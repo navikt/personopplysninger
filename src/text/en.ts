@@ -61,7 +61,7 @@ export default {
     'personalia.iban': 'IBAN',
     'personalia.kontonrelleriban': 'Account number / IBAN',
     'personalia.kontonr.oveskrift': 'Account number we make payments to',
-    'personalia.kontonr.ingenData': 'We have not registered your account number. <br></br>You can register your account number by clicking "Add"',
+    'personalia.kontonr.ingenData': 'We have not registered your account number. <br>You can register your account number by clicking "Add"',
     'personalia.bank': 'Bank',
     'personalia.valuta': 'Currency',
     'personalia.bickode': 'BIC / SWIFT code',
@@ -82,14 +82,14 @@ export default {
     'personalia.dkif.kanIkkeVarsles': 'You have opted out of electronic communication.',
     'personalia.dkif.ingenData': '<b>No information registered</b>',
     'adresse.tittel': 'Addresses',
-    'adresse.beskrivelse': `Below you see the types of addresses it is possible to register in the National Population Register. You can have several address types registered at the same time. You can change addresses in the National Population Register at the Tax Administration.<br></br><br></br>
-<b>Home address</b> <br></br> 
-The address where you are officially registered as a resident.<br></br><br></br>
-<b>Temporary residential address</b><br></br> 
-An address that you are currently staying at.<br></br><br></br>
-<b>Postal address (contact address)</b><br></br> 
-An address where you can be reached by post.<br></br> <br></br> 
-<b>Shared housing</b><br></br> 
+    'adresse.beskrivelse': `Below you see the types of addresses it is possible to register in the National Population Register. You can have several address types registered at the same time. You can change addresses in the National Population Register at the Tax Administration.<br><br>
+<b>Home address</b> <br> 
+The address where you are officially registered as a resident.<br><br>
+<b>Temporary residential address</b><br> 
+An address that you are currently staying at.<br><br>
+<b>Postal address (contact address)</b><br> 
+An address where you can be reached by post.<br> <br> 
+<b>Shared housing</b><br> 
 A child who lives permanently with both mother and father can have two home addresses, one of which is registered under shared housing.`,
     'adresse.oppholdsadresse': 'Temporary residential address',
     'adresse.oppholdsadresse.militaer': 'Military',
@@ -120,7 +120,7 @@ A child who lives permanently with both mother and father can have two home addr
     'adresse.overskrift.ovrige': 'Other registered addresses',
     'adresse.ikke.registrert': 'You do not have a registered home address in the National Population Register',
     'adresse.slett.alert':
-        'Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?',
+        'Do you want to remove the contact address and use the address registered with the National Population Register <br> to receive mail from NAV?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -138,10 +138,10 @@ A child who lives permanently with both mother and father can have two home addr
         '<p>Additional address name is an addition to the official address.</p><p>For example, this may be a farm name, known institutions/buildings, hamlets, housing estates, cottage areas, etc.</p>',
     'arbeidsforhold.tittel': 'Employment relationship',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV needs information about your employment relationships in order to assess your need for follow-up and services from NAV, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (NAV) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
-    'arbeidsforhold.kilde': 'Source: State Register of Employers and Employees<br></br><span>The data is reported by employers</span>',
+        '<p>NAV needs information about your employment relationships in order to assess your need for follow-up and services from NAV, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (NAV) owns and manages the State Register of Employers and Employees (Aa-registeret).<br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
+    'arbeidsforhold.kilde': 'Source: State Register of Employers and Employees<br><span>The data is reported by employers</span>',
     'arbeidsforhold.disclaimer':
-        'The overview shows all employment relationships reported after 1 January 2015.<br></br>If there are errors in an employment relationship, the employer can change it through the a-melding (employee and payroll reporting).',
+        'The overview shows all employment relationships reported after 1 January 2015.<br>If there are errors in an employment relationship, the employer can change it through the a-melding (employee and payroll reporting).',
     'arbeidsforhold.submitted.by': 'The data is reported by the employer',
     'utbetalinger.tittel': 'Account number for payment',
     'utbetalinger.hjelpetekster.kontonummer':
@@ -176,6 +176,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.kategori': 'Category',
     'inst.registreringstidspunkt': 'Date of registration',
     'inst.ingendata': 'No institutional stay is registered',
+    'inst.fiktivSluttdato.tittel': 'Termination',
     'inst.fiktivSluttdato': 'The termination of the stay at the institution has not been reported. NAV has automatically terminated the stay.',
     'inst.kilde': 'Source: The individual institution',
     'kontaktinformasjon-kilde': `Where is this contact information from?
@@ -267,6 +268,7 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.skjerming.beskrivelse': 'Applies to employees of NAV and family members.',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Select type',
+    'felter.merom': 'More about',
     'felter.prioritet.label': 'Priority',
     'felter.prioritet.velg': 'Choose priority',
     'felter.landkode.label': 'Country code',
