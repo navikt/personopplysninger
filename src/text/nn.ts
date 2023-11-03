@@ -60,7 +60,7 @@ export default {
     'personalia.iban': 'IBAN',
     'personalia.kontonrelleriban': 'Kontonummer / IBAN',
     'personalia.kontonr.oveskrift': 'Kontonummer vi utbetalar til',
-    'personalia.kontonr.ingenData': 'Vi har ikkje registrert kontonummer på deg. <br>Du kan registrere kontonummer ved å trykke på «Legg til»',
+    'personalia.kontonr.ingenData': 'Vi har ikkje registrert kontonummer på deg. <br></br>Du kan registrere kontonummer ved å trykke på «Legg til»',
     'personalia.bank': 'Bank',
     'personalia.valuta': 'Valuta',
     'personalia.bickode': 'BIC / SWIFT-kode',
@@ -81,14 +81,14 @@ export default {
     'personalia.dkif.kanIkkeVarsles': 'Du har reservert deg mot elektronisk kommunikasjon.',
     'personalia.dkif.ingenData': '<b>Ingen opplysningar registrert</b>',
     'adresse.tittel': 'Adresser',
-    'adresse.beskrivelse': `Under ser du adressetypar i Folkeregisteret. Du kan ha fleire adressetypar samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br><br>
-<b>Bustadsadresse</b> <br> 
-Adressa der du offisielt er registrert som busett.<br><br>
-<b>Opphaldsadresse</b><br> 
-Ei adresse der du oppheld deg for tida.<br><br>
-<b>Postadresse (kontaktadresse)</b><br> 
-Ei adresse der du vert nådd per post.<br> <br> 
-<b>Delt bustad</b><br> 
+    'adresse.beskrivelse': `Under ser du adressetypar i Folkeregisteret. Du kan ha fleire adressetypar samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
+<b>Bustadsadresse</b> <br></br> 
+Adressa der du offisielt er registrert som busett.<br></br><br></br>
+<b>Opphaldsadresse</b><br></br> 
+Ei adresse der du oppheld deg for tida.<br></br><br></br>
+<b>Postadresse (kontaktadresse)</b><br></br> 
+Ei adresse der du vert nådd per post.<br></br> <br></br> 
+<b>Delt bustad</b><br></br> 
 Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine adressa er registrert under delt bustad.`,
     'adresse.oppholdsadresse': 'Opphaldsadresse',
     'adresse.oppholdsadresse.militaer': 'Militær',
@@ -119,7 +119,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'adresse.overskrift': 'Adresser som er registrert i Folkeregisteret',
     'adresse.overskrift.ovrige': 'Øvrige registrerte adresser',
     'adresse.ikke.registrert': 'Du har ikkje registrert bustadsadresse i Folkeregisteret',
-    'adresse.slett.alert': 'Vil du fjerne kontaktadressa og bruke folkeregistrert <br> adresse til å få post frå NAV?',
+    'adresse.slett.alert': 'Vil du fjerne kontaktadressa og bruke folkeregistrert <br></br> adresse til å få post frå NAV?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postadresse inneheld gatenamn, gatenummer og postnummer.</p><p>Postboksadresse viser til ein postboks på eit postkontor eller post i butikk.</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -137,10 +137,10 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
         '<p>Adressetilleggsnamn er eit tillegg i den offisielle adressa.</p><p>Dette kan for eksempel vere namn på gardsbruk, kjente institusjonar/bygningar, grender, bustadsfelt, hyttefelt eller liknande.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV treng informasjon om arbeidsforholda dine for å kunne vurdere behovet ditt for oppfølging og tenester frå NAV, og til å rekne ut kor mykje du kan få utbetalt i for eksempel sjukepengar, dagpengar og foreldrepengar. Andre offentlege etatar har også tilgang til opplysningar frå Arbeidsgivar og arbeidstakarregisteret.</p><p>Det er Arbeids- og velferdsetaten som eig og forvaltar Arbeidsgivar og arbeidstakarregisteret (Aa-registeret).<br><lenkeAaRegisteret>Her finn du meir informasjon om Arbeidsgivar- og arbeidstakarregisteret</lenkeAaRegisteret>.</p>',
-    'arbeidsforhold.kilde': 'Kjelde: Arbeidsgivar- og arbeidstakarregisteret<br><span>Dataane er rapportert av arbeidsgivar</span>',
+        '<p>NAV treng informasjon om arbeidsforholda dine for å kunne vurdere behovet ditt for oppfølging og tenester frå NAV, og til å rekne ut kor mykje du kan få utbetalt i for eksempel sjukepengar, dagpengar og foreldrepengar. Andre offentlege etatar har også tilgang til opplysningar frå Arbeidsgivar og arbeidstakarregisteret.</p><p>Det er Arbeids- og velferdsetaten som eig og forvaltar Arbeidsgivar og arbeidstakarregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finn du meir informasjon om Arbeidsgivar- og arbeidstakarregisteret</lenkeAaRegisteret>.</p>',
+    'arbeidsforhold.kilde': 'Kjelde: Arbeidsgivar- og arbeidstakarregisteret<br></br><span>Dataane er rapportert av arbeidsgivar</span>',
     'arbeidsforhold.disclaimer':
-        'Oversikta viser alle arbeidsforhold rapportert etter 01.01.2015.<br>Dersom det er feil i eit arbeidsforhold, kan arbeidsgivaren endre gjennom a-meldinga.',
+        'Oversikta viser alle arbeidsforhold rapportert etter 01.01.2015.<br></br>Dersom det er feil i eit arbeidsforhold, kan arbeidsgivaren endre gjennom a-meldinga.',
     'arbeidsforhold.submitted.by': 'Dataane er rapportert av arbeidsgivar',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
@@ -181,7 +181,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
         'Du mottek post og informasjon frå det offentlege elektronisk. Grunnen til det er at du ikkje har reservert deg mot elektronisk kommunikasjon.',
     'kontaktinformasjon-kilde':
         'Kvar hentar vi kontaktinformasjonen frå? NAV hentar kontaktopplysningane dine frå Kontakt- og reservasjonsregisteret. Dette er eit felles, nasjonalt register som vert nytta av det offentlege for å kunne sende meldingar og dokument. Du kan også registrere telefonnummer du vil kontaktast på i NAV sitt register.',
-    'medl.tittel': 'Medlemskap og unntak frå <br> medlemskap i folketrygda',
+    'medl.tittel': 'Medlemskap og unntak frå <br></br> medlemskap i folketrygda',
     'medl.ingendata': 'Du har ingen registrerte periodar.',
     'medl.oversikt.ingress':
         'Dersom du bur og jobbar i Norge, er du vanlegvis medlem i folketrygda. Periodar med denne type medlemskap blir ikkje vist i oversikta. Oversikta er berre aktuell for deg som har',

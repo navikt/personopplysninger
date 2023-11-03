@@ -60,7 +60,7 @@ export default {
     'personalia.iban': 'IBAN',
     'personalia.kontonrelleriban': 'Kontonummer / IBAN',
     'personalia.kontonr.oveskrift': 'Kontonummer vi utbetaler til',
-    'personalia.kontonr.ingenData': 'Vi har ikke registrert kontonummer på deg. <br>Du kan registrere kontonummer ved å trykke på «Legg til»',
+    'personalia.kontonr.ingenData': 'Vi har ikke registrert kontonummer på deg. <br></br>Du kan registrere kontonummer ved å trykke på «Legg til»',
     'personalia.bank': 'Bank',
     'personalia.valuta': 'Valuta',
     'personalia.bickode': 'BIC / SWIFT-kode',
@@ -81,14 +81,14 @@ export default {
     'personalia.dkif.kanIkkeVarsles': 'Du har reservert deg mot elektronisk kommunikasjon.',
     'personalia.dkif.ingenData': '<b>Ingen opplysninger registrert</b>',
     'adresse.tittel': 'Adresser',
-    'adresse.beskrivelse': `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br><br>
-<b>Bostedsadresse</b><br> 
-Adressen der du offisielt er registrert som bosatt.<br><br>
-<b>Oppholdsadresse</b><br>
-En adresse som du oppholder deg på for tiden.<br><br>
-<b>Postadresse (kontaktadresse)</b><br>
-En adresse der du kan nås per post.<br><br>
-<b>Delt bosted</b><br>
+    'adresse.beskrivelse': `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
+<b>Bostedsadresse</b><br></br> 
+Adressen der du offisielt er registrert som bosatt.<br></br><br></br>
+<b>Oppholdsadresse</b><br></br>
+En adresse som du oppholder deg på for tiden.<br></br><br></br>
+<b>Postadresse (kontaktadresse)</b><br></br>
+En adresse der du kan nås per post.<br></br><br></br>
+<b>Delt bosted</b><br></br>
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.`,
     'adresse.oppholdsadresse': 'Oppholdsadresse',
     'adresse.oppholdsadresse.militaer': 'Militær',
@@ -119,7 +119,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'adresse.overskrift': 'Adresser som er registert i Folkeregisteret',
     'adresse.overskrift.ovrige': 'Øvrige registrerte adresser',
     'adresse.ikke.registrert': 'Du har ikke registrert bostedsadresse i Folkeregisteret',
-    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br>adresse til å motta post fra NAV?',
+    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br>adresse til å motta post fra NAV?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -137,10 +137,10 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         '<p>Adressetilleggsnavn er et tillegg i den offisielle adressen.</p><p>Dette kan for eksempel være navn på gårdsbruk, kjente institusjoner/bygninger, grender, boligfelt, hyttefelt eller lignende.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br><lenkeAaRegisteret>Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</lenkeAaRegisteret>.</p>',
-    'arbeidsforhold.kilde': 'Kilde: Arbeidsgiver- og arbeidstakerregisteret<br><span>Dataene er rapportert av arbeidsgiver</span>',
+        '<p>NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</lenkeAaRegisteret>.</p>',
+    'arbeidsforhold.kilde': 'Kilde: Arbeidsgiver- og arbeidstakerregisteret<br></br><span>Dataene er rapportert av arbeidsgiver</span>',
     'arbeidsforhold.disclaimer':
-        'Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.<br>Hvis det er feil i et arbeidsforhold, kan arbeidsgiveren endre gjennom a-meldingen.',
+        'Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.<br></br>Hvis det er feil i et arbeidsforhold, kan arbeidsgiveren endre gjennom a-meldingen.',
     'arbeidsforhold.submitted.by': 'Dataene er rapportert av arbeidsgiver',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
@@ -182,7 +182,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'kontaktinformasjon-kilde': `Hvor hentes kontaktinformasjonen fra?
   NAV henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
   å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i NAV sitt register.`,
-    'medl.tittel': 'Medlemskap og unntak fra <br>medlemskap i folketrygden',
+    'medl.tittel': 'Medlemskap og unntak fra <br></br>medlemskap i folketrygden',
     'medl.ingendata': 'Du har ingen registrerte perioder.',
     'medl.oversikt.ingress':
         'Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har',
