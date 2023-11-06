@@ -20,10 +20,11 @@ export const CustomHelpText = ({ title, children, className, placement = 'top' }
         <div className={classNames('customHelpText', className)}>
             <Button
                 variant="tertiary"
-                onClick={() => setOpenState(true)}
-                ref={inputRef}
                 className={'customHelpText__help-button'}
+                onClick={() => setOpenState(!openState)}
+                ref={inputRef}
                 aria-label={`${formatMessage('felter.merom')} ${title}`}
+                aria-expanded={openState}
             >
                 <QuestionmarkIcon className={'customHelpText__icon'} aria-hidden="true" />
             </Button>
