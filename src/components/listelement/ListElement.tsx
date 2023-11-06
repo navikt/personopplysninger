@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
+import { useIntlFormatter } from '../../hooks/useIntlFormatter';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
 import { Label } from '@navikt/ds-react';
-import {useIntlFormatter} from "../../hooks/useIntlFormatter";
 
 interface Props {
     title?: string;

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
 import { Label } from '@navikt/ds-react';
