@@ -58,21 +58,19 @@ const KontaktInformasjon = (props: Props) => {
                     }}
                 />
             </div>
-            <div className="arbeidsforhold__disclaimer">
-                <Alert variant="info" inline={true}>
-                    <FormattedMessage
-                        id="kontaktogreservasjonsregister-disclaimer"
-                        values={{
-                            br: (text) => (
-                                <>
-                                    <br />
-                                    {text}
-                                </>
-                            ),
-                        }}
-                    />
-                </Alert>
-            </div>
+            <Alert variant="info" inline>
+                <FormattedMessage
+                    id="kontaktogreservasjonsregister-disclaimer"
+                    values={{
+                        br: (text) => (
+                            <>
+                                <br />
+                                {text}
+                            </>
+                        ),
+                    }}
+                />
+            </Alert>
             <Kilde
                 kilde="personalia.source.dkif"
                 lenke="https://brukerprofil.difi.no/minprofil"

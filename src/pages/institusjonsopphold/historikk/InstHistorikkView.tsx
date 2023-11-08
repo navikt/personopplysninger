@@ -21,7 +21,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     let animateDelaySum = 0;
 
     return (
-        <div className="arbeidsforhold__disclaimer">
+        <>
             <Alert variant="info">
                 <FormattedMessage id="inst.disclaimer" />
             </Alert>
@@ -110,7 +110,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
             <div className="inst__kilde">
                 <Kilde kilde="inst.kilde" lenkeType="INGEN" />
             </div>
-        </div>
+        </>
     );
 };
 

@@ -37,21 +37,19 @@ const Arbeidsforhold = () => {
                     printSSN={printSSN}
                 />
             </div>
-            <div className="arbeidsforhold__disclaimer">
-                <Alert variant="info">
-                    <FormattedMessage
-                        id="arbeidsforhold.disclaimer"
-                        values={{
-                            br: (text) => (
-                                <>
-                                    <br />
-                                    {text}
-                                </>
-                            ),
-                        }}
-                    />
-                </Alert>
-            </div>
+            <Alert variant="info">
+                <FormattedMessage
+                    id="arbeidsforhold.disclaimer"
+                    values={{
+                        br: (text) => (
+                            <>
+                                <br />
+                                {text}
+                            </>
+                        ),
+                    }}
+                />
+            </Alert>
             <Kilde kilde="arbeidsforhold.kilde" lenkeType="INGEN" />
         </Box>
     );
