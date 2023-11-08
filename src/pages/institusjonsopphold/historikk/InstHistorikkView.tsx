@@ -6,7 +6,7 @@ import { useIntlFormatter } from 'hooks/useIntlFormatter';
 import { InstInfo } from 'types/inst';
 import Kilde from 'components/kilde/Kilde';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
-import { Alert, BodyLong, BodyShort, Button, Label } from '@navikt/ds-react';
+import { Alert, BodyShort, Button, Label } from '@navikt/ds-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
@@ -23,9 +23,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     return (
         <div className="arbeidsforhold__disclaimer">
             <Alert variant="info">
-                <BodyLong>
-                    <FormattedMessage id="inst.disclaimer" />
-                </BodyLong>
+                <FormattedMessage id="inst.disclaimer" />
             </Alert>
             <div className={'inst__tabell'}>
                 {instInfo.length > 0 ? (
@@ -73,18 +71,13 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                                 <div className="historikk__flex-kolonne historikk__heading">
                                                     <BodyShort>{`${startdato} - ${faktiskSluttdato}`}</BodyShort>
                                                     {innslag.fiktivSluttdato && (
-                                                        <CustomHelpText
-                                                            title={formatMessage('inst.fiktivSluttdato.tittel')}
-                                                        >
+                                                        <CustomHelpText title={formatMessage('inst.fiktivSluttdato.tittel')}>
                                                             <FormattedMessage id={'inst.fiktivSluttdato'} />
                                                         </CustomHelpText>
                                                     )}
                                                 </div>
                                                 <div className="historikk__flex-kolonne">
-                                                    <Link
-                                                        to={`${location.pathname}/${innslag.registreringstidspunkt}`}
-                                                        className="lenke"
-                                                    >
+                                                    <Link to={`${location.pathname}/${innslag.registreringstidspunkt}`} className="lenke">
                                                         <BodyShort>{innslag.institusjonsnavn}</BodyShort>
                                                     </Link>
                                                 </div>
