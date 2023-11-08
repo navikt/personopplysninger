@@ -314,7 +314,6 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
                       <b>
                         Bostedsadresse
                       </b>
-                       
                       <br />
                        
 Adressen der du offisielt er registrert som bosatt.
@@ -326,7 +325,7 @@ Adressen der du offisielt er registrert som bosatt.
                         Oppholdsadresse
                       </b>
                       <br />
-                       
+                      
 En adresse som du oppholder deg på for tiden.
                       <br />
                       <br />
@@ -336,18 +335,17 @@ En adresse som du oppholder deg på for tiden.
                         Postadresse (kontaktadresse)
                       </b>
                       <br />
-                       
+                      
 En adresse der du kan nås per post.
                       <br />
-                       
                       <br />
-                       
+                      
 
                       <b>
                         Delt bosted
                       </b>
                       <br />
-                       
+                      
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.
                     </p>
                   </div>
