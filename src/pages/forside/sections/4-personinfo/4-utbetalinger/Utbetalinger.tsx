@@ -26,16 +26,20 @@ const Utbetalinger = (props: Props) => {
     const { formatMessage } = useIntlFormatter();
 
     return (
-        <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke={true}>
+        <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
             <>
                 {driftsmeldinger.pdl && (
                     <div style={{ paddingBottom: '1rem' }}>
-                        <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>
+                        <Alert role="status" variant="warning">
+                            {driftsmeldinger.pdl}
+                        </Alert>
                     </div>
                 )}
             </>
             {kontoregisterStatus === 'ERROR' ? (
-                <Alert role="alert" variant="error">{formatMessage('personalia.kontonr.feilmelding')}</Alert>
+                <Alert role="alert" variant="error">
+                    {formatMessage('personalia.kontonr.feilmelding')}
+                </Alert>
             ) : opprettEllerEndre ? (
                 <KontonummerForm
                     utenlandskbank={utenlandskbank}

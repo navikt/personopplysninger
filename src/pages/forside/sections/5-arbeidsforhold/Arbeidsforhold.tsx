@@ -26,13 +26,7 @@ const Arbeidsforhold = () => {
     } as AFListeOnClick;
 
     return (
-        <Box
-            id="arbeidsforhold"
-            tittel="arbeidsforhold.tittel"
-            beskrivelse="arbeidsforhold.beskrivelse"
-            icon={arbeidsforholdIkon}
-            visAnkerlenke={true}
-        >
+        <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel" beskrivelse="arbeidsforhold.beskrivelse" icon={arbeidsforholdIkon} visAnkerlenke>
             <div className="arbeidsforhold">
                 <ListeMedArbeidsforhold
                     miljo={miljo}

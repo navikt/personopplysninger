@@ -28,7 +28,7 @@ const Personalia = (props: Props) => {
             : personident;
 
     return (
-        <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon} visAnkerlenke={true}>
+        <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon} visAnkerlenke>
             <dl className="list">
                 <ListElement titleId={fornavnHeader} content={fornavn} />
                 <ListElement className="capitalize" titleId="personalia.surname" content={etternavn} />
