@@ -1,4 +1,3 @@
-import InputMedHjelpetekst from 'components/felter/input-med-hjelpetekst/InputMedHjelpetekst';
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
 import {
@@ -9,6 +8,8 @@ import {
     isValidBanknavn,
 } from 'utils/validators';
 import { useIntlFormatter } from 'hooks/useIntlFormatter';
+import { LabelMedHjelpetekst } from 'components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
+import { TextField } from '@navikt/ds-react';
 
 const BanknavnField = () => {
     const { formatMessage } = useIntlFormatter();
@@ -19,7 +20,7 @@ const BanknavnField = () => {
     } = useFormContext<FormFields>();
 
     return (
-        <InputMedHjelpetekst
+        <TextField
             {...register('banknavn', {
                 validate: {
                     required: (v) => !!v || formatMessage('validation.banknavn.pakrevd'),
@@ -30,13 +31,14 @@ const BanknavnField = () => {
                     validBanknavn: (v) => isValidBanknavn(v) || formatMessage('validation.banknavn.ugyldig'),
                 },
             })}
-            id={'banknavn'}
+            className="skjemaelement"
+            id="banknavn"
             size="medium"
             maxLength={35}
             htmlSize={37}
-            label={undefined}
-            labelText={formatMessage('felter.banknavn.label')}
+            label={<LabelMedHjelpetekst label={formatMessage('felter.banknavn.label')} />}
             error={errors?.banknavn?.message}
+            autoComplete="off"
         />
     );
 };

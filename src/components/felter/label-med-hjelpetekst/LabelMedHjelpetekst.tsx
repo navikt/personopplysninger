@@ -6,7 +6,7 @@ import { Label } from '@navikt/ds-react';
 interface Props {
     label: string;
     hjelpetekst?: string;
-    labelId?: string;
+    labelId?: string;  //If labelId is defined, the component provides a label-tag
     labelForId?: string;
 }
 
@@ -14,9 +14,12 @@ export const LabelMedHjelpetekst = (props: Props) => {
     const { label, hjelpetekst, labelId, labelForId } = props;
     return (
         <div className="label-med-hjelpetekst">
-            <Label htmlFor={labelForId} id={labelId}>
-                {label}
-            </Label>
+            {labelId &&
+                <Label htmlFor={labelForId} id={labelId}>{label}</Label>
+            }
+            {!labelId &&
+                <span>{label}</span>
+            }
             {hjelpetekst && (
                 <CustomHelpText title={label} placement={'right'}>
                     <FormattedMessage

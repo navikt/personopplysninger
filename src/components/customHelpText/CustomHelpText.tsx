@@ -19,6 +19,7 @@ export const CustomHelpText = ({ title, children, className, placement = 'top' }
     return (
         <div className={classNames('customHelpText', className)}>
             <Button
+                type="button"
                 variant="tertiary"
                 className={'customHelpText__help-button'}
                 onClick={() => setOpenState(!openState)}
