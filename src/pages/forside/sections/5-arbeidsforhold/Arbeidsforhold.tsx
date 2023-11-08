@@ -27,16 +27,14 @@ const Arbeidsforhold = () => {
 
     return (
         <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel" beskrivelse="arbeidsforhold.beskrivelse" icon={arbeidsforholdIkon} visAnkerlenke>
-            <div className="arbeidsforhold">
-                <ListeMedArbeidsforhold
-                    miljo={miljo}
-                    locale={locale as Locale}
-                    onClick={onClick}
-                    printActivated={true}
-                    printName={printName}
-                    printSSN={printSSN}
-                />
-            </div>
+            <ListeMedArbeidsforhold
+                miljo={miljo}
+                locale={locale as Locale}
+                onClick={onClick}
+                printActivated={true}
+                printName={printName}
+                printSSN={printSSN}
+            />
             <Alert variant="info">
                 <FormattedMessage
                     id="arbeidsforhold.disclaimer"
