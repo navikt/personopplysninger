@@ -46,7 +46,7 @@ const App = () => {
     const basePathWithLanguage = `${basePath}/${locale}`;
 
     return (
-        <div role={'main'} className="pagecontent">
+        <div className="pagecontent">
             <div className="wrapper">
                 <Router>
                     <RedirectToLocale>

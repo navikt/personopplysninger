@@ -82,13 +82,13 @@ export default {
     'personalia.dkif.ingenData': '<b>Ingen opplysninger registrert</b>',
     'adresse.tittel': 'Adresser',
     'adresse.beskrivelse': `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
-<b>Bostedsadresse</b> <br></br> 
+<b>Bostedsadresse</b><br></br> 
 Adressen der du offisielt er registrert som bosatt.<br></br><br></br>
-<b>Oppholdsadresse</b><br></br> 
+<b>Oppholdsadresse</b><br></br>
 En adresse som du oppholder deg på for tiden.<br></br><br></br>
-<b>Postadresse (kontaktadresse)</b><br></br> 
-En adresse der du kan nås per post.<br></br> <br></br> 
-<b>Delt bosted</b><br></br> 
+<b>Postadresse (kontaktadresse)</b><br></br>
+En adresse der du kan nås per post.<br></br><br></br>
+<b>Delt bosted</b><br></br>
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.`,
     'adresse.oppholdsadresse': 'Oppholdsadresse',
     'adresse.oppholdsadresse.militaer': 'Militær',
@@ -119,7 +119,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'adresse.overskrift': 'Adresser som er registert i Folkeregisteret',
     'adresse.overskrift.ovrige': 'Øvrige registrerte adresser',
     'adresse.ikke.registrert': 'Du har ikke registrert bostedsadresse i Folkeregisteret',
-    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br> adresse til å motta post fra NAV?',
+    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br>adresse til å motta post fra NAV?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -174,6 +174,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
     'inst.ingendata': 'Ingen institusjonsopphold er registrert',
+    'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for oppholdet er ikke mottatt. NAV har avsluttet oppholdet maskinelt.',
     'inst.kilde': 'Kilde: Den enkelte institusjon',
     'kontaktogreservasjonsregister-disclaimer':
@@ -181,7 +182,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'kontaktinformasjon-kilde': `Hvor hentes kontaktinformasjonen fra?
   NAV henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
   å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i NAV sitt register.`,
-    'medl.tittel': 'Medlemskap og unntak fra <br></br> medlemskap i folketrygden',
+    'medl.tittel': 'Medlemskap og unntak fra <br></br>medlemskap i folketrygden',
     'medl.ingendata': 'Du har ingen registrerte perioder.',
     'medl.oversikt.ingress':
         'Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har',
@@ -260,6 +261,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.skjerming.beskrivelse': 'Gjelder ansatte i NAV og familiemedlemmer.',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Velg type',
+    'felter.merom': 'Mer om',
     'felter.prioritet.label': 'Prioritet',
     'felter.prioritet.velg': 'Velg prioritet',
     'felter.landkode.label': 'Landkode',

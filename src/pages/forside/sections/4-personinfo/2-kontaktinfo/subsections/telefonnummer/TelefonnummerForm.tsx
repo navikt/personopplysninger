@@ -101,6 +101,7 @@ const TelefonnummerForm = (props: Props) => {
                                     isNorwegianNumber(watch().landskode) ? v.length === 8 || msg({ id: 'validation.tlfnr.norske' }) : true,
                             },
                         })}
+                        autoComplete="tel"
                         type={'tel'}
                         size={'medium'}
                         maxLength={tlfNummerMaxLength}

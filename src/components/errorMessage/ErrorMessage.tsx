@@ -13,7 +13,7 @@ const ErrorMessage = (props: Props) => {
     const { error } = props;
     return (
         <div className="errorMessage__container">
-            <Alert variant="error">
+            <Alert role="alert" variant="error">
                 Oisann, noe gikk galt ved henting av data!
                 <br />
                 {!!error.code && <span>{`${error.code}: `}</span>}

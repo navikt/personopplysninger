@@ -64,6 +64,7 @@ const SelectPostnummer = memo((props: Props) => {
                         props.onChange(e.target.value);
                     }
                 }}
+                autoComplete="postal-code"
             />
             <div className="input-postnummer__poststed">{poststed && !fetchError && <>{poststed.tekst}</>}</div>
         </div>

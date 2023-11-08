@@ -184,6 +184,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                   class="navds-select__container"
                 >
                   <select
+                    autocomplete="off"
                     class="navds-select__input navds-body-short navds-body--medium"
                     id="select-r6"
                     name="NAV-kontor"

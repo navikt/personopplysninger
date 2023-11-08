@@ -180,6 +180,7 @@ exports[`Personalia renders correctly 1`] = `
                     class="kilde__icon"
                   >
                     <svg
+                      aria-hidden="true"
                       class="kilde__icon-aksel"
                       fill="none"
                       focusable="false"

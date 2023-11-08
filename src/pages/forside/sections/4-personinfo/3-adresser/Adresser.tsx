@@ -25,7 +25,7 @@ const Adresser = (props: Props) => {
             <div className="adresse__box">
                 {driftsmeldinger.pdl && (
                     <div style={{ padding: '1rem 0' }}>
-                        <Alert variant="warning">{driftsmeldinger.pdl}</Alert>
+                        <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>
                     </div>
                 )}
 

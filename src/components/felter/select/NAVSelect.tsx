@@ -100,7 +100,12 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     return !props.fetchError ? (
         <div className={containerClasses}>
             <div className="KodeverkSelect__header">
-                <LabelMedHjelpetekst label={props.label} hjelpetekst={props.hjelpetekst} labelId={labelId} labelForId={props.id} />
+                <LabelMedHjelpetekst
+                    label={props.label}
+                    hjelpetekst={props.hjelpetekst}
+                    labelId={labelId}
+                    labelForId={props.id}
+                />
             </div>
             <div className={`${cls('KodeverkSelect--select-wrapper')}`}>
                 <Select
@@ -137,6 +142,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
             onChange={(e) => props.onChange({ label: props.label, value: e.target.value })}
             error={props.submitted && props.error}
             placeholder={'+'}
+            autoComplete="off"
         />
     );
 });

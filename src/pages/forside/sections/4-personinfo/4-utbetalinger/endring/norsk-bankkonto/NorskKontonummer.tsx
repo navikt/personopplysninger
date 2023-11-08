@@ -33,6 +33,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
                 maxLength={16}
                 label={msg({ id: 'felter.kontonummer.label' })}
                 error={errors?.kontonummer?.message}
+                autoComplete="off"
             />
         </div>
     );

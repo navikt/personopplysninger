@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Link as ReactLink } from 'react-router-dom';
 import { Link, BodyLong, Detail, Button } from '@navikt/ds-react';
@@ -31,7 +32,7 @@ const Icon = ({ icon }: { icon: IconType }) => {
 
     const IconComponent = icon;
 
-    return <IconComponent className={'kilde__icon-aksel'} />;
+    return <IconComponent aria-hidden="true" className={'kilde__icon-aksel'} />;
 };
 
 const Knapp = (props: Props) => {
@@ -42,7 +43,7 @@ const Knapp = (props: Props) => {
                     <Link as={ReactLink} to={props.lenke} className="kilde__lenke lenke">
                         {props.ikon && (
                             <span className="kilde__icon">
-                                <Icon icon={props.ikon} aria-hidden="true" />
+                                <Icon icon={props.ikon} />
                             </span>
                         )}
                         <FormattedMessage id={props.lenkeTekst} />
@@ -55,7 +56,7 @@ const Knapp = (props: Props) => {
                     <Link href={props.lenke} className="kilde__lenke lenke">
                         {props.ikon && (
                             <span className="kilde__icon">
-                                <Icon icon={props.ikon} aria-hidden="true" />
+                                <Icon icon={props.ikon} />
                             </span>
                         )}
                         <FormattedMessage id={props.lenkeTekst} />
@@ -67,7 +68,7 @@ const Knapp = (props: Props) => {
                 <Button onClick={props.onClick} variant="tertiary" className="kilde__knapp knapp-med-ikon">
                     {props.ikon && (
                         <span className="kilde__icon">
-                            <Icon icon={props.ikon} aria-hidden="true" />
+                            <Icon icon={props.ikon} />
                         </span>
                     )}
                     <FormattedMessage id={props.lenkeTekst} />

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FormattedMessage } from 'react-intl';
 import { Link, useLocation } from 'react-router-dom';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
 import { InstInfo } from 'types/inst';
 import Kilde from 'components/kilde/Kilde';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
@@ -12,6 +13,7 @@ import dayjs from 'dayjs';
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     const [viewAmount, setViewAmount] = useState(20);
     const location = useLocation();
+    const { formatMessage } = useIntlFormatter();
     const { instInfo } = props;
 
     let animateDelay = 0;
@@ -71,13 +73,18 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                                 <div className="historikk__flex-kolonne historikk__heading">
                                                     <BodyShort>{`${startdato} - ${faktiskSluttdato}`}</BodyShort>
                                                     {innslag.fiktivSluttdato && (
-                                                        <CustomHelpText>
+                                                        <CustomHelpText
+                                                            title={formatMessage('inst.fiktivSluttdato.tittel')}
+                                                        >
                                                             <FormattedMessage id={'inst.fiktivSluttdato'} />
                                                         </CustomHelpText>
                                                     )}
                                                 </div>
                                                 <div className="historikk__flex-kolonne">
-                                                    <Link to={`${location.pathname}/${innslag.registreringstidspunkt}`} className="lenke">
+                                                    <Link
+                                                        to={`${location.pathname}/${innslag.registreringstidspunkt}`}
+                                                        className="lenke"
+                                                    >
                                                         <BodyShort>{innslag.institusjonsnavn}</BodyShort>
                                                     </Link>
                                                 </div>

@@ -174,6 +174,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
     'inst.ingendata': 'Ingen institusjonsopphald er registrert',
+    'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for opphaldet er ikkje mottatt. NAV har avslutta opphaldet maskinelt.',
     'inst.kilde': 'Kjelde: Den enkelte institusjon',
     'kontaktogreservasjonsregister-disclaimer':
@@ -259,6 +260,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'lenker.skjerming.beskrivelse': 'Gjeld tilsette i NAV og familiemedlem.',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Vel type',
+    'felter.merom': 'Mer om',
     'felter.prioritet.label': 'Prioritet',
     'felter.prioritet.velg': 'Vel prioritet',
     'felter.landkode.label': 'Landkode',

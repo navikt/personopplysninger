@@ -176,6 +176,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.kategori': 'Category',
     'inst.registreringstidspunkt': 'Date of registration',
     'inst.ingendata': 'No institutional stay is registered',
+    'inst.fiktivSluttdato.tittel': 'Termination',
     'inst.fiktivSluttdato': 'The termination of the stay at the institution has not been reported. NAV has automatically terminated the stay.',
     'inst.kilde': 'Source: The individual institution',
     'kontaktinformasjon-kilde': `Where is this contact information from?
@@ -267,6 +268,7 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.skjerming.beskrivelse': 'Applies to employees of NAV and family members.',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Select type',
+    'felter.merom': 'More about',
     'felter.prioritet.label': 'Priority',
     'felter.prioritet.velg': 'Choose priority',
     'felter.landkode.label': 'Country code',
