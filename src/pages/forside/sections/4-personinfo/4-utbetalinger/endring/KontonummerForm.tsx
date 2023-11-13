@@ -95,16 +95,12 @@ const KontonummerForm = (props: Props) => {
                     </Radio>
                     {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
                     <div className="utbetalinger__knapper">
-                        <div className="utbetalinger__knapp">
-                            <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
-                                <FormattedMessage id={'side.lagre'} />
-                            </Button>
-                        </div>
-                        <div className="utbetalinger__knapp">
-                            <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
-                                <FormattedMessage id={'side.avbryt'} />
-                            </Button>
-                        </div>
+                        <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
+                            <FormattedMessage id={'side.lagre'} />
+                        </Button>
+                        <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
+                            <FormattedMessage id={'side.avbryt'} />
+                        </Button>
                     </div>
                     {alert && <HttpFeilmelding {...alert} />}
                 </RadioGroup>
