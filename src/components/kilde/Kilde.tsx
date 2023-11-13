@@ -66,7 +66,7 @@ const Kilde = (props: Props) => {
         <div className="kilde__container">
             <div className="kilde__tekst">
                 {props.kilde && (
-                    <Detail>
+                    <Detail spacing>
                         <FormattedMessage
                             id={props.kilde}
                             values={{
