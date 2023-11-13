@@ -82,29 +82,27 @@ const Knapp = (props: Props) => {
 
 const Kilde = (props: Props) => {
     return (
-        <>
-            <div className="kilde__container">
-                <div className="kilde__tekst">
-                    {props.kilde && (
-                        <Detail>
-                            <FormattedMessage
-                                id={props.kilde}
-                                values={{
-                                    span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
-                                    br: (text) => (
-                                        <>
-                                            <br />
-                                            {text}
-                                        </>
-                                    ),
-                                }}
-                            />
-                        </Detail>
-                    )}
-                </div>
-                <Knapp {...props} />
+        <div className="kilde__container">
+            <div className="kilde__tekst">
+                {props.kilde && (
+                    <Detail>
+                        <FormattedMessage
+                            id={props.kilde}
+                            values={{
+                                span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
+                                br: (text) => (
+                                    <>
+                                        <br />
+                                        {text}
+                                    </>
+                                ),
+                            }}
+                        />
+                    </Detail>
+                )}
             </div>
-        </>
+            <Knapp {...props} />
+        </div>
     );
 };
 
