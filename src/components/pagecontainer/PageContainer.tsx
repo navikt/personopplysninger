@@ -2,7 +2,7 @@ import { FormattedMessage } from 'react-intl';
 import Icon from 'components/icon/Icon';
 import Tilbake from 'components/tilbake/Tilbake';
 import Brodsmulesti, { BrodsmuleLenke } from 'pages/forside/sections/2-brodsmulesti/Brodsmulesti';
-import { Heading, Panel } from '@navikt/ds-react';
+import { Box, Heading } from '@navikt/ds-react';
 
 interface Props {
     children: JSX.Element | JSX.Element[];
@@ -32,7 +32,9 @@ const PageContainer = (props: Props) => {
                 </div>
                 <div className="da__filler" />
             </div>
-            <Panel className="da__innhold">{props.children}</Panel>
+            <Box background="surface-default" className="da__innhold">
+                {props.children}
+            </Box>
         </div>
     );
 };
