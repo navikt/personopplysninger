@@ -63,7 +63,7 @@ const Knapp = (props: Props) => {
 
 const Kilde = (props: Props) => {
     return (
-        <div className="kilde__container">
+        <>
             <div className="kilde__tekst">
                 {props.kilde && (
                     <Detail spacing>
@@ -83,7 +83,7 @@ const Kilde = (props: Props) => {
                 )}
             </div>
             <Knapp {...props} />
-        </div>
+        </>
     );
 };
 
