@@ -26,9 +26,7 @@ const LandMedBankkode = (props: Props) => {
                 <BickodeField />
                 <BankkodeField />
             </div>
-            <div className="utbetalinger__adressefelter">
-                <AdresseFields />
-            </div>
+            <AdresseFields />
         </>
     );
 };

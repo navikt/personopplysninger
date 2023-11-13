@@ -5,9 +5,7 @@ const AmerikanskKonto = () => {
     return (
         <>
             <BankkodeField />
-            <div className="utbetalinger__adressefelter">
-                <AdresseFields />
-            </div>
+            <AdresseFields />
         </>
     );
 };
