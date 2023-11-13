@@ -1,778 +1,778 @@
 [
-  {
-    "landskode": "+51",
-    "land": "Peru"
-  },
-  {
-    "landskode": "+52",
-    "land": "Mexico"
-  },
-  {
-    "landskode": "+53",
-    "land": "Cuba"
-  },
-  {
-    "landskode": "+54",
-    "land": "Argentina"
-  },
-  {
-    "landskode": "+55",
-    "land": "Brasil"
-  },
-  {
-    "landskode": "+56",
-    "land": "Chile"
-  },
-  {
-    "landskode": "+57",
-    "land": "Colombia"
-  },
-  {
-    "landskode": "+58",
-    "land": "Venezuela"
-  },
-  {
-    "landskode": "+593",
-    "land": "Ecuador"
-  },
-  {
-    "landskode": "+351",
-    "land": "Portugal"
-  },
-  {
-    "landskode": "+230",
-    "land": "Mauritius"
-  },
-  {
-    "landskode": "+352",
-    "land": "Luxembourg"
-  },
-  {
-    "landskode": "+231",
-    "land": "Liberia"
-  },
-  {
-    "landskode": "+595",
-    "land": "Paraguay"
-  },
-  {
-    "landskode": "+353",
-    "land": "Irland og Nord-Irland"
-  },
-  {
-    "landskode": "+232",
-    "land": "Sierra Leone"
-  },
-  {
-    "landskode": "+354",
-    "land": "Island"
-  },
-  {
-    "landskode": "+233",
-    "land": "Ghana"
-  },
-  {
-    "landskode": "+591",
-    "land": "Bolivia"
-  },
-  {
-    "landskode": "+592",
-    "land": "Guyana"
-  },
-  {
-    "landskode": "+238",
-    "land": "Cape Verde"
-  },
-  {
-    "landskode": "+359",
-    "land": "Bulgaria"
-  },
-  {
-    "landskode": "+239",
-    "land": "São Tomè og Principe"
-  },
-  {
-    "landskode": "+234",
-    "land": "Nigeria"
-  },
-  {
-    "landskode": "+355",
-    "land": "Albania"
-  },
-  {
-    "landskode": "+597",
-    "land": "Surinam"
-  },
-  {
-    "landskode": "+235",
-    "land": "Tsjad"
-  },
-  {
-    "landskode": "+598",
-    "land": "Uruguay"
-  },
-  {
-    "landskode": "+356",
-    "land": "Malta"
-  },
-  {
-    "landskode": "+357",
-    "land": "Kypros (Sør)"
-  },
-  {
-    "landskode": "+236",
-    "land": "Den Sentral-Afrikanske Republikk"
-  },
-  {
-    "landskode": "+237",
-    "land": "Cameroon"
-  },
-  {
-    "landskode": "+358",
-    "land": "Finland"
-  },
-  {
-    "landskode": "+60",
-    "land": "Malaysia"
-  },
-  {
-    "landskode": "+61",
-    "land": "Australia"
-  },
-  {
-    "landskode": "+62",
-    "land": "Indonesia"
-  },
-  {
-    "landskode": "+63",
-    "land": "Filippinene"
-  },
-  {
-    "landskode": "+64",
-    "land": "New Zealand"
-  },
-  {
-    "landskode": "+65",
-    "land": "Singapore"
-  },
-  {
-    "landskode": "+66",
-    "land": "Thailand"
-  },
-  {
-    "landskode": "+241",
-    "land": "Gabon"
-  },
-  {
-    "landskode": "+242",
-    "land": "Kongo"
-  },
-  {
-    "landskode": "+243",
-    "land": "Den Demokratiske Republikken Kongo (Zaire)"
-  },
-  {
-    "landskode": "+244",
-    "land": "Angola"
-  },
-  {
-    "landskode": "+240",
-    "land": "Equatorial Guinea"
-  },
-  {
-    "landskode": "+249",
-    "land": "Sudan"
-  },
-  {
-    "landskode": "+1784",
-    "land": "St Vincent og Grenadinane"
-  },
-  {
-    "landskode": "+245",
-    "land": "Guinea Bissay"
-  },
-  {
-    "landskode": "+248",
-    "land": "Seychellene"
-  },
-  {
-    "landskode": "+373",
-    "land": "Moldova"
-  },
-  {
-    "landskode": "+252",
-    "land": "Somalia"
-  },
-  {
-    "landskode": "+253",
-    "land": "Djibouti"
-  },
-  {
-    "landskode": "+374",
-    "land": "Armenia"
-  },
-  {
-    "landskode": "+375",
-    "land": "Hviterussland"
-  },
-  {
-    "landskode": "+254",
-    "land": "Kenya"
-  },
-  {
-    "landskode": "+376",
-    "land": "Andorra"
-  },
-  {
-    "landskode": "+255",
-    "land": "Tanzania"
-  },
-  {
-    "landskode": "+370",
-    "land": "Litauen"
-  },
-  {
-    "landskode": "+250",
-    "land": "Rwanda"
-  },
-  {
-    "landskode": "+371",
-    "land": "Latvia"
-  },
-  {
-    "landskode": "+251",
-    "land": "Etiopia"
-  },
-  {
-    "landskode": "+372",
-    "land": "Estland"
-  },
-  {
-    "landskode": "+256",
-    "land": "Uganda"
-  },
-  {
-    "landskode": "+377",
-    "land": "Monaco"
-  },
-  {
-    "landskode": "+257",
-    "land": "Burundi"
-  },
-  {
-    "landskode": "+378",
-    "land": "San Marino"
-  },
-  {
-    "landskode": "+258",
-    "land": "Mosambik"
-  },
-  {
-    "landskode": "+81",
-    "land": "Japan"
-  },
-  {
-    "landskode": "+82",
-    "land": "Sør-Korea"
-  },
-  {
-    "landskode": "+84",
-    "land": "Vietnam"
-  },
-  {
-    "landskode": "+1767",
-    "land": "Dominica"
-  },
-  {
-    "landskode": "+86",
-    "land": "Kina"
-  },
-  {
-    "landskode": "+263",
-    "land": "Zimbabwe"
-  },
-  {
-    "landskode": "+385",
-    "land": "Kroatia"
-  },
-  {
-    "landskode": "+264",
-    "land": "Namibia"
-  },
-  {
-    "landskode": "+265",
-    "land": "Malawi"
-  },
-  {
-    "landskode": "+386",
-    "land": "Slovenia"
-  },
-  {
-    "landskode": "+387",
-    "land": "Bosnia og Herzegovina"
-  },
-  {
-    "landskode": "+266",
-    "land": "Lesotho"
-  },
-  {
-    "landskode": "+380",
-    "land": "Ukraina"
-  },
-  {
-    "landskode": "+381",
-    "land": "Serbia og Montenegro"
-  },
-  {
-    "landskode": "+260",
-    "land": "Zambia"
-  },
-  {
-    "landskode": "+261",
-    "land": "Madagaskar"
-  },
-  {
-    "landskode": "+267",
-    "land": "Botswana"
-  },
-  {
-    "landskode": "+389",
-    "land": "Macedonia"
-  },
-  {
-    "landskode": "+268",
-    "land": "Swaziland"
-  },
-  {
-    "landskode": "+269",
-    "land": "Comoros"
-  },
-  {
-    "landskode": "+90",
-    "land": "Tyrkia"
-  },
-  {
-    "landskode": "+91",
-    "land": "India"
-  },
-  {
-    "landskode": "+92",
-    "land": "Pakistan"
-  },
-  {
-    "landskode": "+93",
-    "land": "Afghanistan"
-  },
-  {
-    "landskode": "+94",
-    "land": "Sri Lanka"
-  },
-  {
-    "landskode": "+95",
-    "land": "Myanmar (tidl. Burma)"
-  },
-  {
-    "landskode": "+98",
-    "land": "Iran"
-  },
-  {
-    "landskode": "+1473",
-    "land": "Grenada"
-  },
-  {
-    "landskode": "+968",
-    "land": "Oman"
-  },
-  {
-    "landskode": "+291",
-    "land": "Eritrea"
-  },
-  {
-    "landskode": "+964",
-    "land": "Irak"
-  },
-  {
-    "landskode": "+965",
-    "land": "Kuwait"
-  },
-  {
-    "landskode": "+966",
-    "land": "Saudi Arabia"
-  },
-  {
-    "landskode": "+967",
-    "land": "Yemen"
-  },
-  {
-    "landskode": "+960",
-    "land": "Maldivene"
-  },
-  {
-    "landskode": "+961",
-    "land": "Libanon"
-  },
-  {
-    "landskode": "+962",
-    "land": "Jordan"
-  },
-  {
-    "landskode": "+963",
-    "land": "Syria"
-  },
-  {
-    "landskode": "+298",
-    "land": "Færøyene"
-  },
-  {
-    "landskode": "+299",
-    "land": "Grønland"
-  },
-  {
-    "landskode": "+970",
-    "land": "Palestinia"
-  },
-  {
-    "landskode": "+975",
-    "land": "Bhutan"
-  },
-  {
-    "landskode": "+976",
-    "land": "Mongolia"
-  },
-  {
-    "landskode": "+855",
-    "land": "Kambodsja"
-  },
-  {
-    "landskode": "+856",
-    "land": "Laos"
-  },
-  {
-    "landskode": "+977",
-    "land": "Nepal"
-  },
-  {
-    "landskode": "+971",
-    "land": "De forente Arabiske Emirater"
-  },
-  {
-    "landskode": "+850",
-    "land": "Nord-Korea"
-  },
-  {
-    "landskode": "+972",
-    "land": "Israel"
-  },
-  {
-    "landskode": "+973",
-    "land": "Bahrain"
-  },
-  {
-    "landskode": "+974",
-    "land": "Qatar"
-  },
-  {
-    "landskode": "+506",
-    "land": "Costa Rica"
-  },
-  {
-    "landskode": "+507",
-    "land": "Panama"
-  },
-  {
-    "landskode": "+509",
-    "land": "Haiti"
-  },
-  {
-    "landskode": "+187",
-    "land": "Jamaica"
-  },
-  {
-    "landskode": "+502",
-    "land": "Guatemala"
-  },
-  {
-    "landskode": "+503",
-    "land": "El Salvador"
-  },
-  {
-    "landskode": "+504",
-    "land": "Honduras"
-  },
-  {
-    "landskode": "+505",
-    "land": "Nicaragua"
-  },
-  {
-    "landskode": "+501",
-    "land": "Belize"
-  },
-  {
-    "landskode": "+992",
-    "land": "Tajikistan"
-  },
-  {
-    "landskode": "+998",
-    "land": "Uzbekistan"
-  },
-  {
-    "landskode": "+993",
-    "land": "Turkmenistan"
-  },
-  {
-    "landskode": "+994",
-    "land": "Azerbaijan"
-  },
-  {
-    "landskode": "+995",
-    "land": "Georgia"
-  },
-  {
-    "landskode": "+996",
-    "land": "Kyrgyzstan"
-  },
-  {
-    "landskode": "+880",
-    "land": "Bangladesh"
-  },
-  {
-    "landskode": "+1268",
-    "land": "Antigua og Barbuda"
-  },
-  {
-    "landskode": "+886",
-    "land": "Taiwan"
-  },
-  {
-    "landskode": "+1",
-    "land": "Canada, USA"
-  },
-  {
-    "landskode": "+7",
-    "land": "Russland, Kazakhstan"
-  },
-  {
-    "landskode": "+1809",
-    "land": "Den Dominikanske Republikk"
-  },
-  {
-    "landskode": "+420",
-    "land": "Tjekkia"
-  },
-  {
-    "landskode": "+1246",
-    "land": "Barbados"
-  },
-  {
-    "landskode": "+421",
-    "land": "Slovakia"
-  },
-  {
-    "landskode": "+1242",
-    "land": "Bahamas"
-  },
-  {
-    "landskode": "+423",
-    "land": "Liechtenstein"
-  },
-  {
-    "landskode": "+1758",
-    "land": "St Lucia"
-  },
-  {
-    "landskode": "+670",
-    "land": "Øst-Timor"
-  },
-  {
-    "landskode": "+673",
-    "land": "Brunei"
-  },
-  {
-    "landskode": "+678",
-    "land": "Vanatu"
-  },
-  {
-    "landskode": "+679",
-    "land": "Fiji"
-  },
-  {
-    "landskode": "+674",
-    "land": "Nauru"
-  },
-  {
-    "landskode": "+675",
-    "land": "Papua Ny Guinea"
-  },
-  {
-    "landskode": "+676",
-    "land": "Tonga"
-  },
-  {
-    "landskode": "+677",
-    "land": "Solomon-øyene"
-  },
-  {
-    "landskode": "+1869",
-    "land": "St Kitts og Nevis"
-  },
-  {
-    "landskode": "+1868",
-    "land": "Trinidad og Tobago"
-  },
-  {
-    "landskode": "+20",
-    "land": "Egypt"
-  },
-  {
-    "landskode": "+27",
-    "land": "Sør-Afrika"
-  },
-  {
-    "landskode": "+684",
-    "land": "Samoa (US)"
-  },
-  {
-    "landskode": "+680",
-    "land": "Palau"
-  },
-  {
-    "landskode": "+685",
-    "land": "Samoa (West)"
-  },
-  {
-    "landskode": "+686",
-    "land": "Kiribati"
-  },
-  {
-    "landskode": "+688",
-    "land": "Tuvalu"
-  },
-  {
-    "landskode": "+30",
-    "land": "Hellas"
-  },
-  {
-    "landskode": "+31",
-    "land": "Nederland"
-  },
-  {
-    "landskode": "+32",
-    "land": "Belgia"
-  },
-  {
-    "landskode": "+33",
-    "land": "Frankrike"
-  },
-  {
-    "landskode": "+34",
-    "land": "Spania"
-  },
-  {
-    "landskode": "+36",
-    "land": "Ungarn"
-  },
-  {
-    "landskode": "+692",
-    "land": "Marshall-øyene"
-  },
-  {
-    "landskode": "+39",
-    "land": "Italia"
-  },
-  {
-    "landskode": "+691",
-    "land": "Micronesia"
-  },
-  {
-    "landskode": "+216",
-    "land": "Tunisia"
-  },
-  {
-    "landskode": "+218",
-    "land": "Libya"
-  },
-  {
-    "landskode": "+212",
-    "land": "Marokko"
-  },
-  {
-    "landskode": "+213",
-    "land": "Algerie"
-  },
-  {
-    "landskode": "+40",
-    "land": "Romania"
-  },
-  {
-    "landskode": "+41",
-    "land": "Sveits"
-  },
-  {
-    "landskode": "+43",
-    "land": "Østerrike"
-  },
-  {
-    "landskode": "+44",
-    "land": "Storbritannia (UK)"
-  },
-  {
-    "landskode": "+45",
-    "land": "Danmark"
-  },
-  {
-    "landskode": "+46",
-    "land": "Sverige"
-  },
-  {
-    "landskode": "+47",
-    "land": "Norge"
-  },
-  {
-    "landskode": "+48",
-    "land": "Polen"
-  },
-  {
-    "landskode": "+49",
-    "land": "Tyskland"
-  },
-  {
-    "landskode": "+220",
-    "land": "Gambia"
-  },
-  {
-    "landskode": "+221",
-    "land": "Senegal"
-  },
-  {
-    "landskode": "+222",
-    "land": "Mauritania"
-  },
-  {
-    "landskode": "+227",
-    "land": "Niger"
-  },
-  {
-    "landskode": "+228",
-    "land": "Togo"
-  },
-  {
-    "landskode": "+229",
-    "land": "Benin"
-  },
-  {
-    "landskode": "+223",
-    "land": "Mali"
-  },
-  {
-    "landskode": "+224",
-    "land": "Guinea"
-  },
-  {
-    "landskode": "+225",
-    "land": "Côte d'Ivoire"
-  },
-  {
-    "landskode": "+226",
-    "land": "Burkina Faso"
-  }
+    {
+        "landskode": "+51",
+        "land": "Peru"
+    },
+    {
+        "landskode": "+52",
+        "land": "Mexico"
+    },
+    {
+        "landskode": "+53",
+        "land": "Cuba"
+    },
+    {
+        "landskode": "+54",
+        "land": "Argentina"
+    },
+    {
+        "landskode": "+55",
+        "land": "Brasil"
+    },
+    {
+        "landskode": "+56",
+        "land": "Chile"
+    },
+    {
+        "landskode": "+57",
+        "land": "Colombia"
+    },
+    {
+        "landskode": "+58",
+        "land": "Venezuela"
+    },
+    {
+        "landskode": "+593",
+        "land": "Ecuador"
+    },
+    {
+        "landskode": "+351",
+        "land": "Portugal"
+    },
+    {
+        "landskode": "+230",
+        "land": "Mauritius"
+    },
+    {
+        "landskode": "+352",
+        "land": "Luxembourg"
+    },
+    {
+        "landskode": "+231",
+        "land": "Liberia"
+    },
+    {
+        "landskode": "+595",
+        "land": "Paraguay"
+    },
+    {
+        "landskode": "+353",
+        "land": "Irland og Nord-Irland"
+    },
+    {
+        "landskode": "+232",
+        "land": "Sierra Leone"
+    },
+    {
+        "landskode": "+354",
+        "land": "Island"
+    },
+    {
+        "landskode": "+233",
+        "land": "Ghana"
+    },
+    {
+        "landskode": "+591",
+        "land": "Bolivia"
+    },
+    {
+        "landskode": "+592",
+        "land": "Guyana"
+    },
+    {
+        "landskode": "+238",
+        "land": "Cape Verde"
+    },
+    {
+        "landskode": "+359",
+        "land": "Bulgaria"
+    },
+    {
+        "landskode": "+239",
+        "land": "São Tomè og Principe"
+    },
+    {
+        "landskode": "+234",
+        "land": "Nigeria"
+    },
+    {
+        "landskode": "+355",
+        "land": "Albania"
+    },
+    {
+        "landskode": "+597",
+        "land": "Surinam"
+    },
+    {
+        "landskode": "+235",
+        "land": "Tsjad"
+    },
+    {
+        "landskode": "+598",
+        "land": "Uruguay"
+    },
+    {
+        "landskode": "+356",
+        "land": "Malta"
+    },
+    {
+        "landskode": "+357",
+        "land": "Kypros (Sør)"
+    },
+    {
+        "landskode": "+236",
+        "land": "Den Sentral-Afrikanske Republikk"
+    },
+    {
+        "landskode": "+237",
+        "land": "Cameroon"
+    },
+    {
+        "landskode": "+358",
+        "land": "Finland"
+    },
+    {
+        "landskode": "+60",
+        "land": "Malaysia"
+    },
+    {
+        "landskode": "+61",
+        "land": "Australia"
+    },
+    {
+        "landskode": "+62",
+        "land": "Indonesia"
+    },
+    {
+        "landskode": "+63",
+        "land": "Filippinene"
+    },
+    {
+        "landskode": "+64",
+        "land": "New Zealand"
+    },
+    {
+        "landskode": "+65",
+        "land": "Singapore"
+    },
+    {
+        "landskode": "+66",
+        "land": "Thailand"
+    },
+    {
+        "landskode": "+241",
+        "land": "Gabon"
+    },
+    {
+        "landskode": "+242",
+        "land": "Kongo"
+    },
+    {
+        "landskode": "+243",
+        "land": "Den Demokratiske Republikken Kongo (Zaire)"
+    },
+    {
+        "landskode": "+244",
+        "land": "Angola"
+    },
+    {
+        "landskode": "+240",
+        "land": "Equatorial Guinea"
+    },
+    {
+        "landskode": "+249",
+        "land": "Sudan"
+    },
+    {
+        "landskode": "+1784",
+        "land": "St Vincent og Grenadinane"
+    },
+    {
+        "landskode": "+245",
+        "land": "Guinea Bissay"
+    },
+    {
+        "landskode": "+248",
+        "land": "Seychellene"
+    },
+    {
+        "landskode": "+373",
+        "land": "Moldova"
+    },
+    {
+        "landskode": "+252",
+        "land": "Somalia"
+    },
+    {
+        "landskode": "+253",
+        "land": "Djibouti"
+    },
+    {
+        "landskode": "+374",
+        "land": "Armenia"
+    },
+    {
+        "landskode": "+375",
+        "land": "Hviterussland"
+    },
+    {
+        "landskode": "+254",
+        "land": "Kenya"
+    },
+    {
+        "landskode": "+376",
+        "land": "Andorra"
+    },
+    {
+        "landskode": "+255",
+        "land": "Tanzania"
+    },
+    {
+        "landskode": "+370",
+        "land": "Litauen"
+    },
+    {
+        "landskode": "+250",
+        "land": "Rwanda"
+    },
+    {
+        "landskode": "+371",
+        "land": "Latvia"
+    },
+    {
+        "landskode": "+251",
+        "land": "Etiopia"
+    },
+    {
+        "landskode": "+372",
+        "land": "Estland"
+    },
+    {
+        "landskode": "+256",
+        "land": "Uganda"
+    },
+    {
+        "landskode": "+377",
+        "land": "Monaco"
+    },
+    {
+        "landskode": "+257",
+        "land": "Burundi"
+    },
+    {
+        "landskode": "+378",
+        "land": "San Marino"
+    },
+    {
+        "landskode": "+258",
+        "land": "Mosambik"
+    },
+    {
+        "landskode": "+81",
+        "land": "Japan"
+    },
+    {
+        "landskode": "+82",
+        "land": "Sør-Korea"
+    },
+    {
+        "landskode": "+84",
+        "land": "Vietnam"
+    },
+    {
+        "landskode": "+1767",
+        "land": "Dominica"
+    },
+    {
+        "landskode": "+86",
+        "land": "Kina"
+    },
+    {
+        "landskode": "+263",
+        "land": "Zimbabwe"
+    },
+    {
+        "landskode": "+385",
+        "land": "Kroatia"
+    },
+    {
+        "landskode": "+264",
+        "land": "Namibia"
+    },
+    {
+        "landskode": "+265",
+        "land": "Malawi"
+    },
+    {
+        "landskode": "+386",
+        "land": "Slovenia"
+    },
+    {
+        "landskode": "+387",
+        "land": "Bosnia og Herzegovina"
+    },
+    {
+        "landskode": "+266",
+        "land": "Lesotho"
+    },
+    {
+        "landskode": "+380",
+        "land": "Ukraina"
+    },
+    {
+        "landskode": "+381",
+        "land": "Serbia og Montenegro"
+    },
+    {
+        "landskode": "+260",
+        "land": "Zambia"
+    },
+    {
+        "landskode": "+261",
+        "land": "Madagaskar"
+    },
+    {
+        "landskode": "+267",
+        "land": "Botswana"
+    },
+    {
+        "landskode": "+389",
+        "land": "Macedonia"
+    },
+    {
+        "landskode": "+268",
+        "land": "Swaziland"
+    },
+    {
+        "landskode": "+269",
+        "land": "Comoros"
+    },
+    {
+        "landskode": "+90",
+        "land": "Tyrkia"
+    },
+    {
+        "landskode": "+91",
+        "land": "India"
+    },
+    {
+        "landskode": "+92",
+        "land": "Pakistan"
+    },
+    {
+        "landskode": "+93",
+        "land": "Afghanistan"
+    },
+    {
+        "landskode": "+94",
+        "land": "Sri Lanka"
+    },
+    {
+        "landskode": "+95",
+        "land": "Myanmar (tidl. Burma)"
+    },
+    {
+        "landskode": "+98",
+        "land": "Iran"
+    },
+    {
+        "landskode": "+1473",
+        "land": "Grenada"
+    },
+    {
+        "landskode": "+968",
+        "land": "Oman"
+    },
+    {
+        "landskode": "+291",
+        "land": "Eritrea"
+    },
+    {
+        "landskode": "+964",
+        "land": "Irak"
+    },
+    {
+        "landskode": "+965",
+        "land": "Kuwait"
+    },
+    {
+        "landskode": "+966",
+        "land": "Saudi Arabia"
+    },
+    {
+        "landskode": "+967",
+        "land": "Yemen"
+    },
+    {
+        "landskode": "+960",
+        "land": "Maldivene"
+    },
+    {
+        "landskode": "+961",
+        "land": "Libanon"
+    },
+    {
+        "landskode": "+962",
+        "land": "Jordan"
+    },
+    {
+        "landskode": "+963",
+        "land": "Syria"
+    },
+    {
+        "landskode": "+298",
+        "land": "Færøyene"
+    },
+    {
+        "landskode": "+299",
+        "land": "Grønland"
+    },
+    {
+        "landskode": "+970",
+        "land": "Palestinia"
+    },
+    {
+        "landskode": "+975",
+        "land": "Bhutan"
+    },
+    {
+        "landskode": "+976",
+        "land": "Mongolia"
+    },
+    {
+        "landskode": "+855",
+        "land": "Kambodsja"
+    },
+    {
+        "landskode": "+856",
+        "land": "Laos"
+    },
+    {
+        "landskode": "+977",
+        "land": "Nepal"
+    },
+    {
+        "landskode": "+971",
+        "land": "De forente Arabiske Emirater"
+    },
+    {
+        "landskode": "+850",
+        "land": "Nord-Korea"
+    },
+    {
+        "landskode": "+972",
+        "land": "Israel"
+    },
+    {
+        "landskode": "+973",
+        "land": "Bahrain"
+    },
+    {
+        "landskode": "+974",
+        "land": "Qatar"
+    },
+    {
+        "landskode": "+506",
+        "land": "Costa Rica"
+    },
+    {
+        "landskode": "+507",
+        "land": "Panama"
+    },
+    {
+        "landskode": "+509",
+        "land": "Haiti"
+    },
+    {
+        "landskode": "+187",
+        "land": "Jamaica"
+    },
+    {
+        "landskode": "+502",
+        "land": "Guatemala"
+    },
+    {
+        "landskode": "+503",
+        "land": "El Salvador"
+    },
+    {
+        "landskode": "+504",
+        "land": "Honduras"
+    },
+    {
+        "landskode": "+505",
+        "land": "Nicaragua"
+    },
+    {
+        "landskode": "+501",
+        "land": "Belize"
+    },
+    {
+        "landskode": "+992",
+        "land": "Tajikistan"
+    },
+    {
+        "landskode": "+998",
+        "land": "Uzbekistan"
+    },
+    {
+        "landskode": "+993",
+        "land": "Turkmenistan"
+    },
+    {
+        "landskode": "+994",
+        "land": "Azerbaijan"
+    },
+    {
+        "landskode": "+995",
+        "land": "Georgia"
+    },
+    {
+        "landskode": "+996",
+        "land": "Kyrgyzstan"
+    },
+    {
+        "landskode": "+880",
+        "land": "Bangladesh"
+    },
+    {
+        "landskode": "+1268",
+        "land": "Antigua og Barbuda"
+    },
+    {
+        "landskode": "+886",
+        "land": "Taiwan"
+    },
+    {
+        "landskode": "+1",
+        "land": "Canada, USA"
+    },
+    {
+        "landskode": "+7",
+        "land": "Russland, Kazakhstan"
+    },
+    {
+        "landskode": "+1809",
+        "land": "Den Dominikanske Republikk"
+    },
+    {
+        "landskode": "+420",
+        "land": "Tjekkia"
+    },
+    {
+        "landskode": "+1246",
+        "land": "Barbados"
+    },
+    {
+        "landskode": "+421",
+        "land": "Slovakia"
+    },
+    {
+        "landskode": "+1242",
+        "land": "Bahamas"
+    },
+    {
+        "landskode": "+423",
+        "land": "Liechtenstein"
+    },
+    {
+        "landskode": "+1758",
+        "land": "St Lucia"
+    },
+    {
+        "landskode": "+670",
+        "land": "Øst-Timor"
+    },
+    {
+        "landskode": "+673",
+        "land": "Brunei"
+    },
+    {
+        "landskode": "+678",
+        "land": "Vanatu"
+    },
+    {
+        "landskode": "+679",
+        "land": "Fiji"
+    },
+    {
+        "landskode": "+674",
+        "land": "Nauru"
+    },
+    {
+        "landskode": "+675",
+        "land": "Papua Ny Guinea"
+    },
+    {
+        "landskode": "+676",
+        "land": "Tonga"
+    },
+    {
+        "landskode": "+677",
+        "land": "Solomon-øyene"
+    },
+    {
+        "landskode": "+1869",
+        "land": "St Kitts og Nevis"
+    },
+    {
+        "landskode": "+1868",
+        "land": "Trinidad og Tobago"
+    },
+    {
+        "landskode": "+20",
+        "land": "Egypt"
+    },
+    {
+        "landskode": "+27",
+        "land": "Sør-Afrika"
+    },
+    {
+        "landskode": "+684",
+        "land": "Samoa (US)"
+    },
+    {
+        "landskode": "+680",
+        "land": "Palau"
+    },
+    {
+        "landskode": "+685",
+        "land": "Samoa (West)"
+    },
+    {
+        "landskode": "+686",
+        "land": "Kiribati"
+    },
+    {
+        "landskode": "+688",
+        "land": "Tuvalu"
+    },
+    {
+        "landskode": "+30",
+        "land": "Hellas"
+    },
+    {
+        "landskode": "+31",
+        "land": "Nederland"
+    },
+    {
+        "landskode": "+32",
+        "land": "Belgia"
+    },
+    {
+        "landskode": "+33",
+        "land": "Frankrike"
+    },
+    {
+        "landskode": "+34",
+        "land": "Spania"
+    },
+    {
+        "landskode": "+36",
+        "land": "Ungarn"
+    },
+    {
+        "landskode": "+692",
+        "land": "Marshall-øyene"
+    },
+    {
+        "landskode": "+39",
+        "land": "Italia"
+    },
+    {
+        "landskode": "+691",
+        "land": "Micronesia"
+    },
+    {
+        "landskode": "+216",
+        "land": "Tunisia"
+    },
+    {
+        "landskode": "+218",
+        "land": "Libya"
+    },
+    {
+        "landskode": "+212",
+        "land": "Marokko"
+    },
+    {
+        "landskode": "+213",
+        "land": "Algerie"
+    },
+    {
+        "landskode": "+40",
+        "land": "Romania"
+    },
+    {
+        "landskode": "+41",
+        "land": "Sveits"
+    },
+    {
+        "landskode": "+43",
+        "land": "Østerrike"
+    },
+    {
+        "landskode": "+44",
+        "land": "Storbritannia (UK)"
+    },
+    {
+        "landskode": "+45",
+        "land": "Danmark"
+    },
+    {
+        "landskode": "+46",
+        "land": "Sverige"
+    },
+    {
+        "landskode": "+47",
+        "land": "Norge"
+    },
+    {
+        "landskode": "+48",
+        "land": "Polen"
+    },
+    {
+        "landskode": "+49",
+        "land": "Tyskland"
+    },
+    {
+        "landskode": "+220",
+        "land": "Gambia"
+    },
+    {
+        "landskode": "+221",
+        "land": "Senegal"
+    },
+    {
+        "landskode": "+222",
+        "land": "Mauritania"
+    },
+    {
+        "landskode": "+227",
+        "land": "Niger"
+    },
+    {
+        "landskode": "+228",
+        "land": "Togo"
+    },
+    {
+        "landskode": "+229",
+        "land": "Benin"
+    },
+    {
+        "landskode": "+223",
+        "land": "Mali"
+    },
+    {
+        "landskode": "+224",
+        "land": "Guinea"
+    },
+    {
+        "landskode": "+225",
+        "land": "Côte d'Ivoire"
+    },
+    {
+        "landskode": "+226",
+        "land": "Burkina Faso"
+    }
 ]

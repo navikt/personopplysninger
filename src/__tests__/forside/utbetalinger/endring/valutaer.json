@@ -1,14 +1,14 @@
 [
-  {
-    "kode": "USD",
-    "tekst": "Amerikanske dollar"
-  },
-  {
-    "kode": "INR",
-    "tekst": "Indiske Rupi"
-  },
-  {
-    "kode": "SEK",
-    "tekst": "Svenske kroner"
-  }
+    {
+        "kode": "USD",
+        "tekst": "Amerikanske dollar"
+    },
+    {
+        "kode": "INR",
+        "tekst": "Indiske Rupi"
+    },
+    {
+        "kode": "SEK",
+        "tekst": "Svenske kroner"
+    }
 ]

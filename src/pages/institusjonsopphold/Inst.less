@@ -1,31 +1,31 @@
 .inst {
-  &__tabell {
-    margin: 1rem 0;
-  }
+    &__tabell {
+        margin: 1rem 0;
+    }
 
-  &__head {
-    @media @maxMobile {
-      display: none;
+    &__head {
+        @media @maxMobile {
+            display: none;
+        }
     }
-  }
-  &__kilde {
-    margin-top: 1rem;
-  }
-  &__se-flere {
-    display: flex;
-    justify-content: center;
-    margin: 1rem 0;
-  }
-  &__periode {
-    display: flex;
-  }
-  &__animate {
-    &-enter {
-      opacity: 0;
+    &__kilde {
+        margin-top: 1rem;
     }
-    &-enter-active {
-      opacity: 1;
-      transition: all 100ms ease-in;
+    &__se-flere {
+        display: flex;
+        justify-content: center;
+        margin: 1rem 0;
     }
-  }
+    &__periode {
+        display: flex;
+    }
+    &__animate {
+        &-enter {
+            opacity: 0;
+        }
+        &-enter-active {
+            opacity: 1;
+            transition: all 100ms ease-in;
+        }
+    }
 }

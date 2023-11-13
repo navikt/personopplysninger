@@ -1,69 +1,69 @@
 .lenkepanel {
-  margin-bottom: 0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .linkbox {
-  &__rad {
-    display: flex;
-    padding: 1rem 0;
-    border-bottom: 1px solid #979797;
-    align-items: center;
-    text-decoration: none;
-    color: black;
+    &__rad {
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: 1px solid #979797;
+        align-items: center;
+        text-decoration: none;
+        color: black;
 
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-
-  &__tittel {
-    margin: 0 0 0.6rem 0;
-  }
-
-  &__beskrivelse {
-    width: 100%;
-  }
-
-  &__icon-container {
-    padding: 0 1.5rem 0 0;
-    @media @maxMobile {
-      padding: 0 0.5rem 0 0;
-    }
-  }
-
-  &__lenke-container {
-    display: flex;
-    align-items: center;
-  }
-
-  &__lenke {
-    color: var(--a-surface-action);
-    text-decoration: underline;
-  }
-
-  &__next {
-    width: 1.5rem;
-    height: 1.5rem;
-  }
-
-  &__content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  &__seksjon {
-    margin: 0 1rem 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-
-    @media @maxTablet {
-      width: 50%;
+        &:last-child {
+            border-bottom: 0;
+        }
     }
 
-    @media @maxMobile {
-      width: 100%;
+    &__tittel {
+        margin: 0 0 0.6rem 0;
     }
-  }
+
+    &__beskrivelse {
+        width: 100%;
+    }
+
+    &__icon-container {
+        padding: 0 1.5rem 0 0;
+        @media @maxMobile {
+            padding: 0 0.5rem 0 0;
+        }
+    }
+
+    &__lenke-container {
+        display: flex;
+        align-items: center;
+    }
+
+    &__lenke {
+        color: var(--a-surface-action);
+        text-decoration: underline;
+    }
+
+    &__next {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    &__content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__seksjon {
+        margin: 0 1rem 0 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+
+        @media @maxTablet {
+            width: 50%;
+        }
+
+        @media @maxMobile {
+            width: 100%;
+        }
+    }
 }

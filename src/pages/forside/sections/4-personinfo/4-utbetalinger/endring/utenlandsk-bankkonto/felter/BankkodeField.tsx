@@ -45,10 +45,7 @@ const BankkodeField = () => {
                         },
                     })}
                     id={'bankkode'}
-                    label={<LabelMedHjelpetekst
-                        label={formatMessage('felter.bankkode.label')}
-                        hjelpetekst={'utbetalinger.hjelpetekster.bankkode'}
-                    />}
+                    label={<LabelMedHjelpetekst label={formatMessage('felter.bankkode.label')} hjelpetekst={'utbetalinger.hjelpetekster.bankkode'} />}
                     size="medium"
                     error={errors?.bankkode?.message}
                     maxLength={watch().land && watch().land?.bankkodeLengde}

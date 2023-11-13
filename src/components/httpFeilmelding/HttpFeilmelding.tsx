@@ -22,13 +22,15 @@ const HttpFeilmelding = (props: Feilmelding) => {
         success: 'status',
         warning: 'status',
         info: undefined,
-        error: 'alert'
+        error: 'alert',
     };
     const variant = alertVarianter[props.type] || alertVarianter.info;
     const text = props.text in messages ? formatMessage({ id: props.text }) : props.text;
     return (
         <div className="error__container">
-            <Alert role={role[variant]} variant={variant}>{text && <span>{text}</span>}</Alert>
+            <Alert role={role[variant]} variant={variant}>
+                {text && <span>{text}</span>}
+            </Alert>
         </div>
     );
 };

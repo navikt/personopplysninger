@@ -1,260 +1,260 @@
 {
-  "personalia": {
-    "fornavn": "VINAYAGUM-MASK",
-    "etternavn": "AMIZIC",
-    "personident": {
-      "verdi": "10108000398",
-      "type": "FNR"
-    },
-    "kontoregisterStatus": "SUCCESS",
-    "kontonr": "12345678911",
-    "tlfnr": {
-      "telefonAlternativ": "40853158",
-      "landskodeAlternativ": "+47",
-      "telefonHoved": null,
-      "landskodeHoved": null
-    },
-    "utenlandskbank": null,
-    "spraak": "Nynorsk",
-    "epostadr": null,
-    "personstatus": "Bosatt",
-    "statsborgerskap": ["NORGE", "SVERIGE"],
-    "foedested": "Oslo, NORGE",
-    "sivilstand": "Ugift",
-    "kjoenn": "Mann"
-  },
-  "adresser": {
-    "geografiskTilknytning": {
-      "bydel": null,
-      "datoFraOgMed": "2001-04-04",
-      "kommune": "3012",
-      "land": null,
-      "enhet": "NAV Halden-Aremark"
-    },
-    "kontaktadresser": [
-      {
-        "gyldigFraOgMed": "2020-07-14T00:00",
-        "gyldigTilOgMed": "2020-07-20T23:59:59",
-        "coAdressenavn": "V/ Aremark Jr",
-        "kilde": "pdl",
-        "adresse": {
-          "postbokseier": "",
-          "postboks": "Postboks 10 Sørstrand",
-          "postnummer": "0194",
-          "poststed": "OSLO",
-          "type": "POSTBOKSADRESSE"
-        }
-      }
-    ],
-    "deltBosted": {
-      "startdatoForKontrakt": "2020-07-14T00:00",
-      "sluttdatoForKontrakt": "2020-07-20T23:59:59",
-      "coAdressenavn": "V/ Aremark Jr",
-      "kilde": "pdl",
-      "adresse": {
-        "husnummer": "14",
-        "husbokstav": "B",
-        "bruksenhetsnummer": "H0301",
-        "adressenavn": "JØRGENSENVEIEN",
-        "kommunenummer": "4737",
-        "kommune": "EVJE OG HORNNES",
-        "tilleggsnavn": null,
-        "postnummer": "0194",
-        "poststed": "OSLO",
-        "type": "VEGADRESSE"
-      }
-    },
-    "oppholdsadresser": [
-      {
-        "gyldigFraOgMed": "2020-07-14T00:00",
-        "gyldigTilOgMed": "2020-07-20T23:59:59",
-        "coAdressenavn": "V/ Aremark Jr",
-        "kilde": "freg",
-        "adresse": {
-          "husnummer": "14",
-          "husbokstav": "B",
-          "adressenavn": "JØRGENSENVEIEN",
-          "kommunenummer": "4737",
-          "tilleggsnavn": null,
-          "postnummer": "0194",
-          "poststed": "OSLO",
-          "type": "VEGADRESSE"
-        }
-      }
-    ],
-    "bostedsadresse": {
-      "angittFlyttedato": "2020-07-14",
-      "gyldigFraOgMed": "2020-07-14T00:00",
-      "gyldigTilOgMed": "2020-07-20T23:59:59",
-      "coAdressenavn": "V/ Aremark Jr",
-      "kilde": "freg",
-      "adresse": {
-        "husnummer": "14",
-        "husbokstav": "B",
-        "bruksenhetsnummer": "H0301",
-        "adressenavn": "JØRGENSENVEIEN",
-        "kommunenummer": "4737",
-        "kommune": "EVJE OG HORNNES",
-        "tilleggsnavn": null,
-        "postnummer": "0194",
-        "poststed": "OSLO",
-        "type": "VEGADRESSE"
-      }
-    }
-  },
-  "enhetKontaktInformasjon": {
-    "enhet": {
-      "postadresse": {
-        "type": "postboksadresse",
-        "postnummer": "1751",
-        "poststed": "HALDEN",
-        "postboksnummer": "56",
-        "postboksanlegg": null,
-        "gatenavn": null,
-        "husnummer": null,
-        "husbokstav": null,
-        "adresseTilleggsnavn": null
-      },
-      "publikumsmottak": [
-        {
-          "gateadresse": "Storgata",
-          "poststed": "HALDEN",
-          "husnummer": "8",
-          "husbokstav": null,
-          "postnummer": "1771",
-          "stedsbeskrivelse": "Halden",
-          "aapningstider": [
-            {
-              "dag": "Mandag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Tirsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Onsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Torsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Fredag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            }
-          ],
-          "spesielleAapningstider": [
-            {
-              "dag": null,
-              "dato": "2021-12-24",
-              "fra": "10:00",
-              "til": "11:30",
-              "stengt": "false",
-              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
-            },
-            {
-              "dag": null,
-              "dato": "2021-12-31",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
-            }
-          ]
+    "personalia": {
+        "fornavn": "VINAYAGUM-MASK",
+        "etternavn": "AMIZIC",
+        "personident": {
+            "verdi": "10108000398",
+            "type": "FNR"
         },
-        {
-          "gateadresse": "Aremark Rådhus",
-          "poststed": "AREMARK",
-          "husnummer": null,
-          "husbokstav": null,
-          "postnummer": "1798",
-          "stedsbeskrivelse": "Aremark",
-          "aapningstider": [
+        "kontoregisterStatus": "SUCCESS",
+        "kontonr": "12345678911",
+        "tlfnr": {
+            "telefonAlternativ": "40853158",
+            "landskodeAlternativ": "+47",
+            "telefonHoved": null,
+            "landskodeHoved": null
+        },
+        "utenlandskbank": null,
+        "spraak": "Nynorsk",
+        "epostadr": null,
+        "personstatus": "Bosatt",
+        "statsborgerskap": ["NORGE", "SVERIGE"],
+        "foedested": "Oslo, NORGE",
+        "sivilstand": "Ugift",
+        "kjoenn": "Mann"
+    },
+    "adresser": {
+        "geografiskTilknytning": {
+            "bydel": null,
+            "datoFraOgMed": "2001-04-04",
+            "kommune": "3012",
+            "land": null,
+            "enhet": "NAV Halden-Aremark"
+        },
+        "kontaktadresser": [
             {
-              "dag": "Mandag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Tirsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Onsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Torsdag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
-            },
-            {
-              "dag": "Fredag",
-              "dato": null,
-              "fra": "12:30",
-              "til": "14:30",
-              "stengt": "false",
-              "kommentar": null
+                "gyldigFraOgMed": "2020-07-14T00:00",
+                "gyldigTilOgMed": "2020-07-20T23:59:59",
+                "coAdressenavn": "V/ Aremark Jr",
+                "kilde": "pdl",
+                "adresse": {
+                    "postbokseier": "",
+                    "postboks": "Postboks 10 Sørstrand",
+                    "postnummer": "0194",
+                    "poststed": "OSLO",
+                    "type": "POSTBOKSADRESSE"
+                }
             }
-          ],
-          "spesielleAapningstider": [
-            {
-              "dag": null,
-              "dato": "2021-12-24",
-              "fra": "10:00",
-              "til": "11:30",
-              "stengt": "false",
-              "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
-            },
-            {
-              "dag": null,
-              "dato": "2021-12-31",
-              "fra": null,
-              "til": null,
-              "stengt": "true",
-              "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
+        ],
+        "deltBosted": {
+            "startdatoForKontrakt": "2020-07-14T00:00",
+            "sluttdatoForKontrakt": "2020-07-20T23:59:59",
+            "coAdressenavn": "V/ Aremark Jr",
+            "kilde": "pdl",
+            "adresse": {
+                "husnummer": "14",
+                "husbokstav": "B",
+                "bruksenhetsnummer": "H0301",
+                "adressenavn": "JØRGENSENVEIEN",
+                "kommunenummer": "4737",
+                "kommune": "EVJE OG HORNNES",
+                "tilleggsnavn": null,
+                "postnummer": "0194",
+                "poststed": "OSLO",
+                "type": "VEGADRESSE"
             }
-          ]
+        },
+        "oppholdsadresser": [
+            {
+                "gyldigFraOgMed": "2020-07-14T00:00",
+                "gyldigTilOgMed": "2020-07-20T23:59:59",
+                "coAdressenavn": "V/ Aremark Jr",
+                "kilde": "freg",
+                "adresse": {
+                    "husnummer": "14",
+                    "husbokstav": "B",
+                    "adressenavn": "JØRGENSENVEIEN",
+                    "kommunenummer": "4737",
+                    "tilleggsnavn": null,
+                    "postnummer": "0194",
+                    "poststed": "OSLO",
+                    "type": "VEGADRESSE"
+                }
+            }
+        ],
+        "bostedsadresse": {
+            "angittFlyttedato": "2020-07-14",
+            "gyldigFraOgMed": "2020-07-14T00:00",
+            "gyldigTilOgMed": "2020-07-20T23:59:59",
+            "coAdressenavn": "V/ Aremark Jr",
+            "kilde": "freg",
+            "adresse": {
+                "husnummer": "14",
+                "husbokstav": "B",
+                "bruksenhetsnummer": "H0301",
+                "adressenavn": "JØRGENSENVEIEN",
+                "kommunenummer": "4737",
+                "kommune": "EVJE OG HORNNES",
+                "tilleggsnavn": null,
+                "postnummer": "0194",
+                "poststed": "OSLO",
+                "type": "VEGADRESSE"
+            }
         }
-      ],
-      "tlfperson": "55553333",
-      "spesielleopplysninger": null
+    },
+    "enhetKontaktInformasjon": {
+        "enhet": {
+            "postadresse": {
+                "type": "postboksadresse",
+                "postnummer": "1751",
+                "poststed": "HALDEN",
+                "postboksnummer": "56",
+                "postboksanlegg": null,
+                "gatenavn": null,
+                "husnummer": null,
+                "husbokstav": null,
+                "adresseTilleggsnavn": null
+            },
+            "publikumsmottak": [
+                {
+                    "gateadresse": "Storgata",
+                    "poststed": "HALDEN",
+                    "husnummer": "8",
+                    "husbokstav": null,
+                    "postnummer": "1771",
+                    "stedsbeskrivelse": "Halden",
+                    "aapningstider": [
+                        {
+                            "dag": "Mandag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Tirsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Onsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Torsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Fredag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        }
+                    ],
+                    "spesielleAapningstider": [
+                        {
+                            "dag": null,
+                            "dato": "2021-12-24",
+                            "fra": "10:00",
+                            "til": "11:30",
+                            "stengt": "false",
+                            "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+                        },
+                        {
+                            "dag": null,
+                            "dato": "2021-12-31",
+                            "fra": null,
+                            "til": null,
+                            "stengt": "true",
+                            "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
+                        }
+                    ]
+                },
+                {
+                    "gateadresse": "Aremark Rådhus",
+                    "poststed": "AREMARK",
+                    "husnummer": null,
+                    "husbokstav": null,
+                    "postnummer": "1798",
+                    "stedsbeskrivelse": "Aremark",
+                    "aapningstider": [
+                        {
+                            "dag": "Mandag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Tirsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Onsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Torsdag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        },
+                        {
+                            "dag": "Fredag",
+                            "dato": null,
+                            "fra": "12:30",
+                            "til": "14:30",
+                            "stengt": "false",
+                            "kommentar": null
+                        }
+                    ],
+                    "spesielleAapningstider": [
+                        {
+                            "dag": null,
+                            "dato": "2021-12-24",
+                            "fra": "10:00",
+                            "til": "11:30",
+                            "stengt": "false",
+                            "kommentar": "Åpent for akutte behov for alle NAV-kontorer i Bergen kommune"
+                        },
+                        {
+                            "dag": null,
+                            "dato": "2021-12-31",
+                            "fra": null,
+                            "til": null,
+                            "stengt": "true",
+                            "kommentar": "NAV Bergen vest er åpent 10-11.30 for akutte behov"
+                        }
+                    ]
+                }
+            ],
+            "tlfperson": "55553333",
+            "spesielleopplysninger": null
+        }
     }
-  }
 }

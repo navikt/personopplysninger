@@ -1,35 +1,35 @@
 [
-  {
-    "organisasjonsnummer": "00974736942",
-    "institusjonsnavn": "VIK FENGSEL",
-    "institusjonstype": "FO",
-    "varighet": "K",
-    "kategori": "S",
-    "startdato": "2017-06-13",
-    "faktiskSluttdato": "2017-09-15",
-    "fiktivSluttdato": false,
-    "registreringstidspunkt": "2017-10-02T07:38:56.816"
-  },
-  {
-    "organisasjonsnummer": "00974736942",
-    "institusjonsnavn": "VIK FENGSEL",
-    "institusjonstype": "FO",
-    "varighet": "L",
-    "kategori": "S",
-    "startdato": "2017-12-29",
-    "faktiskSluttdato": "2018-12-17",
-    "fiktivSluttdato": false,
-    "registreringstidspunkt": "2018-12-19T11:03:57.507"
-  },
-  {
-    "organisasjonsnummer": "00974736942",
-    "institusjonsnavn": "VIK FENGSEL",
-    "institusjonstype": "FO",
-    "varighet": "U",
-    "kategori": "S",
-    "startdato": "2017-12-29",
-    "faktiskSluttdato": "2020-12-20",
-    "fiktivSluttdato": true,
-    "registreringstidspunkt": "2020-12-20T14:14:04.260405"
-  }
+    {
+        "organisasjonsnummer": "00974736942",
+        "institusjonsnavn": "VIK FENGSEL",
+        "institusjonstype": "FO",
+        "varighet": "K",
+        "kategori": "S",
+        "startdato": "2017-06-13",
+        "faktiskSluttdato": "2017-09-15",
+        "fiktivSluttdato": false,
+        "registreringstidspunkt": "2017-10-02T07:38:56.816"
+    },
+    {
+        "organisasjonsnummer": "00974736942",
+        "institusjonsnavn": "VIK FENGSEL",
+        "institusjonstype": "FO",
+        "varighet": "L",
+        "kategori": "S",
+        "startdato": "2017-12-29",
+        "faktiskSluttdato": "2018-12-17",
+        "fiktivSluttdato": false,
+        "registreringstidspunkt": "2018-12-19T11:03:57.507"
+    },
+    {
+        "organisasjonsnummer": "00974736942",
+        "institusjonsnavn": "VIK FENGSEL",
+        "institusjonstype": "FO",
+        "varighet": "U",
+        "kategori": "S",
+        "startdato": "2017-12-29",
+        "faktiskSluttdato": "2020-12-20",
+        "fiktivSluttdato": true,
+        "registreringstidspunkt": "2020-12-20T14:14:04.260405"
+    }
 ]
