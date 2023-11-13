@@ -1,46 +1,45 @@
 @apningstiderBorder: 1px solid #3e3832;
 
 .apningstider {
-  margin: 0.75rem 0;
+    margin: 0.75rem 0;
 
-  &__table {
-    width: 100%;
-    border-collapse: collapse;
-    border-bottom: @apningstiderBorder;
-    margin-bottom: 2rem;
-  }
-
-  &__caption {
-    text-align: left;
-    padding: 0.5rem 0;
-  }
-
-  tbody tr {
-    @media @maxMobile {
-      display: flex;
-      flex-direction: column;
-      padding: 0.5rem 0;
-      border-top: @apningstiderBorder;
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        border-bottom: @apningstiderBorder;
+        margin-bottom: 2rem;
     }
-  }
 
-  tbody td {
-    @media @minMobile {
-      padding: 0.5rem 0;
-      border-top: @apningstiderBorder;
+    &__caption {
+        text-align: left;
+        padding: 0.5rem 0;
     }
-  }
 
-  td:nth-child(1) {
-    @media @minMobile {
-      width: 20%;
+    tbody tr {
+        @media @maxMobile {
+            display: flex;
+            flex-direction: column;
+            padding: 0.5rem 0;
+            border-top: @apningstiderBorder;
+        }
     }
-  }
 
-  td:nth-child(2) {
-    @media @minMobile {
-      width: 30%;
+    tbody td {
+        @media @minMobile {
+            padding: 0.5rem 0;
+            border-top: @apningstiderBorder;
+        }
     }
-  }
+
+    td:nth-child(1) {
+        @media @minMobile {
+            width: 20%;
+        }
+    }
+
+    td:nth-child(2) {
+        @media @minMobile {
+            width: 30%;
+        }
+    }
 }
-

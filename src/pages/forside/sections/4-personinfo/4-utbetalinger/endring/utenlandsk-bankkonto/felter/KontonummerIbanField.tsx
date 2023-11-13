@@ -46,10 +46,12 @@ const KontonummerIbanField = (props: Props) => {
             size="medium"
             maxLength={36}
             htmlSize={37}
-            label={<LabelMedHjelpetekst
-                label={formatMessage('felter.kontonummer.kontonummer.label')}
-                hjelpetekst={'utbetalinger.hjelpetekster.kontonummer'}
-            />}
+            label={
+                <LabelMedHjelpetekst
+                    label={formatMessage('felter.kontonummer.kontonummer.label')}
+                    hjelpetekst={'utbetalinger.hjelpetekster.kontonummer'}
+                />
+            }
             error={errors?.kontonummerIban?.message}
             autoComplete="off"
         />

@@ -31,7 +31,9 @@ const TelefonnummerHosNav = (props: Props) => {
         <>
             {driftsmeldinger.pdl && (
                 <div style={{ paddingBottom: '1rem' }}>
-                    <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>
+                    <Alert role="status" variant="warning">
+                        {driftsmeldinger.pdl}
+                    </Alert>
                 </div>
             )}
             {tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ) ? (

@@ -30,12 +30,16 @@ const Utbetalinger = (props: Props) => {
             <>
                 {driftsmeldinger.pdl && (
                     <div style={{ paddingBottom: '1rem' }}>
-                        <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>
+                        <Alert role="status" variant="warning">
+                            {driftsmeldinger.pdl}
+                        </Alert>
                     </div>
                 )}
             </>
             {kontoregisterStatus === 'ERROR' ? (
-                <Alert role="alert" variant="error">{formatMessage('personalia.kontonr.feilmelding')}</Alert>
+                <Alert role="alert" variant="error">
+                    {formatMessage('personalia.kontonr.feilmelding')}
+                </Alert>
             ) : opprettEllerEndre ? (
                 <KontonummerForm
                     utenlandskbank={utenlandskbank}
