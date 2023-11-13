@@ -6,8 +6,8 @@ type Props = {
 
 const Spinner = ({ text = 'Laster innhold...' }: Props) => (
     <div className="spinner-wrapper">
-        <BodyShort size="small">{text}</BodyShort>
-        <Loader type="xlarge" />
+        <BodyShort>{text}</BodyShort>
+        <Loader size="large" />
     </div>
 );
 
