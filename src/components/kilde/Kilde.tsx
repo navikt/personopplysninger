@@ -26,12 +26,7 @@ type Props =
       };
 
 const Icon = ({ icon }: { icon: IconType }) => {
-    if (typeof icon === 'string') {
-        return <img src={icon} alt="" />;
-    }
-
     const IconComponent = icon;
-
     return <IconComponent aria-hidden="true" className={'kilde__icon-aksel'} />;
 };
 
