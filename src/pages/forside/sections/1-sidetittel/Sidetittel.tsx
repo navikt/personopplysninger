@@ -2,10 +2,8 @@ import { FormattedMessage } from 'react-intl';
 import { Heading } from '@navikt/ds-react';
 
 const Tittel = () => (
-    <div className="sidetittel__container">
-        <Heading size={'xlarge'} level={'1'}>
-            <FormattedMessage id="side.tittel" />
-        </Heading>
-    </div>
+    <Heading size={'xlarge'} level={'1'} spacing align={'center'}>
+        <FormattedMessage id="side.tittel" />
+    </Heading>
 );
 export default Tittel;
