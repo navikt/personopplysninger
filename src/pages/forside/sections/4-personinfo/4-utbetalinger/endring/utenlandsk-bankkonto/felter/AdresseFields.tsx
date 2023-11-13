@@ -51,63 +51,57 @@ const AdresseFields = () => {
                 <Label>{formatMessage('felter.bankens.adresse.label')}</Label>
             </div>
 
-            <div className="skjemaelement">
-                <TextField
-                    {...register('adresse1', {
-                        validate: {
-                            required: (v) => requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
-                            notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
-                            ...baseAdresseValidation,
-                        },
-                    })}
-                    id={'adresse1'}
-                    label={'Adresselinje 1'}
-                    autoComplete="address-line1"
-                    hideLabel={true}
-                    size="medium"
-                    maxLength={34}
-                    error={errors?.adresse1?.message}
-                />
-            </div>
+            <TextField
+                {...register('adresse1', {
+                    validate: {
+                        required: (v) => requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
+                        notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
+                        ...baseAdresseValidation,
+                    },
+                })}
+                id={'adresse1'}
+                label={'Adresselinje 1'}
+                autoComplete="address-line1"
+                hideLabel={true}
+                size="medium"
+                maxLength={34}
+                error={errors?.adresse1?.message}
+            />
 
-            <div className="skjemaelement">
-                <TextField
-                    {...register('adresse2', {
-                        onChange: () => isSubmitted && trigger(['adresse1', 'adresse3']),
-                        validate: {
-                            required: (v) => requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
-                            notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-                            ...baseAdresseValidation,
-                        },
-                    })}
-                    id={'adresse2'}
-                    label={'Adresselinje 2'}
-                    autoComplete="address-line2"
-                    hideLabel={true}
-                    size="medium"
-                    maxLength={34}
-                    error={errors?.adresse2?.message}
-                />
-            </div>
+            <TextField
+                {...register('adresse2', {
+                    onChange: () => isSubmitted && trigger(['adresse1', 'adresse3']),
+                    validate: {
+                        required: (v) => requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+                        ...baseAdresseValidation,
+                    },
+                })}
+                id={'adresse2'}
+                label={'Adresselinje 2'}
+                autoComplete="address-line2"
+                hideLabel={true}
+                size="medium"
+                maxLength={34}
+                error={errors?.adresse2?.message}
+            />
 
-            <div className="skjemaelement">
-                <TextField
-                    {...register('adresse3', {
-                        onChange: () => isSubmitted && trigger(['adresse1', 'adresse2']),
-                        validate: {
-                            notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
-                            ...baseAdresseValidation,
-                        },
-                    })}
-                    id={'adresse3'}
-                    label={'Adresselinje 3'}
-                    autoComplete="address-line3"
-                    hideLabel={true}
-                    size="medium"
-                    maxLength={34}
-                    error={errors?.adresse3?.message}
-                />
-            </div>
+            <TextField
+                {...register('adresse3', {
+                    onChange: () => isSubmitted && trigger(['adresse1', 'adresse2']),
+                    validate: {
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+                        ...baseAdresseValidation,
+                    },
+                })}
+                id={'adresse3'}
+                label={'Adresselinje 3'}
+                autoComplete="address-line3"
+                hideLabel={true}
+                size="medium"
+                maxLength={34}
+                error={errors?.adresse3?.message}
+            />
         </>
     );
 };
