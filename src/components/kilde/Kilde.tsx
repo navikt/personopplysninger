@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Link as ReactLink } from 'react-router-dom';
 import { Link, BodyLong, Detail, Button } from '@navikt/ds-react';
 
 type IconType = string | React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
@@ -14,7 +13,7 @@ type Props =
           kilde: string;
           lenke: string;
           lenkeTekst: string;
-          lenkeType: 'INTERN' | 'EKSTERN';
+          lenkeType: 'EKSTERN';
           ikon?: IconType;
       }
     | {
@@ -32,19 +31,6 @@ const Icon = ({ icon }: { icon: IconType }) => {
 
 const Knapp = (props: Props) => {
     switch (props.lenkeType) {
-        case 'INTERN':
-            return (
-                <BodyLong>
-                    <Link as={ReactLink} to={props.lenke}>
-                        {props.ikon && (
-                            <span className="kilde__icon">
-                                <Icon icon={props.ikon} />
-                            </span>
-                        )}
-                        <FormattedMessage id={props.lenkeTekst} />
-                    </Link>
-                </BodyLong>
-            );
         case 'EKSTERN':
             return (
                 <BodyLong>
