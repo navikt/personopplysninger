@@ -15,7 +15,7 @@ interface Props {
 const ListElement = (props: Props) => {
     const { content, title, titleId, hjelpetekstId, children, className } = props;
     const { formatMessage } = useIntlFormatter();
-    const helpTextTitle = title || ( titleId && formatMessage(titleId) || '' );
+    const helpTextTitle = title || (titleId && formatMessage(titleId)) || '';
     return content ? (
         <div className="list-item">
             <dt className="list-element-heading">

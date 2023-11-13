@@ -32,10 +32,7 @@ const BickodeField = () => {
             id={'bickode'}
             size="medium"
             maxLength={11}
-            label={<LabelMedHjelpetekst
-                label={formatMessage('felter.bic.label')}
-                hjelpetekst={'utbetalinger.hjelpetekster.bic'}
-            />}
+            label={<LabelMedHjelpetekst label={formatMessage('felter.bic.label')} hjelpetekst={'utbetalinger.hjelpetekster.bic'} />}
             error={errors?.bickode?.message}
             autoComplete="off"
         />

@@ -1,83 +1,83 @@
 .KodeverkSelect {
-  margin-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
 
-  &__placeholder {
-    color: var(--a-text-subtle) !important;
-  }
-
-  &__header {
-    display: flex;
-    min-height: 2rem;
-  }
-
-  &__dropdown-indicator {
-    padding: 0.4rem 0.5rem 0 0.5rem;
-
-    svg {
-      width: 1.5rem;
-      height: 1.5rem;
+    &__placeholder {
+        color: var(--a-text-subtle) !important;
     }
-  }
 
-  &__margin {
-    margin-right: 0.5rem;
-  }
+    &__header {
+        display: flex;
+        min-height: 2rem;
+    }
 
-  &__option {
-    min-height: 38px;
-  }
+    &__dropdown-indicator {
+        padding: 0.4rem 0.5rem 0 0.5rem;
 
-  &__control {
-    border: 1px solid var(--a-gray-600) !important;
-    min-height: 50px !important;
-
-    &-feil {
-      .KodeverkSelect {
-        &__control {
-          background-color: var(--a-red-100) !important;
-          border-color: var(--a-surface-danger);
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
         }
-      }
     }
 
-    &:hover {
-      border-color: var(--a-border-default) !important;
-      transition: border-color 200ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+    &__margin {
+        margin-right: 0.5rem;
     }
 
-    &--is-focused {
-      box-shadow: 0 0 0 3px var(--a-border-focus);
+    &__option {
+        min-height: 38px;
     }
 
-    &--is-disabled {
-      background-color: var(--a-gray-900);
-    }
+    &__control {
+        border: 1px solid var(--a-gray-600) !important;
+        min-height: 50px !important;
 
-    &__single-value {
-      color: var(--a-gray-900);
-    }
+        &-feil {
+            .KodeverkSelect {
+                &__control {
+                    background-color: var(--a-red-100) !important;
+                    border-color: var(--a-surface-danger);
+                }
+            }
+        }
 
-    &__spinner {
-      margin-right: 5px;
-    }
-  }
-  &__option-border {
-    border-bottom: 1px solid #979797;
-  }
-  &__menu {
-    @media @minDesktop {
-      min-width: 305px;
-    }
-  }
-  &__feilmelding,
-  &__feilmelding.navds-label {
-    display: flex;
-    gap: var(--a-spacing-2);
-    margin-top: var(--a-spacing-2);
-    color: var(--ac-typo-error-text, var(--a-text-danger));
+        &:hover {
+            border-color: var(--a-border-default) !important;
+            transition: border-color 200ms cubic-bezier(0.465, 0.183, 0.153, 0.946);
+        }
 
-    &::before {
-      content: "•";
+        &--is-focused {
+            box-shadow: 0 0 0 3px var(--a-border-focus);
+        }
+
+        &--is-disabled {
+            background-color: var(--a-gray-900);
+        }
+
+        &__single-value {
+            color: var(--a-gray-900);
+        }
+
+        &__spinner {
+            margin-right: 5px;
+        }
     }
-  }
+    &__option-border {
+        border-bottom: 1px solid #979797;
+    }
+    &__menu {
+        @media @minDesktop {
+            min-width: 305px;
+        }
+    }
+    &__feilmelding,
+    &__feilmelding.navds-label {
+        display: flex;
+        gap: var(--a-spacing-2);
+        margin-top: var(--a-spacing-2);
+        color: var(--ac-typo-error-text, var(--a-text-danger));
+
+        &::before {
+            content: '•';
+        }
+    }
 }

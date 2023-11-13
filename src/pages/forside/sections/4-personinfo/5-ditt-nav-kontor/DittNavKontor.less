@@ -1,39 +1,39 @@
 .dittnavkontor {
-  &__header {
-    @media @minMobile {
-      margin: 0 0 2rem 0;
+    &__header {
+        @media @minMobile {
+            margin: 0 0 2rem 0;
+        }
+        @media @maxMobile {
+            margin: 0 0 1rem 0;
+        }
     }
-    @media @maxMobile {
-      margin: 0 0 1rem 0;
-    }
-  }
-  &__ingress {
-    display: flex;
-    margin-bottom: 1rem;
+    &__ingress {
+        display: flex;
+        margin-bottom: 1rem;
 
-    & > * {
-      margin-right: 0.25rem !important;
+        & > * {
+            margin-right: 0.25rem !important;
+        }
     }
-  }
 
-  &__footer {
-    margin-top: 1rem !important;
-  }
-  &__adresser {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 1rem;
-  }
-  &__publikumsmottak,
-  &__postadresse {
-    width: 50%;
-    @media @maxMobile {
-      padding-bottom: 1rem;
-      width: 100%;
+    &__footer {
+        margin-top: 1rem !important;
     }
-  }
+    &__adresser {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 1rem;
+    }
+    &__publikumsmottak,
+    &__postadresse {
+        width: 50%;
+        @media @maxMobile {
+            padding-bottom: 1rem;
+            width: 100%;
+        }
+    }
 }
 
 .selectContainer {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
 }
