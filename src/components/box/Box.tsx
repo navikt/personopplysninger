@@ -33,7 +33,7 @@ const Box = (props: Props) => {
                         </div>
                         {visAnkerlenke && <AnchorLink id={id} />}
                     </div>
-                    <div className="box__content">{children}</div>
+                    {children}
                 </div>
             </GuidePanel>
         </div>
