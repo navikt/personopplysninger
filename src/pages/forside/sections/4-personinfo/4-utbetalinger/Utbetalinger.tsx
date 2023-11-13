@@ -29,11 +29,9 @@ const Utbetalinger = (props: Props) => {
         <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
             <>
                 {driftsmeldinger.pdl && (
-                    <div style={{ paddingBottom: '1rem' }}>
-                        <Alert role="status" variant="warning">
-                            {driftsmeldinger.pdl}
-                        </Alert>
-                    </div>
+                    <Alert role="status" variant="warning">
+                        {driftsmeldinger.pdl}
+                    </Alert>
                 )}
             </>
             {kontoregisterStatus === 'ERROR' ? (

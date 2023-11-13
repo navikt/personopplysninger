@@ -38,16 +38,14 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
 
     return (
         <>
-            <div className="utbetalinger__alert">
-                <Alert variant="info">
-                    <FormattedMessage
-                        id="felter.utenlandskkonto.info"
-                        values={{
-                            a: (text) => <Link href={utenlandskKontoInfoLenke[locale]}>{text}</Link>,
-                        }}
-                    />
-                </Alert>
-            </div>
+            <Alert variant="info">
+                <FormattedMessage
+                    id="felter.utenlandskkonto.info"
+                    values={{
+                        a: (text) => <Link href={utenlandskKontoInfoLenke[locale]}>{text}</Link>,
+                    }}
+                />
+            </Alert>
 
             <LandField />
 

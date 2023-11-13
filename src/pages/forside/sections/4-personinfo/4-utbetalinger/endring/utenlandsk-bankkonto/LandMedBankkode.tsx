@@ -14,17 +14,15 @@ const LandMedBankkode = (props: Props) => {
     return (
         <>
             <div className="utbetalinger__bic-bankkode">
-                <div className="utbetalinger__alert">
-                    <Alert role="status" variant="warning">
-                        <FormattedMessage
-                            id="felter.landetbrukerbankkode.advarsel"
-                            values={{
-                                land: valgtLand,
-                                span: (text) => <span className="capitalize">{text}</span>,
-                            }}
-                        />
-                    </Alert>
-                </div>
+                <Alert role="status" variant="warning">
+                    <FormattedMessage
+                        id="felter.landetbrukerbankkode.advarsel"
+                        values={{
+                            land: valgtLand,
+                            span: (text) => <span className="capitalize">{text}</span>,
+                        }}
+                    />
+                </Alert>
                 <BickodeField />
                 <BankkodeField />
             </div>

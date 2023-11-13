@@ -1,75 +1,73 @@
 .utbetalinger {
-  &__rad {
-    display: flex;
-    @media @maxMobile {
-      flex-direction: column;
-    }
-  }
-  &__type {
-    margin-bottom: 1rem;
-
-    .inputPanelGruppe__inner {
-      @media @minMobile {
+    &__rad {
         display: flex;
-        > * {
-          width: 50%;
-          &:first-child {
-            margin-right: 0.5rem;
-          }
+        @media @maxMobile {
+            flex-direction: column;
         }
-      }
     }
-  }
-  &__bank-identifier {
-    margin: 1rem 0;
-  }
-  &__knapper {
-    display: flex;
-    padding: 1rem 0;
-  }
-  &__knapp:last-child {
-    margin-left: 0.5rem;
-  }
-  &__input-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  &__alert {
-    padding: 0.5rem 0 1rem 0;
-  }
-  &__input-box {
-    @media @minMobile {
-      min-width: 50%;
-      &:nth-child(odd) {
-        padding-right: 0.25rem;
-      }
-      &:nth-child(even) {
-        padding-left: 0.25rem;
-      }
-    }
-    @media @maxMobile {
-      min-width: 100%;
-    }
-  }
+    &__type {
+        margin-bottom: 1rem;
 
-  &__adressefelter {
-    width: 100%;
-  }
-  &__bankkode {
-    &-rad {
-      display: flex;
-      margin-bottom: 1.5rem;
+        .inputPanelGruppe__inner {
+            @media @minMobile {
+                display: flex;
+                > * {
+                    width: 50%;
+                    &:first-child {
+                        margin-right: 0.5rem;
+                    }
+                }
+            }
+        }
     }
-    &-kolonne:first-child {
-      max-width: 4rem;
-      margin-right: 0.15rem;
+    &__bank-identifier {
+        margin: 1rem 0;
     }
-    &-kolonne:last-child {
-      width: 100%;
+    &__knapper {
+        display: flex;
+        padding: 1rem 0;
+    }
+    &__knapp:last-child {
+        margin-left: 0.5rem;
+    }
+    &__input-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-      .navds-form-field {
-        gap: 0;
-      }
+    &__input-box {
+        @media @minMobile {
+            min-width: 50%;
+            &:nth-child(odd) {
+                padding-right: 0.25rem;
+            }
+            &:nth-child(even) {
+                padding-left: 0.25rem;
+            }
+        }
+        @media @maxMobile {
+            min-width: 100%;
+        }
     }
-  }
+
+    &__adressefelter {
+        width: 100%;
+    }
+    &__bankkode {
+        &-rad {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        &-kolonne:first-child {
+            max-width: 4rem;
+            margin-right: 0.15rem;
+        }
+        &-kolonne:last-child {
+            width: 100%;
+
+            .navds-form-field {
+                gap: 0;
+            }
+        }
+    }
 }
