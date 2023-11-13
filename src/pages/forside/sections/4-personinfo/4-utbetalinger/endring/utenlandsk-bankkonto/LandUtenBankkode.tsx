@@ -1,11 +1,7 @@
 import BickodeField from './felter/BickodeField';
 
 const LandUtenBankkode = () => {
-    return (
-        <div className="utbetalinger__bank-identifier">
-            <BickodeField />
-        </div>
-    );
+    return <BickodeField />;
 };
 
 export default LandUtenBankkode;
