@@ -65,12 +65,12 @@ const Knapp = (props: Props) => {
             );
         case 'KNAPP':
             return (
-                <Button onClick={props.onClick} variant="tertiary" className="kilde__knapp knapp-med-ikon">
-                    {props.ikon && (
-                        <span className="kilde__icon">
-                            <Icon icon={props.ikon} />
-                        </span>
-                    )}
+                <Button
+                    icon={props.ikon && <Icon icon={props.ikon} />}
+                    onClick={props.onClick}
+                    variant="tertiary"
+                    className="kilde__knapp knapp-med-ikon"
+                >
                     <FormattedMessage id={props.lenkeTekst} />
                 </Button>
             );

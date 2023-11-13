@@ -2,111 +2,100 @@
 
 html,
 body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  background-color: var(--a-bg-subtle);
-  margin: 0;
+    background-color: var(--a-bg-subtle);
+    margin: 0;
 
-  .capitalize {
-    text-transform: capitalize;
-  }
+    .capitalize {
+        text-transform: capitalize;
+    }
 }
 
 .hjelpetekst {
-  margin-left: 0.5rem;
+    margin-left: 0.5rem;
 }
 
 .skjemaelement {
-  margin: 1.5rem 0;
+    margin: 1.5rem 0;
 }
 
 .popover {
-  &__content-inner {
-    max-width: 415px;
-  }
+    &__content-inner {
+        max-width: 415px;
+    }
 }
 
 .app {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .sidetittel__container {
-  padding: 2rem 0;
-  display: flex;
-  justify-content: center;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
 }
 
 .seksjon {
-  position: relative;
-  @media @maxTablet {
-    margin: 4rem 0;
-    flex-direction: column !important;
-  }
-  @media @minDesktop {
-    margin: 3rem 0;
-  }
+    position: relative;
+    @media @maxTablet {
+        margin: 4rem 0;
+        flex-direction: column !important;
+    }
+    @media @minDesktop {
+        margin: 3rem 0;
+    }
 }
 
 .underseksjon {
-  &__header {
-    padding: 0.5rem 0;
-  }
-  &__beskrivelse {
-    padding-bottom: 0.5rem;
-  }
-  &__divider {
-    padding-top: 2.5rem;
-  }
-}
-
-.knapp-med-ikon {
-  // Aligner ikon korrekt når de ligger i Button-komponent.
-  justify-content: center;
-  align-items: center;
-
-  .navds-label {
-    flex-direction: row;
-    display: flex;
-  }
+    &__header {
+        padding: 0.5rem 0;
+    }
+    &__beskrivelse {
+        padding-bottom: 0.5rem;
+    }
+    &__divider {
+        padding-top: 2.5rem;
+    }
 }
 
 .pagewrapper {
-  width: 100%;
-  height: auto;
-  min-height: 100%;
-  margin-bottom: -200px;
-  padding-bottom: 200px;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-bottom: -200px;
+    padding-bottom: 200px;
 }
 
 .pagecontent {
-  width: 100%;
-  max-width: 800px;
+    width: 100%;
+    max-width: 800px;
 }
 
 .wrapper {
-  padding: 0 0.5em;
+    padding: 0 0.5em;
 }
 
 .knapp {
-  &__lagre {
-    display: flex;
-    justify-content: center;
-  }
+    &__lagre {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .capitalize {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }
 
 .hodefot {
-  @media print {
-    display: none;
-  }
+    @media print {
+        display: none;
+    }
 }
 /*
   Overridden CSS
@@ -114,25 +103,25 @@ body {
  */
 
 .btn-auth {
-  min-height: 25px !important;
+    min-height: 25px !important;
 }
 
 .nav-veilederpanel {
-  border: 0;
+    border: 0;
 }
 
 .nav-veilederpanel--advarsel {
-  border: 2px solid #ffd399 !important;
+    border: 2px solid #ffd399 !important;
 }
 
 .lesMerPanel__togglelink {
-  flex-direction: row-reverse !important;
+    flex-direction: row-reverse !important;
 }
 
 .lesMerPanel__toggleChevron,
 .lesMerPanel__togglelink--erApen {
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 /*
@@ -140,5 +129,5 @@ body {
   Need to raise overlay so that the modal actually shows up.
  */
 .ReactModal__Overlay.ReactModal__Overlay--after-open.modal__overlay {
-  z-index: 10000;
+    z-index: 10000;
 }
