@@ -35,7 +35,7 @@ const Knapp = (props: Props) => {
         case 'INTERN':
             return (
                 <BodyLong>
-                    <Link as={ReactLink} to={props.lenke} className="lenke">
+                    <Link as={ReactLink} to={props.lenke}>
                         {props.ikon && (
                             <span className="kilde__icon">
                                 <Icon icon={props.ikon} />
@@ -48,7 +48,7 @@ const Knapp = (props: Props) => {
         case 'EKSTERN':
             return (
                 <BodyLong>
-                    <Link href={props.lenke} className="lenke">
+                    <Link href={props.lenke}>
                         {props.ikon && (
                             <span className="kilde__icon">
                                 <Icon icon={props.ikon} />
