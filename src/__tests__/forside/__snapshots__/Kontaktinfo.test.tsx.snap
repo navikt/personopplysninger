@@ -2,7 +2,6 @@
 
 exports[`DKIF renders correctly 1`] = `
 <DocumentFragment>
-   
   <div
     class="telefonnummer"
   >
@@ -112,7 +111,7 @@ exports[`DKIF renders correctly 1`] = `
     >
       <a
         class="navds-link navds-link--action"
-        href="https://brukerprofil.difi.no/minprofil"
+        href="https://minprofil.kontaktregisteret.no"
       >
         <span
           class="kilde__icon"
