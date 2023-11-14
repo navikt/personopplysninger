@@ -1,15 +1,11 @@
 .dittnavkontor {
     &__header {
-        @media @minMobile {
-            margin: 0 0 2rem 0;
-        }
-        @media @maxMobile {
-            margin: 0 0 1rem 0;
-        }
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
     }
     &__ingress {
         display: flex;
-        margin-bottom: 1rem;
 
         & > * {
             margin-right: 0.25rem !important;
@@ -22,7 +18,6 @@
     &__adresser {
         display: flex;
         flex-wrap: wrap;
-        margin-top: 1rem;
     }
     &__publikumsmottak,
     &__postadresse {
