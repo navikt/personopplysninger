@@ -17,7 +17,7 @@ const ListElement = (props: Props) => {
     const { formatMessage } = useIntlFormatter();
     const helpTextTitle = title || (titleId && formatMessage(titleId)) || '';
     return content ? (
-        <>
+        <div className="list-item">
             <dt className="list-element-heading">
                 <Label as="span">{titleId ? <FormattedMessage id={titleId} /> : title}</Label>
                 {hjelpetekstId && (
@@ -28,7 +28,7 @@ const ListElement = (props: Props) => {
             </dt>
             <dd className={className}>{content}</dd>
             {children && <dd>{children}</dd>}
-        </>
+        </div>
     ) : null;
 };
 
