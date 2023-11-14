@@ -69,7 +69,7 @@ const TelefonnummerForm = (props: Props) => {
     const tlfNummerMaxLength = watch().landskode && watch().landskode.value === '+47' ? 8 : 16;
 
     return (
-        <form key={formKey} onSubmit={handleSubmit(submit)} className={'tlfnummer__form'}>
+        <form key={formKey} onSubmit={handleSubmit(submit)}>
             <div className={'tlfnummer__input-container'}>
                 <div className={classNames('tlfnummer__input', 'tlfnummer__inputLandkode')}>
                     <SelectLandskode
