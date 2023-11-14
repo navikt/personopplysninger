@@ -99,50 +99,46 @@ exports[`DKIF renders correctly 1`] = `
     class="margin-kilde"
   >
     <div
-      class="kilde__container"
+      class="kilde__tekst"
     >
-      <div
-        class="kilde__tekst"
-      >
-        <p
-          class="navds-detail"
-        >
-          Kilde: Kontakt - og reservasjonsregisteret
-        </p>
-      </div>
       <p
-        class="navds-body-long navds-body-long--medium"
+        class="navds-detail navds-typo--spacing"
       >
-        <a
-          class="navds-link kilde__lenke lenke navds-link--action"
-          href="https://brukerprofil.difi.no/minprofil"
-        >
-          <span
-            class="kilde__icon"
-          >
-            <svg
-              aria-hidden="true"
-              class="kilde__icon-aksel"
-              fill="none"
-              focusable="false"
-              height="1em"
-              role="img"
-              viewBox="0 0 24 24"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                clip-rule="evenodd"
-                d="M11.75 4a.75.75 0 0 1 .75-.75H20a.748.748 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0V5.81l-8.72 8.72a.75.75 0 1 1-1.06-1.06l8.72-8.72H12.5a.75.75 0 0 1-.75-.75ZM5 8.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h10a.25.25 0 0 0 .25-.25v-7a.75.75 0 0 1 1.5 0v7A1.75 1.75 0 0 1 15 20.75H5A1.75 1.75 0 0 1 3.25 19V9c0-.966.784-1.75 1.75-1.75h7a.75.75 0 0 1 0 1.5H5Z"
-                fill="currentColor"
-                fill-rule="evenodd"
-              />
-            </svg>
-          </span>
-          Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
-        </a>
+        Kilde: Kontakt - og reservasjonsregisteret
       </p>
     </div>
+    <p
+      class="navds-body-long navds-body-long--medium"
+    >
+      <a
+        class="navds-link navds-link--action"
+        href="https://brukerprofil.difi.no/minprofil"
+      >
+        <span
+          class="kilde__icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="kilde__icon-aksel"
+            fill="none"
+            focusable="false"
+            height="1em"
+            role="img"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M11.75 4a.75.75 0 0 1 .75-.75H20a.748.748 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0V5.81l-8.72 8.72a.75.75 0 1 1-1.06-1.06l8.72-8.72H12.5a.75.75 0 0 1-.75-.75ZM5 8.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h10a.25.25 0 0 0 .25-.25v-7a.75.75 0 0 1 1.5 0v7A1.75 1.75 0 0 1 15 20.75H5A1.75 1.75 0 0 1 3.25 19V9c0-.966.784-1.75 1.75-1.75h7a.75.75 0 0 1 0 1.5H5Z"
+              fill="currentColor"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </span>
+        Vil du endre informasjonen i Kontakt- og reservasjonsregisteret? 
+      </a>
+    </p>
   </div>
 </DocumentFragment>
 `;
@@ -181,7 +177,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
           >
             <span
-              class="navds-label"
+              class="navds-button__icon"
             >
               <svg
                 aria-hidden="true"
@@ -201,11 +197,11 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Endre
-              </span>
+            </span>
+            <span
+              class="navds-label"
+            >
+              Endre
             </span>
           </button>
           <button
@@ -213,7 +209,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
             class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
           >
             <span
-              class="navds-label"
+              class="navds-button__icon"
             >
               <svg
                 aria-hidden="true"
@@ -233,11 +229,11 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
                   fill-rule="evenodd"
                 />
               </svg>
-              <span
-                class="tlfnummer__knapp-tekst"
-              >
-                Slett
-              </span>
+            </span>
+            <span
+              class="navds-label"
+            >
+              Slett
             </span>
           </button>
         </div>
@@ -247,17 +243,13 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
       class="margin-kilde"
     >
       <div
-        class="kilde__container"
+        class="kilde__tekst"
       >
-        <div
-          class="kilde__tekst"
+        <p
+          class="navds-detail navds-typo--spacing"
         >
-          <p
-            class="navds-detail"
-          >
-            Kilde: NAV
-          </p>
-        </div>
+          Kilde: NAV
+        </p>
       </div>
     </div>
   </div>
@@ -266,7 +258,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
   >
     <span
-      class="navds-label"
+      class="navds-button__icon"
     >
       <svg
         aria-hidden="true"
@@ -286,6 +278,10 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
           fill-rule="evenodd"
         />
       </svg>
+    </span>
+    <span
+      class="navds-label"
+    >
       Legg til nummer i NAV sitt register
     </span>
   </button>
