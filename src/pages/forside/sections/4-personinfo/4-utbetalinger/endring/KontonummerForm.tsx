@@ -72,7 +72,7 @@ const KontonummerForm = (props: Props) => {
 
     return (
         <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="kontonummerForm" onSubmit={handleSubmit(onSubmit)}>
                 <RadioGroup legend={msg({ id: 'felter.kontonummer.grouplegend' })} defaultValue={kontonummerType}>
                     <Radio
                         value={NORSK}
@@ -93,17 +93,17 @@ const KontonummerForm = (props: Props) => {
                     >
                         {msg({ id: 'felter.kontonummervalg.utenlandsk' })}
                     </Radio>
-                    {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
-                    <div className="utbetalinger__knapper">
-                        <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
-                            <FormattedMessage id={'side.lagre'} />
-                        </Button>
-                        <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
-                            <FormattedMessage id={'side.avbryt'} />
-                        </Button>
-                    </div>
-                    {alert && <HttpFeilmelding {...alert} />}
                 </RadioGroup>
+                {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
+                <div className="utbetalinger__knapper">
+                    <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
+                        <FormattedMessage id={'side.lagre'} />
+                    </Button>
+                    <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
+                        <FormattedMessage id={'side.avbryt'} />
+                    </Button>
+                </div>
+                {alert && <HttpFeilmelding {...alert} />}
                 <Kilde kilde="personalia.source.nav" lenkeType={'INGEN'} />
             </form>
         </FormProvider>
