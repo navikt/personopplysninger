@@ -268,7 +268,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           class="navds-accordion__header"
           type="button"
         >
-          <div
+          <span
             class="navds-accordion__icon-wrapper"
           >
             <svg
@@ -295,7 +295,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-          </div>
+          </span>
           <span
             class="navds-accordion__header-content navds-heading navds-heading--small"
           >
@@ -2232,7 +2232,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
           class="navds-accordion__header"
           type="button"
         >
-          <div
+          <span
             class="navds-accordion__icon-wrapper"
           >
             <svg
@@ -2259,7 +2259,7 @@ exports[`MedlHistorikkView renders correctly 1`] = `
                 fill-rule="evenodd"
               />
             </svg>
-          </div>
+          </span>
           <span
             class="navds-accordion__header-content navds-heading navds-heading--small"
           >

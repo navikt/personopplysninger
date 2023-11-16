@@ -21,7 +21,7 @@ const Adresser = (props: Props) => {
     const oppholdsadressePdl = oppholdsadresser?.find((adr) => adr.kilde === 'pdl');
 
     return (
-        <Box id="adresser" tittel="adresse.tittel" beskrivelse="adresse.beskrivelse" icon={adresseIkon} visAnkerlenke={true}>
+        <Box id="adresser" tittel="adresse.tittel" beskrivelse="adresse.beskrivelse" icon={adresseIkon} visAnkerlenke>
             <div className="adresse__box">
                 {driftsmeldinger.pdl && (
                     <div style={{ padding: '1rem 0' }}>

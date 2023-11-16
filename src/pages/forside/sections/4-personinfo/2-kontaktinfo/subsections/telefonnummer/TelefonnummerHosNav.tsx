@@ -85,12 +85,12 @@ const TelefonnummerHosNav = (props: Props) => {
 
             {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
                 <Button
+                    icon={<PlusCircleIcon className={'kilde__icon'} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
                     aria-label="Legg til telefonnummer i NAV sitt register"
                 >
-                    <PlusCircleIcon className={'kilde__icon'} aria-hidden="true" />
                     <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
                 </Button>
             )}

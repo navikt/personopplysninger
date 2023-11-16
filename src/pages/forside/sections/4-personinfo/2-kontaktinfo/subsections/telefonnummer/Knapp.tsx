@@ -12,11 +12,14 @@ interface Props {
 const Knapp = (props: Props) => {
     const { ariaLabel, onClick, ikon: Icon, tekstId } = props;
     return (
-        <Button variant={'tertiary'} className={'knapp-med-ikon'} onClick={onClick} aria-label={ariaLabel}>
-            <Icon className={'tlfnummer__ikon'} aria-hidden="true" />
-            <span className={'tlfnummer__knapp-tekst'}>
-                <FormattedMessage id={tekstId} />
-            </span>
+        <Button
+            icon={<Icon className={'tlfnummer__ikon'} aria-hidden="true" />}
+            variant={'tertiary'}
+            className={'knapp-med-ikon'}
+            onClick={onClick}
+            aria-label={ariaLabel}
+        >
+            <FormattedMessage id={tekstId} />
         </Button>
     );
 };

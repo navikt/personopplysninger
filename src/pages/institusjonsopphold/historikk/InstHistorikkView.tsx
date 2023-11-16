@@ -6,7 +6,7 @@ import { useIntlFormatter } from 'hooks/useIntlFormatter';
 import { InstInfo } from 'types/inst';
 import Kilde from 'components/kilde/Kilde';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
-import { Alert, BodyLong, BodyShort, Button, Label } from '@navikt/ds-react';
+import { Alert, BodyShort, Button, Label } from '@navikt/ds-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
@@ -21,11 +21,9 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     let animateDelaySum = 0;
 
     return (
-        <div className="arbeidsforhold__disclaimer">
+        <>
             <Alert variant="info">
-                <BodyLong>
-                    <FormattedMessage id="inst.disclaimer" />
-                </BodyLong>
+                <FormattedMessage id="inst.disclaimer" />
             </Alert>
             <div className={'inst__tabell'}>
                 {instInfo.length > 0 ? (
@@ -112,7 +110,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
             <div className="inst__kilde">
                 <Kilde kilde="inst.kilde" lenkeType="INGEN" />
             </div>
-        </div>
+        </>
     );
 };
 

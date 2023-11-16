@@ -9,7 +9,7 @@ import { FormattedMessage } from 'react-intl';
 import { useStore } from 'store/Context';
 import { basePath } from '../../../../App';
 import { AnchorLink } from '../../../../components/anchorlink/AnchorLink';
-import { BodyLong, Heading, Panel } from '@navikt/ds-react';
+import { BodyLong, Box, Heading } from '@navikt/ds-react';
 
 const { REACT_APP_PDL_URL, REACT_APP_SKJERMING_URL } = process.env;
 
@@ -18,7 +18,7 @@ const id = 'flere-opplysninger';
 const LinksContainer = () => {
     const [{ locale }] = useStore();
     return (
-        <Panel className="el__panel" id={id}>
+        <Box background="surface-default" className="el__panel" id={id}>
             <div className="el__content">
                 <div className="el__overskrift">
                     <Heading size={'medium'} level={'2'}>
@@ -89,7 +89,7 @@ const LinksContainer = () => {
                     component={'a'}
                 />
             </div>
-        </Panel>
+        </Box>
     );
 };
 

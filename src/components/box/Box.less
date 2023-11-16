@@ -1,15 +1,25 @@
 .box {
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     &__wrapper {
-        padding-top: 1rem;
         page-break-after: always;
+
+        .list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+
+            & dd {
+                margin: 0;
+            }
+        }
 
         .navds-guide-panel__content {
             border: none;
-        }
-
-        .navds-guide__illustration.navds-guide__illustration--medium {
-            width: 4.5rem;
-            height: 4.5rem;
         }
     }
 
@@ -43,6 +53,10 @@
     }
 
     &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
         @media @minDesktop {
             padding: 0 3rem;
         }
@@ -53,64 +67,10 @@
         justify-content: center;
         align-items: center;
     }
-
-    &__title-i-icon {
-        cursor: pointer;
-    }
-
-    &__icon-container {
-        @media @minDesktop {
-            padding: 0 1.5rem 0 0;
-        }
-    }
-
-    &__content-container {
-        width: 100%;
-
-        @media @maxTablet {
-            padding: 1.75rem 0;
-        }
-    }
-
-    &__header {
-        display: flex;
-        flex-flow: column;
-    }
-
-    &__header > * {
-        margin-bottom: 1.5rem;
-    }
-
-    &__linje-smal {
-        border: 1px solid black;
-        width: 15%;
-    }
-
     &__linje-bred {
         border: 0.5px solid black;
         width: 100%;
         opacity: 0.5;
         margin: 1rem auto;
-    }
-
-    &__content {
-        dl.list {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0;
-
-            > .list-item {
-                width: 50%;
-                padding: 0.5rem 2rem 0.5rem 0;
-
-                & dd {
-                    margin: 0;
-                }
-
-                @media @maxMobile {
-                    width: 100%;
-                }
-            }
-        }
     }
 }

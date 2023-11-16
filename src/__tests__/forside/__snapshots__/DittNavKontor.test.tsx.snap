@@ -152,303 +152,295 @@ exports[`DittNavKontor renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="box__content"
+            class="dittnavkontor__header"
           >
             <div
-              class="dittnavkontor__header"
+              class="dittnavkontor__ingress"
+            >
+              <p
+                class="navds-body-short navds-body-short--medium"
+              >
+                Ditt kontor er 
+                <span
+                  class="navds-label"
+                >
+                  NAV Halden-Aremark
+                </span>
+              </p>
+            </div>
+            <div
+              class="navds-form-field navds-form-field--medium"
+            >
+              <label
+                class="navds-form-field__label navds-sr-only navds-label"
+                for="select-r6"
+              >
+                NAV-kontor
+              </label>
+              <div
+                class="navds-select__container"
+              >
+                <select
+                  autocomplete="off"
+                  class="navds-select__input navds-body-short navds-body-short--medium"
+                  id="select-r6"
+                  name="NAV-kontor"
+                >
+                  <option
+                    value="-1"
+                  >
+                    Publikumsmottak for NAV Halden-Aremark
+                  </option>
+                  <option
+                    value="0"
+                  >
+                    HALDEN - Storgata 8, 1771 HALDEN
+                  </option>
+                  <option
+                    value="1"
+                  >
+                    AREMARK - Aremark Rådhus , 1798 AREMARK
+                  </option>
+                </select>
+                <svg
+                  aria-hidden="true"
+                  class="navds-select__chevron"
+                  fill="none"
+                  focusable="false"
+                  height="1em"
+                  role="img"
+                  viewBox="0 0 24 24"
+                  width="1em"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    clip-rule="evenodd"
+                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <div
+                aria-live="polite"
+                aria-relevant="additions removals"
+                class="navds-form-field__error"
+                id="select-error-r6"
+              />
+            </div>
+            <div
+              class="dittnavkontor__adresser"
             >
               <div
-                class="dittnavkontor__ingress"
+                class="dittnavkontor__postadresse"
               >
+                <h3
+                  class="navds-heading navds-heading--xsmall"
+                >
+                  Postadresse
+                </h3>
                 <p
                   class="navds-body-short navds-body-short--medium"
                 >
-                  Ditt kontor er 
-                  <span
-                    class="navds-label"
-                  >
-                    NAV Halden-Aremark
-                  </span>
+                  Postboks 56 
                 </p>
-              </div>
-              <div
-                class="navds-form-field navds-form-field--medium"
-              >
-                <label
-                  class="navds-form-field__label navds-sr-only navds-label"
-                  for="select-r6"
-                >
-                  NAV-kontor
-                </label>
-                <div
-                  class="navds-select__container"
-                >
-                  <select
-                    autocomplete="off"
-                    class="navds-select__input navds-body-short navds-body--medium"
-                    id="select-r6"
-                    name="NAV-kontor"
-                  >
-                    <option
-                      value="-1"
-                    >
-                      Publikumsmottak for NAV Halden-Aremark
-                    </option>
-                    <option
-                      value="0"
-                    >
-                      HALDEN - Storgata 8, 1771 HALDEN
-                    </option>
-                    <option
-                      value="1"
-                    >
-                      AREMARK - Aremark Rådhus , 1798 AREMARK
-                    </option>
-                  </select>
-                  <svg
-                    aria-hidden="true"
-                    class="navds-select__chevron"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <div
-                  aria-live="polite"
-                  aria-relevant="additions removals"
-                  class="navds-form-field__error"
-                  id="select-error-r6"
-                />
-              </div>
-              <div
-                class="dittnavkontor__adresser"
-              >
-                <div
-                  class="dittnavkontor__postadresse"
-                >
-                  <h3
-                    class="navds-heading navds-heading--xsmall"
-                  >
-                    Postadresse
-                  </h3>
-                  <p
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    Postboks 56 
-                  </p>
-                  <p
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    1751 HALDEN
-                  </p>
-                </div>
-                <div
-                  class="dittnavkontor__publikumsmottak"
-                >
-                  <h3
-                    class="navds-heading navds-heading--xsmall"
-                  >
-                    Publikumsmottak
-                  </h3>
-                  <p
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    Storgata 8
-                  </p>
-                  <p
-                    class="navds-body-short navds-body-short--medium"
-                  >
-                    1771 HALDEN
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div
-                class="apningstider"
-              >
-                <table
-                  class="apningstider__table"
-                >
-                  <caption
-                    class="apningstider__caption navds-heading navds-heading--xsmall"
-                  >
-                    Åpningstider
-                  </caption>
-                  <thead
-                    class="sr-only"
-                  >
-                    <tr>
-                      <th
-                        scope="col"
-                      >
-                        Ukedag
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Tidsrom
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Kommentar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        Mandag
-                      </td>
-                      <td>
-                        12:30 - 14:30
-                      </td>
-                      <td />
-                    </tr>
-                    <tr>
-                      <td>
-                        Tirsdag
-                      </td>
-                      <td>
-                        12:30 - 14:30
-                      </td>
-                      <td />
-                    </tr>
-                    <tr>
-                      <td>
-                        Onsdag
-                      </td>
-                      <td>
-                        12:30 - 14:30
-                      </td>
-                      <td />
-                    </tr>
-                    <tr>
-                      <td>
-                        Torsdag
-                      </td>
-                      <td>
-                        12:30 - 14:30
-                      </td>
-                      <td />
-                    </tr>
-                    <tr>
-                      <td>
-                        Fredag
-                      </td>
-                      <td>
-                        12:30 - 14:30
-                      </td>
-                      <td />
-                    </tr>
-                  </tbody>
-                </table>
-                <table
-                  class="apningstider__table"
-                >
-                  <caption
-                    class="apningstider__caption navds-heading navds-heading--xsmall"
-                  >
-                    Spesielle åpningstider
-                  </caption>
-                  <thead
-                    class="sr-only"
-                  >
-                    <tr>
-                      <th
-                        scope="col"
-                      >
-                        Dato
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Tidsrom
-                      </th>
-                      <th
-                        scope="col"
-                      >
-                        Kommentar
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>
-                        24.12.2021
-                      </td>
-                      <td>
-                        10:00 - 11:30
-                      </td>
-                      <td>
-                        Åpent for akutte behov for alle NAV-kontorer i Bergen kommune
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        31.12.2021
-                      </td>
-                      <td>
-                        Stengt
-                      </td>
-                      <td>
-                        NAV Bergen vest er åpent 10-11.30 for akutte behov
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <dl
-              class="dittnavkontor__footer list"
-            >
-              <div
-                class="list-item"
-              >
-                <dt
-                  class="list-element-heading"
-                >
-                  <span
-                    class="navds-label"
-                  >
-                    Kontakt NAV
-                  </span>
-                </dt>
-                <dd>
-                  <a
-                    class="navds-link navds-link--action"
-                    href="/person/kontakt-oss/nb/"
-                  >
-                    Gå til kontaktinformasjon
-                  </a>
-                </dd>
-              </div>
-            </dl>
-            <div
-              class="kilde__container"
-            >
-              <div
-                class="kilde__tekst"
-              >
                 <p
-                  class="navds-detail"
+                  class="navds-body-short navds-body-short--medium"
                 >
-                  Kilde: NAV
+                  1751 HALDEN
+                </p>
+              </div>
+              <div
+                class="dittnavkontor__publikumsmottak"
+              >
+                <h3
+                  class="navds-heading navds-heading--xsmall"
+                >
+                  Publikumsmottak
+                </h3>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  Storgata 8
+                </p>
+                <p
+                  class="navds-body-short navds-body-short--medium"
+                >
+                  1771 HALDEN
                 </p>
               </div>
             </div>
+          </div>
+          <div>
+            <div
+              class="apningstider"
+            >
+              <table
+                class="apningstider__table"
+              >
+                <caption
+                  class="apningstider__caption navds-heading navds-heading--xsmall"
+                >
+                  Åpningstider
+                </caption>
+                <thead
+                  class="sr-only"
+                >
+                  <tr>
+                    <th
+                      scope="col"
+                    >
+                      Ukedag
+                    </th>
+                    <th
+                      scope="col"
+                    >
+                      Tidsrom
+                    </th>
+                    <th
+                      scope="col"
+                    >
+                      Kommentar
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Mandag
+                    </td>
+                    <td>
+                      12:30 - 14:30
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td>
+                      Tirsdag
+                    </td>
+                    <td>
+                      12:30 - 14:30
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td>
+                      Onsdag
+                    </td>
+                    <td>
+                      12:30 - 14:30
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td>
+                      Torsdag
+                    </td>
+                    <td>
+                      12:30 - 14:30
+                    </td>
+                    <td />
+                  </tr>
+                  <tr>
+                    <td>
+                      Fredag
+                    </td>
+                    <td>
+                      12:30 - 14:30
+                    </td>
+                    <td />
+                  </tr>
+                </tbody>
+              </table>
+              <table
+                class="apningstider__table"
+              >
+                <caption
+                  class="apningstider__caption navds-heading navds-heading--xsmall"
+                >
+                  Spesielle åpningstider
+                </caption>
+                <thead
+                  class="sr-only"
+                >
+                  <tr>
+                    <th
+                      scope="col"
+                    >
+                      Dato
+                    </th>
+                    <th
+                      scope="col"
+                    >
+                      Tidsrom
+                    </th>
+                    <th
+                      scope="col"
+                    >
+                      Kommentar
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      24.12.2021
+                    </td>
+                    <td>
+                      10:00 - 11:30
+                    </td>
+                    <td>
+                      Åpent for akutte behov for alle NAV-kontorer i Bergen kommune
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      31.12.2021
+                    </td>
+                    <td>
+                      Stengt
+                    </td>
+                    <td>
+                      NAV Bergen vest er åpent 10-11.30 for akutte behov
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <dl
+            class="dittnavkontor__footer list"
+          >
+            <div
+              class="list-item"
+            >
+              <dt
+                class="list-element-heading"
+              >
+                <span
+                  class="navds-label"
+                >
+                  Kontakt NAV
+                </span>
+              </dt>
+              <dd>
+                <a
+                  class="navds-link navds-link--action"
+                  href="/person/kontakt-oss/nb/"
+                >
+                  Gå til kontaktinformasjon
+                </a>
+              </dd>
+            </div>
+          </dl>
+          <div
+            class="kilde__tekst"
+          >
+            <p
+              class="navds-detail navds-typo--spacing"
+            >
+              Kilde: NAV
+            </p>
           </div>
         </div>
       </div>

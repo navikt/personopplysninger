@@ -25,7 +25,6 @@ const BanknavnField = () => {
                     validBanknavn: (v) => isValidBanknavn(v) || formatMessage('validation.banknavn.ugyldig'),
                 },
             })}
-            className="skjemaelement"
             id="banknavn"
             size="medium"
             maxLength={35}

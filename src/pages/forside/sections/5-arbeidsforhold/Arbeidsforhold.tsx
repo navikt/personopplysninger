@@ -26,38 +26,28 @@ const Arbeidsforhold = () => {
     } as AFListeOnClick;
 
     return (
-        <Box
-            id="arbeidsforhold"
-            tittel="arbeidsforhold.tittel"
-            beskrivelse="arbeidsforhold.beskrivelse"
-            icon={arbeidsforholdIkon}
-            visAnkerlenke={true}
-        >
-            <div className="arbeidsforhold">
-                <ListeMedArbeidsforhold
-                    miljo={miljo}
-                    locale={locale as Locale}
-                    onClick={onClick}
-                    printActivated={true}
-                    printName={printName}
-                    printSSN={printSSN}
+        <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel" beskrivelse="arbeidsforhold.beskrivelse" icon={arbeidsforholdIkon} visAnkerlenke>
+            <ListeMedArbeidsforhold
+                miljo={miljo}
+                locale={locale as Locale}
+                onClick={onClick}
+                printActivated={true}
+                printName={printName}
+                printSSN={printSSN}
+            />
+            <Alert variant="info">
+                <FormattedMessage
+                    id="arbeidsforhold.disclaimer"
+                    values={{
+                        br: (text) => (
+                            <>
+                                <br />
+                                {text}
+                            </>
+                        ),
+                    }}
                 />
-            </div>
-            <div className="arbeidsforhold__disclaimer">
-                <Alert variant="info">
-                    <FormattedMessage
-                        id="arbeidsforhold.disclaimer"
-                        values={{
-                            br: (text) => (
-                                <>
-                                    <br />
-                                    {text}
-                                </>
-                            ),
-                        }}
-                    />
-                </Alert>
-            </div>
+            </Alert>
             <Kilde kilde="arbeidsforhold.kilde" lenkeType="INGEN" />
         </Box>
     );

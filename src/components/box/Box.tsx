@@ -18,7 +18,7 @@ const Box = (props: Props) => {
 
     return (
         <div className="box__wrapper" id={id}>
-            <GuidePanel illustration={Veileder} poster={true}>
+            <GuidePanel illustration={Veileder} poster>
                 <div className="box__container">
                     <div className="box__header">
                         <div className="box__title-container">
@@ -33,7 +33,7 @@ const Box = (props: Props) => {
                         </div>
                         {visAnkerlenke && <AnchorLink id={id} />}
                     </div>
-                    <div className="box__content">{children}</div>
+                    {children}
                 </div>
             </GuidePanel>
         </div>

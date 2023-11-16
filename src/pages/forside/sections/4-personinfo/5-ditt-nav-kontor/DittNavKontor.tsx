@@ -32,7 +32,7 @@ const DittNavKontor = (props: Props) => {
     const { postadresse } = enhet;
 
     return (
-        <Box id="ditt-nav-kontor" tittel="dittnavkontor.tittel" beskrivelse="dittnavkontor.beskrivelse" icon={dittNavKontorIkon} visAnkerlenke={true}>
+        <Box id="ditt-nav-kontor" tittel="dittnavkontor.tittel" beskrivelse="dittnavkontor.beskrivelse" icon={dittNavKontorIkon} visAnkerlenke>
             <div className="dittnavkontor__header">
                 <div className="dittnavkontor__ingress">
                     <BodyShort>
