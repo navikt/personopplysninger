@@ -1,4 +1,5 @@
 import merInfo from './nn/informasjon';
+
 export default {
     'side.tittel': 'Personopplysningar',
     'side.tilbake': 'Tilbake',
@@ -159,7 +160,6 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'dsop.personnummer': 'Personnummer',
     'dsop.mottaker': 'Selskap',
     'dsop.tema': 'Tema',
-    'dsop.behanglingsGrunnlag': 'Behandlingsgrunnlag',
     'dsop.lastned': 'Last ned leverte data',
     'dsop.ingendata':
         'Dette er ein logg som viser kva opplysningar vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Ingen personopplysningar har blitt utlevert.',
