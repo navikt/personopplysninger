@@ -161,7 +161,6 @@ A child who lives permanently with both mother and father can have two home addr
     'dsop.personnummer': 'Personal identification number (personnummer)',
     'dsop.mottaker': 'Company',
     'dsop.tema': 'Subject',
-    'dsop.behanglingsGrunnlag': 'Processing basis',
     'dsop.lastned': 'Download supplied data',
     'dsop.ingendata':
         'This is a log showing the information we have disclosed to insurance companies based on the consent you have given on Altinn. No personal data has been disclosed.',

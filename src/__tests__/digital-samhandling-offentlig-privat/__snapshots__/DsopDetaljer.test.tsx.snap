@@ -77,22 +77,6 @@ exports[`DsopDetaljerView renders correctly 1`] = `
               AAP
             </dd>
           </div>
-          <div
-            class="list-item"
-          >
-            <dt
-              class="list-element-heading"
-            >
-              <span
-                class="navds-label"
-              >
-                Behandlingsgrunnlag
-              </span>
-            </dt>
-            <dd>
-              Samtykke
-            </dd>
-          </div>
         </dl>
       </div>
       <div

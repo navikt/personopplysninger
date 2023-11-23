@@ -3,7 +3,6 @@ export interface DsopInnslag {
     mottaker: string;
     mottakernavn: string;
     tema: string;
-    behandlingsGrunnlag: string;
     uthentingsTidspunkt: string;
     leverteData: string;
     samtykkeToken: string;

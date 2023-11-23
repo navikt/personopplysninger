@@ -45,7 +45,6 @@ const DsopDetaljerView = (props: Props) => {
                                 />
                                 <ListElement titleId={'dsop.personnummer'} content={innslag.person} />
                                 <ListElement titleId={'dsop.tema'} content={innslag.tema} />
-                                <ListElement titleId={'dsop.behanglingsGrunnlag'} content={innslag.behandlingsGrunnlag} />
                             </dl>
                         </div>
                         <div className="detaljer__container">

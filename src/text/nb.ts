@@ -1,4 +1,5 @@
 import merInfo from './nb/informasjon';
+
 export default {
     'side.tittel': 'Personopplysninger',
     'side.tilbake': 'Tilbake',
@@ -159,7 +160,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'dsop.personnummer': 'Personnummer',
     'dsop.mottaker': 'Selskap',
     'dsop.tema': 'Tema',
-    'dsop.behanglingsGrunnlag': 'Behandlingsgrunnlag',
     'dsop.lastned': 'Last ned leverte data',
     'dsop.ingendata':
         'Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. Ingen personopplysninger har blitt utlevert.',
