@@ -8,6 +8,7 @@ import { fjernMellorom } from 'utils/formattering';
 import driftsmeldinger from 'driftsmeldinger';
 import { Alert, Button, Label } from '@navikt/ds-react';
 import { PlusCircleIcon } from '@navikt/aksel-icons';
+import { useIntlFormatter } from 'hooks/useIntlFormatter';
 
 interface Props {
     tlfnr?: Tlfnr;
@@ -15,6 +16,8 @@ interface Props {
 
 const TelefonnummerHosNav = (props: Props) => {
     const [opprett, settOpprett] = useState<boolean>();
+    const { formatMessage } = useIntlFormatter();
+
     const { tlfnr } = props;
 
     const onChangeSuccess = () => {
@@ -89,7 +92,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
-                    aria-label="Legg til telefonnummer i NAV sitt register"
+                    aria-label={formatMessage('side.leggtil.kontaktinformasjon')}
                 >
                     <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
                 </Button>
