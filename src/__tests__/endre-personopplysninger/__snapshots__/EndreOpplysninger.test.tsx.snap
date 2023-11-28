@@ -180,7 +180,7 @@ exports[`EndreOpplysningerView renders correctly 1`] = `
             <span
               class="navds-label"
             >
-              Legg til nummer i NAV sitt register
+              Legg til telefonnummer i NAV sitt register
             </span>
           </button>
         </div>
