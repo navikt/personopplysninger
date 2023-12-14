@@ -34,11 +34,6 @@ const Utbetalinger = (props: Props) => {
                     </Alert>
                 )}
             </>
-            <div style={{ paddingBottom: '1rem' }}>
-                <Alert role="status" variant="warning">
-                    Endring av kontonummer er midlertidig utilgjengelig.
-                </Alert>
-            </div>
             {kontoregisterStatus === 'ERROR' ? (
                 <Alert role="alert" variant="error">
                     {formatMessage('personalia.kontonr.feilmelding')}
