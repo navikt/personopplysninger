@@ -5,6 +5,7 @@ import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
 import { useStore } from '../../../../../store/Context';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { Liste } from '../../../../../components/listelement/Liste';
 
 interface Props {
     personalia: PersonaliaType;
@@ -29,7 +30,7 @@ const Personalia = (props: Props) => {
 
     return (
         <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon} visAnkerlenke>
-            <dl className="list">
+            <Liste>
                 <ListElement titleId={fornavnHeader} content={fornavn} />
                 <ListElement className="capitalize" titleId="personalia.surname" content={etternavn} />
                 {formattertPersonident && <ListElement titleId={personidentHeader} content={formattertPersonident.verdi} />}
@@ -49,7 +50,7 @@ const Personalia = (props: Props) => {
                 <ListElement titleId="personalia.birthplace" content={foedested} />
                 <ListElement titleId="personalia.civil_status" content={sivilstand} />
                 <ListElement titleId="personalia.gender" content={kjoenn} />
-            </dl>
+            </Liste>
             <Kilde
                 kilde="personalia.source.folkeregisteret"
                 lenke={

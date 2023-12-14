@@ -380,4 +380,5 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'select.sok': 'Søk ...',
     'select.loading': 'Lastar inn ...',
     'select.no.hits': 'Ingen treff funne for',
+    'endreKontonummer.tittel': 'Endre kontonummer for utbetaling',
 };

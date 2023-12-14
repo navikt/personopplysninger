@@ -381,4 +381,5 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'select.sok': 'Søk ...',
     'select.loading': 'Laster inn ...',
     'select.no.hits': 'Ingen treff funnet for',
+    'endreKontonummer.tittel': 'Endre kontonummer for utbetaling',
 };

@@ -387,4 +387,5 @@ A child who lives permanently with both mother and father can have two home addr
     'select.sok': 'Search ...',
     'select.loading': 'Loading ...',
     'select.no.hits': 'No hits for',
+    'endreKontonummer.tittel': 'Change account number for payment',
 };
