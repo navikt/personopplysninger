@@ -22,38 +22,39 @@ const Utbetalinger = (props: UtbetalingerProps) => {
 
     const [{ locale }] = useStore();
 
+    const baseUrlWithLocale = `${basePath}/${locale}`;
+    const backTo = window.location.pathname.replace(baseUrlWithLocale, '');
+
     return (
         <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
-            <>
-                {driftsmeldinger.pdl && (
-                    <Alert role="status" variant="warning">
-                        {driftsmeldinger.pdl}
-                    </Alert>
-                )}
-                {kontonr || utenlandskbank ? (
-                    <>
-                        <NorskKontonummer kontonummer={kontonr} />
-                        <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
-                    </>
-                ) : (
-                    <div className="underseksjon__beskrivelse">
-                        <FormattedMessage
-                            id="personalia.kontonr.ingenData"
-                            values={{
-                                br: (text) => (
-                                    <>
-                                        <br />
-                                        {text}
-                                    </>
-                                ),
-                            }}
-                        />
-                    </div>
-                )}
-                <Link to={`${basePath}/${locale}/endre-kontonummer`}>
-                    <FormattedMessage id={'endreKontonummer.tittel'} />
-                </Link>
-            </>
+            {driftsmeldinger.pdl && (
+                <Alert role="status" variant="warning">
+                    {driftsmeldinger.pdl}
+                </Alert>
+            )}
+            {kontonr || utenlandskbank ? (
+                <>
+                    <NorskKontonummer kontonummer={kontonr} />
+                    <Utenlandskonto utenlandskBankkonto={utenlandskbank} />
+                </>
+            ) : (
+                <div className="underseksjon__beskrivelse">
+                    <FormattedMessage
+                        id="personalia.kontonr.ingenData"
+                        values={{
+                            br: (text) => (
+                                <>
+                                    <br />
+                                    {text}
+                                </>
+                            ),
+                        }}
+                    />
+                </div>
+            )}
+            <Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>
+                <FormattedMessage id={'endreKontonummer.tittel'} />
+            </Link>
         </Box>
     );
 };
