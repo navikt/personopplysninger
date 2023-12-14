@@ -16,6 +16,7 @@ import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 // Import this early, to ensure our own CSS gets higher specificity
 import '@navikt/ds-css';
+import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
 
 export const basePath = '/person/personopplysninger';
 
@@ -91,6 +92,7 @@ const App = () => {
                                 ))}
 
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummer />} />
                                 <Route element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>
