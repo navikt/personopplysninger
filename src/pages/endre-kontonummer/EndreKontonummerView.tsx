@@ -10,6 +10,25 @@ import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetaling
 import { useIntlFormatter } from '../../hooks/useIntlFormatter';
 import { EndreKontonummerSuccess } from './EndreKontonummerResult';
 
+const ResultView = () => {
+    const url = new URL(window.location.href);
+
+    const result = url.searchParams.get('result');
+    if (!result) {
+        return null;
+    }
+
+    if (result === 'success') {
+        return <EndreKontonummerSuccess />;
+    }
+
+    if (result === 'error') {
+        return <Alert variant={'error'}>{'Det oppsto en feil ved endring av kontonummer'}</Alert>;
+    }
+
+    return null;
+};
+
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {
     const [opprettEllerEndre, settOpprettEllerEndre] = useState(false);
     const [success, settSuccess] = useState(false);
@@ -17,6 +36,7 @@ export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, pers
 
     return (
         <>
+            <ResultView />
             {success && <EndreKontonummerSuccess />}
             {kontoregisterStatus === 'ERROR' ? (
                 <Alert role="alert" variant="error">
