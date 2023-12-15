@@ -21,6 +21,7 @@ interface Props {
     kontonr?: string;
     settOpprettEllerEndre: (arg: boolean) => void;
     settSuccess: (success: boolean) => void;
+    submit?: () => void;
 }
 
 const NORSK = 'NORSK';
@@ -28,6 +29,8 @@ const UTENLANDSK = 'UTENLANDSK';
 
 const KontonummerForm = (props: Props) => {
     const { kontonr, utenlandskbank, personident, settOpprettEllerEndre, settSuccess } = props;
+
+    const { submit = submitKontonummer } = props;
 
     const methods = useForm<FormFields>({
         reValidateMode: 'onChange',
@@ -65,7 +68,7 @@ const KontonummerForm = (props: Props) => {
     const [{ locale }, dispatch] = useStore();
 
     const onSubmit = (values: FieldValues) => {
-        submitKontonummer(values, kontonummerType, settAlert, settLoading, settSuccess, settOpprettEllerEndre, dispatch, locale);
+        submit(values, kontonummerType, settAlert, settLoading, settSuccess, settOpprettEllerEndre, dispatch, locale);
     };
 
     return (

@@ -67,6 +67,43 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               Lenke hit
             </a>
           </div>
+          <div
+            style="padding-bottom: 1rem;"
+          >
+            <div
+              class="navds-alert navds-alert--warning navds-alert--medium"
+              role="status"
+            >
+              <svg
+                aria-labelledby="title-r1"
+                class="navds-alert__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title
+                  id="title-r1"
+                >
+                  Advarsel
+                </title>
+                <path
+                  clip-rule="evenodd"
+                  d="M12 2.25a.75.75 0 0 1 .656.387l9.527 17.25A.75.75 0 0 1 21.526 21H2.474a.75.75 0 0 1-.657-1.113l9.526-17.25A.75.75 0 0 1 12 2.25ZM12 8.75a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 .75-.75Zm-1 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div
+                class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+              >
+                Endring av kontonummer er midlertidig utilgjengelig.
+              </div>
+            </div>
+          </div>
           <dl
             class="list"
           >
@@ -87,11 +124,6 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
               </dd>
             </div>
           </dl>
-          <a
-            href="/person/personopplysninger/nb/endre-kontonummer"
-          >
-            Endre kontonummer for utbetaling
-          </a>
         </div>
       </div>
     </div>
@@ -165,6 +197,43 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               </svg>
               Lenke hit
             </a>
+          </div>
+          <div
+            style="padding-bottom: 1rem;"
+          >
+            <div
+              class="navds-alert navds-alert--warning navds-alert--medium"
+              role="status"
+            >
+              <svg
+                aria-labelledby="title-r1"
+                class="navds-alert__icon"
+                fill="none"
+                focusable="false"
+                height="1em"
+                role="img"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title
+                  id="title-r1"
+                >
+                  Advarsel
+                </title>
+                <path
+                  clip-rule="evenodd"
+                  d="M12 2.25a.75.75 0 0 1 .656.387l9.527 17.25A.75.75 0 0 1 21.526 21H2.474a.75.75 0 0 1-.657-1.113l9.526-17.25A.75.75 0 0 1 12 2.25ZM12 8.75a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 .75-.75Zm-1 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                />
+              </svg>
+              <div
+                class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+              >
+                Endring av kontonummer er midlertidig utilgjengelig.
+              </div>
+            </div>
           </div>
           <dl
             class="list"
@@ -243,11 +312,6 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
               </dd>
             </div>
           </dl>
-          <a
-            href="/person/personopplysninger/nb/endre-kontonummer"
-          >
-            Endre kontonummer for utbetaling
-          </a>
         </div>
       </div>
     </div>
