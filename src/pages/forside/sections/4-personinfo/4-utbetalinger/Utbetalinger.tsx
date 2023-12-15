@@ -6,9 +6,9 @@ import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage } from 'react-intl';
 import { Alert } from '@navikt/ds-react';
 import driftsmeldinger from 'driftsmeldinger';
-import { Link } from 'react-router-dom';
-import { useStore } from '../../../../../store/Context';
-import { basePath } from '../../../../../constants';
+// import { Link } from 'react-router-dom';
+// import { useStore } from '../../../../../store/Context';
+// import { basePath } from '../../../../../constants';
 
 export interface UtbetalingerProps {
     utenlandskbank?: UtenlandskBankkonto;
@@ -20,10 +20,9 @@ export interface UtbetalingerProps {
 const Utbetalinger = (props: UtbetalingerProps) => {
     const { kontonr, utenlandskbank } = props;
 
-    const [{ locale }] = useStore();
-
-    const baseUrlWithLocale = `${basePath}/${locale}`;
-    const backTo = window.location.pathname.replace(baseUrlWithLocale, '');
+    // const [{ locale }] = useStore();
+    // const baseUrlWithLocale = `${basePath}/${locale}`;
+    // const backTo = window.location.pathname.replace(baseUrlWithLocale, '');
 
     return (
         <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
