@@ -53,7 +53,11 @@ const KontonummerForm = (props: Props) => {
               },
     });
 
-    const { handleSubmit, reset } = methods;
+    const {
+        handleSubmit,
+        reset,
+        formState: { isValid, isSubmitted },
+    } = methods;
 
     const { formatMessage: msg } = useIntl();
     const [loading, settLoading] = useState<boolean>(false);
@@ -92,7 +96,7 @@ const KontonummerForm = (props: Props) => {
                 </RadioGroup>
                 {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
                 <div className="utbetalinger__knapper">
-                    <Button variant={'primary'} type={'submit'} disabled={true} loading={loading}>
+                    <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
                         <FormattedMessage id={'side.lagre'} />
                     </Button>
                     <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
