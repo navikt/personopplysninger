@@ -13,20 +13,21 @@ const ResultView = () => {
     const url = new URL(window.location.href);
 
     const result = url.searchParams.get('result');
+    if (!result) {
+        return null;
+    }
 
     if (result === 'success') {
         return <Alert variant={'success'}>{'Hurra!'}</Alert>;
     }
 
-    const error = url.searchParams.get('error');
-
-    if (!error) {
-        return null;
+    if (result === 'error') {
+        const error = url.searchParams.get('error');
+        const status = url.searchParams.get('status');
+        return <Alert variant={'error'}>{`Oh noes! - ${error} - ${status}`}</Alert>;
     }
 
-    const status = url.searchParams.get('status');
-
-    return <Alert variant={'error'}>{`Oh noes! - ${status}`}</Alert>;
+    return null;
 };
 
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {
