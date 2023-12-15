@@ -1,4 +1,4 @@
-import { Alert } from '@navikt/ds-react';
+import { Alert, BodyLong } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
 
 export const EndreKontonummerSuccess = () => {
@@ -7,7 +7,7 @@ export const EndreKontonummerSuccess = () => {
             <FormattedMessage
                 id={'endreKontonummer.success'}
                 values={{
-                    p: (text) => <p>{text}</p>,
+                    p: (text) => <BodyLong>{text}</BodyLong>,
                 }}
             />
         </Alert>
