@@ -18,13 +18,20 @@ const ResultView = () => {
     }
 
     if (result === 'success') {
-        return <Alert variant={'success'}>{'Hurra!'}</Alert>;
+        return (
+            <Alert variant={'success'}>
+                <FormattedMessage
+                    id={'endreKontonummer.success'}
+                    values={{
+                        p: (text) => <p>{text}</p>,
+                    }}
+                />
+            </Alert>
+        );
     }
 
     if (result === 'error') {
-        const error = url.searchParams.get('error');
-        const status = url.searchParams.get('status');
-        return <Alert variant={'error'}>{`Oh noes! - ${error} - ${status}`}</Alert>;
+        return <Alert variant={'error'}>{'Det oppsto en feil ved endring av kontonummer'}</Alert>;
     }
 
     return null;

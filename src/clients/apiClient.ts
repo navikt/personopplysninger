@@ -110,7 +110,8 @@ export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_
 export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_API_URL}/slettTelefonnummer`, data);
 
 export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
-    reauthenticate(`${REACT_APP_API_URL}/endreKontonummer`, data, locale);
+    postJson(`${REACT_APP_API_URL}/endreKontonummer`, data);
+// reauthenticate(`${REACT_APP_API_URL}/endreKontonummer`, data, locale);
 
 export const slettKontaktadresse = () => postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 
