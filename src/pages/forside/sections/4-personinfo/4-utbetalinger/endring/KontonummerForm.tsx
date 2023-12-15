@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Radio, RadioGroup } from '@navikt/ds-react';
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from './norsk-bankkonto/NorskKontonummer';
 import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from './utenlandsk-bankkonto/UtenlandsBankkonto';
@@ -13,7 +13,7 @@ import { UtenlandskBankkonto } from '../../../../../../types/personalia';
 import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from './types';
 import { UNKNOWN } from '../../../../../../utils/text';
-import { Action } from '../../../../../../store/Store';
+import { Action, Locale } from '../../../../../../store/Store';
 
 interface Props {
     utenlandskbank?: UtenlandskBankkonto;
@@ -64,10 +64,10 @@ const KontonummerForm = (props: Props) => {
     const [alert, settAlert] = useState<Feilmelding | null>(null);
     const [kontonummerType, setKontonummerType] = useState(utenlandskbank ? UTENLANDSK : NORSK);
 
-    const [, dispatch] = useStore();
+    const [{ locale }, dispatch] = useStore();
 
     const onSubmit = (values: FieldValues) => {
-        submit(values, kontonummerType, settAlert, settLoading, settOpprettEllerEndre, dispatch);
+        submit(values, kontonummerType, settAlert, settLoading, settOpprettEllerEndre, dispatch, locale);
     };
 
     return (
@@ -116,7 +116,8 @@ const defaultSubmitKontonummer = (
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
     settOpprettEllerEndre: (value: boolean) => void,
-    dispatch: React.Dispatch<Action>
+    dispatch: React.Dispatch<Action>,
+    locale: Locale
 ) => {
     type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
     const outbound: { [key: string]: () => Outbound } = {
@@ -128,7 +129,7 @@ const defaultSubmitKontonummer = (
     };
 
     settLoading(true);
-    postKontonummer(outbound[kontonummerType]())
+    postKontonummer(outbound[kontonummerType](), locale)
         .then(() => getUpdatedData(dispatch))
         .then(() => settOpprettEllerEndre(false))
         .catch((error: Feilmelding) => settAlert(error))

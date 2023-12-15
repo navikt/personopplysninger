@@ -4,6 +4,7 @@ import { TPSResponse } from '../types/tps-response';
 import { Feilmelding } from '../components/httpFeilmelding/HttpFeilmelding';
 import { getLoginRedirectUrl } from '../utils/redirects';
 import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from '../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
+import { Locale } from '../store/Store';
 
 const parseJson = (data: Response) => data.json();
 
@@ -79,15 +80,16 @@ const postJson = (url: string, data?: Outbound) => {
         });
 };
 
-const reauthenticate = (url: string, data?: Outbound) => {
-    console.log('Submitting: ', data);
-
+const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
     return fetch(url, {
         method: 'POST',
         ...(data && {
             body: JSON.stringify(data),
         }),
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8',
+            locale: locale,
+        },
         credentials: 'include',
     })
         .then(sjekkHttpFeil)
@@ -107,8 +109,8 @@ export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_
 
 export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${REACT_APP_API_URL}/slettTelefonnummer`, data);
 
-export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto) =>
-    reauthenticate(`${REACT_APP_API_URL}/endreKontonummer`, data);
+export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
+    reauthenticate(`${REACT_APP_API_URL}/endreKontonummer`, data, locale);
 
 export const slettKontaktadresse = () => postJson(`${REACT_APP_API_URL}/slettKontaktadresse`);
 

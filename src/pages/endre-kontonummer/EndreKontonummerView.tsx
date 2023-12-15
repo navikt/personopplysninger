@@ -9,12 +9,33 @@ import { PencilIcon } from '@navikt/aksel-icons';
 import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
 import { useIntlFormatter } from '../../hooks/useIntlFormatter';
 
+const ResultView = () => {
+    const url = new URL(window.location.href);
+
+    const result = url.searchParams.get('result');
+
+    if (result === 'success') {
+        return <Alert variant={'success'}>{'Hurra!'}</Alert>;
+    }
+
+    const error = url.searchParams.get('error');
+
+    if (!error) {
+        return null;
+    }
+
+    const status = url.searchParams.get('status');
+
+    return <Alert variant={'error'}>{`Oh noes! - ${status}`}</Alert>;
+};
+
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {
     const [opprettEllerEndre, settOpprettEllerEndre] = useState<boolean>(false);
     const { formatMessage } = useIntlFormatter();
 
     return (
         <>
+            <ResultView />
             {kontoregisterStatus === 'ERROR' ? (
                 <Alert role="alert" variant="error">
                     {formatMessage('personalia.kontonr.feilmelding')}
