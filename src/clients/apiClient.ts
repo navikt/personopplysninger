@@ -1,14 +1,9 @@
 import { logApiError } from '../utils/logger';
-import {
-    OutboundTlfnummer,
-} from '../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
+import { OutboundTlfnummer } from '../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
 import { TPSResponse } from '../types/tps-response';
 import { Feilmelding } from '../components/httpFeilmelding/HttpFeilmelding';
 import { getLoginRedirectUrl } from '../utils/redirects';
-import {
-    OutboundNorskKontonummer,
-    OutboundUtenlandsbankonto,
-} from '../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
+import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from '../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
 
 const parseJson = (data: Response) => data.json();
 
@@ -46,8 +41,6 @@ export const fetchRetningsnumre = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/
 export const fetchInstInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/institusjonsopphold`);
 
 export const fetchMedlInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/medl`);
-
-export const fetchPostnummer = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/postnummer`);
 
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${REACT_APP_API_URL}/personalia`);
 
@@ -87,6 +80,8 @@ const postJson = (url: string, data?: Outbound) => {
 };
 
 const reauthenticate = (url: string, data?: Outbound) => {
+    console.log('Submitting: ', data);
+
     return fetch(url, {
         method: 'POST',
         ...(data && {
@@ -177,8 +172,8 @@ const sjekkTPSFeil = (response: TPSResponse) => {
                 text: `${response.error && response.error.message}${
                     response.error && response.error.details
                         ? `\n${Object.values(response.error.details)
-                            .map((details) => details.join('\n'))
-                            .join('\n')}`
+                              .map((details) => details.join('\n'))
+                              .join('\n')}`
                         : ''
                 }`,
             },

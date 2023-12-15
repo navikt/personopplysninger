@@ -53,7 +53,7 @@ export const setUpMock = async () => {
     mockPostEndreTelefonnr &&
         fetchMock.post(`${REACT_APP_API_URL}/endreTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'REJECTED' })));
     mockPostSlettTlfnr && fetchMock.post(`${REACT_APP_API_URL}/slettTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'OK' })));
-    mockPostEndreKontonummer && fetchMock.post(`${REACT_APP_API_URL}/endreKontonummer`, () => delay(2000, 3000).then(() => endreKontonr));
+    mockPostEndreKontonummer && fetchMock.post(`${REACT_APP_API_URL}/endreKontonummer`, () => delay(200, 500).then(() => endreKontonr));
 };
 
 const delay = (min: number, max: number) => {
