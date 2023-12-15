@@ -24,16 +24,14 @@ export const EndreKontonummer = () => {
             backTo={backTo}
             brodsmulesti={[{ title: 'endreKontonummer.tittel' }]}
         >
-            <>
-                {driftsmeldinger.pdl && (
-                    <Alert role="status" variant="warning">
-                        {driftsmeldinger.pdl}
-                    </Alert>
-                )}
-                <MedPersonInfo loader={<Loader />} error={ErrorWithBox}>
-                    {({ personalia }) => (personalia ? <EndreKontonummerView {...personalia} /> : <Loader />)}
-                </MedPersonInfo>
-            </>
+            {driftsmeldinger.pdl && (
+                <Alert role="status" variant="warning">
+                    {driftsmeldinger.pdl}
+                </Alert>
+            )}
+            <MedPersonInfo loader={<Loader />} error={ErrorWithBox}>
+                {({ personalia }) => (personalia ? <EndreKontonummerView {...personalia} /> : <Loader />)}
+            </MedPersonInfo>
         </PageContainer>
     );
 };

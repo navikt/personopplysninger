@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Icon from 'components/icon/Icon';
 import Tilbake from 'components/tilbake/Tilbake';
@@ -5,7 +6,7 @@ import Brodsmulesti, { BrodsmuleLenke } from 'pages/forside/sections/2-brodsmule
 import { Box, Heading } from '@navikt/ds-react';
 
 interface Props {
-    children: JSX.Element | JSX.Element[];
+    children: React.ReactNode;
     tittelId: string;
     backTo: string;
     icon?: string;
