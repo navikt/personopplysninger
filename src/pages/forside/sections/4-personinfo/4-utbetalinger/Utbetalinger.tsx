@@ -4,11 +4,28 @@ import { UtenlandskBankkonto } from 'types/personalia';
 import NorskKontonummer from './visning/NorskKontonummer';
 import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage } from 'react-intl';
-import { Alert } from '@navikt/ds-react';
+import { Alert, Link } from '@navikt/ds-react';
 import driftsmeldinger from 'driftsmeldinger';
 // import { Link } from 'react-router-dom';
 // import { useStore } from '../../../../../store/Context';
 // import { basePath } from '../../../../../constants';
+
+const WarningMsg = () => {
+    return (
+        <Alert role="status" variant="info">
+            <FormattedMessage
+                id={'endreKontonummer.info'}
+                values={{
+                    a: (text) => (
+                        <a href={'tel:+4755553333'} style={{ whiteSpace: 'nowrap' }}>
+                            {text}
+                        </a>
+                    ),
+                }}
+            />
+        </Alert>
+    );
+};
 
 export interface UtbetalingerProps {
     utenlandskbank?: UtenlandskBankkonto;
@@ -31,11 +48,10 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                     {driftsmeldinger.pdl}
                 </Alert>
             )}
-            <div style={{ paddingBottom: '1rem' }}>
-                <Alert role="status" variant="warning">
-                    {'Endring av kontonummer er midlertidig utilgjengelig.'}
-                </Alert>
-            </div>
+            <WarningMsg />
+            <Alert role="status" variant="warning">
+                Endring av kontonummer er midlertidig utilgjengelig.
+            </Alert>
             {kontonr || utenlandskbank ? (
                 <>
                     <NorskKontonummer kontonummer={kontonr} />
