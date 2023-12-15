@@ -20,16 +20,14 @@ interface Props {
     personident?: { verdi: string; type: string };
     kontonr?: string;
     settOpprettEllerEndre: (arg: boolean) => void;
-    submit?: () => void;
+    settSuccess: (success: boolean) => void;
 }
 
 const NORSK = 'NORSK';
 const UTENLANDSK = 'UTENLANDSK';
 
 const KontonummerForm = (props: Props) => {
-    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
-
-    const { submit = defaultSubmitKontonummer } = props;
+    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre, settSuccess } = props;
 
     const methods = useForm<FormFields>({
         reValidateMode: 'onChange',
@@ -60,14 +58,14 @@ const KontonummerForm = (props: Props) => {
     } = methods;
 
     const { formatMessage: msg } = useIntl();
-    const [loading, settLoading] = useState<boolean>(false);
+    const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | null>(null);
     const [kontonummerType, setKontonummerType] = useState(utenlandskbank ? UTENLANDSK : NORSK);
 
     const [{ locale }, dispatch] = useStore();
 
     const onSubmit = (values: FieldValues) => {
-        submit(values, kontonummerType, settAlert, settLoading, settOpprettEllerEndre, dispatch, locale);
+        submitKontonummer(values, kontonummerType, settAlert, settLoading, settSuccess, settOpprettEllerEndre, dispatch, locale);
     };
 
     return (
@@ -110,11 +108,12 @@ const KontonummerForm = (props: Props) => {
     );
 };
 
-const defaultSubmitKontonummer = (
+const submitKontonummer = (
     values: FieldValues,
     kontonummerType: string,
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
+    settSuccess: (value: boolean) => void,
     settOpprettEllerEndre: (value: boolean) => void,
     dispatch: React.Dispatch<Action>,
     locale: Locale
@@ -131,7 +130,10 @@ const defaultSubmitKontonummer = (
     settLoading(true);
     postKontonummer(outbound[kontonummerType](), locale)
         .then(() => getUpdatedData(dispatch))
-        .then(() => settOpprettEllerEndre(false))
+        .then(() => {
+            settOpprettEllerEndre(false);
+            settSuccess(true);
+        })
         .catch((error: Feilmelding) => settAlert(error))
         .then(() => settLoading(false));
 };

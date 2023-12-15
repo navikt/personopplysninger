@@ -32,6 +32,11 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                     {driftsmeldinger.pdl}
                 </Alert>
             )}
+            <div style={{ paddingBottom: '1rem' }}>
+                <Alert role="status" variant="warning">
+                    {'Endring av kontonummer er midlertidig utilgjengelig.'}
+                </Alert>
+            </div>
             {kontonr || utenlandskbank ? (
                 <>
                     <NorskKontonummer kontonummer={kontonr} />
@@ -52,9 +57,9 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                     />
                 </div>
             )}
-            <Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>
-                <FormattedMessage id={'endreKontonummer.tittel'} />
-            </Link>
+            {/*<Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>*/}
+            {/*    <FormattedMessage id={'endreKontonummer.tittel'} />*/}
+            {/*</Link>*/}
         </Box>
     );
 };

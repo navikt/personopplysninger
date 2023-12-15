@@ -1,3 +1,14 @@
 {
-    "redirect": "http://localhost:3000/person/personopplysninger/nb/endre-kontonummer?result=success"
+  "statusType": "ERROR",
+  "error": {
+    "message": "Validering feilet",
+    "details": {
+      "norskGateadresse.postnummer": ["Kontonummer er påkrevd"],
+      "kontonummer.utenlandskKontoInformasjon.swift": [
+        "Swift sine fire første tegn må være alfanumeriske.",
+        "Swift sine femte og sjette tegn kan ikke inneholde tall.",
+        "Swift sitt syvende og åttende tegn må være alfanumeriske."
+      ]
+    }
+  }
 }
