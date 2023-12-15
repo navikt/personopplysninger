@@ -4,7 +4,7 @@ import { UtenlandskBankkonto } from 'types/personalia';
 import NorskKontonummer from './visning/NorskKontonummer';
 import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage } from 'react-intl';
-import { Alert, Link } from '@navikt/ds-react';
+import { Alert } from '@navikt/ds-react';
 import driftsmeldinger from 'driftsmeldinger';
 // import { Link } from 'react-router-dom';
 // import { useStore } from '../../../../../store/Context';
