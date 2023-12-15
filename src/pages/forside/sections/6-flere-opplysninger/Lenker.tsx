@@ -7,9 +7,9 @@ import FullmaktIkon from 'assets/img/Fullmakt.svg';
 import SkjermingIkon from 'assets/img/Skjerming.svg';
 import { FormattedMessage } from 'react-intl';
 import { useStore } from 'store/Context';
-import { basePath } from '../../../../App';
 import { AnchorLink } from '../../../../components/anchorlink/AnchorLink';
 import { BodyLong, Box, Heading } from '@navikt/ds-react';
+import { basePath } from '../../../../constants';
 
 const { REACT_APP_PDL_URL, REACT_APP_SKJERMING_URL } = process.env;
 

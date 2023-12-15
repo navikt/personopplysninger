@@ -15,9 +15,9 @@ import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/
 import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
-import '@navikt/ds-css';
+import { basePath } from './constants';
 
-export const basePath = '/person/personopplysninger';
+import '@navikt/ds-css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 

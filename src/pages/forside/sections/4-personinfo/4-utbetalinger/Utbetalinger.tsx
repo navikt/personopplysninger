@@ -7,8 +7,8 @@ import { FormattedMessage } from 'react-intl';
 import { Alert } from '@navikt/ds-react';
 import driftsmeldinger from 'driftsmeldinger';
 import { Link } from 'react-router-dom';
-import { basePath } from '../../../../../App';
 import { useStore } from '../../../../../store/Context';
+import { basePath } from '../../../../../constants';
 
 export interface UtbetalingerProps {
     utenlandskbank?: UtenlandskBankkonto;
