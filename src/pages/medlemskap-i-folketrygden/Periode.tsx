@@ -4,6 +4,7 @@ import ListElement from '../../components/listelement/ListElement';
 import { BodyLong } from '@navikt/ds-react';
 import dayjs from 'dayjs';
 import { CalendarIcon } from '@navikt/aksel-icons';
+import { Liste } from '../../components/listelement/Liste';
 
 interface Props {
     periode: MedlInnslag;
@@ -23,7 +24,7 @@ const Periode = (props: Props) => {
                     </BodyLong>
                 </div>
                 <div className={'medl__flex-grid box__content'}>
-                    <dl className="list">
+                    <Liste>
                         <ListElement titleId="medl.hjemmel" content={periode.hjemmel} hjelpetekstId={'medl.hjemmel.hjelpetekst'} />
                         <ListElement titleId="medl.trygdedekning" content={periode.trygdedekning} hjelpetekstId={'medl.trygdedekning.hjelpetekst'} />
                         <ListElement
@@ -34,7 +35,7 @@ const Periode = (props: Props) => {
                         />
                         <ListElement className={'medl__land'} titleId="medl.statsborgerland" content={periode.studieinformasjon?.statsborgerland} />
                         <ListElement className={'medl__land'} titleId="medl.studieland" content={periode.studieinformasjon?.studieland} />
-                    </dl>
+                    </Liste>
                 </div>
             </div>
         </div>

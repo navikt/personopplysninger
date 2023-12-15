@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Button, Radio, RadioGroup } from '@navikt/ds-react';
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from './norsk-bankkonto/NorskKontonummer';
 import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from './utenlandsk-bankkonto/UtenlandsBankkonto';
@@ -20,6 +20,7 @@ interface Props {
     personident?: { verdi: string; type: string };
     kontonr?: string;
     settOpprettEllerEndre: (arg: boolean) => void;
+    settSuccess: (success: boolean) => void;
     submit?: () => void;
 }
 
@@ -27,9 +28,9 @@ const NORSK = 'NORSK';
 const UTENLANDSK = 'UTENLANDSK';
 
 const KontonummerForm = (props: Props) => {
-    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
+    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre, settSuccess } = props;
 
-    const { submit = defaultSubmitKontonummer } = props;
+    const { submit = submitKontonummer } = props;
 
     const methods = useForm<FormFields>({
         reValidateMode: 'onChange',
@@ -53,17 +54,21 @@ const KontonummerForm = (props: Props) => {
               },
     });
 
-    const { handleSubmit, reset } = methods;
+    const {
+        handleSubmit,
+        reset,
+        formState: { isValid, isSubmitted },
+    } = methods;
 
     const { formatMessage: msg } = useIntl();
-    const [loading, settLoading] = useState<boolean>(false);
+    const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | null>(null);
     const [kontonummerType, setKontonummerType] = useState(utenlandskbank ? UTENLANDSK : NORSK);
 
     const [, dispatch] = useStore();
 
     const onSubmit = (values: FieldValues) => {
-        submit(values, kontonummerType, settAlert, settLoading, settOpprettEllerEndre, dispatch);
+        submit(values, kontonummerType, settAlert, settLoading, settSuccess, settOpprettEllerEndre, dispatch);
     };
 
     return (
@@ -92,7 +97,7 @@ const KontonummerForm = (props: Props) => {
                 </RadioGroup>
                 {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
                 <div className="utbetalinger__knapper">
-                    <Button variant={'primary'} type={'submit'} disabled={true} loading={loading}>
+                    <Button variant={'primary'} type={'submit'} disabled={isSubmitted && !isValid} loading={loading}>
                         <FormattedMessage id={'side.lagre'} />
                     </Button>
                     <Button variant={'tertiary'} type={'button'} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
@@ -106,11 +111,12 @@ const KontonummerForm = (props: Props) => {
     );
 };
 
-const defaultSubmitKontonummer = (
+const submitKontonummer = (
     values: FieldValues,
     kontonummerType: string,
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
+    settSuccess: (value: boolean) => void,
     settOpprettEllerEndre: (value: boolean) => void,
     dispatch: React.Dispatch<Action>
 ) => {
@@ -126,7 +132,10 @@ const defaultSubmitKontonummer = (
     settLoading(true);
     postKontonummer(outbound[kontonummerType]())
         .then(() => getUpdatedData(dispatch))
-        .then(() => settOpprettEllerEndre(false))
+        .then(() => {
+            settOpprettEllerEndre(false);
+            settSuccess(true);
+        })
         .catch((error: Feilmelding) => settAlert(error))
         .then(() => settLoading(false));
 };

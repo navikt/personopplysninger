@@ -5,6 +5,7 @@ import Kilde from 'components/kilde/Kilde';
 import { useStore } from '../../../../../../../store/Context';
 import { Alert } from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
+import { Liste } from '../../../../../../../components/listelement/Liste';
 
 interface Props {
     info: KontaktInfo;
@@ -16,11 +17,11 @@ const KontaktInformasjon = (props: Props) => {
     return mobiltelefonnummer || epostadresse || kanVarsles ? (
         <>
             <div className="telefonnummer">
-                <dl className="list">
+                <Liste>
                     <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
                     <ListElement titleId="personalia.spraak" content={spraak} />
                     <ListElement titleId="personalia.email" content={epostadresse} />
-                </dl>
+                </Liste>
             </div>
             <div className="telefonnummer">
                 <Alert variant="info" inline={true}>

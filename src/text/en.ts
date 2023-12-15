@@ -387,4 +387,8 @@ A child who lives permanently with both mother and father can have two home addr
     'select.sok': 'Search ...',
     'select.loading': 'Loading ...',
     'select.no.hits': 'No hits for',
+    'endreKontonummer.tittel': 'Change account number for payment',
+    'endreKontonummer.success':
+        '<p>Your bank account has been changed.</p><p>NAV will send you a notification of the change by SMS and/or e-mail.</p>',
+    'endreKontonummer.info': 'If you dont recognize the bank account number, you can contact us on <a>+47 55 55 33 33</a>.',
 };

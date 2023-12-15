@@ -938,40 +938,76 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </a>
           </div>
           <div
-            style="padding-bottom: 1rem;"
+            class="navds-alert navds-alert--info navds-alert--medium"
+            role="status"
           >
-            <div
-              class="navds-alert navds-alert--warning navds-alert--medium"
-              role="status"
+            <svg
+              aria-labelledby="title-rf"
+              class="navds-alert__icon"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <svg
-                aria-labelledby="title-rf"
-                class="navds-alert__icon"
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
+              <title
+                id="title-rf"
               >
-                <title
-                  id="title-rf"
-                >
-                  Advarsel
-                </title>
-                <path
-                  clip-rule="evenodd"
-                  d="M12 2.25a.75.75 0 0 1 .656.387l9.527 17.25A.75.75 0 0 1 21.526 21H2.474a.75.75 0 0 1-.657-1.113l9.526-17.25A.75.75 0 0 1 12 2.25ZM12 8.75a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 .75-.75Zm-1 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-              <div
-                class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+                Informasjon
+              </title>
+              <path
+                clip-rule="evenodd"
+                d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <div
+              class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+            >
+              Hvis du ikke kjenner igjen kontonummeret, kan du kontakte oss på 
+              <a
+                href="tel:+4755553333"
+                style="white-space: nowrap;"
               >
-                Endring av kontonummer er midlertidig utilgjengelig.
-              </div>
+                55 55 33 33
+              </a>
+              .
+            </div>
+          </div>
+          <div
+            class="navds-alert navds-alert--warning navds-alert--medium"
+            role="status"
+          >
+            <svg
+              aria-labelledby="title-rg"
+              class="navds-alert__icon"
+              fill="none"
+              focusable="false"
+              height="1em"
+              role="img"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title
+                id="title-rg"
+              >
+                Advarsel
+              </title>
+              <path
+                clip-rule="evenodd"
+                d="M12 2.25a.75.75 0 0 1 .656.387l9.527 17.25A.75.75 0 0 1 21.526 21H2.474a.75.75 0 0 1-.657-1.113l9.526-17.25A.75.75 0 0 1 12 2.25ZM12 8.75a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0v-4a.75.75 0 0 1 .75-.75Zm-1 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <div
+              class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+            >
+              Endring av kontonummer er midlertidig utilgjengelig.
             </div>
           </div>
           <dl
@@ -994,46 +1030,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               </dd>
             </div>
           </dl>
-          <div
-            class="kilde__tekst"
-          >
-            <p
-              class="navds-detail navds-typo--spacing"
-            >
-              Kilde: NAV
-            </p>
-          </div>
-          <button
-            class="kilde__knapp knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
-          >
-            <span
-              class="navds-button__icon"
-            >
-              <svg
-                aria-hidden="true"
-                class="kilde__icon-aksel"
-                fill="none"
-                focusable="false"
-                height="1em"
-                role="img"
-                viewBox="0 0 24 24"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  clip-rule="evenodd"
-                  d="M19.638 4.417a3.252 3.252 0 0 0-4.608-.008l-9.378 9.379a.75.75 0 0 0-.191.324l-1.414 4.95a.75.75 0 0 0 .925.927l4.94-1.398a.75.75 0 0 0 .327-.191l9.39-9.391a3.252 3.252 0 0 0 .01-4.592ZM16.091 5.47a1.752 1.752 0 0 1 2.478 2.478l-.23.23-2.477-2.479.229-.23ZM14.8 6.76 6.85 14.71l-.991 3.47 3.457-.979 7.963-7.963-2.478-2.478Z"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </span>
-            <span
-              class="navds-label"
-            >
-              Endre
-            </span>
-          </button>
         </div>
       </div>
     </div>

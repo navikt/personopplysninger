@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import { basePath } from 'App';
 import { FormattedMessage } from 'react-intl';
 import { useStore } from '../../store/Context';
 import { ChevronLeftIcon } from '@navikt/aksel-icons';
+import { basePath } from '../../constants';
 
 interface Props {
     to: string;

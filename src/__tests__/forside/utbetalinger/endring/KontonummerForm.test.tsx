@@ -449,7 +449,12 @@ const commonSetup = () => {
     render(
         <StoreProvider>
             <IntlProvider locale={'nb'} messages={nbMessages}>
-                <KontonummerForm settOpprettEllerEndre={jest.fn()} personident={{ type: '', verdi: IDENT }} submit={mockSubmit} />
+                <KontonummerForm
+                    settOpprettEllerEndre={jest.fn()}
+                    settSuccess={jest.fn()}
+                    personident={{ type: '', verdi: IDENT }}
+                    submit={mockSubmit}
+                />
             </IntlProvider>
         </StoreProvider>
     );

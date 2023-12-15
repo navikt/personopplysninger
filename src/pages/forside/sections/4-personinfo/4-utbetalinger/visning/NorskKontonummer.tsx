@@ -1,5 +1,6 @@
 import ListElement from 'components/listelement/ListElement';
 import { formatterKontonr } from '../utils';
+import { Liste } from '../../../../../../components/listelement/Liste';
 
 interface Props {
     kontonummer?: string;
@@ -7,9 +8,9 @@ interface Props {
 
 const NorskKontonummer = ({ kontonummer }: Props) => {
     return kontonummer ? (
-        <dl className="list">
+        <Liste>
             <ListElement titleId="personalia.kontonr" content={formatterKontonr(kontonummer)} />
-        </dl>
+        </Liste>
     ) : null;
 };
 

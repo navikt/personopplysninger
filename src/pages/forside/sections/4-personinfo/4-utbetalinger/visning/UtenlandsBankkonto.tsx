@@ -1,9 +1,9 @@
 import GateAdresse from '../../3-adresser/komponenter/GateAdresse';
-import ListElement from 'components/listelement/ListElement';
-
+import ListeElement from 'components/listelement/ListElement';
 import { UtenlandskBankkonto } from 'types/personalia';
 import { friendlyFormatIBAN } from 'ibantools';
 import { BodyShort } from '@navikt/ds-react';
+import { Liste } from '../../../../../../components/listelement/Liste';
 
 interface Props {
     utenlandskBankkonto?: UtenlandskBankkonto;
@@ -11,8 +11,8 @@ interface Props {
 
 const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
     return utenlandskBankkonto ? (
-        <dl className="list">
-            <ListElement
+        <Liste>
+            <ListeElement
                 titleId={'personalia.bank'}
                 content={
                     <>
@@ -27,14 +27,14 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
                 }
             />
             {utenlandskBankkonto.kontonummer ? (
-                <ListElement titleId="personalia.kontonrelleriban" content={utenlandskBankkonto.kontonummer} />
+                <ListeElement titleId="personalia.kontonrelleriban" content={utenlandskBankkonto.kontonummer} />
             ) : utenlandskBankkonto.iban ? (
-                <ListElement titleId="personalia.iban" content={friendlyFormatIBAN(utenlandskBankkonto.iban)} />
+                <ListeElement titleId="personalia.iban" content={friendlyFormatIBAN(utenlandskBankkonto.iban)} />
             ) : null}
-            <ListElement titleId="personalia.bankkode" content={utenlandskBankkonto.bankkode} />
-            <ListElement titleId="personalia.valuta" content={utenlandskBankkonto.valuta} />
-            <ListElement titleId="personalia.bickode" content={utenlandskBankkonto.swiftkode} />
-        </dl>
+            <ListeElement titleId="personalia.bankkode" content={utenlandskBankkonto.bankkode} />
+            <ListeElement titleId="personalia.valuta" content={utenlandskBankkonto.valuta} />
+            <ListeElement titleId="personalia.bickode" content={utenlandskBankkonto.swiftkode} />
+        </Liste>
     ) : null;
 };
 
