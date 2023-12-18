@@ -6,6 +6,8 @@ type Result = 'success' | 'error';
 
 const RESULT_COOKIE = 'kontonr-result';
 
+const COOKIE_OPTIONS = { path: '/', domain: '.nav.no' } as const;
+
 const resultTextIdMap: Record<string, string> = {
     success: 'endreKontonummer.success',
     error: 'endreKontonummer.error',
@@ -17,7 +19,7 @@ export const EndreKontonummerResult = () => {
         return null;
     }
 
-    Cookies.remove(RESULT_COOKIE);
+    Cookies.remove(RESULT_COOKIE, COOKIE_OPTIONS);
 
     const resultTextId = resultTextIdMap[result];
     if (!resultTextId) {
