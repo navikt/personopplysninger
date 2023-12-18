@@ -382,8 +382,8 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'select.loading': 'Laster inn ...',
     'select.no.hits': 'Ingen treff funnet for',
     'endreKontonummer.tittel': 'Endre kontonummer for utbetaling',
-    'endreKontonummer.info': 'Hvis du ikke kjenner igjen kontonummeret, kan du kontakte oss på <a>55 55 33 33</a>.',
-    'endreKontonummer.authInfo': 'Når du lagrer endringen vil du bli bedt om å logge inn på nytt',
+    'endreKontonummer.info': 'Hvis du ikke kjenner igjen kontonummeret, kan du kontakte oss på <a>55 55 33 33</a>',
+    'endreKontonummer.authInfo': 'Du blir bedt om å logge inn på nytt for å bekrefte endringen.',
     'endreKontonummer.success': '<p>Du har endret kontonummeret ditt.</p><p>NAV vil sende deg et varsel om endringen på SMS og/eller e-post.</p>',
     'endreKontonummer.error': 'Det oppsto en feil ved endring av kontonummer.',
 };

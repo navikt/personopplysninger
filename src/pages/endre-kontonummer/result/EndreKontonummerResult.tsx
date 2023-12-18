@@ -11,6 +11,7 @@ const resultTextIdMap: Record<string, string> = {
 
 export const EndreKontonummerResult = () => {
     const result = Cookies.get('kontonr-result') as Result | undefined;
+
     if (!result) {
         return null;
     }
