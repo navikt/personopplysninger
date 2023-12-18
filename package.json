@@ -43,6 +43,7 @@
         "file-saver": "2.0.5",
         "ibantools": "4.3.4",
         "intl": "1.2.5",
+        "js-cookie": "3.0.5",
         "jsdom": "20.0.3",
         "lodash.throttle": "4.1.1",
         "node-cache": "5.1.2",

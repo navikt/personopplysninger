@@ -1,5 +1,6 @@
 import { Alert, BodyLong } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
+import Cookies from 'js-cookie';
 
 type Result = 'success' | 'error';
 
@@ -9,7 +10,7 @@ const resultTextIdMap: Record<string, string> = {
 } as const;
 
 export const EndreKontonummerResult = () => {
-    const result = new URL(window.location.href).searchParams.get('result') as Result | undefined;
+    const result = Cookies.get('kontonr-result') as Result | undefined;
     if (!result) {
         return null;
     }

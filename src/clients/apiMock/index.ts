@@ -10,6 +10,7 @@ import landInfo from './app/fetch/land.json';
 import instInfo from './app/fetch/inst-info.json';
 import medlInfo from './app/fetch/medl-info.json';
 import auth from './app/fetch/auth.json';
+import Cookies from 'js-cookie';
 
 const { REACT_APP_API_URL, REACT_APP_DSOP_URL, REACT_APP_INNLOGGINGSSTATUS_URL } = process.env;
 
@@ -53,7 +54,13 @@ export const setUpMock = async () => {
     mockPostEndreTelefonnr &&
         fetchMock.post(`${REACT_APP_API_URL}/endreTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'REJECTED' })));
     mockPostSlettTlfnr && fetchMock.post(`${REACT_APP_API_URL}/slettTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'OK' })));
-    mockPostEndreKontonummer && fetchMock.post(`${REACT_APP_API_URL}/endreKontonummer`, () => delay(200, 500).then(() => endreKontonr));
+    mockPostEndreKontonummer &&
+        fetchMock.post(`${REACT_APP_API_URL}/endreKontonummer`, () =>
+            delay(200, 500).then(() => {
+                Cookies.set('kontonr-result', 'success');
+                return endreKontonr;
+            })
+        );
 };
 
 const delay = (min: number, max: number) => {
