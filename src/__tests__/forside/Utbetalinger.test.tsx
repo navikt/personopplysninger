@@ -11,6 +11,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 jest.mock('react-modal');
 
+// TODO: react useId breaks this
 describe['skip']('Utbetalinger', () => {
     it('with kontonummer renders correctly', () => {
         const { asFragment } = render(

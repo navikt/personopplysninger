@@ -8,16 +8,15 @@ import Kilde from '../../components/kilde/Kilde';
 import { PencilIcon } from '@navikt/aksel-icons';
 import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
 import { useIntlFormatter } from '../../hooks/useIntlFormatter';
-import { EndreKontonummerSuccess } from './EndreKontonummerResult';
+import { EndreKontonummerResult } from './result/EndreKontonummerResult';
 
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {
     const [opprettEllerEndre, settOpprettEllerEndre] = useState(false);
-    const [success, settSuccess] = useState(false);
     const { formatMessage } = useIntlFormatter();
 
     return (
         <>
-            {success && <EndreKontonummerSuccess />}
+            <EndreKontonummerResult />
             {kontoregisterStatus === 'ERROR' ? (
                 <Alert role="alert" variant="error">
                     {formatMessage('personalia.kontonr.feilmelding')}
@@ -28,7 +27,6 @@ export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, pers
                     personident={personident}
                     kontonr={kontonr}
                     settOpprettEllerEndre={settOpprettEllerEndre}
-                    settSuccess={settSuccess}
                 />
             ) : (
                 <>
