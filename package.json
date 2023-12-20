@@ -5,6 +5,9 @@
     "author": "NAV",
     "license": "MIT",
     "homepage": "/person/personopplysninger/",
+    "workspaces": [
+        "server"
+    ],
     "jest": {
         "resetMocks": false
     },
