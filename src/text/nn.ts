@@ -381,7 +381,8 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'select.loading': 'Lastar inn ...',
     'select.no.hits': 'Ingen treff funne for',
     'endreKontonummer.tittel': 'Endre kontonummer for utbetaling',
-    'endreKontonummer.info': 'Dersom du ikkje kjenner igjen kontonummeret, kan du kontakte oss på <a>55 55 33 33</a>',
+    'endreKontonummer.info':
+        'Dersom du ikkje kjenner igjen kontonummeret, må du ringe <tlfTilKontaktsenter>55 55 33 33</tlfTilKontaktsenter> i åpningstida, eller <lenkeTilKontaktOss>kontakte oss</lenkeTilKontaktOss> i våre digitale kanaler.',
     'endreKontonummer.authInfo': 'Du vert beden om å logge inn på nytt for å bekrefte endringa.',
     'endreKontonummer.success': '<p>Du har endra kontonummeret ditt.</p><p>NAV vil sende deg eit varsel om endringa på SMS og/eller e-post.</p>',
     'endreKontonummer.error': 'Det skjedde ein feil ved endring av kontonummer.',
