@@ -965,13 +965,21 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             <div
               class="navds-alert__wrapper navds-body-long navds-body-long--medium"
             >
-              Hvis du ikke kjenner igjen kontonummeret, kan du kontakte oss på 
+              Hvis du ikke kjenner igjen kontonummeret, må du ringe oss 
               <a
                 href="tel:+4755553333"
                 style="white-space: nowrap;"
               >
                 55 55 33 33
               </a>
+               i åpningstiden eller 
+              <a
+                href="https://www.nav.no/kontaktoss"
+                style="white-space: nowrap;"
+              >
+                kontakte oss
+              </a>
+               i våre digitale kanaler.
             </div>
           </div>
           <dl
