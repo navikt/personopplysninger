@@ -5,9 +5,6 @@
     "author": "NAV",
     "license": "MIT",
     "homepage": "/person/personopplysninger/",
-    "workspaces": [
-        "server"
-    ],
     "jest": {
         "resetMocks": false
     },
@@ -21,6 +18,7 @@
         "start:less": "less-watch-compiler",
         "start:ts": "react-scripts start",
         "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+        "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
         "build:js": "react-scripts build",
         "build:css": "less-watch-compiler --run-once",
