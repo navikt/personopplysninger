@@ -7,7 +7,6 @@ COPY server server/
 COPY build build/
 
 WORKDIR server
-RUN npm install
 
 CMD ["node", "./server.js"]
 

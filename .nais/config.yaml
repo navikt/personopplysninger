@@ -27,6 +27,9 @@ spec:
       autoLogin: false
   accessPolicy:
     outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
       external:
         {{#each externalHosts as |host|}}
         - host: {{host}}
