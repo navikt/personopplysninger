@@ -11,12 +11,12 @@ jobs:
       id-token: 'write'
       packages: 'write'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Abort if branch is not master
         if: github.event.release.target_commitish != 'master'
         run: echo "Release is not on master, aborting"; exit 1;
       - name: Setup node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
@@ -81,7 +81,7 @@ jobs:
             min: 2
             max: 4
           EOF
-      - uses: nais/deploy/actions/deploy@master
+      - uses: nais/deploy/actions/deploy@v1
         env:
           CLUSTER: prod-gcp
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}

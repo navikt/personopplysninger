@@ -9,9 +9,9 @@ jobs:
       id-token: "write"
       packages: "write"
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Setup node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: "20"
           registry-url: "https://npm.pkg.github.com"
@@ -78,7 +78,7 @@ jobs:
             min: 1
             max: 2
           EOF
-      - uses: nais/deploy/actions/deploy@master
+      - uses: nais/deploy/actions/deploy@v1
         env:
           CLUSTER: dev-gcp
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}

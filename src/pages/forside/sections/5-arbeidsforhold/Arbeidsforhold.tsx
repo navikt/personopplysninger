@@ -3,11 +3,11 @@ import { ListeMedArbeidsforhold, AFListeOnClick } from '@navikt/arbeidsforhold';
 import arbeidsforholdIkon from 'assets/img/Arbeidsforhold.svg';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-import { basePath } from 'App';
 import Kilde from 'components/kilde/Kilde';
 import { useStore } from '../../../../store/Context';
 import { Locale } from '../../../../store/Store';
 import { Alert } from '@navikt/ds-react';
+import { basePath } from '../../../../constants';
 
 const miljo = process.env.REACT_APP_MILJO as 'LOCAL' | 'DEV' | 'PROD';
 

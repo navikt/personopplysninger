@@ -4,6 +4,7 @@ import { formatOrgnr, RADIX_DECIMAL } from 'utils/formattering';
 import { InstInnslag } from 'types/inst';
 import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
 import dayjs from 'dayjs';
+import { Liste } from '../../../components/listelement/Liste';
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;
@@ -30,7 +31,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
             <hr className="box__linje-bred" />
             <div className="box">
                 <div className="box__content">
-                    <dl className="list">
+                    <Liste>
                         <ListElement titleId={'inst.institusjonstype'} content={innslag.institusjonstype} />
                         <ListElement
                             titleId={'inst.periode'}
@@ -45,7 +46,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                                 </div>
                             }
                         />
-                    </dl>
+                    </Liste>
                 </div>
             </div>
         </div>
