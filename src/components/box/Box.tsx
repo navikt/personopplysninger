@@ -1,3 +1,4 @@
+import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import Infotekst from 'components/infotekst/Infotekst';
 import { AnchorLink } from '../anchorlink/AnchorLink';
@@ -9,7 +10,7 @@ interface Props {
     visAnkerlenke?: boolean;
     beskrivelse?: string;
     icon?: string;
-    children: JSX.Element | JSX.Element[];
+    children: React.ReactNode;
 }
 
 const Box = (props: Props) => {

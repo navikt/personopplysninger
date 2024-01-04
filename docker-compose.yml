@@ -2,56 +2,57 @@ version: "3.7"
 services:
   oidc-provider:
     container_name: oidc-provider-personopplysninger
-    image: "docker.pkg.github.com/navikt/stub-oidc-provider/stub-oidc-provider:latest"
+    image: 'ghcr.io/navikt/stub-oidc-provider/stub-oidc-provider:latest'
     ports:
       - "9000:9000"
     environment:
       PORT: "9000"
-      CALLBACK_URL: "http://localhost:5000/callback"
+      CALLBACK_URL: "http://localhost:50000/callback"
       ISSUER: "https://localhost:9000"
 
   oidc-provider-gui:
     container_name: oidc-provider-gui-personopplysninger
-    image: "docker.pkg.github.com/navikt/pb-oidc-provider-gui/pb-oidc-provider-gui:latest"
+    image: 'ghcr.io/navikt/pb-oidc-provider-gui/pb-oidc-provider-gui:latest'
     ports:
-      - "5000:5000"
+      - "50000:50000"
     environment:
       REDIRECT_URL: "http://localhost:3000"
       AUTO_REDIRECT_TO_FRONTEND: "true"
+      OIDC_PROVIDER_GUI_URL: 'http://localhost:50000/callback'
     depends_on:
       - oidc-provider
 
   mocks:
     container_name: mocks-personopplysninger
-    image: "docker.pkg.github.com/navikt/pb-nav-mocked/pb-nav-mocked:latest"
+    image: 'ghcr.io/navikt/pb-nav-mocked/pb-nav-mocked:latest'
     ports:
       - "8095:8080"
     environment:
-      CORS_ALLOWED_ORIGINS: "*"
-      OIDC_ISSUER: "https://localhost:9000"
-      OIDC_ACCEPTED_AUDIENCE: "stubOidcClient"
-      OIDC_JWKS_URI: "http://oidc-provider:9000/certs"
-      KAFKA_BOOTSTRAP_SERVERS: "http://localhost:5121"
-      KAFKA_SCHEMAREGISTRY_SERVERS: "http://localhost:5121"
+      CORS_ALLOWED_ORIGINS: 'localhost:3000'
+      CORS_ALLOWED_SCHEMES: 'http'
+      OIDC_ISSUER: 'https://localhost:9000'
+      OIDC_ACCEPTED_AUDIENCE: 'stubOidcClient'
+      OIDC_JWKS_URI: 'http://oidc-provider:9000/certs'
     depends_on:
       - oidc-provider
 
   dekoratoren:
     container_name: dekoratoren-personopplysninger
-    image: "docker.pkg.github.com/navikt/nav-dekoratoren/nav-dekoratoren:latest"
+    image: 'ghcr.io/navikt/nav-dekoratoren:latest'
     ports:
       - "8100:8088"
     environment:
-      XP_BASE_URL: "http://localhost:3000"
-      APP_BASE_URL: "http://localhost:8100"
-      APP_BASE_PATH: "/dekoratoren"
-      API_XP_SERVICES_URL: "https://www.nav.no/_/service"
-      API_INNLOGGINGSLINJE_URL: "http://localhost:8095/innloggingsstatus"
-      API_VARSELINNBOKS_URL: "http://mocks:8080/person/varselinnboks"
-      MINSIDE_ARBEIDSGIVER_URL: "http://localhost:8080/min-side-arbeidsgiver/"
-      DITT_NAV_URL: "http://localhost:8080/minside/"
-      LOGIN_URL: "http://localhost:5000"
-      LOGOUT_URL: "http://localhost:5000/?logout"
+      ENV: 'localhost'
+      XP_BASE_URL: 'http://localhost:3000'
+      APP_BASE_URL: 'http://localhost:8100'
+      APP_BASE_PATH: '/dekoratoren'
+      API_XP_SERVICES_URL: 'https://www.nav.no/_/service'
+      API_DEKORATOREN_URL: 'http://localhost:8095/nav-dekoratoren-api'
+      MINSIDE_ARBEIDSGIVER_URL: 'https://arbeidsgiver.nav.no/min-side-arbeidsgiver/'
+      MIN_SIDE_URL: 'https://www.nav.no/minside/'
+      LOGIN_URL: 'http://localhost:50000'
+      LOGOUT_URL: 'http://localhost:50000/?logout'
+      VARSEL_API_URL: 'http://localhost:8095/tms-varsel-api'
     depends_on:
       - mocks
 

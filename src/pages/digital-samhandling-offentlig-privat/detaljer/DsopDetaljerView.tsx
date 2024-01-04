@@ -4,6 +4,7 @@ import FileSaver from 'file-saver';
 import { DsopInfo } from '../../../types/dsop';
 import { BodyShort, Button, Heading } from '@navikt/ds-react';
 import dayjs from 'dayjs';
+import { Liste } from '../../../components/listelement/Liste';
 
 interface Props {
     id: string;
@@ -38,14 +39,14 @@ const DsopDetaljerView = (props: Props) => {
                     <hr className="box__linje-bred" />
                     <div className="box">
                         <div className="box__content">
-                            <dl className="list">
+                            <Liste>
                                 <ListElement
                                     titleId={'dsop.uthentingstidspunkt'}
                                     content={dayjs(innslag.uthentingsTidspunkt).format('DD.MM.YYYY hh:mm')}
                                 />
                                 <ListElement titleId={'dsop.personnummer'} content={innslag.person} />
                                 <ListElement titleId={'dsop.tema'} content={innslag.tema} />
-                            </dl>
+                            </Liste>
                         </div>
                         <div className="detaljer__container">
                             <Button variant="primary" onClick={onClick}>

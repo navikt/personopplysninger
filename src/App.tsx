@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from './store/Context';
@@ -14,10 +14,10 @@ import DsopHistorikk from './pages/digital-samhandling-offentlig-privat/historik
 import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer';
 import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
-// Import this early, to ensure our own CSS gets higher specificity
-import '@navikt/ds-css';
+import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
+import { basePath } from './constants';
 
-export const basePath = '/person/personopplysninger';
+import '@navikt/ds-css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 
@@ -70,27 +70,21 @@ const App = () => {
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold/:id`} element={<InstDetaljer />} />
                                 {tillatteTjenester.map((tjeneste) => (
-                                    // react-router-dom no longes support regex in path
-                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                    <Route
-                                        caseSensitive={true}
-                                        path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
-                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                        key={tjeneste}
-                                    />
+                                    <Fragment key={tjeneste}>
+                                        <Route
+                                            caseSensitive={true}
+                                            path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
+                                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        />
+                                        <Route
+                                            caseSensitive={true}
+                                            path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
+                                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                        />
+                                    </Fragment>
                                 ))}
-                                {tillatteTjenester.map((tjeneste) => (
-                                    // react-router-dom no longes support regex in path
-                                    // therefore, iterate each tjeneste and add as separate path. This is not ideal, but works for now.
-                                    <Route
-                                        caseSensitive={true}
-                                        path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
-                                        element={<EndreOpplysninger tjeneste={tjeneste} />}
-                                        key={tjeneste}
-                                    />
-                                ))}
-
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummer />} />
                                 <Route element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>

@@ -7,6 +7,7 @@ import { Adresser } from '../../types/adresser';
 import { Personalia } from '../../types/personalia';
 import { StoreProvider } from 'store/Context';
 import { render } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 
 jest.mock('react-modal');
 
@@ -15,10 +16,12 @@ describe('EndreOpplysningerView', () => {
         const { asFragment } = render(
             <StoreProvider>
                 <IntlProvider locale={'nb'} messages={nbMessages}>
-                    <EndreOpplysningerView
-                        adresser={personInfo.adresser as unknown as Adresser}
-                        personalia={personInfo.personalia as unknown as Personalia}
-                    />
+                    <MemoryRouter>
+                        <EndreOpplysningerView
+                            adresser={personInfo.adresser as unknown as Adresser}
+                            personalia={personInfo.personalia as unknown as Personalia}
+                        />
+                    </MemoryRouter>
                 </IntlProvider>
             </StoreProvider>
         );
