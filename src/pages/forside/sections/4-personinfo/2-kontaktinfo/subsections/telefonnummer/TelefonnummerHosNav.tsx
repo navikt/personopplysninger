@@ -92,7 +92,6 @@ const TelefonnummerHosNav = (props: Props) => {
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
-                    aria-label={formatMessage('side.leggtil.kontaktinformasjon')}
                 >
                     <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
                 </Button>
