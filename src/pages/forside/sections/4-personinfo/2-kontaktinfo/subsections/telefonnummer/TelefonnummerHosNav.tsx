@@ -15,6 +15,7 @@ interface Props {
 
 const TelefonnummerHosNav = (props: Props) => {
     const [opprett, settOpprett] = useState<boolean>();
+
     const { tlfnr } = props;
 
     const onChangeSuccess = () => {
@@ -89,7 +90,6 @@ const TelefonnummerHosNav = (props: Props) => {
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
-                    aria-label="Legg til telefonnummer i NAV sitt register"
                 >
                     <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
                 </Button>

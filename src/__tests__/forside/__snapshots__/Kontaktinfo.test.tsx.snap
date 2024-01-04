@@ -253,7 +253,6 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     </div>
   </div>
   <button
-    aria-label="Legg til telefonnummer i NAV sitt register"
     class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
   >
     <span
@@ -281,7 +280,7 @@ exports[`TelefonnummerHosNav renders correctly 1`] = `
     <span
       class="navds-label"
     >
-      Legg til nummer i NAV sitt register
+      Legg til telefonnummer i NAV sitt register
     </span>
   </button>
 </DocumentFragment>

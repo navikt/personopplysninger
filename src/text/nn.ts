@@ -9,7 +9,7 @@ export default {
     'side.lagre': 'Lagre',
     'side.avbryt': 'Avbryt',
     'side.leggtil': 'Legg til',
-    'side.leggtil.kontaktinformasjon': 'Legg til nummer i NAV sitt register',
+    'side.leggtil.kontaktinformasjon': 'Legg til telefonnummer i NAV sitt register',
     'side.valgfritt': ' (valfritt)',
     'side.organisasjonsnummer': 'Organisasjonsnummer {orgnr}',
     'side.endre': 'Endre',
