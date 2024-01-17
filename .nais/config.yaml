@@ -8,7 +8,6 @@ metadata:
     team: personbruker
 spec:
   image: {{image}}:{{version}}
-  team: personbruker
   port: 8080
   ingresses:
   {{#each ingresses as |url|}}
