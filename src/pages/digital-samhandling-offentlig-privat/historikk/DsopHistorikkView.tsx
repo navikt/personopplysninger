@@ -123,7 +123,29 @@ export const DsopHistorikkView = (props: Props) => {
             ) : (
                 <div className="historikk__ingen-data">
                     <Alert variant="info">
-                        <FormattedMessage id="dsop.ingendata" />
+                        <FormattedMessage
+                            id="dsop.ingendata"
+                            values={{
+                                a: (text) => (
+                                    <Link
+                                        href={
+                                            locale === 'en'
+                                                ? 'https://www.nav.no/personvernerklaering/en#who'
+                                                : 'https://www.nav.no/personvernerklaering#hvem'
+                                        }
+                                        target="blank"
+                                    >
+                                        {text}
+                                    </Link>
+                                ),
+                                br: (text) => (
+                                    <>
+                                        <br />
+                                        {text}
+                                    </>
+                                ),
+                            }}
+                        />
                     </Alert>
                 </div>
             )}
