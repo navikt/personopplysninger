@@ -58,6 +58,12 @@ export const DsopHistorikkView = (props: Props) => {
                                             {text}
                                         </Link>
                                     ),
+                                    br: (text) => (
+                                        <>
+                                            <br />
+                                            {text}
+                                        </>
+                                    ),
                                 }}
                             />
                         </Alert>

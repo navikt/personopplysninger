@@ -37,4 +37,10 @@ export default {
             <p>We encourage you to contact NAV before filing a complaint with the Norwegian Data Protection Authority so that we can
             assess your questions and inform you about how we process personal data.</p>`,
     },
+    dsop: {
+        info:
+            'Here you can download a log of information NAV has provided to insurance companies or pension schemes. NAV can disclose information because you have given consent, or because NAV is authorized by law. NAV may have disclosed more information than you see in this log.' +
+            '<br></br><br></br>' +
+            'You can read about what information NAV can provide in the <a>privacy statement for NAV</a>. Here you can also read about how to contact NAV if you have questions about your rights and privacy.',
+    },
 };

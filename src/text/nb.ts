@@ -161,8 +161,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'dsop.mottaker': 'Selskap',
     'dsop.tema': 'Tema',
     'dsop.lastned': 'Last ned leverte data',
-    'dsop.ingendata':
-        'Her ser du opplysninger NAV har utlevert til forsikringsselskap eller pensjonsordninger, basert på samtykke du har gitt på Altinn eller hjemmel i lov. Vi har ikke utlevert noen personopplysninger.',
+    'dsop.ingendata': merInfo.dsop.info + '<br></br><br></br>Ingen personopplysninger har blitt utlevert.',
     'inst.tittel': 'Institusjonsopphold',
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljer',
@@ -249,8 +248,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.cv.beskrivelse': 'Se CV-en og jobbprofilen din, og dine lagrede søk på stillinger',
     'lenker.dsop.tittel': 'Utlevering av personopplysninger',
     'lenker.dsop.beskrivelse': 'Se opplysninger NAV har gitt til forsikringsselskap og pensjonsordninger',
-    'lenker.dsop.info':
-        'NAV kan ha utlevert flere opplysninger enn de du ser i denne loggen. Du kan lese om hvilke <a>opplysninger NAV kan levere ut</a> i personvernerklæringen til NAV. Her kan du også lese om hvordan du tar kontakt med NAV hvis du har spørsmål om rettighetene dine og personvern.',
+    'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institusjonsopphold',
     'lenker.inst.beskrivelse': 'Se dine institusjonsopphold',
     'lenker.medl.tittel': 'Medlemskap og unntak fra medlemskap i folketrygden',

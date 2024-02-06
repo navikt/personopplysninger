@@ -162,8 +162,7 @@ A child who lives permanently with both mother and father can have two home addr
     'dsop.mottaker': 'Company',
     'dsop.tema': 'Subject',
     'dsop.lastned': 'Download supplied data',
-    'dsop.ingendata':
-        'Here you can see information NAV has shared with insurance companies or pension schemes, based on a consent you have given at Altinn or on legal basis. No personal data has been disclosed.',
+    'dsop.ingendata': merInfo.dsop.info + '<br></br><br></br>No personal data has been disclosed.',
     'inst.tittel': 'Institutional stays',
     'inst.institusjon': 'Institution',
     'inst.detaljer': 'Details',
@@ -254,8 +253,7 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.cv.beskrivelse': 'See your CV and job profile and your saved searches for positions',
     'lenker.dsop.tittel': 'Disclosure of personal data',
     'lenker.dsop.beskrivelse': 'See what information NAV shares with insurance companies and pension schemes',
-    'lenker.dsop.info':
-        'NAV may have shared more information than you see in this log. You can read about what <a>information NAV can share</a> in the privacy statement for NAV. Here you can also read about how to contact NAV if you have questions about your rights and privacy.',
+    'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institutional stays',
     'lenker.inst.beskrivelse': 'See your institutional stays',
     'lenker.medl.tittel': 'Membership and exemption from membership in the National Insurance Scheme',

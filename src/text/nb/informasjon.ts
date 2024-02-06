@@ -34,4 +34,10 @@ export default {
             <p>Vi oppfordrer deg til å kontakte NAV før du klager til Datatilsynet, slik at vi kan vurdere spørsmålene dine og informere deg
             om hvordan vi behandler personopplysninger.</p>`,
     },
+    dsop: {
+        info:
+            'Her kan du laste ned en logg med opplysninger NAV har gitt til forsikringsselskap eller pensjonsordninger. NAV kan utlevere opplysninger fordi du har gitt samtykke, eller fordi NAV har hjemmel i lov. NAV kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.' +
+            '<br></br><br></br>' +
+            'Du kan lese om hvilke opplysninger NAV kan utlevere i <a>personvernerklæringen til NAV</a>. Her kan du også lese om hvordan du tar kontakt med NAV hvis du har spørsmål om rettighetene dine og personvern.',
+    },
 };
