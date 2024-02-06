@@ -39,6 +39,6 @@ export default {
         info:
             'Her kan du laste ned ein logg med opplysningar NAV har gitt til forsikringsselskap eller pensjonsordningar. NAV kan utlevere opplysningar fordi du har gitt samtykke, eller fordi NAV har heimel i lov. NAV kan derfor ha delt fleire opplysningar enn dei du ser i denne loggen.' +
             '<br></br><br></br>' +
-            'Du kan lese om kva opplysningar NAV kan utlevere i <a>personvernerklæringa til NAV</a>. Her kan du også lese om korleis du tek kontakt med NAV viss du har spørsmål om rettane dine og personvern.',
+            'Du kan lese om kva opplysningar NAV kan utlevere i <a>personvernerklæringa til NAV</a>. Her kan du òg lese om korleis du tek kontakt med NAV viss du har spørsmål om rettane dine og personvern.',
     },
 };
