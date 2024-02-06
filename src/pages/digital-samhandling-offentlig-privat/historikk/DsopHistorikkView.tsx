@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react';
 import { DsopInfo } from 'types/dsop';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { Link as ReactLink, useLocation } from 'react-router-dom';
 import { Alert, Label, Link } from '@navikt/ds-react';
-import { ChevronUpIcon, ChevronDownIcon } from '@navikt/aksel-icons';
+import { ChevronDownIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
 interface Props {
@@ -12,6 +12,7 @@ interface Props {
 
 export const DsopHistorikkView = (props: Props) => {
     const location = useLocation();
+    const { locale } = useIntl();
     const { dsopInfo } = props;
 
     const initState: {
@@ -46,9 +47,22 @@ export const DsopHistorikkView = (props: Props) => {
                                 id={'lenker.dsop.info'}
                                 values={{
                                     a: (text) => (
-                                        <Link href="https://altinn.no" target="blank">
+                                        <Link
+                                            href={
+                                                locale === 'en'
+                                                    ? 'https://www.nav.no/personvernerklaering/en#who'
+                                                    : 'https://www.nav.no/personvernerklaering#hvem'
+                                            }
+                                            target="blank"
+                                        >
                                             {text}
                                         </Link>
+                                    ),
+                                    br: (text) => (
+                                        <>
+                                            <br />
+                                            {text}
+                                        </>
                                     ),
                                 }}
                             />
@@ -109,7 +123,29 @@ export const DsopHistorikkView = (props: Props) => {
             ) : (
                 <div className="historikk__ingen-data">
                     <Alert variant="info">
-                        <FormattedMessage id="dsop.ingendata" />
+                        <FormattedMessage
+                            id="dsop.ingendata"
+                            values={{
+                                a: (text) => (
+                                    <Link
+                                        href={
+                                            locale === 'en'
+                                                ? 'https://www.nav.no/personvernerklaering/en#who'
+                                                : 'https://www.nav.no/personvernerklaering#hvem'
+                                        }
+                                        target="blank"
+                                    >
+                                        {text}
+                                    </Link>
+                                ),
+                                br: (text) => (
+                                    <>
+                                        <br />
+                                        {text}
+                                    </>
+                                ),
+                            }}
+                        />
                     </Alert>
                 </div>
             )}

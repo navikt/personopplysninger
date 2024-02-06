@@ -37,14 +37,18 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         <div
           class="navds-alert__wrapper navds-body-long navds-body-long--medium"
         >
-          Dette er en logg som viser hvilke opplysninger vi har utlevert til forsikringsselskap basert på samtykke du har gitt på Altinn. 
+          Her kan du laste ned en logg med opplysninger NAV har gitt til forsikringsselskap eller pensjonsordninger. NAV kan utlevere opplysninger fordi du har gitt samtykke, eller fordi NAV har hjemmel i lov. NAV kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.
+          <br />
+          <br />
+          Du kan lese om hvilke opplysninger NAV kan utlevere i 
           <a
             class="navds-link navds-link--action"
-            href="https://altinn.no"
+            href="https://www.nav.no/personvernerklaering#hvem"
             target="blank"
           >
-            Se samtykket i Altinn.
+            personvernerklæringen til NAV
           </a>
+          . Her kan du også lese om hvordan du tar kontakt med NAV hvis du har spørsmål om rettighetene dine og personvern.
         </div>
       </div>
     </div>
