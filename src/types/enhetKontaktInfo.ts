@@ -1,4 +1,4 @@
-import { AudienceReception } from 'nav-office-reception-info';
+import { AudienceReception } from '@navikt/nav-office-reception-info';
 
 export interface EnhetKontaktInfo {
     enhet?: Enhet;

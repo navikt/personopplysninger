@@ -7,9 +7,9 @@ import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
 import { useStore } from 'store/Context';
 import { BodyShort, Label, Link } from '@navikt/ds-react';
-import { Reception } from 'nav-office-reception-info';
+import { Reception } from '@navikt/nav-office-reception-info';
 
-import 'nav-office-reception-info/dist/style.css';
+import '@navikt/nav-office-reception-info/dist/style.css';
 
 interface Props {
     enhetKontaktInformasjon: EnhetKontaktInfo;
