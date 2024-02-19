@@ -7,8 +7,9 @@ import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
 import { useStore } from 'store/Context';
 import { BodyShort, Label, Link } from '@navikt/ds-react';
+import { Reception } from 'nav-office-reception-info';
 
-// import Apningstider from './apningstider/Apningstider';
+import 'nav-office-reception-info/dist/style.css';
 
 interface Props {
     enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -16,18 +17,15 @@ interface Props {
 }
 
 const DittNavKontor = (props: Props) => {
-    // const { formatMessage: msg } = useIntl();
     const [{ locale }] = useStore();
     const { enhet } = props.enhetKontaktInformasjon;
-    // const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
-    // const [valgtMottakId, settValgtMottakId] = useState(publikumsmottak.length ? 0 : -1);
+    const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
 
     if (!enhet || !props.geografiskTilknytning) {
         return null;
     }
 
     const { geografiskTilknytning } = props;
-    // const { postadresse } = enhet;
 
     return (
         <Box id="ditt-nav-kontor" tittel="dittnavkontor.tittel" beskrivelse="dittnavkontor.beskrivelse" icon={dittNavKontorIkon} visAnkerlenke>
@@ -37,6 +35,7 @@ const DittNavKontor = (props: Props) => {
                     <Label as="span">{geografiskTilknytning.enhet}</Label>
                 </BodyShort>
             </div>
+            <Reception receptions={publikumsmottak} language={locale} />
             <dl className="dittnavkontor__footer list">
                 <ListElement
                     titleId="dittnavkontor.kontaktinfo.overskrift"

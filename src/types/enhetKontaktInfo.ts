@@ -1,22 +1,4 @@
-export interface Aapningstid {
-    dag: string;
-    dato: string;
-    fra: string;
-    kommentar?: string;
-    stengt: string;
-    til: string;
-}
-
-export interface Publikumsmottak {
-    aapningstider: Aapningstid[];
-    spesielleAapningstider: Aapningstid[];
-    gateadresse?: string;
-    husbokstav?: string;
-    husnummer?: string;
-    postnummer?: string;
-    poststed?: string;
-    stedsbeskrivelse?: string;
-}
+import { AudienceReception } from 'nav-office-reception-info';
 
 export interface EnhetKontaktInfo {
     enhet?: Enhet;
@@ -39,7 +21,7 @@ export interface Enhet {
               postboksnummer?: string;
               postboksanlegg?: string;
           };
-    publikumsmottak?: Publikumsmottak[];
+    publikumsmottak?: AudienceReception[];
     spesielleopplysninger?: string;
     tlfperson?: string;
 }
