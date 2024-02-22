@@ -1,0 +1,13 @@
+ingresses:
+    - https://www.intern.dev.nav.no/person/personopplysninger
+externalHosts:
+    - www.intern.dev.nav.no
+    - www.ekstern.dev.nav.no
+    - dekoratoren.ekstern.dev.nav.no
+image: $IMAGE_REGISTRY/$IMAGE_NAME
+version: $IMAGE_VERSION
+env: dev
+cpuReq: 50m
+replicas:
+    min: 1
+    max: 2

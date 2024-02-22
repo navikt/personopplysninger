@@ -1,88 +1,33 @@
-name: Deploy-to-prod
+name: Deploy to prod
 on:
   release:
     types: [released]
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+  build:
+    if: github.event.release.target_commitish == 'master'
+    uses: ./.github/workflows/build-and-deploy.yml
     permissions:
-      contents: 'read'
-      id-token: 'write'
-      packages: 'write'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Abort if branch is not master
-        if: github.event.release.target_commitish != 'master'
-        run: echo "Release is not on master, aborting"; exit 1;
-      - name: Setup node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "20"
-          registry-url: "https://npm.pkg.github.com"
-      - name: Define build environment
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          IMAGE_VERSION_RAW=$(echo ${GITHUB_WORKFLOW})-$(echo ${GITHUB_SHA})
-          echo "CI=true" >> $GITHUB_ENV
-          echo "IMAGE_REGISTRY=ghcr.io/$(echo ${GITHUB_REPOSITORY})" >> $GITHUB_ENV
-          echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
-          echo "IMAGE_VERSION=${IMAGE_VERSION_RAW,,}" >> $GITHUB_ENV
-          echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
-          echo "PUBLIC_URL=https://cdn.nav.no/personbruker/personopplysninger/$(echo ${IMAGE_VERSION_RAW,,})/build" >> $GITHUB_ENV
-      - name: Define client-side environment
-        run: |
-          echo "REACT_APP_MILJO=PROD" >> $GITHUB_ENV
-          echo "REACT_APP_VERSION=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-          echo "REACT_APP_DINE_SAKER_URL=https://person.nav.no/mine-saker" >> $GITHUB_ENV
-          echo "REACT_APP_PDL_URL=https://www.nav.no/person/pdl-fullmakt-ui" >> $GITHUB_ENV
-          echo "REACT_APP_SKJERMING_URL=https://www.nav.no/person/personopplysninger/skjerming" >> $GITHUB_ENV
-          echo "REACT_APP_URL=https://www.nav.no/person/personopplysninger" >> $GITHUB_ENV
-          echo "REACT_APP_API_URL=https://www.nav.no/person/personopplysninger-api" >> $GITHUB_ENV
-          echo "REACT_APP_DSOP_URL=https://www.nav.no/person/dsop-api" >> $GITHUB_ENV
-          echo "REACT_APP_TJENESTER_URL=https://tjenester.nav.no" >> $GITHUB_ENV
-          echo "REACT_APP_LOGIN_URL=https://login.nav.no/oauth2/login" >> $GITHUB_ENV
-          echo "REACT_APP_DITT_NAV_URL=https://www.nav.no/minside" >> $GITHUB_ENV
-          echo "REACT_APP_PENSJONSOPPTJENING_URL=https://www.nav.no/pensjon/opptjening" >> $GITHUB_ENV
-          echo "REACT_APP_INNLOGGINGSSTATUS_URL=https://www.nav.no/person/nav-dekoratoren-api/auth" >> $GITHUB_ENV
-          echo "REACT_APP_TELEMETRY_URL=https://telemetry.nav.no/collect" >> $GITHUB_ENV
-      - run: npm ci
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-      - run: npm test
-      - run: npm run build
-      - name: Docker build and push
-        run: |
-          echo $GITHUB_TOKEN | docker login $IMAGE_REGISTRY -u ${GITHUB_REPOSITORY} --password-stdin
-          docker build -t $IMAGE_REGISTRY/$IMAGE_NAME:$IMAGE_VERSION -t $IMAGE_REGISTRY/$IMAGE_NAME:latest .
-          docker push $IMAGE_REGISTRY/$IMAGE_NAME --all-tags
-      - id: upload
-        uses: navikt/frontend/actions/cdn-upload/v1@main
-        with:
-          cdn-team-name: personbruker
-          source: ./build
-          destination: personopplysninger/${{ env.IMAGE_VERSION }}
-      - run: echo uploaded file ${{ steps.upload.outputs.uploaded }}
-        shell: bash
-      - name: Generate nais variables
-        run: |
-          cat > .nais/vars.yaml <<EOF
-          ingresses:
-            - https://www.nav.no/person/personopplysninger
-          externalHosts:
-            - www.nav.no
-            - nav.no
-          image: $IMAGE_REGISTRY/$IMAGE_NAME
-          version: $IMAGE_VERSION
-          env: prod
-          cpuReq: 200m
-          replicas:
-            min: 2
-            max: 4
-          EOF
-      - uses: nais/deploy/actions/deploy@v2
-        env:
-          CLUSTER: prod-gcp
-          RESOURCE: .nais/config.yaml
-          VARS: .nais/vars.yaml
+      contents: "read"
+      id-token: "write"
+      packages: "write"
+    with:
+      env: prod
+      imageSuffix: release-${{ github.ref_name }}
+      appOrigin: "https://www.nav.no"
+      REACT_APP_VERSION: ${{ github.event.release.tag_name }}
+      REACT_APP_DINE_SAKER_URL: "https://person.nav.no/mine-saker"
+      REACT_APP_PDL_URL: "https://www.nav.no/person/pdl-fullmakt-ui"
+      REACT_APP_SKJERMING_URL: "https://www.nav.no/person/personopplysninger/skjerming"
+      REACT_APP_URL: "https://www.nav.no/person/personopplysninger"
+      REACT_APP_API_URL: "https://www.nav.no/person/personopplysninger-api"
+      REACT_APP_DSOP_URL: "https://www.nav.no/person/dsop-api"
+      REACT_APP_TJENESTER_URL: "https://tjenester.nav.no"
+      REACT_APP_LOGIN_URL: "https://login.nav.no/oauth2/login"
+      REACT_APP_DITT_NAV_URL: "https://www.nav.no/minside"
+      REACT_APP_PENSJONSOPPTJENING_URL: "https://www.nav.no/pensjon/opptjening"
+      REACT_APP_INNLOGGINGSSTATUS_URL: "https://www.nav.no/person/nav-dekoratoren-api/auth"
+      REACT_APP_TELEMETRY_URL: "https://telemetry.nav.no/collect"
+    secrets:
+      READER_TOKEN: ${{ secrets.READER_TOKEN }}
+      NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}

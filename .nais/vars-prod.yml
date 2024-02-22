@@ -1,0 +1,12 @@
+ingresses:
+  - https://www.nav.no/person/personopplysninger
+externalHosts:
+  - www.nav.no
+  - nav.no
+image: $IMAGE_REGISTRY/$IMAGE_NAME
+version: $IMAGE_VERSION
+env: prod
+cpuReq: 200m
+replicas:
+  min: 2
+  max: 4
