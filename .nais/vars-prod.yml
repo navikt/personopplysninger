@@ -3,6 +3,7 @@ ingresses:
 externalHosts:
   - www.nav.no
   - nav.no
+env: prod
 replicas:
   min: 2
   max: 4

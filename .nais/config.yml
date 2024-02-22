@@ -33,6 +33,9 @@ spec:
         {{#each externalHosts as |host|}}
         - host: {{host}}
         {{/each}}
+  env:
+    - name: ENV
+      value: {{env}}
   {{#with replicas}}
   replicas:
     min: {{min}}

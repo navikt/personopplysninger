@@ -4,6 +4,7 @@ externalHosts:
     - www.intern.dev.nav.no
     - www.ekstern.dev.nav.no
     - dekoratoren.ekstern.dev.nav.no
+env: dev
 replicas:
   min: 1
   max: 2
