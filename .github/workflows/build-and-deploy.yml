@@ -91,7 +91,7 @@ jobs:
           echo "REACT_APP_DINE_SAKER_URL=${{ inputs.REACT_APP_DINE_SAKER_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_PDL_URL=${{ inputs.REACT_APP_PDL_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_SKJERMING_URL=${{ inputs.REACT_APP_SKJERMING_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_URL=${{ inputs.REACT_APP_URL }}}" >> $GITHUB_ENV
+          echo "REACT_APP_URL=${{ inputs.REACT_APP_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_API_URL=${{ inputs.REACT_APP_API_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_DSOP_URL=${{ inputs.REACT_APP_DSOP_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_TJENESTER_URL=${{ inputs.REACT_APP_TJENESTER_URL }}" >> $GITHUB_ENV
