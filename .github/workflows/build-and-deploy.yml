@@ -115,7 +115,8 @@ jobs:
           cdn-team-name: personbruker
           source: ./build
           destination: personopplysninger/${{ env.IMAGE_VERSION }}
-      - run: echo Uploaded file to CDN ${{ steps.upload.outputs.uploaded }}
+      - name: "CDN upload results"
+        run: echo Uploaded file to CDN ${{ steps.upload.outputs.uploaded }}
       - name: Build and push docker image
         uses: nais/docker-build-push@v0
         id: docker-push
