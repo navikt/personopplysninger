@@ -7,7 +7,7 @@ metadata:
   labels:
     team: personbruker
 spec:
-  image: {{image}}:{{version}}
+  image: {{image}}
   port: 8080
   ingresses:
   {{#each ingresses as |url|}}
@@ -33,17 +33,16 @@ spec:
         {{#each externalHosts as |host|}}
         - host: {{host}}
         {{/each}}
-  env:
-    - name: ENV
-      value: {{env}}
-  replicas:
   {{#with replicas}}
+  replicas:
     min: {{min}}
     max: {{max}}
   {{/with}}
+  {{#with resources}}
   resources:
-    limits:
-      memory: 512Mi
     requests:
-      cpu: {{ cpuReq }}
-      memory: 128Mi
+      cpu: {{requests.cpu}}
+      memory: {{requests.memory}}
+    limits:
+      memory: {{limits.memory}}
+  {{/with}}
