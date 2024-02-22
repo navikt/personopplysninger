@@ -86,6 +86,7 @@ jobs:
           echo "PUBLIC_URL=https://cdn.nav.no/personbruker/personopplysninger/$(echo ${IMAGE_VERSION_RAW,,})/build" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
+          echo "ENV=${{ inputs.env }}" >> $GITHUB_ENV
           echo "REACT_APP_MILJO=${{ inputs.env }}" >> $GITHUB_ENV
           echo "REACT_APP_VERSION=${{ inputs.REACT_APP_VERSION }}" >> $GITHUB_ENV
           echo "REACT_APP_DINE_SAKER_URL=${{ inputs.REACT_APP_DINE_SAKER_URL }}" >> $GITHUB_ENV
