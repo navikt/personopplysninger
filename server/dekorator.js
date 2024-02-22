@@ -1,8 +1,7 @@
 const { injectDecoratorServerSide } = require('@navikt/nav-dekoratoren-moduler/ssr');
 
-const getHtmlWithDecorator = (filePath) => {
-    console.log(`ENV: ${process.env.ENV}`);
-    return injectDecoratorServerSide({
+const getHtmlWithDecorator = (filePath) =>
+    injectDecoratorServerSide({
         env: process.env.ENV,
         filePath: filePath,
         enforceLogin: false,
@@ -17,6 +16,5 @@ const getHtmlWithDecorator = (filePath) => {
         ],
         logoutWarning: true,
     });
-};
 
 module.exports = getHtmlWithDecorator;
