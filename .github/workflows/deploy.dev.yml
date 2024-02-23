@@ -16,7 +16,7 @@ jobs:
       REACT_APP_VERSION: "dev-${{ github.sha }}"
       REACT_APP_DINE_SAKER_URL: "https://www.intern.dev.nav.no/mine-saker"
       REACT_APP_PDL_URL: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui"
-      REACT_APP_SKJERMING_URL: "https://www.intern.dev.nav.no/person/personopplysninger/skjerming"
+      REACT_APP_SKJERMING_URL: "https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming"
       REACT_APP_URL: "https://www.intern.dev.nav.no/person/personopplysninger"
       REACT_APP_API_URL: "https://www.intern.dev.nav.no/person/personopplysninger-api"
       REACT_APP_DSOP_URL: "https://www.intern.dev.nav.no/person/dsop-api"
