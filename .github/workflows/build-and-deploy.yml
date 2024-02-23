@@ -77,7 +77,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          IMAGE_VERSION_RAW=$(echo ${GITHUB_WORKFLOW})-$(echo ${GITHUB_SHA})
+          IMAGE_VERSION_RAW=$(echo deploy-to-${{ inputs.env }})-$(echo ${GITHUB_SHA})
           echo "CI=true" >> $GITHUB_ENV
           echo "IMAGE_REGISTRY=ghcr.io/$(echo ${GITHUB_REPOSITORY})" >> $GITHUB_ENV
           echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
