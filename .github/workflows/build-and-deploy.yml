@@ -32,7 +32,10 @@ on:
       REACT_APP_DSOP_URL:
           required: true
           type: string
-      REACT_APP_TJENESTER_URL:
+      REACT_APP_UTBETALINGSOVERSIKT_URL:
+          required: true
+          type: string
+      REACT_APP_SYKEFRAVAER_URL:
           required: true
           type: string
       REACT_APP_LOGIN_URL:
@@ -94,7 +97,6 @@ jobs:
           echo "REACT_APP_URL=${{ inputs.REACT_APP_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_API_URL=${{ inputs.REACT_APP_API_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_DSOP_URL=${{ inputs.REACT_APP_DSOP_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_TJENESTER_URL=${{ inputs.REACT_APP_TJENESTER_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_LOGIN_URL=${{ inputs.REACT_APP_LOGIN_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_DITT_NAV_URL=${{ inputs.REACT_APP_DITT_NAV_URL }}" >> $GITHUB_ENV
           echo "REACT_APP_PENSJONSOPPTJENING_URL=${{ inputs.REACT_APP_PENSJONSOPPTJENING_URL }}" >> $GITHUB_ENV
