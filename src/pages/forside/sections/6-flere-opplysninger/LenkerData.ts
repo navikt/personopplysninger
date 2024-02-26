@@ -20,7 +20,7 @@ export default (locale: string) => [
         tittel: 'lenker.utbetalinger.tittel',
         beskrivelse: 'lenker.utbetalinger.beskrivelse',
         lenkeTekst: 'lenker.utbetalinger.lenkeTekst',
-        url: `${REACT_APP_UTBETALINGSOVERSIKT_URL}`,
+        url: REACT_APP_UTBETALINGSOVERSIKT_URL,
         icon: utbetalinger,
     },
     {
@@ -28,7 +28,7 @@ export default (locale: string) => [
         tittel: 'lenker.sykefravaer.tittel',
         beskrivelse: 'lenker.sykefravaer.beskrivelse',
         lenkeTekst: 'lenker.sykefravaer.lenkeTekst',
-        url: `${REACT_APP_SYKEFRAVAER_URL}`,
+        url: REACT_APP_SYKEFRAVAER_URL,
         icon: sykefravaer,
     },
     {
