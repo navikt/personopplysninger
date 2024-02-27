@@ -21,6 +21,8 @@ const DittNavKontor = (props: Props) => {
     const { enhet } = props.enhetKontaktInformasjon;
     const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
 
+    console.log('publikumsmottak', publikumsmottak); //TODO: Remove
+
     if (!enhet || !props.geografiskTilknytning) {
         return null;
     }
