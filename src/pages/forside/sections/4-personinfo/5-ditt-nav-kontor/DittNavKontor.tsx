@@ -1,29 +1,27 @@
 import Box from 'components/box/Box';
 import dittNavKontorIkon from 'assets/img/DittNavKontor.svg';
-import { EnhetKontaktInfo } from 'types/enhetKontaktInfo';
 import { GeografiskTilknytning } from 'types/adresser';
 import { FormattedMessage } from 'react-intl';
 import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
 import { useStore } from 'store/Context';
 import { BodyShort, Label, Link } from '@navikt/ds-react';
-import { Reception } from '@navikt/nav-office-reception-info';
+import { AudienceReception, Reception } from '@navikt/nav-office-reception-info';
 
 import '@navikt/nav-office-reception-info/dist/style.css';
 
 interface Props {
-    enhetKontaktInformasjon: EnhetKontaktInfo;
+    enhetKontaktInformasjon: AudienceReception[];
     geografiskTilknytning?: GeografiskTilknytning;
 }
 
 const DittNavKontor = (props: Props) => {
     const [{ locale }] = useStore();
-    const { enhet } = props.enhetKontaktInformasjon;
-    const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
+    const publikumsmottak = props.enhetKontaktInformasjon || [];
 
     console.log('publikumsmottak', publikumsmottak); //TODO: Remove
 
-    if (!enhet || !props.geografiskTilknytning) {
+    if (!publikumsmottak || !props.geografiskTilknytning) {
         return null;
     }
 
