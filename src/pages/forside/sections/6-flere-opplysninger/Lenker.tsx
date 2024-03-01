@@ -31,18 +31,21 @@ const LinksContainer = () => {
                         <FormattedMessage id="lenker.beskrivelse" />
                     </BodyLong>
                 </div>
-                {lenker(locale).map((link) => (
-                    <LinkBox
-                        id={link.id}
-                        key={link.id}
-                        icon={link.icon}
-                        tittel={link.tittel}
-                        beskrivelse={link.beskrivelse}
-                        lenkeTekst={link.lenkeTekst}
-                        to={link.url}
-                        component={'a'}
-                    />
-                ))}
+                {lenker(locale).map(
+                    (link) =>
+                        link.url && (
+                            <LinkBox
+                                id={link.id}
+                                key={link.id}
+                                icon={link.icon}
+                                tittel={link.tittel}
+                                beskrivelse={link.beskrivelse}
+                                lenkeTekst={link.lenkeTekst}
+                                to={link.url}
+                                component={'a'}
+                            />
+                        )
+                )}
                 <LinkBox
                     id={'inst'}
                     icon={INSTIkon}
