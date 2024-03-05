@@ -113,110 +113,192 @@
         }
     },
     "enhetKontaktInformasjon": {
-        "enhet": {
-            "postadresse": {
-                "type": "postboksadresse",
-                "postnummer": "1751",
-                "poststed": "HALDEN",
-                "postboksnummer": "56",
-                "postboksanlegg": null,
-                "gatenavn": null,
-                "husnummer": null,
-                "husbokstav": null,
-                "adresseTilleggsnavn": null
-            },
+        "enhetNr": "0101",
+        "navn": "NAV Halden-Aremark",
+        "telefonnummer": "55553333",
+        "telefonnummerKommentar": null,
+        "epost": null,
+        "postadresse": {
+            "type": "postboksadresse",
+            "postnummer": "1751",
+            "poststed": "HALDEN",
+            "postboksnummer": "56",
+            "postboksanlegg": null
+        },
+        "besoeksadresse": {
+            "type": "stedsadresse",
+            "postnummer": "1771",
+            "poststed": "HALDEN",
+            "gatenavn": "Storgata",
+            "husnummer": "8",
+            "husbokstav": null,
+            "adresseTilleggsnavn": null
+        },
+        "spesielleOpplysninger": "NAV Halden - Aremark har digital drop-in og er tilgjengelig via NAV sitt telefonnummer. Vi har samtaler ved fremmøte der det er behov for det og samhandler med våre innbyggere på de arenaer som er hensiktsmessige.\n\nFor deg som har mulighet, fortsett å benytt deg av våre tjenester på www.nav.no, «Skriv til oss» på Ditt NAV eller dialogen i aktivitetsplan. Alle våre veiledere er tilgjengelige på digitale løsninger.\n\nDersom du er i en akutt situasjon, f.eks. uten bolig, mat eller livsviktige medisiner, send inn digital søknad og merk denne «Nødhjelp».  Kan du ikke søke digitalt, kontakt oss på telefon. Halden kommunes servicesenter kan i nødtilfeller låne deg telefon, dersom du ikke disponerer det.",
+        "brukerkontakt": {
             "publikumsmottak": [
                 {
-                    "gateadresse": "Storgata",
-                    "poststed": "HALDEN",
-                    "husnummer": "8",
-                    "husbokstav": null,
-                    "postnummer": "1771",
+                    "besoeksadresse": {
+                        "type": "stedsadresse",
+                        "postnummer": "1771",
+                        "poststed": "HALDEN",
+                        "gatenavn": "Storgata",
+                        "husnummer": "8",
+                        "husbokstav": null,
+                        "adresseTilleggsnavn": null
+                    },
+                    "aapningstider": [
+                        {
+                            "dag": "Mandag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Tirsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Onsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Torsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Fredag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 10.00 - 14.00",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": null,
+                            "dato": "2023-03-31",
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Steng fordi Bjørnar er i Granca",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": null,
+                            "dato": "2023-04-01",
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Kun åpent for timeavtaler",
+                            "stengt": false,
+                            "kunTimeavtale": true
+                        }
+                    ],
                     "stedsbeskrivelse": "Halden",
-                    "aapningMandag": {
-                        "dag": "Mandag",
-                        "fra": "12:00",
-                        "til": "14:30",
-                        "stengt": "false",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-                    },
-                    "aapningTirsdag": {
-                        "dag": "Tirsdag",
-                        "fra": "12:00",
-                        "til": "14:30",
-                        "stengt": "false",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-                    },
-                    "aapningOnsdag": {
-                        "dag": "Onsdag",
-                        "fra": "12:00",
-                        "til": "14:30",
-                        "stengt": "false",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-                    },
-                    "aapningTorsdag": {
-                        "dag": "Torsdag",
-                        "fra": "12:00",
-                        "til": "14:30",
-                        "stengt": "false",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-                    },
-                    "aapningFredag": {
-                        "dag": "Fredag",
-                        "fra": "12:00",
-                        "til": "14:30",
-                        "stengt": "false",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 14.30"
-                    },
-                    "aapningAndre": null
+                    "adkomstbeskrivelse": null
                 },
                 {
-                    "gateadresse": "Aremark Rådhus",
-                    "poststed": "AREMARK",
-                    "husnummer": null,
-                    "husbokstav": null,
-                    "postnummer": "1798",
+                    "besoeksadresse": {
+                        "type": "stedsadresse",
+                        "postnummer": "1798",
+                        "poststed": "AREMARK",
+                        "gatenavn": "Aremarkveien",
+                        "husnummer": "2276",
+                        "husbokstav": null,
+                        "adresseTilleggsnavn": null
+                    },
+                    "aapningstider": [
+                        {
+                            "dag": "Tirsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00.",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Torsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": null,
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Mandag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00.",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Onsdag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00.",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        },
+                        {
+                            "dag": "Fredag",
+                            "dato": null,
+                            "fra": null,
+                            "til": null,
+                            "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00.",
+                            "stengt": true,
+                            "kunTimeavtale": false
+                        }
+                    ],
                     "stedsbeskrivelse": "Aremark",
-                    "aapningMandag": {
-                        "dag": "Mandag",
-                        "fra": null,
-                        "til": null,
-                        "stengt": "true",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-                    },
-                    "aapningTirsdag": {
-                        "dag": "Tirsdag",
-                        "fra": null,
-                        "til": null,
-                        "stengt": "true",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-                    },
-                    "aapningOnsdag": {
-                        "dag": "Onsdag",
-                        "fra": null,
-                        "til": null,
-                        "stengt": "true",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-                    },
-                    "aapningTorsdag": {
-                        "dag": "Torsdag",
-                        "fra": "09:00",
-                        "til": "15:00",
-                        "stengt": "false",
-                        "kommentar": null
-                    },
-                    "aapningFredag": {
-                        "dag": "Fredag",
-                        "fra": null,
-                        "til": null,
-                        "stengt": "true",
-                        "kommentar": "Timeavtaler i tidsrommet 09.00 - 15.00."
-                    },
-                    "aapningAndre": null
+                    "adkomstbeskrivelse": null
                 }
             ],
-            "tlfperson": "55553333",
-            "spesielleopplysninger": null
+            "publikumskanaler": [
+            ],
+            "brukertjenesteTilbud": {
+                "tjenester": [
+                    {
+                        "type": "FLYKTNINGTJENESTE"
+                    },
+                    {
+                        "type": "KOMMUNAL_BOLIG"
+                    },
+                    {
+                        "type": "PRIVATOKONOMI_FORVALTNING"
+                    }
+                ],
+                "ytterligereInformasjon": "Gjeldsrådgivning"
+            },
+            "sosialhjelp": {
+                "digitaleSoeknader": [
+                ],
+                "papirsoeknadInformasjon": "Papirsøknader kan leveres i postkassen/innkastet ved inngangsdøra til NAV ."
+            },
+            "informasjonUtbetalinger": null,
+            "skriftspraak": "NB"
         }
     }
 }
