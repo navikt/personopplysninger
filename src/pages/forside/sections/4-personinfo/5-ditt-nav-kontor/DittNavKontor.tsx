@@ -27,8 +27,6 @@ const DittNavKontor = (props: Props) => {
         return null;
     }
 
-    const { geografiskTilknytning } = props;
-
     return (
         <Box id="ditt-nav-kontor" tittel="dittnavkontor.tittel" beskrivelse="dittnavkontor.beskrivelse" icon={dittNavKontorIkon} visAnkerlenke>
             <div className="dittnavkontor__ingress">
