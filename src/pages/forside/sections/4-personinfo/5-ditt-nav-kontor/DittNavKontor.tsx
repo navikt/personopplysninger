@@ -34,7 +34,7 @@ const DittNavKontor = (props: Props) => {
             <div className="dittnavkontor__ingress">
                 <BodyShort>
                     <FormattedMessage id="dittnavkontor.ingress" />
-                    <Label as="span">{geografiskTilknytning.enhet}</Label>
+                    <Label as="span">{enhet.navn}</Label>
                 </BodyShort>
             </div>
             <Reception receptions={publikumsmottak} language={locale} />

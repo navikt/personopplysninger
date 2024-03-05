@@ -6,7 +6,6 @@ import { Kontaktadresse } from './kontaktadresse';
 export interface GeografiskTilknytning {
     bydel?: string;
     kommune?: string;
-    enhet?: string;
     land?: string;
 }
 

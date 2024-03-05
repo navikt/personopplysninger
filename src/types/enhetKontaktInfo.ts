@@ -5,6 +5,7 @@ export interface EnhetKontaktInfo {
 }
 
 export interface Enhet {
+    navn: string;
     postadresse:
         | {
               type: 'stedsadresse';
