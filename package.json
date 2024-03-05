@@ -31,7 +31,7 @@
         "@grafana/faro-web-sdk": "1.4.1",
         "@grafana/faro-web-tracing": "1.4.1",
         "@navikt/aksel-icons": "6.1.1",
-        "@navikt/arbeidsforhold": "3.3.5-beta.0",
+        "@navikt/arbeidsforhold": "3.4.0",
         "@navikt/ds-css": "6.1.1",
         "@navikt/ds-react": "6.1.1",
         "@navikt/fnrvalidator": "1.3.3",
