@@ -31,9 +31,7 @@ const PersonInfo = () => {
                             kontoregisterStatus={personalia.kontoregisterStatus}
                         />
                     )}
-                    {adresser && enhetKontaktInformasjon && (
-                        <DittNavKontor enhetKontaktInformasjon={enhetKontaktInformasjon} geografiskTilknytning={adresser.geografiskTilknytning} />
-                    )}
+                    {adresser && enhetKontaktInformasjon && <DittNavKontor enhetKontaktInformasjon={enhetKontaktInformasjon} />}
                 </>
             )}
         </MedPersonInfo>

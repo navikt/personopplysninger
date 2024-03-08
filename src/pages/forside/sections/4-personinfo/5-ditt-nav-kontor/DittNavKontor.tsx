@@ -1,7 +1,6 @@
 import Box from 'components/box/Box';
 import dittNavKontorIkon from 'assets/img/DittNavKontor.svg';
 import { EnhetKontaktInfo } from 'types/enhetKontaktInfo';
-import { GeografiskTilknytning } from 'types/adresser';
 import { FormattedMessage } from 'react-intl';
 import ListElement from 'components/listelement/ListElement';
 import Kilde from 'components/kilde/Kilde';
@@ -13,7 +12,6 @@ import '@navikt/nav-office-reception-info/dist/style.css';
 
 interface Props {
     enhetKontaktInformasjon: EnhetKontaktInfo;
-    geografiskTilknytning?: GeografiskTilknytning;
 }
 
 const DittNavKontor = (props: Props) => {
