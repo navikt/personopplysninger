@@ -18,12 +18,11 @@ interface Props {
 
 const DittNavKontor = (props: Props) => {
     const [{ locale }] = useStore();
-    const { enhet } = props.enhetKontaktInformasjon;
-    const publikumsmottak = (enhet && enhet.publikumsmottak) || [];
 
-    console.log('publikumsmottak', publikumsmottak); //TODO: Remove
+    const enhetNavn = props.enhetKontaktInformasjon.navn;
+    const publikumsmottak = props.enhetKontaktInformasjon.brukerkontakt.publikumsmottak;
 
-    if (!enhet || !props.geografiskTilknytning) {
+    if (!enhetNavn || !publikumsmottak) {
         return null;
     }
 
@@ -32,7 +31,7 @@ const DittNavKontor = (props: Props) => {
             <div className="dittnavkontor__ingress">
                 <BodyShort>
                     <FormattedMessage id="dittnavkontor.ingress" />
-                    <Label as="span">{enhet.navn}</Label>
+                    <Label as="span">{enhetNavn}</Label>
                 </BodyShort>
             </div>
             <Reception receptions={publikumsmottak} language={locale} />
