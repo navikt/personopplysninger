@@ -150,261 +150,282 @@ exports[`DittNavKontor renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="dittnavkontor__header"
+            class="dittnavkontor__ingress"
+          >
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              Ditt kontor er 
+              <span
+                class="navds-label"
+              >
+                NAV Halden-Aremark
+              </span>
+            </p>
+          </div>
+          <p
+            class="_chooseBetweenOffices_1uiec_21 navds-body-long navds-body-long--medium"
+          >
+            Du kan velge ett av de følgende kontorene.
+          </p>
+          <div
+            class="navds-tabs _officeTabs_1uiec_1 navds-tabs--medium"
+            data-orientation="horizontal"
+            dir="ltr"
           >
             <div
-              class="dittnavkontor__ingress"
+              class="navds-tabs__tablist-wrapper"
             >
-              <p
-                class="navds-body-short navds-body-short--medium"
+              <div
+                aria-orientation="horizontal"
+                class="navds-tabs__tablist"
+                data-orientation="horizontal"
+                role="tablist"
+                style="outline: none;"
+                tabindex="0"
               >
-                Ditt kontor er 
-                <span
-                  class="navds-label"
+                <button
+                  aria-controls="radix-:r6:-content-halden"
+                  aria-selected="true"
+                  class="navds-tabs__tab navds-tabs__tab--medium navds-tabs__tab-icon--left"
+                  data-orientation="horizontal"
+                  data-radix-collection-item=""
+                  data-state="active"
+                  id="radix-:r6:-trigger-halden"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
                 >
-                  NAV Halden-Aremark
-                </span>
-              </p>
+                  <span
+                    class="navds-tabs__tab-inner navds-body-short navds-body-short--medium"
+                  >
+                    Halden
+                  </span>
+                </button>
+                <button
+                  aria-controls="radix-:r6:-content-aremark"
+                  aria-selected="false"
+                  class="navds-tabs__tab navds-tabs__tab--medium navds-tabs__tab-icon--left"
+                  data-orientation="horizontal"
+                  data-radix-collection-item=""
+                  data-state="inactive"
+                  id="radix-:r6:-trigger-aremark"
+                  role="tab"
+                  tabindex="-1"
+                  type="button"
+                >
+                  <span
+                    class="navds-tabs__tab-inner navds-body-short navds-body-short--medium"
+                  >
+                    Aremark
+                  </span>
+                </button>
+              </div>
             </div>
             <div
-              class="navds-form-field navds-form-field--medium"
+              aria-labelledby="radix-:r6:-trigger-halden"
+              class="navds-tabs__tabpanel _singleTab_1uiec_25"
+              data-orientation="horizontal"
+              data-state="active"
+              id="radix-:r6:-content-halden"
+              role="tabpanel"
+              style="animation-duration: 0s;"
+              tabindex="0"
             >
-              <label
-                class="navds-form-field__label navds-sr-only navds-label"
-                for="select-r6"
-              >
-                NAV-kontor
-              </label>
               <div
-                class="navds-select__container"
+                class="_singleReception_1k7uq_1"
               >
-                <select
-                  autocomplete="off"
-                  class="navds-select__input navds-body-short navds-body-short--medium"
-                  id="select-r6"
-                  name="NAV-kontor"
+                <h3
+                  class="_heading_1k7uq_48 navds-heading navds-heading--medium navds-typo--spacing"
                 >
-                  <option
-                    value="-1"
+                  <svg
+                    aria-hidden="true"
+                    class="_headingIcon_1k7uq_53 _iconPlace_1k7uq_58"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
                   >
-                    Publikumsmottak for NAV Halden-Aremark
-                  </option>
-                  <option
-                    value="0"
-                  >
-                    HALDEN - Storgata 8, 1771 HALDEN
-                  </option>
-                  <option
-                    value="1"
-                  >
-                    AREMARK - Aremark Rådhus , 1798 AREMARK
-                  </option>
-                </select>
-                <svg
-                  aria-hidden="true"
-                  class="navds-select__chevron"
-                  fill="none"
-                  focusable="false"
-                  height="1em"
-                  role="img"
-                  viewBox="0 0 24 24"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
+                    <path
+                      clip-rule="evenodd"
+                      d="M11.47 2.47a.75.75 0 0 1 1.06 0l7 7c.141.14.22.331.22.53v11a.75.75 0 0 1-.75.75h-5a.75.75 0 0 1-.75-.75v-4.25h-2.5V21a.75.75 0 0 1-.75.75H5a.75.75 0 0 1-.75-.75V10a.75.75 0 0 1 .22-.53l7-7Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  Adresse
+                </h3>
+                <section
+                  class="_address_1k7uq_75"
                 >
-                  <path
-                    clip-rule="evenodd"
-                    d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
-                    fill="currentColor"
-                    fill-rule="evenodd"
+                  <p
+                    class="_addressLine_1k7uq_79 navds-body-short navds-body-short--medium"
+                  >
+                    Storgata 8, 1771 HALDEN
+                  </p>
+                  <p
+                    class="_addressLine_1k7uq_79 navds-body-short navds-body-short--small"
                   />
-                </svg>
+                </section>
+                <h3
+                  class="_heading_1k7uq_48 navds-heading navds-heading--medium navds-typo--spacing"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="_headingIcon_1k7uq_53 _iconClock_1k7uq_63"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 6a.75.75 0 0 0-1.5 0v6c0 .199.079.39.22.53l2.5 2.5a.75.75 0 1 0 1.06-1.06l-2.28-2.28V6Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  Åpningstider når du ikke har avtale
+                </h3>
+                <table
+                  class="navds-table navds-table--medium"
+                >
+                  <thead
+                    class="navds-table__header _srOnly_1ti4y_1"
+                  >
+                    <tr
+                      class="navds-table__row navds-table__row--shade-on-hover"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label"
+                        scope="col"
+                      >
+                        dag
+                      </th>
+                      <th
+                        class="navds-table__header-cell navds-label"
+                        scope="col"
+                      >
+                        tid
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="navds-table__body"
+                  >
+                    <tr
+                      class="navds-table__row"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label dayInformation"
+                      >
+                        Mandag
+                      </th>
+                      <td
+                        class="navds-table__data-cell openingInformation navds-body-short navds-body-short--medium"
+                      >
+                        Stengt
+                      </td>
+                    </tr>
+                    <tr
+                      class="navds-table__row"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label dayInformation"
+                      >
+                        Tirsdag
+                      </th>
+                      <td
+                        class="navds-table__data-cell openingInformation navds-body-short navds-body-short--medium"
+                      >
+                        Stengt
+                      </td>
+                    </tr>
+                    <tr
+                      class="navds-table__row"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label dayInformation"
+                      >
+                        Onsdag
+                      </th>
+                      <td
+                        class="navds-table__data-cell openingInformation navds-body-short navds-body-short--medium"
+                      >
+                        Stengt
+                      </td>
+                    </tr>
+                    <tr
+                      class="navds-table__row"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label dayInformation"
+                      >
+                        Torsdag
+                      </th>
+                      <td
+                        class="navds-table__data-cell openingInformation navds-body-short navds-body-short--medium"
+                      >
+                        Stengt
+                      </td>
+                    </tr>
+                    <tr
+                      class="navds-table__row"
+                    >
+                      <th
+                        class="navds-table__header-cell navds-label dayInformation"
+                      >
+                        Fredag
+                      </th>
+                      <td
+                        class="navds-table__data-cell openingInformation navds-body-short navds-body-short--medium"
+                      >
+                        Stengt
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div
+                  class="_appointmentBookingInfo_1k7uq_84"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="_iconInfo_1k7uq_68"
+                    fill="none"
+                    focusable="false"
+                    height="1em"
+                    role="img"
+                    viewBox="0 0 24 24"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                  Du kan avtale møte med veilederen din utenom disse åpningstidene.
+                </div>
               </div>
-              <div
-                aria-live="polite"
-                aria-relevant="additions removals"
-                class="navds-form-field__error"
-                id="select-error-r6"
-              />
             </div>
             <div
-              class="dittnavkontor__adresser"
-            >
-              <div
-                class="dittnavkontor__postadresse"
-              >
-                <h3
-                  class="navds-heading navds-heading--xsmall"
-                >
-                  Postadresse
-                </h3>
-                <p
-                  class="navds-body-short navds-body-short--medium"
-                >
-                  Postboks 56 
-                </p>
-                <p
-                  class="navds-body-short navds-body-short--medium"
-                >
-                  1751 HALDEN
-                </p>
-              </div>
-              <div
-                class="dittnavkontor__publikumsmottak"
-              >
-                <h3
-                  class="navds-heading navds-heading--xsmall"
-                >
-                  Publikumsmottak
-                </h3>
-                <p
-                  class="navds-body-short navds-body-short--medium"
-                >
-                  Storgata 8
-                </p>
-                <p
-                  class="navds-body-short navds-body-short--medium"
-                >
-                  1771 HALDEN
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <div
-              class="apningstider"
-            >
-              <table
-                class="apningstider__table"
-              >
-                <caption
-                  class="apningstider__caption navds-heading navds-heading--xsmall"
-                >
-                  Åpningstider
-                </caption>
-                <thead
-                  class="sr-only"
-                >
-                  <tr>
-                    <th
-                      scope="col"
-                    >
-                      Ukedag
-                    </th>
-                    <th
-                      scope="col"
-                    >
-                      Tidsrom
-                    </th>
-                    <th
-                      scope="col"
-                    >
-                      Kommentar
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Mandag
-                    </td>
-                    <td>
-                      12:30 - 14:30
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Tirsdag
-                    </td>
-                    <td>
-                      12:30 - 14:30
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Onsdag
-                    </td>
-                    <td>
-                      12:30 - 14:30
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Torsdag
-                    </td>
-                    <td>
-                      12:30 - 14:30
-                    </td>
-                    <td />
-                  </tr>
-                  <tr>
-                    <td>
-                      Fredag
-                    </td>
-                    <td>
-                      12:30 - 14:30
-                    </td>
-                    <td />
-                  </tr>
-                </tbody>
-              </table>
-              <table
-                class="apningstider__table"
-              >
-                <caption
-                  class="apningstider__caption navds-heading navds-heading--xsmall"
-                >
-                  Spesielle åpningstider
-                </caption>
-                <thead
-                  class="sr-only"
-                >
-                  <tr>
-                    <th
-                      scope="col"
-                    >
-                      Dato
-                    </th>
-                    <th
-                      scope="col"
-                    >
-                      Tidsrom
-                    </th>
-                    <th
-                      scope="col"
-                    >
-                      Kommentar
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      24.12.2021
-                    </td>
-                    <td>
-                      10:00 - 11:30
-                    </td>
-                    <td>
-                      Åpent for akutte behov for alle NAV-kontorer i Bergen kommune
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      31.12.2021
-                    </td>
-                    <td>
-                      Stengt
-                    </td>
-                    <td>
-                      NAV Bergen vest er åpent 10-11.30 for akutte behov
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+              aria-labelledby="radix-:r6:-trigger-aremark"
+              class="navds-tabs__tabpanel _singleTab_1uiec_25"
+              data-orientation="horizontal"
+              data-state="inactive"
+              hidden=""
+              id="radix-:r6:-content-aremark"
+              role="tabpanel"
+              tabindex="0"
+            />
           </div>
           <dl
             class="dittnavkontor__footer list"
