@@ -22,7 +22,7 @@
         "build": "npm-run-all -p build:*",
         "build:js": "react-scripts build",
         "build:css": "less-watch-compiler --run-once",
-        "test": "react-scripts test --watchAll=false",
+        "test": "react-scripts test --watchAll=false --transformIgnorePatterns \"node_modules/(?!@navikt)/\"",
         "preversion": "npm test && npm run build",
         "postversion": "git push && git push --tags",
         "analyze": "source-map-explorer 'build/static/js/*.js'"
