@@ -36,7 +36,7 @@
         "@navikt/ds-react": "6.1.1",
         "@navikt/fnrvalidator": "1.3.3",
         "@navikt/nav-dekoratoren-moduler": "2.1.6",
-        "@navikt/nav-office-reception-info": "1.0.1",
+        "@navikt/nav-office-reception-info": "1.0.2",
         "@react-pdf/renderer": "3.3.8",
         "buffer": "6.0.3",
         "core-js": "3.35.0",
