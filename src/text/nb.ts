@@ -166,7 +166,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljer',
     'inst.disclaimer':
-        'Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel fra 1.januar 2017. Oppdager du feil, må du kontakte institusjonen direkte.',
+        'Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Oppdager du feil, må du kontakte institusjonen direkte.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnavn',
     'inst.institusjonstype': 'Institusjonstype',

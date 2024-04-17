@@ -167,7 +167,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.institusjon': 'Institution',
     'inst.detaljer': 'Details',
     'inst.disclaimer':
-        'Here you can see information about stays in nursing homes, health institutions and prisons. The overview shows only registered stays after 1. january 2017. If you notice errors in the information, you must contact the institution directly.',
+        'Here you can see information about stays in nursing homes, health institutions and prisons. If you notice errors in the information, you must contact the institution directly.',
     'inst.periode': 'Period',
     'inst.institusjonsnavn': 'Name of institution',
     'inst.institusjonstype': 'Type of institution',
