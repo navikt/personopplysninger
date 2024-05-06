@@ -1,7 +1,8 @@
 ingresses:
-    - https://www.intern.dev.nav.no/person/personopplysninger
+  - https://www.ansatt.dev.nav.no/person/personopplysninger
 externalHosts:
     - www.intern.dev.nav.no
+    - www.ansatt.dev.nav.no
     - www.ekstern.dev.nav.no
     - dekoratoren.ekstern.dev.nav.no
 env: dev

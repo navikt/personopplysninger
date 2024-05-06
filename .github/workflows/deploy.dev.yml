@@ -12,14 +12,14 @@ jobs:
     with:
       env: dev
       imageSuffix: dev-deploy
-      appOrigin: "https://www.intern.dev.nav.no"
+      appOrigin: "https://www.ansatt.dev.nav.no"
       REACT_APP_VERSION: "dev-${{ github.sha }}"
       REACT_APP_DINE_SAKER_URL: "https://www.intern.dev.nav.no/mine-saker"
       REACT_APP_PDL_URL: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui"
       REACT_APP_SKJERMING_URL: "https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming"
-      REACT_APP_URL: "https://www.intern.dev.nav.no/person/personopplysninger"
-      REACT_APP_API_URL: "https://www.intern.dev.nav.no/person/personopplysninger-api"
-      REACT_APP_DSOP_URL: "https://www.intern.dev.nav.no/person/dsop-api"
+      REACT_APP_URL: "https://www.ansatt.dev.nav.no/person/personopplysninger"
+      REACT_APP_API_URL: "https://www.ansatt.dev.nav.no/person/personopplysninger-api"
+      REACT_APP_DSOP_URL: "https://www.ansatt.dev.nav.no/person/dsop-api"
       REACT_APP_UTBETALINGSOVERSIKT_URL: "https://www.intern.dev.nav.no/utbetalingsoversikt/"
       REACT_APP_SYKEFRAVAER_URL: "https://www.ekstern.dev.nav.no/syk/sykefravaer"
       REACT_APP_LOGIN_URL: "https://login.ekstern.dev.nav.no/oauth2/login"
