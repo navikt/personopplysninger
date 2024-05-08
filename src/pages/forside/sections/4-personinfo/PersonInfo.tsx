@@ -29,6 +29,7 @@ const PersonInfo = () => {
                             personident={personalia.personident}
                             utenlandskbank={personalia.utenlandskbank}
                             kontoregisterStatus={personalia.kontoregisterStatus}
+                            isMyndig={personalia.isMyndig}
                         />
                     )}
                     {adresser && enhetKontaktInformasjon && <DittNavKontor enhetKontaktInformasjon={enhetKontaktInformasjon} />}
