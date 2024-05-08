@@ -36,5 +36,6 @@ export interface Personalia {
     foedested?: string;
     sivilstand?: string;
     kjoenn?: string;
+    isMyndig: boolean;
     datakilder?: unknown[];
 }

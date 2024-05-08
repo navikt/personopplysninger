@@ -21,7 +21,8 @@
         "statsborgerskap": ["NORGE", "SVERIGE"],
         "foedested": "Oslo, NORGE",
         "sivilstand": "Ugift",
-        "kjoenn": "Mann"
+        "kjoenn": "Mann",
+        "isMyndig": true
     },
     "adresser": {
         "geografiskTilknytning": {

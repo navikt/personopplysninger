@@ -42,10 +42,11 @@ export interface UtbetalingerProps {
     personident?: { verdi: string; type: string };
     kontonr?: string;
     kontoregisterStatus: string;
+    isMyndig: boolean;
 }
 
 const Utbetalinger = (props: UtbetalingerProps) => {
-    const { kontonr, utenlandskbank } = props;
+    const { kontonr, utenlandskbank, isMyndig } = props;
 
     const [{ locale }] = useStore();
     const baseUrlWithLocale = `${basePath}/${locale}`;
@@ -79,7 +80,14 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                     />
                 </div>
             )}
-            <Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>
+            <Link
+                to={
+                    isMyndig
+                        ? `${baseUrlWithLocale}/endre-kontonummer`
+                        : `https://www.nav.no/fyllut/nav952000?sub=paper&lang=${locale == 'en' ? 'en' : `${locale}-NO`}`
+                }
+                state={{ backTo }}
+            >
                 <FormattedMessage id={'endreKontonummer.tittel'} />
             </Link>
         </Box>
