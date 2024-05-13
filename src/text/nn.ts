@@ -177,7 +177,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottek post og informasjon frå det offentlege elektronisk. Grunnen til det er at du ikkje har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
-        'Du mottek viktige brev frå det offentlege kun på papir. Dette er fordi du har reservert deg mot elektronisk kommuniasjon. Stat og kommune kan likevel sende deg annan informasjon på e-post, sms eller som brev digitalt.',
+        'Du mottek viktige brev frå det offentlege kun på papir. Dette er fordi du har reservert deg mot elektronisk kommunikasjon. Stat og kommune kan likevel sende deg annan informasjon på e-post, sms eller som brev digitalt.',
     'kontaktinformasjon-kilde':
         'Kvar hentar vi kontaktinformasjonen frå? NAV hentar kontaktopplysningane dine frå Kontakt- og reservasjonsregisteret. Dette er eit felles, nasjonalt register som vert nytta av det offentlege for å kunne sende meldingar og dokument. Du kan også registrere telefonnummer du vil kontaktast på i NAV sitt register.',
     'medl.tittel': 'Medlemskap og unntak frå <br></br> medlemskap i folketrygda',
