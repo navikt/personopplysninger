@@ -2,5 +2,6 @@
     "mobiltelefonnummer": "12131415",
     "epostadresse": "test@test.com",
     "spraak": "Norsk",
-    "kanVarsles": true
+    "kanVarsles": true,
+    "reservert": true
 }

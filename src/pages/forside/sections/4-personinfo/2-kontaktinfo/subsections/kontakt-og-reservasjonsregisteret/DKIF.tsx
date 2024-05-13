@@ -26,7 +26,7 @@ const KontaktInformasjon = (props: Props) => {
             <div className="telefonnummer">
                 <Alert variant="info" inline={true}>
                     <FormattedMessage
-                        id="kontaktogreservasjonsregister-disclaimer"
+                        id={reservert ? 'kontaktogreservasjonsregister-disclaimer-reservert' : 'kontaktogreservasjonsregister-disclaimer'}
                         values={{
                             br: (text) => (
                                 <>
