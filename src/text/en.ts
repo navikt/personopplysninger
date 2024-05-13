@@ -78,8 +78,6 @@ export default {
     'personalia.dkif.overskrift': 'Information from the Contact and Reservation Register',
     'personalia.dkif.beskrivelse':
         'The Contact and Reservation Register is a joint national register. NAV must have your contact information in this register in order to send you messages and documents electronically.',
-    'personalia.dkif.kanVarsles': 'You have <b>not</b> opted out of electronic communication.',
-    'personalia.dkif.kanIkkeVarsles': 'You have opted out of electronic communication.',
     'personalia.dkif.ingenData': '<b>No information registered</b>',
     'adresse.tittel': 'Addresses',
     'adresse.beskrivelse': `Below you see the types of addresses it is possible to register in the National Population Register. You can have several address types registered at the same time. You can change addresses in the National Population Register at the Tax Administration.<br></br><br></br>
@@ -182,6 +180,8 @@ A child who lives permanently with both mother and father can have two home addr
   messages and documents. You can also register the phone number you want to be reached by in The NAV registry.`,
     'kontaktogreservasjonsregister-disclaimer':
         'You receive mail and information electronically from the government. This is because you have not opted out of electronic communication.',
+    'kontaktogreservasjonsregister-disclaimer-reservert':
+        'You receive important letters from the government in the mail. This is because you have reserved yourself against electronic communication. The state and municipality can still send you other information by e-mail, SMS or as a digital letter.',
     'medl.tittel': 'Membership of the National Insurance Scheme',
     'medl.ingendata': 'You have no registered periods.',
     'medl.oversikt.ingress':
