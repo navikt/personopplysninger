@@ -12,9 +12,9 @@ interface Props {
 }
 
 const KontaktInformasjon = (props: Props) => {
-    const { mobiltelefonnummer, epostadresse, kanVarsles, spraak } = props.info;
+    const { mobiltelefonnummer, epostadresse, reservert, spraak } = props.info;
     const [{ locale }] = useStore();
-    return mobiltelefonnummer || epostadresse || kanVarsles ? (
+    return mobiltelefonnummer || epostadresse ? (
         <>
             <div className="telefonnummer">
                 <Liste>
@@ -26,7 +26,7 @@ const KontaktInformasjon = (props: Props) => {
             <div className="telefonnummer">
                 <Alert variant="info" inline={true}>
                     <FormattedMessage
-                        id="kontaktogreservasjonsregister-disclaimer"
+                        id={reservert ? 'kontaktogreservasjonsregister-disclaimer-reservert' : 'kontaktogreservasjonsregister-disclaimer'}
                         values={{
                             br: (text) => (
                                 <>
@@ -60,7 +60,7 @@ const KontaktInformasjon = (props: Props) => {
             </div>
             <Alert variant="info" inline>
                 <FormattedMessage
-                    id="kontaktogreservasjonsregister-disclaimer"
+                    id={reservert ? 'kontaktogreservasjonsregister-disclaimer-reservert' : 'kontaktogreservasjonsregister-disclaimer'}
                     values={{
                         br: (text) => (
                             <>

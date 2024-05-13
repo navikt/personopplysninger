@@ -78,8 +78,6 @@ export default {
     'personalia.dkif.overskrift': 'Opplysninger fra Kontakt - og reservasjonsregisteret',
     'personalia.dkif.beskrivelse':
         'Kontakt- og reservasjonsregisteret er et felles nasjonalt register. NAV må ha dine kontaktopplysninger i dette registeret for å kunne sende deg meldinger og dokumenter elektronisk.',
-    'personalia.dkif.kanVarsles': 'Du har <b>ikke</b> reservert deg mot elektronisk kommunikasjon.',
-    'personalia.dkif.kanIkkeVarsles': 'Du har reservert deg mot elektronisk kommunikasjon.',
     'personalia.dkif.ingenData': '<b>Ingen opplysninger registrert</b>',
     'adresse.tittel': 'Adresser',
     'adresse.beskrivelse': `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
@@ -178,6 +176,8 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.kilde': 'Kilde: Den enkelte institusjon',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.',
+    'kontaktogreservasjonsregister-disclaimer-reservert':
+        'Du mottar viktige brev fra det offentlige kun på papir. Grunnen til dette er at du har reservert deg mot elektronisk kommunikasjon. Stat og kommune kan likevel sende deg annen informasjon på e-post, sms eller som brev digitalt.',
     'kontaktinformasjon-kilde': `Hvor hentes kontaktinformasjonen fra?
   NAV henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
   å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i NAV sitt register.`,
