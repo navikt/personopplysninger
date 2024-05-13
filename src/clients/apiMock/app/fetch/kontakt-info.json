@@ -3,5 +3,5 @@
     "epostadresse": "test@test.com",
     "spraak": "Norsk",
     "kanVarsles": true,
-    "reservert": true
+    "reservert": false
 }
