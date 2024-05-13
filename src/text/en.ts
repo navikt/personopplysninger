@@ -9,7 +9,7 @@ export default {
     'side.lagre': 'Save',
     'side.avbryt': 'Cancel',
     'side.leggtil': 'Add',
-    'side.leggtil.kontaktinformasjon': 'Add a phone number in The NAV registry',
+    'side.leggtil.kontaktinformasjon': 'Add a phone number in the NAV registry',
     'side.valgfritt': ' (optional)',
     'side.organisasjonsnummer': 'Organisation number {orgnr}',
     'side.endre': 'Change',
@@ -68,7 +68,7 @@ export default {
     'personalia.bankkode': 'Bank code',
     'personalia.tlfnr': 'Phone',
     'personalia.tlfnr.oveskrift': 'Phone number registered with NAV',
-    'personalia.tlfnr.ingenData': `Would you instead like to add a phone number to <b>The NAV registry</b>?
+    'personalia.tlfnr.ingenData': `Would you instead like to add a phone number to <b>the NAV registry</b>?
   The new phone number you add will only be stored and used by NAV.`,
     'personalia.tlfnr.telefon': 'Phone {x}',
     'personalia.tlfnr.slett.overskrift': 'Remove phone number',
@@ -177,7 +177,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.kilde': 'Source: The individual institution',
     'kontaktinformasjon-kilde': `Where is this contact information from?
   NAV uses your contact information from The common contact register. This is a joint national registry used by the government to send
-  messages and documents. You can also register the phone number you want to be reached by in The NAV registry.`,
+  messages and documents. You can also register the phone number you want to be reached by in the NAV registry.`,
     'kontaktogreservasjonsregister-disclaimer':
         'You receive mail and information electronically from the government. This is because you have not opted out of electronic communication.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
