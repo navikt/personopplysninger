@@ -68,7 +68,6 @@ export interface Matrikkeladresse {
     tilleggsnavn?: string;
     postnummer?: string;
     poststed?: string;
-    kommunenummer?: string;
     kommune?: string;
     coAdressenavn?: string;
 }

@@ -24,15 +24,8 @@
         "kjoenn": "Mann"
     },
     "adresser": {
-        "geografiskTilknytning": {
-            "bydel": null,
-            "datoFraOgMed": "2001-04-04",
-            "kommune": "3012",
-            "land": null
-        },
         "kontaktadresser": [
             {
-                "gyldigFraOgMed": "2020-07-14T00:00",
                 "gyldigTilOgMed": "2020-07-20T23:59:59",
                 "coAdressenavn": "V/ Aremark Jr",
                 "kilde": "pdl",
@@ -46,16 +39,12 @@
             }
         ],
         "deltBosted": {
-            "startdatoForKontrakt": "2020-07-14T00:00",
-            "sluttdatoForKontrakt": "2020-07-20T23:59:59",
             "coAdressenavn": "V/ Aremark Jr",
-            "kilde": "pdl",
             "adresse": {
                 "husnummer": "14",
                 "husbokstav": "B",
                 "bruksenhetsnummer": "H0301",
                 "adressenavn": "JØRGENSENVEIEN",
-                "kommunenummer": "4737",
                 "kommune": "EVJE OG HORNNES",
                 "tilleggsnavn": null,
                 "postnummer": "0194",
@@ -65,7 +54,6 @@
         },
         "oppholdsadresser": [
             {
-                "gyldigFraOgMed": "2020-07-14T00:00",
                 "gyldigTilOgMed": "2020-07-20T23:59:59",
                 "coAdressenavn": "V/ Aremark Jr",
                 "kilde": "freg",
@@ -73,7 +61,6 @@
                     "husnummer": "14",
                     "husbokstav": "B",
                     "adressenavn": "JØRGENSENVEIEN",
-                    "kommunenummer": "4737",
                     "tilleggsnavn": null,
                     "postnummer": "0194",
                     "poststed": "OSLO",
@@ -92,7 +79,6 @@
                 "husbokstav": "B",
                 "bruksenhetsnummer": "H0301",
                 "adressenavn": "JØRGENSENVEIEN",
-                "kommunenummer": "4737",
                 "kommune": "EVJE OG HORNNES",
                 "tilleggsnavn": null,
                 "postnummer": "0194",
