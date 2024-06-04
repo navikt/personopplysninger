@@ -40,7 +40,6 @@ export default {
     'personalia.email': 'E-post',
     'personalia.language': 'Språk',
     'personalia.citizenship': 'Statsborgarskap',
-    'personalia.status': 'Personstatus',
     'personalia.birthplace': 'Fødestad',
     'personalia.spesreg': 'Spesialregistrering',
     'personalia.civil_status': 'Sivilstand',

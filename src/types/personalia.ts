@@ -29,12 +29,8 @@ export interface Personalia {
     kontonr?: string;
     utenlandskbank: UtenlandskBankkonto;
     tlfnr?: Tlfnr;
-    spraak?: string;
-    epostadr?: string;
-    personstatus?: string;
     statsborgerskap?: string[];
     foedested?: string;
     sivilstand?: string;
     kjoenn?: string;
-    datakilder?: unknown[];
 }
