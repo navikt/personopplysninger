@@ -17,7 +17,6 @@ export interface PostadresseIFrittFormat {
     adresselinje3?: string;
     postnummer?: string;
     poststed?: string;
-    coAdressenavn?: string;
 }
 
 export interface UtenlandskAdresseIFrittFormat {
@@ -25,9 +24,6 @@ export interface UtenlandskAdresseIFrittFormat {
     adresselinje1?: string;
     adresselinje2?: string;
     adresselinje3?: string;
-    postkode?: string;
-    byEllerStedsnavn?: string;
-    landkode?: string;
     land?: string;
 }
 
@@ -38,7 +34,6 @@ export interface Vegadresse {
     husbokstav?: string;
     bruksenhetsnummer?: string;
     adressenavn?: string;
-    kommunenummer?: string;
     kommune?: string;
     tilleggsnavn?: string;
     postnummer?: string;
@@ -63,7 +58,6 @@ export interface UtenlandskAdresse {
     postkode?: string;
     bySted?: string;
     regionDistriktOmraade?: string;
-    landkode: string;
     land: string;
     coAdressenavn?: string;
 }
@@ -74,7 +68,6 @@ export interface Matrikkeladresse {
     tilleggsnavn?: string;
     postnummer?: string;
     poststed?: string;
-    kommunenummer?: string;
     kommune?: string;
     coAdressenavn?: string;
 }

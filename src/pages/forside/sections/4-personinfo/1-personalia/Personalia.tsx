@@ -14,7 +14,7 @@ interface Props {
 const Personalia = (props: Props) => {
     const [{ locale }] = useStore();
 
-    const { personident, fornavn, etternavn, spraak, statsborgerskap, foedested, sivilstand, kjoenn } = props.personalia;
+    const { personident, fornavn, etternavn, statsborgerskap, foedested, sivilstand, kjoenn } = props.personalia;
 
     const personidentHeader = personident && personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
 
@@ -34,7 +34,6 @@ const Personalia = (props: Props) => {
                 <ListElement titleId={fornavnHeader} content={fornavn} />
                 <ListElement className="capitalize" titleId="personalia.surname" content={etternavn} />
                 {formattertPersonident && <ListElement titleId={personidentHeader} content={formattertPersonident.verdi} />}
-                <ListElement titleId="personalia.language" content={spraak} />
                 {statsborgerskap && (
                     <ListElement
                         titleId="personalia.citizenship"

@@ -40,7 +40,6 @@ export default {
     'personalia.email': 'E-mail',
     'personalia.language': 'Language',
     'personalia.citizenship': 'Citizenship',
-    'personalia.status': 'Personstatus',
     'personalia.birthplace': 'Birthplace',
     'personalia.spesreg': 'Special registration',
     'personalia.civil_status': 'Marital status',
