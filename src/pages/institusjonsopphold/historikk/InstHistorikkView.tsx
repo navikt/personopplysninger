@@ -23,7 +23,12 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     return (
         <>
             <Alert variant="info">
-                <FormattedMessage id="inst.disclaimer" />
+                <FormattedMessage
+                    id="inst.disclaimer"
+                    values={{
+                        lenkeTilInstMelding: (text) => <Link to={'https://www.nav.no/samarbeidspartner/opphold-institusjon'}>{text}</Link>,
+                    }}
+                />
             </Alert>
             <div className={'inst__tabell'}>
                 {instInfo.length > 0 ? (
