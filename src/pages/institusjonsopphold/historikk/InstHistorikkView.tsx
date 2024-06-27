@@ -6,7 +6,7 @@ import { useIntlFormatter } from 'hooks/useIntlFormatter';
 import { InstInfo } from 'types/inst';
 import Kilde from 'components/kilde/Kilde';
 import { CustomHelpText } from 'components/customHelpText/CustomHelpText';
-import { Alert, BodyShort, Button, Label } from '@navikt/ds-react';
+import { Alert, BodyShort, Button, Label, Link as DsLink } from '@navikt/ds-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
 
@@ -26,7 +26,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                 <FormattedMessage
                     id="inst.disclaimer"
                     values={{
-                        lenkeTilInstMelding: (text) => <Link to={'https://www.nav.no/samarbeidspartner/opphold-institusjon'}>{text}</Link>,
+                        lenkeTilInstMelding: (text) => <DsLink href={'https://www.nav.no/samarbeidspartner/opphold-institusjon'}>{text}</DsLink>,
                     }}
                 />
             </Alert>
