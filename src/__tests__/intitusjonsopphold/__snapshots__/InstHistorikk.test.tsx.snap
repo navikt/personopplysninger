@@ -32,7 +32,12 @@ exports[`InstHistorikkView renders correctly 1`] = `
       class="navds-alert__wrapper navds-body-long navds-body-long--medium"
     >
       Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å 
-      <div />
+      <a
+        class="navds-link navds-link--action"
+        href="https://www.nav.no/samarbeidspartner/opphold-institusjon"
+      >
+        sende melding til NAV
+      </a>
        om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.
     </div>
   </div>
