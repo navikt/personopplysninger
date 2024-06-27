@@ -31,7 +31,9 @@ exports[`InstHistorikkView renders correctly 1`] = `
     <div
       class="navds-alert__wrapper navds-body-long navds-body-long--medium"
     >
-      Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Oppdager du feil, må du kontakte institusjonen direkte.
+      Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å 
+      <div />
+       om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.
     </div>
   </div>
   <div
