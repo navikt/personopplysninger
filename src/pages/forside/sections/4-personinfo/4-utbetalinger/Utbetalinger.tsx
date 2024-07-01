@@ -16,7 +16,7 @@ const WarningMsg = () => {
     return (
         <Alert role="status" variant="info">
             <FormattedMessage
-                id={'endreKontonummer.info'}
+                id={'utbetalinger.info'}
                 values={{
                     tlfTilKontaktsenter: (text) => (
                         <a href={'tel:+4755553333'} style={{ whiteSpace: 'nowrap' }}>
