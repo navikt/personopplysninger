@@ -1,5 +1,5 @@
 import GateAdresse from '../../3-adresser/komponenter/GateAdresse';
-import ListeElement from 'components/listelement/ListElement';
+import ListeElement from '@/components/listelement/ListElement';
 import { UtenlandskBankkonto } from 'types/personalia';
 import { friendlyFormatIBAN } from 'ibantools';
 import { BodyShort } from '@navikt/ds-react';

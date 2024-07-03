@@ -1,8 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Icon from 'components/icon/Icon';
-import Tilbake from 'components/tilbake/Tilbake';
-import Brodsmulesti, { BrodsmuleLenke } from 'pages/forside/sections/2-brodsmulesti/Brodsmulesti';
+import Icon from '@/components/icon/Icon';
+import Tilbake from '@/components/tilbake/Tilbake';
+import Brodsmulesti, { BrodsmuleLenke } from '@/pages/forside/sections/2-brodsmulesti/Brodsmulesti';
 import { Box, Heading } from '@navikt/ds-react';
 
 interface Props {

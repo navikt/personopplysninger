@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import PageContainer from 'components/pagecontainer/PageContainer';
-import MEDLIkon from 'assets/img/MEDL.svg';
+import PageContainer from '@/components/pagecontainer/PageContainer';
+import MEDLIkon from '@/assets/img/MEDL.svg';
 import WithMEDL from './MedlFetch';
 import MedlHistorikkView from './MedlHistorikkView';
 

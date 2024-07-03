@@ -1,4 +1,4 @@
-import SelectLand from 'components/felter/select-kodeverk/SelectLand';
+import SelectLand from '@/components/felter/select-kodeverk/SelectLand';
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
 import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';

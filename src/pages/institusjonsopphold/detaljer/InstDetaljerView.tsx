@@ -1,6 +1,6 @@
-import ListElement from 'components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
-import { formatOrgnr, RADIX_DECIMAL } from 'utils/formattering';
+import { formatOrgnr, RADIX_DECIMAL } from '@/utils/formattering';
 import { InstInnslag } from 'types/inst';
 import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
 import dayjs from 'dayjs';

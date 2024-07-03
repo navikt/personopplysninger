@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { fetchPersonInfo, slettTlfnummer } from 'clients/apiClient';
+import { fetchPersonInfo, slettTlfnummer } from '@/clients/apiClient';
 import { PersonInfo } from 'types/personInfo';
-import { useStore } from 'store/Context';
-import HttpFeilmelding, { Feilmelding } from 'components/httpFeilmelding/HttpFeilmelding';
-import { UNKNOWN } from 'utils/text';
+import { useStore } from '@/store/Context';
+import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
+import { UNKNOWN } from '@/utils/text';
 import Knapp from './Knapp';
 import SlettModal from './SlettModal';
 import TelefonnummerForm from './TelefonnummerForm';

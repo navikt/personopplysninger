@@ -1,7 +1,7 @@
 import { FormattedMessage } from 'react-intl';
-import ListElement from 'components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { KontaktInfo } from 'types/kontaktInfo';
-import Kilde from 'components/kilde/Kilde';
+import Kilde from '@/components/kilde/Kilde';
 import { useStore } from '../../../../../../../store/Context';
 import { Alert } from '@navikt/ds-react';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';

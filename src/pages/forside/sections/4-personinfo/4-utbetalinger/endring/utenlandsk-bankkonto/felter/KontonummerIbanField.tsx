@@ -1,10 +1,10 @@
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
-import { useIntlFormatter } from 'hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { isValidIBAN } from 'ibantools';
 import { harValgtUSA } from '../../utils';
-import { isIBANCountryCompliant, isLettersAndDigits } from 'utils/validators';
-import { LabelMedHjelpetekst } from 'components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
+import { isIBANCountryCompliant, isLettersAndDigits } from '@/utils/validators';
+import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
 import { TextField } from '@navikt/ds-react';
 
 interface Props {

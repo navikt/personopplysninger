@@ -1,6 +1,6 @@
 import { LinkIcon } from '@navikt/aksel-icons';
 import { Link } from '@navikt/ds-react';
-import { useIntlFormatter } from 'hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 
 type Props = {
     id: string;

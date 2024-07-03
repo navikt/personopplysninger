@@ -1,8 +1,8 @@
-import jobbsok from 'assets/img/LedigeStillinger.svg';
-import pensjon from 'assets/img/Pensjon.svg';
-import utbetalinger from 'assets/img/Utbetalinger.svg';
-import sykefravaer from 'assets/img/Sykepenger.svg';
-import dineSaker from 'assets/img/DineSaker.svg';
+import jobbsok from '@/assets/img/LedigeStillinger.svg';
+import pensjon from '@/assets/img/Pensjon.svg';
+import utbetalinger from '@/assets/img/Utbetalinger.svg';
+import sykefravaer from '@/assets/img/Sykepenger.svg';
+import dineSaker from '@/assets/img/DineSaker.svg';
 
 const { REACT_APP_UTBETALINGSOVERSIKT_URL, REACT_APP_SYKEFRAVAER_URL, REACT_APP_DINE_SAKER_URL } = process.env;
 

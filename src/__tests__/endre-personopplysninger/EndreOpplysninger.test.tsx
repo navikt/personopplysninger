@@ -5,7 +5,7 @@ import nbMessages from 'text/nb';
 import EndreOpplysningerView from '../../pages/endre-personopplysninger/EndreOpplysningerView';
 import { Adresser } from '../../types/adresser';
 import { Personalia } from '../../types/personalia';
-import { StoreProvider } from 'store/Context';
+import { StoreProvider } from '@/store/Context';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 

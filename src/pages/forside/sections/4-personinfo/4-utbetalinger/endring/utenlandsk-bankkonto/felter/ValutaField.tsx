@@ -1,4 +1,4 @@
-import SelectValuta from 'components/felter/select-kodeverk/SelectValuta';
+import SelectValuta from '@/components/felter/select-kodeverk/SelectValuta';
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
 import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';

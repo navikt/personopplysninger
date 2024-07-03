@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
-import { fetchMedlInfo } from 'clients/apiClient';
-import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
-import { useStore } from 'store/Context';
-import Spinner from 'components/spinner/Spinner';
+import { fetchMedlInfo } from '@/clients/apiClient';
+import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
+import { useStore } from '@/store/Context';
+import Spinner from '@/components/spinner/Spinner';
 import { MedlInfo } from '../../types/medl';
 
 export type FetchMedlInfo = { status: 'LOADING' } | { status: 'RESULT'; data: MedlInfo } | { status: 'ERROR'; error: HTTPError };

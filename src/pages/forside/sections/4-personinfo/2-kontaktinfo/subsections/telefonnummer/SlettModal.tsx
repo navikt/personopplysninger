@@ -1,6 +1,6 @@
 import { BodyShort, Button, Heading, Modal } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
-import HttpFeilmelding, { Feilmelding } from 'components/httpFeilmelding/HttpFeilmelding';
+import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
 
 interface Props {
     lukkSlettModal: () => void;

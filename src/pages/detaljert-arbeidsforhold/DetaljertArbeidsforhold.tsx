@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { DetaljertArbeidsforhold } from '@navikt/arbeidsforhold';
 import { useIntl } from 'react-intl';
-import arbeidsforholdIkon from 'assets/img/Arbeidsforhold.svg';
-import PageContainer from 'components/pagecontainer/PageContainer';
+import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
+import PageContainer from '@/components/pagecontainer/PageContainer';
 import { Params, useParams } from 'react-router-dom';
 import { useStore } from '../../store/Context';
 import { Locale } from '../../store/Store';

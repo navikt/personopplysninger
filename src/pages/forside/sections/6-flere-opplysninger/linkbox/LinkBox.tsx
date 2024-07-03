@@ -1,5 +1,5 @@
 import { FormattedMessage } from 'react-intl';
-import Icon from 'components/icon/Icon';
+import Icon from '@/components/icon/Icon';
 import { Link } from 'react-router-dom';
 import { BodyLong, Label } from '@navikt/ds-react';
 import { ChevronRightIcon } from '@navikt/aksel-icons';

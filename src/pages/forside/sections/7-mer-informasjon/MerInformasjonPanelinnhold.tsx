@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { useStore } from 'store/Context';
+import { useStore } from '@/store/Context';
 import { BodyLong, Link } from '@navikt/ds-react';
 
 interface Props {

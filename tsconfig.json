@@ -10,11 +10,13 @@
         "forceConsistentCasingInFileNames": true,
         "module": "esnext",
         "moduleResolution": "node",
-        "baseUrl": "src",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "noEmit": true,
-        "jsx": "preserve"
+        "jsx": "preserve",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
     },
     "include": ["src"]
 }

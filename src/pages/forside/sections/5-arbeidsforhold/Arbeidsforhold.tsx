@@ -1,9 +1,9 @@
-import Box from 'components/box/Box';
+import Box from '@/components/box/Box';
 import { ListeMedArbeidsforhold, AFListeOnClick } from '@navikt/arbeidsforhold';
-import arbeidsforholdIkon from 'assets/img/Arbeidsforhold.svg';
+import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
-import Kilde from 'components/kilde/Kilde';
+import Kilde from '@/components/kilde/Kilde';
 import { useStore } from '../../../../store/Context';
 import { Locale } from '../../../../store/Store';
 import { Alert } from '@navikt/ds-react';

@@ -1,10 +1,10 @@
-import Box from 'components/box/Box';
-import dittNavKontorIkon from 'assets/img/DittNavKontor.svg';
+import Box from '@/components/box/Box';
+import dittNavKontorIkon from '@/assets/img/DittNavKontor.svg';
 import { EnhetKontaktInfo } from 'types/enhetKontaktInfo';
 import { FormattedMessage } from 'react-intl';
-import ListElement from 'components/listelement/ListElement';
-import Kilde from 'components/kilde/Kilde';
-import { useStore } from 'store/Context';
+import ListElement from '@/components/listelement/ListElement';
+import Kilde from '@/components/kilde/Kilde';
+import { useStore } from '@/store/Context';
 import { BodyShort, Label, Link } from '@navikt/ds-react';
 import { Reception } from '@navikt/nav-office-reception-info';
 

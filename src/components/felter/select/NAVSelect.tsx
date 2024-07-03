@@ -3,7 +3,7 @@ import Select, { ActionMeta, components, MultiValue, OptionProps, SingleValue } 
 import { useIntl } from 'react-intl';
 import cls from 'classnames';
 import { FormatOptionLabelMeta } from 'react-select/base';
-import { RADIX_DECIMAL } from 'utils/formattering';
+import { RADIX_DECIMAL } from '@/utils/formattering';
 import { HTTPError } from '../../errorMessage/ErrorMessage';
 import { Label, Loader, TextField } from '@navikt/ds-react';
 import { ChevronDownIcon } from '@navikt/aksel-icons';

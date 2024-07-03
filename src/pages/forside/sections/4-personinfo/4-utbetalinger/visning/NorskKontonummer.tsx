@@ -1,4 +1,4 @@
-import ListElement from 'components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { formatterKontonr } from '../utils';
 import { Liste } from '../../../../../../components/listelement/Liste';
 

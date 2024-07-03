@@ -1,4 +1,4 @@
-import ListElement from 'components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
 import FileSaver from 'file-saver';
 import { DsopInfo } from '../../../types/dsop';

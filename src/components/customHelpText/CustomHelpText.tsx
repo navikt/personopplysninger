@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { useIntlFormatter } from 'hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { Button, HelpTextProps, Popover } from '@navikt/ds-react';
 import { QuestionmarkIcon } from '@navikt/aksel-icons';
 import classNames from 'classnames';

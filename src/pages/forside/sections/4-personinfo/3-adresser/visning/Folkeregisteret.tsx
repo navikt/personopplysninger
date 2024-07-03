@@ -1,4 +1,4 @@
-import Kilde from 'components/kilde/Kilde';
+import Kilde from '@/components/kilde/Kilde';
 import { FormattedMessage } from 'react-intl';
 import { Bostedsadresse as IBostedsadresse } from '../../../../../../types/adresser/bostedsadresse';
 import { DeltBosted as IDeltBosted } from '../../../../../../types/adresser/deltbosted';

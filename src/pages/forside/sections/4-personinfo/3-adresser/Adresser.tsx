@@ -1,7 +1,7 @@
 import { Adresser as IAdresser } from 'types/adresser';
-import Box from 'components/box/Box';
-import adresseIkon from 'assets/img/Adresse.svg';
-import driftsmeldinger from 'driftsmeldinger';
+import Box from '@/components/box/Box';
+import adresseIkon from '@/assets/img/Adresse.svg';
+import driftsmeldinger from '@/driftsmeldinger';
 import Folkeregisteret from './visning/Folkeregisteret';
 import AndreAdresser from './visning/AndreAdresser';
 import { Alert } from '@navikt/ds-react';
