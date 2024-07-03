@@ -58,7 +58,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
     useEffect(() => {
         const baseBreadcrumbs = [
             {
-                url: `${process.env.REACT_APP_DITT_NAV_URL}`,
+                url: `${import.meta.env.VITE_DITT_NAV_URL}`,
                 title: formatMessage({ id: 'brodsmulesti.minside' }),
             },
             {

@@ -7,7 +7,7 @@ import { Params, useParams } from 'react-router-dom';
 import { useStore } from '../../store/Context';
 import { Locale } from '../../store/Store';
 
-const miljo = process.env.REACT_APP_MILJO?.toUpperCase() as 'LOCAL' | 'DEV' | 'PROD';
+const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'LOCAL' | 'DEV' | 'PROD';
 
 interface Routes {
     id: string;

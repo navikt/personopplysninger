@@ -4,7 +4,7 @@ import utbetalinger from '@/assets/img/Utbetalinger.svg';
 import sykefravaer from '@/assets/img/Sykepenger.svg';
 import dineSaker from '@/assets/img/DineSaker.svg';
 
-const { REACT_APP_UTBETALINGSOVERSIKT_URL, REACT_APP_SYKEFRAVAER_URL, REACT_APP_DINE_SAKER_URL } = process.env;
+const { VITE_UTBETALINGSOVERSIKT_URL, VITE_SYKEFRAVAER_URL, VITE_DINE_SAKER_URL } = import.meta.env;
 
 export default (locale: string) => [
     {
@@ -12,7 +12,7 @@ export default (locale: string) => [
         tittel: 'lenker.dokumentarkiv.tittel',
         beskrivelse: 'lenker.dokumentarkiv.beskrivelse',
         lenkeTekst: 'lenker.dokumentarkiv.lenkeTekst',
-        url: `${REACT_APP_DINE_SAKER_URL}${locale === 'en' ? '?lang=en' : ''}`,
+        url: `${VITE_DINE_SAKER_URL}${locale === 'en' ? '?lang=en' : ''}`,
         icon: dineSaker,
     },
     {
@@ -20,7 +20,7 @@ export default (locale: string) => [
         tittel: 'lenker.utbetalinger.tittel',
         beskrivelse: 'lenker.utbetalinger.beskrivelse',
         lenkeTekst: 'lenker.utbetalinger.lenkeTekst',
-        url: REACT_APP_UTBETALINGSOVERSIKT_URL,
+        url: VITE_UTBETALINGSOVERSIKT_URL,
         icon: utbetalinger,
     },
     {
@@ -28,7 +28,7 @@ export default (locale: string) => [
         tittel: 'lenker.sykefravaer.tittel',
         beskrivelse: 'lenker.sykefravaer.beskrivelse',
         lenkeTekst: 'lenker.sykefravaer.lenkeTekst',
-        url: REACT_APP_SYKEFRAVAER_URL,
+        url: VITE_SYKEFRAVAER_URL,
         icon: sykefravaer,
     },
     {
