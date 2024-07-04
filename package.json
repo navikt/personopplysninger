@@ -9,11 +9,6 @@
         "resetMocks": false
     },
     "scripts": {
-        "docker-build": "docker build . -t personopplysninger",
-        "docker-start": "docker run --name personopplysninger -p 8080:8080 -t -d personopplysninger",
-        "docker-kill": "npm run docker-stop && npm run docker-rm",
-        "docker-rm": "docker rm personopplysninger",
-        "docker-stop": "docker stop personopplysninger",
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
         "start:ts": "vite",
@@ -23,8 +18,6 @@
         "build:js": "vite build",
         "build:css": "less-watch-compiler --run-once",
         "test": "vite test --watchAll=false --transformIgnorePatterns \"node_modules/(?!@navikt)/\"",
-        "preversion": "npm test && npm run build",
-        "postversion": "git push && git push --tags",
         "analyze": "source-map-explorer 'build/static/js/*.js'"
     },
     "dependencies": {
