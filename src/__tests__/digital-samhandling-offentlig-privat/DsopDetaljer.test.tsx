@@ -1,9 +1,8 @@
-import '@testing-library/jest-dom';
-import DsopDetaljerView from '../../pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerView';
-import dsopInfo from '../../clients/apiMock/app/fetch/dsop-info.json';
-import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
 import { render } from '@testing-library/react';
+import { IntlProvider } from 'react-intl';
+import DsopDetaljerView from '@/pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerView';
+import dsopInfo from '@/clients/apiMock/app/fetch/dsop-info.json';
+import nbMessages from '@/text/nb';
 
 describe('DsopDetaljerView', () => {
     it('renders correctly', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DittNavKontor renders correctly 1`] = `
+exports[`DittNavKontor > renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="box__wrapper"
@@ -15,7 +15,7 @@ exports[`DittNavKontor renders correctly 1`] = `
         <img
           alt=""
           class="box__ikon"
-          src="DittNavKontor.svg"
+          src="/src/assets/img/DittNavKontor.svg"
         />
       </div>
       <div
@@ -56,7 +56,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                 >
                   <path
                     clip-rule="evenodd"
-                    d="M12 5.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2.75 4a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v7.25H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-6.5H10a.75.75 0 0 1-.75-.75Z"
+                    d="M12 5.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2m-2.75 4a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 .75.75v7.25H14a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5h1.25v-6.5H10a.75.75 0 0 1-.75-.75"
                     fill="currentColor"
                     fill-rule="evenodd"
                   />
@@ -93,7 +93,7 @@ exports[`DittNavKontor renders correctly 1`] = `
                           Lukk
                         </title>
                         <path
-                          d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94 6.53 5.47Z"
+                          d="M6.53 5.47a.75.75 0 0 0-1.06 1.06L10.94 12l-5.47 5.47a.75.75 0 1 0 1.06 1.06L12 13.06l5.47 5.47a.75.75 0 1 0 1.06-1.06L13.06 12l5.47-5.47a.75.75 0 0 0-1.06-1.06L12 10.94z"
                           fill="currentColor"
                         />
                       </svg>
@@ -141,7 +141,7 @@ exports[`DittNavKontor renders correctly 1`] = `
               >
                 <path
                   clip-rule="evenodd"
-                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06l.879-.878Zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06l-1.085-1.086Z"
+                  d="M14.909 5.152a2.25 2.25 0 0 1 3.182 0l.757.757a2.25 2.25 0 0 1 0 3.182l-4.964 4.965a1.25 1.25 0 0 1-1.768 0L11.03 12.97a.75.75 0 1 0-1.06 1.06l1.085 1.086a2.75 2.75 0 0 0 3.89 0l4.964-4.964a3.75 3.75 0 0 0 0-5.304l-.757-.757-.53.53.53-.53a3.75 3.75 0 0 0-5.304 0l-.878.879a.75.75 0 0 0 1.06 1.06zm-1.964 3.732a2.75 2.75 0 0 0-3.89 0l-4.964 4.964a3.75 3.75 0 0 0 0 5.304l.513-.514-.513.514.757.757a3.75 3.75 0 0 0 5.304 0l.878-.879a.75.75 0 0 0-1.06-1.06l-.879.878a2.25 2.25 0 0 1-3.182 0l-.757-.757a2.25 2.25 0 0 1 0-3.182l4.964-4.965a1.25 1.25 0 0 1 1.768 0l1.086 1.086a.75.75 0 0 0 1.06-1.06z"
                   fill="currentColor"
                   fill-rule="evenodd"
                 />
@@ -170,8 +170,6 @@ exports[`DittNavKontor renders correctly 1`] = `
           </p>
           <div
             class="navds-tabs _officeTabs_1uiec_1 navds-tabs--medium"
-            data-orientation="horizontal"
-            dir="ltr"
           >
             <div
               class="navds-tabs__tablist-wrapper"
@@ -179,37 +177,37 @@ exports[`DittNavKontor renders correctly 1`] = `
               <div
                 aria-orientation="horizontal"
                 class="navds-tabs__tablist"
-                data-orientation="horizontal"
                 role="tablist"
-                style="outline: none;"
-                tabindex="0"
               >
                 <button
-                  aria-controls="radix-:r6:-content-halden"
+                  aria-controls="tabs-r6--tabpanel-halden"
                   aria-selected="true"
                   class="navds-tabs__tab navds-tabs__tab--medium navds-tabs__tab-icon--left"
-                  data-orientation="horizontal"
-                  data-radix-collection-item=""
+                  data-index="0"
                   data-state="active"
-                  id="radix-:r6:-trigger-halden"
+                  id="tabs-r6--tab-halden"
                   role="tab"
-                  tabindex="-1"
+                  tabindex="0"
                   type="button"
                 >
                   <span
                     class="navds-tabs__tab-inner navds-body-short navds-body-short--medium"
                   >
-                    Halden
+                    <span
+                      aria-hidden="true"
+                    />
+                    <span>
+                      Halden
+                    </span>
                   </span>
                 </button>
                 <button
-                  aria-controls="radix-:r6:-content-aremark"
+                  aria-controls="tabs-r6--tabpanel-aremark"
                   aria-selected="false"
                   class="navds-tabs__tab navds-tabs__tab--medium navds-tabs__tab-icon--left"
-                  data-orientation="horizontal"
-                  data-radix-collection-item=""
+                  data-index="1"
                   data-state="inactive"
-                  id="radix-:r6:-trigger-aremark"
+                  id="tabs-r6--tab-aremark"
                   role="tab"
                   tabindex="-1"
                   type="button"
@@ -217,19 +215,22 @@ exports[`DittNavKontor renders correctly 1`] = `
                   <span
                     class="navds-tabs__tab-inner navds-body-short navds-body-short--medium"
                   >
-                    Aremark
+                    <span
+                      aria-hidden="true"
+                    />
+                    <span>
+                      Aremark
+                    </span>
                   </span>
                 </button>
               </div>
             </div>
             <div
-              aria-labelledby="radix-:r6:-trigger-halden"
+              aria-labelledby="tabs-r6--tab-halden"
               class="navds-tabs__tabpanel _singleTab_1uiec_25"
-              data-orientation="horizontal"
               data-state="active"
-              id="radix-:r6:-content-halden"
+              id="tabs-r6--tabpanel-halden"
               role="tabpanel"
-              style="animation-duration: 0s;"
               tabindex="0"
             >
               <div
@@ -414,12 +415,11 @@ exports[`DittNavKontor renders correctly 1`] = `
               </div>
             </div>
             <div
-              aria-labelledby="radix-:r6:-trigger-aremark"
+              aria-labelledby="tabs-r6--tab-aremark"
               class="navds-tabs__tabpanel _singleTab_1uiec_25"
-              data-orientation="horizontal"
               data-state="inactive"
               hidden=""
-              id="radix-:r6:-content-aremark"
+              id="tabs-r6--tabpanel-aremark"
               role="tabpanel"
               tabindex="0"
             />

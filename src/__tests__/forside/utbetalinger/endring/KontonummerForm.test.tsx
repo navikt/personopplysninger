@@ -1,14 +1,15 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import KontonummerForm from '../../../../pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
+import userEvent from '@testing-library/user-event';
+import createFetchMock from 'vitest-fetch-mock';
 import { IntlProvider } from 'react-intl';
-import nbMessages from '../../../../text/nb';
-import { StoreProvider } from '../../../../store/Context';
+import KontonummerForm from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
+import nbMessages from '@/text/nb';
+import { StoreProvider } from '@/store/Context';
+
+const fetchMocker = createFetchMock(vi);
 
 import land from './land.json';
 import valutaer from './valutaer.json';
-import fetch, { enableFetchMocks } from 'jest-fetch-mock';
-import userEvent from '@testing-library/user-event';
 
 const IDENT = '04918399092';
 
@@ -24,9 +25,7 @@ const ADRESSELINJE1 = 'Adresselinje 1';
 const ADRESSELINJE2 = 'Adresselinje 2';
 const ADRESSELINJE3 = 'Adresselinje 3';
 
-const mockSubmit = jest.fn();
-
-enableFetchMocks();
+const mockSubmit = vi.fn();
 
 describe('Norsk bankkonto', () => {
     beforeEach(() => {
@@ -449,12 +448,7 @@ const commonSetup = () => {
     render(
         <StoreProvider>
             <IntlProvider locale={'nb'} messages={nbMessages}>
-                <KontonummerForm
-                    settOpprettEllerEndre={jest.fn()}
-                    settSuccess={jest.fn()}
-                    personident={{ type: '', verdi: IDENT }}
-                    submit={mockSubmit}
-                />
+                <KontonummerForm settOpprettEllerEndre={vi.fn()} personident={{ type: '', verdi: IDENT }} submit={mockSubmit} />
             </IntlProvider>
         </StoreProvider>
     );
@@ -469,9 +463,10 @@ const setupNorskBankkonto = () => {
 const setupUtenlandskBankkonto = async () => {
     commonSetup();
 
-    fetch.resetMocks();
-    fetch.mockResponseOnce(JSON.stringify(land));
-    fetch.mockResponseOnce(JSON.stringify(valutaer));
+    fetchMocker.enableMocks();
+    fetchMocker.resetMocks();
+    fetchMocker.mockResponseOnce(JSON.stringify(land));
+    fetchMocker.mockResponseOnce(JSON.stringify(valutaer));
 
     await selectRadio('Utenlandsk kontonummer');
 };

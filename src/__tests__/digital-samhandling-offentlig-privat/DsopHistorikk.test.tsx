@@ -1,11 +1,10 @@
-import '@testing-library/jest-dom';
-import dsopInfo from '../../clients/apiMock/app/fetch/dsop-info.json';
 import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
-import DsopHistorikkView from '../../pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView';
 import { render } from '@testing-library/react';
+import dsopInfo from '@/clients/apiMock/app/fetch/dsop-info.json';
+import nbMessages from '@/text/nb';
+import DsopHistorikkView from '@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView';
 
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
     Link: () => <div />,
     useLocation: () => ({
         pathname: 'pathname',

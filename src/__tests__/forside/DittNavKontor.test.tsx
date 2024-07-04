@@ -1,13 +1,12 @@
-import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
-import personInfo from '../../clients/apiMock/app/fetch/person-info.json';
-import { StoreProvider } from '../../store/Context';
-import DittNavKontor from '../../pages/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontor';
-import { EnhetKontaktInfo } from '../../types/enhetKontaktInfo';
+import nbMessages from '@/text/nb';
+import personInfo from '@/clients/apiMock/app/fetch/person-info.json';
+import { StoreProvider } from '@/store/Context';
+import DittNavKontor from '@/pages/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontor';
+import { EnhetKontaktInfo } from '@/types/enhetKontaktInfo';
 import { render } from '@testing-library/react';
 
-jest.mock('react-modal');
+vi.mock('react-modal');
 
 describe('DittNavKontor', () => {
     it('renders correctly', () => {

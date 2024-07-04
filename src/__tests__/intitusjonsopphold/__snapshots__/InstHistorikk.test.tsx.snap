@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InstHistorikkView renders correctly 1`] = `
+exports[`InstHistorikkView > renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="navds-alert navds-alert--info navds-alert--medium"
@@ -23,13 +23,13 @@ exports[`InstHistorikkView renders correctly 1`] = `
       </title>
       <path
         clip-rule="evenodd"
-        d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+        d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75zM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0m-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75"
         fill="currentColor"
         fill-rule="evenodd"
       />
     </svg>
     <div
-      class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+      class="navds-alert__wrapper navds-alert__wrapper--maxwidth navds-body-long navds-body-long--medium"
     >
       Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å 
       <a
@@ -123,7 +123,7 @@ exports[`InstHistorikkView renders correctly 1`] = `
                 >
                   <path
                     clip-rule="evenodd"
-                    d="M9.75 9A2.25 2.25 0 0 1 12 6.75h.172a2.078 2.078 0 0 1 1.47 3.548l-1 1a4.75 4.75 0 0 0-1.392 3.359.75.75 0 0 0 1.5 0c0-.862.342-1.689.952-2.298l1-1a3.579 3.579 0 0 0-2.53-6.109H12A3.75 3.75 0 0 0 8.25 9v.5a.75.75 0 0 0 1.5 0V9ZM12 16.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"
+                    d="M9.75 9A2.25 2.25 0 0 1 12 6.75h.172a2.078 2.078 0 0 1 1.47 3.548l-1 1a4.75 4.75 0 0 0-1.392 3.359.75.75 0 0 0 1.5 0c0-.862.342-1.689.952-2.298l1-1a3.579 3.579 0 0 0-2.53-6.109H12A3.75 3.75 0 0 0 8.25 9v.5a.75.75 0 0 0 1.5 0zM12 16.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
                     fill="currentColor"
                     fill-rule="evenodd"
                   />
@@ -133,8 +133,9 @@ exports[`InstHistorikkView renders correctly 1`] = `
             <div
               aria-hidden="true"
               class="navds-popover customHelpText__popover navds-popover--hidden"
+              data-index="0"
               data-placement="top"
-              style="position: absolute; top: 0px; left: 0px;"
+              style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
             >
               <div
                 class="navds-popover__content"
