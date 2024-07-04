@@ -1,4 +1,4 @@
-import { MedlInnslag } from 'types/medl';
+import { MedlInnslag } from '@/types/medl';
 import { FormattedMessage } from 'react-intl';
 import Periode from './Periode';
 import { Accordion, BodyLong } from '@navikt/ds-react';

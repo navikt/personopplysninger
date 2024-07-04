@@ -1,6 +1,6 @@
 import Box from '@/components/box/Box';
 import kontonummerIkon from '@/assets/img/Kontonummer.svg';
-import { UtenlandskBankkonto } from 'types/personalia';
+import { UtenlandskBankkonto } from '@/types/personalia';
 import NorskKontonummer from './visning/NorskKontonummer';
 import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage, useIntl } from 'react-intl';

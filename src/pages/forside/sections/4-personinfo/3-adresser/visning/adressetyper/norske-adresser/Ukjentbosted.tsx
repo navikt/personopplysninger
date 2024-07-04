@@ -1,4 +1,4 @@
-import { Ukjentbosted as UkjentbostedType } from 'types/adresser/adresse';
+import { Ukjentbosted as UkjentbostedType } from '@/types/adresser/adresse';
 import { BodyShort } from '@navikt/ds-react';
 
 const Ukjentbosted = (props: UkjentbostedType) => {

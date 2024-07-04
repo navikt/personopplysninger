@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { fetchDsopInfo } from '@/clients/apiClient';
 import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
 import { useStore } from '@/store/Context';
-import { DsopInfo } from 'types/dsop';
+import { DsopInfo } from '@/types/dsop';
 import Spinner from '@/components/spinner/Spinner';
 
 export type FetchDsopInfo = { status: 'LOADING' } | { status: 'RESULT'; data: DsopInfo } | { status: 'ERROR'; error: HTTPError };

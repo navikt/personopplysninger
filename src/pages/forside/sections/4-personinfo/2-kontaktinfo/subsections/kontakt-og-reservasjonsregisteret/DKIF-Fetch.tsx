@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
 import Spinner from '@/components/spinner/Spinner';
 import { fetchKontaktInfo } from '@/clients/apiClient';
-import { KontaktInfo } from 'types/kontaktInfo';
+import { KontaktInfo } from '@/types/kontaktInfo';
 import KontaktInformasjon from './DKIF';
 import { useStore } from '@/store/Context';
 

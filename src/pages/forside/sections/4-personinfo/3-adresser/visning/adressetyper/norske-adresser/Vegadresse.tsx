@@ -1,5 +1,5 @@
 import Postnummer from '../../../komponenter/Postnummer';
-import { Vegadresse as VegadresseType } from 'types/adresser/adresse';
+import { Vegadresse as VegadresseType } from '@/types/adresser/adresse';
 import { BodyShort } from '@navikt/ds-react';
 
 const Vegadresse = (props: VegadresseType) => {

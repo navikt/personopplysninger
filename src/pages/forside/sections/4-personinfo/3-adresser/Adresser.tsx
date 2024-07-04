@@ -1,4 +1,4 @@
-import { Adresser as IAdresser } from 'types/adresser';
+import { Adresser as IAdresser } from '@/types/adresser';
 import Box from '@/components/box/Box';
 import adresseIkon from '@/assets/img/Adresse.svg';
 import driftsmeldinger from '@/driftsmeldinger';

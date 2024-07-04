@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Kilde from '@/components/kilde/Kilde';
 import { FormattedMessage } from 'react-intl';
-import { Kontaktadresse as IKontaktadresse } from 'types/adresser/kontaktadresse';
-import { Oppholdsadresse as IOppholdsadresse } from 'types/adresser/oppholdsadresse';
+import { Kontaktadresse as IKontaktadresse } from '@/types/adresser/kontaktadresse';
+import { Oppholdsadresse as IOppholdsadresse } from '@/types/adresser/oppholdsadresse';
 import Adresse from './Adresse';
 import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
 import { fetchPersonInfo, slettKontaktadresse } from '@/clients/apiClient';
-import { PersonInfo } from 'types/personInfo';
+import { PersonInfo } from '@/types/personInfo';
 import { useStore } from '@/store/Context';
 import { BodyShort, Button, Heading, Modal } from '@navikt/ds-react';
 import { TrashIcon } from '@navikt/aksel-icons';

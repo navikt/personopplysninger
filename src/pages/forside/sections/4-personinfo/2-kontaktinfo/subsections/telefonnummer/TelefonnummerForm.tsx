@@ -2,7 +2,7 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { useState } from 'react';
 import { fetchPersonInfo, postTlfnummer } from '@/clients/apiClient';
 import SelectLandskode from '@/components/felter/select-kodeverk/SelectLandskode';
-import { PersonInfo } from 'types/personInfo';
+import { PersonInfo } from '@/types/personInfo';
 import { useStore } from '@/store/Context';
 import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
 import { Tlfnr } from '../../../../../../../types/personalia';

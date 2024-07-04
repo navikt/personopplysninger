@@ -1,4 +1,4 @@
-import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from 'types/adresser/adresse';
+import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from '@/types/adresser/adresse';
 import GateAdresse from '../../../komponenter/GateAdresse';
 import { BodyShort } from '@navikt/ds-react';
 

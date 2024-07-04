@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { Tlfnr } from 'types/personalia';
+import { Tlfnr } from '@/types/personalia';
 import Kilde from '@/components/kilde/Kilde';
 import Telefonnummer from './Telefonnummer';
 import TelefonnummerForm from './TelefonnummerForm';

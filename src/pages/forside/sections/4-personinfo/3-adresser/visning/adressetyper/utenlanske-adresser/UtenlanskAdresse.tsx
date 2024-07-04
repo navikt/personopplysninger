@@ -1,4 +1,4 @@
-import { UtenlandskAdresse as UtenlandskAdresseType } from 'types/adresser/adresse';
+import { UtenlandskAdresse as UtenlandskAdresseType } from '@/types/adresser/adresse';
 import { BodyShort } from '@navikt/ds-react';
 
 const UtenlanskAdresse = (props: UtenlandskAdresseType) => {

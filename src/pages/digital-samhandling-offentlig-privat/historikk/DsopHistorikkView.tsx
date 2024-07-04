@@ -1,5 +1,5 @@
 import { Fragment, useState } from 'react';
-import { DsopInfo } from 'types/dsop';
+import { DsopInfo } from '@/types/dsop';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link as ReactLink, useLocation } from 'react-router-dom';
 import { Alert, Label, Link } from '@navikt/ds-react';

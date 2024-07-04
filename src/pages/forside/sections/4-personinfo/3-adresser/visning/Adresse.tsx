@@ -6,7 +6,7 @@ import UtenlanskAdresse from './adressetyper/utenlanske-adresser/UtenlanskAdress
 import AdressePanel from '../komponenter/AdressePanel';
 import Matrikkeladresse from './adressetyper/norske-adresser/Matrikkeladresse';
 import Ukjentbosted from './adressetyper/norske-adresser/Ukjentbosted';
-import { Adresse as IAdresse } from 'types/adresser/adresse';
+import { Adresse as IAdresse } from '@/types/adresser/adresse';
 import { FormattedMessage } from 'react-intl';
 import dayjs from 'dayjs';
 

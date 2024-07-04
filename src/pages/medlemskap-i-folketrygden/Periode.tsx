@@ -1,4 +1,4 @@
-import { MedlInnslag } from 'types/medl';
+import { MedlInnslag } from '@/types/medl';
 import { FormattedMessage } from 'react-intl';
 import ListElement from '../../components/listelement/ListElement';
 import { BodyLong } from '@navikt/ds-react';
