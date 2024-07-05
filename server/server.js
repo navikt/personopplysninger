@@ -2,10 +2,9 @@ const express = require('express');
 const logger = require('./logger');
 const path = require('path');
 const compression = require('compression');
-const ENV = process.env.NODE_ENV;
-const ENV_LOCAL = '.env';
-if (ENV !== 'production') {
-    require('dotenv').config(ENV_LOCAL);
+const localEnvFile = '.env';
+if (process.env.NODE_ENV !== 'local') {
+    require('dotenv').config(localEnvFile);
 }
 const getHtmlWithDecorator = require('./dekorator');
 const buildPath = path.resolve(__dirname, '../build');

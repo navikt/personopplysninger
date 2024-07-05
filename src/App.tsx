@@ -20,7 +20,7 @@ import { basePath } from './constants';
 import '@navikt/ds-css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
-if (import.meta.env.VITE_ENV !== 'LOCAL') {
+if (import.meta.env.VITE_ENV !== 'local') {
     initializeFaro({
         url: import.meta.env.VITE_TELEMETRY_URL,
         app: {

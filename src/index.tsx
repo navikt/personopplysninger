@@ -5,7 +5,7 @@ import WithLanguages from './store/providers/Language';
 import App from './App';
 
 const init = async () => {
-    if (import.meta.env.VITE_ENV === 'LOCAL') {
+    if (import.meta.env.VITE_ENV === 'local') {
         await import('./clients/apiMock').then(({ setUpMock }) => setUpMock());
         injectDecoratorClientSide({
             env: 'localhost',

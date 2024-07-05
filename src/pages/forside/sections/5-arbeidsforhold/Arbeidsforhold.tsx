@@ -9,7 +9,7 @@ import { Locale } from '../../../../store/Store';
 import { Alert } from '@navikt/ds-react';
 import { basePath } from '../../../../constants';
 
-const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'LOCAL' | 'DEV' | 'PROD';
+const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'local' | 'dev' | 'prod';
 
 const Arbeidsforhold = () => {
     const { locale } = useIntl();
