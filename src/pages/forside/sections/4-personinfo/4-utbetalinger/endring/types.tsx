@@ -1,4 +1,4 @@
-import { OptionType } from '../../../../../../types/option';
+import { OptionType } from '@/types/option';
 
 export interface OutboundNorskKontonummer {
     value: string;

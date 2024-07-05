@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { FormattedMessage, useIntl } from 'react-intl';
-import ListElement from '../../../../../../components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { Heading, ReadMore } from '@navikt/ds-react';
 
 interface Props {

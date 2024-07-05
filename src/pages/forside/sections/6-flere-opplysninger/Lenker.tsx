@@ -7,9 +7,9 @@ import FullmaktIkon from '@/assets/img/Fullmakt.svg';
 import SkjermingIkon from '@/assets/img/Skjerming.svg';
 import { FormattedMessage } from 'react-intl';
 import { useStore } from '@/store/Context';
-import { AnchorLink } from '../../../../components/anchorlink/AnchorLink';
+import { AnchorLink } from '@/components/anchorlink/AnchorLink';
 import { BodyLong, Box, Heading } from '@navikt/ds-react';
-import { basePath } from '../../../../constants';
+import { basePath } from '@/constants';
 
 const { VITE_PDL_URL, VITE_SKJERMING_URL } = import.meta.env;
 

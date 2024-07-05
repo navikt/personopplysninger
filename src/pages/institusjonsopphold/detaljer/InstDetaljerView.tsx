@@ -4,7 +4,7 @@ import { formatOrgnr, RADIX_DECIMAL } from '@/utils/formattering';
 import { InstInnslag } from '@/types/inst';
 import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
 import dayjs from 'dayjs';
-import { Liste } from '../../../components/listelement/Liste';
+import { Liste } from '@/components/listelement/Liste';
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;

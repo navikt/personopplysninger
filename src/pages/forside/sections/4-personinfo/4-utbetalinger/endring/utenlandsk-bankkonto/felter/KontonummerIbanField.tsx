@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormFields } from '../../types';
+import { FormFields } from '@/types';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { isValidIBAN } from 'ibantools';
 import { harValgtUSA } from '../../utils';

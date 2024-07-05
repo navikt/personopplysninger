@@ -3,8 +3,8 @@ import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage'
 import { useStore } from '@/store/Context';
 import { fetchPersonInfo } from '@/clients/apiClient';
 import { PersonInfo } from '@/types/personInfo';
-import Box from '../../components/box/Box';
-import personaliaIkon from '../../assets/img/Personalia.svg';
+import Box from '@/components/box/Box';
+import personaliaIkon from '@/assets/img/Personalia.svg';
 
 export type FetchPersonInfo = { status: 'LOADING' } | { status: 'RESULT'; data: PersonInfo } | { status: 'ERROR'; error: HTTPError };
 

@@ -9,7 +9,7 @@ import SlettModal from './SlettModal';
 import TelefonnummerForm from './TelefonnummerForm';
 import { BodyShort, Label } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
-import { formatTelefonnummer } from '../../../../../../../utils/formattering';
+import { formatTelefonnummer } from '@/utils/formattering';
 import { PencilIcon, TrashIcon } from '@navikt/aksel-icons';
 
 export interface OutboundTlfnummer {

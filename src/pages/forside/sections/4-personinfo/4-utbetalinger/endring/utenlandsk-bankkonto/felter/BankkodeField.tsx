@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormFields } from '../../types';
+import { FormFields } from '@/types';
 import { validerBankkode } from '../../utils';
 import { isBankkodeValidLength, isNumeric } from '@/utils/validators';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';

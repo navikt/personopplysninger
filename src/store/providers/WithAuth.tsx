@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useStore } from '../Context';
-import { fetchInnloggingsStatus, sendTilLogin } from '../../clients/apiClient';
-import { Auth } from '../../types/authInfo';
-import Spinner from '../../components/spinner/Spinner';
+import { fetchInnloggingsStatus, sendTilLogin } from '@/clients/apiClient';
+import { Auth } from '@/types/authInfo';
+import Spinner from '@/components/spinner/Spinner';
 
 type Props = {
     children: JSX.Element;

@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormFields } from '../../types';
+import { FormFields } from '@/types';
 import { hasMultipleCombinedSpaces, isBlacklistedCommon, isFirstCharNotSpace, isOnlyNonLetters, isValidBanknavn } from '@/utils/validators';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';

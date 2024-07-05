@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
 import WithInst from '../InstFetch';
 import PageContainer from '@/components/pagecontainer/PageContainer';
-import Kilde from '../../../components/kilde/Kilde';
+import Kilde from '@/components/kilde/Kilde';
 import InstDetaljerView from './InstDetaljerView';
 
 interface Routes {

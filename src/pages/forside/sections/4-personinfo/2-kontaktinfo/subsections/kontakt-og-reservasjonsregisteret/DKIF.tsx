@@ -1,11 +1,11 @@
 import { FormattedMessage } from 'react-intl';
+import { Alert } from '@navikt/ds-react';
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import ListElement from '@/components/listelement/ListElement';
 import { KontaktInfo } from '@/types/kontaktInfo';
 import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '../../../../../../../store/Context';
-import { Alert } from '@navikt/ds-react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import { Liste } from '../../../../../../../components/listelement/Liste';
+import { useStore } from '@/store/Context';
+import { Liste } from '@/components/listelement/Liste';
 
 interface Props {
     info: KontaktInfo;

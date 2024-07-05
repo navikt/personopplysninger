@@ -1,15 +1,15 @@
 import { FormattedMessage, useIntl } from 'react-intl';
 import { useState } from 'react';
+import { Button, TextField } from '@navikt/ds-react';
+import classNames from 'classnames';
+import { FieldValues, useForm } from 'react-hook-form';
 import { fetchPersonInfo, postTlfnummer } from '@/clients/apiClient';
 import SelectLandskode from '@/components/felter/select-kodeverk/SelectLandskode';
 import { PersonInfo } from '@/types/personInfo';
 import { useStore } from '@/store/Context';
 import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
-import { Tlfnr } from '../../../../../../../types/personalia';
-import { Button, TextField } from '@navikt/ds-react';
-import classNames from 'classnames';
-import { FieldValues, useForm } from 'react-hook-form';
-import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from '../../../../../../../utils/validators';
+import { Tlfnr } from '@/types/personalia';
+import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from '@/utils/validators';
 
 interface Props {
     prioritet: 1 | 2;

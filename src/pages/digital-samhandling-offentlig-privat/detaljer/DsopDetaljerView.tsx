@@ -1,10 +1,10 @@
 import ListElement from '@/components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
 import FileSaver from 'file-saver';
-import { DsopInfo } from '../../../types/dsop';
+import { DsopInfo } from '@/types/dsop';
 import { BodyShort, Button, Heading } from '@navikt/ds-react';
 import dayjs from 'dayjs';
-import { Liste } from '../../../components/listelement/Liste';
+import { Liste } from '@/components/listelement/Liste';
 
 interface Props {
     id: string;

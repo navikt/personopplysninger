@@ -12,7 +12,7 @@ import ValutaField from './felter/ValutaField';
 import BanknavnField from './felter/BanknavnField';
 import KontonummerIbanField from './felter/KontonummerIbanField';
 import { mapErrorsToSummary } from '@/utils/kontonummer';
-import { useIntlFormatter } from '../../../../../../../hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { useStore } from '@/store/Context';
 
 interface Props {

@@ -1,7 +1,7 @@
 import SelectLand from '@/components/felter/select-kodeverk/SelectLand';
 import { useFormContext } from 'react-hook-form';
 import { FormFields } from '../../types';
-import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 
 const BANKKODER: { [key: string]: string } = {
     US: 'FW',

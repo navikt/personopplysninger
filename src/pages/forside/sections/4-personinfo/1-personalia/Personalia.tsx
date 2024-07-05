@@ -3,9 +3,9 @@ import personaliaIkon from '@/assets/img/Personalia.svg';
 import { Personalia as PersonaliaType } from '@/types/personalia';
 import ListElement from '@/components/listelement/ListElement';
 import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '../../../../../store/Context';
+import { useStore } from '@/store/Context';
 import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import { Liste } from '../../../../../components/listelement/Liste';
+import { Liste } from '@/components/listelement/Liste';
 
 interface Props {
     personalia: PersonaliaType;

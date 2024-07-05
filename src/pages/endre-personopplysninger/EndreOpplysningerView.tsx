@@ -3,8 +3,8 @@ import Utbetalinger from '@/pages/forside/sections/4-personinfo/4-utbetalinger/U
 import Box from '@/components/box/Box';
 import kontaktIkon from '@/assets/img/Kontakt.svg';
 import TelefonnummerHosNav from '@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav';
-import { Personalia } from '../../types/personalia';
-import { Adresser } from '../../types/adresser';
+import { Personalia } from '@/types/personalia';
+import { Adresser } from '@/types/adresser';
 
 interface Props {
     personalia?: Personalia;

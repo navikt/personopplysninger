@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormFields } from '../../types';
+import { FormFields } from '@/types';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { validerBic } from '../../utils';
 import { isBICCountryCompliant, isLettersAndDigits } from '@/utils/validators';

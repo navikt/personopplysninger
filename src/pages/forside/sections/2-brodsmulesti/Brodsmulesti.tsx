@@ -7,7 +7,7 @@ import { onLanguageSelect } from '@navikt/nav-dekoratoren-moduler';
 import { onBreadcrumbClick } from '@navikt/nav-dekoratoren-moduler';
 import { useStore } from '@/store/Context';
 import { Locale } from '@/store/Store';
-import { basePath } from '../../../../constants';
+import { basePath } from '@/constants';
 
 export interface BrodsmuleLenke {
     title: string;

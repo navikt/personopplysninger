@@ -1,10 +1,10 @@
-import { logApiError } from '../utils/logger';
-import { OutboundTlfnummer } from '../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
-import { TPSResponse } from '../types/tps-response';
-import { Feilmelding } from '../components/httpFeilmelding/HttpFeilmelding';
-import { getLoginRedirectUrl } from '../utils/redirects';
-import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from '../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
-import { Locale } from '../store/Store';
+import { logApiError } from '@/utils/logger';
+import { OutboundTlfnummer } from '@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
+import { TPSResponse } from '@/types/tps-response';
+import { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
+import { getLoginRedirectUrl } from '@/utils/redirects';
+import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
+import { Locale } from '@/store/Store';
 
 const parseJson = (data: Response) => data.json();
 

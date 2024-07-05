@@ -7,8 +7,8 @@ import { FormattedMessage, useIntl } from 'react-intl';
 import { Alert } from '@navikt/ds-react';
 import driftsmeldinger from '@/driftsmeldinger';
 import { Link } from 'react-router-dom';
-import { useStore } from '../../../../../store/Context';
-import { basePath } from '../../../../../constants';
+import { useStore } from '@/store/Context';
+import { basePath } from '@/constants';
 
 const WarningMsg = () => {
     const { locale } = useIntl();

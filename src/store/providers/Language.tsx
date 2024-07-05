@@ -1,8 +1,8 @@
 import { IntlProvider } from 'react-intl';
-import nbMessages from '../../text/nb';
-import enMessages from '../../text/en';
-import nnMessages from '../../text/nn';
-import { useStore } from '../Context';
+import nbMessages from '@/text/nb';
+import enMessages from '@/text/en';
+import nnMessages from '@/text/nn';
+import { useStore } from '@/store/Context';
 
 const languages = {
     nb: nbMessages,
