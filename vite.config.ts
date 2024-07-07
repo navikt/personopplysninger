@@ -9,6 +9,7 @@ export default defineConfig(() => {
         build: {
             outDir: 'build',
             assetsInlineLimit: 0,
+            sourcemap: true,
         },
         base: isLocal ? '' : process.env.PUBLIC_URL,
         plugins: [react()],

@@ -15,7 +15,7 @@
         "build:js": "vite build",
         "build:css": "less-watch-compiler --run-once",
         "test": "vitest",
-        "analyze": "source-map-explorer 'build/static/js/*.js'"
+        "analyze": "npx vite-bundle-visualizer"
     },
     "dependencies": {
         "@grafana/faro-web-sdk": "1.4.1",
