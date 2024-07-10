@@ -3,7 +3,7 @@ const logger = require('./logger');
 const path = require('path');
 const compression = require('compression');
 const localEnvFile = '.env';
-if (process.env.NODE_ENV !== 'local') {
+if (process.env.VITE_ENV === 'local') {
     require('dotenv').config(localEnvFile);
 }
 const getHtmlWithDecorator = require('./dekorator');

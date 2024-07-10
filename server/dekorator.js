@@ -2,7 +2,7 @@ const { injectDecoratorServerSide } = require('@navikt/nav-dekoratoren-moduler/s
 
 const getHtmlWithDecorator = (filePath) =>
     injectDecoratorServerSide({
-        env: process.env.NODE_ENV,
+        env: process.env.VITE_ENV,
         filePath: filePath,
         params: {
             enforceLogin: false,

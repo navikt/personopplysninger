@@ -1,6 +1,6 @@
 FROM node:20-bullseye-slim
 # RUN apk add --no-cache bash
-ENV NODE_ENV prod
+ENV NODE_ENV production
 
 WORKDIR usr/src/app
 COPY server server/
