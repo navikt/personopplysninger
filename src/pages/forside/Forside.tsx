@@ -7,9 +7,9 @@ import MerInformasjon from './sections/7-mer-informasjon/MerInformasjon';
 import Header from './sections/3-header/Header';
 import Brodsmulesti from './sections/2-brodsmulesti/Brodsmulesti';
 import { Params, useParams } from 'react-router-dom';
-import RedirectKnapp from 'components/knapper/Redirect';
-import { smoothScrollToTarget } from '../../utils/scroll-to';
-import { useStore } from '../../store/Context';
+import RedirectKnapp from '@/components/knapper/Redirect';
+import { smoothScrollToTarget } from '@/utils/scroll-to';
+import { useStore } from '@/store/Context';
 
 interface Routes {
     tjeneste?: string;

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
-import PageContainer from 'components/pagecontainer/PageContainer';
-import INSTIkon from 'assets/img/Institusjonsopphold.svg';
+import PageContainer from '@/components/pagecontainer/PageContainer';
+import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
 import WithInst from '../InstFetch';
 import InstHistorikkView from './InstHistorikkView';
 

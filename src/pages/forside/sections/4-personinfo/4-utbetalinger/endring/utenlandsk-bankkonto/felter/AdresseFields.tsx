@@ -1,7 +1,6 @@
 import { useFormContext } from 'react-hook-form';
-import { FormFields } from '../../types';
-import { useIntlFormatter } from '../../../../../../../../hooks/useIntlFormatter';
-import { validerBankkode } from '../../utils';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
+import { Label, TextField } from '@navikt/ds-react';
 import {
     hasMultipleCombinedSpaces,
     isBlacklistedCommon,
@@ -9,8 +8,9 @@ import {
     isOnlyNonLetters,
     isOnlySignsSpace,
     isValidAdresselinje,
-} from '../../../../../../../../utils/validators';
-import { Label, TextField } from '@navikt/ds-react';
+} from '@/utils/validators';
+import { FormFields } from '../../types';
+import { validerBankkode } from '../../utils';
 
 const AdresseFields = () => {
     const { formatMessage } = useIntlFormatter();

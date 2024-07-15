@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Params, useParams } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import INSTIkon from 'assets/img/Institusjonsopphold.svg';
+import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
 import WithInst from '../InstFetch';
-import PageContainer from 'components/pagecontainer/PageContainer';
-import Kilde from '../../../components/kilde/Kilde';
+import PageContainer from '@/components/pagecontainer/PageContainer';
+import Kilde from '@/components/kilde/Kilde';
 import InstDetaljerView from './InstDetaljerView';
 
 interface Routes {

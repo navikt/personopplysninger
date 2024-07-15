@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { fetchInstInfo } from 'clients/apiClient';
-import ErrorMessage, { HTTPError } from 'components/errorMessage/ErrorMessage';
-import { useStore } from 'store/Context';
-import Spinner from 'components/spinner/Spinner';
-import { InstInfo } from 'types/inst';
+import { fetchInstInfo } from '@/clients/apiClient';
+import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
+import { useStore } from '@/store/Context';
+import Spinner from '@/components/spinner/Spinner';
+import { InstInfo } from '@/types/inst';
 
 export type FetchInstInfo = { status: 'LOADING' } | { status: 'RESULT'; data: InstInfo } | { status: 'ERROR'; error: HTTPError };
 

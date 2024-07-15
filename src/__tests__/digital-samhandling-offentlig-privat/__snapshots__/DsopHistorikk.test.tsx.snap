@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DsopHistorikkView renders correctly 1`] = `
+exports[`DsopHistorikkView > renders correctly 1`] = `
 <DocumentFragment>
   <div
     class="historikk__tabs-innhold historikk__flex-table"
@@ -29,13 +29,13 @@ exports[`DsopHistorikkView renders correctly 1`] = `
           </title>
           <path
             clip-rule="evenodd"
-            d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75V4ZM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75Z"
+            d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75zM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0m-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75"
             fill="currentColor"
             fill-rule="evenodd"
           />
         </svg>
         <div
-          class="navds-alert__wrapper navds-body-long navds-body-long--medium"
+          class="navds-alert__wrapper navds-alert__wrapper--maxwidth navds-body-long navds-body-long--medium"
         >
           Her kan du laste ned en logg med opplysninger NAV har gitt til forsikringsselskap eller pensjonsordninger. NAV kan utlevere opplysninger fordi du har gitt samtykke, eller fordi NAV har hjemmel i lov. NAV kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.
           <br />
@@ -93,7 +93,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         >
           <path
             clip-rule="evenodd"
-            d="M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06l5.5-5.5Z"
+            d="M11.47 7.97a.75.75 0 0 1 1.06 0l5.5 5.5a.75.75 0 1 1-1.06 1.06L12 9.56l-4.97 4.97a.75.75 0 0 1-1.06-1.06z"
             fill="currentColor"
             fill-rule="evenodd"
           />
@@ -162,7 +162,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         >
           <path
             clip-rule="evenodd"
-            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
             fill="currentColor"
             fill-rule="evenodd"
           />
@@ -189,7 +189,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         >
           <path
             clip-rule="evenodd"
-            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
             fill="currentColor"
             fill-rule="evenodd"
           />
@@ -216,7 +216,7 @@ exports[`DsopHistorikkView renders correctly 1`] = `
         >
           <path
             clip-rule="evenodd"
-            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06Z"
+            d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
             fill="currentColor"
             fill-rule="evenodd"
           />

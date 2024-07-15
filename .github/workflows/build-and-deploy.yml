@@ -11,46 +11,46 @@ on:
       appOrigin:
           required: true
           type: string
-      REACT_APP_VERSION:
+      VITE_BUILD_VERSION:
           required: true
           type: string
-      REACT_APP_DINE_SAKER_URL:
+      VITE_DINE_SAKER_URL:
           required: true
           type: string
-      REACT_APP_PDL_URL:
+      VITE_PDL_URL:
           required: true
           type: string
-      REACT_APP_SKJERMING_URL:
+      VITE_SKJERMING_URL:
           required: true
           type: string
-      REACT_APP_URL:
+      VITE_APP_URL:
           required: true
           type: string
-      REACT_APP_API_URL:
+      VITE_API_URL:
           required: true
           type: string
-      REACT_APP_DSOP_URL:
+      VITE_DSOP_URL:
           required: true
           type: string
-      REACT_APP_UTBETALINGSOVERSIKT_URL:
+      VITE_UTBETALINGSOVERSIKT_URL:
           required: true
           type: string
-      REACT_APP_SYKEFRAVAER_URL:
+      VITE_SYKEFRAVAER_URL:
           required: true
           type: string
-      REACT_APP_LOGIN_URL:
+      VITE_LOGIN_URL:
           required: true
           type: string
-      REACT_APP_DITT_NAV_URL:
+      VITE_DITT_NAV_URL:
           required: true
           type: string
-      REACT_APP_PENSJONSOPPTJENING_URL:
+      VITE_PENSJONSOPPTJENING_URL:
           required: true
           type: string
-      REACT_APP_INNLOGGINGSSTATUS_URL:
+      VITE_INNLOGGINGSSTATUS_URL:
           required: true
           type: string
-      REACT_APP_TELEMETRY_URL:
+      VITE_TELEMETRY_URL:
           required: true
           type: string
     secrets:
@@ -89,21 +89,21 @@ jobs:
           echo "PUBLIC_URL=https://cdn.nav.no/personbruker/personopplysninger/$(echo ${IMAGE_VERSION_RAW,,})/build" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
-          echo "REACT_APP_MILJO=${{ inputs.env }}" >> $GITHUB_ENV
-          echo "REACT_APP_VERSION=${{ inputs.REACT_APP_VERSION }}" >> $GITHUB_ENV
-          echo "REACT_APP_DINE_SAKER_URL=${{ inputs.REACT_APP_DINE_SAKER_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_PDL_URL=${{ inputs.REACT_APP_PDL_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_SKJERMING_URL=${{ inputs.REACT_APP_SKJERMING_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_URL=${{ inputs.REACT_APP_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_API_URL=${{ inputs.REACT_APP_API_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_DSOP_URL=${{ inputs.REACT_APP_DSOP_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_LOGIN_URL=${{ inputs.REACT_APP_LOGIN_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_DITT_NAV_URL=${{ inputs.REACT_APP_DITT_NAV_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_UTBETALINGSOVERSIKT_URL=${{ inputs.REACT_APP_UTBETALINGSOVERSIKT_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_SYKEFRAVAER_URL=${{ inputs.REACT_APP_SYKEFRAVAER_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_PENSJONSOPPTJENING_URL=${{ inputs.REACT_APP_PENSJONSOPPTJENING_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_INNLOGGINGSSTATUS_URL=${{ inputs.REACT_APP_INNLOGGINGSSTATUS_URL }}" >> $GITHUB_ENV
-          echo "REACT_APP_TELEMETRY_URL=${{ inputs.REACT_APP_TELEMETRY_URL }}" >> $GITHUB_ENV
+          echo "VITE_ENV=${{ inputs.env }}" >> $GITHUB_ENV
+          echo "VITE_BUILD_VERSION=${{ inputs.VITE_BUILD_VERSION }}" >> $GITHUB_ENV
+          echo "VITE_DINE_SAKER_URL=${{ inputs.VITE_DINE_SAKER_URL }}" >> $GITHUB_ENV
+          echo "VITE_PDL_URL=${{ inputs.VITE_PDL_URL }}" >> $GITHUB_ENV
+          echo "VITE_SKJERMING_URL=${{ inputs.VITE_SKJERMING_URL }}" >> $GITHUB_ENV
+          echo "VITE_APP_URL=${{ inputs.VITE_APP_URL }}" >> $GITHUB_ENV
+          echo "VITE_API_URL=${{ inputs.VITE_API_URL }}" >> $GITHUB_ENV
+          echo "VITE_DSOP_URL=${{ inputs.VITE_DSOP_URL }}" >> $GITHUB_ENV
+          echo "VITE_LOGIN_URL=${{ inputs.VITE_LOGIN_URL }}" >> $GITHUB_ENV
+          echo "VITE_DITT_NAV_URL=${{ inputs.VITE_DITT_NAV_URL }}" >> $GITHUB_ENV
+          echo "VITE_UTBETALINGSOVERSIKT_URL=${{ inputs.VITE_UTBETALINGSOVERSIKT_URL }}" >> $GITHUB_ENV
+          echo "VITE_SYKEFRAVAER_URL=${{ inputs.VITE_SYKEFRAVAER_URL }}" >> $GITHUB_ENV
+          echo "VITE_PENSJONSOPPTJENING_URL=${{ inputs.VITE_PENSJONSOPPTJENING_URL }}" >> $GITHUB_ENV
+          echo "VITE_INNLOGGINGSSTATUS_URL=${{ inputs.VITE_INNLOGGINGSSTATUS_URL }}" >> $GITHUB_ENV
+          echo "VITE_TELEMETRY_URL=${{ inputs.VITE_TELEMETRY_URL }}" >> $GITHUB_ENV
       - name: Install dependencies
         run: npm ci
         env:

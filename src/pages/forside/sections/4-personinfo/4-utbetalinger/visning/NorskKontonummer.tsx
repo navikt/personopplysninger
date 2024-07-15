@@ -1,6 +1,6 @@
-import ListElement from 'components/listelement/ListElement';
+import ListElement from '@/components/listelement/ListElement';
 import { formatterKontonr } from '../utils';
-import { Liste } from '../../../../../../components/listelement/Liste';
+import { Liste } from '@/components/listelement/Liste';
 
 interface Props {
     kontonummer?: string;

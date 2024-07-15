@@ -20,14 +20,15 @@ import { basePath } from './constants';
 import '@navikt/ds-css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
-
-initializeFaro({
-    url: process.env.REACT_APP_TELEMETRY_URL,
-    app: {
-        name: 'personopplysninger',
-        version: process.env.REACT_APP_VERSION,
-    },
-});
+if (import.meta.env.VITE_ENV !== 'local') {
+    initializeFaro({
+        url: import.meta.env.VITE_TELEMETRY_URL,
+        app: {
+            name: 'personopplysninger',
+            version: import.meta.env.VITE_BUILD_VERSION,
+        },
+    });
+}
 
 const App = () => {
     const { locale } = useIntl();

@@ -1,15 +1,15 @@
-import kontonummerIkon from '../../assets/img/Kontonummer.svg';
+import kontonummerIkon from '@/assets/img/Kontonummer.svg';
 import { Alert, Link, Loader } from '@navikt/ds-react';
 import { ErrorWithBox } from '../forside/sections/4-personinfo/PersonInfo';
-import MedPersonInfo from '../../store/providers/PersonInfo';
-import PageContainer from '../../components/pagecontainer/PageContainer';
+import MedPersonInfo from '@/store/providers/PersonInfo';
+import PageContainer from '@/components/pagecontainer/PageContainer';
 import { EndreKontonummerView } from './EndreKontonummerView';
 import driftsmeldinger from '../../driftsmeldinger';
 import { useEffect } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import { useStore } from '../../store/Context';
-import { basePath } from '../../constants';
+import { useStore } from '@/store/Context';
+import { basePath } from '@/constants';
 
 export const EndreKontonummer = () => {
     const { state } = useLocation();

@@ -1,8 +1,8 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import Infotekst from 'components/infotekst/Infotekst';
-import { AnchorLink } from '../anchorlink/AnchorLink';
 import { GuidePanel, Heading } from '@navikt/ds-react';
+import { FormattedMessage } from 'react-intl';
+import Infotekst from '@/components/infotekst/Infotekst';
+import { AnchorLink } from '@/components/anchorlink/AnchorLink';
 
 interface Props {
     id: string;

@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { DetaljertArbeidsforhold } from '@navikt/arbeidsforhold';
 import { useIntl } from 'react-intl';
-import arbeidsforholdIkon from 'assets/img/Arbeidsforhold.svg';
-import PageContainer from 'components/pagecontainer/PageContainer';
+import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
+import PageContainer from '@/components/pagecontainer/PageContainer';
 import { Params, useParams } from 'react-router-dom';
-import { useStore } from '../../store/Context';
-import { Locale } from '../../store/Store';
+import { useStore } from '@/store/Context';
+import { Locale } from '@/store/Store';
 
-const miljo = process.env.REACT_APP_MILJO?.toUpperCase() as 'LOCAL' | 'DEV' | 'PROD';
+const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'local' | 'dev' | 'prod';
 
 interface Routes {
     id: string;

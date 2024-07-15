@@ -1,6 +1,6 @@
-import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from 'types/adresser/adresse';
-import GateAdresse from '../../../komponenter/GateAdresse';
 import { BodyShort } from '@navikt/ds-react';
+import { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from '@/types/adresser/adresse';
+import GateAdresse from '../../../komponenter/GateAdresse';
 
 const UtenlanskAdresseIFrittFormat = (props: UtenlanskAdresseIFrittFormatType) => {
     const { adresselinje1, adresselinje2, adresselinje3 } = props;

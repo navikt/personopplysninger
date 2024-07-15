@@ -1,11 +1,11 @@
-import Box from 'components/box/Box';
-import kontaktIkon from 'assets/img/Kontakt.svg';
+import Box from '@/components/box/Box';
+import kontaktIkon from '@/assets/img/Kontakt.svg';
 import TelefonnummerHosNav from './subsections/telefonnummer/TelefonnummerHosNav';
 import DKIF from './subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch';
-import { Tlfnr } from 'types/personalia';
+import { Tlfnr } from '@/types/personalia';
 import { FormattedMessage } from 'react-intl';
 import { Heading } from '@navikt/ds-react';
-import Infotekst from 'components/infotekst/Infotekst';
+import Infotekst from '@/components/infotekst/Infotekst';
 interface Props {
     tlfnr?: Tlfnr;
 }

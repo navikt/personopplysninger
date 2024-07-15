@@ -1,4 +1,4 @@
-const baseUrl = process.env.REACT_APP_URL;
+const baseUrl = import.meta.env.VITE_APP_URL;
 const redirectPathParam = 'path';
 
 export const redirects: {

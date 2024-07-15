@@ -1,5 +1,3 @@
-import './polyfills';
-
 import { createRoot } from 'react-dom/client';
 import { StoreProvider } from './store/Context';
 import { injectDecoratorClientSide } from '@navikt/nav-dekoratoren-moduler';
@@ -7,7 +5,7 @@ import WithLanguages from './store/providers/Language';
 import App from './App';
 
 const init = async () => {
-    if (process.env.NODE_ENV === 'development') {
+    if (import.meta.env.VITE_ENV === 'local') {
         await import('./clients/apiMock').then(({ setUpMock }) => setUpMock());
         injectDecoratorClientSide({
             env: 'localhost',

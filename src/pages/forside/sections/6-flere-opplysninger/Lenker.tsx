@@ -1,17 +1,17 @@
 import lenker from './LenkerData';
 import LinkBox from './linkbox/LinkBox';
-import DSOPIkon from 'assets/img/DSOP.svg';
-import INSTIkon from 'assets/img/Institusjonsopphold.svg';
-import MEDLIkon from 'assets/img/MEDL.svg';
-import FullmaktIkon from 'assets/img/Fullmakt.svg';
-import SkjermingIkon from 'assets/img/Skjerming.svg';
+import DSOPIkon from '@/assets/img/DSOP.svg';
+import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
+import MEDLIkon from '@/assets/img/MEDL.svg';
+import FullmaktIkon from '@/assets/img/Fullmakt.svg';
+import SkjermingIkon from '@/assets/img/Skjerming.svg';
 import { FormattedMessage } from 'react-intl';
-import { useStore } from 'store/Context';
-import { AnchorLink } from '../../../../components/anchorlink/AnchorLink';
+import { useStore } from '@/store/Context';
+import { AnchorLink } from '@/components/anchorlink/AnchorLink';
 import { BodyLong, Box, Heading } from '@navikt/ds-react';
-import { basePath } from '../../../../constants';
+import { basePath } from '@/constants';
 
-const { REACT_APP_PDL_URL, REACT_APP_SKJERMING_URL } = process.env;
+const { VITE_PDL_URL, VITE_SKJERMING_URL } = import.meta.env;
 
 const id = 'flere-opplysninger';
 
@@ -79,7 +79,7 @@ const LinksContainer = () => {
                     tittel={'lenker.fullmakt.tittel'}
                     beskrivelse={'lenker.fullmakt.beskrivelse'}
                     lenkeTekst={'lenker.fullmakt.lenkeTekst'}
-                    to={`${REACT_APP_PDL_URL}`}
+                    to={`${VITE_PDL_URL}`}
                     component={'a'}
                 />
                 <LinkBox
@@ -88,7 +88,7 @@ const LinksContainer = () => {
                     tittel={'lenker.skjerming.tittel'}
                     beskrivelse={'lenker.skjerming.beskrivelse'}
                     lenkeTekst={'lenker.skjerming.lenkeTekst'}
-                    to={`${REACT_APP_SKJERMING_URL}`}
+                    to={`${VITE_SKJERMING_URL}`}
                     component={'a'}
                 />
             </div>

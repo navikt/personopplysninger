@@ -1,11 +1,10 @@
-import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
-import InstHistorikkView from '../../pages/institusjonsopphold/historikk/InstHistorikkView';
-import instInfo from '../../clients/apiMock/app/fetch/inst-info.json';
 import { render } from '@testing-library/react';
+import nbMessages from '@/text/nb';
+import InstHistorikkView from '@/pages/institusjonsopphold/historikk/InstHistorikkView';
+import instInfo from '@/clients/apiMock/app/fetch/inst-info.json';
 
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
     Link: () => <div />,
     useLocation: () => ({
         pathname: 'pathname',

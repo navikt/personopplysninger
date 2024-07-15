@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Alert } from '@navikt/ds-react';
-import KontonummerForm from '../forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
-import NorskKontonummer from '../forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer';
-import Utenlandskonto from '../forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto';
+import KontonummerForm from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
+import NorskKontonummer from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer';
+import Utenlandskonto from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto';
 import { FormattedMessage } from 'react-intl';
-import Kilde from '../../components/kilde/Kilde';
+import Kilde from '@/components/kilde/Kilde';
 import { PencilIcon } from '@navikt/aksel-icons';
 import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
-import { useIntlFormatter } from '../../hooks/useIntlFormatter';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { EndreKontonummerResult } from './result/EndreKontonummerResult';
 
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {

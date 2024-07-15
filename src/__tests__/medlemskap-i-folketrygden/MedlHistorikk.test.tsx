@@ -1,12 +1,11 @@
-import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
-import MedlHistorikkView from '../../pages/medlemskap-i-folketrygden/MedlHistorikkView';
-import medlInfo from '../../clients/apiMock/app/fetch/medl-info.json';
-import { MedlInfo } from '../../types/medl';
 import { render } from '@testing-library/react';
+import nbMessages from '@/text/nb';
+import MedlHistorikkView from '@/pages/medlemskap-i-folketrygden/MedlHistorikkView';
+import medlInfo from '@/clients/apiMock/app/fetch/medl-info.json';
+import { MedlInfo } from '@/types/medl';
 
-jest.mock('react-router-dom', () => ({
+vi.mock('react-router-dom', () => ({
     Link: () => <div />,
     useLocation: () => ({
         pathname: 'pathname',

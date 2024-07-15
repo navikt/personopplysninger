@@ -1,14 +1,14 @@
-import Box from 'components/box/Box';
-import kontonummerIkon from 'assets/img/Kontonummer.svg';
-import { UtenlandskBankkonto } from 'types/personalia';
+import Box from '@/components/box/Box';
+import kontonummerIkon from '@/assets/img/Kontonummer.svg';
+import { UtenlandskBankkonto } from '@/types/personalia';
 import NorskKontonummer from './visning/NorskKontonummer';
 import Utenlandskonto from './visning/UtenlandsBankkonto';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Alert } from '@navikt/ds-react';
-import driftsmeldinger from 'driftsmeldinger';
+import driftsmeldinger from '@/driftsmeldinger';
 import { Link } from 'react-router-dom';
-import { useStore } from '../../../../../store/Context';
-import { basePath } from '../../../../../constants';
+import { useStore } from '@/store/Context';
+import { basePath } from '@/constants';
 
 const WarningMsg = () => {
     const { locale } = useIntl();

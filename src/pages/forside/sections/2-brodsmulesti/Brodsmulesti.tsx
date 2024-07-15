@@ -5,9 +5,9 @@ import { setAvailableLanguages } from '@navikt/nav-dekoratoren-moduler';
 import { setBreadcrumbs } from '@navikt/nav-dekoratoren-moduler';
 import { onLanguageSelect } from '@navikt/nav-dekoratoren-moduler';
 import { onBreadcrumbClick } from '@navikt/nav-dekoratoren-moduler';
-import { useStore } from 'store/Context';
-import { Locale } from 'store/Store';
-import { basePath } from '../../../../constants';
+import { useStore } from '@/store/Context';
+import { Locale } from '@/store/Store';
+import { basePath } from '@/constants';
 
 export interface BrodsmuleLenke {
     title: string;
@@ -58,7 +58,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
     useEffect(() => {
         const baseBreadcrumbs = [
             {
-                url: `${process.env.REACT_APP_DITT_NAV_URL}`,
+                url: `${import.meta.env.VITE_DITT_NAV_URL}`,
                 title: formatMessage({ id: 'brodsmulesti.minside' }),
             },
             {

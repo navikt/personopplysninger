@@ -1,13 +1,12 @@
-import '@testing-library/jest-dom';
 import { IntlProvider } from 'react-intl';
-import nbMessages from 'text/nb';
-import personInfo from '../../clients/apiMock/app/fetch/person-info.json';
-import Adresser from '../../pages/forside/sections/4-personinfo/3-adresser/Adresser';
-import { Adresser as AdresserType } from 'types/adresser';
-import { StoreProvider } from '../../store/Context';
 import { render } from '@testing-library/react';
+import nbMessages from '@/text/nb';
+import personInfo from '@/clients/apiMock/app/fetch/person-info.json';
+import Adresser from '@/pages/forside/sections/4-personinfo/3-adresser/Adresser';
+import { Adresser as AdresserType } from '@/types/adresser';
+import { StoreProvider } from '@/store/Context';
 
-jest.mock('react-modal');
+vi.mock('react-modal');
 
 describe('Adresser', () => {
     it('renders correctly', () => {

@@ -1,5 +1,5 @@
 import Postnummer from '../../../komponenter/Postnummer';
-import { Matrikkeladresse as MatrikkeladresseType } from 'types/adresser/adresse';
+import { Matrikkeladresse as MatrikkeladresseType } from '@/types/adresser/adresse';
 import { BodyShort } from '@navikt/ds-react';
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {

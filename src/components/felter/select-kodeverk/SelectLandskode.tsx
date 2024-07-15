@@ -1,8 +1,8 @@
 import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
-import { fetchRetningsnumre } from 'clients/apiClient';
-import { HTTPError } from 'components/errorMessage/ErrorMessage';
+import { fetchRetningsnumre } from '@/clients/apiClient';
+import { HTTPError } from '@/components/errorMessage/ErrorMessage';
 import { FormatOptionLabelMeta } from 'react-select/base';
-import NAVSelect from 'components/felter/select/NAVSelect';
+import NAVSelect from '@/components/felter/select/NAVSelect';
 
 interface Props {
     option: OptionType;

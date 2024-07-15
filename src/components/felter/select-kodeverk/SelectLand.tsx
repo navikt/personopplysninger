@@ -1,7 +1,7 @@
 import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
-import { fetchLand } from 'clients/apiClient';
-import { HTTPError } from 'components/errorMessage/ErrorMessage';
-import NAVSelect from 'components/felter/select/NAVSelect';
+import { fetchLand } from '@/clients/apiClient';
+import { HTTPError } from '@/components/errorMessage/ErrorMessage';
+import NAVSelect from '@/components/felter/select/NAVSelect';
 
 interface Props {
     id: string;
