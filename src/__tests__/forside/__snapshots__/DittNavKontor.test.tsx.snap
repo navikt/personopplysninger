@@ -234,14 +234,14 @@ exports[`DittNavKontor > renders correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="_singleReception_s6hxe_1"
+                class="_singleReception_xmatb_1"
               >
                 <h3
-                  class="_heading_s6hxe_48 navds-heading navds-heading--medium navds-typo--spacing"
+                  class="_heading_xmatb_48 navds-heading navds-heading--medium navds-typo--spacing"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_headingIcon_s6hxe_53 _iconPlace_s6hxe_58"
+                    class="_headingIcon_xmatb_53 _iconPlace_xmatb_58"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -260,20 +260,20 @@ exports[`DittNavKontor > renders correctly 1`] = `
                   Adresse
                 </h3>
                 <section
-                  class="_address_s6hxe_75"
+                  class="_address_xmatb_75"
                 >
                   <p
-                    class="_addressLine_s6hxe_82 navds-body-short navds-body-short--medium"
+                    class="_addressLine_xmatb_82 navds-body-short navds-body-short--medium"
                   >
                     Storgata 8, 1771 HALDEN
                   </p>
                 </section>
                 <h3
-                  class="_heading_s6hxe_48 navds-heading navds-heading--medium navds-typo--spacing"
+                  class="_heading_xmatb_48 navds-heading navds-heading--medium navds-typo--spacing"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_headingIcon_s6hxe_53 _iconClock_s6hxe_63"
+                    class="_headingIcon_xmatb_53 _iconClock_xmatb_63"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -390,11 +390,11 @@ exports[`DittNavKontor > renders correctly 1`] = `
                   </tbody>
                 </table>
                 <div
-                  class="_appointmentBookingInfo_s6hxe_90"
+                  class="_appointmentBookingInfo_xmatb_94"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_iconInfo_s6hxe_68"
+                    class="_iconInfo_xmatb_68"
                     fill="none"
                     focusable="false"
                     height="1em"
