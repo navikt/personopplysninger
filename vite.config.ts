@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 
 const isLocal = process.env.VITE_ENV === 'local';
 
@@ -15,7 +16,14 @@ export default defineConfig(() => {
             sourcemap: true,
         },
         base: isLocal ? '' : process.env.PUBLIC_URL,
-        plugins: [react()],
+        plugins: [
+            react(),
+            nodePolyfills({
+                globals: {
+                    process: true,
+                },
+            }),
+        ],
         resolve: {
             alias: {
                 '@': path.resolve(__dirname, './src'),
