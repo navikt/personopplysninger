@@ -15,9 +15,11 @@ import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/
 import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
+import { initLocalMock as initLocalArbeidsforholdMock } from '@navikt/arbeidsforhold';
 import { basePath } from './constants';
 
 import '@navikt/ds-css';
+import '@navikt/arbeidsforhold/style.css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 if (import.meta.env.VITE_ENV !== 'local') {
@@ -28,6 +30,10 @@ if (import.meta.env.VITE_ENV !== 'local') {
             version: import.meta.env.VITE_BUILD_VERSION,
         },
     });
+}
+
+if (import.meta.env.VITE_ENV === 'local') {
+    initLocalArbeidsforholdMock();
 }
 
 const App = () => {

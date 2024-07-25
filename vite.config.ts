@@ -6,6 +6,9 @@ const isLocal = process.env.VITE_ENV === 'local';
 
 export default defineConfig(() => {
     return {
+        define: {
+            'process.env': {},
+        },
         build: {
             outDir: 'build',
             assetsInlineLimit: 0,

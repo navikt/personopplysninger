@@ -8,7 +8,7 @@
     "scripts": {
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
-        "start:ts": "vite",
+        "start:ts": "vite dev --force",
         "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
         "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
@@ -21,7 +21,7 @@
         "@grafana/faro-web-sdk": "1.8.2",
         "@grafana/faro-web-tracing": "1.8.2",
         "@navikt/aksel-icons": "6.13.0",
-        "@navikt/arbeidsforhold": "3.4.2-beta.1",
+        "@navikt/arbeidsforhold": "3.4.2-beta.8",
         "@navikt/ds-css": "6.13.0",
         "@navikt/ds-react": "6.13.0",
         "@navikt/fnrvalidator": "2.1.0",
