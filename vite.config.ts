@@ -18,6 +18,8 @@ export default defineConfig(() => {
         base: isLocal ? '' : process.env.PUBLIC_URL,
         plugins: [
             react(),
+            // fetch-mock calls global 'process' which is not available
+            // in the browser, so mock this.
             nodePolyfills({
                 globals: {
                     process: true,
