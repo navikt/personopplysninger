@@ -8,7 +8,7 @@
     "scripts": {
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
-        "start:ts": "vite dev --force",
+        "start:ts": "vite dev",
         "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
         "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
