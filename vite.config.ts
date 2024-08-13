@@ -11,7 +11,7 @@ export default defineConfig(() => {
             'process.env': {},
         },
         build: {
-            outDir: 'build',
+            outDir: './build/client',
             assetsInlineLimit: 0,
             sourcemap: true,
         },

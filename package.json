@@ -12,6 +12,7 @@
         "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
         "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
+        "build:server": "cd server && npm run build",
         "build:js": "vite build",
         "build:css": "less-watch-compiler --run-once",
         "test": "vitest",
