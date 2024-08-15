@@ -11,6 +11,10 @@
         "plugin:jsx-a11y/recommended",
         "prettier"
     ],
+    "globals": {
+        "process": true,
+        "__dirname": true
+    },
     "settings": {
         "react": {
             "version": "detect"
@@ -28,6 +32,7 @@
         "semi": ["error", "always"],
         "max-len": [1, { "code": 150, "ignoreComments": true, "ignoreStrings": true }],
         "indent": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/no-non-null-assertion": "off",
         "react/display-name": "off"
     }

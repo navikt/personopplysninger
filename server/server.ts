@@ -1,13 +1,17 @@
-const express = require('express');
-const logger = require('./logger');
-const path = require('path');
-const compression = require('compression');
+import express from 'express';
+import path from 'path';
+import compression from 'compression';
+import dotenv from 'dotenv';
+
+import { logger } from './logger.js';
+import { getHtmlWithDecorator } from './dekorator.js';
+
 const localEnvFile = '.env';
 if (process.env.VITE_ENV === 'local') {
-    require('dotenv').config(localEnvFile);
+    dotenv.config({ path: localEnvFile });
 }
-const getHtmlWithDecorator = require('./dekorator');
-const buildPath = path.resolve(__dirname, '../build');
+
+const buildPath = path.resolve(__dirname, '../client');
 const basePath = '/person/personopplysninger';
 const server = express();
 server.disable('x-powered-by');

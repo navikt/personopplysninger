@@ -3,11 +3,12 @@ FROM node:20-bullseye-slim
 ENV NODE_ENV production
 
 WORKDIR usr/src/app
-COPY server server/
 COPY build build/
+COPY server/node_modules build/server/node_modules
 
-WORKDIR server
+WORKDIR build/server
+
+EXPOSE 8080
 
 CMD ["node", "./server.js"]
 
-EXPOSE 8080
