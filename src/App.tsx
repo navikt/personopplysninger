@@ -2,7 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useStore } from './store/Context';
-import { initializeFaro } from '@grafana/faro-web-sdk';
+import { initializeFaro } from '@grafana/faro-react';
 import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
 import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
