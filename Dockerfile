@@ -6,6 +6,9 @@ WORKDIR usr/src/app
 COPY build build/
 COPY server/node_modules build/server/node_modules
 
-CMD ["node", "./build/server/server.js"]
+WORKDIR build/server
 
 EXPOSE 8080
+
+CMD ["node", "./server.js"]
+
