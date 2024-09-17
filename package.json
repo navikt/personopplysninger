@@ -31,7 +31,7 @@
         "buffer": "6.0.3",
         "core-js": "3.37.1",
         "dayjs": "1.11.12",
-        "fetch-mock": "10.0.8",
+        "fetch-mock": "10.1.1",
         "file-saver": "2.0.5",
         "ibantools": "4.5.1",
         "intl": "1.2.5",
