@@ -1,5 +1,5 @@
 import { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import { Alert, AlertProps } from '@navikt/ds-react';
+import { Alert } from '@navikt/ds-react';
 import { useIntl } from 'react-intl';
 
 type FeilmeldingType = 'advarsel' | 'info' | 'feil';
@@ -8,7 +8,8 @@ export interface Feilmelding extends HTTPError {
     type: FeilmeldingType;
 }
 
-type AlertVariant = { [key in FeilmeldingType]: AlertProps['variant'] };
+/* eslint-disable @typescript-eslint/no-unused-vars */
+type AlertVariant = { [key in FeilmeldingType]: 'error' | 'warning' | 'info' | 'success' };
 
 const HttpFeilmelding = (props: Feilmelding) => {
     const { formatMessage, messages } = useIntl();
@@ -18,6 +19,7 @@ const HttpFeilmelding = (props: Feilmelding) => {
         info: 'info',
         feil: 'error',
     };
+
     const role = {
         success: 'status',
         warning: 'status',
