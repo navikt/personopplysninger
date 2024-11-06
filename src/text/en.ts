@@ -9,7 +9,7 @@ export default {
     'side.lagre': 'Save',
     'side.avbryt': 'Cancel',
     'side.leggtil': 'Add',
-    'side.leggtil.kontaktinformasjon': 'Add a phone number in the NAV registry',
+    'side.leggtil.kontaktinformasjon': 'Add a phone number in the Nav registry',
     'side.valgfritt': ' (optional)',
     'side.organisasjonsnummer': 'Organisation number {orgnr}',
     'side.endre': 'Change',
@@ -25,9 +25,9 @@ export default {
     'brodsmulesti.arbeidsforhold': 'Employment relationship',
     'header.hello': 'Hi!',
     'header.hello.name': 'Hi {name}!',
-    'header.description': '<a>Read about privacy protection in the Norwegian Labour and Welfare Administration (NAV) here.</a> (text in norwegian)',
+    'header.description': '<a>Read about privacy protection in the Norwegian Labour and Welfare Administration (Nav) here.</a> (text in norwegian)',
     'header.obs':
-        'Here you can see the information that NAV has registered about you. You have the right to access personal data that NAV has registered about you, but you may not find all personal data here. It may be due to both technical and legal limitations.',
+        'Here you can see the information that Nav has registered about you. You have the right to access personal data that Nav has registered about you, but you may not find all personal data here. It may be due to both technical and legal limitations.',
     'personalia.tittel': 'Personal data',
     'personalia.beskrivelse':
         'We need to know who you are and how we can contact you. If you are going to receive services or apply for financial support, we need information to assess what you are entitled to. In order to send you payments, we need your account number and an address.',
@@ -47,7 +47,7 @@ export default {
     'personalia.gender': 'Gender',
     'personalia.customized_comm': 'Customised communication',
     'personalia.source.folkeregisteret': 'Source: National Population Register',
-    'personalia.source.nav': 'Source: NAV',
+    'personalia.source.nav': 'Source: Nav',
     'personalia.source.dkif': 'Source: Contact and Reservation Register',
     'personalia.link.folkeregisteret': 'Change in National Population Register',
     'personalia.link.folkeregisteret.adresse': 'Change address in National Population Register',
@@ -66,9 +66,9 @@ export default {
     'personalia.bickode': 'BIC / SWIFT code',
     'personalia.bankkode': 'Bank code',
     'personalia.tlfnr': 'Phone',
-    'personalia.tlfnr.oveskrift': 'Phone number registered with NAV',
-    'personalia.tlfnr.ingenData': `Would you instead like to add a phone number to <b>the NAV registry</b>?
-  The new phone number you add will only be stored and used by NAV.`,
+    'personalia.tlfnr.oveskrift': 'Phone number registered with Nav',
+    'personalia.tlfnr.ingenData': `Would you instead like to add a phone number to <b>the Nav registry</b>?
+  The new phone number you add will only be stored and used by Nav.`,
     'personalia.tlfnr.telefon': 'Phone {x}',
     'personalia.tlfnr.slett.overskrift': 'Remove phone number',
     'personalia.tlfnr.slett.alert': 'Are you sure you want to remove this number?',
@@ -76,7 +76,7 @@ export default {
     'personalia.spraak': 'Language',
     'personalia.dkif.overskrift': 'Information from the Contact and Reservation Register',
     'personalia.dkif.beskrivelse':
-        'The Contact and Reservation Register is a joint national register. NAV must have your contact information in this register in order to send you messages and documents electronically.',
+        'The Contact and Reservation Register is a joint national register. Nav must have your contact information in this register in order to send you messages and documents electronically.',
     'personalia.dkif.ingenData': '<b>No information registered</b>',
     'adresse.tittel': 'Addresses',
     'adresse.beskrivelse': `Below you see the types of addresses it is possible to register in the National Population Register. You can have several address types registered at the same time. You can change addresses in the National Population Register at the Tax Administration.<br></br><br></br>
@@ -100,7 +100,7 @@ A child who lives permanently with both mother and father can have two home addr
     'adresse.kontaktadresse': 'Postal address (contact address)',
     'adresse.kontaktadresse.utenlandsk': 'Postal address (contact address abroad)',
     'adresse.kontaktadresse.norsk': 'Postal address (Norwegian contact address)',
-    'adresse.kontaktadresse.nav': 'Contact address registered with NAV',
+    'adresse.kontaktadresse.nav': 'Contact address registered with Nav',
     'adresse.kontaktadresse.leggtil.folkeregisteret': 'Change address in National Population Register.',
     'adresse.utenlandskadresse': 'Contact address abroad',
     'adresse.postadresse': 'Postal address',
@@ -117,7 +117,7 @@ A child who lives permanently with both mother and father can have two home addr
     'adresse.overskrift.ovrige': 'Other registered addresses',
     'adresse.ikke.registrert': 'You do not have a registered home address in the National Population Register',
     'adresse.slett.alert':
-        'Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from NAV?',
+        'Do you want to remove the contact address and use the address registered with the National Population Register <br></br> to receive mail from Nav?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postal address contains street name, street number, and postal code.</p><p>Mailbox address refers to a mailbox at a post office or Post i Butikk (Post-in-Shop).</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -135,19 +135,19 @@ A child who lives permanently with both mother and father can have two home addr
         '<p>Additional address name is an addition to the official address.</p><p>For example, this may be a farm name, known institutions/buildings, hamlets, housing estates, cottage areas, etc.</p>',
     'arbeidsforhold.tittel': 'Employment relationship',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV needs information about your employment relationships in order to assess your need for follow-up and services from NAV, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (NAV) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
+        '<p>Nav needs information about your employment relationships in order to assess your need for follow-up and services from Nav, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (Nav) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
     'arbeidsforhold.kilde': 'Source: State Register of Employers and Employees<br></br><span>The data is reported by employers</span>',
     'arbeidsforhold.disclaimer':
         'The overview shows all employment relationships reported after 1 January 2015.<br></br>If there are errors in an employment relationship, the employer can change it through the a-melding (employee and payroll reporting).',
     'arbeidsforhold.submitted.by': 'The data is reported by the employer',
     'utbetalinger.tittel': 'Account number for payment',
     'utbetalinger.hjelpetekster.kontonummer':
-        '<p>When you receive benefits from NAV, you must provide a bank account that is in your name. The address registered by NAV under your name must be identical to the one you have provided to the foreign bank. </p><p>For payments to European banks, IBAN is required. IBAN always starts with two initial letters without spaces, followed by between 15 and 31 numbers, depending on the requirements of each country. Example: DK12389325974125698</p><p>If you provide an IBAN number, you must provide a BIC.</p><p>Account numbers that are not IBANs may have a BIC.</p>',
+        '<p>When you receive benefits from Nav, you must provide a bank account that is in your name. The address registered by Nav under your name must be identical to the one you have provided to the foreign bank. </p><p>For payments to European banks, IBAN is required. IBAN always starts with two initial letters without spaces, followed by between 15 and 31 numbers, depending on the requirements of each country. Example: DK12389325974125698</p><p>If you provide an IBAN number, you must provide a BIC.</p><p>Account numbers that are not IBANs may have a BIC.</p>',
     'utbetalinger.hjelpetekster.bic':
         '<p>BIC/SWIFT is an international system used to identify banks. Your bank will provide you with the BIC. The BIC/SWIFT code consists of 8 or 11 letters.</p><p>If you have a European bank account, you must provide both the BIC code and IBAN.</p><p>If the country uses a bank code, you must provide the BIC for the banks that have BIC.</p>',
     'utbetalinger.hjelpetekster.valuta': `<p>Fees may be lower if you choose payment in the currency of the country in which you have settled.
     Check with the bank to see what is best for you. If you have an account associated with a specific currency (currency account), you
-    state this currency to NAV.</p><p>If you can't find the currency on the list, you can select a main currency: US dollar (USD) or euro (EUR).</p>`,
+    state this currency to Nav.</p><p>If you can't find the currency on the list, you can select a main currency: US dollar (USD) or euro (EUR).</p>`,
     'utbetalinger.hjelpetekster.bankkode':
         '<p>In this field, fill out the bank code, Fedwire number (FW), or routing number.</p><p>If you enter a bank code, you do not need to enter an IBAN number. You enter BIC for the banks that have it.</p><p>Countries that use bank code are, among others, the United States, Australia, Canada, Russia, New Zealand and South Africa.</p>',
     'kontaktinfo.tittel': 'Contact information',
@@ -164,7 +164,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.institusjon': 'Institution',
     'inst.detaljer': 'Details',
     'inst.disclaimer':
-        'Here you can see information about stays in nursing homes, health institutions and prisons. Institutions are obliged to <lenkeTilInstMelding>send a notification to NAV</lenkeTilInstMelding> about all persons who are registered and discharged. If you notice errors in the information, you must contact the institution directly.',
+        'Here you can see information about stays in nursing homes, health institutions and prisons. Institutions are obliged to <lenkeTilInstMelding>send a notification to Nav</lenkeTilInstMelding> about all persons who are registered and discharged. If you notice errors in the information, you must contact the institution directly.',
     'inst.periode': 'Period',
     'inst.institusjonsnavn': 'Name of institution',
     'inst.institusjonstype': 'Type of institution',
@@ -172,11 +172,11 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.registreringstidspunkt': 'Date of registration',
     'inst.ingendata': 'No institutional stay is registered',
     'inst.fiktivSluttdato.tittel': 'Termination',
-    'inst.fiktivSluttdato': 'The termination of the stay at the institution has not been reported. NAV has automatically terminated the stay.',
+    'inst.fiktivSluttdato': 'The termination of the stay at the institution has not been reported. Nav has automatically terminated the stay.',
     'inst.kilde': 'Source: The individual institution',
     'kontaktinformasjon-kilde': `Where is this contact information from?
-  NAV uses your contact information from The common contact register. This is a joint national registry used by the government to send
-  messages and documents. You can also register the phone number you want to be reached by in the NAV registry.`,
+  Nav uses your contact information from The common contact register. This is a joint national registry used by the government to send
+  messages and documents. You can also register the phone number you want to be reached by in the Nav registry.`,
     'kontaktogreservasjonsregister-disclaimer':
         'You receive mail and information electronically from the government. This is because you have not opted out of electronic communication.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
@@ -196,17 +196,17 @@ A child who lives permanently with both mother and father can have two home addr
         'If you live in a different country, but work full time or part time in Norway, you may join the national insurance scheme in the country you live and be exempt from membership in the National Insurance Scheme in Norway.',
     'medl.folketrygden.tittel': 'What does membership in the National Insurance Scheme mean?',
     'medl.folketrygden.ingress':
-        'Membership in the National Insurance Scheme is the key to eligibility for rights to services from NAV. <lenkeTilFolketrygden> Read about membership in the National Insurance Scheme</lenkeTilFolketrygden>. Contact NAV if you have questions about periods with membership or exemptions from membership in the National Insurance Scheme, telephone (+47) 21 07 37 00.',
+        'Membership in the National Insurance Scheme is the key to eligibility for rights to services from Nav. <lenkeTilFolketrygden> Read about membership in the National Insurance Scheme</lenkeTilFolketrygden>. Contact Nav if you have questions about periods with membership or exemptions from membership in the National Insurance Scheme, telephone (+47) 21 07 37 00.',
     'medl.folketrygden.lanekassen':
         'Contact the State Educational Loan Fund (Lånekassen) if you have questions about periods with funding while studying abroad.',
     'medl.perioder.tittel': 'Overview of periods',
     'medl.perioder.alert': 'Only periods registered from 2015 are available in this overview.',
     'medl.medlemskap.med.tittel': 'With membership',
     'medl.medlemskap.med.ingress':
-        'This overview shows periods where you have applied to NAV for membership in the National Insurance Scheme and received confirmation of it.',
+        'This overview shows periods where you have applied to Nav for membership in the National Insurance Scheme and received confirmation of it.',
     'medl.medlemskap.uten.tittel': 'Exemptions from membership',
     'medl.medlemskap.uten.ingress':
-        'The overview shows periods where NAV has received information from the social security authority in another country that you were part of the social security scheme in your country of residence while you worked in Norway.',
+        'The overview shows periods where Nav has received information from the social security authority in another country that you were part of the social security scheme in your country of residence while you worked in Norway.',
     'medl.medlemskap.lanekassen.tittel': 'With support from the State Educational Loan Fund to study abroad',
     'medl.medlemskap.lanekassen.ingress':
         'The overview shows periods where the State Educational Loan Fund (Lånekassen) has registered you as a student at a foreign educational institution.',
@@ -221,18 +221,18 @@ A child who lives permanently with both mother and father can have two home addr
         'Information about the basis for your membership in the National Insurance Scheme (law or agreement). If you are exempt from membership in the National Insurance Scheme, it shows the basis for the exemption.',
     'medl.statsborgerland': 'Citizenship',
     'medl.studieland': 'Country of studies',
-    'dittnavkontor.tittel': 'Your NAV office',
-    'dittnavkontor.beskrivelse': `If you are already receiving follow-up at a NAV office, you should continue to use this office.
+    'dittnavkontor.tittel': 'Your Nav office',
+    'dittnavkontor.beskrivelse': `If you are already receiving follow-up at a Nav office, you should continue to use this office.
     If you don't get follow-up, you can use the office below.`,
     'dittnavkontor.ingress': 'Your office is ',
-    'dittnavkontor.select.label': 'NAV office',
+    'dittnavkontor.select.label': 'Nav office',
     'dittnavkontor.postadresse': 'Postal address',
     'dittnavkontor.postboks': 'Mailbox',
     'dittnavkontor.publikumsmottak': 'Public reception area',
     'dittnavkontor.publikumsmottakfor': 'Public reception area for',
     'dittnavkontor.apningstider': 'Opening hours',
     'dittnavkontor.spesielleapningstider': 'Special opening hours',
-    'dittnavkontor.kontaktinfo.overskrift': 'Contact NAV',
+    'dittnavkontor.kontaktinfo.overskrift': 'Contact Nav',
     'dittnavkontor.kontaktinfo.lenke': 'Go to contact information',
     'dittnavkontor.kilde': 'National Population Register ',
     'lenker.tittel': 'More information about you',
@@ -247,11 +247,11 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.dokumentarkiv.tittel': 'Document archive',
     'lenker.dokumentarkiv.beskrivelse': 'See an overview of your documents',
     'lenker.utbetalinger.tittel': 'Payments (text in norwegian)',
-    'lenker.utbetalinger.beskrivelse': 'See your payments from NAV (payments from the municipality are not displayed)',
+    'lenker.utbetalinger.beskrivelse': 'See your payments from Nav (payments from the municipality are not displayed)',
     'lenker.cv.tittel': 'CV and job search (text in norwegian)',
     'lenker.cv.beskrivelse': 'See your CV and job profile and your saved searches for positions',
     'lenker.dsop.tittel': 'Disclosure of personal data',
-    'lenker.dsop.beskrivelse': 'See what information NAV shares with insurance companies and pension schemes',
+    'lenker.dsop.beskrivelse': 'See what information Nav shares with insurance companies and pension schemes',
     'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institutional stays',
     'lenker.inst.beskrivelse': 'See your institutional stays',
@@ -261,7 +261,7 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.fullmakt.tittel': 'Powers of attorney (text in norwegian)',
     'lenker.fullmakt.beskrivelse': 'See your powers of attorney',
     'lenker.skjerming.tittel': 'Protection against access (text in norwegian)',
-    'lenker.skjerming.beskrivelse': 'Applies to employees of NAV and family members',
+    'lenker.skjerming.beskrivelse': 'Applies to employees of Nav and family members',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Select type',
     'felter.merom': 'More about',
@@ -301,7 +301,7 @@ A child who lives permanently with both mother and father can have two home addr
     'felter.kontonummervalg.norsk': 'Norwegian account number',
     'felter.kontonummervalg.utenlandsk': 'Foreign account number',
     'felter.utenlandskkonto.info':
-        'Be careful when you fill in bank information for foreign accounts so that the payment arrives at the correct location. NAV is not responsible for ensuring that the information is correct. Fees may apply. Read more about requirements for <a> foreign account numbers </a>.',
+        'Be careful when you fill in bank information for foreign accounts so that the payment arrives at the correct location. Nav is not responsible for ensuring that the information is correct. Fees may apply. Read more about requirements for <a> foreign account numbers </a>.',
     'felter.kontonummer.kontonummer.label': 'Account number / IBAN',
     'felter.bic.label': 'BIC / SWIFT code',
     'felter.bankensland.label': 'Country of bank',
@@ -388,10 +388,10 @@ A child who lives permanently with both mother and father can have two home addr
     'endreKontonummer.info':
         'You cannot change the account number on <lenkeNavno>nav.no</lenkeNavno> for payments from the municipality, for example financial assistance and qualification benefit.<br></br>' +
         'If you apply for financial assistance digitally, you can state the account number in the application.<br></br>' +
-        'You can also contact <lenkeDittKontor>your local NAV office</lenkeDittKontor> to change your account number.',
+        'You can also contact <lenkeDittKontor>your local Nav office</lenkeDittKontor> to change your account number.',
     'endreKontonummer.authInfo': 'You will be asked to log in again to confirm the change.',
     'endreKontonummer.success':
-        '<p>Your bank account has been changed.</p><p>NAV will send you a notification of the change by SMS and/or e-mail.</p>',
+        '<p>Your bank account has been changed.</p><p>Nav will send you a notification of the change by SMS and/or e-mail.</p>',
     'endreKontonummer.error': 'An error occurred while changing the account number.',
     'utbetalinger.info':
         'If you do not recognize the bank account number, you must phone <tlfTilKontaktsenter>55 55 33 33</tlfTilKontaktsenter> in the opening hours, or <lenkeTilKontaktOss>contact us</lenkeTilKontaktOss> in our digital channels.',

@@ -89,7 +89,7 @@
     },
     "enhetKontaktInformasjon": {
         "enhetNr": "0101",
-        "navn": "NAV Halden-Aremark",
+        "navn": "Nav Halden-Aremark",
         "telefonnummer": "55553333",
         "telefonnummerKommentar": null,
         "epost": null,
@@ -109,7 +109,7 @@
             "husbokstav": null,
             "adresseTilleggsnavn": null
         },
-        "spesielleOpplysninger": "NAV Halden - Aremark har digital drop-in og er tilgjengelig via NAV sitt telefonnummer. Vi har samtaler ved fremmøte der det er behov for det og samhandler med våre innbyggere på de arenaer som er hensiktsmessige.\n\nFor deg som har mulighet, fortsett å benytt deg av våre tjenester på www.nav.no, «Skriv til oss» på Ditt NAV eller dialogen i aktivitetsplan. Alle våre veiledere er tilgjengelige på digitale løsninger.\n\nDersom du er i en akutt situasjon, f.eks. uten bolig, mat eller livsviktige medisiner, send inn digital søknad og merk denne «Nødhjelp».  Kan du ikke søke digitalt, kontakt oss på telefon. Halden kommunes servicesenter kan i nødtilfeller låne deg telefon, dersom du ikke disponerer det.",
+        "spesielleOpplysninger": "Nav Halden - Aremark har digital drop-in og er tilgjengelig via Nav sitt telefonnummer. Vi har samtaler ved fremmøte der det er behov for det og samhandler med våre innbyggere på de arenaer som er hensiktsmessige.\n\nFor deg som har mulighet, fortsett å benytt deg av våre tjenester på www.nav.no, «Skriv til oss» på Ditt Nav eller dialogen i aktivitetsplan. Alle våre veiledere er tilgjengelige på digitale løsninger.\n\nDersom du er i en akutt situasjon, f.eks. uten bolig, mat eller livsviktige medisiner, send inn digital søknad og merk denne «Nødhjelp».  Kan du ikke søke digitalt, kontakt oss på telefon. Halden kommunes servicesenter kan i nødtilfeller låne deg telefon, dersom du ikke disponerer det.",
         "brukerkontakt": {
             "publikumsmottak": [
                 {
@@ -251,8 +251,7 @@
                     "adkomstbeskrivelse": null
                 }
             ],
-            "publikumskanaler": [
-            ],
+            "publikumskanaler": [],
             "brukertjenesteTilbud": {
                 "tjenester": [
                     {
@@ -268,9 +267,8 @@
                 "ytterligereInformasjon": "Gjeldsrådgivning"
             },
             "sosialhjelp": {
-                "digitaleSoeknader": [
-                ],
-                "papirsoeknadInformasjon": "Papirsøknader kan leveres i postkassen/innkastet ved inngangsdøra til NAV ."
+                "digitaleSoeknader": [],
+                "papirsoeknadInformasjon": "Papirsøknader kan leveres i postkassen/innkastet ved inngangsdøra til Nav ."
             },
             "informasjonUtbetalinger": null,
             "skriftspraak": "NB"

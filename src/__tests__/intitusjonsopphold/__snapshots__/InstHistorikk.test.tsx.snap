@@ -36,7 +36,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         class="navds-link navds-link--action"
         href="https://www.nav.no/samarbeidspartner/opphold-institusjon"
       >
-        sende melding til NAV
+        sende melding til Nav
       </a>
        om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.
     </div>
@@ -140,7 +140,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
               <div
                 class="navds-popover__content"
               >
-                Sluttdato for oppholdet er ikke mottatt. NAV har avsluttet oppholdet maskinelt.
+                Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.
               </div>
               <div
                 class="navds-popover__arrow"

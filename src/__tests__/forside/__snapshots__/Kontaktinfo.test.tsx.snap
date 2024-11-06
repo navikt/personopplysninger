@@ -247,7 +247,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
         <p
           class="navds-detail navds-typo--spacing"
         >
-          Kilde: NAV
+          Kilde: Nav
         </p>
       </div>
     </div>
@@ -280,7 +280,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
     <span
       class="navds-label"
     >
-      Legg til telefonnummer i NAV sitt register
+      Legg til telefonnummer i Nav sitt register
     </span>
   </button>
 </DocumentFragment>

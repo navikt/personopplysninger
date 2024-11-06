@@ -2,7 +2,7 @@
 
 ![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) | ![Deploy-to-dev](https://github.com/navikt/personopplysninger/workflows/Deploy-to-dev/badge.svg)
 
-React applikasjon som skal gi brukeren innsikt i informasjonen NAV har lagret.
+React applikasjon som skal gi brukeren innsikt i informasjonen Nav har lagret.
 
 ## Komme i gang
 
@@ -88,6 +88,6 @@ Feil ved API-kall blir logget via frontendlogger og vises i Kibana<br>
 
 Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/personbruker
 
-## For NAV internt
+## For Nav internt
 
 Interne henvendelser kan sendes via Slack i kanalen #team-personbruker.
