@@ -36,7 +36,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
               <h2
                 class="box__title navds-heading navds-heading--medium"
               >
-                Ditt NAV-kontor
+                Ditt Nav-kontor
               </h2>
               <button
                 aria-label="Les mer om denne seksjonen."
@@ -103,7 +103,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                     class="navds-heading navds-heading--small"
                     id=":r0:"
                   >
-                    Ditt NAV-kontor
+                    Ditt Nav-kontor
                   </h2>
                 </div>
                 <div
@@ -115,7 +115,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                     <p
                       class="navds-body-long navds-body-long--medium"
                     >
-                      Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.
+                      Hvis du allerede får oppfølging ved et Nav-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.
                     </p>
                   </div>
                 </div>
@@ -159,7 +159,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
               <span
                 class="navds-label"
               >
-                NAV Halden-Aremark
+                Nav Halden-Aremark
               </span>
             </p>
           </div>
@@ -436,7 +436,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                 <span
                   class="navds-label"
                 >
-                  Kontakt NAV
+                  Kontakt Nav
                 </span>
               </dt>
               <dd>
@@ -455,7 +455,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             <p
               class="navds-detail navds-typo--spacing"
             >
-              Kilde: NAV
+              Kilde: Nav
             </p>
           </div>
         </div>

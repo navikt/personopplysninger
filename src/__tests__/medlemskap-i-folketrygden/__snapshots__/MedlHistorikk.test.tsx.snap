@@ -200,7 +200,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
         >
            Les om medlemskap i folketrygden
         </a>
-        . Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.
+        . Kontakt Nav hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.
       </p>
     </div>
     <div
@@ -309,7 +309,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
           <p
             class="navds-body-long navds-body-long--medium"
           >
-            Oversikten viser perioder der du har søkt NAV om medlemskap i folketrygden og fått bekreftet det.
+            Oversikten viser perioder der du har søkt Nav om medlemskap i folketrygden og fått bekreftet det.
           </p>
           <div
             class="medl__flex-table "
@@ -2295,7 +2295,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
           <p
             class="navds-body-long navds-body-long--medium"
           >
-            Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
+            Oversikten viser perioder der Nav har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
           </p>
           <div
             class="medl__flex-table "
