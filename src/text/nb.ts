@@ -9,7 +9,7 @@ export default {
     'side.lagre': 'Lagre',
     'side.avbryt': 'Avbryt',
     'side.leggtil': 'Legg til',
-    'side.leggtil.kontaktinformasjon': 'Legg til telefonnummer i NAV sitt register',
+    'side.leggtil.kontaktinformasjon': 'Legg til telefonnummer i Nav sitt register',
     'side.valgfritt': ' (valgfritt)',
     'side.organisasjonsnummer': 'Organisasjonsnummer {orgnr}',
     'side.endre': 'Endre',
@@ -27,7 +27,7 @@ export default {
     'header.hello.name': 'Hei {name}!',
     'header.description': '<a>Les om personvern i Arbeids- og velferdsetaten her</a>',
     'header.obs':
-        'Her kan du se opplysninger som NAV har registrert om deg. Du har rett til innsyn i personopplysninger NAV har registrert om deg, men det er ikke sikkert du finner alle personopplysninger her. Det kan skyldes både tekniske og juridiske begrensninger.',
+        'Her kan du se opplysninger som Nav har registrert om deg. Du har rett til innsyn i personopplysninger Nav har registrert om deg, men det er ikke sikkert du finner alle personopplysninger her. Det kan skyldes både tekniske og juridiske begrensninger.',
     'personalia.tittel': 'Personalia',
     'personalia.beskrivelse':
         'Vi må vite hvem du er og hvordan vi kan kontakte deg. Hvis du skal ha tjenester eller søker om økonomisk støtte, trenger vi opplysninger for å kunne vurdere hva du har krav på. For å kunne utbetale penger trenger vi kontonummeret ditt og en adresse.',
@@ -47,7 +47,7 @@ export default {
     'personalia.gender': 'Kjønn',
     'personalia.customized_comm': 'Tilpasset kommunikasjon',
     'personalia.source.folkeregisteret': 'Kilde: Folkeregisteret',
-    'personalia.source.nav': 'Kilde: NAV',
+    'personalia.source.nav': 'Kilde: Nav',
     'personalia.source.dkif': 'Kilde: Kontakt - og reservasjonsregisteret',
     'personalia.link.folkeregisteret': 'Endre i Folkeregisteret',
     'personalia.link.folkeregisteret.adresse': 'Endre adresse i Folkeregisteret',
@@ -66,8 +66,8 @@ export default {
     'personalia.bickode': 'BIC / SWIFT-kode',
     'personalia.bankkode': 'Bankkode',
     'personalia.tlfnr': 'Telefon',
-    'personalia.tlfnr.oveskrift': 'Telefonnummer registrert hos NAV',
-    'personalia.tlfnr.ingenData': `Vil du heller legge inn et telefonnummer i <b>NAV sitt register</b>?
+    'personalia.tlfnr.oveskrift': 'Telefonnummer registrert hos Nav',
+    'personalia.tlfnr.ingenData': `Vil du heller legge inn et telefonnummer i <b>Nav sitt register</b>?
   Det nye telefonnummeret du legger inn, vil bare lagres hos oss.`,
     'personalia.tlfnr.telefon': 'Telefon {x}',
     'personalia.tlfnr.slett.overskrift': 'Slett telefonnummer',
@@ -76,7 +76,7 @@ export default {
     'personalia.spraak': 'Språk/målform',
     'personalia.dkif.overskrift': 'Opplysninger fra Kontakt - og reservasjonsregisteret',
     'personalia.dkif.beskrivelse':
-        'Kontakt- og reservasjonsregisteret er et felles nasjonalt register. NAV må ha dine kontaktopplysninger i dette registeret for å kunne sende deg meldinger og dokumenter elektronisk.',
+        'Kontakt- og reservasjonsregisteret er et felles nasjonalt register. Nav må ha dine kontaktopplysninger i dette registeret for å kunne sende deg meldinger og dokumenter elektronisk.',
     'personalia.dkif.ingenData': '<b>Ingen opplysninger registrert</b>',
     'adresse.tittel': 'Adresser',
     'adresse.beskrivelse': `Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.<br></br><br></br>
@@ -100,7 +100,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'adresse.kontaktadresse': 'Postadresse (kontaktadresse)',
     'adresse.kontaktadresse.utenlandsk': 'Postadresse (utenlandsk kontaktadresse)',
     'adresse.kontaktadresse.norsk': 'Postadresse (norsk kontaktadresse)',
-    'adresse.kontaktadresse.nav': 'Kontaktadresse registrert hos NAV',
+    'adresse.kontaktadresse.nav': 'Kontaktadresse registrert hos Nav',
     'adresse.kontaktadresse.leggtil.folkeregisteret': 'Endre adresse i Folkeregisteret',
     'adresse.kontaktadresse.slette.folkeregisteret': 'Slette kontaktadresse',
     'adresse.utenlandskadresse': 'Kontaktadresse i utlandet',
@@ -117,7 +117,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'adresse.overskrift': 'Adresser som er registert i Folkeregisteret',
     'adresse.overskrift.ovrige': 'Øvrige registrerte adresser',
     'adresse.ikke.registrert': 'Du har ikke registrert bostedsadresse i Folkeregisteret',
-    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br>adresse til å motta post fra NAV?',
+    'adresse.slett.alert': 'Vil du fjerne kontaktadressen og bruke folkeregistrert <br></br>adresse til å motta post fra Nav?',
     'adresse.hjelpetekster.adressetyper':
         '<p>Postadresse inneholder gatenavn, gatenummer og postnummer.</p><p>Postboksadresse viser til en postboks på et postkontor eller post i butikk.</p>',
     'adresse.hjelpetekster.gyldigtil':
@@ -135,18 +135,18 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         '<p>Adressetilleggsnavn er et tillegg i den offisielle adressen.</p><p>Dette kan for eksempel være navn på gårdsbruk, kjente institusjoner/bygninger, grender, boligfelt, hyttefelt eller lignende.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
     'arbeidsforhold.beskrivelse':
-        '<p>NAV trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra NAV, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</lenkeAaRegisteret>.</p>',
+        '<p>Nav trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra Nav, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</lenkeAaRegisteret>.</p>',
     'arbeidsforhold.kilde': 'Kilde: Arbeidsgiver- og arbeidstakerregisteret<br></br><span>Dataene er rapportert av arbeidsgiver</span>',
     'arbeidsforhold.disclaimer':
         'Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.<br></br>Hvis det er feil i et arbeidsforhold, kan arbeidsgiveren endre gjennom a-meldingen.',
     'arbeidsforhold.submitted.by': 'Dataene er rapportert av arbeidsgiver',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
-        '<p>Når du mottar ytelser fra NAV må du oppgi en bankkonto som står i ditt navn. Adressen som NAV har registrert på deg må være lik den du har oppgitt til den utenlandske banken. </p><p>For utbetaling til europeiske banker MÅ du oppgi IBAN. IBAN starter alltid med registrering av to bokstaver uten mellomrom, deretter følger mellom 15 og 31 tall, avhengig av kravene i det enkelte land. Eksempel: DK12389325974125698</p><p>Oppgir du IBAN-nummer, må du oppgi BIC.</p><p>Kontonummer som ikke er IBAN, kan ha BIC.</p>',
+        '<p>Når du mottar ytelser fra Nav må du oppgi en bankkonto som står i ditt navn. Adressen som Nav har registrert på deg må være lik den du har oppgitt til den utenlandske banken. </p><p>For utbetaling til europeiske banker MÅ du oppgi IBAN. IBAN starter alltid med registrering av to bokstaver uten mellomrom, deretter følger mellom 15 og 31 tall, avhengig av kravene i det enkelte land. Eksempel: DK12389325974125698</p><p>Oppgir du IBAN-nummer, må du oppgi BIC.</p><p>Kontonummer som ikke er IBAN, kan ha BIC.</p>',
     'utbetalinger.hjelpetekster.bic':
         '<p>BIC/SWIFT er et internasjonalt system som brukes for å identifisere banker. Du får oppgitt BIC av banken din. BIC/SWIFT-koden består av 8 eller 11 bokstaver.</p><p>Har du en europeisk bankkonto må du oppgi både BIC-kode og IBAN.</p><p>Hvis landet bruker bankkode, skal du oppgi BIC for de bankene som har BIC.</p>',
     'utbetalinger.hjelpetekster.valuta':
-        '<p>Gebyrene kan bli lavere hvis du velger utbetaling i  valutaen til landet du har bosatt deg i. Sjekk med banken hva som lønner seg. Har du en konto som er knyttet til en bestemt valuta (valutakonto), oppgir du denne valutaen til NAV.</p><p>Finner du ikke valutaen på listen, kan du velge en hovedvaluta: Amerikanske dollar (USD) eller euro (EUR).</p>',
+        '<p>Gebyrene kan bli lavere hvis du velger utbetaling i  valutaen til landet du har bosatt deg i. Sjekk med banken hva som lønner seg. Har du en konto som er knyttet til en bestemt valuta (valutakonto), oppgir du denne valutaen til Nav.</p><p>Finner du ikke valutaen på listen, kan du velge en hovedvaluta: Amerikanske dollar (USD) eller euro (EUR).</p>',
     'utbetalinger.hjelpetekster.bankkode':
         '<p>I dette feltet fyller du ut bankkode, fedwire number (FW) eller routing number.</p><p>Oppgir du en bankkode, trenger du ikke oppgi IBAN-nummer. Du oppgir BIC for de bankene som har det.</p><p>Land som bruker bankkode, er blant annet USA, Australia, Canada, Russland, New Zealand og Sør-Afrika.</p>',
     'kontaktinfo.tittel': 'Kontaktinformasjon',
@@ -163,7 +163,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljer',
     'inst.disclaimer':
-        'Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å <lenkeTilInstMelding>sende melding til NAV</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
+        'Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å <lenkeTilInstMelding>sende melding til Nav</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnavn',
     'inst.institusjonstype': 'Institusjonstype',
@@ -171,15 +171,15 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
     'inst.ingendata': 'Ingen institusjonsopphold er registrert',
     'inst.fiktivSluttdato.tittel': 'Sluttdato',
-    'inst.fiktivSluttdato': 'Sluttdato for oppholdet er ikke mottatt. NAV har avsluttet oppholdet maskinelt.',
+    'inst.fiktivSluttdato': 'Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.',
     'inst.kilde': 'Kilde: Den enkelte institusjon',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
         'Du mottar viktige brev fra det offentlige kun på papir. Grunnen til dette er at du har reservert deg mot elektronisk kommunikasjon. Stat og kommune kan likevel sende deg annen informasjon på e-post, sms eller som brev digitalt.',
     'kontaktinformasjon-kilde': `Hvor hentes kontaktinformasjonen fra?
-  NAV henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
-  å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i NAV sitt register.`,
+  Nav henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
+  å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i Nav sitt register.`,
     'medl.tittel': 'Medlemskap og unntak fra <br></br>medlemskap i folketrygden',
     'medl.ingendata': 'Du har ingen registrerte perioder.',
     'medl.oversikt.ingress':
@@ -195,16 +195,16 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         'Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.',
     'medl.folketrygden.tittel': 'Hva betyr medlemskap i folketrygden?',
     'medl.folketrygden.ingress':
-        'Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. <lenkeTilFolketrygden> Les om medlemskap i folketrygden</lenkeTilFolketrygden>. Kontakt NAV hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.',
+        'Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. <lenkeTilFolketrygden> Les om medlemskap i folketrygden</lenkeTilFolketrygden>. Kontakt Nav hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.',
     'medl.folketrygden.lanekassen': 'Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.',
     'medl.perioder.tittel': 'Oversikt over perioder',
     'medl.perioder.alert':
         'Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.',
     'medl.medlemskap.med.tittel': 'Med medlemskap',
-    'medl.medlemskap.med.ingress': 'Oversikten viser perioder der du har søkt NAV om medlemskap i folketrygden og fått bekreftet det.',
+    'medl.medlemskap.med.ingress': 'Oversikten viser perioder der du har søkt Nav om medlemskap i folketrygden og fått bekreftet det.',
     'medl.medlemskap.uten.tittel': 'Uten medlemskap',
     'medl.medlemskap.uten.ingress':
-        'Oversikten viser perioder der NAV har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.',
+        'Oversikten viser perioder der Nav har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.',
     'medl.medlemskap.lanekassen.tittel': 'Med støtte fra Lånekassen for å studere i utlandet',
     'medl.medlemskap.lanekassen.ingress': 'Oversikten viser perioder der Lånekassen har registrert deg som student ved et utenlandsk lærested.',
     'medl.periode': 'Periode',
@@ -217,18 +217,18 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         'Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.',
     'medl.statsborgerland': 'Statsborgerland',
     'medl.studieland': 'Studieland',
-    'dittnavkontor.tittel': 'Ditt NAV-kontor',
+    'dittnavkontor.tittel': 'Ditt Nav-kontor',
     'dittnavkontor.beskrivelse':
-        'Hvis du allerede får oppfølging ved et NAV-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.',
+        'Hvis du allerede får oppfølging ved et Nav-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.',
     'dittnavkontor.ingress': 'Ditt kontor er ',
-    'dittnavkontor.select.label': 'NAV-kontor',
+    'dittnavkontor.select.label': 'Nav-kontor',
     'dittnavkontor.postadresse': 'Postadresse',
     'dittnavkontor.postboks': 'Postboks',
     'dittnavkontor.publikumsmottak': 'Publikumsmottak',
     'dittnavkontor.publikumsmottakfor': 'Publikumsmottak for',
     'dittnavkontor.apningstider': 'Åpningstider',
     'dittnavkontor.spesielleapningstider': 'Spesielle åpningstider',
-    'dittnavkontor.kontaktinfo.overskrift': 'Kontakt NAV',
+    'dittnavkontor.kontaktinfo.overskrift': 'Kontakt Nav',
     'dittnavkontor.kontaktinfo.lenke': 'Gå til kontaktinformasjon',
     'dittnavkontor.kilde': 'Folkeregisteret',
     'lenker.tittel': 'Flere opplysninger om deg',
@@ -242,11 +242,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.dokumentarkiv.tittel': 'Dokumentarkiv',
     'lenker.dokumentarkiv.beskrivelse': 'Se oversikt over dokumentene dine',
     'lenker.utbetalinger.tittel': 'Utbetalinger',
-    'lenker.utbetalinger.beskrivelse': 'Se dine utbetalinger fra NAV (utbetalinger fra kommunen vises ikke)',
+    'lenker.utbetalinger.beskrivelse': 'Se dine utbetalinger fra Nav (utbetalinger fra kommunen vises ikke)',
     'lenker.cv.tittel': 'CV og stillingssøk',
     'lenker.cv.beskrivelse': 'Se CV-en og jobbprofilen din, og dine lagrede søk på stillinger',
     'lenker.dsop.tittel': 'Utlevering av personopplysninger',
-    'lenker.dsop.beskrivelse': 'Se opplysninger NAV har gitt til forsikringsselskap og pensjonsordninger',
+    'lenker.dsop.beskrivelse': 'Se opplysninger Nav har gitt til forsikringsselskap og pensjonsordninger',
     'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institusjonsopphold',
     'lenker.inst.beskrivelse': 'Se dine institusjonsopphold',
@@ -255,7 +255,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.fullmakt.tittel': 'Fullmakter',
     'lenker.fullmakt.beskrivelse': 'Se dine fullmakter',
     'lenker.skjerming.tittel': 'Skjerming mot innsyn',
-    'lenker.skjerming.beskrivelse': 'Gjelder ansatte i NAV og familiemedlemmer',
+    'lenker.skjerming.beskrivelse': 'Gjelder ansatte i Nav og familiemedlemmer',
     'felter.type.label': 'Type',
     'felter.type.velg': 'Velg type',
     'felter.merom': 'Mer om',
@@ -295,7 +295,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'felter.kontonummervalg.norsk': 'Norsk kontonummer',
     'felter.kontonummervalg.utenlandsk': 'Utenlandsk kontonummer',
     'felter.utenlandskkonto.info':
-        'Vær nøye med utfylling av bankinformasjon for utenlandsk konto slik at betalingen kommer frem til riktig sted. NAV er ikke ansvarlig for at opplysningene er riktige. Gebyrer kan påløpe. Les mer om krav til <a> utenlandsk kontonummer </a>.',
+        'Vær nøye med utfylling av bankinformasjon for utenlandsk konto slik at betalingen kommer frem til riktig sted. Nav er ikke ansvarlig for at opplysningene er riktige. Gebyrer kan påløpe. Les mer om krav til <a> utenlandsk kontonummer </a>.',
     'felter.kontonummer.kontonummer.label': 'Kontonummer / IBAN',
     'felter.bic.label': 'BIC / Swift-kode',
     'felter.bankensland.label': 'Bankens land',
@@ -382,9 +382,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'endreKontonummer.info':
         'Du kan ikke endre kontonummeret på <lenkeNavno>nav.no</lenkeNavno> hvis det gjelder utbetalinger fra kommunen, for eksempel økonomisk sosialhjelp og kvalifiseringsstønad.<br></br>' +
         'Hvis du søker om økonomisk sosialhjelp digitalt, kan du oppgi kontonummer i søknaden.<br></br>' +
-        'Du kan også ta kontakt med <lenkeDittKontor>ditt lokale NAV-kontor</lenkeDittKontor> for å endre kontonummeret ditt.',
+        'Du kan også ta kontakt med <lenkeDittKontor>ditt lokale Nav-kontor</lenkeDittKontor> for å endre kontonummeret ditt.',
     'endreKontonummer.authInfo': 'Du blir bedt om å logge inn på nytt for å bekrefte endringen.',
-    'endreKontonummer.success': '<p>Du har endret kontonummeret ditt.</p><p>NAV vil sende deg et varsel om endringen på SMS og/eller e-post.</p>',
+    'endreKontonummer.success': '<p>Du har endret kontonummeret ditt.</p><p>Nav vil sende deg et varsel om endringen på SMS og/eller e-post.</p>',
     'endreKontonummer.error': 'Det oppsto en feil ved endring av kontonummer.',
     'utbetalinger.info':
         'Hvis du ikke kjenner igjen kontonummeret, må du ringe oss <tlfTilKontaktsenter>55 55 33 33</tlfTilKontaktsenter> i åpningstiden eller <lenkeTilKontaktOss>kontakte oss</lenkeTilKontaktOss> i våre digitale kanaler.',

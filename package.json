@@ -2,7 +2,7 @@
     "name": "personopplysninger",
     "version": "3.6.43",
     "private": true,
-    "author": "NAV",
+    "author": "Nav",
     "license": "MIT",
     "homepage": "http://www.nav.no/person/personopplysninger/",
     "scripts": {

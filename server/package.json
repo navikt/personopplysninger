@@ -2,7 +2,7 @@
     "name": "personopplysninger-server",
     "version": "1.0.0",
     "private": true,
-    "author": "NAV",
+    "author": "Nav",
     "license": "MIT",
     "scripts": {
         "start": "node server.js"

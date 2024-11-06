@@ -3,7 +3,7 @@
         {
             "fraOgMed": "2014-12-31",
             "hjemmel": "EØS-forordning 883/2004",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "DANMARK",
             "medlem": false,
             "studieinformasjon": null,
@@ -13,7 +13,7 @@
         {
             "fraOgMed": "2015-01-01",
             "hjemmel": "Folketrygdloven",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "SVERIGE",
             "medlem": false,
             "studieinformasjon": null,
@@ -23,7 +23,7 @@
         {
             "fraOgMed": "2015-12-09",
             "hjemmel": "Trygdeavtale Australia",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -33,7 +33,7 @@
         {
             "fraOgMed": "2018-01-01",
             "hjemmel": "Trygdeavtale Canada",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "CANADA",
             "medlem": false,
             "studieinformasjon": null,
@@ -43,7 +43,7 @@
         {
             "fraOgMed": "2019-01-01",
             "hjemmel": "Folketrygdloven",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -53,7 +53,7 @@
         {
             "fraOgMed": "2019-01-01",
             "hjemmel": "Trygdeavtale Canada",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "CANADA",
             "medlem": false,
             "studieinformasjon": null,
@@ -63,7 +63,7 @@
         {
             "fraOgMed": "2019-10-01",
             "hjemmel": "Trygdeavtale",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -73,7 +73,7 @@
         {
             "fraOgMed": "2019-12-09",
             "hjemmel": "Trygdeavtale Bosnia og Hecegovina",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -83,7 +83,7 @@
         {
             "fraOgMed": "2020-01-01",
             "hjemmel": "Folketrygdloven",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -93,7 +93,7 @@
         {
             "fraOgMed": "2020-01-01",
             "hjemmel": "Folketrygdloven",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -103,7 +103,7 @@
         {
             "fraOgMed": "2020-01-01",
             "hjemmel": "EØS-forordning 883/2004",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -113,7 +113,7 @@
         {
             "fraOgMed": "2020-01-01",
             "hjemmel": "EØS-forordning 883/2004",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -123,7 +123,7 @@
         {
             "fraOgMed": "2020-06-26",
             "hjemmel": "Folketrygdloven",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -133,7 +133,7 @@
         {
             "fraOgMed": "2022-01-01",
             "hjemmel": "Trygdeavtale Australia",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
@@ -143,7 +143,7 @@
         {
             "fraOgMed": "2022-01-01",
             "hjemmel": "Trygdeavtale Australia",
-            "kilde": "NAV",
+            "kilde": "Nav",
             "lovvalgsland": "",
             "medlem": true,
             "studieinformasjon": null,
