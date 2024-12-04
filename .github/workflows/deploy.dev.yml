@@ -1,32 +1,31 @@
 name: Deploy to dev
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   build:
     uses: ./.github/workflows/build-and-deploy.yml
     permissions:
-      contents: "read"
-      id-token: "write"
-      packages: "write"
+      contents: 'read'
+      id-token: 'write'
+      packages: 'write'
     with:
       env: dev
       imageSuffix: dev-deploy
-      appOrigin: "https://www.ansatt.dev.nav.no"
-      VITE_BUILD_VERSION: "dev-${{ github.sha }}"
-      VITE_DINE_SAKER_URL: "https://www.intern.dev.nav.no/mine-saker"
-      VITE_PDL_URL: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui"
-      VITE_SKJERMING_URL: "https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming"
-      VITE_APP_URL: "https://www.ansatt.dev.nav.no/person/personopplysninger"
-      VITE_API_URL: "https://www.ansatt.dev.nav.no/person/personopplysninger-api"
-      VITE_DSOP_URL: "https://www.ansatt.dev.nav.no/person/dsop-api"
-      VITE_UTBETALINGSOVERSIKT_URL: "https://www.intern.dev.nav.no/utbetalingsoversikt/"
-      VITE_SYKEFRAVAER_URL: "https://www.ekstern.dev.nav.no/syk/sykefravaer"
-      VITE_LOGIN_URL: "https://login.ekstern.dev.nav.no/oauth2/login"
-      VITE_DITT_NAV_URL: "https://www.intern.dev.nav.no/minside"
-      VITE_PENSJONSOPPTJENING_URL: "https://www-q0.nav.no/pensjon/opptjening"
-      VITE_INNLOGGINGSSTATUS_URL: "https://www.ekstern.dev.nav.no/person/nav-dekoratoren-api/auth"
-      VITE_TELEMETRY_URL: "https://telemetry.ekstern.dev.nav.no/collect"
+      appOrigin: 'https://www.ansatt.dev.nav.no'
+      VITE_BUILD_VERSION: 'dev-${{ github.sha }}'
+      VITE_DINE_SAKER_URL: 'https://www.intern.dev.nav.no/dokumentarkiv'
+      VITE_PDL_URL: 'https://www.intern.dev.nav.no/person/pdl-fullmakt-ui'
+      VITE_SKJERMING_URL: 'https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming'
+      VITE_APP_URL: 'https://www.ansatt.dev.nav.no/person/personopplysninger'
+      VITE_API_URL: 'https://www.ansatt.dev.nav.no/person/personopplysninger-api'
+      VITE_DSOP_URL: 'https://www.ansatt.dev.nav.no/person/dsop-api'
+      VITE_UTBETALINGSOVERSIKT_URL: 'https://www.intern.dev.nav.no/utbetalingsoversikt/'
+      VITE_SYKEFRAVAER_URL: 'https://www.ekstern.dev.nav.no/syk/sykefravaer'
+      VITE_LOGIN_URL: 'https://login.ekstern.dev.nav.no/oauth2/login'
+      VITE_DITT_NAV_URL: 'https://www.intern.dev.nav.no/minside'
+      VITE_PENSJONSOPPTJENING_URL: 'https://www-q0.nav.no/pensjon/opptjening'
+      VITE_INNLOGGINGSSTATUS_URL: 'https://www.ekstern.dev.nav.no/person/nav-dekoratoren-api/auth'
+      VITE_TELEMETRY_URL: 'https://telemetry.ekstern.dev.nav.no/collect'
     secrets:
       READER_TOKEN: ${{ secrets.READER_TOKEN }}
       NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
