@@ -16,7 +16,7 @@ jobs:
       imageSuffix: release-${{ github.ref_name }}
       appOrigin: "https://www.nav.no"
       VITE_BUILD_VERSION: ${{ github.event.release.tag_name }}
-      VITE_DINE_SAKER_URL: "https://person.nav.no/mine-saker"
+      VITE_DINE_SAKER_URL: "https://www.nav.no/dokumentarkiv"
       VITE_PDL_URL: "https://www.nav.no/person/pdl-fullmakt-ui"
       VITE_SKJERMING_URL: "https://www.nav.no/person/personopplysninger/skjerming"
       VITE_APP_URL: "https://www.nav.no/person/personopplysninger"
