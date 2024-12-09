@@ -239,7 +239,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.sykefravaer.tittel': 'Ditt sykefravær',
     'lenker.sykefravaer.beskrivelse': 'Se sykefraværet og sykmeldingene dine',
     'lenker.sykefravaer.lenkeTekst': 'Dine saker',
-    'lenker.dokumentarkiv.tittel': 'Dokumenter',
+    'lenker.dokumentarkiv.tittel': 'Dokumentarkiv',
     'lenker.dokumentarkiv.beskrivelse': 'Se oversikt over dokumentene dine',
     'lenker.utbetalinger.tittel': 'Utbetalinger',
     'lenker.utbetalinger.beskrivelse': 'Se dine utbetalinger fra Nav (utbetalinger fra kommunen vises ikke)',
