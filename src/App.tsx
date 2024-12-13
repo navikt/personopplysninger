@@ -19,7 +19,7 @@ import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
 import { basePath } from './constants';
 
 import '@navikt/ds-css';
-import '@navikt/arbeidsforhold/style.css';
+import '@navikt/arbeidsforhold/index.css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 if (import.meta.env.VITE_ENV !== 'local') {
