@@ -25,12 +25,18 @@ export default [
         'prettier',
     ),
     { ignores: ['node_modules/**/*', 'dist/**/*', 'build/**/*'] },
-    { files: ['server/**/*.js'], rules: { 'no-console': 'off', '@typescript-eslint/no-require-imports': 'off' }, languageOptions: { globals: {
-        process: 'readonly',
-        module: 'readonly',
-        require: 'readonly',
-        __dirname: 'readonly',
-      }, } },
+    {
+        files: ['server/**/*.js'],
+        rules: { 'no-console': 'off', '@typescript-eslint/no-require-imports': 'off' },
+        languageOptions: {
+            globals: {
+                process: 'readonly',
+                module: 'readonly',
+                require: 'readonly',
+                __dirname: 'readonly',
+            },
+        },
+    },
     {
         files: ['src/**/*.ts', 'src/**/*.tsx'],
         plugins: {

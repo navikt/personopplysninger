@@ -56,7 +56,7 @@ export const setUpMock = async () => {
             delay(200, 500).then(() => {
                 Cookies.set('kontonr-result', 'success');
                 return endreKontonr;
-            })
+            }),
         );
 };
 

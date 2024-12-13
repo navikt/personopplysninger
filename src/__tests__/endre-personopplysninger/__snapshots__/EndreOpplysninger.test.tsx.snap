@@ -8,6 +8,8 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
+      data-poster="true"
+      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -192,6 +194,8 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
+      data-poster="true"
+      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -431,6 +435,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <button
                     aria-expanded="false"
                     class="navds-read-more__button navds-body-short"
+                    data-state="closed"
                     type="button"
                   >
                     <svg
@@ -458,6 +463,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <div
                     aria-hidden="true"
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                    data-state="closed"
                   >
                     <dl
                       class="list address-columns"
@@ -562,6 +568,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <button
                     aria-expanded="false"
                     class="navds-read-more__button navds-body-short"
+                    data-state="closed"
                     type="button"
                   >
                     <svg
@@ -589,6 +596,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <div
                     aria-hidden="true"
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
+                    data-state="closed"
                   >
                     <dl
                       class="list address-columns"
@@ -766,62 +774,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </p>
               </div>
               <div
-                class="navds-read-more navds-read-more--medium adresse__lesmer"
-              >
-                <button
-                  aria-expanded="false"
-                  class="navds-read-more__button navds-body-short"
-                  type="button"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="navds-read-more__expand-icon"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                  <span>
-                    Vis detaljer
-                  </span>
-                </button>
-                <div
-                  aria-hidden="true"
-                  class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
-                >
-                  <dl
-                    class="list address-columns"
-                  >
-                    <div
-                      class="list-item"
-                    >
-                      <dt
-                        class="list-element-heading"
-                      >
-                        <span
-                          class="navds-label"
-                        >
-                          Gyldig til og med
-                        </span>
-                      </dt>
-                      <dd>
-                        20.07.2020
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-              <div
                 class="adresse__divider"
               />
             </div>
@@ -875,6 +827,8 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
+      data-poster="true"
+      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -939,7 +893,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             role="status"
           >
             <svg
-              aria-labelledby="title-rf"
+              aria-labelledby="title-re"
               class="navds-alert__icon"
               fill="none"
               focusable="false"
@@ -950,7 +904,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               xmlns="http://www.w3.org/2000/svg"
             >
               <title
-                id="title-rf"
+                id="title-re"
               >
                 Informasjon
               </title>
@@ -1002,6 +956,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </div>
           </dl>
           <a
+            data-discover="true"
             href="/person/personopplysninger/nb/endre-kontonummer"
           >
             Endre kontonummer for utbetaling
