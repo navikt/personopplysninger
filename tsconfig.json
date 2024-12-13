@@ -20,5 +20,5 @@
         },
         "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"]
     },
-    "include": ["src"]
+    "include": ["src", "./vite-env.d.ts","./vite.config.ts", "./vitest.config.ts" ],
 }
