@@ -9,7 +9,7 @@
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
         "start:ts": "vite dev",
-        "lint": "eslint --config=./eslint.mjs",
+        "lint": "eslint --config=./eslint.config.mjs",
         "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
         "build:js": "vite build",

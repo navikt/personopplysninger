@@ -1,8 +1,8 @@
-import { MedlInfo } from '@/types/medl';
 import { FormattedMessage, useIntl } from 'react-intl';
-import Panel from './Panel';
 import { Alert, BodyLong, BodyShort, Heading, Link } from '@navikt/ds-react';
 import { CheckmarkCircleIcon } from '@navikt/aksel-icons';
+import { MedlInfo } from '@/types/medl';
+import Panel from './Panel';
 
 interface Props {
     medlInfo: MedlInfo;

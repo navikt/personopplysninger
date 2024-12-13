@@ -1,7 +1,7 @@
-import { MedlInnslag } from '@/types/medl';
-import { FormattedMessage } from 'react-intl';
-import Periode from './Periode';
 import { Accordion, BodyLong } from '@navikt/ds-react';
+import { FormattedMessage } from 'react-intl';
+import { MedlInnslag } from '@/types/medl';
+import Periode from './Periode';
 
 interface Props {
     tittelId: string;

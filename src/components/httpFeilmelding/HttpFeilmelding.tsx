@@ -1,6 +1,6 @@
-import { HTTPError } from '@/components/errorMessage/ErrorMessage';
 import { Alert } from '@navikt/ds-react';
 import { useIntl } from 'react-intl';
+import { HTTPError } from '@/components/errorMessage/ErrorMessage';
 
 type FeilmeldingType = 'advarsel' | 'info' | 'feil';
 
@@ -8,7 +8,6 @@ export interface Feilmelding extends HTTPError {
     type: FeilmeldingType;
 }
 
-/* eslint-disable @typescript-eslint/no-unused-vars */
 type AlertVariant = { [key in FeilmeldingType]: 'error' | 'warning' | 'info' | 'success' };
 
 const HttpFeilmelding = (props: Feilmelding) => {

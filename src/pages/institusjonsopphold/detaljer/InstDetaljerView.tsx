@@ -1,9 +1,9 @@
-import ListElement from '@/components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
-import { formatOrgnr, RADIX_DECIMAL } from '@/utils/formattering';
-import { InstInnslag } from '@/types/inst';
 import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
 import dayjs from 'dayjs';
+import ListElement from '@/components/listelement/ListElement';
+import { formatOrgnr, RADIX_DECIMAL } from '@/utils/formattering';
+import { InstInnslag } from '@/types/inst';
 import { Liste } from '@/components/listelement/Liste';
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {

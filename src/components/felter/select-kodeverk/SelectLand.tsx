@@ -86,4 +86,6 @@ const SelectLand = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>
     );
 });
 
+SelectLand.displayName = "SelectLand";
+
 export default SelectLand;

@@ -1,3 +1,6 @@
+import { Alert, BodyShort, Button, Label, Link as DsLink } from '@navikt/ds-react';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
+import dayjs from 'dayjs';
 import { useState } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FormattedMessage } from 'react-intl';
@@ -6,9 +9,6 @@ import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { InstInfo } from '@/types/inst';
 import Kilde from '@/components/kilde/Kilde';
 import { CustomHelpText } from '@/components/customHelpText/CustomHelpText';
-import { Alert, BodyShort, Button, Label, Link as DsLink } from '@navikt/ds-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
-import dayjs from 'dayjs';
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     const [viewAmount, setViewAmount] = useState(20);

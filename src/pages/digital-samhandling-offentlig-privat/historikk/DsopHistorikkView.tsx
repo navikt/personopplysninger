@@ -1,10 +1,10 @@
 import { Fragment, useState } from 'react';
-import { DsopInfo } from '@/types/dsop';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link as ReactLink, useLocation } from 'react-router-dom';
 import { Alert, Label, Link } from '@navikt/ds-react';
 import { ChevronDownIcon, ChevronUpIcon } from '@navikt/aksel-icons';
 import dayjs from 'dayjs';
+import { DsopInfo } from '@/types/dsop';
 
 interface Props {
     dsopInfo: DsopInfo;

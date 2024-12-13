@@ -1,20 +1,19 @@
 import { FormattedMessage } from 'react-intl';
+import { Alert, ErrorSummary, Link } from '@navikt/ds-react';
 import { electronicFormatIBAN } from 'ibantools';
+import { FieldValues, useFormContext } from 'react-hook-form';
+import { mapErrorsToSummary } from '@/utils/kontonummer';
+import { useIntlFormatter } from '@/hooks/useIntlFormatter';
+import { useStore } from '@/store/Context';
 import { brukerBankkode, harValgtUSA, validerBankkode, validerBic } from '../utils';
+import { FormFields } from '../types';
 import AmerikanskKonto from './AmerikanskKonto';
 import LandMedBankkode from './LandMedBankkode';
 import LandUtenBankkode from './LandUtenBankkode';
-import { Alert, ErrorSummary, Link } from '@navikt/ds-react';
-import { FieldValues, useFormContext } from 'react-hook-form';
-import { FormFields } from '../types';
 import LandField from './felter/LandField';
 import ValutaField from './felter/ValutaField';
 import BanknavnField from './felter/BanknavnField';
 import KontonummerIbanField from './felter/KontonummerIbanField';
-import { mapErrorsToSummary } from '@/utils/kontonummer';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { useStore } from '@/store/Context';
-
 interface Props {
     personident?: { verdi: string; type: string };
 }

@@ -1,11 +1,11 @@
+import { FormattedMessage } from 'react-intl';
 import { useState } from 'react';
+import { PencilIcon } from '@navikt/aksel-icons';
 import { Alert } from '@navikt/ds-react';
 import KontonummerForm from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
 import NorskKontonummer from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer';
 import Utenlandskonto from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto';
-import { FormattedMessage } from 'react-intl';
 import Kilde from '@/components/kilde/Kilde';
-import { PencilIcon } from '@navikt/aksel-icons';
 import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { EndreKontonummerResult } from './result/EndreKontonummerResult';

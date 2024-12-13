@@ -1,6 +1,6 @@
 import { OptionType } from '@/types/option';
-import { normalizeNummer } from './formattering';
 import { Tlfnr } from '../types/personalia';
+import { normalizeNummer } from './formattering';
 import { isMod11 } from './kontonummer';
 
 /*

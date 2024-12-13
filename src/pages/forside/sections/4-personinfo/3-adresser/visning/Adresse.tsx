@@ -1,14 +1,14 @@
+import { FormattedMessage } from 'react-intl';
+import dayjs from 'dayjs';
+import { Adresse as IAdresse } from '@/types/adresser/adresse';
+import AdressePanel from '../komponenter/AdressePanel';
 import PostadresseIFrittFormat from './adressetyper/norske-adresser/PostadresseIFrittFormat';
 import UtenlanskAdresseIFrittFormat from './adressetyper/utenlanske-adresser/UtenlanskAdresseIFrittFormat';
 import Vegadresse from './adressetyper/norske-adresser/Vegadresse';
 import Postboksadresse from './adressetyper/norske-adresser/Postboksadresse';
 import UtenlanskAdresse from './adressetyper/utenlanske-adresser/UtenlanskAdresse';
-import AdressePanel from '../komponenter/AdressePanel';
 import Matrikkeladresse from './adressetyper/norske-adresser/Matrikkeladresse';
 import Ukjentbosted from './adressetyper/norske-adresser/Ukjentbosted';
-import { Adresse as IAdresse } from '@/types/adresser/adresse';
-import { FormattedMessage } from 'react-intl';
-import dayjs from 'dayjs';
 
 interface Props {
     adresse?: IAdresse;

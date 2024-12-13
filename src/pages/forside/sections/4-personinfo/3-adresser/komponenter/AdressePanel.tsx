@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import { Heading, ReadMore } from '@navikt/ds-react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import ListElement from '@/components/listelement/ListElement';
-import { Heading, ReadMore } from '@navikt/ds-react';
 
 interface Props {
     tittel: string;
@@ -30,7 +30,7 @@ const AdressePanel = (props: Props) => {
                 </Heading>
             </div>
             {props.children}
-            {(props.bruksenhetsnummer || props.kommune || props.flyttedatoFormatert || props.gyldigTilOgMedFormatert) && (
+            {(props.bruksenhetsnummer ?? props.kommune ?? props.flyttedatoFormatert ?? props.gyldigTilOgMedFormatert) && (
                 <ReadMore className="adresse__lesmer" header={readMoreLabel} onClick={toggleReadMore}>
                     <dl className="list address-columns">
                         {props.bruksenhetsnummer && <ListElement titleId="adresse.bolignummer" content={props.bruksenhetsnummer} />}

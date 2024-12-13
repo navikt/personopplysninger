@@ -1,10 +1,10 @@
+import { Alert } from '@navikt/ds-react';
 import { Adresser as IAdresser } from '@/types/adresser';
 import Box from '@/components/box/Box';
 import adresseIkon from '@/assets/img/Adresse.svg';
 import driftsmeldinger from '@/driftsmeldinger';
 import Folkeregisteret from './visning/Folkeregisteret';
 import AndreAdresser from './visning/AndreAdresser';
-import { Alert } from '@navikt/ds-react';
 
 interface Props {
     adresser: IAdresser;
@@ -38,7 +38,7 @@ const Adresser = (props: Props) => {
                     kontaktadresser={kontaktadresserFreg}
                 />
 
-                {(kontaktadressePdl || oppholdsadressePdl) && (
+                {(kontaktadressePdl ?? oppholdsadressePdl) && (
                     <AndreAdresser kontaktadresse={kontaktadressePdl} oppholdsadresse={oppholdsadressePdl} />
                 )}
             </div>

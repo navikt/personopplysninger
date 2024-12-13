@@ -1,8 +1,9 @@
 import { Fragment, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useStore } from './store/Context';
 import { initializeFaro } from '@grafana/faro-web-sdk';
+import { initLocalMock as initLocalArbeidsforholdMock } from '@navikt/arbeidsforhold';
+import { useStore } from './store/Context';
 import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
 import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
@@ -15,7 +16,6 @@ import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/
 import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
-import { initLocalMock as initLocalArbeidsforholdMock } from '@navikt/arbeidsforhold';
 import { basePath } from './constants';
 
 import '@navikt/ds-css';

@@ -1,7 +1,7 @@
 import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
+import { FormatOptionLabelMeta } from 'react-select/base';
 import { fetchRetningsnumre } from '@/clients/apiClient';
 import { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import { FormatOptionLabelMeta } from 'react-select/base';
 import NAVSelect from '@/components/felter/select/NAVSelect';
 
 interface Props {
@@ -76,5 +76,7 @@ const SelectLandskode = forwardRef((props: Props, ref: ForwardedRef<HTMLInputEle
         />
     );
 });
+
+SelectLandskode.displayName = "SelectLandskode";
 
 export default SelectLandskode;

@@ -1,12 +1,12 @@
-import Box from '@/components/box/Box';
 import { ListeMedArbeidsforhold, AFListeOnClick } from '@navikt/arbeidsforhold';
-import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
 import { FormattedMessage, useIntl } from 'react-intl';
 import { Link } from 'react-router-dom';
+import { Alert } from '@navikt/ds-react';
+import Box from '@/components/box/Box';
+import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
 import Kilde from '@/components/kilde/Kilde';
 import { useStore } from '@/store/Context';
 import { Locale } from '@/store/Store';
-import { Alert } from '@navikt/ds-react';
 import { basePath } from '@/constants';
 
 const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'local' | 'dev' | 'prod';

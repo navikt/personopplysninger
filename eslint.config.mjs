@@ -10,7 +10,7 @@ import { FlatCompat } from '@eslint/eslintrc';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
-    baseDirectory: __dirname,
+    baseDirectory: `${__dirname}/src`,
     recommendedConfig: js.configs.recommended,
     allConfig: js.configs.all,
 });
@@ -24,7 +24,15 @@ export default [
         'plugin:jsx-a11y/recommended',
         'prettier',
     ),
+    { ignores: ['node_modules/**/*', 'dist/**/*', 'build/**/*'] },
+    { files: ['server/**/*.js'], rules: { 'no-console': 'off', '@typescript-eslint/no-require-imports': 'off' }, languageOptions: { globals: {
+        process: 'readonly',
+        module: 'readonly',
+        require: 'readonly',
+        __dirname: 'readonly',
+      }, } },
     {
+        files: ['src/**/*.ts', 'src/**/*.tsx'],
         plugins: {
             'css-modules': cssModules,
             '@typescript-eslint': typescriptEslint,
@@ -37,7 +45,6 @@ export default [
                 project: ['./tsconfig.json'],
             },
         },
-
         rules: {
             'import/order': [
                 'warn',

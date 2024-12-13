@@ -1,6 +1,6 @@
+import { BodyShort } from '@navikt/ds-react';
 import Postnummer from '../../../komponenter/Postnummer';
 import { Postboksadresse as PostboksadresseType } from '@/types/adresser/adresse';
-import { BodyShort } from '@navikt/ds-react';
 
 const Postboksadresse = (props: PostboksadresseType) => {
     const { postbokseier, postboks, postnummer, coAdressenavn } = props;

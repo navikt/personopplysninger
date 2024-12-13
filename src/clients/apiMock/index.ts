@@ -1,4 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import fetchMock from 'fetch-mock';
+import Cookies from 'js-cookie';
 import personInformasjon from './app/fetch/person-info.json';
 import kontaktInformasjon from './app/fetch/kontakt-info.json';
 import dsopInfo from './app/fetch/dsop-info.json';
@@ -10,12 +12,8 @@ import landInfo from './app/fetch/land.json';
 import instInfo from './app/fetch/inst-info.json';
 import medlInfo from './app/fetch/medl-info.json';
 import auth from './app/fetch/auth.json';
-import Cookies from 'js-cookie';
 
 const { VITE_API_URL, VITE_DSOP_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
-
-// Config
-fetchMock.config.fallbackToNetwork = true;
 
 const mockFetchKontaktinfo = true;
 const mockFetchPersonalia = true;

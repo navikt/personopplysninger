@@ -1,11 +1,11 @@
 import { useFormContext } from 'react-hook-form';
+import { isValidBIC } from 'ibantools';
+import { TextField } from '@navikt/ds-react';
 import { FormFields } from '@/types';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { validerBic } from '../../utils';
 import { isBICCountryCompliant, isLettersAndDigits } from '@/utils/validators';
-import { isValidBIC } from 'ibantools';
 import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
-import { TextField } from '@navikt/ds-react';
 
 const BickodeField = () => {
     const { formatMessage } = useIntlFormatter();

@@ -1,6 +1,6 @@
+import { Label, TextField } from '@navikt/ds-react';
 import { useFormContext } from 'react-hook-form';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { Label, TextField } from '@navikt/ds-react';
 import {
     hasMultipleCombinedSpaces,
     isBlacklistedCommon,

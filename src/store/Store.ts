@@ -4,15 +4,15 @@ import { KontaktInfo } from '../types/kontaktInfo';
 import { HTTPError } from '../components/errorMessage/ErrorMessage';
 import { FetchDsopInfo } from '../pages/digital-samhandling-offentlig-privat/DsopFetch';
 import { DsopInfo } from '../types/dsop';
-import { FetchPersonInfo } from './providers/PersonInfo';
 import { InstInfo } from '../types/inst';
 import { FetchInstInfo } from '../pages/institusjonsopphold/InstFetch';
 import { FetchMedlInfo } from '../pages/medlemskap-i-folketrygden/MedlFetch';
 import { MedlInfo } from '../types/medl';
 import { Auth, FetchAuth } from '../types/authInfo';
+import { FetchPersonInfo } from './providers/PersonInfo';
 
-const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && 'en') ||
-    (window.location.pathname.match(/\/nn($|\/)/) && 'nn') ||
+const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && 'en') ??
+    (window.location.pathname.match(/\/nn($|\/)/) && 'nn') ??
     'nb') as Locale;
 
 export const initialState = {

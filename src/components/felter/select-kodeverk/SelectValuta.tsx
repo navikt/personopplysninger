@@ -77,4 +77,6 @@ const SelectValuta = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElemen
     );
 });
 
+SelectValuta.displayName = 'SelectValuta';
+
 export default SelectValuta;

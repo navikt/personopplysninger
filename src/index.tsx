@@ -1,6 +1,6 @@
 import { createRoot } from 'react-dom/client';
-import { StoreProvider } from './store/Context';
 import { injectDecoratorClientSide } from '@navikt/nav-dekoratoren-moduler';
+import { StoreProvider } from './store/Context';
 import WithLanguages from './store/providers/Language';
 import App from './App';
 

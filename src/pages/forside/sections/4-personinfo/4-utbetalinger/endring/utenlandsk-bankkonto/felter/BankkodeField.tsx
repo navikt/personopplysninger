@@ -1,10 +1,10 @@
 import { useFormContext } from 'react-hook-form';
+import { TextField } from '@navikt/ds-react';
 import { FormFields } from '@/types';
 import { validerBankkode } from '../../utils';
 import { isBankkodeValidLength, isNumeric } from '@/utils/validators';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
-import { TextField } from '@navikt/ds-react';
 
 const BankkodeField = () => {
     const { formatMessage, formatMessageWithValues } = useIntlFormatter();

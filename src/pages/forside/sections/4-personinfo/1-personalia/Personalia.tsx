@@ -1,10 +1,10 @@
+import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import Box from '@/components/box/Box';
 import personaliaIkon from '@/assets/img/Personalia.svg';
 import { Personalia as PersonaliaType } from '@/types/personalia';
 import ListElement from '@/components/listelement/ListElement';
 import Kilde from '@/components/kilde/Kilde';
 import { useStore } from '@/store/Context';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
 import { Liste } from '@/components/listelement/Liste';
 
 interface Props {

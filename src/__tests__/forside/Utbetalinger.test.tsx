@@ -1,7 +1,7 @@
 import { IntlProvider } from 'react-intl';
+import { MemoryRouter } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import nbMessages from '@/text/nb';
-import { MemoryRouter } from 'react-router-dom';
 import personInfo from '@/clients/apiMock/app/fetch/person-info.json';
 import personInfoUtenlandskbank from '@/clients/apiMock/app/fetch/person-info-utenlandskbank.json';
 import Utbetalinger from '@/pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
