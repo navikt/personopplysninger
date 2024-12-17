@@ -1,5 +1,5 @@
-import SelectLand from '@/components/felter/select-kodeverk/SelectLand';
 import { useFormContext } from 'react-hook-form';
+import SelectLand from '@/components/felter/select-kodeverk/SelectLand';
 import { FormFields } from '../../types';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 
@@ -37,7 +37,9 @@ const LandField = () => {
                 const bankkodeRetningsnummer = option ? BANKKODER[option.value] : '';
                 setValue('land', option);
                 setValue('retningsnummer', bankkodeRetningsnummer);
-                isSubmitted && trigger();
+                if (isSubmitted) {
+                    trigger();
+                }
             }}
         />
     );

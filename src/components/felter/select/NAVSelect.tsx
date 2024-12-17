@@ -1,3 +1,5 @@
+import { Label, Loader, TextField } from '@navikt/ds-react';
+import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { ForwardedRef, useEffect, forwardRef, memo } from 'react';
 import Select, { ActionMeta, components, MultiValue, OptionProps, SingleValue } from 'react-select';
 import { useIntl } from 'react-intl';
@@ -5,8 +7,6 @@ import cls from 'classnames';
 import { FormatOptionLabelMeta } from 'react-select/base';
 import { RADIX_DECIMAL } from '@/utils/formattering';
 import { HTTPError } from '../../errorMessage/ErrorMessage';
-import { Label, Loader, TextField } from '@navikt/ds-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
 import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
 
 interface Props {
@@ -60,7 +60,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
               .filter(
                   (option: OptionType) =>
                       // Find closest match
-                      (props.option && option.value === props.option.value) ||
+                      (props.option && option.value === props.option.value) ??
                       (props.option && option.label.replace(`(${option.value})`, '').toUpperCase().trim() === props.option.label.trim().toUpperCase())
               )
               .shift()

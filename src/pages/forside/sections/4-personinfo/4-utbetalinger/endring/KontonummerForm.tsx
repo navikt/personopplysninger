@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Alert, Button, Radio, RadioGroup } from '@navikt/ds-react';
-import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from './norsk-bankkonto/NorskKontonummer';
-import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from './utenlandsk-bankkonto/UtenlandsBankkonto';
 import { FormattedMessage, useIntl } from 'react-intl';
+import { FieldValues, FormProvider, useForm } from 'react-hook-form';
 import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
 import Kilde from '@/components/kilde/Kilde';
 import { normalizeNummer } from '@/utils/formattering';
@@ -10,10 +9,11 @@ import { fetchPersonInfo, postKontonummer } from '@/clients/apiClient';
 import { PersonInfo } from '@/types/personInfo';
 import { useStore } from '@/store/Context';
 import { UtenlandskBankkonto } from '@/types/personalia';
-import { FieldValues, FormProvider, useForm } from 'react-hook-form';
-import { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from './types';
 import { UNKNOWN } from '@/utils/text';
 import { Action, Locale } from '@/store/Store';
+import { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from './types';
+import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from './norsk-bankkonto/NorskKontonummer';
+import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from './utenlandsk-bankkonto/UtenlandsBankkonto';
 
 interface Props {
     utenlandskbank?: UtenlandskBankkonto;

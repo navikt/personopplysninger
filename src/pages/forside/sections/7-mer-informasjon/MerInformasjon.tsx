@@ -1,8 +1,8 @@
 import { Fragment } from 'react';
+import { Box, Heading, ReadMore } from '@navikt/ds-react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import MerInformasjonPanelinnhold from './MerInformasjonPanelinnhold';
 import merInformasjon from './MerInformasjonData';
-import { Box, Heading, ReadMore } from '@navikt/ds-react';
 
 const AlternativListe = () => {
     const { formatMessage: msg } = useIntl();

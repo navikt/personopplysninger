@@ -18,10 +18,10 @@ const Vegadresse = (props: VegadresseType) => {
                     <BodyShort>{coAdressenavn}</BodyShort>
                 </div>
             )}
-            {(adressenavn || husnummer || husbokstav) && (
+            {(adressenavn ?? husnummer ?? husbokstav) && (
                 <div className="adresse__linje">
                     <BodyShort>
-                        {adressenavn || ''} {husnummer || ''} {husbokstav || ''}
+                        {adressenavn ?? ''} {husnummer ?? ''} {husbokstav ?? ''}
                     </BodyShort>
                 </div>
             )}

@@ -70,10 +70,10 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
 
         const appBreadcrumbs =
             hierarki?.map((lenke) => ({
-                url: `${basePath}/${locale}${lenke.path || ''}`,
+                url: `${basePath}/${locale}${lenke.path ?? ''}`,
                 title: formatMessage({ id: lenke.title }, { br: () => '' }),
-                handleInApp: lenke.path?.includes('/') || false,
-            })) || [];
+                handleInApp: lenke.path?.includes('/') ?? false,
+            })) ?? [];
 
         const breadcrumbs = baseBreadcrumbs.concat(appBreadcrumbs);
         setBreadcrumbs(breadcrumbs);

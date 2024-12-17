@@ -1,10 +1,10 @@
-import { MedlInnslag } from '@/types/medl';
 import { FormattedMessage } from 'react-intl';
-import ListElement from '@/components/listelement/ListElement';
 import { BodyLong } from '@navikt/ds-react';
 import dayjs from 'dayjs';
 import { CalendarIcon } from '@navikt/aksel-icons';
 import { Liste } from '@/components/listelement/Liste';
+import { MedlInnslag } from '@/types/medl';
+import ListElement from '@/components/listelement/ListElement';
 
 interface Props {
     periode: MedlInnslag;

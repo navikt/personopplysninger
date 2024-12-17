@@ -10,6 +10,7 @@ import { useStore } from '@/store/Context';
 import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
 import { Tlfnr } from '@/types/personalia';
 import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from '@/utils/validators';
+import { OptionType } from '@/types/option';
 
 interface Props {
     prioritet: 1 | 2;
@@ -66,6 +67,15 @@ const TelefonnummerForm = (props: Props) => {
             .then(() => settLoading(false));
     };
 
+    const onChangeHandler = (option?: OptionType) => {
+        if (isSubmitted) {
+            trigger('tlfnummer');
+        }
+        if (option) {
+            setValue('landskode', option);
+        }
+    }
+
     const tlfNummerMaxLength = watch().landskode && watch().landskode.value === '+47' ? 8 : 16;
 
     return (
@@ -79,10 +89,7 @@ const TelefonnummerForm = (props: Props) => {
                         id={'landskode'}
                         option={watch().landskode}
                         label={msg({ id: 'felter.landkode.label' })}
-                        onChange={(option) => {
-                            isSubmitted && trigger('tlfnummer');
-                            option && setValue('landskode', option);
-                        }}
+                        onChange={onChangeHandler}
                         error={errors?.landskode?.message}
                         submitted={isSubmitted}
                     />
@@ -93,10 +100,12 @@ const TelefonnummerForm = (props: Props) => {
                             required: msg({ id: 'validation.tlfnr.pakrevd' }),
                             validate: {
                                 isNumeric: (v) => isNumeric(v) || msg({ id: 'validation.tlfnr.siffer' }),
-                                isNotAlreadyRegistered: (v) =>
-                                    props.type === 'endre' ||
-                                    (tlfnr && isNotAlreadyRegistered(v, tlfnr)) ||
-                                    msg({ id: 'validation.tlfnr.eksisterer' }),
+                                isNotAlreadyRegistered: (v) => {
+                                    if (props.type === 'endre') {
+                                        return true;
+                                    }
+                                    return tlfnr && isNotAlreadyRegistered(v, tlfnr) ? true : msg({ id: 'validation.tlfnr.eksisterer' });
+                                },
                                 isValidNorwegianNumber: (v) =>
                                     isNorwegianNumber(watch().landskode) ? v.length === 8 || msg({ id: 'validation.tlfnr.norske' }) : true,
                             },

@@ -1,10 +1,10 @@
 import { FormattedMessage } from 'react-intl';
+import { BodyLong, GuidePanel, Heading, Link } from '@navikt/ds-react';
 import veilederIkon from '@/assets/img/Veileder.svg';
 import ErrorMessage from '@/components/errorMessage/ErrorMessage';
 import Spinner from '../4-personinfo/PersonInfo';
 import { formatName } from '@/utils/text';
 import { useStore } from '@/store/Context';
-import { BodyLong, GuidePanel, Heading, Link } from '@navikt/ds-react';
 
 const Header = () => {
     const [{ authInfo }] = useStore();

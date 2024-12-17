@@ -1,6 +1,6 @@
-import { RADIX_DECIMAL } from './formattering';
 import { FieldErrors } from 'react-hook-form';
 import { FormFields } from '../pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
+import { RADIX_DECIMAL } from './formattering';
 
 const mod11OfNumberWithControlDigit = (input: string) => {
     let controlNumber = 2,

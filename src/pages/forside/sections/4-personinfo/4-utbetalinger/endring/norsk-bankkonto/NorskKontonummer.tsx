@@ -1,7 +1,7 @@
 import { useIntl } from 'react-intl';
+import { FieldValues, useFormContext } from 'react-hook-form';
 import { TextField } from '@navikt/ds-react';
 import { normalizeNummer } from '@/utils/formattering';
-import { FieldValues, useFormContext } from 'react-hook-form';
 import { isNormalizedLength, isNormalizedMod11 } from '@/utils/validators';
 import { FormFields } from '../types';
 

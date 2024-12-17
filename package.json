@@ -9,7 +9,7 @@
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
         "start:ts": "vite dev",
-        "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
+        "lint": "eslint --config=./eslint.config.mjs",
         "postinstall": "cd server && npm install",
         "build": "npm-run-all -p build:*",
         "build:js": "vite build",
@@ -17,21 +17,23 @@
         "test": "vitest",
         "analyze": "npx vite-bundle-visualizer"
     },
+    "dependencyComments": {
+        "@react-pft/renderer": "12.12.24: There's an issue with how we built the PDF viewing and newer versions seems to crash the viewing. Keep the version for now. Also, we're discussing moving away from PDF and show a print friendly version istead."
+    },
     "dependencies": {
-        "@grafana/faro-web-sdk": "1.10.1",
-        "@grafana/faro-web-tracing": "1.10.1",
-        "@navikt/aksel-icons": "7.1.0",
-        "@navikt/arbeidsforhold": "4.1.1",
-        "@navikt/ds-css": "7.1.0",
-        "@navikt/ds-react": "7.1.0",
-        "@navikt/fnrvalidator": "2.1.2",
+        "@grafana/faro-web-sdk": "1.12.2",
+        "@grafana/faro-web-tracing": "1.12.2",
+        "@navikt/aksel-icons": "7.8.0",
+        "@navikt/arbeidsforhold": "4.1.2-beta.1",
+        "@navikt/ds-css": "7.8.0",
+        "@navikt/ds-react": "7.8.0",
+        "@navikt/fnrvalidator": "2.1.5",
         "@navikt/nav-dekoratoren-moduler": "3.1.0",
-        "@navikt/nav-office-reception-info": "1.1.1",
+        "@navikt/nav-office-reception-info": "1.1.2",
         "@react-pdf/renderer": "3.4.4",
         "buffer": "6.0.3",
-        "core-js": "3.38.1",
+        "core-js": "3.39.0",
         "dayjs": "1.11.13",
-        "fetch-mock": "11.1.5",
         "file-saver": "2.0.5",
         "ibantools": "4.5.1",
         "intl": "1.2.5",
@@ -43,53 +45,59 @@
         "npm-run-all": "4.1.5",
         "react": "18.3.1",
         "react-collapse": "5.1.1",
-        "react-day-picker": "9.1.3",
+        "react-day-picker": "9.4.3",
         "react-dom": "18.3.1",
-        "react-hook-form": "7.53.0",
-        "react-intl": "6.7.0",
+        "react-hook-form": "7.54.0",
+        "react-intl": "7.0.4",
         "react-modal": "3.16.1",
-        "react-router-dom": "6.26.2",
-        "react-select": "5.8.1",
-        "ssri": "10.0.6"
+        "react-router-dom": "7.0.2",
+        "react-select": "5.9.0"
     },
     "devDependencies": {
-        "@navikt/eslint-config-navno": "1.3.1",
         "@testing-library/dom": "10.4.0",
-        "@testing-library/jest-dom": "6.5.0",
-        "@testing-library/react": "16.0.1",
+        "@testing-library/jest-dom": "6.6.3",
+        "@testing-library/react": "16.1.0",
         "@testing-library/user-event": "14.5.2",
         "@types/fetch-mock": "7.3.8",
         "@types/file-saver": "2.0.7",
         "@types/js-cookie": "3.0.6",
         "@types/jsdom": "21.1.7",
         "@types/node": "20.14.10",
-        "@types/node-fetch": "2.6.11",
+        "@types/node-fetch": "2.6.12",
+        "eslint-plugin-import": "2.31.0",
         "@types/react": "18.3.7",
         "@types/react-dom": "18.3.0",
         "@types/react-modal": "3.16.3",
         "@types/react-router-dom": "5.3.3",
         "@types/react-select": "5.0.1",
         "@types/react-test-renderer": "18.3.0",
-        "@typescript-eslint/eslint-plugin": "7.16.1",
-        "@typescript-eslint/parser": "7.16.1",
-        "@vitejs/plugin-react": "4.3.1",
+        "@typescript-eslint/eslint-plugin": "8.18.0",
+        "@typescript-eslint/parser": "8.18.0",
+        "@vitejs/plugin-react": "4.3.4",
         "classnames": "2.5.1",
-        "eslint": "8.57.0",
+        "eslint": "9.16.0",
         "eslint-config-prettier": "9.1.0",
-        "eslint-plugin-jsx-a11y": "6.10.0",
-        "eslint-plugin-react": "7.36.1",
+        "eslint-plugin-css-modules": "2.12.0",
+        "eslint-plugin-jsx-a11y": "6.10.2",
+        "eslint-plugin-react": "7.37.2",
+        "fetch-mock": "12.2.0",
         "less": "4.2.0",
         "less-plugin-npm-import": "2.1.0",
         "less-watch-compiler": "1.16.3",
-        "prettier": "3.3.3",
+        "prettier": "3.4.2",
         "react-test-renderer": "18.3.1",
         "source-map-explorer": "2.5.3",
-        "typescript": "5.6.2",
-        "vite": "5.4.6",
+        "typescript": "5.7.2",
+        "vite": "6.0.3",
         "vite-plugin-node-polyfills": "0.22.0",
-        "vite-tsconfig-paths": "5.0.1",
-        "vitest": "2.1.1",
-        "vitest-fetch-mock": "0.3.0"
+        "vite-tsconfig-paths": "5.1.4",
+        "vitest": "2.1.8",
+        "vitest-fetch-mock": "0.4.2"
+    },
+    "overrides": {
+        "vite-plugin-node-polyfills": {
+            "vite": "^6.0.0"
+        }
     },
     "browserslist": {
         "production": [
@@ -100,9 +108,5 @@
         "development": [
             "last 1 version"
         ]
-    },
-    "eslintConfig": {
-        "extends": "@navikt/eslint-config-navno/eslint"
-    },
-    "prettier": "@navikt/eslint-config-navno/prettier"
+    }
 }

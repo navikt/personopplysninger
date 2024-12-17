@@ -1,13 +1,13 @@
+import { Alert, Button, Label } from '@navikt/ds-react';
+import { PlusCircleIcon } from '@navikt/aksel-icons';
 import { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { Tlfnr } from '@/types/personalia';
+import { fjernMellorom } from '@/utils/formattering';
+import driftsmeldinger from '@/driftsmeldinger';
 import Kilde from '@/components/kilde/Kilde';
 import Telefonnummer from './Telefonnummer';
 import TelefonnummerForm from './TelefonnummerForm';
-import { fjernMellorom } from '@/utils/formattering';
-import driftsmeldinger from '@/driftsmeldinger';
-import { Alert, Button, Label } from '@navikt/ds-react';
-import { PlusCircleIcon } from '@navikt/aksel-icons';
 
 interface Props {
     tlfnr?: Tlfnr;

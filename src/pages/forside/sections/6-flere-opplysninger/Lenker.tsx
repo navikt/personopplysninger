@@ -1,15 +1,15 @@
-import lenker from './LenkerData';
-import LinkBox from './linkbox/LinkBox';
+import { FormattedMessage } from 'react-intl';
+import { BodyLong, Box, Heading } from '@navikt/ds-react';
 import DSOPIkon from '@/assets/img/DSOP.svg';
 import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
 import MEDLIkon from '@/assets/img/MEDL.svg';
 import FullmaktIkon from '@/assets/img/Fullmakt.svg';
 import SkjermingIkon from '@/assets/img/Skjerming.svg';
-import { FormattedMessage } from 'react-intl';
 import { useStore } from '@/store/Context';
 import { AnchorLink } from '@/components/anchorlink/AnchorLink';
-import { BodyLong, Box, Heading } from '@navikt/ds-react';
 import { basePath } from '@/constants';
+import lenker from './LenkerData';
+import LinkBox from './linkbox/LinkBox';
 
 const { VITE_PDL_URL, VITE_SKJERMING_URL } = import.meta.env;
 

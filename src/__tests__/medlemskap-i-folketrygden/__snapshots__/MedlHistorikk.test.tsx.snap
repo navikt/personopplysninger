@@ -262,6 +262,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
     >
       <div
         class="navds-accordion__item"
+        data-expanded="false"
       >
         <button
           aria-expanded="false"
@@ -273,7 +274,6 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              aria-labelledby="title-r6"
               class="navds-accordion__header-chevron"
               fill="none"
               focusable="false"
@@ -283,11 +283,6 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title
-                id="title-r6"
-              >
-                Vis mer
-              </title>
               <path
                 clip-rule="evenodd"
                 d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"
@@ -2248,6 +2243,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
     >
       <div
         class="navds-accordion__item"
+        data-expanded="false"
       >
         <button
           aria-expanded="false"
@@ -2259,7 +2255,6 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
           >
             <svg
               aria-hidden="true"
-              aria-labelledby="title-r1u"
               class="navds-accordion__header-chevron"
               fill="none"
               focusable="false"
@@ -2269,11 +2264,6 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <title
-                id="title-r1u"
-              >
-                Vis mer
-              </title>
               <path
                 clip-rule="evenodd"
                 d="M5.97 9.47a.75.75 0 0 1 1.06 0L12 14.44l4.97-4.97a.75.75 0 1 1 1.06 1.06l-5.5 5.5a.75.75 0 0 1-1.06 0l-5.5-5.5a.75.75 0 0 1 0-1.06"

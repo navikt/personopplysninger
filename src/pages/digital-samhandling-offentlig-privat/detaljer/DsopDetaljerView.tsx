@@ -1,9 +1,9 @@
-import ListElement from '@/components/listelement/ListElement';
 import { FormattedMessage } from 'react-intl';
 import FileSaver from 'file-saver';
-import { DsopInfo } from '@/types/dsop';
 import { BodyShort, Button, Heading } from '@navikt/ds-react';
 import dayjs from 'dayjs';
+import { DsopInfo } from '@/types/dsop';
+import ListElement from '@/components/listelement/ListElement';
 import { Liste } from '@/components/listelement/Liste';
 
 interface Props {

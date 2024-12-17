@@ -1,5 +1,5 @@
-import { Ukjentbosted as UkjentbostedType } from '@/types/adresser/adresse';
 import { BodyShort } from '@navikt/ds-react';
+import { Ukjentbosted as UkjentbostedType } from '@/types/adresser/adresse';
 
 const Ukjentbosted = (props: UkjentbostedType) => {
     const { bostedskommune, coAdressenavn } = props;

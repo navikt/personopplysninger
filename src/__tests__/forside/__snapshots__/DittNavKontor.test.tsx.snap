@@ -8,6 +8,8 @@ exports[`DittNavKontor > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
+      data-poster="true"
+      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -257,7 +259,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                  Adresse
+                  Besøksadresse
                 </h3>
                 <section
                   class="_address_rdj2p_75"

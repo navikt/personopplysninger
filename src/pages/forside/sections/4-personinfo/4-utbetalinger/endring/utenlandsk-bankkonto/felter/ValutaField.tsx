@@ -1,5 +1,5 @@
-import SelectValuta from '@/components/felter/select-kodeverk/SelectValuta';
 import { useFormContext } from 'react-hook-form';
+import SelectValuta from '@/components/felter/select-kodeverk/SelectValuta';
 import { useIntlFormatter } from '@/hooks/useIntlFormatter';
 import { FormFields } from '../../types';
 
@@ -26,7 +26,9 @@ const ValutaField = () => {
             option={watch().valuta}
             onChange={(value) => {
                 setValue('valuta', value);
-                isSubmitted && trigger();
+                if (isSubmitted) {
+                    trigger();   
+                }
             }}
             error={errors?.valuta?.message}
         />

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import createFetchMock from 'vitest-fetch-mock';
@@ -575,9 +576,9 @@ const inputValidUtenlandskbankkontoWithOmission = async (omit: string, type?: st
     if (bankkode) {
         omit !== BANKKODE && inputTextbox(BANKKODE, bankkode);
         if (omit !== ADRESSE) {
-            omit !== ADRESSELINJE1 && inputTextbox(ADRESSELINJE1, adresselinje1 || '');
-            omit !== ADRESSELINJE2 && inputTextbox(ADRESSELINJE2, adresselinje2 || '');
-            omit !== ADRESSELINJE3 && inputTextbox(ADRESSELINJE3, adresselinje3 || '');
+            omit !== ADRESSELINJE1 && inputTextbox(ADRESSELINJE1, adresselinje1 ?? '');
+            omit !== ADRESSELINJE2 && inputTextbox(ADRESSELINJE2, adresselinje2 ?? '');
+            omit !== ADRESSELINJE3 && inputTextbox(ADRESSELINJE3, adresselinje3 ?? '');
         }
     }
 };

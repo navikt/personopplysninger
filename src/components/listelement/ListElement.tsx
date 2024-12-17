@@ -1,7 +1,7 @@
+import { Label } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
 import { useIntlFormatter } from '../../hooks/useIntlFormatter';
 import { CustomHelpText } from '@/components/customHelpText/CustomHelpText';
-import { Label } from '@navikt/ds-react';
 
 interface Props {
     title?: string;
@@ -15,7 +15,7 @@ interface Props {
 const ListElement = (props: Props) => {
     const { content, title, titleId, hjelpetekstId, children, className } = props;
     const { formatMessage } = useIntlFormatter();
-    const helpTextTitle = title || (titleId && formatMessage(titleId)) || '';
+    const helpTextTitle = title ?? (titleId && formatMessage(titleId)) ?? '';
     return content ? (
         <div className="list-item">
             <dt className="list-element-heading">
