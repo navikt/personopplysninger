@@ -15,10 +15,6 @@ export const redirects: {
     1) Legg til tjenesten i listen under
     2) Send brukeren til https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/[KEY]/[REDIRECT_URL]
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     Eksempel på url:
     https://www.ansatt.dev.nav.no/person/personopplysninger/nb/endre-opplysninger/sendt-fra/dagpenger/forskudd/https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf
 
