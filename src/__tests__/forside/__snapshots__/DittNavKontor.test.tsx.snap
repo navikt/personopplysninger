@@ -234,14 +234,14 @@ exports[`DittNavKontor > renders correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="_singleReception_xmatb_1"
+                class="_singleReception_rdj2p_1"
               >
                 <h3
-                  class="_heading_xmatb_48 navds-heading navds-heading--medium navds-typo--spacing"
+                  class="_heading_rdj2p_48 navds-heading navds-heading--medium navds-typo--spacing"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_headingIcon_xmatb_53 _iconPlace_xmatb_58"
+                    class="_headingIcon_rdj2p_53 _iconPlace_rdj2p_58"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -260,20 +260,20 @@ exports[`DittNavKontor > renders correctly 1`] = `
                   Adresse
                 </h3>
                 <section
-                  class="_address_xmatb_75"
+                  class="_address_rdj2p_75"
                 >
                   <p
-                    class="_addressLine_xmatb_82 navds-body-short navds-body-short--medium"
+                    class="_addressLine_rdj2p_82 navds-body-short navds-body-short--medium"
                   >
                     Storgata 8, 1771 HALDEN
                   </p>
                 </section>
                 <h3
-                  class="_heading_xmatb_48 navds-heading navds-heading--medium navds-typo--spacing"
+                  class="_heading_rdj2p_48 navds-heading navds-heading--medium navds-typo--spacing"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_headingIcon_xmatb_53 _iconClock_xmatb_63"
+                    class="_headingIcon_rdj2p_53 _iconClock_rdj2p_63"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -389,29 +389,6 @@ exports[`DittNavKontor > renders correctly 1`] = `
                     </tr>
                   </tbody>
                 </table>
-                <div
-                  class="_appointmentBookingInfo_xmatb_94"
-                >
-                  <svg
-                    aria-hidden="true"
-                    class="_iconInfo_xmatb_68"
-                    fill="none"
-                    focusable="false"
-                    height="1em"
-                    role="img"
-                    viewBox="0 0 24 24"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      d="M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75zM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0m-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75"
-                      fill="currentColor"
-                      fill-rule="evenodd"
-                    />
-                  </svg>
-                  Du kan avtale møte med veilederen din utenom disse åpningstidene.
-                </div>
               </div>
             </div>
             <div
