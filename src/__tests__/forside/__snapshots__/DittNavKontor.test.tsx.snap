@@ -259,7 +259,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                       fill-rule="evenodd"
                     />
                   </svg>
-                  Adresse
+                  Besøksadresse
                 </h3>
                 <section
                   class="_address_rdj2p_75"
