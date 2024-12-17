@@ -8,8 +8,6 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
-      data-poster="true"
-      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -194,8 +192,6 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
-      data-poster="true"
-      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -435,7 +431,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <button
                     aria-expanded="false"
                     class="navds-read-more__button navds-body-short"
-                    data-state="closed"
                     type="button"
                   >
                     <svg
@@ -463,7 +458,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <div
                     aria-hidden="true"
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
-                    data-state="closed"
                   >
                     <dl
                       class="list address-columns"
@@ -568,7 +562,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <button
                     aria-expanded="false"
                     class="navds-read-more__button navds-body-short"
-                    data-state="closed"
                     type="button"
                   >
                     <svg
@@ -596,7 +589,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   <div
                     aria-hidden="true"
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
-                    data-state="closed"
                   >
                     <dl
                       class="list address-columns"
@@ -827,8 +819,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
-      data-poster="true"
-      data-responsive="false"
     >
       <div
         class="navds-guide"
@@ -956,7 +946,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </div>
           </dl>
           <a
-            data-discover="true"
             href="/person/personopplysninger/nb/endre-kontonummer"
           >
             Endre kontonummer for utbetaling

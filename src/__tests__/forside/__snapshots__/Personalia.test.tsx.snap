@@ -8,8 +8,6 @@ exports[`Personalia > renders correctly 1`] = `
   >
     <div
       class="navds-guide-panel navds-guide-panel--poster"
-      data-poster="true"
-      data-responsive="false"
     >
       <div
         class="navds-guide"
