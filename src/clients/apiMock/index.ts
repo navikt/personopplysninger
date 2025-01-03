@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import fetchMock from 'fetch-mock';
 import Cookies from 'js-cookie';
 import personInformasjon from './app/fetch/person-info.json';
