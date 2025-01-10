@@ -40,6 +40,14 @@ export default (locale: string) => [
         icon: jobbsok,
     },
     {
+        id: 'stillingssok',
+        tittel: 'lenker.stillingssok.tittel',
+        beskrivelse: 'lenker.stillingssok.beskrivelse',
+        lenkeTekst: 'lenker.stillingssok.lenkeTekst',
+        url: 'https://arbeidsplassen.nav.no/stillinger/lagrede-sok',
+        icon: jobbsok,
+    },
+    {
         id: 'pensjonsopptjening',
         tittel: 'lenker.pensjon.tittel',
         beskrivelse: 'lenker.pensjon.beskrivelse',
