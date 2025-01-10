@@ -36,7 +36,7 @@ export default (locale: string) => [
         tittel: 'lenker.cv.tittel',
         beskrivelse: 'lenker.cv.beskrivelse',
         lenkeTekst: 'lenker.cv.lenkeTekst',
-        url: 'https://arbeidsplassen.nav.no/cv',
+        url: 'https://www.nav.no/min-cv',
         icon: jobbsok,
     },
     {
