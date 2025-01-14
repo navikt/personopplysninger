@@ -3,6 +3,7 @@ import pensjon from '@/assets/img/Pensjon.svg';
 import utbetalinger from '@/assets/img/Utbetalinger.svg';
 import sykefravaer from '@/assets/img/Sykepenger.svg';
 import dineSaker from '@/assets/img/DineSaker.svg';
+import CVogJobbprofil from '@/assets/img/CVogJobbprofil.svg';
 
 const { VITE_UTBETALINGSOVERSIKT_URL, VITE_SYKEFRAVAER_URL, VITE_DINE_SAKER_URL } = import.meta.env;
 
@@ -36,7 +37,15 @@ export default (locale: string) => [
         tittel: 'lenker.cv.tittel',
         beskrivelse: 'lenker.cv.beskrivelse',
         lenkeTekst: 'lenker.cv.lenkeTekst',
-        url: 'https://arbeidsplassen.nav.no/cv',
+        url: 'https://www.nav.no/min-cv',
+        icon: CVogJobbprofil,
+    },
+    {
+        id: 'stillingssok',
+        tittel: 'lenker.stillingssok.tittel',
+        beskrivelse: 'lenker.stillingssok.beskrivelse',
+        lenkeTekst: 'lenker.stillingssok.lenkeTekst',
+        url: 'https://arbeidsplassen.nav.no/stillinger/lagrede-sok',
         icon: jobbsok,
     },
     {
