@@ -8,27 +8,27 @@ jobs:
     if: github.event.release.target_commitish == 'master'
     uses: ./.github/workflows/build-and-deploy.yml
     permissions:
-      contents: "read"
-      id-token: "write"
-      packages: "write"
+      contents: 'read'
+      id-token: 'write'
+      packages: 'write'
     with:
       env: prod
       imageSuffix: release-${{ github.ref_name }}
-      appOrigin: "https://www.nav.no"
+      appOrigin: 'https://www.nav.no'
       VITE_BUILD_VERSION: ${{ github.event.release.tag_name }}
-      VITE_DINE_SAKER_URL: "https://www.nav.no/dokumentarkiv"
-      VITE_PDL_URL: "https://www.nav.no/person/pdl-fullmakt-ui"
-      VITE_SKJERMING_URL: "https://www.nav.no/person/personopplysninger/skjerming"
-      VITE_APP_URL: "https://www.nav.no/person/personopplysninger"
-      VITE_API_URL: "https://www.nav.no/person/personopplysninger-api"
-      VITE_DSOP_URL: "https://www.nav.no/person/dsop-api"
-      VITE_UTBETALINGSOVERSIKT_URL: "https://tjenester.nav.no/utbetalingsoversikt"
-      VITE_SYKEFRAVAER_URL: "https://www.nav.no/syk/sykefravaer"
-      VITE_LOGIN_URL: "https://login.nav.no/oauth2/login"
-      VITE_DITT_NAV_URL: "https://www.nav.no/minside"
-      VITE_PENSJONSOPPTJENING_URL: "https://www.nav.no/pensjon/opptjening"
-      VITE_INNLOGGINGSSTATUS_URL: "https://www.nav.no/person/nav-dekoratoren-api/auth"
-      VITE_TELEMETRY_URL: "https://telemetry.nav.no/collect"
+      VITE_DINE_SAKER_URL: 'https://www.nav.no/dokumentarkiv'
+      VITE_PDL_URL: 'https://www.nav.no/person/pdl-fullmakt-ui'
+      VITE_SKJERMING_URL: 'https://www.nav.no/person/personopplysninger/skjerming'
+      VITE_APP_URL: 'https://www.nav.no/person/personopplysninger'
+      VITE_API_URL: 'https://www.nav.no/person/personopplysninger-api'
+      VITE_DSOP_URL: 'https://www.nav.no/person/dsop-api'
+      VITE_UTBETALINGSOVERSIKT_URL: 'https://tjenester.nav.no/utbetalingsoversikt'
+      VITE_SYKEFRAVAER_URL: 'https://www.nav.no/syk/sykefravaer'
+      VITE_LOGIN_URL: 'https://login.nav.no/oauth2/login'
+      VITE_DITT_NAV_URL: 'https://www.nav.no/minside'
+      VITE_PENSJONSOPPTJENING_URL: 'https://www.nav.no/pensjon/opptjening'
+      VITE_INNLOGGINGSSTATUS_URL: 'https://www.nav.no/person/nav-dekoratoren-api/auth'
+      VITE_TELEMETRY_URL: 'https://telemetry.nav.no/collect'
     secrets:
       READER_TOKEN: ${{ secrets.READER_TOKEN }}
       NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
