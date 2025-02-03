@@ -23,7 +23,7 @@ jobs:
       VITE_SYKEFRAVAER_URL: 'https://www.ekstern.dev.nav.no/syk/sykefravaer'
       VITE_LOGIN_URL: 'https://login.ekstern.dev.nav.no/oauth2/login'
       VITE_DITT_NAV_URL: 'https://www.intern.dev.nav.no/minside'
-      VITE_PENSJONSOPPTJENING_URL: 'https://www-q0.nav.no/pensjon/opptjening'
+      VITE_PENSJONSOPPTJENING_URL: 'https://www-gcp.ansatt.dev.nav.no/pensjon/opptjening'
       VITE_INNLOGGINGSSTATUS_URL: 'https://www.ekstern.dev.nav.no/person/nav-dekoratoren-api/auth'
       VITE_TELEMETRY_URL: 'https://telemetry.ekstern.dev.nav.no/collect'
     secrets:

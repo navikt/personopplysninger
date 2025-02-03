@@ -53,7 +53,7 @@ export default (locale: string) => [
         tittel: 'lenker.pensjon.tittel',
         beskrivelse: 'lenker.pensjon.beskrivelse',
         lenkeTekst: 'lenker.pensjon.lenkeTekst',
-        url: 'https://www.nav.no/pselv/publisering/dinpensjon.jsf',
+        url: 'https://www.nav.no/pensjon/opptjening',
         icon: pensjon,
     },
 ];
