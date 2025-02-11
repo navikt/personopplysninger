@@ -114,7 +114,7 @@ jobs:
         run: npm run build
       - name: Upload assets to CDN
         id: upload
-        uses: nais/deploy/actions/cdn-upload/v2@master
+        uses: nais/deploy/actions/cdn-upload/v2@main
         with:
           team: personbruker
           source: ./build
