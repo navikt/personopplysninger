@@ -431,6 +431,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </div>
                 <div
                   class="navds-read-more navds-read-more--medium adresse__lesmer"
+                  data-volume="low"
                 >
                   <button
                     aria-expanded="false"
@@ -564,6 +565,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </div>
                 <div
                   class="navds-read-more navds-read-more--medium adresse__lesmer"
+                  data-volume="low"
                 >
                   <button
                     aria-expanded="false"
