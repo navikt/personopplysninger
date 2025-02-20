@@ -9,50 +9,50 @@ on:
         required: true
         type: string
       appOrigin:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_BUILD_VERSION:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_DINE_SAKER_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_PDL_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_SKJERMING_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_APP_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_API_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_DSOP_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_UTBETALINGSOVERSIKT_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_SYKEFRAVAER_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_LOGIN_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_DITT_NAV_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_PENSJONSOPPTJENING_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_INNLOGGINGSSTATUS_URL:
-          required: true
-          type: string
+        required: true
+        type: string
       VITE_TELEMETRY_URL:
-          required: true
-          type: string
+        required: true
+        type: string
     secrets:
       READER_TOKEN:
         required: true
@@ -64,8 +64,8 @@ jobs:
     name: Build and deploy
     runs-on: ubuntu-latest
     permissions:
-      contents: "read"
-      id-token: "write"
+      contents: read
+      id-token: write
     environment: ${{ inputs.env }}
     steps:
       - name: Checkout repo
@@ -73,7 +73,7 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: 20
           registry-url: 'https://npm.pkg.github.com'
           cache: 'npm'
       - name: Define build environment
@@ -121,7 +121,7 @@ jobs:
           destination: personopplysninger/${{ env.IMAGE_VERSION }}
           project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
           identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-      - name: "CDN upload results"
+      - name: 'CDN upload results'
         run: echo Uploaded file to CDN ${{ steps.upload.outputs.uploaded }}
       - name: Build and push docker image
         uses: nais/docker-build-push@v0

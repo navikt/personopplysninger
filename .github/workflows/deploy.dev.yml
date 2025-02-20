@@ -2,12 +2,12 @@ name: Deploy to dev
 on: workflow_dispatch
 
 jobs:
-  build:
+  build-dev:
     uses: ./.github/workflows/build-and-deploy.yml
     permissions:
-      contents: 'read'
-      id-token: 'write'
-      packages: 'write'
+      contents: read
+      id-token: write
+      packages: write
     with:
       env: dev
       imageSuffix: dev-deploy

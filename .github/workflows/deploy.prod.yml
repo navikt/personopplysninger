@@ -1,16 +1,16 @@
 name: Deploy to prod
 on:
-  release:
-    types: [released]
+  push:
+    branches:
+      - main
 
 jobs:
-  build:
-    if: github.event.release.target_commitish == 'main'
+  build-prod:
     uses: ./.github/workflows/build-and-deploy.yml
     permissions:
-      contents: 'read'
-      id-token: 'write'
-      packages: 'write'
+      contents: read
+      id-token: write
+      packages: write
     with:
       env: prod
       imageSuffix: release-${{ github.ref_name }}
@@ -32,3 +32,23 @@ jobs:
     secrets:
       READER_TOKEN: ${{ secrets.READER_TOKEN }}
       NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+
+  release:
+    name: Create a new release
+    needs: build-prod
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Generate unique tag name
+        run: echo "TAG_NAME=$(date +%s)" >> $GITHUB_ENV
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          target_commitish: main
+          tag_name: release/prod@${{ env.TAG_NAME }} # Generates a unique tag using timestamp
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }} # This is a PAT with repo permissions
