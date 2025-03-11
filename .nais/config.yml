@@ -19,6 +19,10 @@ spec:
   readiness:
     path: /person/personopplysninger/internal/isReady
     initialDelay: 10
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
   idporten:
     enabled: true
     sidecar:
