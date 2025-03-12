@@ -8,7 +8,7 @@ export const redirects: {
     };
 } = {
     /*
-    Andre tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon, kontonummer og kontaktadresse.
+    Noen få tjenester kan sende brukeren til Personopplysninger for endring av kontaktinformasjon og kontonummer.
     Brukeren vil samtidig se en en knapp med tilhørende beskrivelse som ruter han/henne tilbake til den opprinnelige tjenesten.
 
     Fremgangsmåte:
@@ -16,7 +16,7 @@ export const redirects: {
     2) Send brukeren til https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/[KEY]/[REDIRECT_URL]
 
     Eksempel på url:
-    https://www.ansatt.dev.nav.no/person/personopplysninger/nb/endre-opplysninger/sendt-fra/dagpenger/forskudd/https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf
+    https://www.ansatt.dev.nav.no/person/personopplysninger/nb/endre-opplysninger/sendt-fra/skjema/alderspensjonssoknad/https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf
 
     Hvordan funker det?
     Beskrivelse og tekst på knappen vil bestemmes ut ifra [KEY].
@@ -26,37 +26,13 @@ export const redirects: {
   */
     'skjema/alderspensjonssoknad': {
         beskrivelse:
-            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
+            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.',
         knapp: 'Gå tilbake til alderspensjon',
     },
     'skjema/alderspensjon': {
         beskrivelse:
-            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
+            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.',
         knapp: 'Gå tilbake til alderspensjon',
-    },
-    'skjema/innledning': {
-        beskrivelse:
-            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
-        knapp: 'Gå tilbake til alderspensjon',
-    },
-    'skjema/kvittering': {
-        beskrivelse:
-            'Du har blitt sendt fra kvittering på søknad. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
-        knapp: 'Gå tilbake til kvitteringen',
-    },
-    'skjema/uforetrygd': {
-        beskrivelse:
-            'Du har blitt sendt skjemaet uføretrygd. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
-        knapp: 'Gå tilbake til uføretrygd',
-    },
-    'dagpenger/forskudd': {
-        beskrivelse:
-            'Du har blitt sendt fra søknad om forskudd på dagpenger. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
-        knapp: 'Gå tilbake til søknaden om forskudd på dagpenger',
-    },
-    minprofil: {
-        beskrivelse: 'Du har blitt sendt fra Din Profil. Her kan du legge til eller endre <b>kontaktinformasjon, kontaktadresse og kontonummer</b>.',
-        knapp: 'Gå tilbake til Din Profil',
     },
 };
 
