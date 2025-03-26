@@ -388,9 +388,8 @@ A child who lives permanently with both mother and father can have two home addr
     'select.no.hits': 'No hits for',
     'endreKontonummer.tittel': 'Change account number for payment',
     'endreKontonummer.info':
-        'You cannot change the account number on <lenkeNavno>nav.no</lenkeNavno> for payments from the municipality, for example financial assistance and qualification benefit.<br></br>' +
-        'If you apply for financial assistance digitally, you can state the account number in the application.<br></br>' +
-        'You can also contact <lenkeDittKontor>your local Nav office</lenkeDittKontor> to change your account number.',
+        'You can not change the account number for payments from the municipality, such as financial assistance. <lenkeNavno>Change account number for payments from the municipality.</lenkeNavno>',
+    'endreKontonummer.lenkeURL': 'https://www.nav.no/kontonummer/en#kommune',
     'endreKontonummer.authInfo': 'You will be asked to log in again to confirm the change.',
     'endreKontonummer.success':
         '<p>Your bank account has been changed.</p><p>Nav will send you a notification of the change by SMS and/or e-mail.</p>',
