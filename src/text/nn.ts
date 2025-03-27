@@ -381,9 +381,8 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'select.no.hits': 'Ingen treff funne for',
     'endreKontonummer.tittel': 'Endre kontonummer for utbetaling',
     'endreKontonummer.info':
-        'Du kan ikkje endre kontonummeret på <lenkeNavno>nav.no</lenkeNavno> dersom det gjeld utbetalingar frå kommunen, til dømes økonomisk sosialhjelp og kvalifiseringsstønad.<br></br>' +
-        'Dersom du søker om økonomisk sosialhjelp digitalt, kan du oppgje kontonummer i søknaden.<br></br>' +
-        'Du kan òg ta kontakt med <lenkeDittKontor>det lokale Nav-kontoret ditt</lenkeDittKontor> for å endre kontonummer.',
+        'Du kan ikkje endre kontonummer for økonomisk sosialhjelp eller andre kommunale tenestar her. <lenkeNavno>Endre kontonummer for utbetalingar frå kommunen.</lenkeNavno>',
+    'endreKontonummer.lenkeURL': 'https://www.nav.no/kontonummer/nn#kommune',
     'endreKontonummer.authInfo': 'Du vert beden om å logge inn på nytt for å bekrefte endringa.',
     'endreKontonummer.success': '<p>Du har endra kontonummeret ditt.</p><p>Nav vil sende deg eit varsel om endringa på SMS og/eller e-post.</p>',
     'endreKontonummer.error': 'Det skjedde ein feil ved endring av kontonummer.',
