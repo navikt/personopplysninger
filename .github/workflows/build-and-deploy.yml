@@ -73,7 +73,7 @@ jobs:
       - name: Setup node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 22
           registry-url: 'https://npm.pkg.github.com'
           cache: 'npm'
       - name: Define build environment
@@ -112,6 +112,8 @@ jobs:
         run: npm test
       - name: Build application
         run: npm run build
+      - name: Prune dependencies
+        run: npm prune --production
       - name: Upload assets to CDN
         id: upload
         uses: nais/deploy/actions/cdn-upload/v2@master
