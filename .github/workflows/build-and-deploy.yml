@@ -112,6 +112,8 @@ jobs:
         run: npm test
       - name: Build application
         run: npm run build
+      - name: Prune dependencies
+        run: npm prune --production
       - name: Upload assets to CDN
         id: upload
         uses: nais/deploy/actions/cdn-upload/v2@master
