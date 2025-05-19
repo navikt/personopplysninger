@@ -39,7 +39,7 @@ export default {
     },
     dsop: {
         info:
-            'Here you can download a log of information Nav has provided to insurance companies or pension schemes. Nav can disclose information because you have given consent, or because Nav is authorized by law. Nav may have disclosed more information than you see in this log.' +
+            'Here you can download a log of information Nav has provided to insurance companies. Nav can disclose information because you have given consent, or because Nav is authorized by law. Nav may have disclosed more information than you see in this log.' +
             '<br></br><br></br>' +
             'You can read about what information Nav can provide in the <a>privacy statement for Nav</a>. Here you can also read about how to contact Nav if you have questions about your rights and privacy.',
     },
