@@ -8,7 +8,7 @@ import { Locale } from '@/store/Store';
 
 const parseJson = (data: Response) => data.json();
 
-const { VITE_API_URL, VITE_LOGIN_URL, VITE_DSOP_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
+const { VITE_API_URL, VITE_ENDRE_KONTONUMMER_URL, VITE_LOGIN_URL, VITE_DSOP_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
 
 /*
    GET
@@ -110,7 +110,7 @@ export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${VITE_API_U
 export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${VITE_API_URL}/slettTelefonnummer`, data);
 
 export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
-    reauthenticate(`${VITE_API_URL}/endreKontonummer`, data, locale);
+    reauthenticate(`${VITE_ENDRE_KONTONUMMER_URL}/endreKontonummer`, data, locale);
 
 export const slettKontaktadresse = () => postJson(`${VITE_API_URL}/slettKontaktadresse`);
 

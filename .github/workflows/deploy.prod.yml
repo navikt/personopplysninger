@@ -21,6 +21,7 @@ jobs:
       VITE_SKJERMING_URL: 'https://www.nav.no/person/personopplysninger/skjerming'
       VITE_APP_URL: 'https://www.nav.no/person/personopplysninger'
       VITE_API_URL: 'https://www.nav.no/person/personopplysninger-api'
+      VITE_ENDRE_KONTONUMMER_URL: 'https://www.nav.no/person/personopplysninger-api'
       VITE_DSOP_URL: 'https://www.nav.no/person/dsop-api'
       VITE_UTBETALINGSOVERSIKT_URL: 'https://tjenester.nav.no/utbetalingsoversikt'
       VITE_SYKEFRAVAER_URL: 'https://www.nav.no/syk/sykefravaer'
