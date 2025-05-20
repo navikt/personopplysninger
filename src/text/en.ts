@@ -253,7 +253,7 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.stillingssok.tittel': 'Job search (text in norwegian)',
     'lenker.stillingssok.beskrivelse': 'Your saved searches for positions',
     'lenker.dsop.tittel': 'Disclosure of personal data',
-    'lenker.dsop.beskrivelse': 'See what information Nav shares with insurance companies because you have given consent',
+    'lenker.dsop.beskrivelse': 'See what information Nav shares with insurance companies if you have given consent',
     'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institutional stays',
     'lenker.inst.beskrivelse': 'See your institutional stays',

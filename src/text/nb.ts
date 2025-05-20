@@ -248,7 +248,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'lenker.stillingssok.tittel': 'Lagrede stillingssøk',
     'lenker.stillingssok.beskrivelse': 'Se dine lagrede stillingssøk på arbeidsplassen.no',
     'lenker.dsop.tittel': 'Utlevering av personopplysninger',
-    'lenker.dsop.beskrivelse': 'Se opplysninger Nav har gitt til forsikringsselskap fordi du har gitt samtykke',
+    'lenker.dsop.beskrivelse': 'Se opplysninger Nav har gitt til forsikringsselskap hvis du har gitt samtykke',
     'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institusjonsopphold',
     'lenker.inst.beskrivelse': 'Se dine institusjonsopphold',

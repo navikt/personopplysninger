@@ -37,7 +37,7 @@ export default {
     },
     dsop: {
         info:
-            'Her kan du laste ned ein logg med opplysningar Nav har gitt til forsikringsselskap. Nav kan utlevere opplysningar fordi du har gitt samtykke, eller fordi Nav har heimel i lov. Nav kan derfor ha delt fleire opplysningar enn dei du ser i denne loggen.' +
+            'Her kan du laste ned ein logg med opplysningar Nav har gitt til forsikringsselskap ut frå samtykke du har gitt i Altinn. Nav kan utlevere opplysningar fordi du har gitt samtykke, eller fordi Nav har heimel i lov. Nav kan derfor ha delt fleire opplysningar enn dei du ser i denne loggen.' +
             '<br></br><br></br>' +
             'Du kan lese om kva opplysningar Nav kan utlevere i <a>personvernerklæringa til Nav</a>. Her kan du òg lese om korleis du tek kontakt med Nav viss du har spørsmål om rettane dine og personvern.',
     },
