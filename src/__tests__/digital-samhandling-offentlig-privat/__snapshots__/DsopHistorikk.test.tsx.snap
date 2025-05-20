@@ -37,7 +37,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
         <div
           class="navds-alert__wrapper navds-alert__wrapper--maxwidth navds-body-long navds-body-long--medium"
         >
-          Her kan du laste ned en logg med opplysninger Nav har gitt til forsikringsselskap. Nav kan utlevere opplysninger fordi du har gitt samtykke, eller fordi Nav har hjemmel i lov. Nav kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.
+          Her kan du laste ned en logg med opplysninger Nav har gitt til forsikringsselskap basert på samtykke du har gitt i Altinn. Nav kan utlevere opplysninger fordi du har gitt samtykke, eller fordi Nav har hjemmel i lov. Nav kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.
           <br />
           <br />
           Du kan lese om hvilke opplysninger Nav kan utlevere i 
