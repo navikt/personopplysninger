@@ -247,7 +247,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'lenker.stillingssok.tittel': 'Lagra stillingssøk',
     'lenker.stillingssok.beskrivelse': 'Sjå dine lagra stillingssøk på arbeidsplassen.no',
     'lenker.dsop.tittel': 'Utlevering av personopplysningar',
-    'lenker.dsop.beskrivelse': 'Sjå opplysningar Nav har gitt til forsikringsselskap fordi du har gitt samtykke',
+    'lenker.dsop.beskrivelse': 'Sjå opplysningar Nav har gitt til forsikringsselskap viss du har gitt samtykke',
     'lenker.dsop.info': merInfo.dsop.info,
     'lenker.inst.tittel': 'Institusjonsopphald',
     'lenker.inst.beskrivelse': 'Sjå institusjonsopphalda dine',
