@@ -1,0 +1,55 @@
+name: Deploy to prod (intern)
+on:
+  push:
+    branches:
+      - "intern-*"
+
+jobs:
+  build-prod-intern:
+    uses: ./.github/workflows/build-and-deploy-intern.yml
+    permissions:
+      contents: read
+      id-token: write
+      packages: write
+    with:
+      env: prod
+      imageSuffix: release-${{ github.ref_name }}
+      appOrigin: 'https://www.intern.nav.no'
+      VITE_BUILD_VERSION: ${{ github.event.release.tag_name }}
+      VITE_DINE_SAKER_URL: 'https://www.nav.no/dokumentarkiv'
+      VITE_PDL_URL: 'https://www.nav.no/person/pdl-fullmakt-ui'
+      VITE_SKJERMING_URL: 'https://www.nav.no/person/personopplysninger/skjerming'
+      VITE_APP_URL: 'https://www.nav.no/person/personopplysninger'
+      VITE_API_URL: 'https://www.nav.no/person/personopplysninger-api'
+      VITE_ENDRE_KONTONUMMER_URL: 'https://www.nav.no/person/personopplysninger-api'
+      VITE_DSOP_URL: 'https://www.nav.no/person/dsop-api'
+      VITE_UTBETALINGSOVERSIKT_URL: 'https://tjenester.nav.no/utbetalingsoversikt'
+      VITE_SYKEFRAVAER_URL: 'https://www.nav.no/syk/sykefravaer'
+      VITE_LOGIN_URL: 'https://login.nav.no/oauth2/login'
+      VITE_DITT_NAV_URL: 'https://www.nav.no/minside'
+      VITE_PENSJONSOPPTJENING_URL: 'https://www.nav.no/pensjon/opptjening'
+      VITE_INNLOGGINGSSTATUS_URL: 'https://www.nav.no/person/nav-dekoratoren-api/auth'
+      VITE_TELEMETRY_URL: 'https://telemetry.nav.no/collect'
+    secrets:
+      READER_TOKEN: ${{ secrets.READER_TOKEN }}
+      NAIS_WORKLOAD_IDENTITY_PROVIDER: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
+
+  release:
+    name: Create a new release
+    needs: build-prod-intern
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Generate unique tag name
+        run: echo "TAG_NAME=$(date +%s)" >> $GITHUB_ENV
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          target_commitish: main
+          tag_name: release/prod@${{ env.TAG_NAME }} # Generates a unique tag using timestamp
+          name: Release ${{ github.ref_name }}
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }} # This is a PAT with repo permissions
