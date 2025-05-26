@@ -1,0 +1,15 @@
+ingresses:
+  - https://www.intern.nav.no/person/personopplysninger
+externalHosts:
+  - www.nav.no
+  - nav.no
+env: prod
+replicas:
+  min: 2
+  max: 4
+resources:
+  limits:
+    memory: 1024Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
