@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - "intern-*"
+  workflow_dispatch:
+
 
 jobs:
   build-prod-intern:
