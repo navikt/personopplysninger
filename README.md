@@ -81,8 +81,8 @@ Feil ved API-kall blir logget via frontendlogger og vises i Kibana<br>
 
 ## Henvendelser
 
-Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/personbruker
+Spørsmål knyttet til koden eller prosjektet kan rettes mot https://github.com/orgs/navikt/teams/min-side
 
 ## For Nav internt
 
-Interne henvendelser kan sendes via Slack i kanalen #team-personbruker.
+Interne henvendelser kan sendes via Slack i kanalen #team-minside.
