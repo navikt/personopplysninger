@@ -32,9 +32,6 @@ on:
       VITE_ENDRE_KONTONUMMER_URL:
         required: true
         type: string
-      VITE_DSOP_URL:
-        required: true
-        type: string
       VITE_UTBETALINGSOVERSIKT_URL:
         required: true
         type: string
@@ -100,7 +97,6 @@ jobs:
           echo "VITE_APP_URL=${{ inputs.VITE_APP_URL }}" >> $GITHUB_ENV
           echo "VITE_API_URL=${{ inputs.VITE_API_URL }}" >> $GITHUB_ENV
           echo "VITE_ENDRE_KONTONUMMER_URL=${{ inputs.VITE_ENDRE_KONTONUMMER_URL }}" >> $GITHUB_ENV
-          echo "VITE_DSOP_URL=${{ inputs.VITE_DSOP_URL }}" >> $GITHUB_ENV
           echo "VITE_LOGIN_URL=${{ inputs.VITE_LOGIN_URL }}" >> $GITHUB_ENV
           echo "VITE_DITT_NAV_URL=${{ inputs.VITE_DITT_NAV_URL }}" >> $GITHUB_ENV
           echo "VITE_UTBETALINGSOVERSIKT_URL=${{ inputs.VITE_UTBETALINGSOVERSIKT_URL }}" >> $GITHUB_ENV

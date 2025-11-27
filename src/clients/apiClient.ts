@@ -8,7 +8,7 @@ import { Locale } from '@/store/Store';
 
 const parseJson = (data: Response) => data.json();
 
-const { VITE_API_URL, VITE_ENDRE_KONTONUMMER_URL, VITE_LOGIN_URL, VITE_DSOP_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
+const { VITE_API_URL, VITE_ENDRE_KONTONUMMER_URL, VITE_LOGIN_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
 
 /*
    GET
@@ -49,7 +49,7 @@ export const fetchLand = () => sjekkAuthHentJson(`${VITE_API_URL}/land`);
 
 export const fetchValutaer = () => sjekkAuthHentJson(`${VITE_API_URL}/valuta`);
 
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${VITE_DSOP_URL}/get`);
+export const fetchDsopInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/sporingslogg`);
 
 /*
     POST

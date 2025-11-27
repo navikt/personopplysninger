@@ -12,7 +12,7 @@ import instInfo from './app/fetch/inst-info.json';
 import medlInfo from './app/fetch/medl-info.json';
 import auth from './app/fetch/auth.json';
 
-const { VITE_API_URL, VITE_DSOP_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
+const { VITE_API_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
 
 export const setUpMock = async () => {
     /*
@@ -25,7 +25,7 @@ export const setUpMock = async () => {
     globalMock.get(`${VITE_API_URL}/retningsnumre`, () => delay(400, 500).then(() => retningsnumre));
     globalMock.get(`${VITE_API_URL}/postnummer`, () => delay(10, 50).then(() => postnummer));
     globalMock.get(`${VITE_API_URL}/valuta`, () => delay(100, 200).then(() => valutaer));
-    globalMock.get(`${VITE_DSOP_URL}/get`, () => delay(1000, 1500).then(() => dsopInfo));
+    globalMock.get(`${VITE_API_URL}/sporingslogg`, () => delay(1000, 1500).then(() => dsopInfo));
     globalMock.get(`${VITE_API_URL}/land`, () => delay(1000, 2000).then(() => landInfo));
     globalMock.get(`${VITE_API_URL}/institusjonsopphold`, () => delay(1000, 2000).then(() => instInfo));
     globalMock.get(`${VITE_API_URL}/medl`, () => delay(1000, 2000).then(() => medlInfo));

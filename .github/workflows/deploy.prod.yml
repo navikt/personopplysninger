@@ -23,7 +23,6 @@ jobs:
       VITE_APP_URL: 'https://www.nav.no/person/personopplysninger'
       VITE_API_URL: 'https://www.nav.no/tms-personopplysninger-api'
       VITE_ENDRE_KONTONUMMER_URL: 'https://www.nav.no/tms-endre-kontonummer'
-      VITE_DSOP_URL: 'https://www.nav.no/person/dsop-api'
       VITE_UTBETALINGSOVERSIKT_URL: 'https://tjenester.nav.no/utbetalingsoversikt'
       VITE_SYKEFRAVAER_URL: 'https://www.nav.no/syk/sykefravaer'
       VITE_LOGIN_URL: 'https://login.nav.no/oauth2/login'
