@@ -16,7 +16,7 @@ const Header = () => {
         }
         case 'RESULT': {
             const { name } = authInfo.data;
-            const fornavn = name.split(' ')[0];
+            const fornavn = name;
             const Veileder = <img src={veilederIkon} className="header__ikon" alt="Veileder" />;
 
             return (
