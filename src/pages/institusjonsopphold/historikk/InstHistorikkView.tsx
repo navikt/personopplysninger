@@ -26,6 +26,8 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                 <FormattedMessage
                     id="inst.disclaimer"
                     values={{
+                        br: () => <br />,
+                        lenkeTilInnsyn: (text) => <DsLink href={'https://www.nav.no/kontaktoss'}>{text}</DsLink>,
                         lenkeTilInstMelding: (text) => <DsLink href={'https://www.nav.no/samarbeidspartner/opphold-institusjon'}>{text}</DsLink>,
                     }}
                 />

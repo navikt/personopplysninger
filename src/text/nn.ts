@@ -163,7 +163,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljar',
     'inst.disclaimer':
-        'Her kan du sjå opplysningar om opphald på alders- og sjukeheim, helseinstitusjonar og fengsel. Institusjonar pliktar å <lenkeTilInstMelding>sende melding til Nav</lenkeTilInstMelding> om alle personar som blir skrive inn og ut. Oppdagar du feil, må du kontakte institusjonen direkte.',
+        'Her kan du sjå opplysningar om opphald i fengsel, alders- og sjukeheim og helseinstitusjon tilbake til 01.01.2020. Du kan ha opphald registrert i Nav før den datoen. Ønskjer du å sjå desse opphalda, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br><lenkeTilInstMelding>Institusjonar pliktar</lenkeTilInstMelding> å sende melding til Nav om alle personar som blir skrive inn og ut. Oppdagar du feil, må du kontakte institusjonen direkte.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnamn',
     'inst.institusjonstype': 'Institusjonstype',
