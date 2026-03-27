@@ -169,10 +169,10 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.institusjonstype': 'Institusjonstype',
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
-    'inst.ingendata': 'Ingen institusjonsopphold er registrert',
+    'inst.ingendata': 'Det er ingen institusjonsopphold å vise.',
     'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.',
-    'inst.kilde': 'Kilde: Den enkelte institusjon',
+    'inst.kilde': 'KILDE: INSTITUSJONSOPPHOLDSREGISTERET<br></br><span>Dataene er rapportert av institusjonen.</span>',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':

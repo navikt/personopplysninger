@@ -194,7 +194,13 @@ exports[`InstHistorikkView > renders correctly 1`] = `
       <p
         class="navds-detail navds-typo--spacing"
       >
-        Kilde: Den enkelte institusjon
+        KILDE: INSTITUSJONSOPPHOLDSREGISTERET
+        <br />
+        <span
+          style="text-transform: none;"
+        >
+          Dataene er rapportert av institusjonen.
+        </span>
       </p>
     </div>
   </div>

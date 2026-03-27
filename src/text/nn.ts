@@ -169,10 +169,10 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'inst.institusjonstype': 'Institusjonstype',
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
-    'inst.ingendata': 'Ingen institusjonsopphald er registrert',
+    'inst.ingendata': 'Det er ingen institusjonsopphald å vise.',
     'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for opphaldet er ikkje mottatt. Nav har avslutta opphaldet maskinelt.',
-    'inst.kilde': 'Kjelde: Den enkelte institusjon',
+    'inst.kilde': 'KJELDE: INSTITUSJONSOPPHALDSREGISTERET<br></br><span>Dataa er rapporterte frå institusjonen.</span>',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottek post og informasjon frå det offentlege elektronisk. Grunnen til det er at du ikkje har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
