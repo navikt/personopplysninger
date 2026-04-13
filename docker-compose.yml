@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   oidc-provider:
     container_name: oidc-provider-personopplysninger

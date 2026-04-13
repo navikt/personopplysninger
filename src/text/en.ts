@@ -164,7 +164,7 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.institusjon': 'Institution',
     'inst.detaljer': 'Details',
     'inst.disclaimer':
-        'Here you can see information about stays in prison, nursing homes and health institutions back to 01.01.2020. You may have stays registered with Nav from before that date. If you want to see those stays, you can <lenkeTilInnsyn>request access</lenkeTilInnsyn>.<br></br><br></br><lenkeTilInstMelding>Institutions are obliged</lenkeTilInstMelding> to send notification to Nav about all persons who are admitted and discharged. If you notice errors in the information, you must contact the institution directly.',
+        'You can view institutional stays that started in 2020 or later here. Stays with an earlier start date are also shown if they continued after 1 January 2020. You may also have older registered stays. To view those, you can <lenkeTilInnsyn>request access</lenkeTilInnsyn>.<br></br><br></br>Healthcare institutions, residential care homes, nursing homes, and prisons <lenkeTilInstMelding>are required to notify Nav</lenkeTilInstMelding> when a person is admitted or discharged. If you find incorrect information, contact the institution directly.',
     'inst.periode': 'Period',
     'inst.institusjonsnavn': 'Name of institution',
     'inst.institusjonstype': 'Type of institution',

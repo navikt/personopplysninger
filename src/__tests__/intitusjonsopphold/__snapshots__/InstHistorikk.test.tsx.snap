@@ -31,7 +31,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     <div
       class="navds-alert__wrapper navds-alert__wrapper--maxwidth navds-body-long navds-body-long--medium"
     >
-      Her kan du se opplysninger om opphold i fengsel, alders- og sykehjem og helseinstitusjon tilbake til 01.01.2020. Du kan ha opphold registrert i Nav før den dato. Ønsker du å se disse oppholdene, kan du 
+      Her kan du se institusjonsopphold som startet i 2020 eller senere. Opphold som er registrert med en tidligere startdato, og som har varighet etter 1. januar 2020, vil også vises. Du kan ha tidligere registrerte opphold. Ønsker du å se disse oppholdene, kan du 
       <a
         class="navds-link navds-link--action"
         href="https://www.nav.no/kontaktoss"
@@ -41,13 +41,14 @@ exports[`InstHistorikkView > renders correctly 1`] = `
       .
       <br />
       <br />
+      Helseinstitusjoner, alders- og sykehjem og fengsler har 
       <a
         class="navds-link navds-link--action"
         href="https://www.nav.no/samarbeidspartner/opphold-institusjon"
       >
-        Institusjoner har plikt
+        plikt til å sende melding til Nav
       </a>
-       til å sende melding til Nav om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.
+       om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.
     </div>
   </div>
   <div

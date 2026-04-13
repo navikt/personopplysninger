@@ -163,7 +163,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljer',
     'inst.disclaimer':
-        'Her kan du se opplysninger om opphold i fengsel, alders- og sykehjem og helseinstitusjon tilbake til 01.01.2020. Du kan ha opphold registrert i Nav før den dato. Ønsker du å se disse oppholdene, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br><lenkeTilInstMelding>Institusjoner har plikt</lenkeTilInstMelding> til å sende melding til Nav om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
+        'Her kan du se institusjonsopphold som startet i 2020 eller senere. Opphold som er registrert med en tidligere startdato, og som har varighet etter 1. januar 2020, vil også vises. Du kan ha tidligere registrerte opphold. Ønsker du å se disse oppholdene, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br>Helseinstitusjoner, alders- og sykehjem og fengsler har <lenkeTilInstMelding>plikt til å sende melding til Nav</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnavn',
     'inst.institusjonstype': 'Institusjonstype',
