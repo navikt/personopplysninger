@@ -163,16 +163,16 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljar',
     'inst.disclaimer':
-        'Her kan du sjå opplysningar om opphald på alders- og sjukeheim, helseinstitusjonar og fengsel. Institusjonar pliktar å <lenkeTilInstMelding>sende melding til Nav</lenkeTilInstMelding> om alle personar som blir skrive inn og ut. Oppdagar du feil, må du kontakte institusjonen direkte.',
+        'Her kan du sjå institusjonsopphald som starta i 2020 eller seinare. Opphald som er registrerte med ein tidlegare startdato, og som har varigheit etter 1. januar 2020, blir også viste. Du kan ha tidlegare registrerte opphald. Ønskjer du å sjå desse opphalda, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br>Helseinstitusjonar, alders- og sjukeheimar og fengsel <lenkeTilInstMelding>pliktar å melde til Nav</lenkeTilInstMelding> om personar som blir skrivne inn og ut av institusjonen. Oppdagar du feil, må du kontakte institusjonen.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnamn',
     'inst.institusjonstype': 'Institusjonstype',
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
-    'inst.ingendata': 'Ingen institusjonsopphald er registrert',
+    'inst.ingendata': 'Det er ingen institusjonsopphald å vise.',
     'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for opphaldet er ikkje mottatt. Nav har avslutta opphaldet maskinelt.',
-    'inst.kilde': 'Kjelde: Den enkelte institusjon',
+    'inst.kilde': 'KJELDE: INSTITUSJONSOPPHALDSREGISTERET<br></br><span>Dataa er rapporterte frå institusjonen.</span>',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottek post og informasjon frå det offentlege elektronisk. Grunnen til det er at du ikkje har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':

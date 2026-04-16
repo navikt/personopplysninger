@@ -1,5 +1,5 @@
 import { IntlProvider } from 'react-intl';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import nbMessages from '@/text/nb';
 import InstHistorikkView from '@/pages/institusjonsopphold/historikk/InstHistorikkView';
 import instInfo from '@/clients/apiMock/app/fetch/inst-info.json';
@@ -16,8 +16,20 @@ describe('InstHistorikkView', () => {
         const { asFragment } = render(
             <IntlProvider locale={'nb'} messages={nbMessages}>
                 <InstHistorikkView instInfo={instInfo} />
-            </IntlProvider>
+            </IntlProvider>,
         );
         expect(asFragment()).toMatchSnapshot();
+    });
+
+    it('shows updated empty-state and source text when there are no stays', () => {
+        render(
+            <IntlProvider locale={'nb'} messages={nbMessages}>
+                <InstHistorikkView instInfo={[]} />
+            </IntlProvider>,
+        );
+
+        expect(screen.getByText('Det er ingen institusjonsopphold å vise.')).toBeInTheDocument();
+        expect(screen.getByText('KILDE: INSTITUSJONSOPPHOLDSREGISTERET')).toBeInTheDocument();
+        expect(screen.getByText('Dataene er rapportert av institusjonen.')).toBeInTheDocument();
     });
 });

@@ -164,16 +164,16 @@ A child who lives permanently with both mother and father can have two home addr
     'inst.institusjon': 'Institution',
     'inst.detaljer': 'Details',
     'inst.disclaimer':
-        'Here you can see information about stays in nursing homes, health institutions and prisons. Institutions are obliged to <lenkeTilInstMelding>send a notification to Nav</lenkeTilInstMelding> about all persons who are registered and discharged. If you notice errors in the information, you must contact the institution directly.',
+        'You can view institutional stays that started in 2020 or later here. Stays with an earlier start date are also shown if they continued after 1 January 2020. You may also have older registered stays. To view those, you can <lenkeTilInnsyn>request access</lenkeTilInnsyn>.<br></br><br></br>Healthcare institutions, residential care homes, nursing homes, and prisons <lenkeTilInstMelding>are required to notify Nav</lenkeTilInstMelding> when a person is admitted or discharged. If you find incorrect information, contact the institution directly.',
     'inst.periode': 'Period',
     'inst.institusjonsnavn': 'Name of institution',
     'inst.institusjonstype': 'Type of institution',
     'inst.kategori': 'Category',
     'inst.registreringstidspunkt': 'Date of registration',
-    'inst.ingendata': 'No institutional stay is registered',
+    'inst.ingendata': 'There are no institutional stays to show.',
     'inst.fiktivSluttdato.tittel': 'Termination',
     'inst.fiktivSluttdato': 'The termination of the stay at the institution has not been reported. Nav has automatically terminated the stay.',
-    'inst.kilde': 'Source: The individual institution',
+    'inst.kilde': 'SOURCE: INSTITUTIONAL STAY REGISTER<br></br><span>The data is reported by the institution.</span>',
     'kontaktinformasjon-kilde': `Where is this contact information from?
   Nav uses your contact information from The common contact register. This is a joint national registry used by the government to send
   messages and documents. You can also register the phone number you want to be reached by in the Nav registry.`,

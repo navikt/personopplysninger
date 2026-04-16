@@ -163,16 +163,16 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'inst.institusjon': 'Institusjon',
     'inst.detaljer': 'Detaljer',
     'inst.disclaimer':
-        'Her kan du se opplysninger om opphold på alders- og sykehjem, helseinstitusjoner og fengsel. Institusjoner har plikt til å <lenkeTilInstMelding>sende melding til Nav</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
+        'Her kan du se institusjonsopphold som startet i 2020 eller senere. Opphold som er registrert med en tidligere startdato, og som har varighet etter 1. januar 2020, vil også vises. Du kan ha tidligere registrerte opphold. Ønsker du å se disse oppholdene, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br>Helseinstitusjoner, alders- og sykehjem og fengsler har <lenkeTilInstMelding>plikt til å sende melding til Nav</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.',
     'inst.periode': 'Periode',
     'inst.institusjonsnavn': 'Institusjonsnavn',
     'inst.institusjonstype': 'Institusjonstype',
     'inst.kategori': 'Kategori',
     'inst.registreringstidspunkt': 'Registreringstidspunkt',
-    'inst.ingendata': 'Ingen institusjonsopphold er registrert',
+    'inst.ingendata': 'Det er ingen institusjonsopphold å vise.',
     'inst.fiktivSluttdato.tittel': 'Sluttdato',
     'inst.fiktivSluttdato': 'Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.',
-    'inst.kilde': 'Kilde: Den enkelte institusjon',
+    'inst.kilde': 'KILDE: INSTITUSJONSOPPHOLDSREGISTERET<br></br><span>Dataene er rapportert av institusjonen.</span>',
     'kontaktogreservasjonsregister-disclaimer':
         'Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.',
     'kontaktogreservasjonsregister-disclaimer-reservert':
