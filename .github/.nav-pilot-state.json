@@ -1,13 +1,13 @@
 {
   "collection": "frontend",
-  "version": "2026.04.20-194821-8b2cb9f",
+  "version": "2026.05.22-103454-7acbe01",
   "scope": "repo",
-  "source_sha": "8b2cb9f",
+  "source_sha": "7acbe01",
   "installed_at": "2026-04-24T09:34:27Z",
   "files": [
     {
       "path": ".github/agents/accessibility.agent.md",
-      "hash": "98867df3e31b8cd4"
+      "hash": "243143499e16befb"
     },
     {
       "path": ".github/agents/accessibility.metadata.json",
@@ -15,7 +15,7 @@
     },
     {
       "path": ".github/agents/aksel.agent.md",
-      "hash": "f3f31e695bc1df0f"
+      "hash": "7103fb8df66fb0b1"
     },
     {
       "path": ".github/agents/aksel.metadata.json",
@@ -23,7 +23,7 @@
     },
     {
       "path": ".github/agents/forfatter.agent.md",
-      "hash": "f638bd5c234f329b"
+      "hash": "6cc31221eab50d30"
     },
     {
       "path": ".github/agents/forfatter.metadata.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "3179adb5db9ae3af"
+      "hash": "e50baf495f28613f"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -51,11 +51,11 @@
     },
     {
       "path": ".github/skills/nav-plan/",
-      "hash": "0849265460ea23e2"
+      "hash": "0a160744cf2b4e82"
     },
     {
       "path": ".github/skills/nav-deep-interview/",
-      "hash": "42e9aab52e591ef0"
+      "hash": "eeb3399ecd4e352c"
     },
     {
       "path": ".github/skills/nav-architecture-review/",
@@ -63,7 +63,7 @@
     },
     {
       "path": ".github/skills/nav-troubleshoot/",
-      "hash": "ce043cf29ce427b1"
+      "hash": "e9900d58d91ee0ee"
     },
     {
       "path": ".github/instructions/testing.instructions.md",
@@ -87,11 +87,11 @@
     },
     {
       "path": ".github/prompts/aksel-component.prompt.md",
-      "hash": "9da00ddfc10aefc4"
+      "hash": "dbeb27a9cad0e768"
     },
     {
       "path": ".github/prompts/nais-manifest.prompt.md",
-      "hash": "7b1e6ac5b4115c3f"
+      "hash": "8576571223ffef8a"
     }
   ]
 }
