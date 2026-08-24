@@ -135,11 +135,8 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         '<p>Adressetilleggsnavn er et tillegg i den offisielle adressen.</p><p>Dette kan for eksempel være navn på gårdsbruk, kjente institusjoner/bygninger, grender, boligfelt, hyttefelt eller lignende.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
     'arbeidsforhold.beskrivelse':
-        '<p>Nav trenger informasjon om arbeidsforholdene dine for å kunne vurdere behovet ditt for oppfølging og tjenester fra Nav, og til å beregne hvor mye du kan få utbetalt i for eksempel sykepenger, dagpenger og foreldrepenger. Andre offentlige etater har også tilgang til opplysninger fra Arbeidsgiver og arbeidstakerregisteret.</p><p>Det er Arbeids- og velferdsetaten som eier og forvalter Arbeidsgiver og arbeidstakerregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finner du mer informasjon om Arbeidsgiver- og arbeidstakerregisteret</lenkeAaRegisteret>.</p>',
-    'arbeidsforhold.kilde': 'Kilde: Arbeidsgiver- og arbeidstakerregisteret<br></br><span>Dataene er rapportert av arbeidsgiver</span>',
-    'arbeidsforhold.disclaimer':
-        'Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.<br></br>Hvis det er feil i et arbeidsforhold, kan arbeidsgiveren endre gjennom a-meldingen.',
-    'arbeidsforhold.submitted.by': 'Dataene er rapportert av arbeidsgiver',
+        'I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.',
+    'arbeidsforhold.lenke': 'Se dine arbeidsforhold i Aa-registeret',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
         '<p>Når du mottar ytelser fra Nav må du oppgi en bankkonto som står i ditt navn. Adressen som Nav har registrert på deg må være lik den du har oppgitt til den utenlandske banken. </p><p>For utbetaling til europeiske banker MÅ du oppgi IBAN. IBAN starter alltid med registrering av to bokstaver uten mellomrom, deretter følger mellom 15 og 31 tall, avhengig av kravene i det enkelte land. Eksempel: DK12389325974125698</p><p>Oppgir du IBAN-nummer, må du oppgi BIC.</p><p>Kontonummer som ikke er IBAN, kan ha BIC.</p>',
