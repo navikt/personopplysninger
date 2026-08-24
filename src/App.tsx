@@ -2,9 +2,7 @@ import { Fragment, useEffect } from 'react';
 import { useIntl } from 'react-intl';
 import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { initializeFaro } from '@grafana/faro-web-sdk';
-import { initLocalMock as initLocalArbeidsforholdMock } from '@navikt/arbeidsforhold';
 import { useStore } from './store/Context';
-import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
 import Forside from './pages/forside/Forside';
 import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
 import PageNotFound from './pages/404/404';
@@ -17,9 +15,7 @@ import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
 import { WithAuth } from './store/providers/WithAuth';
 import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
 import { basePath } from './constants';
-
 import '@navikt/ds-css';
-import '@navikt/arbeidsforhold/index.css';
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
 if (import.meta.env.VITE_ENV !== 'local') {
@@ -30,10 +26,6 @@ if (import.meta.env.VITE_ENV !== 'local') {
             version: import.meta.env.VITE_BUILD_VERSION,
         },
     });
-}
-
-if (import.meta.env.VITE_ENV === 'local') {
-    initLocalArbeidsforholdMock();
 }
 
 const App = () => {
@@ -70,7 +62,7 @@ const App = () => {
                                 <Route
                                     caseSensitive={true}
                                     path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                                    element={<DetaljertArbeidsforhold />}
+                                    element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
                                 />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />

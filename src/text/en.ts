@@ -22,7 +22,6 @@ export default {
     'anker.lenkehit': 'Link',
     'brodsmulesti.minside': 'My page',
     'brodsmulesti.dinepersonopplysninger': 'Personal data',
-    'brodsmulesti.arbeidsforhold': 'Employment relationship',
     'header.hello': 'Hi!',
     'header.hello.name': 'Hi {name}!',
     'header.description': '<a>Read about privacy protection in the Norwegian Labour and Welfare Administration (Nav) here.</a> (text in norwegian)',

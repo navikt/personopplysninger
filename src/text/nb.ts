@@ -22,7 +22,6 @@ export default {
     'anker.lenkehit': 'Lenke hit',
     'brodsmulesti.minside': 'Min side',
     'brodsmulesti.dinepersonopplysninger': 'Personopplysninger',
-    'brodsmulesti.arbeidsforhold': 'Arbeidsforhold',
     'header.hello': 'Hei!',
     'header.hello.name': 'Hei {name}!',
     'header.description': '<a>Les om personvern i Arbeids- og velferdsetaten her</a>',
