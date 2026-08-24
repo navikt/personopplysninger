@@ -9,15 +9,6 @@ innsynsløsning for arbeidstakere.
 Endringen avgrenses til `personopplysninger`-frontend. Fjerning av arbeidsforhold-backend, endelig URL-struktur og
 Nav.no-redirects håndteres utenfor denne leveransen.
 
-## Vurderte alternativer
-
-1. **Behold bolken «Arbeidsforhold» og erstatt innholdet med én lenke (valgt).** Bevarer sidens informasjonsarkitektur
-   og eksisterende ankerlenker, samtidig som duplisering unngås.
-2. **Vis lenken både i «Arbeidsforhold» og «Flere opplysninger om deg».** Kan være nyttig i en overgang, men gir
-   duplisert innhold og to steder som må vedlikeholdes.
-3. **Flytt lenken til «Flere opplysninger om deg».** Gir mindre innhold på forsiden, men bryter etablerte ankerlenker
-   og gjør arbeidsforhold vanskeligere å finne for brukere som kjenner dagens plassering.
-
 ## Frontenddesign
 
 `Arbeidsforhold.tsx` beholder dagens `Box`, ikon, overskrift og anker-ID. Den innebygde listen, infovarselet og
@@ -26,39 +17,41 @@ kildevisningen fjernes. Bolken viser i stedet:
 - en kort, oversatt forklaring om at opplysninger om arbeidsforhold finnes i Aa-registerets nye innsynsløsning
 - en tydelig ekstern lenke med beskrivende lenketekst og et dekorativt eksternlenkeikon
 
-Lenken åpnes i samme fane, i tråd med vanlig navigasjon til andre Nav-tjenester. URL-en leveres gjennom
-`VITE_ARBEIDSFORHOLD_URL`, slik at endelig URL eller senere redirect-endringer kan håndteres uten komponentendringer.
-Inntil Team arbeidsforhold og Team Nav.no avklarer annet, brukes den offentlige Nav-adressen
-`https://www.nav.no/aa-registeret/arbeidsforhold`.
+Lenken åpnes i samme fane. Lenken bruker følgende prioritet:
 
-Tekstene oppdateres samlet på bokmål, nynorsk og engelsk. Gamle tekster for datakilde, detaljliste og ansvarsfraskrivelse
-fjernes når de ikke lenger har en brukerflate.
+1. `VITE_ARBEIDSFORHOLD_URL` når variabelen finnes og ikke er tom
+2. den kanoniske standardadressen `https://www.nav.no/aa-registeret/arbeidsforhold` når variabelen mangler eller er tom
 
-## Ruter og avhengigheter
+Dette gjør at forsiden fortsatt fungerer uten render-time throw ved manglende miljøvariabel.
 
-Frontendintegrasjonen mot `@navikt/arbeidsforhold` fjernes:
+## Ruting og avhengigheter
 
-- pakke- og CSS-import
-- lokal mock-initialisering
-- detaljsiden for arbeidsforhold
-- detaljsidens Less-import
-- npm-avhengigheten og tilhørende lockfile-oppføringer
+Frontendintegrasjonen mot `@navikt/arbeidsforhold` fjernes, inkludert pakkeavhengighet, detaljside og gamle interne
+arbeidsforhold-ruter.
 
-Alle interne arbeidsforhold-ruter fjernes. Tidligere stier under
+Alle interne arbeidsforhold-ruter er fjernet. Tidligere stier under
 `/person/personopplysninger/{locale}/arbeidsforhold` og `/person/personopplysninger/{locale}/arbeidsforhold/:id`
-skal falle gjennom til den eksisterende standard 404-side i frontend. Eksterne redirects til den nye løsningen
-legges ikke inn før URL-strukturen er avklart.
+skal treffe frontendens standard 404-side.
+
+For å unngå transient 404 når locale settes inn på locale-løse inngangsstier, avgrenses catch-all-ruten i `App.tsx`
+til `${basePathWithLanguage}/*` i stedet for global `*`. Dermed kan `RedirectToLocale` navigere til canonical
+locale-sti uten at 404 vises i mellomtiden.
 
 `docker-compose.yml` og arbeidsforhold-backenden endres ikke i denne frontendleveransen.
 
 ## Feilhåndtering og tilgjengelighet
 
-Deploy-workflowene må alltid levere `VITE_ARBEIDSFORHOLD_URL`; lokal eksempelkonfigurasjon oppdateres samtidig.
 Lenketeksten skal beskrive målet uten å være avhengig av omkringliggende tekst. Ikonet skjules for skjermlesere, og
 overskrift/ankerstruktur beholdes.
 
+Manglende `VITE_ARBEIDSFORHOLD_URL` behandles med trygg fallback til kanonisk URL, ikke med hard feiling.
+
 ## Testing
 
-- En komponenttest verifiserer overskrift, forklaring, lenketekst og korrekt `href`.
-- Eksisterende testpakke kjøres for å avdekke utilsiktede regresjoner.
-- Lint og produksjonsbygg verifiserer at alle pakke-, CSS- og ruteimporter er fjernet.
+- `src/__tests__/forside/Arbeidsforhold.test.tsx` verifiserer både:
+    - at en ikke-tom `VITE_ARBEIDSFORHOLD_URL` overstyrer standardverdien
+    - at tom/manglende verdi faller tilbake til `https://www.nav.no/aa-registeret/arbeidsforhold`
+- `src/__tests__/App.test.tsx` verifiserer både:
+    - at locale-løs inngangssti redirecter til locale-sti uten at 404 rendres underveis
+    - at tidligere locale-kvalifiserte `/arbeidsforhold`- og `/arbeidsforhold/:id`-stier rendrer standard 404
+- Full test, lint og build kjøres for regresjonskontroll.

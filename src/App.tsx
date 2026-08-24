@@ -74,7 +74,7 @@ const App = () => {
                                 ))}
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummer />} />
-                                <Route path="*" element={<PageNotFound />} />
+                                <Route path={`${basePathWithLanguage}/*`} element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>
                     </RedirectToLocale>
@@ -93,7 +93,9 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
         const urlHasLocale = localeUrlPattern.test(location.pathname);
 
         if (!urlHasLocale) {
-            const redirectTo = `${location.pathname.replace(`${basePath}`, `${basePath}/${locale}`)}${location.hash}`;
+            const pathWithLocale = location.pathname.replace(`${basePath}`, `${basePath}/${locale}`);
+            const redirectPath = pathWithLocale === `${basePath}/${locale}` ? `${pathWithLocale}/` : pathWithLocale;
+            const redirectTo = `${redirectPath}${location.hash}`;
 
             navigate(redirectTo);
         }

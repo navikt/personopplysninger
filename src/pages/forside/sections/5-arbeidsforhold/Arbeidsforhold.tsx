@@ -4,14 +4,16 @@ import { FormattedMessage } from 'react-intl';
 import Box from '@/components/box/Box';
 import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
 
-const getArbeidsforholdUrl = () => {
-    const arbeidsforholdUrl = import.meta.env.VITE_ARBEIDSFORHOLD_URL;
+const DEFAULT_ARBEIDSFORHOLD_URL = 'https://www.nav.no/aa-registeret/arbeidsforhold';
 
-    if (arbeidsforholdUrl === undefined || arbeidsforholdUrl.trim() === '') {
-        throw new Error('VITE_ARBEIDSFORHOLD_URL is not configured');
+const getArbeidsforholdUrl = () => {
+    const arbeidsforholdUrl = import.meta.env.VITE_ARBEIDSFORHOLD_URL?.trim();
+
+    if (arbeidsforholdUrl === '') {
+        return DEFAULT_ARBEIDSFORHOLD_URL;
     }
 
-    return arbeidsforholdUrl;
+    return arbeidsforholdUrl ?? DEFAULT_ARBEIDSFORHOLD_URL;
 };
 
 const Arbeidsforhold = () => {
