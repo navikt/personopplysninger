@@ -1,13 +1,13 @@
 {
   "collection": "frontend",
-  "version": "2026.05.22-103454-7acbe01",
+  "version": "2026.08.23-185231-f8613ae",
   "scope": "repo",
-  "source_sha": "7acbe01",
+  "source_sha": "f8613ae",
   "installed_at": "2026-04-24T09:34:27Z",
   "files": [
     {
       "path": ".github/agents/accessibility.agent.md",
-      "hash": "243143499e16befb"
+      "hash": "67b453f152c4f663"
     },
     {
       "path": ".github/agents/accessibility.metadata.json",
@@ -15,15 +15,15 @@
     },
     {
       "path": ".github/agents/aksel.agent.md",
-      "hash": "7103fb8df66fb0b1"
+      "hash": "d190246642818387"
     },
     {
       "path": ".github/agents/aksel.metadata.json",
-      "hash": "8eada8fad9d3b868"
+      "hash": "f81b02c28e251a4f"
     },
     {
       "path": ".github/agents/forfatter.agent.md",
-      "hash": "6cc31221eab50d30"
+      "hash": "3dd47103e9bf04a8"
     },
     {
       "path": ".github/agents/forfatter.metadata.json",
@@ -31,7 +31,7 @@
     },
     {
       "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "e50baf495f28613f"
+      "hash": "c026ac85182629e4"
     },
     {
       "path": ".github/agents/nav-pilot.metadata.json",
@@ -39,11 +39,11 @@
     },
     {
       "path": ".github/skills/aksel-spacing/",
-      "hash": "690f23009e204e36"
+      "hash": "177594fc5ae8d7e3"
     },
     {
       "path": ".github/skills/playwright-testing/",
-      "hash": "d8991a8ed8a5e0b5"
+      "hash": "5c618cd99c79df64"
     },
     {
       "path": ".github/skills/web-design-reviewer/",
@@ -67,15 +67,15 @@
     },
     {
       "path": ".github/instructions/testing.instructions.md",
-      "hash": "4a6a7547a3701ce1"
+      "hash": "ca2a23744bef3a2c"
     },
     {
       "path": ".github/instructions/testing-typescript.instructions.md",
-      "hash": "d3fd7e7d5f2ee256"
+      "hash": "6c6055340a9d075c"
     },
     {
       "path": ".github/instructions/accessibility.instructions.md",
-      "hash": "3f682e93474bfdd8"
+      "hash": "986ef7aa27d8a1d9"
     },
     {
       "path": ".github/instructions/github-actions.instructions.md",
@@ -87,7 +87,7 @@
     },
     {
       "path": ".github/prompts/aksel-component.prompt.md",
-      "hash": "dbeb27a9cad0e768"
+      "hash": "721f879cfd8e89da"
     },
     {
       "path": ".github/prompts/nais-manifest.prompt.md",

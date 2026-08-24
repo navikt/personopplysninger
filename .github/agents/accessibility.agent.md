@@ -155,7 +155,7 @@ Du er en ekspert på universell utforming (UU) og WCAG 2.1/2.2 for Nav-applikasj
 ### Live-regioner
 
 ```tsx
-// ✅ Statusmelding som annonseres av skjermleser
+// ✅ Live-regioner for dynamisk innhold
 <Alert variant="success" role="status">
   Skjemaet ble sendt inn
 </Alert>
@@ -164,6 +164,11 @@ Du er en ekspert på universell utforming (UU) og WCAG 2.1/2.2 for Nav-applikasj
 <div aria-busy={isLoading} aria-live="polite">
   {isLoading ? <Loader title="Laster data" /> : <DataContent />}
 </div>
+
+// ✅ Expanding/collapsing
+<Button aria-expanded={isOpen} aria-controls="panel-id">
+  Vis detaljer
+</Button>
 ```
 
 ## Automatisert Testing
@@ -199,7 +204,7 @@ test("page should be accessible", async ({ page }) => {
 ### Lighthouse CI
 
 ```bash
-npx lighthouse http://localhost:3000 \
+pnpm dlx lighthouse http://localhost:3000 \
   --only-categories=accessibility \
   --output=json \
   --chrome-flags="--headless"
