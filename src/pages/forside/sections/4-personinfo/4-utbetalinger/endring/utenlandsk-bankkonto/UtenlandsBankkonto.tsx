@@ -57,7 +57,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                     {harValgtUSA(valgtLand) ? (
                         <AmerikanskKonto />
                     ) : brukerBankkode(valgtLand) ? (
-                        <LandMedBankkode valgtLand={valgtLand.label.toLowerCase()} />
+                        <LandMedBankkode valgtLand={valgtLand} />
                     ) : (
                         <LandUtenBankkode />
                     )}

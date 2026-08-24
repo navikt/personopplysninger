@@ -18,6 +18,42 @@
         "alternativLandkode": null
     },
     {
+        "kode": "AU",
+        "tekst": "Australia",
+        "kreverIban": false,
+        "ibanLengde": null,
+        "kreverBankkode": false,
+        "bankkodeLengde": 6,
+        "alternativLandkode": null
+    },
+    {
+        "kode": "CA",
+        "tekst": "Canada",
+        "kreverIban": false,
+        "ibanLengde": null,
+        "kreverBankkode": false,
+        "bankkodeLengde": 9,
+        "alternativLandkode": null
+    },
+    {
+        "kode": "NZ",
+        "tekst": "New Zealand",
+        "kreverIban": false,
+        "ibanLengde": null,
+        "kreverBankkode": false,
+        "bankkodeLengde": 6,
+        "alternativLandkode": null
+    },
+    {
+        "kode": "ZA",
+        "tekst": "Sør-Afrika",
+        "kreverIban": false,
+        "ibanLengde": null,
+        "kreverBankkode": false,
+        "bankkodeLengde": 6,
+        "alternativLandkode": null
+    },
+    {
         "kode": "IM",
         "tekst": "Isle of Man",
         "kreverIban": true,

@@ -398,6 +398,31 @@ describe('Utenlandsk bankkonto med bankkode', () => {
     });
 });
 
+describe('Infoboks om BIC/Swift og bankkode', () => {
+    beforeEach(async () => {
+        await setupUtenlandskBankkonto();
+    });
+
+    test('vises for land der en av kodene er tilstrekkelig', async () => {
+        await inputCombobox(LAND, 'India');
+
+        await waitFor(() => {
+            expect(screen.getByText(/tilstrekkelig med en av kodene/)).toBeInTheDocument();
+        });
+    });
+
+    test.each(['Canada', 'Australia', 'New Zealand', 'Sør-Afrika'])('vises ikke for %s', async (land) => {
+        await inputCombobox(LAND, land);
+
+        await waitFor(() => {
+            expect(getTextboxByName(BIC_SWIFT)).toBeInTheDocument();
+            expect(getTextboxByName(BANKKODE)).toBeInTheDocument();
+        });
+
+        expect(screen.queryByText(/tilstrekkelig med en av kodene/)).not.toBeInTheDocument();
+    });
+});
+
 describe('Amerikansk bankkonto', () => {
     beforeEach(async () => {
         await setupUtenlandskBankkonto();
