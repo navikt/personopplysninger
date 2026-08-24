@@ -4,7 +4,7 @@
 
 **Goal:** Erstatt innsynslisten for arbeidsforhold i Personopplysninger med en oversatt lenke til den nye innsynsløsningen for Aa-registeret.
 
-**Architecture:** Den eksisterende `Arbeidsforhold`-bolken beholdes som navigasjonspunkt, men blir en statisk presentasjonskomponent uten store- eller API-avhengigheter. Destinasjonen leveres som `VITE_ARBEIDSFORHOLD_URL`, mens gamle lokale arbeidsforhold-ruter leder tilbake til bolken. Hele frontendintegrasjonen mot `@navikt/arbeidsforhold` fjernes.
+**Architecture:** Den eksisterende `Arbeidsforhold`-bolken beholdes som navigasjonspunkt, men blir en statisk presentasjonskomponent uten store- eller API-avhengigheter. Destinasjonen leveres som `VITE_ARBEIDSFORHOLD_URL`, mens alle interne arbeidsforhold-ruter fjernes og tidligere stier faller gjennom til standard 404-side. Hele frontendintegrasjonen mot `@navikt/arbeidsforhold` fjernes.
 
 **Tech Stack:** React 18, TypeScript 5, React Intl, React Router 7, Aksel 7, Less, Vitest og Testing Library.
 
@@ -16,7 +16,7 @@
 - Behold `id="arbeidsforhold"`, overskrift, ikon og ankerlenke.
 - Bruk `VITE_ARBEIDSFORHOLD_URL` med verdien `https://www.nav.no/aa-registeret/arbeidsforhold` inntil Team arbeidsforhold og Team Nav.no avklarer en annen URL.
 - Åpne lenken i samme fane.
-- Behold gamle `/arbeidsforhold`- og `/arbeidsforhold/:id`-stier som interne kompatibilitetsruter til `#arbeidsforhold`.
+- Fjern interne `/arbeidsforhold`- og `/arbeidsforhold/:id`-ruter; tidligere stier skal falle gjennom til standard 404-side.
 - Oppdater bokmål, nynorsk og engelsk samtidig.
 - Fjern `@navikt/arbeidsforhold` og all tilhørende frontendkode.
 - Ikke implementer eksterne Nav.no-redirects i denne leveransen.
@@ -35,7 +35,7 @@
 - Modify `.github/workflows/deploy.dev.yml`: supplies the URL to the dev deployment.
 - Modify `.github/workflows/deploy.prod.yml`: supplies the URL to production.
 - Modify `.github/workflows/deploy.prod.intern.yml`: supplies the URL to internal production.
-- Modify `src/App.tsx`: removes package initialization/detail rendering and preserves legacy paths.
+- Modify `src/App.tsx`: removes package initialization/detail rendering and deletes internal arbeidsforhold-ruter.
 - Modify `src/index.less`: replaces the detail-page stylesheet import with the new section stylesheet.
 - Modify `package.json`, `package-lock.json`: removes `@navikt/arbeidsforhold`.
 - Delete `src/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.tsx`: removes the obsolete detail page.
@@ -44,10 +44,12 @@
 ### Task 0: Refresh main and isolate the work
 
 **Files:**
+
 - Commit: `docs/superpowers/specs/2026-08-24-arbeidsforhold-lenke-design.md`
 - Commit: `docs/superpowers/plans/2026-08-24-arbeidsforhold-lenke.md`
 
 **Interfaces:**
+
 - Consumes: clean `navikt/personopplysninger` repository access.
 - Produces: an isolated feature branch based on the newest `origin/main`.
 
@@ -97,6 +99,7 @@ Expected: one documentation commit with only the two listed files.
 ### Task 1: Replace the embedded list with a tested CTA
 
 **Files:**
+
 - Create: `src/__tests__/forside/Arbeidsforhold.test.tsx`
 - Create: `src/pages/forside/sections/5-arbeidsforhold/Arbeidsforhold.less`
 - Modify: `src/pages/forside/sections/5-arbeidsforhold/Arbeidsforhold.tsx`
@@ -106,6 +109,7 @@ Expected: one documentation commit with only the two listed files.
 - Modify: `src/index.less`
 
 **Interfaces:**
+
 - Consumes: `import.meta.env.VITE_ARBEIDSFORHOLD_URL: string`.
 - Produces: `Arbeidsforhold` as a store-independent component with one external link.
 
@@ -141,12 +145,12 @@ describe('Arbeidsforhold', () => {
                 <IntlProvider locale="nb" messages={nbMessages}>
                     <Arbeidsforhold />
                 </IntlProvider>
-            </StoreProvider>
+            </StoreProvider>,
         );
 
         expect(screen.getByRole('heading', { level: 2, name: 'Arbeidsforhold' })).toBeInTheDocument();
         expect(
-            screen.getByText('I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.')
+            screen.getByText('I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.'),
         ).toBeInTheDocument();
 
         const link = screen.getByRole('link', { name: 'Se dine arbeidsforhold i Aa-registeret' });
@@ -272,6 +276,7 @@ Expected: one commit containing the tested UI and copy changes.
 ### Task 2: Supply the destination through every deploy workflow
 
 **Files:**
+
 - Modify: `.env.sample`
 - Modify: `.github/workflows/build-and-deploy.yml`
 - Modify: `.github/workflows/build-and-deploy-intern.yml`
@@ -280,6 +285,7 @@ Expected: one commit containing the tested UI and copy changes.
 - Modify: `.github/workflows/deploy.prod.intern.yml`
 
 **Interfaces:**
+
 - Consumes: the URL selected in the global constraints.
 - Produces: `import.meta.env.VITE_ARBEIDSFORHOLD_URL` in local, dev, prod and internal prod builds.
 
@@ -296,15 +302,15 @@ VITE_ARBEIDSFORHOLD_URL=https://www.nav.no/aa-registeret/arbeidsforhold
 In `.github/workflows/build-and-deploy.yml`, add this input after `VITE_APP_URL`:
 
 ```yaml
-      VITE_ARBEIDSFORHOLD_URL:
-        required: true
-        type: string
+VITE_ARBEIDSFORHOLD_URL:
+    required: true
+    type: string
 ```
 
 In the `Define client-side environment` step, add:
 
 ```yaml
-          echo "VITE_ARBEIDSFORHOLD_URL=${{ inputs.VITE_ARBEIDSFORHOLD_URL }}" >> $GITHUB_ENV
+echo "VITE_ARBEIDSFORHOLD_URL=${{ inputs.VITE_ARBEIDSFORHOLD_URL }}" >> $GITHUB_ENV
 ```
 
 Place it immediately after the `VITE_APP_URL` echo.
@@ -314,15 +320,15 @@ Place it immediately after the `VITE_APP_URL` echo.
 In `.github/workflows/build-and-deploy-intern.yml`, add this input after `VITE_APP_URL`:
 
 ```yaml
-      VITE_ARBEIDSFORHOLD_URL:
-        required: true
-        type: string
+VITE_ARBEIDSFORHOLD_URL:
+    required: true
+    type: string
 ```
 
 In the `Define client-side environment` step, add:
 
 ```yaml
-          echo "VITE_ARBEIDSFORHOLD_URL=${{ inputs.VITE_ARBEIDSFORHOLD_URL }}" >> $GITHUB_ENV
+echo "VITE_ARBEIDSFORHOLD_URL=${{ inputs.VITE_ARBEIDSFORHOLD_URL }}" >> $GITHUB_ENV
 ```
 
 Place it immediately after the `VITE_APP_URL` echo.
@@ -332,19 +338,19 @@ Place it immediately after the `VITE_APP_URL` echo.
 Add this line after `VITE_APP_URL` in `.github/workflows/deploy.dev.yml`:
 
 ```yaml
-      VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
+VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
 ```
 
 Add the same line after `VITE_APP_URL` in `.github/workflows/deploy.prod.yml`:
 
 ```yaml
-      VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
+VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
 ```
 
 Add the same line after `VITE_APP_URL` in `.github/workflows/deploy.prod.intern.yml`:
 
 ```yaml
-      VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
+VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
 ```
 
 - [ ] **Step 5: Verify that every required workflow surface is wired**
@@ -393,6 +399,7 @@ Expected: one configuration-only commit.
 ### Task 3: Remove the embedded arbeidsforhold frontend
 
 **Files:**
+
 - Modify: `src/App.tsx`
 - Modify: `src/index.less`
 - Modify: `src/__tests__/forside/Arbeidsforhold.test.tsx`
@@ -405,6 +412,7 @@ Expected: one configuration-only commit.
 - Delete: `src/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.less`
 
 **Interfaces:**
+
 - Consumes: the static `Arbeidsforhold` component from Task 1.
 - Produces: an application with no runtime or package dependency on `@navikt/arbeidsforhold`.
 
@@ -426,7 +434,7 @@ if (import.meta.env.VITE_ENV === 'local') {
 }
 ```
 
-Keep both legacy routes, but make both navigate to the existing section:
+Delete both arbeidsforhold route blocks from `Routes`:
 
 ```tsx
 <Route
@@ -494,7 +502,7 @@ Replace the render call with:
 render(
     <IntlProvider locale="nb" messages={nbMessages}>
         <Arbeidsforhold />
-    </IntlProvider>
+    </IntlProvider>,
 );
 ```
 
@@ -544,14 +552,16 @@ git commit -m "chore: fjern arbeidsforhold-integrasjonen" \
   -m "Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
 ```
 
-Expected: one commit removing only the obsolete frontend integration and preserving the local compatibility routes.
+Expected: one commit removing only the obsolete frontend integration and the two internal arbeidsforhold routes.
 
 ### Task 4: Verify the complete frontend change
 
 **Files:**
+
 - Verify: all files changed in Tasks 1-3.
 
 **Interfaces:**
+
 - Consumes: completed UI, configuration and cleanup tasks.
 - Produces: evidence that the feature is ready for review.
 

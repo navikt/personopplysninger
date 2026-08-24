@@ -44,9 +44,10 @@ Frontendintegrasjonen mot `@navikt/arbeidsforhold` fjernes:
 - detaljsidens Less-import
 - npm-avhengigheten og tilhørende lockfile-oppføringer
 
-Eksisterende lokale URL-er under `/arbeidsforhold` beholdes som kompatibilitetsruter som navigerer tilbake til
-`#arbeidsforhold` på Personopplysninger-forsiden. Eksterne redirects til den nye løsningen legges ikke inn før
-URL-strukturen er avklart.
+Alle interne arbeidsforhold-ruter fjernes. Tidligere stier under
+`/person/personopplysninger/{locale}/arbeidsforhold` og `/person/personopplysninger/{locale}/arbeidsforhold/:id`
+skal falle gjennom til den eksisterende standard 404-side i frontend. Eksterne redirects til den nye løsningen
+legges ikke inn før URL-strukturen er avklart.
 
 `docker-compose.yml` og arbeidsforhold-backenden endres ikke i denne frontendleveransen.
 

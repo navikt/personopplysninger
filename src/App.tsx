@@ -54,16 +54,6 @@ const App = () => {
                                 {redirectPath && <Navigate to={redirectPath} />}
                                 <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
                                 <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
-                                <Route
-                                    caseSensitive={true}
-                                    path={`${basePathWithLanguage}/arbeidsforhold`}
-                                    element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
-                                />
-                                <Route
-                                    caseSensitive={true}
-                                    path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                                    element={<Navigate replace={true} to={`${basePathWithLanguage}/#arbeidsforhold`} />}
-                                />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
@@ -84,7 +74,7 @@ const App = () => {
                                 ))}
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummer />} />
-                                <Route element={<PageNotFound />} />
+                                <Route path="*" element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>
                     </RedirectToLocale>
