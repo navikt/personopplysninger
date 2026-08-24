@@ -38,7 +38,7 @@
 - Modify `.github/workflows/deploy.dev.yml`: supplies the URL to the dev deployment.
 - Modify `.github/workflows/deploy.prod.yml`: supplies the URL to production.
 - Modify `.github/workflows/deploy.prod.intern.yml`: supplies the URL to internal production.
-- Modify `src/App.tsx`: removes package initialization/detail rendering and internal arbeidsforhold-ruter, and scopes catch-all to `${basePathWithLanguage}/*`.
+- Modify `src/App.tsx`: removes package initialization/detail rendering and internal arbeidsforhold-ruter, scopes catch-all to `${basePathWithLanguage}/*`, and normalizes the locale-less canonical path with a trailing slash.
 - Modify `src/index.less`: replaces the detail-page stylesheet import with the new section stylesheet.
 - Modify `package.json`, `package-lock.json`: removes `@navikt/arbeidsforhold`.
 - Delete `src/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.tsx`: removes the obsolete detail page.
@@ -437,7 +437,7 @@ Expected: one configuration-only commit.
 **Files:**
 
 - Modify: `src/App.tsx`
-- Modify: `src/__tests__/App.test.tsx`
+- Create: `src/__tests__/App.test.tsx`
 - Modify: `src/index.less`
 - Modify: `src/__tests__/forside/Arbeidsforhold.test.tsx`
 - Modify: `src/text/nb.ts`
@@ -476,10 +476,26 @@ Delete the two route declarations for `${basePathWithLanguage}/arbeidsforhold` a
 Replace the global catch-all route with locale-scoped catch-all:
 
 ```tsx
-<Route caseSensitive={true} path={`${basePathWithLanguage}/*`} element={<IkkeFunnet />} />
+<Route path={`${basePathWithLanguage}/*`} element={<PageNotFound />} />
 ```
 
-- [ ] **Step 2: Add real App routing coverage for locale insertion and retired arbeidsforhold paths**
+- [ ] **Step 2: Normalize the locale-less canonical path**
+
+In `RedirectToLocale`, preserve the existing locale insertion and add a trailing slash when the incoming path is
+exactly `basePath`:
+
+```tsx
+const pathWithLocale = location.pathname.replace(`${basePath}`, `${basePath}/${locale}`);
+const redirectPath = pathWithLocale === `${basePath}/${locale}` ? `${pathWithLocale}/` : pathWithLocale;
+const redirectTo = `${redirectPath}${location.hash}`;
+
+navigate(redirectTo);
+```
+
+This ensures `/person/personopplysninger` redirects to `/person/personopplysninger/nb/`, while deeper paths keep their
+existing shape.
+
+- [ ] **Step 3: Add real App routing coverage for locale insertion and retired arbeidsforhold paths**
 
 Create `src/__tests__/App.test.tsx` with routing tests that assert:
 
@@ -490,7 +506,7 @@ Create `src/__tests__/App.test.tsx` with routing tests that assert:
 
 Use real `<App />` rendering with `StoreProvider` and `IntlProvider`, and `MutationObserver` to detect whether `.notfound__container` appears during redirect.
 
-- [ ] **Step 3: Delete the obsolete detail page**
+- [ ] **Step 4: Delete the obsolete detail page**
 
 Delete:
 
@@ -505,7 +521,7 @@ Remove this import from `src/index.less`:
 @import 'pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.less';
 ```
 
-- [ ] **Step 4: Remove strings used only by the deleted detail page**
+- [ ] **Step 5: Remove strings used only by the deleted detail page**
 
 Delete this key from `src/text/nb.ts`:
 
@@ -527,7 +543,7 @@ Delete this key from `src/text/en.ts`:
 
 Do not remove `arbeidsforhold.tittel`, `arbeidsforhold.beskrivelse` or `arbeidsforhold.lenke`.
 
-- [ ] **Step 5: Simplify the component test now that the package is gone**
+- [ ] **Step 6: Simplify the component test now that the package is gone**
 
 Remove this import from `src/__tests__/forside/Arbeidsforhold.test.tsx`:
 
@@ -547,7 +563,7 @@ render(
 );
 ```
 
-- [ ] **Step 6: Remove the npm package with npm**
+- [ ] **Step 7: Remove the npm package with npm**
 
 Run:
 
@@ -557,7 +573,7 @@ npm uninstall @navikt/arbeidsforhold --ignore-scripts
 
 Expected: `@navikt/arbeidsforhold` is removed from `package.json`, its package block and nested React Router blocks are removed from `package-lock.json`, and npm exits successfully.
 
-- [ ] **Step 7: Verify that no embedded integration or route remnants remain**
+- [ ] **Step 8: Verify that no embedded integration or route remnants remain**
 
 Run:
 
@@ -574,7 +590,7 @@ fi
 
 Expected: no matches.
 
-- [ ] **Step 8: Run focused routing and CTA tests**
+- [ ] **Step 9: Run focused routing and CTA tests**
 
 Run:
 
@@ -584,7 +600,7 @@ npm test -- --run src/__tests__/App.test.tsx src/__tests__/forside/Arbeidsforhol
 
 Expected: PASS.
 
-- [ ] **Step 9: Commit the integration removal**
+- [ ] **Step 10: Commit the integration removal**
 
 Run:
 
