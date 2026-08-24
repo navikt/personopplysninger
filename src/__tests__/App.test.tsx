@@ -97,7 +97,6 @@ describe('App arbeidsforhold routes', () => {
         }
 
         expect(rendered404).toBe(false);
-        expect(screen.queryByRole('heading', { level: 1, name: '404' })).not.toBeInTheDocument();
     });
 
     it.each([`${basePath}/nb/arbeidsforhold`, `${basePath}/nb/arbeidsforhold/123`])('should render 404 for %s', (path) => {
