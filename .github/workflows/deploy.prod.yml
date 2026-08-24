@@ -21,6 +21,7 @@ jobs:
       VITE_PDL_URL: 'https://www.nav.no/person/pdl-fullmakt-ui'
       VITE_SKJERMING_URL: 'https://www.nav.no/person/personopplysninger/skjerming'
       VITE_APP_URL: 'https://www.nav.no/person/personopplysninger'
+      VITE_ARBEIDSFORHOLD_URL: 'https://www.nav.no/aa-registeret/arbeidsforhold'
       VITE_API_URL: 'https://www.nav.no/tms-personopplysninger-api'
       VITE_ENDRE_KONTONUMMER_URL: 'https://www.nav.no/tms-endre-kontonummer'
       VITE_UTBETALINGSOVERSIKT_URL: 'https://tjenester.nav.no/utbetalingsoversikt'
