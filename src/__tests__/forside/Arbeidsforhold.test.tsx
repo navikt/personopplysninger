@@ -11,6 +11,7 @@ describe('Arbeidsforhold', () => {
     });
 
     afterEach(() => {
+        vi.restoreAllMocks();
         vi.unstubAllEnvs();
     });
 
@@ -18,15 +19,28 @@ describe('Arbeidsforhold', () => {
         render(
             <IntlProvider locale="nb" messages={nbMessages}>
                 <Arbeidsforhold />
-            </IntlProvider>
+            </IntlProvider>,
         );
 
         expect(screen.getByRole('heading', { level: 2, name: 'Arbeidsforhold' })).toBeInTheDocument();
         expect(
-            screen.getByText('I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.')
+            screen.getByText('I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.'),
         ).toBeInTheDocument();
 
         const link = screen.getByRole('link', { name: 'Se dine arbeidsforhold i Aa-registeret' });
         expect(link).toHaveAttribute('href', arbeidsforholdUrl);
+    });
+
+    it('should fail explicitly when the arbeidsforhold URL is missing', () => {
+        vi.stubEnv('VITE_ARBEIDSFORHOLD_URL', '');
+        vi.spyOn(console, 'error').mockImplementation(() => {});
+
+        expect(() =>
+            render(
+                <IntlProvider locale="nb" messages={nbMessages}>
+                    <Arbeidsforhold />
+                </IntlProvider>,
+            ),
+        ).toThrow('VITE_ARBEIDSFORHOLD_URL is not configured');
     });
 });

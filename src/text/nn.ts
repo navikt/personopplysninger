@@ -133,8 +133,7 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'adresse.hjelpetekster.tilleggsnavn':
         '<p>Adressetilleggsnamn er eit tillegg i den offisielle adressa.</p><p>Dette kan for eksempel vere namn på gardsbruk, kjente institusjonar/bygningar, grender, bustadsfelt, hyttefelt eller liknande.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
-    'arbeidsforhold.beskrivelse':
-        'I Aa-registeret kan du sjå kva opplysningar arbeidsgivarane dine har rapportert om arbeidsforholda dine.',
+    'arbeidsforhold.beskrivelse': 'I Aa-registeret kan du sjå kva opplysningar arbeidsgivarane dine har rapportert om arbeidsforholda dine.',
     'arbeidsforhold.lenke': 'Sjå arbeidsforholda dine i Aa-registeret',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':

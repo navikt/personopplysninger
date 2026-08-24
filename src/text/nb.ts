@@ -133,8 +133,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     'adresse.hjelpetekster.tilleggsnavn':
         '<p>Adressetilleggsnavn er et tillegg i den offisielle adressen.</p><p>Dette kan for eksempel være navn på gårdsbruk, kjente institusjoner/bygninger, grender, boligfelt, hyttefelt eller lignende.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
-    'arbeidsforhold.beskrivelse':
-        'I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.',
+    'arbeidsforhold.beskrivelse': 'I Aa-registeret kan du se hvilke opplysninger arbeidsgiverne dine har rapportert om arbeidsforholdene dine.',
     'arbeidsforhold.lenke': 'Se dine arbeidsforhold i Aa-registeret',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
