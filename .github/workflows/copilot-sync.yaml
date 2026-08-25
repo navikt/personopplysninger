@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   sync:
-    uses: navikt/tms-copilot/.github/workflows/tms-copilot-sync.yml@7cb6f6127c3b008a5cc16e75c48190cf4879b918 # main
+    uses: navikt/tms-copilot/.github/workflows/tms-copilot-sync.yml@main
     with:
       source_repo: navikt/tms-copilot
     permissions:
