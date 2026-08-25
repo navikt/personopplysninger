@@ -1,11 +1,11 @@
-name: Tms-copilot Customization Sync
+name: TMS-Copilot Customization Sync
 on:
   schedule:
     - cron: '0 7 * * 1'  # Mandager kl 07:00
   workflow_dispatch:
 jobs:
   sync:
-    uses: navikt/tms-copilot/.github/workflows/tms-copilot-sync.yml@main
+    uses: navikt/tms-copilot/.github/workflows/tms-copilot-sync.yml@7cb6f6127c3b008a5cc16e75c48190cf4879b918 # main
     with:
       source_repo: navikt/tms-copilot
     permissions:
