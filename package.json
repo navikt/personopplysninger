@@ -5,6 +5,9 @@
     "author": "Nav",
     "license": "MIT",
     "homepage": "http://www.nav.no/person/personopplysninger/",
+    "engines": {
+        "node": ">=24.0.0"
+    },
     "scripts": {
         "start": "npm-run-all -p start:*",
         "start:less": "less-watch-compiler",
