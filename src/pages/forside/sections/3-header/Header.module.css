@@ -1,0 +1,27 @@
+@media print {
+    .header {
+        display: none;
+    }
+}
+
+.header :global(.navds-guide-panel__content) {
+    border: none;
+}
+
+.seksjon {
+    padding: 0.5rem 0;
+}
+
+.ikon {
+    /* Overrides GuidePanel's image dimensions. */
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.content {
+    margin-bottom: 0.5rem;
+}
+
+.link:global(.navds-link) {
+    display: inline;
+}

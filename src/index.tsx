@@ -4,6 +4,9 @@ import App from "./App";
 import { StoreProvider } from "./store/Context";
 import WithLanguages from "./store/providers/Language";
 
+import "./styles/tokens.css";
+import "./styles/global.css";
+
 const init = async () => {
     if (import.meta.env.VITE_ENV === "local") {
         await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
