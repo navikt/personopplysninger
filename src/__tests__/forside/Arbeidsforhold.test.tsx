@@ -3,8 +3,8 @@ import { render, screen } from '@testing-library/react';
 import nbMessages from '@/text/nb';
 import Arbeidsforhold from '@/pages/forside/sections/5-arbeidsforhold/Arbeidsforhold';
 
-const configuredArbeidsforholdUrl = 'https://www.nav.no/arbeid/arbeidsforhold-oversikt';
-const defaultArbeidsforholdUrl = 'https://www.nav.no/aa-registeret/arbeidsforhold';
+const configuredArbeidsforholdUrl = 'https://www.ansatt.dev.nav.no/aa-registeret/innsyn';
+const defaultArbeidsforholdUrl = 'https://www.nav.no/aa-registeret/innsyn';
 
 describe('Arbeidsforhold', () => {
     beforeEach(() => {

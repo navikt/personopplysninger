@@ -16,7 +16,7 @@ vi.mock('@/store/providers/WithAuth', () => ({
     WithAuth: ({ children }: { children: JSX.Element }) => children,
 }));
 
-const arbeidsforholdUrl = 'https://www.nav.no/aa-registeret/arbeidsforhold';
+const arbeidsforholdUrl = 'https://www.nav.no/aa-registeret/innsyn';
 const originalPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
 const renderAppAtPath = (path: string) => {
