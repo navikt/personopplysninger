@@ -22,7 +22,6 @@ export default {
     'anker.lenkehit': 'Lenke hit',
     'brodsmulesti.minside': 'Mi side',
     'brodsmulesti.dinepersonopplysninger': 'Personopplysningar',
-    'brodsmulesti.arbeidsforhold': 'Arbeidsforhold',
     'header.hello': 'Hei!',
     'header.hello.name': 'Hei {name}!',
     'header.description': '<a>Les om personvern i Arbeids- og velferdsetaten her</a>',
@@ -134,12 +133,8 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'adresse.hjelpetekster.tilleggsnavn':
         '<p>Adressetilleggsnamn er eit tillegg i den offisielle adressa.</p><p>Dette kan for eksempel vere namn på gardsbruk, kjente institusjonar/bygningar, grender, bustadsfelt, hyttefelt eller liknande.</p>',
     'arbeidsforhold.tittel': 'Arbeidsforhold',
-    'arbeidsforhold.beskrivelse':
-        '<p>Nav treng informasjon om arbeidsforholda dine for å kunne vurdere behovet ditt for oppfølging og tenester frå Nav, og til å rekne ut kor mykje du kan få utbetalt i for eksempel sjukepengar, dagpengar og foreldrepengar. Andre offentlege etatar har også tilgang til opplysningar frå Arbeidsgivar og arbeidstakarregisteret.</p><p>Det er Arbeids- og velferdsetaten som eig og forvaltar Arbeidsgivar og arbeidstakarregisteret (Aa-registeret).<br></br><lenkeAaRegisteret>Her finn du meir informasjon om Arbeidsgivar- og arbeidstakarregisteret</lenkeAaRegisteret>.</p>',
-    'arbeidsforhold.kilde': 'Kjelde: Arbeidsgivar- og arbeidstakarregisteret<br></br><span>Dataane er rapportert av arbeidsgivar</span>',
-    'arbeidsforhold.disclaimer':
-        'Oversikta viser alle arbeidsforhold rapportert etter 01.01.2015.<br></br>Dersom det er feil i eit arbeidsforhold, kan arbeidsgivaren endre gjennom a-meldinga.',
-    'arbeidsforhold.submitted.by': 'Dataane er rapportert av arbeidsgivar',
+    'arbeidsforhold.beskrivelse': 'I Aa-registeret kan du sjå kva opplysningar arbeidsgivarane dine har rapportert om arbeidsforholda dine.',
+    'arbeidsforhold.lenke': 'Sjå arbeidsforholda dine i Aa-registeret',
     'utbetalinger.tittel': 'Kontonummer for utbetaling',
     'utbetalinger.hjelpetekster.kontonummer':
         '<p>Når du mottek ytingar frå Nav må du oppgi ein bankkonto som står i ditt namn. Adressa som Nav har registrert på deg må vere lik den du har oppgitt til den utanlandske banken. </p><p>For utbetaling til europeiske bankar MÅ du oppgi IBAN. IBAN startar alltid med registrering av to bokstavar utan mellomrom, deretter kjem mellom 15 og 31 tal, avhengig av krava i det enkelte land. Eksempel: DK12389325974125698</p><p>Oppgir du IBAN-nummer, må du oppgi BIC.</p><p>Kontonummer som ikkje er IBAN, kan ha BIC.</p>',

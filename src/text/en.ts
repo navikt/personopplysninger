@@ -22,7 +22,6 @@ export default {
     'anker.lenkehit': 'Link',
     'brodsmulesti.minside': 'My page',
     'brodsmulesti.dinepersonopplysninger': 'Personal data',
-    'brodsmulesti.arbeidsforhold': 'Employment relationship',
     'header.hello': 'Hi!',
     'header.hello.name': 'Hi {name}!',
     'header.description': '<a>Read about privacy protection in the Norwegian Labour and Welfare Administration (Nav) here.</a> (text in norwegian)',
@@ -133,13 +132,10 @@ A child who lives permanently with both mother and father can have two home addr
         '<p>If it is not possible to separate the region, building, postal code or place name from the address, fill in the full address in the address field, as given. The information should not be listed anywhere else.</p>',
     'adresse.hjelpetekster.tilleggsnavn':
         '<p>Additional address name is an addition to the official address.</p><p>For example, this may be a farm name, known institutions/buildings, hamlets, housing estates, cottage areas, etc.</p>',
-    'arbeidsforhold.tittel': 'Employment relationship',
+    'arbeidsforhold.tittel': 'Employment relationships',
     'arbeidsforhold.beskrivelse':
-        '<p>Nav needs information about your employment relationships in order to assess your need for follow-up and services from Nav, and to calculate how much you can receive for, for example, sickness benefit, unemployment benefit and parental benefit. Other government agencies also have access to information from the State Register of Employers and Employees.</p><p>The Norwegian Labour and Welfare Administration (Nav) owns and manages the State Register of Employers and Employees (Aa-registeret).<br></br><lenkeAaRegisteret>Read more about the State Register of Employers and Employees</lenkeAaRegisteret></p>',
-    'arbeidsforhold.kilde': 'Source: State Register of Employers and Employees<br></br><span>The data is reported by employers</span>',
-    'arbeidsforhold.disclaimer':
-        'The overview shows all employment relationships reported after 1 January 2015.<br></br>If there are errors in an employment relationship, the employer can change it through the a-melding (employee and payroll reporting).',
-    'arbeidsforhold.submitted.by': 'The data is reported by the employer',
+        'In the State Register of Employers and Employees, you can see the information your employers have reported about your employment relationships.',
+    'arbeidsforhold.lenke': 'See your employment relationships in the register',
     'utbetalinger.tittel': 'Account number for payment',
     'utbetalinger.hjelpetekster.kontonummer':
         '<p>When you receive benefits from Nav, you must provide a bank account that is in your name. The address registered by Nav under your name must be identical to the one you have provided to the foreign bank. </p><p>For payments to European banks, IBAN is required. IBAN always starts with two initial letters without spaces, followed by between 15 and 31 numbers, depending on the requirements of each country. Example: DK12389325974125698</p><p>If you provide an IBAN number, you must provide a BIC.</p><p>Account numbers that are not IBANs may have a BIC.</p>',

@@ -26,6 +26,9 @@ on:
       VITE_APP_URL:
         required: true
         type: string
+      VITE_ARBEIDSFORHOLD_URL:
+        required: true
+        type: string
       VITE_API_URL:
         required: true
         type: string
@@ -95,6 +98,7 @@ jobs:
           echo "VITE_PDL_URL=${{ inputs.VITE_PDL_URL }}" >> $GITHUB_ENV
           echo "VITE_SKJERMING_URL=${{ inputs.VITE_SKJERMING_URL }}" >> $GITHUB_ENV
           echo "VITE_APP_URL=${{ inputs.VITE_APP_URL }}" >> $GITHUB_ENV
+          echo "VITE_ARBEIDSFORHOLD_URL=${{ inputs.VITE_ARBEIDSFORHOLD_URL }}" >> $GITHUB_ENV
           echo "VITE_API_URL=${{ inputs.VITE_API_URL }}" >> $GITHUB_ENV
           echo "VITE_ENDRE_KONTONUMMER_URL=${{ inputs.VITE_ENDRE_KONTONUMMER_URL }}" >> $GITHUB_ENV
           echo "VITE_LOGIN_URL=${{ inputs.VITE_LOGIN_URL }}" >> $GITHUB_ENV
