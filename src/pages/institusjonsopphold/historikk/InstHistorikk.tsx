@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import PageContainer from '@/components/pagecontainer/PageContainer';
-import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
-import WithInst from '../InstFetch';
-import InstHistorikkView from './InstHistorikkView';
+import { useEffect } from "react";
+import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
+import PageContainer from "@/components/pagecontainer/PageContainer";
+import WithInst from "../InstFetch";
+import InstHistorikkView from "./InstHistorikkView";
 
 const InstHistorikk = () => {
     useEffect(() => {
@@ -10,7 +10,7 @@ const InstHistorikk = () => {
     }, []);
 
     return (
-        <PageContainer tittelId={'inst.tittel'} icon={INSTIkon} backTo={'/#flere-opplysninger'} brodsmulesti={[{ title: 'inst.tittel' }]}>
+        <PageContainer tittelId={"inst.tittel"} icon={INSTIkon} backTo={"/#flere-opplysninger"} brodsmulesti={[{ title: "inst.tittel" }]}>
             <WithInst>{({ data }) => <InstHistorikkView instInfo={data} />}</WithInst>
         </PageContainer>
     );

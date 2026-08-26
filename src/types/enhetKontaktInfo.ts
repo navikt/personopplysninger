@@ -1,4 +1,4 @@
-import { AudienceReception } from '@navikt/nav-office-reception-info';
+import type { AudienceReception } from "@navikt/nav-office-reception-info";
 
 export interface EnhetKontaktInfo {
     navn: string;

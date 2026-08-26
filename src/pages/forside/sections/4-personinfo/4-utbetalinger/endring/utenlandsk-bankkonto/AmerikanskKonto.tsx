@@ -1,5 +1,5 @@
-import BankkodeField from './felter/BankkodeField';
-import AdresseFields from './felter/AdresseFields';
+import AdresseFields from "./felter/AdresseFields";
+import BankkodeField from "./felter/BankkodeField";
 
 const AmerikanskKonto = () => {
     return (

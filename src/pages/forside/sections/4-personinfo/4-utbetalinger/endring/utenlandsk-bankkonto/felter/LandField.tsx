@@ -1,15 +1,15 @@
-import { useFormContext } from 'react-hook-form';
-import SelectLand from '@/components/felter/select-kodeverk/SelectLand';
-import { FormFields } from '../../types';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
+import { useFormContext } from "react-hook-form";
+import SelectLand from "@/components/felter/select-kodeverk/SelectLand";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { FormFields } from "../../types";
 
 const BANKKODER: { [key: string]: string } = {
-    US: 'FW',
-    NZ: 'NZ',
-    AU: 'AU',
-    ZA: 'ZA',
-    CA: 'CC',
-    RU: 'RU',
+    US: "FW",
+    NZ: "NZ",
+    AU: "AU",
+    ZA: "ZA",
+    CA: "CC",
+    RU: "RU",
 };
 
 const LandField = () => {
@@ -25,18 +25,18 @@ const LandField = () => {
 
     return (
         <SelectLand
-            {...register('land', {
-                required: formatMessage('validation.land.pakrevd'),
+            {...register("land", {
+                required: formatMessage("validation.land.pakrevd"),
             })}
             id="bankensland"
             submitted={isSubmitted}
-            label={formatMessage('felter.bankensland.label')}
+            label={formatMessage("felter.bankensland.label")}
             error={errors?.land?.message}
             option={watch().land}
             onChange={(option) => {
-                const bankkodeRetningsnummer = option ? BANKKODER[option.value] : '';
-                setValue('land', option);
-                setValue('retningsnummer', bankkodeRetningsnummer);
+                const bankkodeRetningsnummer = option ? BANKKODER[option.value] : "";
+                setValue("land", option);
+                setValue("retningsnummer", bankkodeRetningsnummer);
                 if (isSubmitted) {
                     trigger();
                 }

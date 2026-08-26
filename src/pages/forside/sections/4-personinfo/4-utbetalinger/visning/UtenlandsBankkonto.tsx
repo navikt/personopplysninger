@@ -1,9 +1,9 @@
-import { friendlyFormatIBAN } from 'ibantools';
-import { BodyShort } from '@navikt/ds-react';
-import GateAdresse from '../../3-adresser/komponenter/GateAdresse';
-import ListeElement from '@/components/listelement/ListElement';
-import { UtenlandskBankkonto } from '@/types/personalia';
-import { Liste } from '@/components/listelement/Liste';
+import { BodyShort } from "@navikt/ds-react";
+import { friendlyFormatIBAN } from "ibantools";
+import ListeElement from "@/components/listelement/ListElement";
+import { Liste } from "@/components/listelement/Liste";
+import type { UtenlandskBankkonto } from "@/types/personalia";
+import GateAdresse from "../../3-adresser/komponenter/GateAdresse";
 
 interface Props {
     utenlandskBankkonto?: UtenlandskBankkonto;
@@ -13,7 +13,7 @@ const Utenlandskonto = ({ utenlandskBankkonto }: Props) => {
     return utenlandskBankkonto ? (
         <Liste>
             <ListeElement
-                titleId={'personalia.bank'}
+                titleId={"personalia.bank"}
                 content={
                     <>
                         {utenlandskBankkonto.banknavn && <BodyShort>{utenlandskBankkonto.banknavn}</BodyShort>}

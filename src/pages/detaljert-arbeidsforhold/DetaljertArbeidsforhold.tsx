@@ -1,13 +1,13 @@
-import { useEffect } from 'react';
-import { Params, useParams } from 'react-router-dom';
-import { DetaljertArbeidsforhold } from '@navikt/arbeidsforhold';
-import { useIntl } from 'react-intl';
-import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
-import PageContainer from '@/components/pagecontainer/PageContainer';
-import { useStore } from '@/store/Context';
-import { Locale } from '@/store/Store';
+import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
+import { useEffect } from "react";
+import { useIntl } from "react-intl";
+import { type Params, useParams } from "react-router-dom";
+import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
+import PageContainer from "@/components/pagecontainer/PageContainer";
+import { useStore } from "@/store/Context";
+import type { Locale } from "@/store/Store";
 
-const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'local' | 'dev' | 'prod';
+const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
 
 interface Routes {
     id: string;
@@ -22,25 +22,25 @@ const Arbeidsforhold = () => {
         window.scrollTo(0, 0);
     }, []);
 
-    if (typeof params.id === 'undefined') {
+    if (typeof params.id === "undefined") {
         return null;
     }
 
     const id: number = parseInt(params.id, 10);
 
-    const printName = personInfo.status === 'RESULT' ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}` : '';
+    const printName = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}` : "";
 
-    const printSSN = personInfo.status === 'RESULT' ? `${personInfo.data.personalia?.personident?.verdi}` : '';
+    const printSSN = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.personident?.verdi}` : "";
 
     return (
         <PageContainer
             tittelId="arbeidsforhold.tittel"
             icon={arbeidsforholdIkon}
-            brodsmulesti={[{ title: 'arbeidsforhold.tittel' }]}
-            backTo={'/#arbeidsforhold'}
+            brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
+            backTo={"/#arbeidsforhold"}
         >
             <DetaljertArbeidsforhold
-                rolle={'ARBEIDSTAKER'}
+                rolle={"ARBEIDSTAKER"}
                 miljo={miljo}
                 locale={locale as Locale}
                 navArbeidsforholdId={id}

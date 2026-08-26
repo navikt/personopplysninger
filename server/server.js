@@ -1,16 +1,16 @@
-const express = require('express');
-const logger = require('./logger');
-const path = require('path');
-const compression = require('compression');
-const localEnvFile = '.env';
-if (process.env.VITE_ENV === 'local') {
-    require('dotenv').config(localEnvFile);
+const express = require("express");
+const logger = require("./logger");
+const path = require("path");
+const compression = require("compression");
+const localEnvFile = ".env";
+if (process.env.VITE_ENV === "local") {
+    require("dotenv").config(localEnvFile);
 }
-const getHtmlWithDecorator = require('./dekorator');
-const buildPath = path.resolve(__dirname, '../build');
-const basePath = '/person/personopplysninger';
+const getHtmlWithDecorator = require("./dekorator");
+const buildPath = path.resolve(__dirname, "../build");
+const basePath = "/person/personopplysninger";
 const server = express();
-server.disable('x-powered-by');
+server.disable("x-powered-by");
 
 server.use(compression());
 server.use(express.json());
@@ -26,7 +26,7 @@ server.use(/^(?!.*\/(internal|static)\/).*$/, (req, res) =>
         .catch((e) => {
             logger.error(e);
             res.status(500).send(e);
-        })
+        }),
 );
 
 const port = process.env.PORT || 8080;

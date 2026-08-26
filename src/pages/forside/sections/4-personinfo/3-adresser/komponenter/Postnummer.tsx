@@ -1,4 +1,4 @@
-import { BodyShort } from '@navikt/ds-react';
+import { BodyShort } from "@navikt/ds-react";
 
 interface Props {
     postnummer?: string;

@@ -1,11 +1,11 @@
-import { FormattedMessage } from 'react-intl';
-import { Alert } from '@navikt/ds-react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import ListElement from '@/components/listelement/ListElement';
-import { KontaktInfo } from '@/types/kontaktInfo';
-import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '@/store/Context';
-import { Liste } from '@/components/listelement/Liste';
+import { ExternalLinkIcon } from "@navikt/aksel-icons";
+import { Alert } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import Kilde from "@/components/kilde/Kilde";
+import ListElement from "@/components/listelement/ListElement";
+import { Liste } from "@/components/listelement/Liste";
+import { useStore } from "@/store/Context";
+import type { KontaktInfo } from "@/types/kontaktInfo";
 
 interface Props {
     info: KontaktInfo;
@@ -26,7 +26,7 @@ const KontaktInformasjon = (props: Props) => {
             <div className="telefonnummer">
                 <Alert variant="info" inline={true}>
                     <FormattedMessage
-                        id={reservert ? 'kontaktogreservasjonsregister-disclaimer-reservert' : 'kontaktogreservasjonsregister-disclaimer'}
+                        id={reservert ? "kontaktogreservasjonsregister-disclaimer-reservert" : "kontaktogreservasjonsregister-disclaimer"}
                         values={{
                             br: (text) => (
                                 <>
@@ -41,9 +41,9 @@ const KontaktInformasjon = (props: Props) => {
             <div className="margin-kilde">
                 <Kilde
                     kilde="personalia.source.dkif"
-                    lenke={`https://minprofil.kontaktregisteret.no${locale === 'en' ? '?locale=en' : ''}`}
+                    lenke={`https://minprofil.kontaktregisteret.no${locale === "en" ? "?locale=en" : ""}`}
                     lenkeTekst="personalia.link.dkif.endre"
-                    lenkeType={'EKSTERN'}
+                    lenkeType={"EKSTERN"}
                     ikon={ExternalLinkIcon}
                 />
             </div>
@@ -52,7 +52,7 @@ const KontaktInformasjon = (props: Props) => {
         <>
             <div className="underseksjon__beskrivelse">
                 <FormattedMessage
-                    id={'personalia.dkif.ingenData'}
+                    id={"personalia.dkif.ingenData"}
                     values={{
                         b: (text) => <b>{text}</b>,
                     }}
@@ -60,7 +60,7 @@ const KontaktInformasjon = (props: Props) => {
             </div>
             <Alert variant="info" inline>
                 <FormattedMessage
-                    id={reservert ? 'kontaktogreservasjonsregister-disclaimer-reservert' : 'kontaktogreservasjonsregister-disclaimer'}
+                    id={reservert ? "kontaktogreservasjonsregister-disclaimer-reservert" : "kontaktogreservasjonsregister-disclaimer"}
                     values={{
                         br: (text) => (
                             <>
@@ -73,9 +73,9 @@ const KontaktInformasjon = (props: Props) => {
             </Alert>
             <Kilde
                 kilde="personalia.source.dkif"
-                lenke={`https://minprofil.kontaktregisteret.no${locale === 'en' ? '?locale=en' : ''}`}
+                lenke={`https://minprofil.kontaktregisteret.no${locale === "en" ? "?locale=en" : ""}`}
                 lenkeTekst="personalia.link.dkif.leggtil"
-                lenkeType={'EKSTERN'}
+                lenkeType={"EKSTERN"}
                 ikon={ExternalLinkIcon}
             />
         </>

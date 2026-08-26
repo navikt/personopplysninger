@@ -1,7 +1,7 @@
-import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
-import { fetchLand } from '@/clients/apiClient';
-import { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import NAVSelect from '@/components/felter/select/NAVSelect';
+import { type ForwardedRef, forwardRef, useEffect, useState } from "react";
+import { fetchLand } from "@/clients/apiClient";
+import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
+import NAVSelect from "@/components/felter/select/NAVSelect";
 
 interface Props {
     id: string;
@@ -61,7 +61,7 @@ const SelectLand = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElement>
             alternativLandkode: k.alternativLandkode,
         }));
 
-    const disallowedCountries = ['NORGE', 'UOPPGITT/UKJENT', 'UOPPGITT'];
+    const disallowedCountries = ["NORGE", "UOPPGITT/UKJENT", "UOPPGITT"];
 
     const options = mapKoderToOptions(land)
         .filter((option: OptionType) => !disallowedCountries.includes(option.label.toUpperCase()))

@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { fetchMedlInfo } from '@/clients/apiClient';
-import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import { useStore } from '@/store/Context';
-import Spinner from '@/components/spinner/Spinner';
-import { MedlInfo } from '@/types/medl';
+import { useEffect } from "react";
+import { fetchMedlInfo } from "@/clients/apiClient";
+import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import Spinner from "@/components/spinner/Spinner";
+import { useStore } from "@/store/Context";
+import type { MedlInfo } from "@/types/medl";
 
-export type FetchMedlInfo = { status: 'LOADING' } | { status: 'RESULT'; data: MedlInfo } | { status: 'ERROR'; error: HTTPError };
+export type FetchMedlInfo = { status: "LOADING" } | { status: "RESULT"; data: MedlInfo } | { status: "ERROR"; error: HTTPError };
 
 interface Props {
     children: (data: { data: MedlInfo; id?: string }) => JSX.Element;
@@ -16,29 +16,29 @@ const WithMEDL = (props: Props) => {
     const { children } = props;
 
     useEffect(() => {
-        if (medlInfo.status === 'LOADING') {
+        if (medlInfo.status === "LOADING") {
             fetchMedlInfo()
                 .then((medl) =>
                     dispatch({
-                        type: 'SETT_MEDL_INFO_RESULT',
+                        type: "SETT_MEDL_INFO_RESULT",
                         payload: medl as MedlInfo,
-                    })
+                    }),
                 )
                 .catch((error: HTTPError) =>
                     dispatch({
-                        type: 'SETT_MEDL_INFO_ERROR',
+                        type: "SETT_MEDL_INFO_ERROR",
                         payload: error,
-                    })
+                    }),
                 );
         }
     }, [medlInfo, dispatch]);
 
     switch (medlInfo.status) {
-        case 'LOADING':
+        case "LOADING":
             return <Spinner />;
-        case 'RESULT':
+        case "RESULT":
             return children({ data: medlInfo.data });
-        case 'ERROR':
+        case "ERROR":
             return <ErrorMessage error={medlInfo.error} />;
     }
 };

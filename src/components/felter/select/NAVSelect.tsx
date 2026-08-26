@@ -1,13 +1,13 @@
-import { Label, Loader, TextField } from '@navikt/ds-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
-import { ForwardedRef, useEffect, forwardRef, memo } from 'react';
-import Select, { ActionMeta, components, MultiValue, OptionProps, SingleValue } from 'react-select';
-import { useIntl } from 'react-intl';
-import cls from 'classnames';
-import { FormatOptionLabelMeta } from 'react-select/base';
-import { RADIX_DECIMAL } from '@/utils/formattering';
-import { HTTPError } from '../../errorMessage/ErrorMessage';
-import { LabelMedHjelpetekst } from '../label-med-hjelpetekst/LabelMedHjelpetekst';
+import { ChevronDownIcon } from "@navikt/aksel-icons";
+import { Label, Loader, TextField } from "@navikt/ds-react";
+import cls from "classnames";
+import { type ForwardedRef, forwardRef, memo, useEffect } from "react";
+import { useIntl } from "react-intl";
+import Select, { type ActionMeta, components, type MultiValue, type OptionProps, type SingleValue } from "react-select";
+import type { FormatOptionLabelMeta } from "react-select/base";
+import { RADIX_DECIMAL } from "@/utils/formattering";
+import type { HTTPError } from "../../errorMessage/ErrorMessage";
+import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 
 interface Props {
     id: string;
@@ -43,11 +43,11 @@ const DropdownIndicator = () => (
 );
 /* eslint-disable-next-line*/
 const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
-    const labelId = props.id + '_label';
+    const labelId = props.id + "_label";
 
     const { formatMessage } = useIntl();
     const controlClasses = cls({
-        'KodeverkSelect__control-feil': props.submitted && props.error,
+        "KodeverkSelect__control-feil": props.submitted && props.error,
     });
 
     const containerClasses = cls({
@@ -61,7 +61,8 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
                   (option: OptionType) =>
                       // Find closest match
                       (props.option && option.value === props.option.value) ??
-                      (props.option && option.label.replace(`(${option.value})`, '').toUpperCase().trim() === props.option.label.trim().toUpperCase())
+                      (props.option &&
+                          option.label.replace(`(${option.value})`, "").toUpperCase().trim() === props.option.label.trim().toUpperCase()),
               )
               .shift()
         : null;
@@ -102,16 +103,16 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
             <div className="KodeverkSelect__header">
                 <LabelMedHjelpetekst label={props.label} hjelpetekst={props.hjelpetekst} labelId={labelId} labelForId={props.id} />
             </div>
-            <div className={`${cls('KodeverkSelect--select-wrapper')}`}>
+            <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
                 <Select
                     aria-labelledby={labelId}
                     id={props.id}
                     name={props.name}
                     value={value}
-                    placeholder={formatMessage({ id: 'select.sok' })}
+                    placeholder={formatMessage({ id: "select.sok" })}
                     classNamePrefix="KodeverkSelect"
-                    loadingMessage={() => formatMessage({ id: 'select.loading' })}
-                    noOptionsMessage={(v) => `${formatMessage({ id: 'select.no.hits' })} ${v.inputValue}...`}
+                    loadingMessage={() => formatMessage({ id: "select.loading" })}
+                    noOptionsMessage={(v) => `${formatMessage({ id: "select.no.hits" })} ${v.inputValue}...`}
                     className={controlClasses}
                     openMenuOnClick={props.openMenuOnClick}
                     isLoading={props.loading}
@@ -136,7 +137,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
             htmlSize={props.htmlSize}
             onChange={(e) => props.onChange({ label: props.label, value: e.target.value })}
             error={props.submitted && props.error}
-            placeholder={'+'}
+            placeholder={"+"}
             autoComplete="off"
         />
     );

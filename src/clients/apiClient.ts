@@ -1,10 +1,10 @@
-import { logApiError } from '@/utils/logger';
-import { OutboundTlfnummer } from '@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer';
-import { TPSResponse } from '@/types/tps-response';
-import { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
-import { getLoginRedirectUrl } from '@/utils/redirects';
-import { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/types';
-import { Locale } from '@/store/Store';
+import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import type { OutboundTlfnummer } from "@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
+import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
+import type { Locale } from "@/store/Store";
+import type { TPSResponse } from "@/types/tps-response";
+import { logApiError } from "@/utils/logger";
+import { getLoginRedirectUrl } from "@/utils/redirects";
 
 const parseJson = (data: Response) => data.json();
 
@@ -16,9 +16,9 @@ const { VITE_API_URL, VITE_ENDRE_KONTONUMMER_URL, VITE_LOGIN_URL, VITE_INNLOGGIN
 
 const sjekkAuthHentJson = (url: string) =>
     fetch(url, {
-        method: 'GET',
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        credentials: 'include',
+        method: "GET",
+        headers: { "Content-Type": "application/json;charset=UTF-8" },
+        credentials: "include",
     })
         .then(sjekkAuth)
         .then(sjekkHttpFeil)
@@ -26,14 +26,14 @@ const sjekkAuthHentJson = (url: string) =>
         .catch((err: string & Feilmelding) => {
             const error = {
                 code: err.code || 404,
-                type: err.type || 'feil',
+                type: err.type || "feil",
                 text: err.text ?? err,
             };
             logApiError(url, error);
             throw error;
         });
 
-export const fetchInnloggingsStatus = () => sjekkAuthHentJson(VITE_INNLOGGINGSSTATUS_URL || '');
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(VITE_INNLOGGINGSSTATUS_URL || "");
 
 export const fetchKontaktInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/kontaktinformasjon`);
 
@@ -59,12 +59,12 @@ type Outbound = OutboundTlfnummer | OutboundNorskKontonummer | OutboundUtenlands
 
 const postJson = (url: string, data?: Outbound) => {
     return fetch(url, {
-        method: 'POST',
+        method: "POST",
         ...(data && {
             body: JSON.stringify(data),
         }),
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        credentials: 'include',
+        headers: { "Content-Type": "application/json;charset=UTF-8" },
+        credentials: "include",
     })
         .then(sjekkHttpFeil)
         .then(parseJson)
@@ -72,7 +72,7 @@ const postJson = (url: string, data?: Outbound) => {
         .catch((err: string & Feilmelding) => {
             const error = {
                 code: err.code || 404,
-                type: err.type || 'feil',
+                type: err.type || "feil",
                 text: err.text ?? err,
             };
             logApiError(url, error);
@@ -82,22 +82,22 @@ const postJson = (url: string, data?: Outbound) => {
 
 const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
     return fetch(url, {
-        method: 'POST',
+        method: "POST",
         ...(data && {
             body: JSON.stringify(data),
         }),
         headers: {
-            'Content-Type': 'application/json;charset=UTF-8',
+            "Content-Type": "application/json;charset=UTF-8",
             locale: locale,
         },
-        credentials: 'include',
+        credentials: "include",
     })
         .then(sjekkHttpFeil)
         .then(sjekkRedirect)
         .catch((err: string & Feilmelding) => {
             const error = {
                 code: err.code || 404,
-                type: err.type || 'feil',
+                type: err.type || "feil",
                 text: err.text ?? err,
             };
             logApiError(url, error);
@@ -122,14 +122,14 @@ const sjekkRedirect = async (response: Response) => {
     if (response.ok) {
         const data = response.json();
         data.then((data) => {
-            window.location.assign(data.redirect || '');
+            window.location.assign(data.redirect || "");
         });
         return response;
     }
 
     throw {
         code: response.status,
-        text: response.status === 400 ? await response.text() : 'Oisann, noe gikk galt! Prøv igjen senere.',
+        text: response.status === 400 ? await response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
     };
 };
 
@@ -151,32 +151,32 @@ const sjekkHttpFeil = async (response: Response) => {
     } else {
         throw {
             code: response.status,
-            text: response.status === 400 ? await response.text() : 'Oisann, noe gikk galt! Prøv igjen senere.',
+            text: response.status === 400 ? await response.text() : "Oisann, noe gikk galt! Prøv igjen senere.",
         };
     }
 };
 
 const sjekkTPSFeil = (response: TPSResponse) => {
-    if (response.statusType === 'OK') {
+    if (response.statusType === "OK") {
         return response;
     } else {
         throw {
             PENDING: {
-                type: 'info',
-                text: 'Vi har sendt inn endringen din',
+                type: "info",
+                text: "Vi har sendt inn endringen din",
             },
             REJECTED: {
-                type: 'feil',
-                text: 'personalia.tlfnr.paagaaendeendring.feilmelding',
+                type: "feil",
+                text: "personalia.tlfnr.paagaaendeendring.feilmelding",
             },
             ERROR: {
-                type: 'feil',
+                type: "feil",
                 text: `${response.error && response.error.message}${
                     response.error && response.error.details
                         ? `\n${Object.values(response.error.details)
-                              .map((details) => details.join('\n'))
-                              .join('\n')}`
-                        : ''
+                              .map((details) => details.join("\n"))
+                              .join("\n")}`
+                        : ""
                 }`,
             },
         }[response.statusType];

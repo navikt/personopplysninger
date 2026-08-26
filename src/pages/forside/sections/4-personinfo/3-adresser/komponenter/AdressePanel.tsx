@@ -1,8 +1,7 @@
-import * as React from 'react';
-
-import { Heading, ReadMore } from '@navikt/ds-react';
-import { FormattedMessage, useIntl } from 'react-intl';
-import ListElement from '@/components/listelement/ListElement';
+import { Heading, ReadMore } from "@navikt/ds-react";
+import * as React from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import ListElement from "@/components/listelement/ListElement";
 
 interface Props {
     tittel: string;
@@ -20,12 +19,12 @@ const AdressePanel = (props: Props) => {
     const toggleReadMore = () => {
         setIsOpen(!isOpen);
     };
-    const readMoreLabel = isOpen ? msg({ id: 'adresse.bostedsadresse.lukkTekst' }) : msg({ id: 'adresse.bostedsadresse.apneTekst' });
+    const readMoreLabel = isOpen ? msg({ id: "adresse.bostedsadresse.lukkTekst" }) : msg({ id: "adresse.bostedsadresse.apneTekst" });
 
     return (
         <div className="adresse__box">
             <div className="underseksjon__header">
-                <Heading level={'4'} size={'xsmall'}>
+                <Heading level={"4"} size={"xsmall"}>
                     <FormattedMessage id={props.tittel} />
                 </Heading>
             </div>
@@ -40,7 +39,7 @@ const AdressePanel = (props: Props) => {
                     </dl>
                 </ReadMore>
             )}
-            <div className={'adresse__divider'} />
+            <div className={"adresse__divider"} />
         </div>
     );
 };

@@ -1,0 +1,79 @@
+{
+    "$schema": "https://biomejs.dev/schemas/latest/schema.json",
+    "files": {
+        "includes": ["**", "!.github/skills/**/scripts", "!.npm-cache-*", "!src/assets/**/*.svg"],
+        "ignoreUnknown": true
+    },
+    "vcs": {
+        "enabled": true,
+        "clientKind": "git",
+        "useIgnoreFile": true
+    },
+    "formatter": {
+        "indentStyle": "space",
+        "indentWidth": 4,
+        "lineWidth": 150
+    },
+    "html": {
+        "formatter": {
+            "selfCloseVoidElements": "always"
+        }
+    },
+    "linter": {
+        "rules": {
+            "a11y": {
+                "noSvgWithoutTitle": "off"
+            },
+            "complexity": {
+                "noUselessFragments": "off",
+                "noUselessSwitchCase": "off",
+                "useLiteralKeys": "off",
+                "useOptionalChain": "off",
+                "useRegexLiterals": "off"
+            },
+            "correctness": {
+                "noUnusedFunctionParameters": "off",
+                "noUnusedImports": "off",
+                "useExhaustiveDependencies": "off"
+            },
+            "security": {
+                "noDangerouslySetInnerHtml": "off"
+            },
+            "style": {
+                "noNonNullAssertion": "off",
+                "useNodejsImportProtocol": "off",
+                "useTemplate": "off"
+            },
+            "suspicious": {
+                "noArrayIndexKey": "off",
+                "noExplicitAny": "off",
+                "noImplicitAnyLet": "off",
+                "useDefaultSwitchClauseLast": "off"
+            }
+        }
+    },
+    "overrides": [
+        {
+            "includes": ["**/*.astro"],
+            "linter": {
+                "rules": {
+                    "style": {
+                        "useConst": "off",
+                        "useImportType": "off"
+                    },
+                    "correctness": {
+                        "noUnusedVariables": "off",
+                        "noUnusedImports": "off"
+                    }
+                }
+            }
+        }
+    ],
+    "assist": {
+        "actions": {
+            "source": {
+                "organizeImports": "on"
+            }
+        }
+    }
+}

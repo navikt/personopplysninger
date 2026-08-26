@@ -1,4 +1,4 @@
-import { Adresse } from './adresse';
+import type { Adresse } from "./adresse";
 
 export interface DeltBosted {
     coAdressenavn?: string;

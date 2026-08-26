@@ -1,5 +1,5 @@
 const baseUrl = import.meta.env.VITE_APP_URL;
-const redirectPathParam = 'path';
+const redirectPathParam = "path";
 
 export const redirects: {
     [key: string]: {
@@ -24,21 +24,19 @@ export const redirects: {
     --
     Tillatte tjenester med redirect tilbake:
   */
-    'skjema/alderspensjonssoknad': {
-        beskrivelse:
-            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.',
-        knapp: 'Gå tilbake til alderspensjon',
+    "skjema/alderspensjonssoknad": {
+        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        knapp: "Gå tilbake til alderspensjon",
     },
-    'skjema/alderspensjon': {
-        beskrivelse:
-            'Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.',
-        knapp: 'Gå tilbake til alderspensjon',
+    "skjema/alderspensjon": {
+        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        knapp: "Gå tilbake til alderspensjon",
     },
 };
 
 export const tillatteTjenester = Object.keys(redirects);
 
-const navnoUrlPattern = new RegExp('^https:\\/\\/((?:[a-z0-9_.-]+\\.(?!$))+)*nav\\.no($|/)', 'i');
+const navnoUrlPattern = new RegExp("^https:\\/\\/((?:[a-z0-9_.-]+\\.(?!$))+)*nav\\.no($|/)", "i");
 
 export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
     if (!encodedUrl) {

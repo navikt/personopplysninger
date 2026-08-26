@@ -1,6 +1,6 @@
-import { Button } from '@navikt/ds-react';
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { Button } from "@navikt/ds-react";
+import type React from "react";
+import { FormattedMessage } from "react-intl";
 
 interface Props {
     ariaLabel: string;
@@ -13,9 +13,9 @@ const Knapp = (props: Props) => {
     const { ariaLabel, onClick, ikon: Icon, tekstId } = props;
     return (
         <Button
-            icon={<Icon className={'tlfnummer__ikon'} aria-hidden="true" />}
-            variant={'tertiary'}
-            className={'knapp-med-ikon'}
+            icon={<Icon className={"tlfnummer__ikon"} aria-hidden="true" />}
+            variant={"tertiary"}
+            className={"knapp-med-ikon"}
             onClick={onClick}
             aria-label={ariaLabel}
         >

@@ -1,14 +1,14 @@
-import { FormattedMessage } from 'react-intl';
-import { BodyShort, Label, Link } from '@navikt/ds-react';
-import { Reception } from '@navikt/nav-office-reception-info';
-import Box from '@/components/box/Box';
-import dittNavKontorIkon from '@/assets/img/DittNavKontor.svg';
-import { EnhetKontaktInfo } from '@/types/enhetKontaktInfo';
-import ListElement from '@/components/listelement/ListElement';
-import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '@/store/Context';
+import { BodyShort, Label, Link } from "@navikt/ds-react";
+import { Reception } from "@navikt/nav-office-reception-info";
+import { FormattedMessage } from "react-intl";
+import dittNavKontorIkon from "@/assets/img/DittNavKontor.svg";
+import Box from "@/components/box/Box";
+import Kilde from "@/components/kilde/Kilde";
+import ListElement from "@/components/listelement/ListElement";
+import { useStore } from "@/store/Context";
+import type { EnhetKontaktInfo } from "@/types/enhetKontaktInfo";
 
-import '@navikt/nav-office-reception-info/dist/style.css';
+import "@navikt/nav-office-reception-info/dist/style.css";
 
 interface Props {
     enhetKontaktInformasjon: EnhetKontaktInfo;
@@ -37,13 +37,13 @@ const DittNavKontor = (props: Props) => {
                 <ListElement
                     titleId="dittnavkontor.kontaktinfo.overskrift"
                     content={
-                        <Link href={`/person/kontakt-oss/${locale === 'en' ? 'en' : 'nb'}/`}>
+                        <Link href={`/person/kontakt-oss/${locale === "en" ? "en" : "nb"}/`}>
                             <FormattedMessage id="dittnavkontor.kontaktinfo.lenke" />
                         </Link>
                     }
                 />
             </dl>
-            <Kilde kilde="personalia.source.nav" lenkeType={'INGEN'} />
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
         </Box>
     );
 };

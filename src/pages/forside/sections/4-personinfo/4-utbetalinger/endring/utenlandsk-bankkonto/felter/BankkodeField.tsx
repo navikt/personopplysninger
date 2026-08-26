@@ -1,10 +1,10 @@
-import { useFormContext } from 'react-hook-form';
-import { TextField } from '@navikt/ds-react';
-import { validerBankkode } from '../../utils';
-import { isBankkodeValidLength, isNumeric } from '@/utils/validators';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
-import { FormFields } from '../../types';
+import { TextField } from "@navikt/ds-react";
+import { useFormContext } from "react-hook-form";
+import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import { isBankkodeValidLength, isNumeric } from "@/utils/validators";
+import type { FormFields } from "../../types";
+import { validerBankkode } from "../../utils";
 
 const BankkodeField = () => {
     const { formatMessage, formatMessageWithValues } = useIntlFormatter();
@@ -19,9 +19,9 @@ const BankkodeField = () => {
         <div className="utbetalinger__bankkode-rad">
             <div className="utbetalinger__bankkode-kolonne">
                 <TextField
-                    {...register('retningsnummer')}
+                    {...register("retningsnummer")}
                     disabled={true}
-                    label={'Retningsnummer'}
+                    label={"Retningsnummer"}
                     hideLabel={true}
                     error={errors?.retningsnummer?.message}
                     autoComplete="off"
@@ -29,23 +29,23 @@ const BankkodeField = () => {
             </div>
             <div className="utbetalinger__bankkode-kolonne">
                 <TextField
-                    {...register('bankkode', {
+                    {...register("bankkode", {
                         onChange: () => isSubmitted && trigger(),
                         validate: {
                             ...(validerBankkode(watch().land, watch().bickode, watch().bankkode) && {
-                                required: (v) => !!v || formatMessage('validation.bankkode.pakrevd'),
-                                numeric: (v) => isNumeric(v) || formatMessage('validation.only.digits'),
+                                required: (v) => !!v || formatMessage("validation.bankkode.pakrevd"),
+                                numeric: (v) => isNumeric(v) || formatMessage("validation.only.digits"),
                                 validLength: (v) =>
                                     isBankkodeValidLength(v, watch().land) ||
-                                    formatMessageWithValues('validation.bankkode.lengde', {
+                                    formatMessageWithValues("validation.bankkode.lengde", {
                                         land: watch().land?.label,
                                         siffer: watch().land?.bankkodeLengde,
                                     }),
                             }),
                         },
                     })}
-                    id={'bankkode'}
-                    label={<LabelMedHjelpetekst label={formatMessage('felter.bankkode.label')} hjelpetekst={'utbetalinger.hjelpetekster.bankkode'} />}
+                    id={"bankkode"}
+                    label={<LabelMedHjelpetekst label={formatMessage("felter.bankkode.label")} hjelpetekst={"utbetalinger.hjelpetekster.bankkode"} />}
                     size="medium"
                     error={errors?.bankkode?.message}
                     maxLength={watch().land && watch().land?.bankkodeLengde}

@@ -1,14 +1,14 @@
-import { Alert, BodyShort, Button, Label, Link as DsLink } from '@navikt/ds-react';
-import { ChevronDownIcon } from '@navikt/aksel-icons';
-import dayjs from 'dayjs';
-import { useState } from 'react';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { FormattedMessage } from 'react-intl';
-import { Link, useLocation } from 'react-router-dom';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { InstInfo } from '@/types/inst';
-import Kilde from '@/components/kilde/Kilde';
-import { CustomHelpText } from '@/components/customHelpText/CustomHelpText';
+import { ChevronDownIcon } from "@navikt/aksel-icons";
+import { Alert, BodyShort, Button, Link as DsLink, Label } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { Link, useLocation } from "react-router-dom";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
+import Kilde from "@/components/kilde/Kilde";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { InstInfo } from "@/types/inst";
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     const [viewAmount, setViewAmount] = useState(20);
@@ -27,12 +27,12 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                     id="inst.disclaimer"
                     values={{
                         br: () => <br />,
-                        lenkeTilInnsyn: (text) => <DsLink href={'https://www.nav.no/kontaktoss'}>{text}</DsLink>,
-                        lenkeTilInstMelding: (text) => <DsLink href={'https://www.nav.no/samarbeidspartner/opphold-institusjon'}>{text}</DsLink>,
+                        lenkeTilInnsyn: (text) => <DsLink href={"https://www.nav.no/kontaktoss"}>{text}</DsLink>,
+                        lenkeTilInstMelding: (text) => <DsLink href={"https://www.nav.no/samarbeidspartner/opphold-institusjon"}>{text}</DsLink>,
                     }}
                 />
             </Alert>
-            <div className={'inst__tabell'}>
+            <div className={"inst__tabell"}>
                 {instInfo.length > 0 ? (
                     <>
                         <div className="historikk__flex-rad inst__head">
@@ -61,16 +61,16 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                     animateDelaySum = +animateDelay;
                                     animateDelayKey++;
 
-                                    const startdato = dayjs(innslag.startdato).format('DD.MM.YYYY');
-                                    const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format('DD.MM.YYYY') : '';
+                                    const startdato = dayjs(innslag.startdato).format("DD.MM.YYYY");
+                                    const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format("DD.MM.YYYY") : "";
 
                                     return (
                                         <CSSTransition
                                             key={i}
-                                            classNames={'inst__animate'}
+                                            classNames={"inst__animate"}
                                             style={{
                                                 transitionDelay: `${animateDelay}ms`,
-                                                fontWeight: i >= 20 && i >= viewAmount - 20 ? 'bold' : 'normal',
+                                                fontWeight: i >= 20 && i >= viewAmount - 20 ? "bold" : "normal",
                                             }}
                                             timeout={100 + animateDelaySum}
                                         >
@@ -78,8 +78,8 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                                 <div className="historikk__flex-kolonne historikk__heading">
                                                     <BodyShort>{`${startdato} - ${faktiskSluttdato}`}</BodyShort>
                                                     {innslag.fiktivSluttdato && (
-                                                        <CustomHelpText title={formatMessage('inst.fiktivSluttdato.tittel')}>
-                                                            <FormattedMessage id={'inst.fiktivSluttdato'} />
+                                                        <CustomHelpText title={formatMessage("inst.fiktivSluttdato.tittel")}>
+                                                            <FormattedMessage id={"inst.fiktivSluttdato"} />
                                                         </CustomHelpText>
                                                     )}
                                                 </div>
@@ -102,9 +102,9 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                     </div>
                 )}
                 {instInfo.length > 20 && instInfo.length >= viewAmount && (
-                    <div className={'inst__se-flere'}>
+                    <div className={"inst__se-flere"}>
                         <Button
-                            variant={'tertiary'}
+                            variant={"tertiary"}
                             onClick={() => setViewAmount(viewAmount + 20)}
                             icon={<ChevronDownIcon aria-hidden={true} />}
                             iconPosition="right"

@@ -1,6 +1,6 @@
-import { BodyShort, Button, Heading, Modal } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
+import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 
 interface Props {
     lukkSlettModal: () => void;
@@ -29,7 +29,7 @@ const SlettModal = (props: Props) => {
                             <FormattedMessage id="side.avbryt" />
                         </Button>
                         <Button as="button" variant="danger" onClick={submitSlett} loading={isLoading} disabled={isLoading}>
-                            <FormattedMessage id={'side.slett'} />
+                            <FormattedMessage id={"side.slett"} />
                         </Button>
                     </div>
                     {alert && <HttpFeilmelding {...alert} />}

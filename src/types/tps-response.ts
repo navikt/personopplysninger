@@ -9,13 +9,13 @@ interface TPSError {
 
 export type TPSResponse =
     | {
-          statusType: 'OK';
+          statusType: "OK";
       }
     | {
-          statusType: 'PENDING';
+          statusType: "PENDING";
           error?: TPSError;
       }
     | {
-          statusType: 'ERROR';
+          statusType: "ERROR";
           error?: TPSError;
       };

@@ -1,6 +1,6 @@
-import { Personalia } from './personalia';
-import { Adresser } from './adresser';
-import { EnhetKontaktInfo } from './enhetKontaktInfo';
+import type { Adresser } from "./adresser";
+import type { EnhetKontaktInfo } from "./enhetKontaktInfo";
+import type { Personalia } from "./personalia";
 
 export interface PersonInfo {
     personalia?: Personalia;

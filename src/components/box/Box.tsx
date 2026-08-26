@@ -1,8 +1,8 @@
-import React from 'react';
-import { GuidePanel, Heading } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import Infotekst from '@/components/infotekst/Infotekst';
-import { AnchorLink } from '@/components/anchorlink/AnchorLink';
+import { GuidePanel, Heading } from "@navikt/ds-react";
+import type React from "react";
+import { FormattedMessage } from "react-intl";
+import { AnchorLink } from "@/components/anchorlink/AnchorLink";
+import Infotekst from "@/components/infotekst/Infotekst";
 
 interface Props {
     id: string;
@@ -25,7 +25,7 @@ const Box = (props: Props) => {
                         <div className="box__title-container">
                             <div className="box__line" />
                             {tittel && (
-                                <Heading size={'medium'} level={'2'} className="box__title">
+                                <Heading size={"medium"} level={"2"} className="box__title">
                                     <FormattedMessage id={tittel} />
                                 </Heading>
                             )}

@@ -1,14 +1,14 @@
-import { FormattedMessage, useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
-import { Alert } from '@navikt/ds-react';
-import Box from '@/components/box/Box';
-import driftsmeldinger from '@/driftsmeldinger';
-import { useStore } from '@/store/Context';
-import { basePath } from '@/constants';
-import kontonummerIkon from '@/assets/img/Kontonummer.svg';
-import { UtenlandskBankkonto } from '@/types/personalia';
-import NorskKontonummer from './visning/NorskKontonummer';
-import Utenlandskonto from './visning/UtenlandsBankkonto';
+import { Alert } from "@navikt/ds-react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { Link } from "react-router-dom";
+import kontonummerIkon from "@/assets/img/Kontonummer.svg";
+import Box from "@/components/box/Box";
+import { basePath } from "@/constants";
+import driftsmeldinger from "@/driftsmeldinger";
+import { useStore } from "@/store/Context";
+import type { UtenlandskBankkonto } from "@/types/personalia";
+import NorskKontonummer from "./visning/NorskKontonummer";
+import Utenlandskonto from "./visning/UtenlandsBankkonto";
 
 const WarningMsg = () => {
     const { locale } = useIntl();
@@ -16,17 +16,17 @@ const WarningMsg = () => {
     return (
         <Alert role="status" variant="info">
             <FormattedMessage
-                id={'utbetalinger.info'}
+                id={"utbetalinger.info"}
                 values={{
                     tlfTilKontaktsenter: (text) => (
-                        <a href={'tel:+4755553333'} style={{ whiteSpace: 'nowrap' }}>
+                        <a href={"tel:+4755553333"} style={{ whiteSpace: "nowrap" }}>
                             {text}
                         </a>
                     ),
                     lenkeTilKontaktOss: (text) => (
                         <a
-                            href={locale === 'en' ? 'https://www.nav.no/kontaktoss/en' : 'https://www.nav.no/kontaktoss'}
-                            style={{ whiteSpace: 'nowrap' }}
+                            href={locale === "en" ? "https://www.nav.no/kontaktoss/en" : "https://www.nav.no/kontaktoss"}
+                            style={{ whiteSpace: "nowrap" }}
                         >
                             {text}
                         </a>
@@ -49,7 +49,7 @@ const Utbetalinger = (props: UtbetalingerProps) => {
 
     const [{ locale }] = useStore();
     const baseUrlWithLocale = `${basePath}/${locale}`;
-    const backTo = window.location.pathname.replace(baseUrlWithLocale, '');
+    const backTo = window.location.pathname.replace(baseUrlWithLocale, "");
 
     return (
         <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
@@ -80,7 +80,7 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                 </div>
             )}
             <Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>
-                <FormattedMessage id={'endreKontonummer.tittel'} />
+                <FormattedMessage id={"endreKontonummer.tittel"} />
             </Link>
         </Box>
     );

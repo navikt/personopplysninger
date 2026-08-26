@@ -1,6 +1,6 @@
 export default {
     feilopplysninger: {
-        tittel: 'Personopplysninger om meg er feil – hva gjør jeg?',
+        tittel: "Personopplysninger om meg er feil – hva gjør jeg?",
         melding: `<p>Hvis personopplysninger om deg er feil, kan du be om at de blir rettet. 
             Hvis personopplysninger er ufullstendige, kan du be om at de blir supplert.
             I særlige tilfeller kan du ha rett til å få slettet personopplysninger om deg,
@@ -10,7 +10,7 @@ export default {
             Nav Kontaktsenter, tlf. <telefonLenke>55 55 33 33</telefonLenke>.</p>`,
     },
     savneropplysninger: {
-        tittel: 'Savner du personopplysninger?',
+        tittel: "Savner du personopplysninger?",
         melding: `<p>Denne siden er under utvikling. Derfor er det ikke sikkert du finner alle personopplysninger Nav har om deg her. 
             Det kan være både tekniske og juridiske begrensninger som gjør at vi ikke kan vise personopplysninger. </p>
             <p>Savner du personopplysninger eller lurer du på om Nav har flere personopplysninger om deg, kan du
@@ -18,14 +18,14 @@ export default {
             tlf. <telefonLenke>55 55 33 33</telefonLenke>.</p>`,
     },
     utlevere: {
-        tittel: 'Utlevere eller innhente opplysninger til/fra andre land',
+        tittel: "Utlevere eller innhente opplysninger til/fra andre land",
         melding: `<p>Hvis du har bodd eller arbeidet i andre land enn Norge, og har søkt om ytelser eller tjenester i Norge eller i et annet land, 
             må Nav noen ganger utveksle opplysninger om deg med et annet lands trygdemyndigheter.
             Nav vil bare levere ut opplysninger til land som er omfattet av EØS-avtalen eller land som Norge har inngått trygdeavtaler med. </p>
             <p><trygdeavtalerLenke>Se oversikt over hvilke land Norge har inngått trygdeavtale med</trygdeavtalerLenke></p>`,
     },
     klage: {
-        tittel: 'Har du spørsmål eller ønsker du å klage?',
+        tittel: "Har du spørsmål eller ønsker du å klage?",
         melding: `<p>Hvis du har spørsmål om vår behandling av dine personopplysninger, kan du bruke <beskjedLenke>Send beskjed til
             Nav</beskjedLenke> eller henvende deg til Nav Kontaktsenter, tlf. <telefonLenke>55 55 33 33</telefonLenke>.</p>
             <p>Du har rett til å klage til Datatilsynet hvis du ikke er fornøyd med hvordan vi behandler dine personopplysninger,
@@ -36,8 +36,8 @@ export default {
     },
     dsop: {
         info:
-            'Her kan du laste ned en logg med opplysninger Nav har gitt til forsikringsselskap basert på samtykke du har gitt i Altinn. Nav kan utlevere opplysninger fordi du har gitt samtykke, eller fordi Nav har hjemmel i lov. Nav kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen.' +
-            '<br></br><br></br>' +
-            'Du kan lese om hvilke opplysninger Nav kan utlevere i <a>personvernerklæringen til Nav</a>. Her kan du også lese om hvordan du tar kontakt med Nav hvis du har spørsmål om rettighetene dine og personvern.',
+            "Her kan du laste ned en logg med opplysninger Nav har gitt til forsikringsselskap basert på samtykke du har gitt i Altinn. Nav kan utlevere opplysninger fordi du har gitt samtykke, eller fordi Nav har hjemmel i lov. Nav kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen." +
+            "<br></br><br></br>" +
+            "Du kan lese om hvilke opplysninger Nav kan utlevere i <a>personvernerklæringen til Nav</a>. Her kan du også lese om hvordan du tar kontakt med Nav hvis du har spørsmål om rettighetene dine og personvern.",
     },
 };

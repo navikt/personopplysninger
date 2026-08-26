@@ -1,20 +1,20 @@
-import { FormattedMessage } from 'react-intl';
-import { BodyLong, GuidePanel, Heading, Link } from '@navikt/ds-react';
-import veilederIkon from '@/assets/img/Veileder.svg';
-import ErrorMessage from '@/components/errorMessage/ErrorMessage';
-import Spinner from '../4-personinfo/PersonInfo';
-import { formatName } from '@/utils/text';
-import { useStore } from '@/store/Context';
+import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import veilederIkon from "@/assets/img/Veileder.svg";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import { useStore } from "@/store/Context";
+import { formatName } from "@/utils/text";
+import Spinner from "../4-personinfo/PersonInfo";
 
 const Header = () => {
     const [{ authInfo }] = useStore();
 
     switch (authInfo.status) {
         default:
-        case 'LOADING': {
+        case "LOADING": {
             return <Spinner />;
         }
-        case 'RESULT': {
+        case "RESULT": {
             const { name } = authInfo.data;
             const fornavn = name;
             const Veileder = <img src={veilederIkon} className="header__ikon" alt="Veileder" />;
@@ -23,7 +23,7 @@ const Header = () => {
                 <div className="header">
                     <GuidePanel illustration={Veileder} poster={true}>
                         <div className="box__container header__content">
-                            <Heading size={'medium'} level={'2'}>
+                            <Heading size={"medium"} level={"2"}>
                                 {fornavn ? (
                                     <FormattedMessage id="header.hello.name" values={{ name: formatName(fornavn) }} />
                                 ) : (
@@ -54,7 +54,7 @@ const Header = () => {
                 </div>
             );
         }
-        case 'ERROR': {
+        case "ERROR": {
             return <ErrorMessage error={authInfo.error} />;
         }
     }

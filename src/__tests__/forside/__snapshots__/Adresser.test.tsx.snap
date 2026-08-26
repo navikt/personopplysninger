@@ -44,6 +44,7 @@ exports[`Adresser > renders correctly 1`] = `
                 aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
                 class="infotekst__title-i-button"
+                type="button"
               >
                 <svg
                   aria-hidden="true"

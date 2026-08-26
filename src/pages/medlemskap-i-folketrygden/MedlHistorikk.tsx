@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import PageContainer from '@/components/pagecontainer/PageContainer';
-import MEDLIkon from '@/assets/img/MEDL.svg';
-import WithMEDL from './MedlFetch';
-import MedlHistorikkView from './MedlHistorikkView';
+import { useEffect } from "react";
+import MEDLIkon from "@/assets/img/MEDL.svg";
+import PageContainer from "@/components/pagecontainer/PageContainer";
+import WithMEDL from "./MedlFetch";
+import MedlHistorikkView from "./MedlHistorikkView";
 
 /*
   Hent data
@@ -16,7 +16,7 @@ const MedlHistorikk = () => {
     }, []);
 
     return (
-        <PageContainer tittelId={'medl.tittel'} icon={MEDLIkon} backTo={'/#flere-opplysninger'} brodsmulesti={[{ title: 'medl.tittel' }]}>
+        <PageContainer tittelId={"medl.tittel"} icon={MEDLIkon} backTo={"/#flere-opplysninger"} brodsmulesti={[{ title: "medl.tittel" }]}>
             <WithMEDL>{({ data }) => <MedlHistorikkView medlInfo={data} />}</WithMEDL>
         </PageContainer>
     );

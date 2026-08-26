@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box, Heading } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import Icon from '@/components/icon/Icon';
-import Tilbake from '@/components/tilbake/Tilbake';
-import Brodsmulesti, { BrodsmuleLenke } from '@/pages/forside/sections/2-brodsmulesti/Brodsmulesti';
+import { Box, Heading } from "@navikt/ds-react";
+import type React from "react";
+import { FormattedMessage } from "react-intl";
+import Icon from "@/components/icon/Icon";
+import Tilbake from "@/components/tilbake/Tilbake";
+import Brodsmulesti, { type BrodsmuleLenke } from "@/pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 interface Props {
     children: React.ReactNode;
@@ -27,7 +27,7 @@ const PageContainer = (props: Props) => {
                     <Tilbake to={props.backTo} />
                 </div>
                 <div className="da__overskrift">
-                    <Heading size={'medium'} level={'2'}>
+                    <Heading size={"medium"} level={"2"}>
                         <FormattedMessage id={props.tittelId} values={{ br: () => <br /> }} />
                     </Heading>
                 </div>

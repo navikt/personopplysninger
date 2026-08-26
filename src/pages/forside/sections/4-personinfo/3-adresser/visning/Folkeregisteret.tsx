@@ -1,13 +1,13 @@
-import { FormattedMessage } from 'react-intl';
-import { Heading } from '@navikt/ds-react';
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import Kilde from '@/components/kilde/Kilde';
-import { Bostedsadresse as IBostedsadresse } from '@/types/adresser/bostedsadresse';
-import { useStore } from '@/store/Context';
-import { DeltBosted as IDeltBosted } from '@/types/adresser/deltbosted';
-import { Oppholdsadresse as IOppholdsadresse } from '@/types/adresser/oppholdsadresse';
-import { Kontaktadresse as IKontaktadresse } from '@/types/adresser/kontaktadresse';
-import Adresse from './Adresse';
+import { ExternalLinkIcon } from "@navikt/aksel-icons";
+import { Heading } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import Kilde from "@/components/kilde/Kilde";
+import { useStore } from "@/store/Context";
+import type { Bostedsadresse as IBostedsadresse } from "@/types/adresser/bostedsadresse";
+import type { DeltBosted as IDeltBosted } from "@/types/adresser/deltbosted";
+import type { Kontaktadresse as IKontaktadresse } from "@/types/adresser/kontaktadresse";
+import type { Oppholdsadresse as IOppholdsadresse } from "@/types/adresser/oppholdsadresse";
+import Adresse from "./Adresse";
 
 interface Props {
     bostedsadresse?: IBostedsadresse;
@@ -29,7 +29,7 @@ const Folkeregisteret = (props: Props) => {
     return (
         <div>
             <div className="underseksjon__header">
-                <Heading size={'small'} level={'3'}>
+                <Heading size={"small"} level={"3"}>
                     <FormattedMessage id="adresse.overskrift" />
                 </Heading>
             </div>
@@ -39,34 +39,34 @@ const Folkeregisteret = (props: Props) => {
                     adresse={bostedsadresse?.adresse}
                     coAdressenavn={bostedsadresse.coAdressenavn}
                     angittFlyttedato={bostedsadresse.angittFlyttedato}
-                    tittel={'adresse.bostedsadresse'}
+                    tittel={"adresse.bostedsadresse"}
                 />
             )}
-            {deltBosted && <Adresse adresse={deltBosted?.adresse} coAdressenavn={deltBosted.coAdressenavn} tittel={'adresse.deltbosted'} />}
+            {deltBosted && <Adresse adresse={deltBosted?.adresse} coAdressenavn={deltBosted.coAdressenavn} tittel={"adresse.deltbosted"} />}
             {oppholdsadresse && (
                 <Adresse
                     adresse={oppholdsadresse?.adresse}
                     coAdressenavn={oppholdsadresse.coAdressenavn}
                     oppholdAnnetSted={oppholdsadresse.oppholdAnnetSted}
-                    tittel={'adresse.oppholdsadresse'}
+                    tittel={"adresse.oppholdsadresse"}
                 />
             )}
 
             {kontaktadresser.map((adr) => {
                 let tittel;
-                const utenlandskeAdressetyper = ['UTENLANDSK_ADRESSE', 'UTENLANDSK_ADRESSE_I_FRITT_FORMAT'];
+                const utenlandskeAdressetyper = ["UTENLANDSK_ADRESSE", "UTENLANDSK_ADRESSE_I_FRITT_FORMAT"];
                 if (adr.adresse?.type && utenlandskeAdressetyper.includes(adr.adresse?.type)) {
-                    tittel = 'adresse.kontaktadresse.utenlandsk';
+                    tittel = "adresse.kontaktadresse.utenlandsk";
                 } else {
                     if (
                         kontaktadresser.filter(
-                            (kontaktadresse) => kontaktadresse.adresse?.type && utenlandskeAdressetyper.includes(kontaktadresse.adresse?.type)
+                            (kontaktadresse) => kontaktadresse.adresse?.type && utenlandskeAdressetyper.includes(kontaktadresse.adresse?.type),
                         ).length > 0
                     ) {
                         // Må spesifiseres som norsk dersom bruker har registert utenlandsk kontaktadresse i tillegg
-                        tittel = 'adresse.kontaktadresse.norsk';
+                        tittel = "adresse.kontaktadresse.norsk";
                     } else {
-                        tittel = 'adresse.kontaktadresse';
+                        tittel = "adresse.kontaktadresse";
                     }
                 }
                 return (
@@ -83,12 +83,12 @@ const Folkeregisteret = (props: Props) => {
             <Kilde
                 kilde="personalia.source.folkeregisteret"
                 lenke={
-                    locale === 'en'
-                        ? 'https://www.skatteetaten.no/en/person/national-registry/moving/'
-                        : 'https://www.skatteetaten.no/person/folkeregister/flytte/'
+                    locale === "en"
+                        ? "https://www.skatteetaten.no/en/person/national-registry/moving/"
+                        : "https://www.skatteetaten.no/person/folkeregister/flytte/"
                 }
                 lenkeTekst="personalia.link.folkeregisteret.adresse"
-                lenkeType={'EKSTERN'}
+                lenkeType={"EKSTERN"}
                 ikon={ExternalLinkIcon}
             />
         </div>

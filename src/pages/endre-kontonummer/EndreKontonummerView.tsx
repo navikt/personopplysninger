@@ -1,14 +1,14 @@
-import { FormattedMessage } from 'react-intl';
-import { useState } from 'react';
-import { PencilIcon } from '@navikt/aksel-icons';
-import { Alert } from '@navikt/ds-react';
-import KontonummerForm from '@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm';
-import NorskKontonummer from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer';
-import Utenlandskonto from '@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto';
-import Kilde from '@/components/kilde/Kilde';
-import { UtbetalingerProps } from '../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { EndreKontonummerResult } from './result/EndreKontonummerResult';
+import { PencilIcon } from "@navikt/aksel-icons";
+import { Alert } from "@navikt/ds-react";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import Kilde from "@/components/kilde/Kilde";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import KontonummerForm from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
+import NorskKontonummer from "@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer";
+import Utenlandskonto from "@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto";
+import type { UtbetalingerProps } from "../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
+import { EndreKontonummerResult } from "./result/EndreKontonummerResult";
 
 export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, personident, kontonr }: UtbetalingerProps) => {
     const [opprettEllerEndre, settOpprettEllerEndre] = useState(false);
@@ -17,9 +17,9 @@ export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, pers
     return (
         <>
             <EndreKontonummerResult />
-            {kontoregisterStatus === 'ERROR' ? (
+            {kontoregisterStatus === "ERROR" ? (
                 <Alert role="alert" variant="error">
-                    {formatMessage('personalia.kontonr.feilmelding')}
+                    {formatMessage("personalia.kontonr.feilmelding")}
                 </Alert>
             ) : opprettEllerEndre ? (
                 <KontonummerForm
@@ -51,10 +51,10 @@ export const EndreKontonummerView = ({ kontoregisterStatus, utenlandskbank, pers
                         </div>
                     )}
                     <Kilde
-                        kilde={'personalia.source.nav'}
+                        kilde={"personalia.source.nav"}
                         onClick={() => settOpprettEllerEndre(true)}
-                        lenkeTekst={kontonr || utenlandskbank ? 'side.endre' : 'side.leggtil'}
-                        lenkeType={'KNAPP'}
+                        lenkeTekst={kontonr || utenlandskbank ? "side.endre" : "side.leggtil"}
+                        lenkeType={"KNAPP"}
                         ikon={PencilIcon}
                     />
                 </>

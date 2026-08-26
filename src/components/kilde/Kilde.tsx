@@ -1,37 +1,37 @@
-import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Link, BodyLong, Detail, Button } from '@navikt/ds-react';
+import { BodyLong, Button, Detail, Link } from "@navikt/ds-react";
+import type React from "react";
+import { FormattedMessage } from "react-intl";
 
 type IconType = string | React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
 
 type Props =
     | {
           kilde: string;
-          lenkeType: 'INGEN';
+          lenkeType: "INGEN";
       }
     | {
           kilde: string;
           lenke: string;
           lenkeTekst: string;
-          lenkeType: 'EKSTERN';
+          lenkeType: "EKSTERN";
           ikon?: IconType;
       }
     | {
           kilde: string;
           lenkeTekst: string;
-          lenkeType?: 'KNAPP';
+          lenkeType?: "KNAPP";
           onClick: () => void;
           ikon?: IconType;
       };
 
 const Icon = ({ icon }: { icon: IconType }) => {
     const IconComponent = icon;
-    return <IconComponent aria-hidden="true" className={'kilde__icon-aksel'} />;
+    return <IconComponent aria-hidden="true" className={"kilde__icon-aksel"} />;
 };
 
 const Knapp = (props: Props) => {
     switch (props.lenkeType) {
-        case 'EKSTERN':
+        case "EKSTERN":
             return (
                 <BodyLong>
                     <Link href={props.lenke}>
@@ -44,7 +44,7 @@ const Knapp = (props: Props) => {
                     </Link>
                 </BodyLong>
             );
-        case 'KNAPP':
+        case "KNAPP":
             return (
                 <Button
                     icon={props.ikon && <Icon icon={props.ikon} />}
@@ -55,7 +55,7 @@ const Knapp = (props: Props) => {
                     <FormattedMessage id={props.lenkeTekst} />
                 </Button>
             );
-        case 'INGEN':
+        case "INGEN":
         default:
             return null;
     }
@@ -70,7 +70,7 @@ const Kilde = (props: Props) => {
                         <FormattedMessage
                             id={props.kilde}
                             values={{
-                                span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
+                                span: (text) => <span style={{ textTransform: "none" }}>{text}</span>,
                                 br: (text) => (
                                     <>
                                         <br />

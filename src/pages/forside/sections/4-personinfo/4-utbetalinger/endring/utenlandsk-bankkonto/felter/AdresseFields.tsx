@@ -1,6 +1,6 @@
-import { Label, TextField } from '@navikt/ds-react';
-import { useFormContext } from 'react-hook-form';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
+import { Label, TextField } from "@navikt/ds-react";
+import { useFormContext } from "react-hook-form";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
 import {
     hasMultipleCombinedSpaces,
     isBlacklistedCommon,
@@ -8,9 +8,9 @@ import {
     isOnlyNonLetters,
     isOnlySignsSpace,
     isValidAdresselinje,
-} from '@/utils/validators';
-import { FormFields } from '../../types';
-import { validerBankkode } from '../../utils';
+} from "@/utils/validators";
+import type { FormFields } from "../../types";
+import { validerBankkode } from "../../utils";
 
 const AdresseFields = () => {
     const { formatMessage } = useIntlFormatter();
@@ -29,14 +29,14 @@ const AdresseFields = () => {
 
     const requiredOnCondition = (value: string, condition: boolean, messageId: string) => (condition ? !!value || formatMessage(messageId) : true);
 
-    const adressePakrevd = 'validation.adresse.pakrevd';
-    const adresselinjePakrevd = 'validation.adresselinje.pakrevd';
-    const firstCharNotSpace = 'validation.firstchar.notspace';
-    const svartelisteFelles = 'validation.svarteliste.felles';
-    const multipleSpaces = 'validation.multiple.spaces';
-    const onlySpaceSignsDigits = 'validation.only.space.signs.or.digits';
-    const onlySpaceSigns = 'validation.only.space.or.signs';
-    const adresselinjeUgyldig = 'validation.adresselinje.ugyldig';
+    const adressePakrevd = "validation.adresse.pakrevd";
+    const adresselinjePakrevd = "validation.adresselinje.pakrevd";
+    const firstCharNotSpace = "validation.firstchar.notspace";
+    const svartelisteFelles = "validation.svarteliste.felles";
+    const multipleSpaces = "validation.multiple.spaces";
+    const onlySpaceSignsDigits = "validation.only.space.signs.or.digits";
+    const onlySpaceSigns = "validation.only.space.or.signs";
+    const adresselinjeUgyldig = "validation.adresselinje.ugyldig";
 
     const baseAdresseValidation = {
         firstCharNotSpace: (v: string) => validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
@@ -48,19 +48,19 @@ const AdresseFields = () => {
     return (
         <>
             <div className="AdresseFields__header">
-                <Label>{formatMessage('felter.bankens.adresse.label')}</Label>
+                <Label>{formatMessage("felter.bankens.adresse.label")}</Label>
             </div>
 
             <TextField
-                {...register('adresse1', {
+                {...register("adresse1", {
                     validate: {
                         required: (v) => requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
                         notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
                         ...baseAdresseValidation,
                     },
                 })}
-                id={'adresse1'}
-                label={'Adresselinje 1'}
+                id={"adresse1"}
+                label={"Adresselinje 1"}
                 autoComplete="address-line1"
                 hideLabel={true}
                 size="medium"
@@ -69,16 +69,16 @@ const AdresseFields = () => {
             />
 
             <TextField
-                {...register('adresse2', {
-                    onChange: () => isSubmitted && trigger(['adresse1', 'adresse3']),
+                {...register("adresse2", {
+                    onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
                     validate: {
                         required: (v) => requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
                         notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
                         ...baseAdresseValidation,
                     },
                 })}
-                id={'adresse2'}
-                label={'Adresselinje 2'}
+                id={"adresse2"}
+                label={"Adresselinje 2"}
                 autoComplete="address-line2"
                 hideLabel={true}
                 size="medium"
@@ -87,15 +87,15 @@ const AdresseFields = () => {
             />
 
             <TextField
-                {...register('adresse3', {
-                    onChange: () => isSubmitted && trigger(['adresse1', 'adresse2']),
+                {...register("adresse3", {
+                    onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
                     validate: {
                         notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
                         ...baseAdresseValidation,
                     },
                 })}
-                id={'adresse3'}
-                label={'Adresselinje 3'}
+                id={"adresse3"}
+                label={"Adresselinje 3"}
                 autoComplete="address-line3"
                 hideLabel={true}
                 size="medium"

@@ -1,10 +1,10 @@
-import AdresserVisning from '@/pages/forside/sections/4-personinfo/3-adresser/Adresser';
-import Utbetalinger from '@/pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger';
-import Box from '@/components/box/Box';
-import kontaktIkon from '@/assets/img/Kontakt.svg';
-import TelefonnummerHosNav from '@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav';
-import { Personalia } from '@/types/personalia';
-import { Adresser } from '@/types/adresser';
+import kontaktIkon from "@/assets/img/Kontakt.svg";
+import Box from "@/components/box/Box";
+import TelefonnummerHosNav from "@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav";
+import AdresserVisning from "@/pages/forside/sections/4-personinfo/3-adresser/Adresser";
+import Utbetalinger from "@/pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
+import type { Adresser } from "@/types/adresser";
+import type { Personalia } from "@/types/personalia";
 
 interface Props {
     personalia?: Personalia;

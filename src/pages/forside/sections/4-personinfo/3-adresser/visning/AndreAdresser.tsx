@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { BodyShort, Button, Heading, Modal } from '@navikt/ds-react';
-import { TrashIcon } from '@navikt/aksel-icons';
-import { FormattedMessage } from 'react-intl';
-import Kilde from '@/components/kilde/Kilde';
-import { Kontaktadresse as IKontaktadresse } from '@/types/adresser/kontaktadresse';
-import { Oppholdsadresse as IOppholdsadresse } from '@/types/adresser/oppholdsadresse';
-import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
-import { fetchPersonInfo, slettKontaktadresse } from '@/clients/apiClient';
-import { PersonInfo } from '@/types/personInfo';
-import { useStore } from '@/store/Context';
-import Adresse from './Adresse';
+import { TrashIcon } from "@navikt/aksel-icons";
+import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { fetchPersonInfo, slettKontaktadresse } from "@/clients/apiClient";
+import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import Kilde from "@/components/kilde/Kilde";
+import { useStore } from "@/store/Context";
+import type { Kontaktadresse as IKontaktadresse } from "@/types/adresser/kontaktadresse";
+import type { Oppholdsadresse as IOppholdsadresse } from "@/types/adresser/oppholdsadresse";
+import type { PersonInfo } from "@/types/personInfo";
+import Adresse from "./Adresse";
 
 interface Props {
     kontaktadresse?: IKontaktadresse;
@@ -34,7 +34,7 @@ const AndreAdresser = (props: Props) => {
     const getUpdatedData = () =>
         fetchPersonInfo().then((personInfo) => {
             dispatch({
-                type: 'SETT_PERSON_INFO_RESULT',
+                type: "SETT_PERSON_INFO_RESULT",
                 payload: personInfo as PersonInfo,
             });
         });
@@ -56,12 +56,12 @@ const AndreAdresser = (props: Props) => {
     return (
         <>
             <div className="underseksjon__header underseksjon__divider">
-                <Heading size={'small'} level={'3'}>
-                    <FormattedMessage id={'adresse.overskrift.ovrige'} />
+                <Heading size={"small"} level={"3"}>
+                    <FormattedMessage id={"adresse.overskrift.ovrige"} />
                 </Heading>
             </div>
             {oppholdsadresse && (
-                <Adresse adresse={oppholdsadresse?.adresse} coAdressenavn={oppholdsadresse.coAdressenavn} tittel={'adresse.oppholdsadresse'} />
+                <Adresse adresse={oppholdsadresse?.adresse} coAdressenavn={oppholdsadresse.coAdressenavn} tittel={"adresse.oppholdsadresse"} />
             )}
             {kontaktadresse && (
                 <>
@@ -70,7 +70,7 @@ const AndreAdresser = (props: Props) => {
                             adresse={kontaktadresse?.adresse}
                             coAdressenavn={kontaktadresse.coAdressenavn}
                             gyldigTilOgMed={kontaktadresse.gyldigTilOgMed}
-                            tittel={'adresse.kontaktadresse.nav'}
+                            tittel={"adresse.kontaktadresse.nav"}
                         />
                     )}
                     <Button
@@ -79,7 +79,7 @@ const AndreAdresser = (props: Props) => {
                         className="adresse__slett-kontaktadresse knapp-med-ikon"
                         icon={<TrashIcon aria-hidden={true} />}
                     >
-                        <FormattedMessage id={'side.slett.kontaktadresse'} />
+                        <FormattedMessage id={"side.slett.kontaktadresse"} />
                     </Button>
 
                     {visSlettModal && (
@@ -104,11 +104,11 @@ const AndreAdresser = (props: Props) => {
                                     />
                                 </BodyShort>
                                 <div className="adresse__modal-knapper">
-                                    <Button variant={'tertiary'} onClick={lukkSlettModal} disabled={slettLoading}>
+                                    <Button variant={"tertiary"} onClick={lukkSlettModal} disabled={slettLoading}>
                                         <FormattedMessage id="side.avbryt" />
                                     </Button>
-                                    <Button variant={'danger'} onClick={slettPdlKontaktadresse} loading={slettLoading} disabled={slettLoading}>
-                                        <FormattedMessage id={'side.slett'} />
+                                    <Button variant={"danger"} onClick={slettPdlKontaktadresse} loading={slettLoading} disabled={slettLoading}>
+                                        <FormattedMessage id={"side.slett"} />
                                     </Button>
                                 </div>
                                 {slettAlert && <HttpFeilmelding {...slettAlert} />}
@@ -117,7 +117,7 @@ const AndreAdresser = (props: Props) => {
                     )}
                 </>
             )}
-            {<Kilde kilde="personalia.source.nav" lenkeType={'INGEN'} />}
+            {<Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
         </>
     );
 };

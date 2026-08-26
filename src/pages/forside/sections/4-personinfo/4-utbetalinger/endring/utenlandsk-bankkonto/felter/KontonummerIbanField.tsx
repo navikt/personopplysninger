@@ -1,11 +1,11 @@
-import { useFormContext } from 'react-hook-form';
-import { isValidIBAN } from 'ibantools';
-import { TextField } from '@navikt/ds-react';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { harValgtUSA } from '../../utils';
-import { isIBANCountryCompliant, isLettersAndDigits } from '@/utils/validators';
-import { LabelMedHjelpetekst } from '@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst';
-import { FormFields } from '../../types';
+import { TextField } from "@navikt/ds-react";
+import { isValidIBAN } from "ibantools";
+import { useFormContext } from "react-hook-form";
+import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import { isIBANCountryCompliant, isLettersAndDigits } from "@/utils/validators";
+import type { FormFields } from "../../types";
+import { harValgtUSA } from "../../utils";
 
 interface Props {
     personident?: { verdi: string; type: string };
@@ -22,23 +22,23 @@ const KontonummerIbanField = (props: Props) => {
 
     return (
         <TextField
-            {...register('kontonummerIban', {
+            {...register("kontonummerIban", {
                 validate: {
                     ...(watch().land?.kreverIban && {
-                        required: (v) => !!v || formatMessage('validation.iban.pakrevd'),
-                        validIban: (v) => isValidIBAN(v) || formatMessage('validation.iban.gyldig'),
+                        required: (v) => !!v || formatMessage("validation.iban.pakrevd"),
+                        validIban: (v) => isValidIBAN(v) || formatMessage("validation.iban.gyldig"),
                     }),
                     ...(!watch().land?.kreverIban && {
-                        required: (v) => !!v || formatMessage('validation.kontonummer.pakrevd'),
+                        required: (v) => !!v || formatMessage("validation.kontonummer.pakrevd"),
                     }),
                     ...(harValgtUSA(watch().land) && {
-                        notIban: (v) => !isValidIBAN(v) || formatMessage('validation.ikke.iban'),
+                        notIban: (v) => !isValidIBAN(v) || formatMessage("validation.ikke.iban"),
                     }),
                     ...(isValidIBAN(watch().kontonummerIban) && {
-                        ibanCountryCompliant: (v) => isIBANCountryCompliant(v, watch().land) || formatMessage('validation.iban.country'),
+                        ibanCountryCompliant: (v) => isIBANCountryCompliant(v, watch().land) || formatMessage("validation.iban.country"),
                     }),
-                    lettersAndDigits: (v) => isLettersAndDigits(v) || formatMessage('validation.only.letters.and.digits'),
-                    notUsersSsn: (v) => v !== props.personident?.verdi || formatMessage('validation.kontonummer.idnr'),
+                    lettersAndDigits: (v) => isLettersAndDigits(v) || formatMessage("validation.only.letters.and.digits"),
+                    notUsersSsn: (v) => v !== props.personident?.verdi || formatMessage("validation.kontonummer.idnr"),
                 },
             })}
             id="kontonummerIban"
@@ -47,8 +47,8 @@ const KontonummerIbanField = (props: Props) => {
             htmlSize={37}
             label={
                 <LabelMedHjelpetekst
-                    label={formatMessage('felter.kontonummer.kontonummer.label')}
-                    hjelpetekst={'utbetalinger.hjelpetekster.kontonummer'}
+                    label={formatMessage("felter.kontonummer.kontonummer.label")}
+                    hjelpetekst={"utbetalinger.hjelpetekster.kontonummer"}
                 />
             }
             error={errors?.kontonummerIban?.message}

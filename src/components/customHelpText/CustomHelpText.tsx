@@ -1,33 +1,33 @@
-import { useRef, useState } from 'react';
-import { Button, HelpTextProps, Popover } from '@navikt/ds-react';
-import { QuestionmarkIcon } from '@navikt/aksel-icons';
-import classNames from 'classnames';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
+import { QuestionmarkIcon } from "@navikt/aksel-icons";
+import { Button, type HelpTextProps, Popover } from "@navikt/ds-react";
+import classNames from "classnames";
+import { useRef, useState } from "react";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
 
 type CustomHelpTextProps = {
     title: string;
     children: React.ReactNode;
     className?: string;
-    placement?: HelpTextProps['placement'];
+    placement?: HelpTextProps["placement"];
 };
 
-export const CustomHelpText = ({ title, children, className, placement = 'top' }: CustomHelpTextProps) => {
+export const CustomHelpText = ({ title, children, className, placement = "top" }: CustomHelpTextProps) => {
     const inputRef = useRef(null);
     const [openState, setOpenState] = useState<boolean>(false);
     const { formatMessage } = useIntlFormatter();
 
     return (
-        <div className={classNames('customHelpText', className)}>
+        <div className={classNames("customHelpText", className)}>
             <Button
                 type="button"
                 variant="tertiary"
-                className={'customHelpText__help-button'}
+                className={"customHelpText__help-button"}
                 onClick={() => setOpenState(!openState)}
                 ref={inputRef}
-                aria-label={`${formatMessage('felter.merom')} ${title}`}
+                aria-label={`${formatMessage("felter.merom")} ${title}`}
                 aria-expanded={openState}
             >
-                <QuestionmarkIcon className={'customHelpText__icon'} aria-hidden="true" />
+                <QuestionmarkIcon className={"customHelpText__icon"} aria-hidden="true" />
             </Button>
             <Popover
                 open={openState}

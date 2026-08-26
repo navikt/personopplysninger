@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { fetchDsopInfo } from '@/clients/apiClient';
-import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import { useStore } from '@/store/Context';
-import { DsopInfo } from '@/types/dsop';
-import Spinner from '@/components/spinner/Spinner';
+import { useEffect } from "react";
+import { fetchDsopInfo } from "@/clients/apiClient";
+import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import Spinner from "@/components/spinner/Spinner";
+import { useStore } from "@/store/Context";
+import type { DsopInfo } from "@/types/dsop";
 
-export type FetchDsopInfo = { status: 'LOADING' } | { status: 'RESULT'; data: DsopInfo } | { status: 'ERROR'; error: HTTPError };
+export type FetchDsopInfo = { status: "LOADING" } | { status: "RESULT"; data: DsopInfo } | { status: "ERROR"; error: HTTPError };
 
 interface Props {
     children: (data: { data: DsopInfo; id?: string }) => JSX.Element;
@@ -16,29 +16,29 @@ const WithDSOP = (props: Props) => {
     const { children } = props;
 
     useEffect(() => {
-        if (dsopInfo.status === 'LOADING') {
+        if (dsopInfo.status === "LOADING") {
             fetchDsopInfo()
                 .then((dsopInfo) =>
                     dispatch({
-                        type: 'SETT_DSOP_INFO_RESULT',
+                        type: "SETT_DSOP_INFO_RESULT",
                         payload: dsopInfo as DsopInfo,
-                    })
+                    }),
                 )
                 .catch((error: HTTPError) =>
                     dispatch({
-                        type: 'SETT_DSOP_INFO_ERROR',
+                        type: "SETT_DSOP_INFO_ERROR",
                         payload: error,
-                    })
+                    }),
                 );
         }
     }, [dsopInfo, dispatch]);
 
     switch (dsopInfo.status) {
-        case 'LOADING':
+        case "LOADING":
             return <Spinner />;
-        case 'RESULT':
+        case "RESULT":
             return children({ data: dsopInfo.data });
-        case 'ERROR':
+        case "ERROR":
             return <ErrorMessage error={dsopInfo.error} />;
     }
 };
