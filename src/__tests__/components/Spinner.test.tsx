@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { IntlProvider } from "react-intl";
 import type { ReactNode } from "react";
+import { IntlProvider } from "react-intl";
 import Spinner from "@/components/spinner/Spinner";
 import spinnerStyles from "@/components/spinner/Spinner.module.css";
 import nbMessages from "@/text/nb";
