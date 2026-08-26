@@ -79,6 +79,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
     >
       <button
         class="historikk__flex-kolonne af-liste__ekspander"
+        type="button"
       >
         2019 
         <svg
@@ -148,6 +149,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
     >
       <button
         class="historikk__flex-kolonne af-liste__ekspander"
+        type="button"
       >
         2018 
         <svg
@@ -175,6 +177,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
     >
       <button
         class="historikk__flex-kolonne af-liste__ekspander"
+        type="button"
       >
         2017 
         <svg
@@ -202,6 +205,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
     >
       <button
         class="historikk__flex-kolonne af-liste__ekspander"
+        type="button"
       >
         2016 
         <svg
