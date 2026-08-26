@@ -1,0 +1,58 @@
+/* The only project-owned global selectors. See CONVENTIONS.md. */
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-color: var(--a-bg-subtle);
+    margin: 0;
+}
+
+.pagewrapper {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    margin-bottom: -200px;
+    padding-bottom: 200px;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pagecontent {
+    width: 100%;
+    max-width: var(--ppo-content-max-width, 800px);
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem 0.5em;
+}
+
+.underseksjon__header {
+    padding: 0.5rem 0;
+}
+
+.underseksjon__beskrivelse {
+    padding-bottom: 0.5rem;
+}
+
+.underseksjon__divider {
+    padding-top: 1.5rem;
+}
+
+.ReactModal__Overlay.ReactModal__Overlay--after-open.modal__overlay {
+    z-index: 10000;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
