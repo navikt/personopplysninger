@@ -1,4 +1,4 @@
-FROM node:22-bookworm-slim
+FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-slim
 # RUN apk add --no-cache bash
 ENV NODE_ENV production
 
@@ -8,6 +8,6 @@ COPY build build/
 
 WORKDIR server
 
-CMD ["node", "./server.js"]
+CMD ["./server.js"]
 
 EXPOSE 8080
