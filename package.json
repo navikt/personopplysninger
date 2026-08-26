@@ -12,6 +12,7 @@
         "lint": "biome check --no-errors-on-unmatched .",
         "format": "biome format --write --no-errors-on-unmatched .",
         "typecheck": "tsc --noEmit",
+        "postinstall": "cd server && npm install",
         "prepare": "lefthook install",
         "build": "npm-run-all -p build:*",
         "build:js": "vite build",
