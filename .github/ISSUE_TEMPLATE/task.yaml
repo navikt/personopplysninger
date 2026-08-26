@@ -1,0 +1,28 @@
+name: Task
+description: Teknisk oppgave, vedlikehold eller chore
+type: Task
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Beskrivelse
+      description: Kort og presis beskrivelse av hva som skal gjøres
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Bakgrunn
+      description: Hvorfor er dette nødvendig?
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Akseptansekriterier
+      description: Hva skal til for at denne oppgaven er ferdig?
+      placeholder: |
+        - [ ] Kriterium 1
+        - [ ] Kriterium 2
+    validations:
+      required: true

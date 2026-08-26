@@ -1,0 +1,35 @@
+name: Feature
+description: Foreslå ny funksjonalitet eller forbedring
+type: Feature
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Beskrivelse
+      description: Kort og presis beskrivelse av hva som skal gjøres
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Bakgrunn
+      description: Hvorfor er dette nødvendig? Kontekst og motivasjon
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Akseptansekriterier
+      description: Hva skal til for at denne oppgaven er ferdig?
+      placeholder: |
+        - [ ] Kriterium 1
+        - [ ] Kriterium 2
+    validations:
+      required: true
+  - type: textarea
+    id: technical-context
+    attributes:
+      label: Teknisk kontekst
+      description: Relevante filer, API-er, avhengigheter, lenker
+    validations:
+      required: false

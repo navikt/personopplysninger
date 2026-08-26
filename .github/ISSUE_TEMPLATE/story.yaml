@@ -1,0 +1,37 @@
+name: Story
+description: Brukerhistorie eller use case
+type: Story
+body:
+  - type: textarea
+    id: user-story
+    attributes:
+      label: Brukerhistorie
+      description: "Som [rolle] ønsker jeg [funksjon] slik at [verdi]"
+      placeholder: |
+        Som arbeidsgiver ønsker jeg å se status på oppfølgingsplanen slik at jeg vet hva neste steg er for den sykmeldte.
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Bakgrunn
+      description: Kontekst og motivasjon for denne brukerhistorien
+    validations:
+      required: false
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Akseptansekriterier
+      description: Hva skal til for at denne historien er ferdig?
+      placeholder: |
+        - [ ] Kriterium 1
+        - [ ] Kriterium 2
+    validations:
+      required: true
+  - type: textarea
+    id: technical-context
+    attributes:
+      label: Teknisk kontekst
+      description: Relevante filer, API-er, avhengigheter, lenker
+    validations:
+      required: false

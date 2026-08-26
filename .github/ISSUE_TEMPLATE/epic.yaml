@@ -1,0 +1,35 @@
+name: Epic
+description: Stor oppgave som brytes ned i deloppgaver
+type: Epic
+body:
+  - type: textarea
+    id: goal
+    attributes:
+      label: Mål
+      description: Overordnet mål for epicen
+    validations:
+      required: true
+  - type: textarea
+    id: background
+    attributes:
+      label: Bakgrunn
+      description: Kontekst og motivasjon
+    validations:
+      required: false
+  - type: textarea
+    id: scope
+    attributes:
+      label: Omfang
+      description: Hva er inkludert og hva er utenfor scope?
+    validations:
+      required: true
+  - type: textarea
+    id: sub-tasks
+    attributes:
+      label: Deloppgaver
+      description: Løses i rekkefølge. Issues uten innbyrdes avhengigheter kan løses parallelt.
+      placeholder: |
+        - [ ] #NNN — Kort beskrivelse
+        - [ ] #NNN — Kort beskrivelse (avhenger av #NNN)
+    validations:
+      required: false

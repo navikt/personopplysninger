@@ -1,0 +1,43 @@
+name: Bug
+description: Rapporter en feil
+type: Bug
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: Beskrivelse
+      description: Kort beskrivelse av feilen
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steg for å reprodusere
+      description: Hvordan kan feilen reproduseres?
+      placeholder: |
+        1. Gå til ...
+        2. Klikk på ...
+        3. Se feil ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Forventet oppførsel
+      description: Hva burde skje?
+    validations:
+      required: true
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: Faktisk oppførsel
+      description: Hva skjer i dag?
+    validations:
+      required: true
+  - type: textarea
+    id: technical-context
+    attributes:
+      label: Teknisk kontekst
+      description: Stacktrace, logger, relevante filer, miljø
+    validations:
+      required: false
