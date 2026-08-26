@@ -1,26 +1,26 @@
-import { ListeMedArbeidsforhold, AFListeOnClick } from '@navikt/arbeidsforhold';
-import { FormattedMessage, useIntl } from 'react-intl';
-import { Link } from 'react-router-dom';
-import { Alert } from '@navikt/ds-react';
-import Box from '@/components/box/Box';
-import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
-import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '@/store/Context';
-import { Locale } from '@/store/Store';
-import { basePath } from '@/constants';
+import { type AFListeOnClick, ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
+import { Alert } from "@navikt/ds-react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { Link } from "react-router-dom";
+import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
+import Box from "@/components/box/Box";
+import Kilde from "@/components/kilde/Kilde";
+import { basePath } from "@/constants";
+import { useStore } from "@/store/Context";
+import type { Locale } from "@/store/Store";
 
-const miljo = import.meta.env.VITE_ENV?.toUpperCase() as 'local' | 'dev' | 'prod';
+const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
 
 const Arbeidsforhold = () => {
     const { locale } = useIntl();
     const [{ personInfo }] = useStore();
 
-    const printName = personInfo.status === 'RESULT' ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}` : '';
+    const printName = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}` : "";
 
-    const printSSN = personInfo.status === 'RESULT' ? `${personInfo.data.personalia?.personident?.verdi}` : '';
+    const printSSN = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.personident?.verdi}` : "";
 
     const onClick = {
-        type: 'REACT_ROUTER_LENKE',
+        type: "REACT_ROUTER_LENKE",
         Component: Link,
         to: `${basePath}/${locale}/arbeidsforhold/{id}`,
     } as AFListeOnClick;

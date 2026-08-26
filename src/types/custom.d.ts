@@ -1,14 +1,14 @@
-declare module '*.svg' {
+declare module "*.svg" {
     const content: unknown;
     export default content;
 }
 
-declare module '*.png' {
+declare module "*.png" {
     const content: unknown;
     export default content;
 }
 
-declare module '@navikt/fnrvalidator' {
+declare module "@navikt/fnrvalidator" {
     const content: unknown;
     export default content;
 }

@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
-import { Label } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import { CustomHelpText } from '@/components/customHelpText/CustomHelpText';
+import { Label } from "@navikt/ds-react";
+import { Fragment } from "react";
+import { FormattedMessage } from "react-intl";
+import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
 
 interface Props {
     label: string;
@@ -21,7 +21,7 @@ export const LabelMedHjelpetekst = (props: Props) => {
             )}
             {!labelId && <span>{label}</span>}
             {hjelpetekst && (
-                <CustomHelpText title={label} placement={'right'}>
+                <CustomHelpText title={label} placement={"right"}>
                     <FormattedMessage
                         id={hjelpetekst}
                         values={{

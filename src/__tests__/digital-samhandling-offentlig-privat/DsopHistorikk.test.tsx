@@ -1,22 +1,22 @@
-import { IntlProvider } from 'react-intl';
-import { render } from '@testing-library/react';
-import dsopInfo from '@/clients/apiMock/app/fetch/dsop-info.json';
-import nbMessages from '@/text/nb';
-import DsopHistorikkView from '@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView';
+import { render } from "@testing-library/react";
+import { IntlProvider } from "react-intl";
+import dsopInfo from "@/clients/apiMock/app/fetch/dsop-info.json";
+import DsopHistorikkView from "@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
+import nbMessages from "@/text/nb";
 
-vi.mock('react-router-dom', () => ({
+vi.mock("react-router-dom", () => ({
     Link: () => <div />,
     useLocation: () => ({
-        pathname: 'pathname',
+        pathname: "pathname",
     }),
 }));
 
-describe('DsopHistorikkView', () => {
-    it('renders correctly', () => {
+describe("DsopHistorikkView", () => {
+    it("renders correctly", () => {
         const { asFragment } = render(
-            <IntlProvider locale={'nb'} messages={nbMessages}>
+            <IntlProvider locale={"nb"} messages={nbMessages}>
                 <DsopHistorikkView dsopInfo={dsopInfo} />
-            </IntlProvider>
+            </IntlProvider>,
         );
         expect(asFragment()).toMatchSnapshot();
     });

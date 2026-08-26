@@ -1,38 +1,38 @@
-import { Fragment, useEffect } from 'react';
-import { useIntl } from 'react-intl';
-import { BrowserRouter as Router, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { initializeFaro } from '@grafana/faro-web-sdk';
-import { initLocalMock as initLocalArbeidsforholdMock } from '@navikt/arbeidsforhold';
-import { useStore } from './store/Context';
-import DetaljertArbeidsforhold from './pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold';
-import Forside from './pages/forside/Forside';
-import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
-import PageNotFound from './pages/404/404';
-import { getRedirectPathFromParam, tillatteTjenester } from './utils/redirects';
-import InstHistorikk from './pages/institusjonsopphold/historikk/InstHistorikk';
-import InstDetaljer from './pages/institusjonsopphold/detaljer/InstDetaljer';
-import DsopHistorikk from './pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk';
-import DsopDetaljer from './pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer';
-import MedlHistorikk from './pages/medlemskap-i-folketrygden/MedlHistorikk';
-import { WithAuth } from './store/providers/WithAuth';
-import { EndreKontonummer } from './pages/endre-kontonummer/EndreKontonummer';
-import { basePath } from './constants';
+import { initializeFaro } from "@grafana/faro-web-sdk";
+import { initLocalMock as initLocalArbeidsforholdMock } from "@navikt/arbeidsforhold";
+import { Fragment, useEffect } from "react";
+import { useIntl } from "react-intl";
+import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate } from "react-router-dom";
+import { basePath } from "./constants";
+import PageNotFound from "./pages/404/404";
+import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
+import DsopDetaljer from "./pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
+import DsopHistorikk from "./pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
+import { EndreKontonummer } from "./pages/endre-kontonummer/EndreKontonummer";
+import EndreOpplysninger from "./pages/endre-personopplysninger/EndreOpplysninger";
+import Forside from "./pages/forside/Forside";
+import InstDetaljer from "./pages/institusjonsopphold/detaljer/InstDetaljer";
+import InstHistorikk from "./pages/institusjonsopphold/historikk/InstHistorikk";
+import MedlHistorikk from "./pages/medlemskap-i-folketrygden/MedlHistorikk";
+import { useStore } from "./store/Context";
+import { WithAuth } from "./store/providers/WithAuth";
+import { getRedirectPathFromParam, tillatteTjenester } from "./utils/redirects";
 
-import '@navikt/ds-css';
-import '@navikt/arbeidsforhold/index.css';
+import "@navikt/ds-css";
+import "@navikt/arbeidsforhold/index.css";
 
 const localeUrlPattern = new RegExp(`${basePath}(/en|/nb|/nn)($|\\/)`);
-if (import.meta.env.VITE_ENV !== 'local') {
+if (import.meta.env.VITE_ENV !== "local") {
     initializeFaro({
         url: import.meta.env.VITE_TELEMETRY_URL,
         app: {
-            name: 'personopplysninger',
+            name: "personopplysninger",
             version: import.meta.env.VITE_BUILD_VERSION,
         },
     });
 }
 
-if (import.meta.env.VITE_ENV === 'local') {
+if (import.meta.env.VITE_ENV === "local") {
     initLocalArbeidsforholdMock();
 }
 
@@ -43,7 +43,7 @@ const App = () => {
 
     useEffect(() => {
         // Reset forms dersom locale endrer seg
-        dispatch({ type: 'INCREASE_FORM_KEY' });
+        dispatch({ type: "INCREASE_FORM_KEY" });
     }, [locale, dispatch]);
 
     useEffect(() => {
@@ -60,7 +60,7 @@ const App = () => {
                         <WithAuth>
                             <Routes>
                                 {redirectPath && <Navigate to={redirectPath} />}
-                                <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
+                                <Route caseSensitive={true} path={"/"} element={<Navigate to={`${basePath}/nb/`} />} />
                                 <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
                                 <Route
                                     caseSensitive={true}

@@ -1,10 +1,10 @@
-import { Fragment, useState } from 'react';
-import { FormattedMessage, useIntl } from 'react-intl';
-import { Link as ReactLink, useLocation } from 'react-router-dom';
-import { Alert, Label, Link } from '@navikt/ds-react';
-import { ChevronDownIcon, ChevronUpIcon } from '@navikt/aksel-icons';
-import dayjs from 'dayjs';
-import { DsopInfo } from '@/types/dsop';
+import { ChevronDownIcon, ChevronUpIcon } from "@navikt/aksel-icons";
+import { Alert, Label, Link } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import { Fragment, useState } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { Link as ReactLink, useLocation } from "react-router-dom";
+import type { DsopInfo } from "@/types/dsop";
 
 interface Props {
     dsopInfo: DsopInfo;
@@ -41,17 +41,17 @@ export const DsopHistorikkView = (props: Props) => {
         <div className="historikk__tabs-innhold historikk__flex-table">
             {Object.keys(data).length > 0 ? (
                 <>
-                    <div className={'historikk__info'}>
+                    <div className={"historikk__info"}>
                         <Alert variant="info">
                             <FormattedMessage
-                                id={'lenker.dsop.info'}
+                                id={"lenker.dsop.info"}
                                 values={{
                                     a: (text) => (
                                         <Link
                                             href={
-                                                locale === 'en'
-                                                    ? 'https://www.nav.no/personvernerklaering/en#who'
-                                                    : 'https://www.nav.no/personvernerklaering#hvem'
+                                                locale === "en"
+                                                    ? "https://www.nav.no/personvernerklaering/en#who"
+                                                    : "https://www.nav.no/personvernerklaering#hvem"
                                             }
                                             target="blank"
                                         >
@@ -98,7 +98,7 @@ export const DsopHistorikkView = (props: Props) => {
                             return (
                                 <Fragment key={year}>
                                     <div className="historikk__flex-rad" key={year}>
-                                        <button className="historikk__flex-kolonne af-liste__ekspander" onClick={onClick}>
+                                        <button type="button" className="historikk__flex-kolonne af-liste__ekspander" onClick={onClick}>
                                             {year} {value.ekspandert ? <ChevronUpIcon aria-hidden="true" /> : <ChevronDownIcon aria-hidden="true" />}
                                         </button>
                                         <div />
@@ -107,7 +107,7 @@ export const DsopHistorikkView = (props: Props) => {
                                         value.innslag.map((innslag, i) => (
                                             <div className="historikk__flex-rad" key={i}>
                                                 <div className="historikk__flex-kolonne historikk__heading">
-                                                    {dayjs(innslag.uthentingsTidspunkt).format('DD.MM kl. hh:mm')}
+                                                    {dayjs(innslag.uthentingsTidspunkt).format("DD.MM kl. hh:mm")}
                                                 </div>
                                                 <div className="historikk__flex-kolonne">
                                                     <Link as={ReactLink} to={`${location.pathname}/${innslag.uthentingsTidspunkt}`} className="lenke">
@@ -129,9 +129,9 @@ export const DsopHistorikkView = (props: Props) => {
                                 a: (text) => (
                                     <Link
                                         href={
-                                            locale === 'en'
-                                                ? 'https://www.nav.no/personvernerklaering/en#who'
-                                                : 'https://www.nav.no/personvernerklaering#hvem'
+                                            locale === "en"
+                                                ? "https://www.nav.no/personvernerklaering/en#who"
+                                                : "https://www.nav.no/personvernerklaering#hvem"
                                         }
                                         target="blank"
                                     >

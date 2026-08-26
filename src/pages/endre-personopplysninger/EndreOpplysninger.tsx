@@ -1,9 +1,9 @@
-import { Params, useParams } from 'react-router-dom';
-import RedirectKnapp from '@/components/knapper/Redirect';
-import MedPersonInfo from '@/store/providers/PersonInfo';
-import Spinner from '@/components/spinner/Spinner';
-import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import EndreOpplysningerView from './EndreOpplysningerView';
+import { type Params, useParams } from "react-router-dom";
+import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import RedirectKnapp from "@/components/knapper/Redirect";
+import Spinner from "@/components/spinner/Spinner";
+import MedPersonInfo from "@/store/providers/PersonInfo";
+import EndreOpplysningerView from "./EndreOpplysningerView";
 
 interface Routes {
     tjeneste?: string;

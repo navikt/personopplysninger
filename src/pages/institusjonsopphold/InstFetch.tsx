@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { fetchInstInfo } from '@/clients/apiClient';
-import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import { useStore } from '@/store/Context';
-import Spinner from '@/components/spinner/Spinner';
-import { InstInfo } from '@/types/inst';
+import { useEffect } from "react";
+import { fetchInstInfo } from "@/clients/apiClient";
+import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import Spinner from "@/components/spinner/Spinner";
+import { useStore } from "@/store/Context";
+import type { InstInfo } from "@/types/inst";
 
-export type FetchInstInfo = { status: 'LOADING' } | { status: 'RESULT'; data: InstInfo } | { status: 'ERROR'; error: HTTPError };
+export type FetchInstInfo = { status: "LOADING" } | { status: "RESULT"; data: InstInfo } | { status: "ERROR"; error: HTTPError };
 
 interface Props {
     children: (data: { data: InstInfo; id?: string }) => JSX.Element;
@@ -15,29 +15,29 @@ const WithInst = ({ children }: Props) => {
     const [{ instInfo }, dispatch] = useStore();
 
     useEffect(() => {
-        if (instInfo.status === 'LOADING') {
+        if (instInfo.status === "LOADING") {
             fetchInstInfo()
                 .then((instInfo) =>
                     dispatch({
-                        type: 'SETT_INST_INFO_RESULT',
+                        type: "SETT_INST_INFO_RESULT",
                         payload: instInfo as InstInfo,
-                    })
+                    }),
                 )
                 .catch((error: HTTPError) =>
                     dispatch({
-                        type: 'SETT_INST_INFO_ERROR',
+                        type: "SETT_INST_INFO_ERROR",
                         payload: error,
-                    })
+                    }),
                 );
         }
     }, [instInfo, dispatch]);
 
     switch (instInfo.status) {
-        case 'LOADING':
+        case "LOADING":
             return <Spinner />;
-        case 'RESULT':
+        case "RESULT":
             return children({ data: instInfo.data });
-        case 'ERROR':
+        case "ERROR":
             return <ErrorMessage error={instInfo.error} />;
     }
 };

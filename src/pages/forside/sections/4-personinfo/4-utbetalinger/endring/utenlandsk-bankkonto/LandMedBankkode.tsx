@@ -1,10 +1,10 @@
-import { FormattedMessage } from 'react-intl';
-import { Alert } from '@navikt/ds-react';
-import { OptionType } from '@/types/option';
-import { kreverBicOgBankkode } from '../utils';
-import BickodeField from './felter/BickodeField';
-import BankkodeField from './felter/BankkodeField';
-import AdresseFields from './felter/AdresseFields';
+import { Alert } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import type { OptionType } from "@/types/option";
+import { kreverBicOgBankkode } from "../utils";
+import AdresseFields from "./felter/AdresseFields";
+import BankkodeField from "./felter/BankkodeField";
+import BickodeField from "./felter/BickodeField";
 
 interface Props {
     valgtLand: OptionType;

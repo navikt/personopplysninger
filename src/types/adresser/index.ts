@@ -1,7 +1,7 @@
-import { Bostedsadresse } from './bostedsadresse';
-import { Oppholdsadresse } from './oppholdsadresse';
-import { DeltBosted } from './deltbosted';
-import { Kontaktadresse } from './kontaktadresse';
+import type { Bostedsadresse } from "./bostedsadresse";
+import type { DeltBosted } from "./deltbosted";
+import type { Kontaktadresse } from "./kontaktadresse";
+import type { Oppholdsadresse } from "./oppholdsadresse";
 
 export interface Adresser {
     kontaktadresser: Kontaktadresse[];

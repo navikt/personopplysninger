@@ -1,0 +1,16 @@
+pre-commit:
+    commands:
+        check:
+            glob: "*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx,json,jsonc,astro}"
+            run: npm exec biome check --write --no-errors-on-unmatched --files-ignore-unknown=true --colors=off {staged_files}
+            stage_fixed: true
+
+pre-push:
+    commands:
+        typecheck:
+            run: npm run typecheck
+
+commit-msg:
+    commands:
+        no-empty-commit:
+            run: git diff --cached --quiet || exit 0; echo "Nothing staged to commit. Empty commits are blocked to keep history clean."; exit 1

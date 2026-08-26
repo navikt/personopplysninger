@@ -1,4 +1,4 @@
-import BickodeField from './felter/BickodeField';
+import BickodeField from "./felter/BickodeField";
 
 const LandUtenBankkode = () => {
     return <BickodeField />;

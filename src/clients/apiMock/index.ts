@@ -1,16 +1,16 @@
-import fetchMock from 'fetch-mock';
-import Cookies from 'js-cookie';
-import personInformasjon from './app/fetch/person-info.json';
-import kontaktInformasjon from './app/fetch/kontakt-info.json';
-import dsopInfo from './app/fetch/dsop-info.json';
-import retningsnumre from './app/fetch/retningsnumre.json';
-import valutaer from './app/fetch/valutaer.json';
-import postnummer from './app/fetch/postnummer.json';
-import endreKontonr from './app/post/endre-kontonummer.json';
-import landInfo from './app/fetch/land.json';
-import instInfo from './app/fetch/inst-info.json';
-import medlInfo from './app/fetch/medl-info.json';
-import auth from './app/fetch/auth.json';
+import fetchMock from "fetch-mock";
+import Cookies from "js-cookie";
+import auth from "./app/fetch/auth.json";
+import dsopInfo from "./app/fetch/dsop-info.json";
+import instInfo from "./app/fetch/inst-info.json";
+import kontaktInformasjon from "./app/fetch/kontakt-info.json";
+import landInfo from "./app/fetch/land.json";
+import medlInfo from "./app/fetch/medl-info.json";
+import personInformasjon from "./app/fetch/person-info.json";
+import postnummer from "./app/fetch/postnummer.json";
+import retningsnumre from "./app/fetch/retningsnumre.json";
+import valutaer from "./app/fetch/valutaer.json";
+import endreKontonr from "./app/post/endre-kontonummer.json";
 
 const { VITE_API_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
 
@@ -32,15 +32,15 @@ export const setUpMock = async () => {
     /*
     POST
    */
-    globalMock.post(`${VITE_API_URL}/endreGateadresse`, () => delay(2000, 3000).then(() => ({ statusType: 'PENDING' })));
-    globalMock.post(`${VITE_API_URL}/endreTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'REJECTED' })));
-    globalMock.post(`${VITE_API_URL}/slettTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: 'OK' })));
+    globalMock.post(`${VITE_API_URL}/endreGateadresse`, () => delay(2000, 3000).then(() => ({ statusType: "PENDING" })));
+    globalMock.post(`${VITE_API_URL}/endreTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: "REJECTED" })));
+    globalMock.post(`${VITE_API_URL}/slettTelefonnummer`, () => delay(2000, 3000).then(() => ({ statusType: "OK" })));
     globalMock.post(`${VITE_API_URL}/endreKontonummer`, () =>
-            delay(200, 500).then(() => {
-                Cookies.set('kontonr-result', 'success');
-                return endreKontonr;
+        delay(200, 500).then(() => {
+            Cookies.set("kontonr-result", "success");
+            return endreKontonr;
         }),
-        );
+    );
 };
 
 const delay = (min: number, max: number) => {

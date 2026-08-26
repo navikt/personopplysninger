@@ -1,19 +1,20 @@
-import { FormattedMessage } from 'react-intl';
-import { Alert, ErrorSummary, Link } from '@navikt/ds-react';
-import { electronicFormatIBAN } from 'ibantools';
-import { FieldValues, useFormContext } from 'react-hook-form';
-import { mapErrorsToSummary } from '@/utils/kontonummer';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { useStore } from '@/store/Context';
-import { brukerBankkode, harValgtUSA, validerBankkode, validerBic } from '../utils';
-import { FormFields } from '../types';
-import AmerikanskKonto from './AmerikanskKonto';
-import LandMedBankkode from './LandMedBankkode';
-import LandUtenBankkode from './LandUtenBankkode';
-import LandField from './felter/LandField';
-import ValutaField from './felter/ValutaField';
-import BanknavnField from './felter/BanknavnField';
-import KontonummerIbanField from './felter/KontonummerIbanField';
+import { Alert, ErrorSummary, Link } from "@navikt/ds-react";
+import { electronicFormatIBAN } from "ibantools";
+import { type FieldValues, useFormContext } from "react-hook-form";
+import { FormattedMessage } from "react-intl";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import { useStore } from "@/store/Context";
+import { mapErrorsToSummary } from "@/utils/kontonummer";
+import type { FormFields } from "../types";
+import { brukerBankkode, harValgtUSA, validerBankkode, validerBic } from "../utils";
+import AmerikanskKonto from "./AmerikanskKonto";
+import BanknavnField from "./felter/BanknavnField";
+import KontonummerIbanField from "./felter/KontonummerIbanField";
+import LandField from "./felter/LandField";
+import ValutaField from "./felter/ValutaField";
+import LandMedBankkode from "./LandMedBankkode";
+import LandUtenBankkode from "./LandUtenBankkode";
+
 interface Props {
     personident?: { verdi: string; type: string };
 }
@@ -30,9 +31,9 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     const valgtLand = watch().land;
 
     const utenlandskKontoInfoLenke = {
-        nb: 'https://www.nav.no/utbetaling-utland',
-        nn: 'https://www.nav.no/utbetaling-utland',
-        en: 'https://www.nav.no/en/home/about-nav/relatert-informasjon/payment-of-benefits-from-nav-to-recipients-living-abroad',
+        nb: "https://www.nav.no/utbetaling-utland",
+        nn: "https://www.nav.no/utbetaling-utland",
+        en: "https://www.nav.no/en/home/about-nav/relatert-informasjon/payment-of-benefits-from-nav-to-recipients-living-abroad",
     };
 
     return (
@@ -64,7 +65,7 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
                 </>
             )}
             {isSubmitted && Object.keys(errors).length > 0 && (
-                <ErrorSummary title={formatMessage('validation.fix.errors')}>
+                <ErrorSummary title={formatMessage("validation.fix.errors")}>
                     {mapErrorsToSummary(errors).map((error) => (
                         <ErrorSummary.Item key={error.skjemaelementId} href={`#${error.skjemaelementId}`}>
                             {error.feilmelding}

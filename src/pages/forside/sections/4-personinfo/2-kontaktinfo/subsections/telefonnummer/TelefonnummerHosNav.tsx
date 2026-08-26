@@ -1,13 +1,13 @@
-import { Alert, Button, Label } from '@navikt/ds-react';
-import { PlusCircleIcon } from '@navikt/aksel-icons';
-import { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Tlfnr } from '@/types/personalia';
-import { fjernMellorom } from '@/utils/formattering';
-import driftsmeldinger from '@/driftsmeldinger';
-import Kilde from '@/components/kilde/Kilde';
-import Telefonnummer from './Telefonnummer';
-import TelefonnummerForm from './TelefonnummerForm';
+import { PlusCircleIcon } from "@navikt/aksel-icons";
+import { Alert, Button, Label } from "@navikt/ds-react";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import Kilde from "@/components/kilde/Kilde";
+import driftsmeldinger from "@/driftsmeldinger";
+import type { Tlfnr } from "@/types/personalia";
+import { fjernMellorom } from "@/utils/formattering";
+import Telefonnummer from "./Telefonnummer";
+import TelefonnummerForm from "./TelefonnummerForm";
 
 interface Props {
     tlfnr?: Tlfnr;
@@ -31,7 +31,7 @@ const TelefonnummerHosNav = (props: Props) => {
     return (
         <>
             {driftsmeldinger.pdl && (
-                <div style={{ paddingBottom: '1rem' }}>
+                <div style={{ paddingBottom: "1rem" }}>
                     <Alert role="status" variant="warning">
                         {driftsmeldinger.pdl}
                     </Alert>
@@ -63,7 +63,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     )}
                     {
                         <div className="margin-kilde">
-                            <Kilde kilde="personalia.source.nav" lenkeType={'INGEN'} />
+                            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
                         </div>
                     }
                 </div>
@@ -86,34 +86,34 @@ const TelefonnummerHosNav = (props: Props) => {
 
             {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
                 <Button
-                    icon={<PlusCircleIcon className={'kilde__icon'} aria-hidden="true" />}
+                    icon={<PlusCircleIcon className={"kilde__icon"} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"
                 >
-                    <FormattedMessage id={'side.leggtil.kontaktinformasjon'} />
+                    <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
                 </Button>
             )}
 
             {opprett && (
-                <div className={'tlfnummer__rad-leggtil'}>
-                    <div className={'tlfnummer__container'}>
+                <div className={"tlfnummer__rad-leggtil"}>
+                    <div className={"tlfnummer__container"}>
                         <Label className="tlfnummer__verdi" as="p">
                             <FormattedMessage id="side.leggtil.kontaktinformasjon" />
                         </Label>
                     </div>
                     <TelefonnummerForm
-                        type={'opprett'}
+                        type={"opprett"}
                         prioritet={tlfnr && tlfnr.telefonHoved ? 2 : 1}
                         onCancelClick={() => settOpprett(false)}
                         onChangeSuccess={onChangeSuccess}
                         tlfnr={tlfnr}
                         defaultValues={{
                             landskode: {
-                                label: 'Norge',
-                                value: '+47',
+                                label: "Norge",
+                                value: "+47",
                             },
-                            tlfnummer: '',
+                            tlfnummer: "",
                         }}
                     />
                 </div>

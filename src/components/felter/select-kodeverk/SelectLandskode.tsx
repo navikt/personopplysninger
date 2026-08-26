@@ -1,8 +1,8 @@
-import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
-import { FormatOptionLabelMeta } from 'react-select/base';
-import { fetchRetningsnumre } from '@/clients/apiClient';
-import { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import NAVSelect from '@/components/felter/select/NAVSelect';
+import { type ForwardedRef, forwardRef, useEffect, useState } from "react";
+import type { FormatOptionLabelMeta } from "react-select/base";
+import { fetchRetningsnumre } from "@/clients/apiClient";
+import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
+import NAVSelect from "@/components/felter/select/NAVSelect";
 
 interface Props {
     option: OptionType;
@@ -52,11 +52,11 @@ const SelectLandskode = forwardRef((props: Props, ref: ForwardedRef<HTMLInputEle
         }));
 
     const defineLabel = (option: OptionType, context: FormatOptionLabelMeta<OptionType>) =>
-        context.context === 'value' ? `${option.value} ` : `${option.label}`;
+        context.context === "value" ? `${option.value} ` : `${option.label}`;
 
     const options = mapKoderToOptions(retningsnumre)
         .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1))
-        .sort((option: OptionType) => (option.value === '+47' ? -1 : 1));
+        .sort((option: OptionType) => (option.value === "+47" ? -1 : 1));
 
     return (
         <NAVSelect

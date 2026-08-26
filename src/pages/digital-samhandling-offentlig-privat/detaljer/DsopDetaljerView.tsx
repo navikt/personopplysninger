@@ -1,10 +1,10 @@
-import { FormattedMessage } from 'react-intl';
-import FileSaver from 'file-saver';
-import { BodyShort, Button, Heading } from '@navikt/ds-react';
-import dayjs from 'dayjs';
-import { DsopInfo } from '@/types/dsop';
-import ListElement from '@/components/listelement/ListElement';
-import { Liste } from '@/components/listelement/Liste';
+import { BodyShort, Button, Heading } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import FileSaver from "file-saver";
+import { FormattedMessage } from "react-intl";
+import ListElement from "@/components/listelement/ListElement";
+import { Liste } from "@/components/listelement/Liste";
+import type { DsopInfo } from "@/types/dsop";
 
 interface Props {
     id: string;
@@ -21,9 +21,9 @@ const DsopDetaljerView = (props: Props) => {
                 const leverteData = JSON.parse(atob(innslag.leverteData));
                 const fileContent = JSON.stringify(leverteData, null, 2);
                 const fileBlob = new Blob([fileContent], {
-                    type: 'application/json',
+                    type: "application/json",
                 });
-                const fileName = 'utleverte-data.json';
+                const fileName = "utleverte-data.json";
                 FileSaver.saveAs(fileBlob, fileName);
             };
             return (
@@ -41,11 +41,11 @@ const DsopDetaljerView = (props: Props) => {
                         <div className="box__content">
                             <Liste>
                                 <ListElement
-                                    titleId={'dsop.uthentingstidspunkt'}
-                                    content={dayjs(innslag.uthentingsTidspunkt).format('DD.MM.YYYY hh:mm')}
+                                    titleId={"dsop.uthentingstidspunkt"}
+                                    content={dayjs(innslag.uthentingsTidspunkt).format("DD.MM.YYYY hh:mm")}
                                 />
-                                <ListElement titleId={'dsop.personnummer'} content={innslag.person} />
-                                <ListElement titleId={'dsop.tema'} content={innslag.tema} />
+                                <ListElement titleId={"dsop.personnummer"} content={innslag.person} />
+                                <ListElement titleId={"dsop.tema"} content={innslag.tema} />
                             </Liste>
                         </div>
                         <div className="detaljer__container">

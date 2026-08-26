@@ -1,8 +1,8 @@
-import { Fragment, useState, useId } from 'react';
-import { FormattedMessage } from 'react-intl';
-import { Link, BodyLong, Modal, Heading } from '@navikt/ds-react';
-import { InformationIcon } from '@navikt/aksel-icons';
-import classNames from 'classnames';
+import { InformationIcon } from "@navikt/aksel-icons";
+import { BodyLong, Heading, Link, Modal } from "@navikt/ds-react";
+import classNames from "classnames";
+import { Fragment, useId, useState } from "react";
+import { FormattedMessage } from "react-intl";
 
 interface HjelpetekstProps {
     overskriftID: string;
@@ -18,14 +18,15 @@ function Infotekst(props: HjelpetekstProps) {
     return (
         <>
             <button
+                type="button"
                 className="infotekst__title-i-button"
                 onClick={() => settErSynlig(!erSynlig)}
                 onMouseEnter={() => settHover(true)}
                 onMouseLeave={() => settHover(false)}
-                aria-label={'Les mer om denne seksjonen.'}
+                aria-label={"Les mer om denne seksjonen."}
                 aria-pressed={erSynlig}
             >
-                <InformationIcon className={classNames('infotekst__title-i-icon', hover && 'infotekst__title-i-icon--hover')} aria-hidden="true" />
+                <InformationIcon className={classNames("infotekst__title-i-icon", hover && "infotekst__title-i-icon--hover")} aria-hidden="true" />
             </button>
             <Modal open={erSynlig} onClose={() => settErSynlig(false)} className="infotekst__modal" aria-labelledby={modalID}>
                 <Modal.Header>
@@ -53,8 +54,8 @@ function Infotekst(props: HjelpetekstProps) {
                                         </>
                                     ),
                                     b: (text) => <b>{text}</b>,
-                                    span: (text) => <span style={{ textTransform: 'none' }}>{text}</span>,
-                                    lenkeAaRegisteret: (text) => <Link href={'/arbeidsgiver/aa-registeret'}>{text}</Link>,
+                                    span: (text) => <span style={{ textTransform: "none" }}>{text}</span>,
+                                    lenkeAaRegisteret: (text) => <Link href={"/arbeidsgiver/aa-registeret"}>{text}</Link>,
                                 }}
                             />
                         </BodyLong>

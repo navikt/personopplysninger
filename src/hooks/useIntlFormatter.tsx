@@ -1,4 +1,4 @@
-import { useIntl } from 'react-intl';
+import { useIntl } from "react-intl";
 
 type ObjectType = Record<string, string | undefined | number>;
 

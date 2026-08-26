@@ -11,7 +11,7 @@ export type Adresse =
 
 // TPS
 export interface PostadresseIFrittFormat {
-    type: 'POSTADRESSE_I_FRITT_FORMAT';
+    type: "POSTADRESSE_I_FRITT_FORMAT";
     adresselinje1?: string;
     adresselinje2?: string;
     adresselinje3?: string;
@@ -20,7 +20,7 @@ export interface PostadresseIFrittFormat {
 }
 
 export interface UtenlandskAdresseIFrittFormat {
-    type: 'UTENLANDSK_ADRESSE_I_FRITT_FORMAT';
+    type: "UTENLANDSK_ADRESSE_I_FRITT_FORMAT";
     adresselinje1?: string;
     adresselinje2?: string;
     adresselinje3?: string;
@@ -29,7 +29,7 @@ export interface UtenlandskAdresseIFrittFormat {
 
 // PDL
 export interface Vegadresse {
-    type: 'VEGADRESSE';
+    type: "VEGADRESSE";
     husnummer?: string;
     husbokstav?: string;
     bruksenhetsnummer?: string;
@@ -42,7 +42,7 @@ export interface Vegadresse {
 }
 
 export interface Postboksadresse {
-    type: 'POSTBOKSADRESSE';
+    type: "POSTBOKSADRESSE";
     postbokseier?: string;
     postboks: string;
     postnummer?: string;
@@ -51,7 +51,7 @@ export interface Postboksadresse {
 }
 
 export interface UtenlandskAdresse {
-    type: 'UTENLANDSK_ADRESSE';
+    type: "UTENLANDSK_ADRESSE";
     adressenavnNummer?: string;
     bygningEtasjeLeilighet?: string;
     postboksNummerNavn?: string;
@@ -63,7 +63,7 @@ export interface UtenlandskAdresse {
 }
 
 export interface Matrikkeladresse {
-    type: 'MATRIKKELADRESSE';
+    type: "MATRIKKELADRESSE";
     bruksenhetsnummer?: string;
     tilleggsnavn?: string;
     postnummer?: string;
@@ -73,7 +73,7 @@ export interface Matrikkeladresse {
 }
 
 export interface Ukjentbosted {
-    type: 'UKJENTBOSTED';
+    type: "UKJENTBOSTED";
     bostedskommune?: string;
     coAdressenavn?: string;
 }

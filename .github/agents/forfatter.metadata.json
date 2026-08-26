@@ -1,26 +1,26 @@
 {
-  "domain": "general",
-  "tags": ["norsk", "teknisk-skriving", "redigering", "språk", "klarspråk", "ai-markører"],
-  "examples": [
-    {
-      "prompt": "@forfatter Sjekk feilmeldingene og hjelpetekstene i denne React-komponenten for klarspråk",
-      "scenario": "Mikrotekst i Aksel/React-skjema"
-    },
-    {
-      "prompt": "@forfatter Språkvask README-en — fagtermer som deployment, endpoint og pipeline skal stå på engelsk",
-      "scenario": "README for Kotlin/Ktor-app"
-    },
-    {
-      "prompt": "@forfatter Gå gjennom ADR-en og fjern AI-språk, og skriv beslutningen i aktiv form",
-      "scenario": "Architecture Decision Record"
-    },
-    {
-      "prompt": "@forfatter Rett opp UI-tekstene i denne Next.js-sida — norsk tallformat og konsistente knappetekster",
-      "scenario": "Norsk tallformat og knappetekst i Next.js"
-    },
-    {
-      "prompt": "@forfatter Gå gjennom feilmeldingene i denne Spring-kontrolleren — bruk klart språk, si hva brukeren kan gjøre",
-      "scenario": "Feilmeldinger i backend-API"
-    }
-  ]
+    "domain": "general",
+    "tags": ["norsk", "teknisk-skriving", "redigering", "språk", "klarspråk", "ai-markører"],
+    "examples": [
+        {
+            "prompt": "@forfatter Sjekk feilmeldingene og hjelpetekstene i denne React-komponenten for klarspråk",
+            "scenario": "Mikrotekst i Aksel/React-skjema"
+        },
+        {
+            "prompt": "@forfatter Språkvask README-en — fagtermer som deployment, endpoint og pipeline skal stå på engelsk",
+            "scenario": "README for Kotlin/Ktor-app"
+        },
+        {
+            "prompt": "@forfatter Gå gjennom ADR-en og fjern AI-språk, og skriv beslutningen i aktiv form",
+            "scenario": "Architecture Decision Record"
+        },
+        {
+            "prompt": "@forfatter Rett opp UI-tekstene i denne Next.js-sida — norsk tallformat og konsistente knappetekster",
+            "scenario": "Norsk tallformat og knappetekst i Next.js"
+        },
+        {
+            "prompt": "@forfatter Gå gjennom feilmeldingene i denne Spring-kontrolleren — bruk klart språk, si hva brukeren kan gjøre",
+            "scenario": "Feilmeldinger i backend-API"
+        }
+    ]
 }

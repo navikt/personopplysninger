@@ -1,1 +1,1 @@
-export const basePath = '/person/personopplysninger';
+export const basePath = "/person/personopplysninger";

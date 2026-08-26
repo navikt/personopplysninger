@@ -1,8 +1,8 @@
-import { Fragment } from 'react';
-import { Box, Heading, ReadMore } from '@navikt/ds-react';
-import { FormattedMessage, useIntl } from 'react-intl';
-import MerInformasjonPanelinnhold from './MerInformasjonPanelinnhold';
-import merInformasjon from './MerInformasjonData';
+import { Box, Heading, ReadMore } from "@navikt/ds-react";
+import { Fragment } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import merInformasjon from "./MerInformasjonData";
+import MerInformasjonPanelinnhold from "./MerInformasjonPanelinnhold";
 
 const AlternativListe = () => {
     const { formatMessage: msg } = useIntl();
@@ -10,7 +10,7 @@ const AlternativListe = () => {
     return (
         <Box background="surface-default" className="el__panel">
             <div className="mi__content">
-                <Heading size={'medium'} level={'2'}>
+                <Heading size={"medium"} level={"2"}>
                     <FormattedMessage id="alternativer.tittel" />
                 </Heading>
                 {merInformasjon.map((info, i) => (

@@ -1,15 +1,15 @@
-import { FormattedMessage } from 'react-intl';
-import { BodyShort, Heading, HelpText } from '@navikt/ds-react';
-import dayjs from 'dayjs';
-import ListElement from '@/components/listelement/ListElement';
-import { formatOrgnr, RADIX_DECIMAL } from '@/utils/formattering';
-import { InstInnslag } from '@/types/inst';
-import { Liste } from '@/components/listelement/Liste';
+import { BodyShort, Heading, HelpText } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import { FormattedMessage } from "react-intl";
+import ListElement from "@/components/listelement/ListElement";
+import { Liste } from "@/components/listelement/Liste";
+import type { InstInnslag } from "@/types/inst";
+import { formatOrgnr, RADIX_DECIMAL } from "@/utils/formattering";
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;
-    const startdato = dayjs(innslag.startdato).format('DD.MM.YYYY');
-    const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format('DD.MM.YYYY') : '';
+    const startdato = dayjs(innslag.startdato).format("DD.MM.YYYY");
+    const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format("DD.MM.YYYY") : "";
 
     return (
         <div>
@@ -32,15 +32,15 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
             <div className="box">
                 <div className="box__content">
                     <Liste>
-                        <ListElement titleId={'inst.institusjonstype'} content={innslag.institusjonstype} />
+                        <ListElement titleId={"inst.institusjonstype"} content={innslag.institusjonstype} />
                         <ListElement
-                            titleId={'inst.periode'}
+                            titleId={"inst.periode"}
                             content={
-                                <div className={'inst__periode'}>
+                                <div className={"inst__periode"}>
                                     {`${startdato} - ${faktiskSluttdato}`}
                                     {innslag.fiktivSluttdato && (
                                         <HelpText>
-                                            <FormattedMessage id={'inst.fiktivSluttdato'} />
+                                            <FormattedMessage id={"inst.fiktivSluttdato"} />
                                         </HelpText>
                                     )}
                                 </div>

@@ -1,7 +1,7 @@
-import { OptionType } from '@/types/option';
-import { Tlfnr } from '../types/personalia';
-import { normalizeNummer } from './formattering';
-import { isMod11 } from './kontonummer';
+import type { OptionType } from "@/types/option";
+import type { Tlfnr } from "../types/personalia";
+import { normalizeNummer } from "./formattering";
+import { isMod11 } from "./kontonummer";
 
 /*
   General validators
@@ -13,7 +13,7 @@ export const isNormalizedMod11 = (value: string) => isMod11(normalizeNummer(valu
 
 export const hasMultipleCombinedSpaces = (value: string) => !!value.match(/\s\s/);
 
-export const isFirstCharNotSpace = (value: string) => value.charAt(0) !== ' ';
+export const isFirstCharNotSpace = (value: string) => value.charAt(0) !== " ";
 
 export const isNumeric = (value: string) => {
     return !!value.match(regExpPattern.onlyNumeric);
@@ -58,7 +58,7 @@ export const isNotAlreadyRegistered = (value: string, tlfnr: Tlfnr) => {
     return ![tlfnr.telefonHoved, tlfnr.telefonAlternativ].includes(value);
 };
 
-export const isNorwegianNumber = (landskode: OptionType) => landskode.value === '+47';
+export const isNorwegianNumber = (landskode: OptionType) => landskode.value === "+47";
 
 /*
   Utilstext
@@ -68,30 +68,30 @@ export const isNorwegianNumber = (landskode: OptionType) => landskode.value === 
   Regex
  */
 
-const LATIN_LETTERS = 'A-Za-z';
-const NORWEGIAN_LETTERS = LATIN_LETTERS + 'ÆØÅæøå';
-const SPECIAL_LETTERS = 'ıłŁŊŋŦŧƁɓƊɗƓɠƘƙƤƥƬƭÞþßԈБ\\u0189\\u0256\\u00D0\\u00F0\\u00F0\\u0111\\u01E4\\u01E5\\u0187\\u0188\\u01B3\\u01B4';
+const LATIN_LETTERS = "A-Za-z";
+const NORWEGIAN_LETTERS = LATIN_LETTERS + "ÆØÅæøå";
+const SPECIAL_LETTERS = "ıłŁŊŋŦŧƁɓƊɗƓɠƘƙƤƥƬƭÞþßԈБ\\u0189\\u0256\\u00D0\\u00F0\\u00F0\\u0111\\u01E4\\u01E5\\u0187\\u0188\\u01B3\\u01B4";
 const ALL_LETTERS = NORWEGIAN_LETTERS + SPECIAL_LETTERS;
-const DIGITS = '0-9';
-const SPACE = ' ';
-const HYPHEN = '\\-';
-const PERIOD = '.';
+const DIGITS = "0-9";
+const SPACE = " ";
+const HYPHEN = "\\-";
+const PERIOD = ".";
 const APOSTROPHE = "'";
-const FORWARD_SLASH = '/';
-const COMMA = ',';
-const COLON = ':';
-const NUMBER_SIGN = '#';
-const AMPERSAND = '&';
+const FORWARD_SLASH = "/";
+const COMMA = ",";
+const COLON = ":";
+const NUMBER_SIGN = "#";
+const AMPERSAND = "&";
 
-export const regExpCreator = (regExpAsArray: string[], flag = 'i'): RegExp => new RegExp(regExpAsArray.join(''), flag);
+export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp => new RegExp(regExpAsArray.join(""), flag);
 
 export const regExpPattern = {
-    onlyNonLetters: regExpCreator(['^[^', ALL_LETTERS, ']+$']),
-    onlySignsSpace: regExpCreator(['^[^', ALL_LETTERS, DIGITS, ']+$']),
-    onlyAlphaNumeric: regExpCreator(['^[', NORWEGIAN_LETTERS, DIGITS, ']+$']),
-    onlyNumeric: regExpCreator(['^[', DIGITS, ']+$']),
+    onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
+    onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
+    onlyAlphaNumeric: regExpCreator(["^[", NORWEGIAN_LETTERS, DIGITS, "]+$"]),
+    onlyNumeric: regExpCreator(["^[", DIGITS, "]+$"]),
     validBankadresselinje: regExpCreator([
-        '^[',
+        "^[",
         ALL_LETTERS,
         DIGITS,
         SPACE,
@@ -103,12 +103,12 @@ export const regExpPattern = {
         FORWARD_SLASH,
         AMPERSAND,
         NUMBER_SIGN,
-        ']+$',
+        "]+$",
     ]),
-    validBanknavn: regExpCreator(['^[', ALL_LETTERS, DIGITS, SPACE, HYPHEN, PERIOD, COMMA, APOSTROPHE, FORWARD_SLASH, AMPERSAND, ']+$']),
+    validBanknavn: regExpCreator(["^[", ALL_LETTERS, DIGITS, SPACE, HYPHEN, PERIOD, COMMA, APOSTROPHE, FORWARD_SLASH, AMPERSAND, "]+$"]),
 };
 
-export const BLACKLISTED_WORDS = ['ukjent', 'ikke kjent', 'vet ikke', 'uoppgitt', 'n.n.', 'nomen nescio'];
+export const BLACKLISTED_WORDS = ["ukjent", "ikke kjent", "vet ikke", "uoppgitt", "n.n.", "nomen nescio"];
 
 /*
  * Normalize-funksjonen vil først dekomponere en bokstav med spesialtegn til flere kodepunkter.
@@ -117,6 +117,6 @@ export const BLACKLISTED_WORDS = ['ukjent', 'ikke kjent', 'vet ikke', 'uoppgitt'
  * F.eks. i stringen \u0043\u0327 vil \u0327 bli gjenkjent som et diakritisk tegn og dermed strippes vekk.
  */
 const normalizeInput = (val: string): string => {
-    const dekomponert = val.normalize('NFD');
-    return dekomponert.replace(/[\u0300-\u036f]/g, '');
+    const dekomponert = val.normalize("NFD");
+    return dekomponert.replace(/[\u0300-\u036f]/g, "");
 };

@@ -1,5 +1,5 @@
-import { BodyShort } from '@navikt/ds-react';
-import { UtenlandskAdresse as UtenlandskAdresseType } from '@/types/adresser/adresse';
+import { BodyShort } from "@navikt/ds-react";
+import type { UtenlandskAdresse as UtenlandskAdresseType } from "@/types/adresser/adresse";
 
 const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
     const { postboksNummerNavn, postkode } = props;
@@ -31,7 +31,7 @@ const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
             {(postkode ?? bySted) && (
                 <div className="adresse__linje">
                     <BodyShort>
-                        {postkode ?? ''} {bySted ?? ''}
+                        {postkode ?? ""} {bySted ?? ""}
                     </BodyShort>
                 </div>
             )}

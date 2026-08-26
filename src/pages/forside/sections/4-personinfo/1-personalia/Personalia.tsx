@@ -1,11 +1,11 @@
-import { ExternalLinkIcon } from '@navikt/aksel-icons';
-import Box from '@/components/box/Box';
-import personaliaIkon from '@/assets/img/Personalia.svg';
-import { Personalia as PersonaliaType } from '@/types/personalia';
-import ListElement from '@/components/listelement/ListElement';
-import Kilde from '@/components/kilde/Kilde';
-import { useStore } from '@/store/Context';
-import { Liste } from '@/components/listelement/Liste';
+import { ExternalLinkIcon } from "@navikt/aksel-icons";
+import personaliaIkon from "@/assets/img/Personalia.svg";
+import Box from "@/components/box/Box";
+import Kilde from "@/components/kilde/Kilde";
+import ListElement from "@/components/listelement/ListElement";
+import { Liste } from "@/components/listelement/Liste";
+import { useStore } from "@/store/Context";
+import type { Personalia as PersonaliaType } from "@/types/personalia";
 
 interface Props {
     personalia: PersonaliaType;
@@ -16,15 +16,15 @@ const Personalia = (props: Props) => {
 
     const { personident, fornavn, etternavn, statsborgerskap, foedested, sivilstand, kjoenn } = props.personalia;
 
-    const personidentHeader = personident && personident.type === 'DNR' ? 'personalia.dnr' : 'personalia.fnr';
+    const personidentHeader = personident && personident.type === "DNR" ? "personalia.dnr" : "personalia.fnr";
 
-    const fornavnHeader = fornavn && fornavn.indexOf(' ') === -1 ? 'personalia.first_name' : 'personalia.first_and_middle_name';
+    const fornavnHeader = fornavn && fornavn.indexOf(" ") === -1 ? "personalia.first_name" : "personalia.first_and_middle_name";
 
     const formattertPersonident =
         personident && personident.verdi.length === 11
             ? {
                   ...personident,
-                  verdi: personident.verdi.replace(/^(.{6})(.*)$/, '$1 $2'),
+                  verdi: personident.verdi.replace(/^(.{6})(.*)$/, "$1 $2"),
               }
             : personident;
 
@@ -53,10 +53,10 @@ const Personalia = (props: Props) => {
             <Kilde
                 kilde="personalia.source.folkeregisteret"
                 lenke={
-                    locale === 'en' ? 'https://www.skatteetaten.no/en/person/national-registry/' : 'https://www.skatteetaten.no/person/folkeregister/'
+                    locale === "en" ? "https://www.skatteetaten.no/en/person/national-registry/" : "https://www.skatteetaten.no/person/folkeregister/"
                 }
                 lenkeTekst="personalia.link.folkeregisteret"
-                lenkeType={'EKSTERN'}
+                lenkeType={"EKSTERN"}
                 ikon={ExternalLinkIcon}
             />
         </Box>

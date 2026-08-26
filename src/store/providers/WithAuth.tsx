@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
-import { useStore } from '../Context';
-import { fetchInnloggingsStatus, sendTilLogin } from '@/clients/apiClient';
-import { Auth } from '@/types/authInfo';
-import Spinner from '@/components/spinner/Spinner';
+import { useEffect } from "react";
+import { fetchInnloggingsStatus, sendTilLogin } from "@/clients/apiClient";
+import Spinner from "@/components/spinner/Spinner";
+import type { Auth } from "@/types/authInfo";
+import { useStore } from "../Context";
 
 type Props = {
     children: JSX.Element;
@@ -14,10 +14,10 @@ export const WithAuth = ({ children }: Props) => {
     useEffect(() => {
         fetchInnloggingsStatus()
             .then((auth: Auth) => {
-                if (!auth?.authenticated || auth.securityLevel !== '4') {
+                if (!auth?.authenticated || auth.securityLevel !== "4") {
                     sendTilLogin();
                 } else {
-                    dispatch({ type: 'SETT_AUTH_RESULT', payload: auth });
+                    dispatch({ type: "SETT_AUTH_RESULT", payload: auth });
                 }
             })
             .catch((error) => {
@@ -25,5 +25,5 @@ export const WithAuth = ({ children }: Props) => {
             });
     }, [dispatch]);
 
-    return authInfo.status === 'RESULT' ? children : <Spinner text={'Logger inn...'} />;
+    return authInfo.status === "RESULT" ? children : <Spinner text={"Logger inn..."} />;
 };

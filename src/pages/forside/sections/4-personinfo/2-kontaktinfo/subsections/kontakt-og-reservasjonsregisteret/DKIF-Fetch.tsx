@@ -1,26 +1,26 @@
-import { useEffect } from 'react';
-import ErrorMessage, { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import Spinner from '@/components/spinner/Spinner';
-import { useStore } from '@/store/Context';
-import { fetchKontaktInfo } from '@/clients/apiClient';
-import { KontaktInfo } from '@/types/kontaktInfo';
-import KontaktInformasjon from './DKIF';
+import { useEffect } from "react";
+import { fetchKontaktInfo } from "@/clients/apiClient";
+import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import Spinner from "@/components/spinner/Spinner";
+import { useStore } from "@/store/Context";
+import type { KontaktInfo } from "@/types/kontaktInfo";
+import KontaktInformasjon from "./DKIF";
 
-export type FetchKontaktInfo = { status: 'LOADING' } | { status: 'RESULT'; data: KontaktInfo } | { status: 'ERROR'; error: HTTPError };
+export type FetchKontaktInfo = { status: "LOADING" } | { status: "RESULT"; data: KontaktInfo } | { status: "ERROR"; error: HTTPError };
 
 const DKIF = () => {
     const [{ kontaktInfo }, dispatch] = useStore();
 
     useEffect(() => {
-        if (kontaktInfo.status === 'LOADING') {
+        if (kontaktInfo.status === "LOADING") {
             fetchKontaktInfo()
                 .then((kontaktInfo) =>
                     dispatch({
-                        type: 'SETT_KONTAKT_INFO_RESULT',
+                        type: "SETT_KONTAKT_INFO_RESULT",
                         payload: kontaktInfo as KontaktInfo,
-                    })
+                    }),
                 )
-                .catch((error: HTTPError) => dispatch({ type: 'SETT_KONTAKT_INFO_ERROR', payload: error }));
+                .catch((error: HTTPError) => dispatch({ type: "SETT_KONTAKT_INFO_ERROR", payload: error }));
         }
     }, [kontaktInfo, dispatch]);
 
@@ -28,11 +28,11 @@ const DKIF = () => {
         <>
             {(() => {
                 switch (kontaktInfo.status) {
-                    case 'LOADING':
+                    case "LOADING":
                         return <Spinner />;
-                    case 'RESULT':
+                    case "RESULT":
                         return <KontaktInformasjon info={kontaktInfo.data} />;
-                    case 'ERROR':
+                    case "ERROR":
                         return <ErrorMessage error={kontaktInfo.error} />;
                 }
             })()}

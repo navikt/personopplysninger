@@ -1,6 +1,6 @@
-import GateAdresse from '../../../komponenter/GateAdresse';
-import Postnummer from '../../../komponenter/Postnummer';
-import { PostadresseIFrittFormat as PostadresseIFrittFormatType } from '@/types/adresser/adresse';
+import type { PostadresseIFrittFormat as PostadresseIFrittFormatType } from "@/types/adresser/adresse";
+import GateAdresse from "../../../komponenter/GateAdresse";
+import Postnummer from "../../../komponenter/Postnummer";
 
 const PostadresseIFrittFormat = (props: PostadresseIFrittFormatType) => {
     const { adresselinje1, adresselinje2, adresselinje3 } = props;

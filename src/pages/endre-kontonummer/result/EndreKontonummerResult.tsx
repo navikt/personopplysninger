@@ -1,16 +1,16 @@
-import { Alert, BodyLong } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import Cookies from 'js-cookie';
+import { Alert, BodyLong } from "@navikt/ds-react";
+import Cookies from "js-cookie";
+import { FormattedMessage } from "react-intl";
 
-type Result = 'success' | 'error';
+type Result = "success" | "error";
 
-const RESULT_COOKIE = 'kontonr-result';
+const RESULT_COOKIE = "kontonr-result";
 
-const COOKIE_OPTIONS = { path: '/', domain: '.nav.no' } as const;
+const COOKIE_OPTIONS = { path: "/", domain: ".nav.no" } as const;
 
 const resultTextIdMap: Record<string, string> = {
-    success: 'endreKontonummer.success',
-    error: 'endreKontonummer.error',
+    success: "endreKontonummer.success",
+    error: "endreKontonummer.error",
 } as const;
 
 export const EndreKontonummerResult = () => {
@@ -27,7 +27,7 @@ export const EndreKontonummerResult = () => {
     }
 
     return (
-        <Alert variant={result} className={'endreKontonrResult'}>
+        <Alert variant={result} className={"endreKontonrResult"}>
             <FormattedMessage
                 id={resultTextId}
                 values={{

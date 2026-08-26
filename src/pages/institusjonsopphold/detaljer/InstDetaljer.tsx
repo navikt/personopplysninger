@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { Params, useParams } from 'react-router-dom';
-import { FormattedMessage } from 'react-intl';
-import INSTIkon from '@/assets/img/Institusjonsopphold.svg';
-import WithInst from '../InstFetch';
-import PageContainer from '@/components/pagecontainer/PageContainer';
-import Kilde from '@/components/kilde/Kilde';
-import InstDetaljerView from './InstDetaljerView';
+import { useEffect } from "react";
+import { FormattedMessage } from "react-intl";
+import { type Params, useParams } from "react-router-dom";
+import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
+import Kilde from "@/components/kilde/Kilde";
+import PageContainer from "@/components/pagecontainer/PageContainer";
+import WithInst from "../InstFetch";
+import InstDetaljerView from "./InstDetaljerView";
 
 interface Routes {
     id: string;
@@ -21,10 +21,10 @@ const InstDetaljer = () => {
 
     return (
         <PageContainer
-            tittelId={'inst.tittel'}
+            tittelId={"inst.tittel"}
             icon={INSTIkon}
-            backTo={'/institusjonsopphold'}
-            brodsmulesti={[{ title: 'inst.tittel', path: '/institusjonsopphold' }, { title: 'inst.detaljer' }]}
+            backTo={"/institusjonsopphold"}
+            brodsmulesti={[{ title: "inst.tittel", path: "/institusjonsopphold" }, { title: "inst.detaljer" }]}
         >
             <WithInst>
                 {({ data }) => {

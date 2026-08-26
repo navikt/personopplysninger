@@ -1,8 +1,8 @@
-import { useNavigate, useLocation, NavigateOptions } from 'react-router-dom';
-import { ArrowLeftIcon } from '@navikt/aksel-icons';
-import { redirects, validateAndDecodeRedirectUrl } from '@/utils/redirects';
-import veilederIkon from '@/assets/img/VeilederGul.svg';
-import naturIkon from '@/assets/img/Natur.svg';
+import { ArrowLeftIcon } from "@navikt/aksel-icons";
+import { type NavigateOptions, useLocation, useNavigate } from "react-router-dom";
+import naturIkon from "@/assets/img/Natur.svg";
+import veilederIkon from "@/assets/img/VeilederGul.svg";
+import { redirects, validateAndDecodeRedirectUrl } from "@/utils/redirects";
 
 interface Props {
     tjeneste?: string;
@@ -20,7 +20,7 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
     const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
     // If the redirect-url is not a valid nav.no url, redirect to the app front page
     if (!redirectUrl) {
-        const basePath = location.pathname.split('sendt-fra')[0];
+        const basePath = location.pathname.split("sendt-fra")[0];
         const navigateOptions: NavigateOptions = { replace: true };
         navigate(basePath, navigateOptions);
         return null;

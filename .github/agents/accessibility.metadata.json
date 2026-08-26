@@ -1,11 +1,11 @@
 {
-  "domain": "frontend",
-  "tags": ["wcag", "a11y", "universell-utforming", "aksel", "aria"],
-  "examples": [
-    "Sjekk denne komponenten for tilgjengelighetsfeil",
-    "Gå gjennom WCAG-krav for denne sida",
-    "Legg til ARIA-attributter på dette skjemaet",
-    "Sett opp axe-core-testing",
-    "Fiks overskriftshierarkiet"
-  ]
+    "domain": "frontend",
+    "tags": ["wcag", "a11y", "universell-utforming", "aksel", "aria"],
+    "examples": [
+        "Sjekk denne komponenten for tilgjengelighetsfeil",
+        "Gå gjennom WCAG-krav for denne sida",
+        "Legg til ARIA-attributter på dette skjemaet",
+        "Sett opp axe-core-testing",
+        "Fiks overskriftshierarkiet"
+    ]
 }

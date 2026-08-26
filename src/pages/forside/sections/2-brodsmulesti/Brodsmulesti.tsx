@@ -1,13 +1,10 @@
-import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { setAvailableLanguages } from '@navikt/nav-dekoratoren-moduler';
-import { setBreadcrumbs } from '@navikt/nav-dekoratoren-moduler';
-import { onLanguageSelect } from '@navikt/nav-dekoratoren-moduler';
-import { onBreadcrumbClick } from '@navikt/nav-dekoratoren-moduler';
-import { useStore } from '@/store/Context';
-import { Locale } from '@/store/Store';
-import { basePath } from '@/constants';
+import { onBreadcrumbClick, onLanguageSelect, setAvailableLanguages, setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
+import { useEffect } from "react";
+import { useIntl } from "react-intl";
+import { useLocation, useNavigate } from "react-router-dom";
+import { basePath } from "@/constants";
+import { useStore } from "@/store/Context";
+import type { Locale } from "@/store/Store";
 
 export interface BrodsmuleLenke {
     title: string;
@@ -30,25 +27,25 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
     });
 
     onLanguageSelect((language) => {
-        dispatch({ type: 'SETT_LOCALE', payload: language.locale as Locale });
+        dispatch({ type: "SETT_LOCALE", payload: language.locale as Locale });
         navigate(language.url!);
     });
 
     useEffect(() => {
         setAvailableLanguages([
             {
-                url: `${location.pathname.replace(/\/(nn|en)(\/|$)/, '/nb/')}`,
-                locale: 'nb',
+                url: `${location.pathname.replace(/\/(nn|en)(\/|$)/, "/nb/")}`,
+                locale: "nb",
                 handleInApp: true,
             },
             {
-                url: `${location.pathname.replace(/\/(nb|nn)(\/|$)/, '/en/')}`,
-                locale: 'en',
+                url: `${location.pathname.replace(/\/(nb|nn)(\/|$)/, "/en/")}`,
+                locale: "en",
                 handleInApp: true,
             },
             {
-                url: `${location.pathname.replace(/\/(nb|en)(\/|$)/, '/nn/')}`,
-                locale: 'nn',
+                url: `${location.pathname.replace(/\/(nb|en)(\/|$)/, "/nn/")}`,
+                locale: "nn",
                 handleInApp: true,
             },
         ]);
@@ -59,20 +56,20 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
         const baseBreadcrumbs = [
             {
                 url: `${import.meta.env.VITE_DITT_NAV_URL}`,
-                title: formatMessage({ id: 'brodsmulesti.minside' }),
+                title: formatMessage({ id: "brodsmulesti.minside" }),
             },
             {
                 url: `${basePath}/${locale}/`,
-                title: formatMessage({ id: 'brodsmulesti.dinepersonopplysninger' }),
+                title: formatMessage({ id: "brodsmulesti.dinepersonopplysninger" }),
                 handleInApp: true,
             },
         ];
 
         const appBreadcrumbs =
             hierarki?.map((lenke) => ({
-                url: `${basePath}/${locale}${lenke.path ?? ''}`,
-                title: formatMessage({ id: lenke.title }, { br: () => '' }),
-                handleInApp: lenke.path?.includes('/') ?? false,
+                url: `${basePath}/${locale}${lenke.path ?? ""}`,
+                title: formatMessage({ id: lenke.title }, { br: () => "" }),
+                handleInApp: lenke.path?.includes("/") ?? false,
             })) ?? [];
 
         const breadcrumbs = baseBreadcrumbs.concat(appBreadcrumbs);

@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import { BodyShort, Label } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import { PencilIcon, TrashIcon } from '@navikt/aksel-icons';
-import { fetchPersonInfo, slettTlfnummer } from '@/clients/apiClient';
-import { PersonInfo } from '@/types/personInfo';
-import { useStore } from '@/store/Context';
-import HttpFeilmelding, { Feilmelding } from '@/components/httpFeilmelding/HttpFeilmelding';
-import { formatTelefonnummer } from '@/utils/formattering';
-import { UNKNOWN } from '@/utils/text';
-import Knapp from './Knapp';
-import SlettModal from './SlettModal';
-import TelefonnummerForm from './TelefonnummerForm';
+import { PencilIcon, TrashIcon } from "@navikt/aksel-icons";
+import { BodyShort, Label } from "@navikt/ds-react";
+import { useState } from "react";
+import { FormattedMessage } from "react-intl";
+import { fetchPersonInfo, slettTlfnummer } from "@/clients/apiClient";
+import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import { useStore } from "@/store/Context";
+import type { PersonInfo } from "@/types/personInfo";
+import { formatTelefonnummer } from "@/utils/formattering";
+import { UNKNOWN } from "@/utils/text";
+import Knapp from "./Knapp";
+import SlettModal from "./SlettModal";
+import TelefonnummerForm from "./TelefonnummerForm";
 
 export interface OutboundTlfnummer {
     prioritet: 1 | 2;
@@ -37,10 +37,10 @@ const Telefonnummer = (props: Props) => {
     const [, dispatch] = useStore();
 
     const defaultValues = {
-        tlfnummer: tlfnummer ?? '',
+        tlfnummer: tlfnummer ?? "",
         landskode: {
             label: UNKNOWN,
-            value: landskode ?? '',
+            value: landskode ?? "",
         },
     };
 
@@ -65,7 +65,7 @@ const Telefonnummer = (props: Props) => {
     const getUpdatedData = () =>
         fetchPersonInfo().then((personInfo) => {
             dispatch({
-                type: 'SETT_PERSON_INFO_RESULT',
+                type: "SETT_PERSON_INFO_RESULT",
                 payload: personInfo as PersonInfo,
             });
         });
@@ -92,11 +92,11 @@ const Telefonnummer = (props: Props) => {
     };
 
     return (
-        <div className={'tlfnummer__rad'}>
-            <div className={'tlfnummer__container'}>
-                <div className={'tlfnummer__verdi'}>
+        <div className={"tlfnummer__rad"}>
+            <div className={"tlfnummer__container"}>
+                <div className={"tlfnummer__verdi"}>
                     <Label as="p">
-                        <FormattedMessage id={titleId} values={{ x: hasTwoNumbers ? prioritet : '' }} />
+                        <FormattedMessage id={titleId} values={{ x: hasTwoNumbers ? prioritet : "" }} />
                     </Label>
                     {!endre && (
                         <BodyShort>
@@ -107,9 +107,9 @@ const Telefonnummer = (props: Props) => {
                 </div>
 
                 {!endre && (
-                    <div className={'tlfnummer__knapper'}>
-                        <Knapp ariaLabel={'Endre telefonnummer'} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={'side.endre'} />
-                        <Knapp ariaLabel={'Slett telefonnummer'} onClick={apneSlettModal} ikon={TrashIcon} tekstId={'side.slett'} />
+                    <div className={"tlfnummer__knapper"}>
+                        <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={"side.endre"} />
+                        <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekstId={"side.slett"} />
                     </div>
                 )}
             </div>
@@ -124,7 +124,7 @@ const Telefonnummer = (props: Props) => {
             )}
             {endre && (
                 <TelefonnummerForm
-                    type={'endre'}
+                    type={"endre"}
                     prioritet={prioritet}
                     onCancelClick={() => settEndre(!endre)}
                     onChangeSuccess={onChangeSuccess}

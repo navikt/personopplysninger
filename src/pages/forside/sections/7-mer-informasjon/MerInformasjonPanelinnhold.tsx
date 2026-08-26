@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
-import { BodyLong, Link } from '@navikt/ds-react';
-import { FormattedMessage } from 'react-intl';
-import { useStore } from '@/store/Context';
+import { BodyLong, Link } from "@navikt/ds-react";
+import { Fragment } from "react";
+import { FormattedMessage } from "react-intl";
+import { useStore } from "@/store/Context";
 
 interface Props {
     melding: string;
@@ -23,7 +23,7 @@ const Alternativ = (props: Props) => {
                     ),
                     beskjedLenke: (text) => (
                         <Link
-                            href={`/person/kontakt-oss/${locale === 'en' ? 'en/write-to-us' : 'nb/skriv-til-oss'}`}
+                            href={`/person/kontakt-oss/${locale === "en" ? "en/write-to-us" : "nb/skriv-til-oss"}`}
                             rel="noopener noreferrer"
                             target="_blank"
                         >

@@ -1,7 +1,7 @@
-import { ForwardedRef, useEffect, useState, forwardRef } from 'react';
-import { fetchValutaer } from '@/clients/apiClient';
-import { HTTPError } from '@/components/errorMessage/ErrorMessage';
-import NAVSelect from '@/components/felter/select/NAVSelect';
+import { type ForwardedRef, forwardRef, useEffect, useState } from "react";
+import { fetchValutaer } from "@/clients/apiClient";
+import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
+import NAVSelect from "@/components/felter/select/NAVSelect";
 
 interface Props {
     option?: OptionType;
@@ -53,9 +53,9 @@ const SelectValuta = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElemen
 
     const options = mapKoderToOptions(valutaer)
         .sort((a: OptionType, b: OptionType) => (a.label < b.label ? -1 : 1))
-        .sort((a: OptionType) => (a.value === 'SEK' ? -1 : 1))
-        .sort((a: OptionType) => (a.value === 'EUR' ? -1 : 1))
-        .sort((a: OptionType) => (a.value === 'USD' ? -1 : 1));
+        .sort((a: OptionType) => (a.value === "SEK" ? -1 : 1))
+        .sort((a: OptionType) => (a.value === "EUR" ? -1 : 1))
+        .sort((a: OptionType) => (a.value === "USD" ? -1 : 1));
 
     return (
         <NAVSelect
@@ -77,6 +77,6 @@ const SelectValuta = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElemen
     );
 });
 
-SelectValuta.displayName = 'SelectValuta';
+SelectValuta.displayName = "SelectValuta";
 
 export default SelectValuta;

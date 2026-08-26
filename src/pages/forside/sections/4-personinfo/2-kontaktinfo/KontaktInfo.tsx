@@ -1,11 +1,12 @@
-import { FormattedMessage } from 'react-intl';
-import { Heading } from '@navikt/ds-react';
-import Box from '@/components/box/Box';
-import kontaktIkon from '@/assets/img/Kontakt.svg';
-import { Tlfnr } from '@/types/personalia';
-import Infotekst from '@/components/infotekst/Infotekst';
-import TelefonnummerHosNav from './subsections/telefonnummer/TelefonnummerHosNav';
-import DKIF from './subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch';
+import { Heading } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import kontaktIkon from "@/assets/img/Kontakt.svg";
+import Box from "@/components/box/Box";
+import Infotekst from "@/components/infotekst/Infotekst";
+import type { Tlfnr } from "@/types/personalia";
+import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
+import TelefonnummerHosNav from "./subsections/telefonnummer/TelefonnummerHosNav";
+
 interface Props {
     tlfnr?: Tlfnr;
 }
@@ -16,7 +17,7 @@ const KontaktInfo = (props: Props) => {
             {props.tlfnr && (props.tlfnr.telefonHoved || props.tlfnr.telefonAlternativ) ? (
                 <>
                     <div className="underseksjon__header">
-                        <Heading size={'small'} level={'3'}>
+                        <Heading size={"small"} level={"3"}>
                             <FormattedMessage id="personalia.tlfnr.oveskrift" />
                         </Heading>
                     </div>
@@ -25,7 +26,7 @@ const KontaktInfo = (props: Props) => {
                         <TelefonnummerHosNav tlfnr={props.tlfnr} />
                     </div>
                     <div className="underseksjon__header underseksjon__divider dkif__overskrift-container">
-                        <Heading size={'small'} level={'3'}>
+                        <Heading size={"small"} level={"3"}>
                             <FormattedMessage id="personalia.dkif.overskrift" />
                         </Heading>
                         <Infotekst overskriftID="personalia.dkif.overskrift" beskrivelseID="personalia.dkif.beskrivelse" />

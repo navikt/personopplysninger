@@ -1,20 +1,20 @@
-import { MemoryRouter } from 'react-router-dom';
-import { IntlProvider } from 'react-intl';
-import { render } from '@testing-library/react';
-import personInfo from '@/clients/apiMock/app/fetch/person-info.json';
-import nbMessages from '@/text/nb';
-import EndreOpplysningerView from '@/pages/endre-personopplysninger/EndreOpplysningerView';
-import { Adresser } from '@/types/adresser';
-import { Personalia } from '@/types/personalia';
-import { StoreProvider } from '@/store/Context';
+import { render } from "@testing-library/react";
+import { IntlProvider } from "react-intl";
+import { MemoryRouter } from "react-router-dom";
+import personInfo from "@/clients/apiMock/app/fetch/person-info.json";
+import EndreOpplysningerView from "@/pages/endre-personopplysninger/EndreOpplysningerView";
+import { StoreProvider } from "@/store/Context";
+import nbMessages from "@/text/nb";
+import type { Adresser } from "@/types/adresser";
+import type { Personalia } from "@/types/personalia";
 
-vi.mock('react-modal');
+vi.mock("react-modal");
 
-describe('EndreOpplysningerView', () => {
-    it('renders correctly', () => {
+describe("EndreOpplysningerView", () => {
+    it("renders correctly", () => {
         const { asFragment } = render(
             <StoreProvider>
-                <IntlProvider locale={'nb'} messages={nbMessages}>
+                <IntlProvider locale={"nb"} messages={nbMessages}>
                     <MemoryRouter>
                         <EndreOpplysningerView
                             adresser={personInfo.adresser as unknown as Adresser}
@@ -22,7 +22,7 @@ describe('EndreOpplysningerView', () => {
                         />
                     </MemoryRouter>
                 </IntlProvider>
-            </StoreProvider>
+            </StoreProvider>,
         );
         expect(asFragment()).toMatchSnapshot();
     });

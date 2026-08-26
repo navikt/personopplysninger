@@ -1,97 +1,97 @@
 {
-  "collection": "frontend",
-  "version": "2026.08.23-185231-f8613ae",
-  "scope": "repo",
-  "source_sha": "f8613ae",
-  "installed_at": "2026-04-24T09:34:27Z",
-  "files": [
-    {
-      "path": ".github/agents/accessibility.agent.md",
-      "hash": "67b453f152c4f663"
-    },
-    {
-      "path": ".github/agents/accessibility.metadata.json",
-      "hash": "8c9bd3f0474b10a2"
-    },
-    {
-      "path": ".github/agents/aksel.agent.md",
-      "hash": "d190246642818387"
-    },
-    {
-      "path": ".github/agents/aksel.metadata.json",
-      "hash": "f81b02c28e251a4f"
-    },
-    {
-      "path": ".github/agents/forfatter.agent.md",
-      "hash": "3dd47103e9bf04a8"
-    },
-    {
-      "path": ".github/agents/forfatter.metadata.json",
-      "hash": "415648fcdc323588"
-    },
-    {
-      "path": ".github/agents/nav-pilot.agent.md",
-      "hash": "c026ac85182629e4"
-    },
-    {
-      "path": ".github/agents/nav-pilot.metadata.json",
-      "hash": "a2346eca6efdb9f5"
-    },
-    {
-      "path": ".github/skills/aksel-spacing/",
-      "hash": "177594fc5ae8d7e3"
-    },
-    {
-      "path": ".github/skills/playwright-testing/",
-      "hash": "5c618cd99c79df64"
-    },
-    {
-      "path": ".github/skills/web-design-reviewer/",
-      "hash": "07b2096b77bf5ae3"
-    },
-    {
-      "path": ".github/skills/nav-plan/",
-      "hash": "0a160744cf2b4e82"
-    },
-    {
-      "path": ".github/skills/nav-deep-interview/",
-      "hash": "eeb3399ecd4e352c"
-    },
-    {
-      "path": ".github/skills/nav-architecture-review/",
-      "hash": "4618dec566442509"
-    },
-    {
-      "path": ".github/skills/nav-troubleshoot/",
-      "hash": "e9900d58d91ee0ee"
-    },
-    {
-      "path": ".github/instructions/testing.instructions.md",
-      "hash": "ca2a23744bef3a2c"
-    },
-    {
-      "path": ".github/instructions/testing-typescript.instructions.md",
-      "hash": "6c6055340a9d075c"
-    },
-    {
-      "path": ".github/instructions/accessibility.instructions.md",
-      "hash": "986ef7aa27d8a1d9"
-    },
-    {
-      "path": ".github/instructions/github-actions.instructions.md",
-      "hash": "bbef6f3e56b8b3b3"
-    },
-    {
-      "path": ".github/instructions/docker.instructions.md",
-      "hash": "32db7a2f8aaab2ac"
-    },
-    {
-      "path": ".github/prompts/aksel-component.prompt.md",
-      "hash": "721f879cfd8e89da"
-    },
-    {
-      "path": ".github/prompts/nais-manifest.prompt.md",
-      "hash": "8576571223ffef8a"
-    }
-  ]
+    "collection": "frontend",
+    "version": "2026.08.23-185231-f8613ae",
+    "scope": "repo",
+    "source_sha": "f8613ae",
+    "installed_at": "2026-04-24T09:34:27Z",
+    "files": [
+        {
+            "path": ".github/agents/accessibility.agent.md",
+            "hash": "67b453f152c4f663"
+        },
+        {
+            "path": ".github/agents/accessibility.metadata.json",
+            "hash": "8c9bd3f0474b10a2"
+        },
+        {
+            "path": ".github/agents/aksel.agent.md",
+            "hash": "d190246642818387"
+        },
+        {
+            "path": ".github/agents/aksel.metadata.json",
+            "hash": "f81b02c28e251a4f"
+        },
+        {
+            "path": ".github/agents/forfatter.agent.md",
+            "hash": "3dd47103e9bf04a8"
+        },
+        {
+            "path": ".github/agents/forfatter.metadata.json",
+            "hash": "415648fcdc323588"
+        },
+        {
+            "path": ".github/agents/nav-pilot.agent.md",
+            "hash": "c026ac85182629e4"
+        },
+        {
+            "path": ".github/agents/nav-pilot.metadata.json",
+            "hash": "a2346eca6efdb9f5"
+        },
+        {
+            "path": ".github/skills/aksel-spacing/",
+            "hash": "177594fc5ae8d7e3"
+        },
+        {
+            "path": ".github/skills/playwright-testing/",
+            "hash": "5c618cd99c79df64"
+        },
+        {
+            "path": ".github/skills/web-design-reviewer/",
+            "hash": "07b2096b77bf5ae3"
+        },
+        {
+            "path": ".github/skills/nav-plan/",
+            "hash": "0a160744cf2b4e82"
+        },
+        {
+            "path": ".github/skills/nav-deep-interview/",
+            "hash": "eeb3399ecd4e352c"
+        },
+        {
+            "path": ".github/skills/nav-architecture-review/",
+            "hash": "4618dec566442509"
+        },
+        {
+            "path": ".github/skills/nav-troubleshoot/",
+            "hash": "e9900d58d91ee0ee"
+        },
+        {
+            "path": ".github/instructions/testing.instructions.md",
+            "hash": "ca2a23744bef3a2c"
+        },
+        {
+            "path": ".github/instructions/testing-typescript.instructions.md",
+            "hash": "6c6055340a9d075c"
+        },
+        {
+            "path": ".github/instructions/accessibility.instructions.md",
+            "hash": "986ef7aa27d8a1d9"
+        },
+        {
+            "path": ".github/instructions/github-actions.instructions.md",
+            "hash": "bbef6f3e56b8b3b3"
+        },
+        {
+            "path": ".github/instructions/docker.instructions.md",
+            "hash": "32db7a2f8aaab2ac"
+        },
+        {
+            "path": ".github/prompts/aksel-component.prompt.md",
+            "hash": "721f879cfd8e89da"
+        },
+        {
+            "path": ".github/prompts/nais-manifest.prompt.md",
+            "hash": "8576571223ffef8a"
+        }
+    ]
 }

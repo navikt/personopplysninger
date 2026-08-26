@@ -1,29 +1,29 @@
-import { Alert } from '@navikt/ds-react';
-import { useIntl } from 'react-intl';
-import { HTTPError } from '@/components/errorMessage/ErrorMessage';
+import { Alert } from "@navikt/ds-react";
+import { useIntl } from "react-intl";
+import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
 
-type FeilmeldingType = 'advarsel' | 'info' | 'feil';
+type FeilmeldingType = "advarsel" | "info" | "feil";
 
 export interface Feilmelding extends HTTPError {
     type: FeilmeldingType;
 }
 
-type AlertVariant = { [key in FeilmeldingType]: 'error' | 'warning' | 'info' | 'success' };
+type AlertVariant = { [key in FeilmeldingType]: "error" | "warning" | "info" | "success" };
 
 const HttpFeilmelding = (props: Feilmelding) => {
     const { formatMessage, messages } = useIntl();
 
     const alertVarianter: AlertVariant = {
-        advarsel: 'warning',
-        info: 'info',
-        feil: 'error',
+        advarsel: "warning",
+        info: "info",
+        feil: "error",
     };
 
     const role = {
-        success: 'status',
-        warning: 'status',
+        success: "status",
+        warning: "status",
         info: undefined,
-        error: 'alert',
+        error: "alert",
     };
     const variant = alertVarianter[props.type] || alertVarianter.info;
     const text = props.text in messages ? formatMessage({ id: props.text }) : props.text;

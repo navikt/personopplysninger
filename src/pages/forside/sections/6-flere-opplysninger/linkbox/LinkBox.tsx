@@ -1,8 +1,8 @@
-import { FormattedMessage } from 'react-intl';
-import { Link } from 'react-router-dom';
-import { BodyLong, Label } from '@navikt/ds-react';
-import { ChevronRightIcon } from '@navikt/aksel-icons';
-import Icon from '@/components/icon/Icon';
+import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, Label } from "@navikt/ds-react";
+import { FormattedMessage } from "react-intl";
+import { Link } from "react-router-dom";
+import Icon from "@/components/icon/Icon";
 
 export interface Props {
     id: string;
@@ -11,7 +11,7 @@ export interface Props {
     lenkeTekst: string;
     icon?: string;
     to: string;
-    component: 'a' | 'Link';
+    component: "a" | "Link";
 }
 
 const Box = (props: Props) => {
@@ -43,13 +43,13 @@ const Box = (props: Props) => {
 
 const LinkBox = (props: Props) => {
     switch (props.component) {
-        case 'Link':
+        case "Link":
             return (
                 <Link className="linkbox__rad" to={props.to}>
                     <Box {...props} />
                 </Link>
             );
-        case 'a':
+        case "a":
             return (
                 <a className="linkbox__rad" href={props.to}>
                     <Box {...props} />

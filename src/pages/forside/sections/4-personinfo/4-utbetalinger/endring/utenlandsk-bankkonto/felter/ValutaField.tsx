@@ -1,7 +1,7 @@
-import { useFormContext } from 'react-hook-form';
-import SelectValuta from '@/components/felter/select-kodeverk/SelectValuta';
-import { useIntlFormatter } from '@/hooks/useIntlFormatter';
-import { FormFields } from '../../types';
+import { useFormContext } from "react-hook-form";
+import SelectValuta from "@/components/felter/select-kodeverk/SelectValuta";
+import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { FormFields } from "../../types";
 
 const ValutaField = () => {
     const { formatMessage } = useIntlFormatter();
@@ -16,18 +16,18 @@ const ValutaField = () => {
 
     return (
         <SelectValuta
-            {...register('valuta', {
-                required: formatMessage('validation.valuta.pakrevd'),
+            {...register("valuta", {
+                required: formatMessage("validation.valuta.pakrevd"),
             })}
-            id={'valuta'}
+            id={"valuta"}
             submitted={isSubmitted}
-            label={formatMessage('felter.valuta.label')}
-            hjelpetekst={'utbetalinger.hjelpetekster.valuta'}
+            label={formatMessage("felter.valuta.label")}
+            hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
             option={watch().valuta}
             onChange={(value) => {
-                setValue('valuta', value);
+                setValue("valuta", value);
                 if (isSubmitted) {
-                    trigger();   
+                    trigger();
                 }
             }}
             error={errors?.valuta?.message}

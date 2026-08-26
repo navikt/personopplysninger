@@ -1,22 +1,21 @@
-import { useEffect } from 'react';
-import { useIntl } from 'react-intl';
-import { FormattedMessage } from 'react-intl';
-import { useLocation } from 'react-router-dom';
-import { Alert, Link, Loader } from '@navikt/ds-react';
-import { ErrorWithBox } from '../forside/sections/4-personinfo/PersonInfo';
-import MedPersonInfo from '@/store/providers/PersonInfo';
-import PageContainer from '@/components/pagecontainer/PageContainer';
-import kontonummerIkon from '@/assets/img/Kontonummer.svg';
-import driftsmeldinger from '../../driftsmeldinger';
-import { EndreKontonummerView } from './EndreKontonummerView';
+import { Alert, Link, Loader } from "@navikt/ds-react";
+import { useEffect } from "react";
+import { FormattedMessage, useIntl } from "react-intl";
+import { useLocation } from "react-router-dom";
+import kontonummerIkon from "@/assets/img/Kontonummer.svg";
+import PageContainer from "@/components/pagecontainer/PageContainer";
+import MedPersonInfo from "@/store/providers/PersonInfo";
+import driftsmeldinger from "../../driftsmeldinger";
+import { ErrorWithBox } from "../forside/sections/4-personinfo/PersonInfo";
+import { EndreKontonummerView } from "./EndreKontonummerView";
 
 export const EndreKontonummer = () => {
     const { state } = useLocation();
 
     const intl = useIntl();
-    const lenkeUrl = intl.formatMessage({ id: 'endreKontonummer.lenkeURL' });
+    const lenkeUrl = intl.formatMessage({ id: "endreKontonummer.lenkeURL" });
 
-    const backTo = `${state?.backTo || ''}#utbetaling`;
+    const backTo = `${state?.backTo || ""}#utbetaling`;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -24,10 +23,10 @@ export const EndreKontonummer = () => {
 
     return (
         <PageContainer
-            tittelId={'endreKontonummer.tittel'}
+            tittelId={"endreKontonummer.tittel"}
             icon={kontonummerIkon}
             backTo={backTo}
-            brodsmulesti={[{ title: 'endreKontonummer.tittel' }]}
+            brodsmulesti={[{ title: "endreKontonummer.tittel" }]}
         >
             {driftsmeldinger.pdl && (
                 <Alert role="status" variant="warning">

@@ -1,15 +1,15 @@
-import { createRoot } from 'react-dom/client';
-import { injectDecoratorClientSide } from '@navikt/nav-dekoratoren-moduler';
-import { StoreProvider } from './store/Context';
-import WithLanguages from './store/providers/Language';
-import App from './App';
+import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import { StoreProvider } from "./store/Context";
+import WithLanguages from "./store/providers/Language";
 
 const init = async () => {
-    if (import.meta.env.VITE_ENV === 'local') {
-        await import('./clients/apiMock').then(({ setUpMock }) => setUpMock());
+    if (import.meta.env.VITE_ENV === "local") {
+        await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
         injectDecoratorClientSide({
-            env: 'localhost',
-            localUrl: 'http://localhost:8100/dekoratoren',
+            env: "localhost",
+            localUrl: "http://localhost:8100/dekoratoren",
             params: {
                 simple: false,
                 chatbot: false,
@@ -18,7 +18,7 @@ const init = async () => {
         });
     }
 
-    const container = document.getElementById('maincontent');
+    const container = document.getElementById("maincontent");
     if (!container) {
         return;
     }
@@ -29,7 +29,7 @@ const init = async () => {
             <WithLanguages>
                 <App />
             </WithLanguages>
-        </StoreProvider>
+        </StoreProvider>,
     );
 };
 init();

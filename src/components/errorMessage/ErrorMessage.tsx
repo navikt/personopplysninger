@@ -1,4 +1,4 @@
-import { Alert } from '@navikt/ds-react';
+import { Alert } from "@navikt/ds-react";
 
 export interface HTTPError {
     code: number;

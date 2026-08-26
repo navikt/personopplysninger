@@ -1,5 +1,6 @@
-import { createContext, useContext, useReducer, Dispatch } from 'react';
-import { Action, initialState, reducer, Store } from './Store';
+import { createContext, type Dispatch, useContext, useReducer } from "react";
+import { type Action, initialState, reducer, type Store } from "./Store";
+
 interface Props {
     children: JSX.Element | JSX.Element[];
 }
