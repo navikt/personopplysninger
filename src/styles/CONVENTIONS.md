@@ -108,7 +108,9 @@ Definisjonen av `--ppo-bp-desktop` og `--ppo-bp-mobile` finnes i `src/styles/tok
 
 ## 5. Tokens og farger
 
-Bruk alltid Aksel 7 `--a-*`-variabler — **aldri rå hex-verdier** eller `px`-verdier der en token finnes.
+Bruk Aksel 7 `--a-*`-variabler for nye stiler. Behold eksisterende rå farger når
+en token-erstatning ville gi en visuell endring; slike fargebytter tas i en egen
+migrering.
 
 ```css
 /* ✅ */

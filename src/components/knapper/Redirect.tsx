@@ -3,6 +3,7 @@ import { type NavigateOptions, useLocation, useNavigate } from "react-router-dom
 import naturIkon from "@/assets/img/Natur.svg";
 import veilederIkon from "@/assets/img/VeilederGul.svg";
 import { redirects, validateAndDecodeRedirectUrl } from "@/utils/redirects";
+import styles from "./Redirect.module.css";
 
 interface Props {
     tjeneste?: string;
@@ -29,15 +30,15 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
     const redirect = redirects[tjeneste];
 
     return (
-        <div className="redirect__container">
-            <div className="redirect__wrapper" style={{ backgroundImage: `url(${naturIkon})` }}>
-                <span className="redirect__ikon-container">
-                    <img src={veilederIkon} className="redirect__ikon" alt="Veileder" />
+        <div className={styles.container}>
+            <div className={styles.wrapperInner} style={{ backgroundImage: `url(${naturIkon})` }}>
+                <span className={styles.ikonContainer}>
+                    <img src={veilederIkon} className={styles.ikon} alt="Veileder" />
                 </span>
-                <div className="redirect__content">
+                <div className={styles.content}>
                     <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
-                    <div className="redirect__lenke">
-                        <div className="redirect__chevron">
+                    <div className={styles.lenke}>
+                        <div className={styles.chevron}>
                             <ArrowLeftIcon aria-hidden="true" />
                         </div>
                         <a href={redirectUrl}>{redirect.knapp}</a>

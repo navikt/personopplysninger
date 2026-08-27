@@ -1,3 +1,5 @@
+import styles from "./Icon.module.css";
+
 interface Props {
     backgroundImage?: string;
     backgroundColor?: string;
@@ -6,7 +8,7 @@ interface Props {
 const Icon = (props: Props) => {
     return (
         <div
-            className="icon__circle"
+            className={styles.circle}
             aria-hidden={props.ariaHidden}
             style={{
                 backgroundImage: `url(${props.backgroundImage})`,

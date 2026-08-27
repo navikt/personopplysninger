@@ -8,6 +8,7 @@ import type { FormatOptionLabelMeta } from "react-select/base";
 import { RADIX_DECIMAL } from "@/utils/formattering";
 import type { HTTPError } from "../../errorMessage/ErrorMessage";
 import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
+import styles from "./NAVSelect.module.css";
 
 interface Props {
     id: string;
@@ -34,10 +35,10 @@ interface OptionType {
 
 type OnChangeHandler = (newValue: MultiValue<OptionType> | SingleValue<OptionType>, actionMeta: ActionMeta<OptionType>) => void;
 
-const LoadingIndicator = () => <Loader size="xsmall" className="KodeverkSelect__spinner" />;
+const LoadingIndicator = () => <Loader size="xsmall" className={styles.spinner} />;
 
 const DropdownIndicator = () => (
-    <div className="KodeverkSelect__dropdown-indicator">
+    <div className={styles.dropdownIndicator}>
         <ChevronDownIcon aria-hidden="true" />
     </div>
 );
@@ -100,7 +101,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
 
     return !props.fetchError ? (
         <div className={containerClasses}>
-            <div className="KodeverkSelect__header">
+            <div className={styles.header}>
                 <LabelMedHjelpetekst label={props.label} hjelpetekst={props.hjelpetekst} labelId={labelId} labelForId={props.id} />
             </div>
             <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
@@ -125,7 +126,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
                 />
             </div>
             {props.submitted && props.error && (
-                <Label as="p" role="alert" aria-live="assertive" className="KodeverkSelect__feilmelding">
+                <Label as="p" role="alert" aria-live="assertive" className={styles.feilmelding}>
                     {props.error}
                 </Label>
             )}

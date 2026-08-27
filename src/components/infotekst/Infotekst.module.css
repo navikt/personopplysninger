@@ -1,0 +1,46 @@
+/* Infotekst.module.css — replaces Infotekst.less */
+
+.titleIButton {
+    padding: 0 0 0 0.5rem;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    /* outline replaced by box-shadow on child icon to preserve focus visibility */
+    outline: none;
+    border: 0;
+    background: transparent;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (min-width: 959px) {
+    .modal {
+        max-width: 700px;
+    }
+}
+
+.ingress {
+    max-width: 100%;
+}
+
+.titleIIcon {
+    border-radius: 50%;
+    color: var(--a-surface-action);
+    border: 2px solid var(--a-surface-action);
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.titleIButton:focus .titleIIcon {
+    outline: 0;
+    box-shadow: 0 0 0 3px var(--a-border-focus);
+}
+
+.titleIIcon path {
+    transform: scale(1.4) translate(-15%, -15%);
+}
+
+.titleIIconHover {
+    background-color: var(--a-surface-action);
+    color: white;
+}

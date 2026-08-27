@@ -1,4 +1,5 @@
 import { Alert } from "@navikt/ds-react";
+import styles from "./ErrorMessage.module.css";
 
 export interface HTTPError {
     code: number;
@@ -12,7 +13,7 @@ interface Props {
 const ErrorMessage = (props: Props) => {
     const { error } = props;
     return (
-        <div className="errorMessage__container">
+        <div className={styles.container}>
             <Alert role="alert" variant="error">
                 Oisann, noe gikk galt ved henting av data!
                 <br />

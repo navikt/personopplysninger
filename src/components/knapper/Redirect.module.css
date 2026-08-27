@@ -1,0 +1,59 @@
+/* Redirect.module.css — replaces Redirect.less */
+
+.container {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100%;
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.08);
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.ikonContainer {
+    margin: 0 1rem;
+}
+
+.ikon {
+    height: 3rem;
+    width: 3rem;
+}
+
+.content {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    padding-right: 2rem;
+}
+
+.lenke {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+}
+
+.chevron {
+    margin: 0 0.25rem 0 0;
+    display: flex;
+}
+
+.wrapperInner {
+    width: 100%;
+    display: flex;
+    max-width: 768px;
+    height: 100%;
+    padding: 1.5rem 0;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position: bottom right;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (max-width: 959px) {
+    .wrapperInner {
+        background-image: none !important;
+    }
+}

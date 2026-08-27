@@ -2,6 +2,7 @@ import { Label } from "@navikt/ds-react";
 import { Fragment } from "react";
 import { FormattedMessage } from "react-intl";
 import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
+import styles from "./LabelMedHjelpetekst.module.css";
 
 interface Props {
     label: string;
@@ -13,7 +14,7 @@ interface Props {
 export const LabelMedHjelpetekst = (props: Props) => {
     const { label, hjelpetekst, labelId, labelForId } = props;
     return (
-        <div className="label-med-hjelpetekst">
+        <div className={styles.labelMedHjelpetekst}>
             {labelId && (
                 <Label htmlFor={labelForId} id={labelId}>
                     {label}

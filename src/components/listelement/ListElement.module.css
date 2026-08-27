@@ -1,0 +1,6 @@
+/* ListElement.module.css — replaces ListElement.less */
+
+.listElementHeading {
+    display: flex;
+    align-items: center;
+}

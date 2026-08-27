@@ -1,0 +1,6 @@
+/* ErrorMessage.module.css — replaces ErrorMessage.less */
+
+.container {
+    white-space: pre-wrap;
+    padding: 1rem 0;
+}

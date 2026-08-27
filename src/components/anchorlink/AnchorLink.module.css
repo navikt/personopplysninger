@@ -1,0 +1,18 @@
+/* AnchorLink.module.css — replaces AnchorLink.less */
+
+.anchorLink {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.anchorLink img {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+}
