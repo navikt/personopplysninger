@@ -346,26 +346,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -373,7 +369,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -393,7 +389,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -414,24 +410,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Australia
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -439,7 +431,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -459,7 +451,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -521,26 +513,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -548,7 +536,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -568,7 +556,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -589,24 +577,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Folketrygdloven
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -614,7 +598,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -634,7 +618,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -696,26 +680,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -723,7 +703,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -743,7 +723,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -764,24 +744,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -789,7 +765,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -809,7 +785,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -871,26 +847,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -898,7 +870,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -918,7 +890,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -939,24 +911,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Bosnia og Hecegovina
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -964,7 +932,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -984,7 +952,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1046,26 +1014,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1073,7 +1037,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1093,7 +1057,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1114,24 +1078,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Folketrygdloven
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1139,7 +1099,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1159,7 +1119,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1221,26 +1181,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1248,7 +1204,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1268,7 +1224,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1289,24 +1245,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Folketrygdloven
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1314,7 +1266,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1334,7 +1286,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1396,26 +1348,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1423,7 +1371,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1443,7 +1391,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1464,24 +1412,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         EØS-forordning 883/2004
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1489,7 +1433,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1509,7 +1453,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1571,26 +1515,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1598,7 +1538,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1618,7 +1558,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1639,24 +1579,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         EØS-forordning 883/2004
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1664,7 +1600,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1684,7 +1620,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1746,26 +1682,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1773,7 +1705,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1793,7 +1725,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1814,24 +1746,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Folketrygdloven
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1839,7 +1767,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1859,7 +1787,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1921,26 +1849,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1948,7 +1872,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1968,7 +1892,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1989,24 +1913,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Australia
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2014,7 +1934,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2034,7 +1954,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2096,26 +2016,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2123,7 +2039,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2143,7 +2059,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2164,24 +2080,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Australia
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2189,7 +2101,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2209,7 +2121,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2327,26 +2239,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2354,7 +2262,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2374,7 +2282,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2395,24 +2303,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         EØS-forordning 883/2004
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2420,7 +2324,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2440,7 +2344,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2461,24 +2365,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Ikke medlem - eller unntatt fra medlemskap
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Land
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2486,7 +2386,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2506,7 +2406,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2570,26 +2470,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2597,7 +2493,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2617,7 +2513,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2638,24 +2534,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Folketrygdloven
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2663,7 +2555,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2683,7 +2575,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2704,24 +2596,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Ikke medlem - eller unntatt fra medlemskap
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Land
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2729,7 +2617,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2749,7 +2637,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2813,26 +2701,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2840,7 +2724,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2860,7 +2744,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2881,24 +2765,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Canada
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2906,7 +2786,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2926,7 +2806,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2947,24 +2827,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Ikke pensjonsdel
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Land
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2972,7 +2848,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2992,7 +2868,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -3056,26 +2932,22 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   class="medl__flex-grid box__content"
                 >
                   <dl
-                    class="list"
+                    class="_list_32586e"
                   >
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Hjemmel
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -3083,7 +2955,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -3103,7 +2975,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -3124,24 +2996,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Trygdeavtale Canada
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Trygdedekning
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -3149,7 +3017,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -3169,7 +3037,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -3190,24 +3058,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         Ikke pensjonsdel
                       </dd>
                     </div>
-                    <div
-                      class="list-item"
-                    >
+                    <div>
                       <dt
-                        class="list-element-heading"
+                        class="_listElementHeading_456e20"
                       >
                         <span
                           class="navds-label"
                         >
                           Land
                         </span>
-                        <div
-                          class="customHelpText"
-                        >
+                        <div>
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -3215,7 +3079,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="customHelpText__icon"
+                                class="_icon_54955a"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -3235,7 +3099,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover customHelpText__popover navds-popover--hidden"
+                            class="navds-popover _popover_54955a navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"

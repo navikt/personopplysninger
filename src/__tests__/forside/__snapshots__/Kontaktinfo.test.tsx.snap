@@ -6,13 +6,11 @@ exports[`DKIF > renders correctly 1`] = `
     class="telefonnummer"
   >
     <dl
-      class="list"
+      class="_list_32586e"
     >
-      <div
-        class="list-item"
-      >
+      <div>
         <dt
-          class="list-element-heading"
+          class="_listElementHeading_456e20"
         >
           <span
             class="navds-label"
@@ -24,11 +22,9 @@ exports[`DKIF > renders correctly 1`] = `
           12131415
         </dd>
       </div>
-      <div
-        class="list-item"
-      >
+      <div>
         <dt
-          class="list-element-heading"
+          class="_listElementHeading_456e20"
         >
           <span
             class="navds-label"
@@ -40,11 +36,9 @@ exports[`DKIF > renders correctly 1`] = `
           Norsk
         </dd>
       </div>
-      <div
-        class="list-item"
-      >
+      <div>
         <dt
-          class="list-element-heading"
+          class="_listElementHeading_456e20"
         >
           <span
             class="navds-label"
@@ -98,7 +92,7 @@ exports[`DKIF > renders correctly 1`] = `
     class="margin-kilde"
   >
     <div
-      class="kilde__tekst"
+      class="_tekst_2ca801"
     >
       <p
         class="navds-detail navds-typo--spacing"
@@ -114,11 +108,11 @@ exports[`DKIF > renders correctly 1`] = `
         href="https://minprofil.kontaktregisteret.no"
       >
         <span
-          class="kilde__icon"
+          class="_icon_2ca801"
         >
           <svg
             aria-hidden="true"
-            class="kilde__icon-aksel"
+            class="_iconAksel_2ca801"
             fill="none"
             focusable="false"
             height="1em"
@@ -242,7 +236,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
       class="margin-kilde"
     >
       <div
-        class="kilde__tekst"
+        class="_tekst_2ca801"
       >
         <p
           class="navds-detail navds-typo--spacing"
@@ -260,7 +254,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
     >
       <svg
         aria-hidden="true"
-        class="kilde__icon"
+        class="_icon_2ca801"
         fill="none"
         focusable="false"
         height="1em"

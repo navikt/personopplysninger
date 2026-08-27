@@ -3,7 +3,7 @@
 exports[`EndreOpplysningerView > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="box__wrapper"
+    class="_wrapper_5f12c1"
     id="kontaktinformasjon"
   >
     <div
@@ -16,7 +16,6 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
       >
         <img
           alt=""
-          class="box__ikon"
           src="/src/assets/img/Kontakt.svg"
         />
       </div>
@@ -24,24 +23,24 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
         class="navds-guide-panel__content"
       >
         <div
-          class="box__container"
+          class="_container_5f12c1"
         >
           <div
-            class="box__header"
+            class="_header_5f12c1"
           >
             <div
-              class="box__title-container"
+              class="_titleContainer_5f12c1"
             >
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
               <h2
-                class="box__title navds-heading navds-heading--medium"
+                class="_title_5f12c1 navds-heading navds-heading--medium"
               >
                 Kontaktinformasjon
               </h2>
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
             </div>
           </div>
@@ -143,7 +142,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
               class="margin-kilde"
             >
               <div
-                class="kilde__tekst"
+                class="_tekst_2ca801"
               >
                 <p
                   class="navds-detail navds-typo--spacing"
@@ -161,7 +160,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="kilde__icon"
+                class="_icon_2ca801"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -189,7 +188,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="box__wrapper"
+    class="_wrapper_5f12c1"
     id="adresser"
   >
     <div
@@ -202,7 +201,6 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
       >
         <img
           alt=""
-          class="box__ikon"
           src="/src/assets/img/Adresse.svg"
         />
       </div>
@@ -210,31 +208,31 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
         class="navds-guide-panel__content"
       >
         <div
-          class="box__container"
+          class="_container_5f12c1"
         >
           <div
-            class="box__header"
+            class="_header_5f12c1"
           >
             <div
-              class="box__title-container"
+              class="_titleContainer_5f12c1"
             >
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
               <h2
-                class="box__title navds-heading navds-heading--medium"
+                class="_title_5f12c1 navds-heading navds-heading--medium"
               >
                 Adresser
               </h2>
               <button
                 aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
-                class="infotekst__title-i-button"
+                class="_titleIButton_2dee1a"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="infotekst__title-i-icon"
+                  class="_titleIIcon_2dee1a"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -253,7 +251,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
               </button>
               <dialog
                 aria-labelledby=":r3:"
-                class="navds-modal infotekst__modal navds-modal--polyfilled navds-modal--autowidth"
+                class="navds-modal _modal_2dee1a navds-modal--polyfilled navds-modal--autowidth"
                 role="dialog"
               >
                 <div
@@ -299,7 +297,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                   class="navds-modal__body"
                 >
                   <div
-                    class="infotekst__ingress"
+                    class="_ingress_2dee1a"
                   >
                     <p
                       class="navds-body-long navds-body-long--medium"
@@ -350,16 +348,16 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </div>
               </dialog>
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
             </div>
             <a
-              class="navds-link anchor-link navds-link--action"
+              class="navds-link _anchorLink_989f08 navds-link--action"
               href="#adresser"
             >
               <svg
                 aria-hidden="true"
-                class="anchor-link__icon"
+                class="_icon_989f08"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -470,11 +468,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                     <dl
                       class="list address-columns"
                     >
-                      <div
-                        class="list-item"
-                      >
+                      <div>
                         <dt
-                          class="list-element-heading"
+                          class="_listElementHeading_456e20"
                         >
                           <span
                             class="navds-label"
@@ -486,11 +482,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                           H0301
                         </dd>
                       </div>
-                      <div
-                        class="list-item"
-                      >
+                      <div>
                         <dt
-                          class="list-element-heading"
+                          class="_listElementHeading_456e20"
                         >
                           <span
                             class="navds-label"
@@ -502,11 +496,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                           EVJE OG HORNNES
                         </dd>
                       </div>
-                      <div
-                        class="list-item"
-                      >
+                      <div>
                         <dt
-                          class="list-element-heading"
+                          class="_listElementHeading_456e20"
                         >
                           <span
                             class="navds-label"
@@ -604,11 +596,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                     <dl
                       class="list address-columns"
                     >
-                      <div
-                        class="list-item"
-                      >
+                      <div>
                         <dt
-                          class="list-element-heading"
+                          class="_listElementHeading_456e20"
                         >
                           <span
                             class="navds-label"
@@ -620,11 +610,9 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                           H0301
                         </dd>
                       </div>
-                      <div
-                        class="list-item"
-                      >
+                      <div>
                         <dt
-                          class="list-element-heading"
+                          class="_listElementHeading_456e20"
                         >
                           <span
                             class="navds-label"
@@ -687,7 +675,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 />
               </div>
               <div
-                class="kilde__tekst"
+                class="_tekst_2ca801"
               >
                 <p
                   class="navds-detail navds-typo--spacing"
@@ -703,11 +691,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   href="https://www.skatteetaten.no/person/folkeregister/flytte/"
                 >
                   <span
-                    class="kilde__icon"
+                    class="_icon_2ca801"
                   >
                     <svg
                       aria-hidden="true"
-                      class="kilde__icon-aksel"
+                      class="_iconAksel_2ca801"
                       fill="none"
                       focusable="false"
                       height="1em"
@@ -811,7 +799,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               </span>
             </button>
             <div
-              class="kilde__tekst"
+              class="_tekst_2ca801"
             >
               <p
                 class="navds-detail navds-typo--spacing"
@@ -825,7 +813,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     </div>
   </div>
   <div
-    class="box__wrapper"
+    class="_wrapper_5f12c1"
     id="utbetaling"
   >
     <div
@@ -838,7 +826,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
       >
         <img
           alt=""
-          class="box__ikon"
           src="/src/assets/img/Kontonummer.svg"
         />
       </div>
@@ -846,33 +833,33 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
         class="navds-guide-panel__content"
       >
         <div
-          class="box__container"
+          class="_container_5f12c1"
         >
           <div
-            class="box__header"
+            class="_header_5f12c1"
           >
             <div
-              class="box__title-container"
+              class="_titleContainer_5f12c1"
             >
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
               <h2
-                class="box__title navds-heading navds-heading--medium"
+                class="_title_5f12c1 navds-heading navds-heading--medium"
               >
                 Kontonummer for utbetaling
               </h2>
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
             </div>
             <a
-              class="navds-link anchor-link navds-link--action"
+              class="navds-link _anchorLink_989f08 navds-link--action"
               href="#utbetaling"
             >
               <svg
                 aria-hidden="true"
-                class="anchor-link__icon"
+                class="_icon_989f08"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -939,13 +926,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </div>
           </div>
           <dl
-            class="list"
+            class="_list_32586e"
           >
-            <div
-              class="list-item"
-            >
+            <div>
               <dt
-                class="list-element-heading"
+                class="_listElementHeading_456e20"
               >
                 <span
                   class="navds-label"
