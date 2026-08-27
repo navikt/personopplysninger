@@ -1,14 +1,3 @@
-/* NAVSelect.module.css — replaces NAVSelect.less
- *
- * Local classes:  .header, .dropdownIndicator, .spinner, .feilmelding
- *   — applied directly by this component's TSX.
- *
- * :global classes: .KodeverkSelect__* selectors that react-select generates
- *   via classNamePrefix="KodeverkSelect" and must remain stable global names.
- */
-
-/* ── Local module classes ── */
-
 .header {
     display: flex;
     min-height: 2rem;
@@ -23,7 +12,6 @@
     height: 1.5rem;
 }
 
-/* .spinner is applied to our own <LoadingIndicator> component (not react-select) */
 .spinner {
     margin-right: 5px;
 }
@@ -38,8 +26,6 @@
 .feilmelding::before {
     content: "•";
 }
-
-/* ── react-select generated class names (vendor/third-party) ── */
 
 :global(.KodeverkSelect__placeholder) {
     color: var(--a-text-subtle) !important;
