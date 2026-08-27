@@ -7,6 +7,12 @@ import App from '@/App';
 import { basePath } from '@/constants';
 import { StoreProvider } from '@/store/Context';
 import nbMessages from '@/text/nb';
+import { redirectExternally } from '@/utils/redirects';
+
+vi.mock('@/utils/redirects', async (importOriginal) => ({
+    ...(await importOriginal<typeof import('@/utils/redirects')>()),
+    redirectExternally: vi.fn(),
+}));
 
 vi.mock('@grafana/faro-web-sdk', () => ({
     initializeFaro: vi.fn(),
@@ -16,7 +22,7 @@ vi.mock('@/store/providers/WithAuth', () => ({
     WithAuth: ({ children }: { children: JSX.Element }) => children,
 }));
 
-const arbeidsforholdUrl = 'https://www.nav.no/aa-registeret/innsyn';
+const arbeidsforholdUrl = 'https://www.ansatt.dev.nav.no/aa-registeret/innsyn';
 const originalPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
 
 const renderAppAtPath = (path: string) => {
@@ -99,8 +105,16 @@ describe('App arbeidsforhold routes', () => {
         expect(rendered404).toBe(false);
     });
 
-    it.each([`${basePath}/nb/arbeidsforhold`, `${basePath}/nb/arbeidsforhold/123`])('should render 404 for %s', (path) => {
+    it.each([`${basePath}/nb/arbeidsforhold`, `${basePath}/nb/arbeidsforhold/123`])('should redirect %s to the new service', async (path) => {
         renderAppAtPath(path);
+
+        await waitFor(() => {
+            expect(redirectExternally).toHaveBeenCalledWith(arbeidsforholdUrl);
+        });
+    });
+
+    it('should render 404 for unknown paths', () => {
+        renderAppAtPath(`${basePath}/nb/finnes-ikke`);
 
         expect(screen.getByRole('heading', { level: 1, name: '404' })).toBeInTheDocument();
     });

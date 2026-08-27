@@ -6,7 +6,8 @@ import { useStore } from './store/Context';
 import Forside from './pages/forside/Forside';
 import EndreOpplysninger from './pages/endre-personopplysninger/EndreOpplysninger';
 import PageNotFound from './pages/404/404';
-import { getRedirectPathFromParam, tillatteTjenester } from './utils/redirects';
+import { getRedirectPathFromParam, redirectExternally, tillatteTjenester } from './utils/redirects';
+import { getArbeidsforholdUrl } from './utils/arbeidsforhold';
 import InstHistorikk from './pages/institusjonsopphold/historikk/InstHistorikk';
 import InstDetaljer from './pages/institusjonsopphold/detaljer/InstDetaljer';
 import DsopHistorikk from './pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk';
@@ -54,6 +55,12 @@ const App = () => {
                                 {redirectPath && <Navigate to={redirectPath} />}
                                 <Route caseSensitive={true} path={'/'} element={<Navigate to={`${basePath}/nb/`} />} />
                                 <Route path={`${basePathWithLanguage}/`} element={<Forside />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/arbeidsforhold`} element={<RedirectToArbeidsforhold />} />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/arbeidsforhold/:id`}
+                                    element={<RedirectToArbeidsforhold />}
+                                />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
@@ -82,6 +89,14 @@ const App = () => {
             </div>
         </div>
     );
+};
+
+const RedirectToArbeidsforhold = () => {
+    useEffect(() => {
+        redirectExternally(getArbeidsforholdUrl());
+    }, []);
+
+    return null;
 };
 
 const RedirectToLocale = (props: { children: JSX.Element }) => {

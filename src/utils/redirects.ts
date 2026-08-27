@@ -68,3 +68,7 @@ export const getRedirectPathFromParam = () => {
 
     return null;
 };
+
+export const redirectExternally = (url: string) => {
+    window.location.replace(url);
+};
