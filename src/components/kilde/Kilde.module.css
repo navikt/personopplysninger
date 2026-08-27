@@ -1,0 +1,19 @@
+.icon {
+    margin-right: 0.5rem;
+}
+
+.iconAksel {
+    display: flex;
+    width: 1.8rem;
+    height: 1.8rem;
+    margin-top: -2px;
+}
+
+.tekst {
+    text-transform: uppercase;
+}
+
+.knapp:global(.navds-button) {
+    align-self: flex-start;
+    margin-left: -1.5rem;
+}

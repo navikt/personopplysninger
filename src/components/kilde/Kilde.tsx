@@ -1,6 +1,7 @@
 import { BodyLong, Button, Detail, Link } from "@navikt/ds-react";
 import type React from "react";
 import { FormattedMessage } from "react-intl";
+import styles from "./Kilde.module.css";
 
 type IconType = string | React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
 
@@ -26,7 +27,7 @@ type Props =
 
 const Icon = ({ icon }: { icon: IconType }) => {
     const IconComponent = icon;
-    return <IconComponent aria-hidden="true" className={"kilde__icon-aksel"} />;
+    return <IconComponent aria-hidden="true" className={styles.iconAksel} />;
 };
 
 const Knapp = (props: Props) => {
@@ -36,7 +37,7 @@ const Knapp = (props: Props) => {
                 <BodyLong>
                     <Link href={props.lenke}>
                         {props.ikon && (
-                            <span className="kilde__icon">
+                            <span className={styles.icon}>
                                 <Icon icon={props.ikon} />
                             </span>
                         )}
@@ -46,12 +47,7 @@ const Knapp = (props: Props) => {
             );
         case "KNAPP":
             return (
-                <Button
-                    icon={props.ikon && <Icon icon={props.ikon} />}
-                    onClick={props.onClick}
-                    variant="tertiary"
-                    className="kilde__knapp knapp-med-ikon"
-                >
+                <Button icon={props.ikon && <Icon icon={props.ikon} />} onClick={props.onClick} variant="tertiary" className={styles.knapp}>
                     <FormattedMessage id={props.lenkeTekst} />
                 </Button>
             );
@@ -64,7 +60,7 @@ const Knapp = (props: Props) => {
 const Kilde = (props: Props) => {
     return (
         <>
-            <div className="kilde__tekst">
+            <div className={styles.tekst}>
                 {props.kilde && (
                     <Detail spacing>
                         <FormattedMessage

@@ -3,7 +3,7 @@
 exports[`DittNavKontor > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="box__wrapper"
+    class="_wrapper_5f12c1"
     id="ditt-nav-kontor"
   >
     <div
@@ -16,7 +16,6 @@ exports[`DittNavKontor > renders correctly 1`] = `
       >
         <img
           alt=""
-          class="box__ikon"
           src="data:image/svg+xml,%3c?xml%20version='1.0'%20encoding='UTF-8'?%3e%3csvg%20width='64px'%20height='64px'%20viewBox='0%200%2064%2064'%20version='1.1'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3c!--%20Generator:%20Sketch%2058%20(84663)%20-%20https://sketch.com%20--%3e%3ctitle%3eGroup%2016%3c/title%3e%3cdesc%3eCreated%20with%20Sketch.%3c/desc%3e%3cdefs%3e%3crect%20id='path-1'%20x='0'%20y='0'%20width='64'%20height='64'%3e%3c/rect%3e%3ccircle%20id='path-3'%20cx='32'%20cy='32'%20r='32'%3e%3c/circle%3e%3c/defs%3e%3cg%20id='Desktop'%20stroke='none'%20stroke-width='1'%20fill='none'%20fill-rule='evenodd'%3e%3cg%20id='GDPR-Personopplysning-forside'%20transform='translate(-597.000000,%20-4134.000000)'%3e%3cg%20id='Group-16'%20transform='translate(597.000000,%204134.000000)'%3e%3cg%20id='Group-12'%3e%3cg%20id='spotlight/-gjenstand-'%3e%3cmask%20id='mask-2'%20fill='white'%3e%3cuse%20xlink:href='%23path-1'%3e%3c/use%3e%3c/mask%3e%3cg%20id='Background'%3e%3c/g%3e%3cg%20id='spotlight/-element'%20mask='url(%23mask-2)'%20fill-rule='evenodd'%20stroke-width='1'%3e%3cg%20id='🌈-60'%3e%3cmask%20id='mask-4'%20fill='white'%3e%3cuse%20xlink:href='%23path-3'%3e%3c/use%3e%3c/mask%3e%3cg%20id='Mask'%3e%3c/g%3e%3cg%20id='NAV-Brand/farge/-Blå/-60'%20mask='url(%23mask-4)'%20fill='%2399C2E8'%3e%3cpolygon%20id='blå-60'%20points='0%2064%2064%2064%2064%200%200%200'%3e%3c/polygon%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3cg%20id='Group-5'%20transform='translate(16.000000,%2016.000000)'%3e%3cg%20id='Group-22'%20fill-rule='nonzero'%3e%3cpolygon%20id='Path'%20fill='%233E3832'%20points='0%2032%209.35243995%209.29032258%2022.7096774%2022.6475601'%3e%3c/polygon%3e%3cpolygon%20id='Path'%20fill='%23C86151'%20points='22.6475601%2022.7096774%209.29032258%209.35044514%2032%200'%3e%3c/polygon%3e%3c/g%3e%3ccircle%20id='Oval'%20fill='%23FFFFFF'%20cx='16'%20cy='16'%20r='3.61290323'%3e%3c/circle%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
         />
       </div>
@@ -24,31 +23,31 @@ exports[`DittNavKontor > renders correctly 1`] = `
         class="navds-guide-panel__content"
       >
         <div
-          class="box__container"
+          class="_container_5f12c1"
         >
           <div
-            class="box__header"
+            class="_header_5f12c1"
           >
             <div
-              class="box__title-container"
+              class="_titleContainer_5f12c1"
             >
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
               <h2
-                class="box__title navds-heading navds-heading--medium"
+                class="_title_5f12c1 navds-heading navds-heading--medium"
               >
                 Ditt Nav-kontor
               </h2>
               <button
                 aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
-                class="infotekst__title-i-button"
+                class="_titleIButton_2dee1a"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="infotekst__title-i-icon"
+                  class="_titleIIcon_2dee1a"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -67,7 +66,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
               </button>
               <dialog
                 aria-labelledby=":r0:"
-                class="navds-modal infotekst__modal navds-modal--polyfilled navds-modal--autowidth"
+                class="navds-modal _modal_2dee1a navds-modal--polyfilled navds-modal--autowidth"
                 role="dialog"
               >
                 <div
@@ -113,7 +112,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                   class="navds-modal__body"
                 >
                   <div
-                    class="infotekst__ingress"
+                    class="_ingress_2dee1a"
                   >
                     <p
                       class="navds-body-long navds-body-long--medium"
@@ -124,16 +123,16 @@ exports[`DittNavKontor > renders correctly 1`] = `
                 </div>
               </dialog>
               <div
-                class="box__line"
+                class="_line_5f12c1"
               />
             </div>
             <a
-              class="navds-link anchor-link navds-link--action"
+              class="navds-link _anchorLink_989f08 navds-link--action"
               href="#ditt-nav-kontor"
             >
               <svg
                 aria-hidden="true"
-                class="anchor-link__icon"
+                class="_icon_989f08"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -407,11 +406,9 @@ exports[`DittNavKontor > renders correctly 1`] = `
           <dl
             class="dittnavkontor__footer list"
           >
-            <div
-              class="list-item"
-            >
+            <div>
               <dt
-                class="list-element-heading"
+                class="_listElementHeading_456e20"
               >
                 <span
                   class="navds-label"
@@ -430,7 +427,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             </div>
           </dl>
           <div
-            class="kilde__tekst"
+            class="_tekst_2ca801"
           >
             <p
               class="navds-detail navds-typo--spacing"

@@ -1,0 +1,21 @@
+.icon {
+    width: 65%;
+    height: 65%;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: flex;
+    vertical-align: center;
+    justify-content: center;
+}

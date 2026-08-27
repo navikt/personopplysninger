@@ -3,6 +3,7 @@ import { Alert, Button, Label } from "@navikt/ds-react";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import Kilde from "@/components/kilde/Kilde";
+import kildeStyles from "@/components/kilde/Kilde.module.css";
 import driftsmeldinger from "@/driftsmeldinger";
 import type { Tlfnr } from "@/types/personalia";
 import { fjernMellorom } from "@/utils/formattering";
@@ -86,7 +87,7 @@ const TelefonnummerHosNav = (props: Props) => {
 
             {!opprett && !(tlfnr && tlfnr.telefonHoved && tlfnr.telefonAlternativ) && (
                 <Button
-                    icon={<PlusCircleIcon className={"kilde__icon"} aria-hidden="true" />}
+                    icon={<PlusCircleIcon className={kildeStyles.icon} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
                     className="tlfnummer__leggtil knapp-med-ikon lenke"

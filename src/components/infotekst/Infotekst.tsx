@@ -3,6 +3,7 @@ import { BodyLong, Heading, Link, Modal } from "@navikt/ds-react";
 import classNames from "classnames";
 import { Fragment, useId, useState } from "react";
 import { FormattedMessage } from "react-intl";
+import styles from "./Infotekst.module.css";
 
 interface HjelpetekstProps {
     overskriftID: string;
@@ -19,23 +20,23 @@ function Infotekst(props: HjelpetekstProps) {
         <>
             <button
                 type="button"
-                className="infotekst__title-i-button"
+                className={styles.titleIButton}
                 onClick={() => settErSynlig(!erSynlig)}
                 onMouseEnter={() => settHover(true)}
                 onMouseLeave={() => settHover(false)}
                 aria-label={"Les mer om denne seksjonen."}
                 aria-pressed={erSynlig}
             >
-                <InformationIcon className={classNames("infotekst__title-i-icon", hover && "infotekst__title-i-icon--hover")} aria-hidden="true" />
+                <InformationIcon className={classNames(styles.titleIIcon, hover && styles.titleIIconHover)} aria-hidden="true" />
             </button>
-            <Modal open={erSynlig} onClose={() => settErSynlig(false)} className="infotekst__modal" aria-labelledby={modalID}>
+            <Modal open={erSynlig} onClose={() => settErSynlig(false)} className={styles.modal} aria-labelledby={modalID}>
                 <Modal.Header>
                     <Heading id={modalID} level="2" size="small">
                         <FormattedMessage id={overskriftID} />
                     </Heading>
                 </Modal.Header>
                 <Modal.Body>
-                    <div className="infotekst__ingress">
+                    <div className={styles.ingress}>
                         <BodyLong>
                             <FormattedMessage
                                 id={beskrivelseID}

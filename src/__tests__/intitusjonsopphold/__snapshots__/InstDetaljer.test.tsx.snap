@@ -18,7 +18,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
       </p>
     </div>
     <hr
-      class="box__linje-bred"
+      class="_lineWide_5f12c1"
     />
     <div
       class="box"
@@ -27,13 +27,11 @@ exports[`InstDetaljerView > renders correctly 1`] = `
         class="box__content"
       >
         <dl
-          class="list"
+          class="_list_32586e"
         >
-          <div
-            class="list-item"
-          >
+          <div>
             <dt
-              class="list-element-heading"
+              class="_listElementHeading_456e20"
             >
               <span
                 class="navds-label"
@@ -45,11 +43,9 @@ exports[`InstDetaljerView > renders correctly 1`] = `
               FO
             </dd>
           </div>
-          <div
-            class="list-item"
-          >
+          <div>
             <dt
-              class="list-element-heading"
+              class="_listElementHeading_456e20"
             >
               <span
                 class="navds-label"

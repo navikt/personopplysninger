@@ -8,6 +8,9 @@ import nbMessages from "@/text/nb";
 import type { FetchAuth } from "@/types/authInfo";
 
 vi.mock("react-modal");
+vi.mock("@/pages/forside/sections/4-personinfo/PersonInfo", () => ({
+    default: () => <div>Laster innhold...</div>,
+}));
 
 const renderHeader = (authInfo: FetchAuth) => {
     const mockDispatch = vi.fn();

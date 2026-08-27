@@ -1,6 +1,7 @@
 import { BodyShort, Heading, HelpText } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import { FormattedMessage } from "react-intl";
+import boxStyles from "@/components/box/Box.module.css";
 import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { InstInnslag } from "@/types/inst";
@@ -28,7 +29,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                     </BodyShort>
                 )}
             </div>
-            <hr className="box__linje-bred" />
+            <hr className={boxStyles.lineWide} />
             <div className="box">
                 <div className="box__content">
                     <Liste>

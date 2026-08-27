@@ -1,0 +1,24 @@
+.popover {
+    font-weight: normal;
+    max-width: 50%;
+}
+
+/* .navds-button and .navds-label are third-party Aksel class names */
+.helpButton:global(.navds-button) {
+    margin-top: -6px;
+    padding: 0.25rem;
+}
+
+.helpButton:global(.navds-button) :global(.navds-label) {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.helpButton:global(.navds-button--tertiary):hover {
+    background-color: transparent;
+}
+
+.icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}

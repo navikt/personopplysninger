@@ -3,6 +3,7 @@ import type React from "react";
 import { FormattedMessage } from "react-intl";
 import { AnchorLink } from "@/components/anchorlink/AnchorLink";
 import Infotekst from "@/components/infotekst/Infotekst";
+import styles from "./Box.module.css";
 
 interface Props {
     id: string;
@@ -15,22 +16,22 @@ interface Props {
 
 const Box = (props: Props) => {
     const { tittel, beskrivelse, icon, children, id, visAnkerlenke } = props;
-    const Veileder = <img src={icon} className="box__ikon" alt="" />;
+    const Veileder = <img src={icon} alt="" />;
 
     return (
-        <div className="box__wrapper" id={id}>
+        <div className={styles.wrapper} id={id}>
             <GuidePanel illustration={Veileder} poster>
-                <div className="box__container">
-                    <div className="box__header">
-                        <div className="box__title-container">
-                            <div className="box__line" />
+                <div className={styles.container}>
+                    <div className={styles.header}>
+                        <div className={styles.titleContainer}>
+                            <div className={styles.line} />
                             {tittel && (
-                                <Heading size={"medium"} level={"2"} className="box__title">
+                                <Heading size={"medium"} level={"2"} className={styles.title}>
                                     <FormattedMessage id={tittel} />
                                 </Heading>
                             )}
                             {beskrivelse && <Infotekst overskriftID={tittel} beskrivelseID={beskrivelse} />}
-                            <div className="box__line" />
+                            <div className={styles.line} />
                         </div>
                         {visAnkerlenke && <AnchorLink id={id} />}
                     </div>

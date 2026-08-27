@@ -2,6 +2,7 @@ import { BodyShort, Button, Heading } from "@navikt/ds-react";
 import dayjs from "dayjs";
 import FileSaver from "file-saver";
 import { FormattedMessage } from "react-intl";
+import boxStyles from "@/components/box/Box.module.css";
 import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { DsopInfo } from "@/types/dsop";
@@ -36,7 +37,7 @@ const DsopDetaljerView = (props: Props) => {
                             <FormattedMessage id="side.organisasjonsnummer" values={{ orgnr: innslag.mottaker }} />
                         </BodyShort>
                     </div>
-                    <hr className="box__linje-bred" />
+                    <hr className={boxStyles.lineWide} />
                     <div className="box">
                         <div className="box__content">
                             <Liste>

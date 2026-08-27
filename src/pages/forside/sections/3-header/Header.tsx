@@ -1,6 +1,7 @@
 import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
 import veilederIkon from "@/assets/img/Veileder.svg";
+import boxStyles from "@/components/box/Box.module.css";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import { useStore } from "@/store/Context";
 import { formatName } from "@/utils/text";
@@ -23,7 +24,7 @@ const Header = () => {
             return (
                 <div className={styles.header}>
                     <GuidePanel illustration={Veileder} poster={true}>
-                        <div className={`box__container ${styles.content}`}>
+                        <div className={`${boxStyles.container} ${styles.content}`}>
                             <Heading size={"medium"} level={"2"}>
                                 {fornavn ? (
                                     <FormattedMessage id="header.hello.name" values={{ name: formatName(fornavn) }} />

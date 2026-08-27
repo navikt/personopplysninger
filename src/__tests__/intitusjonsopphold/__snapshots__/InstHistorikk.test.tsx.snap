@@ -108,13 +108,11 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           >
             29.12.2017 - 20.12.2020
           </p>
-          <div
-            class="customHelpText"
-          >
+          <div>
             <button
               aria-expanded="false"
               aria-label="Mer om Sluttdato"
-              class="customHelpText__help-button navds-button navds-button--tertiary navds-button--medium"
+              class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
               type="button"
             >
               <span
@@ -122,7 +120,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="customHelpText__icon"
+                  class="_icon_54955a"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -142,7 +140,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
             </button>
             <div
               aria-hidden="true"
-              class="navds-popover customHelpText__popover navds-popover--hidden"
+              class="navds-popover _popover_54955a navds-popover--hidden"
               data-index="0"
               data-placement="top"
               style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -190,7 +188,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     class="inst__kilde"
   >
     <div
-      class="kilde__tekst"
+      class="_tekst_2ca801"
     >
       <p
         class="navds-detail navds-typo--spacing"
