@@ -240,6 +240,8 @@ A child who lives permanently with both mother and father can have two home addr
     'lenker.sykefravaer.tittel': 'Your sickness absence (text in norwegian)',
     'lenker.sykefravaer.beskrivelse': 'See your sickness absence and medical certificates (sykemeldinger)',
     'lenker.sykefravaer.lenkeTekst': 'Your cases',
+    'lenker.arbeidsforhold.tittel': 'Employment relationships',
+    'lenker.arbeidsforhold.beskrivelse': 'See your employment relationships in the register',
     'lenker.dokumentarkiv.tittel': 'Document archive',
     'lenker.dokumentarkiv.beskrivelse': 'See an overview of your documents',
     'lenker.utbetalinger.tittel': 'Payments (text in norwegian)',

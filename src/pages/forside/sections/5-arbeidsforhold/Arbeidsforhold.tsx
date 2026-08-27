@@ -3,18 +3,7 @@ import { BodyLong, Link } from '@navikt/ds-react';
 import { FormattedMessage } from 'react-intl';
 import Box from '@/components/box/Box';
 import arbeidsforholdIkon from '@/assets/img/Arbeidsforhold.svg';
-
-const DEFAULT_ARBEIDSFORHOLD_URL = 'https://www.nav.no/aa-registeret/innsyn';
-
-const getArbeidsforholdUrl = () => {
-    const arbeidsforholdUrl = import.meta.env.VITE_ARBEIDSFORHOLD_URL?.trim();
-
-    if (arbeidsforholdUrl === '') {
-        return DEFAULT_ARBEIDSFORHOLD_URL;
-    }
-
-    return arbeidsforholdUrl ?? DEFAULT_ARBEIDSFORHOLD_URL;
-};
+import { getArbeidsforholdUrl } from '@/utils/arbeidsforhold';
 
 const Arbeidsforhold = () => {
     const arbeidsforholdUrl = getArbeidsforholdUrl();

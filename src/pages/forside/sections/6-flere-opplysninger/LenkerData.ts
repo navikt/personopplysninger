@@ -4,10 +4,20 @@ import utbetalinger from '@/assets/img/Utbetalinger.svg';
 import sykefravaer from '@/assets/img/Sykepenger.svg';
 import dineSaker from '@/assets/img/DineSaker.svg';
 import CVogJobbprofil from '@/assets/img/CVogJobbprofil.svg';
+import arbeidsforhold from '@/assets/img/Arbeidsforhold.svg';
+import { getArbeidsforholdUrl } from '@/utils/arbeidsforhold';
 
 const { VITE_UTBETALINGSOVERSIKT_URL, VITE_SYKEFRAVAER_URL, VITE_DINE_SAKER_URL } = import.meta.env;
 
 export default (locale: string) => [
+    {
+        id: 'arbeidsforhold',
+        tittel: 'lenker.arbeidsforhold.tittel',
+        beskrivelse: 'lenker.arbeidsforhold.beskrivelse',
+        lenkeTekst: 'lenker.arbeidsforhold.lenkeTekst',
+        url: getArbeidsforholdUrl(),
+        icon: arbeidsforhold,
+    },
     {
         id: 'dine-saker',
         tittel: 'lenker.dokumentarkiv.tittel',

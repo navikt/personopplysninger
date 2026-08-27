@@ -233,6 +233,8 @@ Eit barn som bur fast hos både mor og far, kan ha to bustadadresser. Den eine a
     'lenker.sykefravaer.tittel': 'Ditt sjukefråvær',
     'lenker.sykefravaer.beskrivelse': 'Sjå sjukefråværet og sjukemeldingane dine',
     'lenker.sykefravaer.lenkeTekst': 'Dine sakar',
+    'lenker.arbeidsforhold.tittel': 'Arbeidsforhold',
+    'lenker.arbeidsforhold.beskrivelse': 'Sjå arbeidsforholda dine i Aa-registeret',
     'lenker.dokumentarkiv.tittel': 'Dokumentarkiv',
     'lenker.dokumentarkiv.beskrivelse': 'Sjå oversikt over dokumenta dine',
     'lenker.utbetalinger.tittel': 'Utbetalingar',
