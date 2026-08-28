@@ -1,0 +1,23 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (min-width: 959px) {
+    .content {
+        padding: 1rem 3rem;
+    }
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (max-width: 959px) {
+    .content {
+        padding: 1rem 0rem;
+    }
+}
+
+.content :global(.navds-link) {
+    display: inline;
+}
