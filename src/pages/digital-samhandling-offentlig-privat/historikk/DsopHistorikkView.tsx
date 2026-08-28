@@ -5,6 +5,7 @@ import { Fragment, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import { Link as ReactLink, useLocation } from "react-router-dom";
 import type { DsopInfo } from "@/types/dsop";
+import historikkStyles from "../../../styles/historikk.module.css";
 
 interface Props {
     dsopInfo: DsopInfo;
@@ -38,10 +39,10 @@ export const DsopHistorikkView = (props: Props) => {
     const [data, setData] = useState(initState);
 
     return (
-        <div className="historikk__tabs-innhold historikk__flex-table">
+        <div className={`${historikkStyles.tabsInnhold} ${historikkStyles.flexTable}`}>
             {Object.keys(data).length > 0 ? (
                 <>
-                    <div className={"historikk__info"}>
+                    <div className={historikkStyles.info}>
                         <Alert variant="info">
                             <FormattedMessage
                                 id={"lenker.dsop.info"}
@@ -68,13 +69,13 @@ export const DsopHistorikkView = (props: Props) => {
                             />
                         </Alert>
                     </div>
-                    <div className="historikk__flex-rad historikk__head">
-                        <div className="historikk__flex-kolonne">
+                    <div className={`${historikkStyles.flexRad} historikk__head`}>
+                        <div className={historikkStyles.flexKolonne}>
                             <Label as="p">
                                 <FormattedMessage id="dsop.uthentingstidspunkt" />
                             </Label>
                         </div>
-                        <div className="historikk__flex-kolonne">
+                        <div className={historikkStyles.flexKolonne}>
                             <Label as="p">
                                 <FormattedMessage id="dsop.mottaker" />
                             </Label>
@@ -97,19 +98,19 @@ export const DsopHistorikkView = (props: Props) => {
 
                             return (
                                 <Fragment key={year}>
-                                    <div className="historikk__flex-rad" key={year}>
-                                        <button type="button" className="historikk__flex-kolonne af-liste__ekspander" onClick={onClick}>
+                                    <div className={historikkStyles.flexRad} key={year}>
+                                        <button type="button" className={`${historikkStyles.flexKolonne} af-liste__ekspander`} onClick={onClick}>
                                             {year} {value.ekspandert ? <ChevronUpIcon aria-hidden="true" /> : <ChevronDownIcon aria-hidden="true" />}
                                         </button>
                                         <div />
                                     </div>
                                     {value.ekspandert &&
                                         value.innslag.map((innslag, i) => (
-                                            <div className="historikk__flex-rad" key={i}>
-                                                <div className="historikk__flex-kolonne historikk__heading">
+                                            <div className={historikkStyles.flexRad} key={i}>
+                                                <div className={`${historikkStyles.flexKolonne} historikk__heading`}>
                                                     {dayjs(innslag.uthentingsTidspunkt).format("DD.MM kl. hh:mm")}
                                                 </div>
-                                                <div className="historikk__flex-kolonne">
+                                                <div className={historikkStyles.flexKolonne}>
                                                     <Link as={ReactLink} to={`${location.pathname}/${innslag.uthentingsTidspunkt}`} className="lenke">
                                                         {innslag.mottakernavn}
                                                     </Link>
@@ -121,7 +122,7 @@ export const DsopHistorikkView = (props: Props) => {
                         })}
                 </>
             ) : (
-                <div className="historikk__ingen-data">
+                <div className={historikkStyles.ingenData}>
                     <Alert variant="info">
                         <FormattedMessage
                             id="dsop.ingendata"

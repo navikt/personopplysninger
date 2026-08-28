@@ -4,7 +4,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="detaljer__tittel"
+      class="_tittel_e48902"
     >
       <h2
         class="navds-heading navds-heading--small"
@@ -55,7 +55,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
             </dt>
             <dd>
               <div
-                class="inst__periode"
+                class="_periode_4b5fd8"
               >
                 13.06.2017 - 15.09.2017
               </div>

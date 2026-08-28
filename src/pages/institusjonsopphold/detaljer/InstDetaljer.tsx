@@ -4,6 +4,7 @@ import { type Params, useParams } from "react-router-dom";
 import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
 import Kilde from "@/components/kilde/Kilde";
 import PageContainer from "@/components/pagecontainer/PageContainer";
+import styles from "../Inst.module.css";
 import WithInst from "../InstFetch";
 import InstDetaljerView from "./InstDetaljerView";
 
@@ -39,7 +40,7 @@ const InstDetaljer = () => {
                     );
                 }}
             </WithInst>
-            <div className="inst__kilde">
+            <div className={styles.kilde}>
                 <Kilde kilde="inst.kilde" lenkeType="INGEN" />
             </div>
         </PageContainer>

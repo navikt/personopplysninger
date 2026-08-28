@@ -1,0 +1,47 @@
+/* Delt av Dsop- og Inst-historikk. Se CONVENTIONS.md §2. */
+
+.flexTable {
+    max-width: 100%;
+    border-collapse: collapse;
+}
+
+.flexRad {
+    border-bottom: 1px solid #979797;
+    display: flex;
+    padding: 0.25rem 0;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (min-width: 959px), (max-width: 959px) {
+    .flexRad {
+        flex-direction: row;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .flexRad {
+        flex-direction: column;
+    }
+}
+
+.flexKolonne {
+    display: flex;
+    padding: 0.25rem 0;
+    flex-basis: 100%;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .tabsInnhold {
+        padding: 1rem 2rem;
+    }
+}
+
+.ingenData {
+    margin: 1rem 0;
+}
+
+.info {
+    margin-bottom: 1rem;
+}

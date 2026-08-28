@@ -6,6 +6,7 @@ import boxStyles from "@/components/box/Box.module.css";
 import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { DsopInfo } from "@/types/dsop";
+import detaljerStyles from "../../../styles/detaljer.module.css";
 
 interface Props {
     id: string;
@@ -29,7 +30,7 @@ const DsopDetaljerView = (props: Props) => {
             };
             return (
                 <div>
-                    <div className="detaljer__tittel">
+                    <div className={detaljerStyles.tittel}>
                         <Heading level="2" size="small">
                             {innslag.mottakernavn}
                         </Heading>
@@ -49,7 +50,7 @@ const DsopDetaljerView = (props: Props) => {
                                 <ListElement titleId={"dsop.tema"} content={innslag.tema} />
                             </Liste>
                         </div>
-                        <div className="detaljer__container">
+                        <div className={detaljerStyles.container}>
                             <Button variant="primary" onClick={onClick}>
                                 <FormattedMessage id="dsop.lastned" />
                             </Button>

@@ -9,6 +9,8 @@ import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
 import Kilde from "@/components/kilde/Kilde";
 import { useIntlFormatter } from "@/hooks/useIntlFormatter";
 import type { InstInfo } from "@/types/inst";
+import historikkStyles from "../../../styles/historikk.module.css";
+import styles from "../Inst.module.css";
 
 const InstHistorikkView = (props: { instInfo: InstInfo }) => {
     const [viewAmount, setViewAmount] = useState(20);
@@ -32,16 +34,16 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                     }}
                 />
             </Alert>
-            <div className={"inst__tabell"}>
+            <div className={styles.tabell}>
                 {instInfo.length > 0 ? (
                     <>
-                        <div className="historikk__flex-rad inst__head">
-                            <div className="historikk__flex-kolonne">
+                        <div className={`${historikkStyles.flexRad} ${styles.head}`}>
+                            <div className={historikkStyles.flexKolonne}>
                                 <Label as="p">
                                     <FormattedMessage id="inst.periode" />
                                 </Label>
                             </div>
-                            <div className="historikk__flex-kolonne">
+                            <div className={historikkStyles.flexKolonne}>
                                 <Label as="p">
                                     <FormattedMessage id="inst.institusjon" />
                                 </Label>
@@ -67,15 +69,15 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                     return (
                                         <CSSTransition
                                             key={i}
-                                            classNames={"inst__animate"}
+                                            classNames={{ enter: styles.animateEnter, enterActive: styles.animateEnterActive }}
                                             style={{
                                                 transitionDelay: `${animateDelay}ms`,
                                                 fontWeight: i >= 20 && i >= viewAmount - 20 ? "bold" : "normal",
                                             }}
                                             timeout={100 + animateDelaySum}
                                         >
-                                            <div className="historikk__flex-rad">
-                                                <div className="historikk__flex-kolonne historikk__heading">
+                                            <div className={historikkStyles.flexRad}>
+                                                <div className={`${historikkStyles.flexKolonne} historikk__heading`}>
                                                     <BodyShort>{`${startdato} - ${faktiskSluttdato}`}</BodyShort>
                                                     {innslag.fiktivSluttdato && (
                                                         <CustomHelpText title={formatMessage("inst.fiktivSluttdato.tittel")}>
@@ -83,7 +85,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                                         </CustomHelpText>
                                                     )}
                                                 </div>
-                                                <div className="historikk__flex-kolonne">
+                                                <div className={historikkStyles.flexKolonne}>
                                                     <Link to={`${location.pathname}/${innslag.registreringstidspunkt}`} className="lenke">
                                                         <BodyShort>{innslag.institusjonsnavn}</BodyShort>
                                                     </Link>
@@ -95,14 +97,14 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                         </TransitionGroup>
                     </>
                 ) : (
-                    <div className="historikk__ingen-data">
+                    <div className={historikkStyles.ingenData}>
                         <Alert variant="info">
                             <FormattedMessage id="inst.ingendata" />
                         </Alert>
                     </div>
                 )}
                 {instInfo.length > 20 && instInfo.length >= viewAmount && (
-                    <div className={"inst__se-flere"}>
+                    <div className={styles.seFlere}>
                         <Button
                             variant={"tertiary"}
                             onClick={() => setViewAmount(viewAmount + 20)}
@@ -114,7 +116,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                     </div>
                 )}
             </div>
-            <div className="inst__kilde">
+            <div className={styles.kilde}>
                 <Kilde kilde="inst.kilde" lenkeType="INGEN" />
             </div>
         </>

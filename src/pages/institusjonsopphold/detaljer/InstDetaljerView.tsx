@@ -6,6 +6,8 @@ import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { InstInnslag } from "@/types/inst";
 import { formatOrgnr, RADIX_DECIMAL } from "@/utils/formattering";
+import detaljerStyles from "../../../styles/detaljer.module.css";
+import styles from "../Inst.module.css";
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;
@@ -14,7 +16,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
 
     return (
         <div>
-            <div className="detaljer__tittel">
+            <div className={detaljerStyles.tittel}>
                 <Heading level="2" size="small">
                     {innslag.institusjonsnavn}
                 </Heading>
@@ -37,7 +39,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                         <ListElement
                             titleId={"inst.periode"}
                             content={
-                                <div className={"inst__periode"}>
+                                <div className={styles.periode}>
                                     {`${startdato} - ${faktiskSluttdato}`}
                                     {innslag.fiktivSluttdato && (
                                         <HelpText>

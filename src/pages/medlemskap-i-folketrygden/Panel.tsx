@@ -1,6 +1,7 @@
 import { Accordion, BodyLong } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
 import type { MedlInnslag } from "@/types/medl";
+import styles from "./MedlHistorikk.module.css";
 import Periode from "./Periode";
 
 interface Props {
@@ -13,7 +14,7 @@ const Panel = (props: Props) => {
     const { perioder } = props;
     const { tittelId, tittelIdIngress } = props;
     return (
-        <Accordion className={"medl__space"}>
+        <Accordion className={styles.space}>
             <Accordion.Item>
                 <Accordion.Header>
                     <FormattedMessage id={tittelId} />
@@ -22,7 +23,7 @@ const Panel = (props: Props) => {
                     <BodyLong>
                         <FormattedMessage id={tittelIdIngress} />
                     </BodyLong>
-                    <div className={"medl__flex-table "}>
+                    <div className={styles.flexTable}>
                         {perioder.map((periode, i) => (
                             <Periode key={i} periode={periode} />
                         ))}

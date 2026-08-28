@@ -1,0 +1,9 @@
+/* Delt av Dsop- og Inst-detaljer. Se CONVENTIONS.md §2. */
+
+.container {
+    padding: 1rem 0rem;
+}
+
+.tittel {
+    margin-bottom: 0.5rem;
+}

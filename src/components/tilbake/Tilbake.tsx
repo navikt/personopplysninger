@@ -3,6 +3,7 @@ import { FormattedMessage } from "react-intl";
 import { Link } from "react-router-dom";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
+import pcStyles from "../pagecontainer/PageContainer.module.css";
 
 interface Props {
     to: string;
@@ -14,7 +15,7 @@ const Tilbake = (props: Props) => {
 
     return (
         <Link to={`${basePath}/${locale}${to}`} className="lenke">
-            <ChevronLeftIcon className="da__back-icon" aria-hidden="true" />
+            <ChevronLeftIcon className={pcStyles.backIcon} aria-hidden="true" />
             <FormattedMessage id="side.tilbake" />
         </Link>
     );

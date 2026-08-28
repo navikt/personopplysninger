@@ -1,0 +1,49 @@
+/*
+ * Flyttet hit fra pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold.less.
+ * Reglene styler PageContainer (og Tilbake), ikke arbeidsforhold-siden — de laa
+ * bare i feil fil. Se CONVENTIONS.md §1: komponentstil ligger hos komponenten.
+ */
+
+.container {
+    width: 100%;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.innhold {
+    background: white;
+    padding: 2rem !important;
+    margin: 2rem 0;
+}
+
+.rad {
+    display: flex;
+    justify-content: space-between;
+    align-content: baseline;
+}
+
+.filler,
+.back {
+    width: 100px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.filler a,
+.back a {
+    display: flex;
+    align-items: center;
+}
+
+.backIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.overskrift {
+    text-align: center;
+}
