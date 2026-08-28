@@ -10,6 +10,7 @@ import { formatTelefonnummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
 import Knapp from "./Knapp";
 import SlettModal from "./SlettModal";
+import styles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";
 
 export interface OutboundTlfnummer {
@@ -92,9 +93,9 @@ const Telefonnummer = (props: Props) => {
     };
 
     return (
-        <div className={"tlfnummer__rad"}>
-            <div className={"tlfnummer__container"}>
-                <div className={"tlfnummer__verdi"}>
+        <div className={styles.rad}>
+            <div className={styles.container}>
+                <div className={styles.verdi}>
                     <Label as="p">
                         <FormattedMessage id={titleId} values={{ x: hasTwoNumbers ? prioritet : "" }} />
                     </Label>
@@ -107,7 +108,7 @@ const Telefonnummer = (props: Props) => {
                 </div>
 
                 {!endre && (
-                    <div className={"tlfnummer__knapper"}>
+                    <div className={styles.knapper}>
                         <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={"side.endre"} />
                         <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekstId={"side.slett"} />
                     </div>

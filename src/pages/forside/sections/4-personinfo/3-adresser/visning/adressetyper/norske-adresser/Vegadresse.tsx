@@ -1,5 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { Vegadresse as VegadresseType } from "@/types/adresser/adresse";
+import styles from "../../../Adresser.module.css";
 import Postnummer from "../../../komponenter/Postnummer";
 
 const Vegadresse = (props: VegadresseType) => {
@@ -9,17 +10,17 @@ const Vegadresse = (props: VegadresseType) => {
     return (
         <>
             {tilleggsnavn && (
-                <div className="adresse__linje">
+                <div className={styles.linje}>
                     <BodyShort>{tilleggsnavn}</BodyShort>
                 </div>
             )}
             {coAdressenavn && (
-                <div className="adresse__linje">
+                <div className={styles.linje}>
                     <BodyShort>{coAdressenavn}</BodyShort>
                 </div>
             )}
             {(adressenavn ?? husnummer ?? husbokstav) && (
-                <div className="adresse__linje">
+                <div className={styles.linje}>
                     <BodyShort>
                         {adressenavn ?? ""} {husnummer ?? ""} {husbokstav ?? ""}
                     </BodyShort>

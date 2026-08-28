@@ -3,7 +3,7 @@
 exports[`DKIF > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="telefonnummer"
+    class="_telefonnummer_cd4104"
   >
     <dl
       class="_list_32586e"
@@ -53,7 +53,7 @@ exports[`DKIF > renders correctly 1`] = `
     </dl>
   </div>
   <div
-    class="telefonnummer"
+    class="_telefonnummer_cd4104"
   >
     <div
       class="navds-alert navds-alert--info navds-alert--medium navds-alert--inline"
@@ -89,7 +89,7 @@ exports[`DKIF > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="margin-kilde"
+    class="_marginKilde_cd4104"
   >
     <div
       class="_tekst_2ca801"
@@ -140,13 +140,13 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="tlfnummer__rad"
+      class="_rad_c4d980"
     >
       <div
-        class="tlfnummer__container"
+        class="_container_c4d980"
       >
         <div
-          class="tlfnummer__verdi"
+          class="_verdi_c4d980"
         >
           <p
             class="navds-label"
@@ -163,7 +163,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="tlfnummer__knapper"
+          class="_knapper_c4d980"
         >
           <button
             aria-label="Endre telefonnummer"
@@ -174,7 +174,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="tlfnummer__ikon"
+                class="_ikon_c4d980"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -206,7 +206,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="tlfnummer__ikon"
+                class="_ikon_c4d980"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -233,7 +233,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="margin-kilde"
+      class="_marginKilde_cd4104"
     >
       <div
         class="_tekst_2ca801"
@@ -247,7 +247,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
     </div>
   </div>
   <button
-    class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
+    class="_leggtil_c4d980 knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
   >
     <span
       class="navds-button__icon"

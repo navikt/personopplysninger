@@ -1,0 +1,9 @@
+/* Delt av KontaktInfo, DKIF og TelefonnummerHosNav. Se CONVENTIONS.md §2. */
+
+.telefonnummer:first-child {
+    margin-bottom: 2em;
+}
+
+.marginKilde {
+    margin-top: 1rem;
+}

@@ -1,6 +1,7 @@
 import { Button } from "@navikt/ds-react";
 import type React from "react";
 import { FormattedMessage } from "react-intl";
+import styles from "./Telefonnummer.module.css";
 
 interface Props {
     ariaLabel: string;
@@ -13,7 +14,7 @@ const Knapp = (props: Props) => {
     const { ariaLabel, onClick, ikon: Icon, tekstId } = props;
     return (
         <Button
-            icon={<Icon className={"tlfnummer__ikon"} aria-hidden="true" />}
+            icon={<Icon className={styles.ikon} aria-hidden="true" />}
             variant={"tertiary"}
             className={"knapp-med-ikon"}
             onClick={onClick}

@@ -11,6 +11,7 @@ import type { OptionType } from "@/types/option";
 import type { Tlfnr } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
 import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from "@/utils/validators";
+import styles from "./Telefonnummer.module.css";
 
 interface Props {
     prioritet: 1 | 2;
@@ -80,8 +81,8 @@ const TelefonnummerForm = (props: Props) => {
 
     return (
         <form key={formKey} onSubmit={handleSubmit(submit)}>
-            <div className={"tlfnummer__input-container"}>
-                <div className={classNames("tlfnummer__input", "tlfnummer__inputLandkode")}>
+            <div className={styles.inputContainer}>
+                <div className={classNames(styles.input, styles.inputLandkode)}>
                     <SelectLandskode
                         {...register("landskode", {
                             required: msg({ id: "validation.retningsnr.pakrevd" }),
@@ -94,7 +95,7 @@ const TelefonnummerForm = (props: Props) => {
                         submitted={isSubmitted}
                     />
                 </div>
-                <div className={"tlfnummer__input input--m"}>
+                <div className={`${styles.input} input--m`}>
                     <TextField
                         {...register("tlfnummer", {
                             required: msg({ id: "validation.tlfnr.pakrevd" }),
@@ -119,7 +120,7 @@ const TelefonnummerForm = (props: Props) => {
                     />
                 </div>
             </div>
-            <div className={"tlfnummer__knapper"}>
+            <div className={styles.knapper}>
                 <div className={"tlfnummer__submit"}>
                     <Button
                         variant={props.type === "opprett" ? "primary" : "secondary"}
@@ -134,7 +135,7 @@ const TelefonnummerForm = (props: Props) => {
                     variant={"tertiary"}
                     type={"button"}
                     disabled={loading}
-                    className={"tlfnummer__knapp"}
+                    className={styles.knapp}
                     onClick={() => {
                         settAlert(undefined);
                         props.onCancelClick();

@@ -9,6 +9,7 @@ import { useStore } from "@/store/Context";
 import type { Kontaktadresse as IKontaktadresse } from "@/types/adresser/kontaktadresse";
 import type { Oppholdsadresse as IOppholdsadresse } from "@/types/adresser/oppholdsadresse";
 import type { PersonInfo } from "@/types/personInfo";
+import styles from "../Adresser.module.css";
 import Adresse from "./Adresse";
 
 interface Props {
@@ -76,7 +77,7 @@ const AndreAdresser = (props: Props) => {
                     <Button
                         variant="tertiary"
                         onClick={apneSlettModal}
-                        className="adresse__slett-kontaktadresse knapp-med-ikon"
+                        className={`${styles.slettKontaktadresse} knapp-med-ikon`}
                         icon={<TrashIcon aria-hidden={true} />}
                     >
                         <FormattedMessage id={"side.slett.kontaktadresse"} />
@@ -103,7 +104,7 @@ const AndreAdresser = (props: Props) => {
                                         }}
                                     />
                                 </BodyShort>
-                                <div className="adresse__modal-knapper">
+                                <div className={styles.modalKnapper}>
                                     <Button variant={"tertiary"} onClick={lukkSlettModal} disabled={slettLoading}>
                                         <FormattedMessage id="side.avbryt" />
                                     </Button>

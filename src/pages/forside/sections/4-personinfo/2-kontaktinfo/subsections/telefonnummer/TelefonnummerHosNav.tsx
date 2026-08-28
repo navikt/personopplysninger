@@ -7,7 +7,9 @@ import kildeStyles from "@/components/kilde/Kilde.module.css";
 import driftsmeldinger from "@/driftsmeldinger";
 import type { Tlfnr } from "@/types/personalia";
 import { fjernMellorom } from "@/utils/formattering";
+import sharedStyles from "../../kontaktinfo.module.css";
 import Telefonnummer from "./Telefonnummer";
+import styles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";
 
 interface Props {
@@ -63,7 +65,7 @@ const TelefonnummerHosNav = (props: Props) => {
                         />
                     )}
                     {
-                        <div className="margin-kilde">
+                        <div className={sharedStyles.marginKilde}>
                             <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
                         </div>
                     }
@@ -90,16 +92,16 @@ const TelefonnummerHosNav = (props: Props) => {
                     icon={<PlusCircleIcon className={kildeStyles.icon} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
-                    className="tlfnummer__leggtil knapp-med-ikon lenke"
+                    className={`${styles.leggtil} knapp-med-ikon lenke`}
                 >
                     <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
                 </Button>
             )}
 
             {opprett && (
-                <div className={"tlfnummer__rad-leggtil"}>
-                    <div className={"tlfnummer__container"}>
-                        <Label className="tlfnummer__verdi" as="p">
+                <div className={styles.radLeggtil}>
+                    <div className={styles.container}>
+                        <Label className={styles.verdi} as="p">
                             <FormattedMessage id="side.leggtil.kontaktinformasjon" />
                         </Label>
                     </div>

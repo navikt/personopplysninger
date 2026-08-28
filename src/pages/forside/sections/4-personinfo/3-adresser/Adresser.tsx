@@ -3,6 +3,7 @@ import adresseIkon from "@/assets/img/Adresse.svg";
 import Box from "@/components/box/Box";
 import driftsmeldinger from "@/driftsmeldinger";
 import type { Adresser as IAdresser } from "@/types/adresser";
+import styles from "./Adresser.module.css";
 import AndreAdresser from "./visning/AndreAdresser";
 import Folkeregisteret from "./visning/Folkeregisteret";
 
@@ -22,7 +23,7 @@ const Adresser = (props: Props) => {
 
     return (
         <Box id="adresser" tittel="adresse.tittel" beskrivelse="adresse.beskrivelse" icon={adresseIkon} visAnkerlenke>
-            <div className="adresse__box">
+            <div className={styles.box}>
                 {driftsmeldinger.pdl && (
                     <div style={{ padding: "1rem 0" }}>
                         <Alert role="status" variant="warning">

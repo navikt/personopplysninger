@@ -1,0 +1,39 @@
+.box .lesmer :global(.navds-read-more__content) {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.slettKontaktadresse:global(.navds-button) {
+    margin-left: -1.5rem;
+}
+
+.lesmer {
+    padding: 0;
+}
+
+.lesmer :global(.navds-read-more__button) {
+    margin-left: -0.5rem;
+}
+
+.linje {
+    width: 100%;
+}
+
+.divider {
+    padding: 0.5rem;
+}
+
+.modalKnapper {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.modalKnapper > *:first-child {
+    margin-right: 0.25rem;
+}
+
+.modalKnapper > *:last-child {
+    margin-left: 0.25rem;
+}

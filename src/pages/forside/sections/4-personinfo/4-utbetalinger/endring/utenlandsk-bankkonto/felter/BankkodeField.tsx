@@ -3,6 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
 import { useIntlFormatter } from "@/hooks/useIntlFormatter";
 import { isBankkodeValidLength, isNumeric } from "@/utils/validators";
+import styles from "../../../Utbetalinger.module.css";
 import type { FormFields } from "../../types";
 import { validerBankkode } from "../../utils";
 
@@ -16,8 +17,8 @@ const BankkodeField = () => {
     } = useFormContext<FormFields>();
 
     return (
-        <div className="utbetalinger__bankkode-rad">
-            <div className="utbetalinger__bankkode-kolonne">
+        <div className={styles.bankkodeRad}>
+            <div className={styles.bankkodeKolonne}>
                 <TextField
                     {...register("retningsnummer")}
                     disabled={true}
@@ -27,7 +28,7 @@ const BankkodeField = () => {
                     autoComplete="off"
                 />
             </div>
-            <div className="utbetalinger__bankkode-kolonne">
+            <div className={styles.bankkodeKolonne}>
                 <TextField
                     {...register("bankkode", {
                         onChange: () => isSubmitted && trigger(),
