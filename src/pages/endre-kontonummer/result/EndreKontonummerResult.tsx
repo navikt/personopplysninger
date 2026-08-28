@@ -1,6 +1,7 @@
 import { Alert, BodyLong } from "@navikt/ds-react";
 import Cookies from "js-cookie";
 import { FormattedMessage } from "react-intl";
+import styles from "./EndreKontonummerResult.module.css";
 
 type Result = "success" | "error";
 
@@ -27,7 +28,7 @@ export const EndreKontonummerResult = () => {
     }
 
     return (
-        <Alert variant={result} className={"endreKontonrResult"}>
+        <Alert variant={result} className={styles.result}>
             <FormattedMessage
                 id={resultTextId}
                 values={{
