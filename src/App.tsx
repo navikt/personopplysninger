@@ -1,5 +1,4 @@
 import { initializeFaro } from "@grafana/faro-web-sdk";
-import { initLocalMock as initLocalArbeidsforholdMock } from "@navikt/arbeidsforhold";
 import { Fragment, useEffect } from "react";
 import { useIntl } from "react-intl";
 import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate } from "react-router-dom";
@@ -30,10 +29,6 @@ if (import.meta.env.VITE_ENV !== "local") {
             version: import.meta.env.VITE_BUILD_VERSION,
         },
     });
-}
-
-if (import.meta.env.VITE_ENV === "local") {
-    initLocalArbeidsforholdMock();
 }
 
 const App = () => {

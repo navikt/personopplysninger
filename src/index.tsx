@@ -9,10 +9,8 @@ import "./styles/global.css";
 
 const init = async () => {
     if (import.meta.env.VITE_ENV === "local") {
-        await import("./clients/apiMock").then(({ setUpMock }) => setUpMock());
-        injectDecoratorClientSide({
-            env: "localhost",
-            localUrl: "http://localhost:8100/dekoratoren",
+        await injectDecoratorClientSide({
+            env: "dev",
             params: {
                 simple: false,
                 chatbot: false,

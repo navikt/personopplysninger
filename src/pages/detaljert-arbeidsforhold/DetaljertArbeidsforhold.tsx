@@ -10,6 +10,7 @@ import type { Locale } from "@/store/Store";
 import "./DetaljertArbeidsforhold.module.css";
 
 const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
+const localApiUrl = import.meta.env.VITE_ENV === "local" ? `${import.meta.env.VITE_API_URL}/arbeidsforhold/{id}` : undefined;
 
 interface Routes {
     id: string;
@@ -44,6 +45,7 @@ const Arbeidsforhold = () => {
             <DetaljertArbeidsforhold
                 rolle={"ARBEIDSTAKER"}
                 miljo={miljo}
+                customApiUrl={localApiUrl}
                 locale={locale as Locale}
                 navArbeidsforholdId={id}
                 printActivated={true}

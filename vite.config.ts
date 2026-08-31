@@ -2,6 +2,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
+import { honoMockPlugin } from "./src/mocks/vitePlugin";
 
 const isLocal = process.env.VITE_ENV === "local";
 
@@ -17,9 +18,8 @@ export default defineConfig(() => {
         },
         base: isLocal ? "" : process.env.PUBLIC_URL,
         plugins: [
+            honoMockPlugin(),
             react(),
-            // fetch-mock calls global 'process' which is not available
-            // in the browser, so mock this.
             nodePolyfills({
                 globals: {
                     process: true,

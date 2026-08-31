@@ -10,6 +10,7 @@ import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
 
 const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
+const localApiUrl = import.meta.env.VITE_ENV === "local" ? `${import.meta.env.VITE_API_URL}/arbeidsforhold/forenklet/alle` : undefined;
 
 const Arbeidsforhold = () => {
     const { locale } = useIntl();
@@ -29,6 +30,7 @@ const Arbeidsforhold = () => {
         <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel" beskrivelse="arbeidsforhold.beskrivelse" icon={arbeidsforholdIkon} visAnkerlenke>
             <ListeMedArbeidsforhold
                 miljo={miljo}
+                customApiUrl={localApiUrl}
                 locale={locale as Locale}
                 onClick={onClick}
                 printActivated={true}

@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import dsopInfo from "@/clients/apiMock/app/fetch/dsop-info.json";
+import dsopInfo from "@/mocks/fixtures/dsop-info.json";
 import DsopDetaljerView from "@/pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerView";
 import nbMessages from "@/text/nb";
 

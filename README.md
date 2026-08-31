@@ -14,30 +14,33 @@ Installer nødvendige pakker:
 
 `npm install`
 
-Kopier environment-variabler fra eksempel-filen:
+Kopier environment-variabler fra eksempelfilen:
 
-''`
+```
 cp .env.sample .env
-''`
-
-Start dekoratøren og mocks:
-Autentiser på Github container-registry hvis du ikke har gjort det allerede
-(Merk: --password-stdin hindrer at access token havner i diverse logger):
-
-`echo DIN_GITHUB_ACCESS_TOKEN | docker login docker.pkg.github.com -u DITT_GITHUB_BRUKERNAVN --password-stdin`
-
-Start dekoratøren og mocks:
-
-`docker-compose up -d`
+```
 
 Start applikasjonen lokalt:
 
-`npm start`
+```shell
+npm start
+```
+
+Vite starter Hono-mockene på samme origin under `/api`. Dekoratøren hentes fra
+dev-miljøet, så lokal kjøring krever ikke Docker Compose.
 
 ## Mock-serveren
 
-Ved enkelte post-kall vil mock-serveren alltid returnere en feilet case. Se feks
-/clients/apiMock/app/post/endre-kontonr.json. For å teste andre TPS-svar, endre denne json tilsvarende.
+Mockdata ligger i `src/mocks/fixtures`, og rutene er definert i
+`src/mocks/app.ts`.
+
+Legg til `scenario=empty` eller `scenario=error` på et mock-endepunkt for å
+teste tomme data eller feil. `delay=<millisekunder>` overstyrer den
+endepunktspesifikke forsinkelsen, for eksempel:
+
+```text
+/api/personalia?scenario=error&delay=0
+```
 
 ## Tester
 
