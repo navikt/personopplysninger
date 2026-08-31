@@ -9,8 +9,11 @@
 
 # testing
 /coverage
+/playwright-report
+/test-results
 
 # production
+/.astro
 /build
 
 

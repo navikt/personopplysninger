@@ -1,17 +1,17 @@
 import { type Context, Hono } from "hono";
 import { setCookie } from "hono/cookie";
-import arbeidsforholdDetaljert from "./fixtures/arbeidsforhold-detaljert.json";
-import arbeidsforholdListe from "./fixtures/arbeidsforhold-liste.json";
-import auth from "./fixtures/auth.json";
-import dsopInfo from "./fixtures/dsop-info.json";
-import instInfo from "./fixtures/inst-info.json";
-import kontaktInformasjon from "./fixtures/kontakt-info.json";
-import landInfo from "./fixtures/land.json";
-import medlInfo from "./fixtures/medl-info.json";
-import personInformasjon from "./fixtures/person-info.json";
-import postnummer from "./fixtures/postnummer.json";
-import retningsnumre from "./fixtures/retningsnumre.json";
-import valutaer from "./fixtures/valutaer.json";
+import arbeidsforholdDetaljert from "./fixtures/arbeidsforhold-detaljert.json" with { type: "json" };
+import arbeidsforholdListe from "./fixtures/arbeidsforhold-liste.json" with { type: "json" };
+import auth from "./fixtures/auth.json" with { type: "json" };
+import dsopInfo from "./fixtures/dsop-info.json" with { type: "json" };
+import instInfo from "./fixtures/inst-info.json" with { type: "json" };
+import kontaktInformasjon from "./fixtures/kontakt-info.json" with { type: "json" };
+import landInfo from "./fixtures/land.json" with { type: "json" };
+import medlInfo from "./fixtures/medl-info.json" with { type: "json" };
+import personInformasjon from "./fixtures/person-info.json" with { type: "json" };
+import postnummer from "./fixtures/postnummer.json" with { type: "json" };
+import retningsnumre from "./fixtures/retningsnumre.json" with { type: "json" };
+import valutaer from "./fixtures/valutaer.json" with { type: "json" };
 
 type MockData = Record<string, unknown> | unknown[];
 

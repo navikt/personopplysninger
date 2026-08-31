@@ -1,5 +1,4 @@
 import react from "@vitejs/plugin-react";
-import path from "path";
 import { defineConfig } from "vite";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
 import { honoMockPlugin } from "./src/mocks/vitePlugin";
@@ -11,6 +10,7 @@ export default defineConfig(() => {
         define: {
             "process.env": {},
         },
+        envDir: process.env.VITE_ENV_DIR ?? ".",
         build: {
             outDir: "build",
             assetsInlineLimit: 0,
@@ -28,7 +28,7 @@ export default defineConfig(() => {
         ],
         resolve: {
             alias: {
-                "@": path.resolve(__dirname, "./src"),
+                "@": new URL("./src", import.meta.url).pathname,
             },
         },
         server: {

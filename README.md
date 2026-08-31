@@ -20,11 +20,11 @@ Kopier environment-variabler fra eksempelfilen:
 cp .env.sample .env
 ```
 
-Start applikasjonen lokalt:
-
-```shell
-npm start
-```
+Kjør `npm run` for å se tilgjengelige utviklingskommandoer. `start` kjører den
+eksisterende Vite-appen på `http://localhost:3006`, mens `start:astro` kjører den
+parallelle Astro-verten på
+`http://localhost:4321/person/personopplysninger/nb/`. Vite/Express er fortsatt
+standard runtime fram til Astro-paritet er verifisert.
 
 Vite starter Hono-mockene på samme origin under `/api`. Dekoratøren hentes fra
 dev-miljøet, så lokal kjøring krever ikke Docker Compose.
@@ -44,7 +44,9 @@ endepunktspesifikke forsinkelsen, for eksempel:
 
 ## Tester
 
-Tester ligger under `/src/__tests__`. Disse kan kjøres med kommandoen `npm test`.
+Vitest-testene ligger under `/src/__tests__`, og Playwright-testene for
+Astro-verten ligger under `/test/integration`. Kjør `npm run` for å se
+tilgjengelige testkommandoer.
 
 #### Snapshot-tester
 

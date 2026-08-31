@@ -1,0 +1,61 @@
+---
+import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { basePath } from "@/constants";
+import type { Locale } from "@/store/Store";
+import styles from "./Layout.module.css";
+
+interface Props {
+    locale: Locale;
+}
+
+const { locale } = Astro.props;
+const appUrl = import.meta.env.VITE_APP_URL || new URL(basePath, Astro.url.origin).toString();
+const decoratorEnvironment = process.env.ENV === "prod" ? "prod" : "dev";
+const emptyDecorator = {
+    DECORATOR_HEAD_ASSETS: "",
+    DECORATOR_HEADER: "",
+    DECORATOR_FOOTER: "",
+    DECORATOR_SCRIPTS: "",
+};
+const decorator =
+    process.env.ASTRO_DISABLE_DECORATOR === "true"
+        ? emptyDecorator
+        : await fetchDecoratorHtml({
+              env: decoratorEnvironment,
+              params: {
+                  breadcrumbs: [
+                      { url: "https://www.nav.no/minside/", title: "Min side" },
+                      { url: `${appUrl}/${locale}/`, title: "Personopplysninger" },
+                  ],
+                  availableLanguages: [
+                      { url: `${appUrl}/nb/`, locale: "nb" },
+                      { url: `${appUrl}/nn/`, locale: "nn" },
+                      { url: `${appUrl}/en/`, locale: "en" },
+                  ],
+                  language: locale,
+                  logoutWarning: true,
+              },
+          });
+
+const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCRIPTS } = decorator;
+---
+
+<!doctype html>
+<html lang={locale}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
+        <title>Personopplysninger - www.nav.no</title>
+        <Fragment set:html={DECORATOR_HEAD_ASSETS} />
+    </head>
+    <body>
+        <Fragment set:html={DECORATOR_HEADER} />
+        <main class={styles.app} id="maincontent">
+            <slot />
+        </main>
+        <Fragment set:html={DECORATOR_FOOTER} />
+        <Fragment set:html={DECORATOR_SCRIPTS} />
+    </body>
+</html>

@@ -1,11 +1,6 @@
 import { injectDecoratorClientSide } from "@navikt/nav-dekoratoren-moduler";
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import { StoreProvider } from "./store/Context";
-import WithLanguages from "./store/providers/Language";
-
-import "./styles/tokens.css";
-import "./styles/global.css";
+import ReactApp from "./ReactApp";
 
 const init = async () => {
     if (import.meta.env.VITE_ENV === "local") {
@@ -25,12 +20,6 @@ const init = async () => {
     }
     const root = createRoot(container);
 
-    root.render(
-        <StoreProvider>
-            <WithLanguages>
-                <App />
-            </WithLanguages>
-        </StoreProvider>,
-    );
+    root.render(<ReactApp />);
 };
 init();

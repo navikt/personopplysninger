@@ -1,0 +1,15 @@
+---
+import ReactApp from "@/ReactApp";
+import type { Locale } from "@/store/Store";
+import Layout from "../layouts/Layout.astro";
+
+interface Props {
+    locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<Layout locale={locale}>
+    <ReactApp client:only="react" />
+</Layout>
