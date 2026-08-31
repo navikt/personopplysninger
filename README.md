@@ -26,13 +26,15 @@ Start applikasjonen lokalt:
 npm start
 ```
 
-Vite starter Hono-mockene på samme origin under `/api`. Dekoratøren hentes fra
-dev-miljøet, så lokal kjøring krever ikke Docker Compose.
+`npm start` starter Vite på port 3006 og en separat Hono-server på port 3007.
+Vite videresender `/api` til Hono-serveren, slik at nettleseren fortsatt bruker
+samme origin. Dekoratøren hentes fra dev-miljøet, så lokal kjøring krever ikke
+Docker Compose.
 
 ## Mock-serveren
 
 Mockdata ligger i `src/mocks/fixtures`, og rutene er definert i
-`src/mocks/app.ts`.
+`src/mocks/app.ts`. Mock-serveren kan startes separat med `npm run start:mocks`.
 
 Legg til `scenario=empty` eller `scenario=error` på et mock-endepunkt for å
 teste tomme data eller feil. `delay=<millisekunder>` overstyrer den

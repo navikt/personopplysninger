@@ -2,9 +2,9 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
 import { nodePolyfills } from "vite-plugin-node-polyfills";
-import { honoMockPlugin } from "./src/mocks/vitePlugin";
 
 const isLocal = process.env.VITE_ENV === "local";
+const mockServerPort = Number(process.env.MOCK_SERVER_PORT) || 3007;
 
 export default defineConfig(() => {
     return {
@@ -18,7 +18,6 @@ export default defineConfig(() => {
         },
         base: isLocal ? "" : process.env.PUBLIC_URL,
         plugins: [
-            honoMockPlugin(),
             react(),
             nodePolyfills({
                 globals: {
@@ -33,6 +32,9 @@ export default defineConfig(() => {
         },
         server: {
             port: 3006,
+            proxy: {
+                "/api": `http://localhost:${mockServerPort}`,
+            },
         },
     };
 });
