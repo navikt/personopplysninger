@@ -1,0 +1,93 @@
+.flexTable {
+    max-width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.space {
+    margin: 1rem 0;
+}
+
+.section {
+    margin: 3rem 0 1rem 0;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.kalender {
+    min-width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+}
+
+.flexRad {
+    border-top: 1px solid #979797;
+    display: flex;
+    padding: 0.5rem 0;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (min-width: 959px) {
+    .flexRad {
+        flex-direction: row;
+    }
+}
+
+/* --ppo-bp-tablet-max: 959px */
+@media (max-width: 959px) {
+    .flexRad {
+        flex-direction: row;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .flexRad {
+        flex-direction: column;
+    }
+}
+
+.flexKolonne {
+    padding: 0.25rem 0;
+    flex-basis: 100%;
+}
+
+.flexGrid {
+    margin-left: 2rem;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .tabsInnhold {
+        padding: 1rem 2rem;
+    }
+}
+
+.ingenData {
+    margin: 1rem 0;
+}
+
+.info {
+    margin-bottom: 1rem;
+}
+
+.land {
+    text-transform: lowercase;
+}
+
+.land::first-letter {
+    text-transform: uppercase;
+}
+
+.accordionHeader {
+    width: 100%;
+}

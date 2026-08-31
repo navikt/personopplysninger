@@ -1,0 +1,11 @@
+.ingress {
+    display: flex;
+}
+
+.ingress > * {
+    margin-right: 0.25rem !important;
+}
+
+.footer {
+    margin-top: 1rem !important;
+}

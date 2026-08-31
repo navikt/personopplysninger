@@ -18,7 +18,7 @@ const OpprettEllerEndreNorskKontonr = (props: Props) => {
     } = useFormContext<FormFields>();
 
     return (
-        <div className="utbetalinger__input input--m">
+        <div className="input--m">
             <TextField
                 {...register("kontonummer", {
                     required: msg({ id: "validation.kontonummer.pakrevd" }),

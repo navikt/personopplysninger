@@ -1,0 +1,16 @@
+.overskriftContainer {
+    display: flex;
+    align-items: center;
+}
+
+.overskriftIIcon {
+    max-width: 1.5rem;
+    min-width: 1.5rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+/* Shared margin for kilde-components in the contact-info area */
+.marginKilde {
+    margin-top: 1rem;
+}

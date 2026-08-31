@@ -1,0 +1,78 @@
+.lenkepanel {
+    margin-bottom: 0.3rem;
+}
+
+.rad {
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: 1px solid #979797;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.rad:last-child {
+    border-bottom: 0;
+}
+
+.tittel {
+    margin: 0 0 0.6rem 0;
+}
+
+.beskrivelse {
+    width: 100%;
+}
+
+.iconContainer {
+    padding: 0 1.5rem 0 0;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .iconContainer {
+        padding: 0 0.5rem 0 0;
+    }
+}
+
+.lenkeContainer {
+    display: flex;
+    align-items: center;
+}
+
+.lenke {
+    color: var(--a-surface-action);
+    text-decoration: underline;
+}
+
+.next {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.seksjon {
+    margin: 0 1rem 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+/* --ppo-bp-tablet-max: 959px */
+@media (max-width: 959px) {
+    .seksjon {
+        width: 50%;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .seksjon {
+        width: 100%;
+    }
+}

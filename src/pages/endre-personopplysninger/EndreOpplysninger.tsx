@@ -3,6 +3,7 @@ import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMes
 import RedirectKnapp from "@/components/knapper/Redirect";
 import Spinner from "@/components/spinner/Spinner";
 import MedPersonInfo from "@/store/providers/PersonInfo";
+import styles from "./EndreOpplysninger.module.css";
 import EndreOpplysningerView from "./EndreOpplysningerView";
 
 interface Routes {
@@ -19,8 +20,8 @@ const EndreOpplysninger = ({ tjeneste }: EndreOpplysningerProps) => {
     const { redirectUrl } = params;
 
     return (
-        <div className="endreOpplysninger__page">
-            <div className="endreOpplysninger__container pagecontent">
+        <div className={styles.page}>
+            <div className={`${styles.container} pagecontent`}>
                 <RedirectKnapp tjeneste={tjeneste} encodedUrl={redirectUrl} />
                 <MedPersonInfo loader={<Spinner />} error={ErrorFunc}>
                     {({ personalia, adresser }) => <EndreOpplysningerView personalia={personalia} adresser={adresser} />}

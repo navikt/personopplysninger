@@ -1,5 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { UtenlandskAdresse as UtenlandskAdresseType } from "@/types/adresser/adresse";
+import adresseStyles from "../../../Adresser.module.css";
 
 const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
     const { postboksNummerNavn, postkode } = props;
@@ -9,39 +10,39 @@ const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
     return (
         <>
             {coAdressenavn && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{coAdressenavn}</BodyShort>
                 </div>
             )}
             {adressenavnNummer && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{adressenavnNummer}</BodyShort>
                 </div>
             )}
             {bygningEtasjeLeilighet && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{bygningEtasjeLeilighet}</BodyShort>
                 </div>
             )}
             {postboksNummerNavn && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{postboksNummerNavn}</BodyShort>
                 </div>
             )}
             {(postkode ?? bySted) && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>
                         {postkode ?? ""} {bySted ?? ""}
                     </BodyShort>
                 </div>
             )}
             {regionDistriktOmraade && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{regionDistriktOmraade}</BodyShort>
                 </div>
             )}
             {land && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{land}</BodyShort>
                 </div>
             )}

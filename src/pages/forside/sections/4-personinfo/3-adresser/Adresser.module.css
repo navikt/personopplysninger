@@ -1,0 +1,144 @@
+/* Adresser.module.css – delt modul for alle komponenter i 3-adresser-treet */
+
+.selectHeader {
+    display: flex;
+}
+
+.select {
+    margin-top: 1rem;
+}
+
+/* Context: box > lesmer – override Aksel ReadMore-internals */
+.box .lesmer :global(.lesMerPanel__toggle) {
+    justify-content: flex-start;
+}
+
+.box .lesmer :global(.navds-read-more__content) {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+/* .navds-button is added by the Aksel Button component */
+.slettKontaktadresse:global(.navds-button) {
+    margin-left: -1.5rem;
+}
+
+.tittel {
+    padding: 0 0 1rem 0;
+}
+
+.lesmer {
+    padding: 0;
+}
+
+.lesmer :global(.navds-read-more__button) {
+    margin-left: -0.5rem;
+}
+
+.linje {
+    width: 100%;
+}
+
+.form {
+    margin-top: 0.5rem;
+}
+
+.divider {
+    padding: 0.5rem;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .landSelect {
+        width: 100%;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .landSelect {
+        width: 40%;
+    }
+}
+
+.withoutLabel {
+    width: 100%;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .withoutLabel {
+        padding-top: 30px;
+    }
+}
+
+.rad {
+    display: flex;
+    width: 100%;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .rad {
+        flex-direction: column;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .kolonne {
+        width: 100%;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .kolonne {
+        width: 50%;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .kolonne:first-child {
+        padding-right: 0.25rem;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .kolonne:last-child {
+        padding-left: 0.25rem;
+    }
+}
+
+.endreKnapper {
+    display: flex;
+}
+
+.formKnapper {
+    padding: 1rem 0;
+    display: flex;
+}
+
+.knapp:last-child {
+    margin-left: 0.5rem;
+}
+
+.inputAvstand {
+    padding-right: 0.5rem;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (min-width: 420px) {
+    .inputBolignummer {
+        max-width: 148px;
+    }
+}
+
+.submitContainer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0 0 0;
+}

@@ -3,7 +3,7 @@
 exports[`PageNotFound > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="notfound__container"
+    class="_notfoundContainer_310267"
   >
     <h1
       class="navds-heading navds-heading--large"

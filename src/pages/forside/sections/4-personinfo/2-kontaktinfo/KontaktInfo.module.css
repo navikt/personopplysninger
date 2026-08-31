@@ -1,0 +1,4 @@
+/* .telefonnummer:first-child targets the first phone-section wrapper */
+.telefonnummer:first-child {
+    margin-bottom: 2em;
+}

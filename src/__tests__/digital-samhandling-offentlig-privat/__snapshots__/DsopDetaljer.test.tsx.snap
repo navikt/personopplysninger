@@ -4,7 +4,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="detaljer__tittel"
+      class="_tittel_e48902"
     >
       <h2
         class="navds-heading navds-heading--small"
@@ -74,7 +74,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
         </dl>
       </div>
       <div
-        class="detaljer__container"
+        class="_container_e48902"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"

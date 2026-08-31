@@ -3,10 +3,10 @@
 exports[`MedlHistorikkView > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="medl__tabs-innhold"
+    class="_tabsInnhold_7bd5cd"
   >
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <p
         class="navds-body-long navds-body-long--medium"
@@ -15,14 +15,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
-        class="medl__checkbox"
+        class="_checkbox_7bd5cd"
       >
         <svg
           aria-hidden="true"
-          class="medl__kalender"
+          class="_kalender_7bd5cd"
           fill="none"
           focusable="false"
           height="1em"
@@ -46,14 +46,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
-        class="medl__checkbox"
+        class="_checkbox_7bd5cd"
       >
         <svg
           aria-hidden="true"
-          class="medl__kalender"
+          class="_kalender_7bd5cd"
           fill="none"
           focusable="false"
           height="1em"
@@ -77,7 +77,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="medl__section"
+      class="_section_7bd5cd"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -86,14 +86,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
-        class="medl__checkbox"
+        class="_checkbox_7bd5cd"
       >
         <svg
           aria-hidden="true"
-          class="medl__kalender"
+          class="_kalender_7bd5cd"
           fill="none"
           focusable="false"
           height="1em"
@@ -117,14 +117,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
-        class="medl__checkbox"
+        class="_checkbox_7bd5cd"
       >
         <svg
           aria-hidden="true"
-          class="medl__kalender"
+          class="_kalender_7bd5cd"
           fill="none"
           focusable="false"
           height="1em"
@@ -148,14 +148,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
-        class="medl__checkbox"
+        class="_checkbox_7bd5cd"
       >
         <svg
           aria-hidden="true"
-          class="medl__kalender"
+          class="_kalender_7bd5cd"
           fill="none"
           focusable="false"
           height="1em"
@@ -179,7 +179,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="medl__section"
+      class="_section_7bd5cd"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -188,7 +188,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <p
         class="navds-body-long navds-body-long--medium"
@@ -204,7 +204,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <p
         class="navds-body-short navds-body-short--medium"
@@ -213,7 +213,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="medl__section"
+      class="_section_7bd5cd"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -222,7 +222,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="medl__space"
+      class="_space_7bd5cd"
     >
       <div
         class="navds-alert navds-alert--info navds-alert--medium"
@@ -258,7 +258,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="navds-accordion medl__space navds-accordion--medium navds-accordion--indent"
+      class="navds-accordion _space_7bd5cd navds-accordion--medium navds-accordion--indent"
     >
       <div
         class="navds-accordion__item"
@@ -307,20 +307,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
             Oversikten viser perioder der du har søkt Nav om medlemskap i folketrygden og fått bekreftet det.
           </p>
           <div
-            class="medl__flex-table "
+            class="_flexTable_7bd5cd"
           >
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -343,7 +343,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -477,17 +477,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -510,7 +510,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -644,17 +644,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -677,7 +677,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -811,17 +811,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -844,7 +844,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -978,17 +978,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1011,7 +1011,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1145,17 +1145,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1178,7 +1178,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1312,17 +1312,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1345,7 +1345,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1479,17 +1479,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1512,7 +1512,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1646,17 +1646,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1679,7 +1679,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1813,17 +1813,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1846,7 +1846,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -1980,17 +1980,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2013,7 +2013,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -2151,7 +2151,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="navds-accordion medl__space navds-accordion--medium navds-accordion--indent"
+      class="navds-accordion _space_7bd5cd navds-accordion--medium navds-accordion--indent"
     >
       <div
         class="navds-accordion__item"
@@ -2200,20 +2200,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
             Oversikten viser perioder der Nav har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
           </p>
           <div
-            class="medl__flex-table "
+            class="_flexTable_7bd5cd"
           >
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2236,7 +2236,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -2424,7 +2424,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="medl__land"
+                        class="_land_7bd5cd"
                       >
                         DANMARK
                       </dd>
@@ -2434,17 +2434,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2467,7 +2467,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -2655,7 +2655,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="medl__land"
+                        class="_land_7bd5cd"
                       >
                         SVERIGE
                       </dd>
@@ -2665,17 +2665,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2698,7 +2698,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -2886,7 +2886,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="medl__land"
+                        class="_land_7bd5cd"
                       >
                         CANADA
                       </dd>
@@ -2896,17 +2896,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="medl__flex-rad"
+              class="_flexRad_7bd5cd"
             >
               <div
-                class="medl__flex-kolonne"
+                class="_flexKolonne_7bd5cd"
               >
                 <div
-                  class="medl__heading"
+                  class="_heading_7bd5cd"
                 >
                   <svg
                     aria-hidden="true"
-                    class="medl__kalender"
+                    class="_kalender_7bd5cd"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2929,7 +2929,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="medl__flex-grid box__content"
+                  class="_flexGrid_7bd5cd box__content"
                 >
                   <dl
                     class="_list_32586e"
@@ -3117,7 +3117,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="medl__land"
+                        class="_land_7bd5cd"
                       >
                         CANADA
                       </dd>

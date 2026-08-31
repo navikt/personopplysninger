@@ -1,5 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { Postboksadresse as PostboksadresseType } from "@/types/adresser/adresse";
+import adresseStyles from "../../../Adresser.module.css";
 import Postnummer from "../../../komponenter/Postnummer";
 
 const formatPostboks = (postboks: string) => (/^postboks\b/i.test(postboks.trim()) ? postboks : `Postboks ${postboks}`);
@@ -10,17 +11,17 @@ const Postboksadresse = (props: PostboksadresseType) => {
     return (
         <>
             {coAdressenavn && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{coAdressenavn}</BodyShort>
                 </div>
             )}
             {postbokseier && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{postbokseier}</BodyShort>
                 </div>
             )}
             {postboks && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{formatPostboks(postboks)}</BodyShort>
                 </div>
             )}

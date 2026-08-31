@@ -1,0 +1,30 @@
+/*
+ * Delte stiler som brukes på tvers av sideseksjoner.
+ * Kun for stiler som deles mellom to eller flere urelaterte komponenter.
+ */
+
+/** Knapperad i modale dialoger (slett/bekreft) */
+.modalKnapper {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-end;
+}
+
+.modalKnapper > *:first-child {
+    margin-right: 0.25rem;
+}
+
+.modalKnapper > *:last-child {
+    margin-left: 0.25rem;
+}
+
+.panel {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem !important;
+}
+
+@media print {
+    .panel {
+        display: none;
+    }
+}

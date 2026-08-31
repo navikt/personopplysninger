@@ -15,7 +15,7 @@ const LandMedBankkode = (props: Props) => {
 
     return (
         <>
-            <div className="utbetalinger__bic-bankkode">
+            <div>
                 {!kreverBicOgBankkode(valgtLand) && (
                     <Alert role="status" variant="warning">
                         <FormattedMessage

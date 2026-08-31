@@ -2,6 +2,7 @@ import { Heading, ReadMore } from "@navikt/ds-react";
 import * as React from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import ListElement from "@/components/listelement/ListElement";
+import adresseStyles from "../Adresser.module.css";
 
 interface Props {
     tittel: string;
@@ -22,7 +23,7 @@ const AdressePanel = (props: Props) => {
     const readMoreLabel = isOpen ? msg({ id: "adresse.bostedsadresse.lukkTekst" }) : msg({ id: "adresse.bostedsadresse.apneTekst" });
 
     return (
-        <div className="adresse__box">
+        <div className={adresseStyles.box}>
             <div className="underseksjon__header">
                 <Heading level={"4"} size={"xsmall"}>
                     <FormattedMessage id={props.tittel} />
@@ -30,7 +31,7 @@ const AdressePanel = (props: Props) => {
             </div>
             {props.children}
             {(props.bruksenhetsnummer ?? props.kommune ?? props.flyttedatoFormatert ?? props.gyldigTilOgMedFormatert) && (
-                <ReadMore className="adresse__lesmer" header={readMoreLabel} onClick={toggleReadMore}>
+                <ReadMore className={adresseStyles.lesmer} header={readMoreLabel} onClick={toggleReadMore}>
                     <dl className="list address-columns">
                         {props.bruksenhetsnummer && <ListElement titleId="adresse.bolignummer" content={props.bruksenhetsnummer} />}
                         {props.kommune && <ListElement titleId="adresse.kommune" content={props.kommune} />}
@@ -39,7 +40,7 @@ const AdressePanel = (props: Props) => {
                     </dl>
                 </ReadMore>
             )}
-            <div className={"adresse__divider"} />
+            <div className={adresseStyles.divider} />
         </div>
     );
 };

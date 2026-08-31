@@ -1,6 +1,7 @@
 import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import sharedStyles from "@/styles/shared.module.css";
 
 interface Props {
     lukkSlettModal: () => void;
@@ -24,7 +25,7 @@ const SlettModal = (props: Props) => {
                     <BodyShort>
                         <FormattedMessage id="personalia.tlfnr.slett.alert" />
                     </BodyShort>
-                    <div className="adresse__modal-knapper">
+                    <div className={sharedStyles.modalKnapper}>
                         <Button variant="tertiary" onClick={lukkSlettModal} disabled={isLoading}>
                             <FormattedMessage id="side.avbryt" />
                         </Button>

@@ -4,8 +4,10 @@ import { FormattedMessage } from "react-intl";
 import boxStyles from "@/components/box/Box.module.css";
 import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
+import detaljerStyles from "@/styles/detaljer.module.css";
 import type { InstInnslag } from "@/types/inst";
 import { formatOrgnr, RADIX_DECIMAL } from "@/utils/formattering";
+import instStyles from "../Inst.module.css";
 
 const InstDetaljerView = (props: { innslag: InstInnslag }) => {
     const { innslag } = props;
@@ -14,7 +16,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
 
     return (
         <div>
-            <div className="detaljer__tittel">
+            <div className={detaljerStyles.tittel}>
                 <Heading level="2" size="small">
                     {innslag.institusjonsnavn}
                 </Heading>
@@ -37,7 +39,7 @@ const InstDetaljerView = (props: { innslag: InstInnslag }) => {
                         <ListElement
                             titleId={"inst.periode"}
                             content={
-                                <div className={"inst__periode"}>
+                                <div className={instStyles.periode}>
                                     {`${startdato} - ${faktiskSluttdato}`}
                                     {innslag.fiktivSluttdato && (
                                         <HelpText>

@@ -1,5 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { Matrikkeladresse as MatrikkeladresseType } from "@/types/adresser/adresse";
+import adresseStyles from "../../../Adresser.module.css";
 import Postnummer from "../../../komponenter/Postnummer";
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {
@@ -8,12 +9,12 @@ const Matrikkeladresse = (props: MatrikkeladresseType) => {
     return (
         <>
             {coAdressenavn && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{coAdressenavn}</BodyShort>
                 </div>
             )}
             {tilleggsnavn && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{tilleggsnavn}</BodyShort>
                 </div>
             )}
