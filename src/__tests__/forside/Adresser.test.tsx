@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import personInfo from "@/clients/apiMock/app/fetch/person-info.json";
+import personInfo from "@/mocks/fixtures/person-info.json";
 import Adresser from "@/pages/forside/sections/4-personinfo/3-adresser/Adresser";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";

@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import instInfo from "@/clients/apiMock/app/fetch/inst-info.json";
+import instInfo from "@/mocks/fixtures/inst-info.json";
 import InstHistorikkView from "@/pages/institusjonsopphold/historikk/InstHistorikkView";
 import nbMessages from "@/text/nb";
 
