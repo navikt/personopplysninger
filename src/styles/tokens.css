@@ -1,7 +1,7 @@
 :root {
     /*
    * @maxMobile og @minMobile er 420px. @maxDesktop, @maxTablet,
-   * @minDesktop og @minTablet er 959px in src/index.less.
+   * Desktop breakpoint er 959px.
    * Custom properties cannot be used in media queries, so modules use the
    * corresponding literal values there.
    */
