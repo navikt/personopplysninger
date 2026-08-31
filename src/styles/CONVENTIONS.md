@@ -1,7 +1,7 @@
 # CSS-konvensjoner — personopplysninger
 
-Prosjektet migrerer fra en global Less-bundle (`src/index.less`) til **CSS Modules** per komponent/seksjon.
-Dette dokumentet definerer reglene som gjelder under og etter migreringen.
+Prosjektet bruker **CSS Modules** per komponent/seksjon.
+Dette dokumentet definerer reglene for stilarkitekturen.
 
 ## Arkitekturoversikt
 
@@ -152,17 +152,7 @@ import "./styles/global.css";
 // 5. Komponent-moduler importeres der komponentene brukes
 ```
 
-## 8. Migrasjonsplan
-
-Resterende Less-filer migreres gradvis. Rekkefølge:
-
-1. **Delte komponenter** (`src/components/**/*.less`) — én om gangen, pr. PR
-2. **Sideseksjoner** (`src/pages/**/*.less`) — én side om gangen
-3. **Siste steg**: fjern `less-watch-compiler`, `<link rel="stylesheet" href="/index.css">` fra `index.html`, og `src/index.less`
-
-Hver fil som er migrert **fjernes** fra `src/index.less` for å unngå dobbel lasting.
-
-## 9. Tilgjengelighet (UU)
+## 8. Tilgjengelighet (UU)
 
 CSS Modules påvirker ikke semantikken — alle `a11y`-krav i `.github/instructions/accessibility.instructions.md` gjelder uendret:
 

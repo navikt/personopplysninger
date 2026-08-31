@@ -2,7 +2,6 @@
 
 /dist
 /src/css
-/public/index.css
 
 # dependencies
 /server/node_modules
