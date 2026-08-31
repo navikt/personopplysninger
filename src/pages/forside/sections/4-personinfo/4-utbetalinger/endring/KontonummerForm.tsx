@@ -12,6 +12,8 @@ import type { UtenlandskBankkonto } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
 import { normalizeNummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
+import utbetalStyles from "../Utbetalinger.module.css";
+import formStyles from "./KontonummerForm.module.css";
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from "./norsk-bankkonto/NorskKontonummer";
 import type { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "./types";
 import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
@@ -73,7 +75,7 @@ const KontonummerForm = (props: Props) => {
 
     return (
         <FormProvider {...methods}>
-            <form className="kontonummerForm" onSubmit={handleSubmit(onSubmit)}>
+            <form className={formStyles.kontonummerForm} onSubmit={handleSubmit(onSubmit)}>
                 <RadioGroup legend={msg({ id: "felter.kontonummer.grouplegend" })} defaultValue={kontonummerType}>
                     <Radio
                         value={NORSK}
@@ -99,7 +101,7 @@ const KontonummerForm = (props: Props) => {
                 <Alert variant={"info"}>
                     <FormattedMessage id={"endreKontonummer.authInfo"} />
                 </Alert>
-                <div className="utbetalinger__knapper">
+                <div className={utbetalStyles.knapper}>
                     <Button variant={"primary"} type={"submit"} disabled={isSubmitted && !isValid} loading={loading}>
                         <FormattedMessage id={"side.lagre"} />
                     </Button>

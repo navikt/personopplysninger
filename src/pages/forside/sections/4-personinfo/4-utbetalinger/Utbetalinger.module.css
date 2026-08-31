@@ -1,0 +1,29 @@
+.rad {
+    display: flex;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .rad {
+        flex-direction: column;
+    }
+}
+
+.knapper {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bankkodeRad {
+    display: flex;
+    align-items: flex-end;
+}
+
+.bankkodeKolonne:first-child {
+    max-width: 4rem;
+    margin-right: 0.15rem;
+}
+
+.bankkodeKolonne:last-child {
+    width: 100%;
+}

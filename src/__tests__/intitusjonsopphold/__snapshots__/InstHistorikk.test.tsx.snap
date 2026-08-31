@@ -52,13 +52,13 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="inst__tabell"
+    class="_tabell_4b5fd8"
   >
     <div
-      class="historikk__flex-rad inst__head"
+      class="_flexRad_97dcbd _head_4b5fd8"
     >
       <div
-        class="historikk__flex-kolonne"
+        class="_flexKolonne_97dcbd"
       >
         <p
           class="navds-label"
@@ -67,7 +67,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         </p>
       </div>
       <div
-        class="historikk__flex-kolonne"
+        class="_flexKolonne_97dcbd"
       >
         <p
           class="navds-label"
@@ -78,11 +78,11 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="historikk__flex-rad"
+        class="_flexRad_97dcbd"
         style="transition-delay: 50ms; font-weight: normal;"
       >
         <div
-          class="historikk__flex-kolonne historikk__heading"
+          class="_flexKolonne_97dcbd"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -91,17 +91,17 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="historikk__flex-kolonne"
+          class="_flexKolonne_97dcbd"
         >
           <div />
         </div>
       </div>
       <div
-        class="historikk__flex-rad"
+        class="_flexRad_97dcbd"
         style="transition-delay: 65ms; font-weight: normal;"
       >
         <div
-          class="historikk__flex-kolonne historikk__heading"
+          class="_flexKolonne_97dcbd"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -158,17 +158,17 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="historikk__flex-kolonne"
+          class="_flexKolonne_97dcbd"
         >
           <div />
         </div>
       </div>
       <div
-        class="historikk__flex-rad"
+        class="_flexRad_97dcbd"
         style="transition-delay: 80ms; font-weight: normal;"
       >
         <div
-          class="historikk__flex-kolonne historikk__heading"
+          class="_flexKolonne_97dcbd"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -177,7 +177,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="historikk__flex-kolonne"
+          class="_flexKolonne_97dcbd"
         >
           <div />
         </div>
@@ -185,7 +185,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="inst__kilde"
+    class="_kilde_4b5fd8"
   >
     <div
       class="_tekst_2ca801"

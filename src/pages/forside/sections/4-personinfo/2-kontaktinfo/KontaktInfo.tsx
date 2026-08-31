@@ -1,9 +1,12 @@
 import { Heading } from "@navikt/ds-react";
+import classNames from "classnames";
 import { FormattedMessage } from "react-intl";
 import kontaktIkon from "@/assets/img/Kontakt.svg";
 import Box from "@/components/box/Box";
 import Infotekst from "@/components/infotekst/Infotekst";
 import type { Tlfnr } from "@/types/personalia";
+import styles from "./KontaktInfo.module.css";
+import dkifStyles from "./subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
 import DKIF from "./subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import TelefonnummerHosNav from "./subsections/telefonnummer/TelefonnummerHosNav";
 
@@ -22,25 +25,25 @@ const KontaktInfo = (props: Props) => {
                         </Heading>
                     </div>
 
-                    <div className="telefonnummer">
+                    <div className={styles.telefonnummer}>
                         <TelefonnummerHosNav tlfnr={props.tlfnr} />
                     </div>
-                    <div className="underseksjon__header underseksjon__divider dkif__overskrift-container">
+                    <div className={classNames("underseksjon__header", "underseksjon__divider", dkifStyles.overskriftContainer)}>
                         <Heading size={"small"} level={"3"}>
                             <FormattedMessage id="personalia.dkif.overskrift" />
                         </Heading>
                         <Infotekst overskriftID="personalia.dkif.overskrift" beskrivelseID="personalia.dkif.beskrivelse" />
                     </div>
-                    <div className="telefonnummer">
+                    <div className={styles.telefonnummer}>
                         <DKIF />
                     </div>
                 </>
             ) : (
                 <>
-                    <div className="telefonnummer">
+                    <div className={styles.telefonnummer}>
                         <DKIF />
                     </div>
-                    <div className="telefonnummer">
+                    <div className={styles.telefonnummer}>
                         <TelefonnummerHosNav tlfnr={props.tlfnr} />
                     </div>
                 </>

@@ -1,4 +1,5 @@
 import { BodyShort } from "@navikt/ds-react";
+import adresseStyles from "../Adresser.module.css";
 
 interface Props {
     postnummer?: string;
@@ -6,7 +7,7 @@ interface Props {
 }
 
 const Postnummer = ({ postnummer, poststed }: Props) => (
-    <div className="adresse__linje">
+    <div className={adresseStyles.linje}>
         <BodyShort>
             {!!postnummer && postnummer} {!!poststed && poststed}
         </BodyShort>

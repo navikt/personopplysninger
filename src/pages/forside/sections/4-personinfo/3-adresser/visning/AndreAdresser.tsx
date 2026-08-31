@@ -6,9 +6,11 @@ import { fetchPersonInfo, slettKontaktadresse } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import Kilde from "@/components/kilde/Kilde";
 import { useStore } from "@/store/Context";
+import sharedStyles from "@/styles/shared.module.css";
 import type { Kontaktadresse as IKontaktadresse } from "@/types/adresser/kontaktadresse";
 import type { Oppholdsadresse as IOppholdsadresse } from "@/types/adresser/oppholdsadresse";
 import type { PersonInfo } from "@/types/personInfo";
+import adresseStyles from "../Adresser.module.css";
 import Adresse from "./Adresse";
 
 interface Props {
@@ -76,7 +78,7 @@ const AndreAdresser = (props: Props) => {
                     <Button
                         variant="tertiary"
                         onClick={apneSlettModal}
-                        className="adresse__slett-kontaktadresse knapp-med-ikon"
+                        className={`${adresseStyles.slettKontaktadresse} knapp-med-ikon`}
                         icon={<TrashIcon aria-hidden={true} />}
                     >
                         <FormattedMessage id={"side.slett.kontaktadresse"} />
@@ -103,7 +105,7 @@ const AndreAdresser = (props: Props) => {
                                         }}
                                     />
                                 </BodyShort>
-                                <div className="adresse__modal-knapper">
+                                <div className={sharedStyles.modalKnapper}>
                                     <Button variant={"tertiary"} onClick={lukkSlettModal} disabled={slettLoading}>
                                         <FormattedMessage id="side.avbryt" />
                                     </Button>

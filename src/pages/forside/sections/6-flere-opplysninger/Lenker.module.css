@@ -1,0 +1,32 @@
+.panel {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem !important;
+}
+
+@media print {
+    .panel {
+        display: none;
+    }
+}
+
+.overskrift {
+    padding: 1rem 0;
+}
+
+.info {
+    margin: 1rem 0;
+}
+
+/* --ppo-bp-desktop: 959px */
+@media (min-width: 959px) {
+    .content {
+        padding: 1rem 3rem;
+    }
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .content {
+        padding: 1rem 0;
+    }
+}

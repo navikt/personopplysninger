@@ -1,0 +1,33 @@
+.tabell {
+    margin: 1rem 0;
+}
+
+/* --ppo-bp-mobile: 420px */
+@media (max-width: 420px) {
+    .head {
+        display: none;
+    }
+}
+
+.kilde {
+    margin-top: 1rem;
+}
+
+.seFler {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+}
+
+.periode {
+    display: flex;
+}
+
+.animateEnter {
+    opacity: 0;
+}
+
+.animateEnterActive {
+    opacity: 1;
+    transition: all 100ms ease-in;
+}

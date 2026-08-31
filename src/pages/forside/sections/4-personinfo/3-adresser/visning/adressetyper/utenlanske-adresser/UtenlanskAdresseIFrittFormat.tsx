@@ -1,5 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { UtenlandskAdresseIFrittFormat as UtenlanskAdresseIFrittFormatType } from "@/types/adresser/adresse";
+import adresseStyles from "../../../Adresser.module.css";
 import GateAdresse from "../../../komponenter/GateAdresse";
 
 const UtenlanskAdresseIFrittFormat = (props: UtenlanskAdresseIFrittFormatType) => {
@@ -9,7 +10,7 @@ const UtenlanskAdresseIFrittFormat = (props: UtenlanskAdresseIFrittFormatType) =
         <>
             <GateAdresse adresse1={adresselinje1} adresse2={adresselinje2} adresse3={adresselinje3} />
             {land && (
-                <div className="adresse__linje">
+                <div className={adresseStyles.linje}>
                     <BodyShort>{land}</BodyShort>
                 </div>
             )}

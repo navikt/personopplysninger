@@ -1,0 +1,49 @@
+/*
+ * Disse selektorene styrer @navikt/arbeidsforhold-komponentens interne DOM-noder.
+ * Fordi elementene rendres av en ekstern pakke brukes :global() slik at
+ * klassenavnene ikke hashes av CSS Modules.
+ */
+
+:global(.da__container) {
+    width: 100%;
+}
+
+:global(.da__icon) {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+:global(.da__innhold) {
+    background: white;
+    padding: 2rem !important;
+    margin: 2rem 0;
+}
+
+:global(.da__rad) {
+    display: flex;
+    justify-content: space-between;
+    align-content: baseline;
+}
+
+:global(.da__filler),
+:global(.da__back) {
+    width: 100px;
+    display: flex;
+    align-items: flex-end;
+}
+
+:global(.da__filler) a,
+:global(.da__back) a {
+    display: flex;
+    align-items: center;
+}
+
+:global(.da__back-icon) {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+:global(.da__overskrift) {
+    text-align: center;
+}

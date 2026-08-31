@@ -11,6 +11,7 @@ import {
 } from "@/utils/validators";
 import type { FormFields } from "../../types";
 import { validerBankkode } from "../../utils";
+import styles from "./AdresseFields.module.css";
 
 const AdresseFields = () => {
     const { formatMessage } = useIntlFormatter();
@@ -47,7 +48,7 @@ const AdresseFields = () => {
 
     return (
         <>
-            <div className="AdresseFields__header">
+            <div className={styles.header}>
                 <Label>{formatMessage("felter.bankens.adresse.label")}</Label>
             </div>
 

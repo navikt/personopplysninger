@@ -7,6 +7,7 @@ import Kilde from "@/components/kilde/Kilde";
 import ListElement from "@/components/listelement/ListElement";
 import { useStore } from "@/store/Context";
 import type { EnhetKontaktInfo } from "@/types/enhetKontaktInfo";
+import styles from "./DittNavKontor.module.css";
 
 import "@navikt/nav-office-reception-info/dist/style.css";
 
@@ -26,14 +27,14 @@ const DittNavKontor = (props: Props) => {
 
     return (
         <Box id="ditt-nav-kontor" tittel="dittnavkontor.tittel" beskrivelse="dittnavkontor.beskrivelse" icon={dittNavKontorIkon} visAnkerlenke>
-            <div className="dittnavkontor__ingress">
+            <div className={styles.ingress}>
                 <BodyShort>
                     <FormattedMessage id="dittnavkontor.ingress" />
                     <Label as="span">{enhetNavn}</Label>
                 </BodyShort>
             </div>
             <Reception receptions={publikumsmottak} language={locale} />
-            <dl className="dittnavkontor__footer list">
+            <dl className={`${styles.footer} list`}>
                 <ListElement
                     titleId="dittnavkontor.kontaktinfo.overskrift"
                     content={

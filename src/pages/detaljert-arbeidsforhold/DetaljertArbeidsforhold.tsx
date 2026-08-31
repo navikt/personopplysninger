@@ -6,6 +6,8 @@ import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
+// Side-effect: loads styles for @navikt/arbeidsforhold's internal .da__* elements
+import "./DetaljertArbeidsforhold.module.css";
 
 const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
 

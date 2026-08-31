@@ -152,7 +152,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="dittnavkontor__ingress"
+            class="_ingress_99204d"
           >
             <p
               class="navds-body-short navds-body-short--medium"
@@ -404,7 +404,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             />
           </div>
           <dl
-            class="dittnavkontor__footer list"
+            class="_footer_99204d list"
           >
             <div>
               <dt

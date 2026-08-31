@@ -46,13 +46,13 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
           </div>
           <div>
             <div
-              class="tlfnummer__rad"
+              class="_rad_c4d980"
             >
               <div
-                class="tlfnummer__container"
+                class="_container_c4d980"
               >
                 <div
-                  class="tlfnummer__verdi"
+                  class="_verdi_c4d980"
                 >
                   <p
                     class="navds-label"
@@ -69,7 +69,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="tlfnummer__knapper"
+                  class="_knapper_c4d980"
                 >
                   <button
                     aria-label="Endre telefonnummer"
@@ -80,7 +80,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="tlfnummer__ikon"
+                        class="_ikon_c4d980"
                         fill="none"
                         focusable="false"
                         height="1em"
@@ -112,7 +112,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                     >
                       <svg
                         aria-hidden="true"
-                        class="tlfnummer__ikon"
+                        class="_ikon_c4d980"
                         fill="none"
                         focusable="false"
                         height="1em"
@@ -139,7 +139,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="margin-kilde"
+              class="_marginKilde_869628"
             >
               <div
                 class="_tekst_2ca801"
@@ -153,7 +153,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
             </div>
           </div>
           <button
-            class="tlfnummer__leggtil knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
+            class="_leggtil_c4d980 knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
           >
             <span
               class="navds-button__icon"
@@ -377,7 +377,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </a>
           </div>
           <div
-            class="adresse__box"
+            class="_box_347938"
           >
             <div>
               <div
@@ -390,7 +390,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </h3>
               </div>
               <div
-                class="adresse__box"
+                class="_box_347938"
               >
                 <div
                   class="underseksjon__header"
@@ -402,7 +402,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </h4>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -411,7 +411,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -420,7 +420,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -429,7 +429,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="navds-read-more navds-read-more--medium adresse__lesmer"
+                  class="navds-read-more navds-read-more--medium _lesmer_347938"
                   data-volume="low"
                 >
                   <button
@@ -514,11 +514,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </div>
                 </div>
                 <div
-                  class="adresse__divider"
+                  class="_divider_347938"
                 />
               </div>
               <div
-                class="adresse__box"
+                class="_box_347938"
               >
                 <div
                   class="underseksjon__header"
@@ -530,7 +530,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </h4>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -539,7 +539,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -548,7 +548,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -557,7 +557,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="navds-read-more navds-read-more--medium adresse__lesmer"
+                  class="navds-read-more navds-read-more--medium _lesmer_347938"
                   data-volume="low"
                 >
                   <button
@@ -628,11 +628,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </div>
                 </div>
                 <div
-                  class="adresse__divider"
+                  class="_divider_347938"
                 />
               </div>
               <div
-                class="adresse__box"
+                class="_box_347938"
               >
                 <div
                   class="underseksjon__header"
@@ -644,7 +644,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </h4>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -653,7 +653,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -662,7 +662,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__linje"
+                  class="_linje_347938"
                 >
                   <p
                     class="navds-body-short navds-body-short--medium"
@@ -671,7 +671,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                   </p>
                 </div>
                 <div
-                  class="adresse__divider"
+                  class="_divider_347938"
                 />
               </div>
               <div
@@ -726,7 +726,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               </h3>
             </div>
             <div
-              class="adresse__box"
+              class="_box_347938"
             >
               <div
                 class="underseksjon__header"
@@ -738,7 +738,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </h4>
               </div>
               <div
-                class="adresse__linje"
+                class="_linje_347938"
               >
                 <p
                   class="navds-body-short navds-body-short--medium"
@@ -747,7 +747,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </p>
               </div>
               <div
-                class="adresse__linje"
+                class="_linje_347938"
               >
                 <p
                   class="navds-body-short navds-body-short--medium"
@@ -756,7 +756,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </p>
               </div>
               <div
-                class="adresse__linje"
+                class="_linje_347938"
               >
                 <p
                   class="navds-body-short navds-body-short--medium"
@@ -765,11 +765,11 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                 </p>
               </div>
               <div
-                class="adresse__divider"
+                class="_divider_347938"
               />
             </div>
             <button
-              class="adresse__slett-kontaktadresse knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+              class="_slettKontaktadresse_347938 knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
             >
               <span
                 class="navds-button__icon"

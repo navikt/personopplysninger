@@ -6,6 +6,7 @@ import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import { useStore } from "@/store/Context";
 import type { KontaktInfo } from "@/types/kontaktInfo";
+import dkifStyles from "./DKIF.module.css";
 
 interface Props {
     info: KontaktInfo;
@@ -38,7 +39,7 @@ const KontaktInformasjon = (props: Props) => {
                     />
                 </Alert>
             </div>
-            <div className="margin-kilde">
+            <div className={dkifStyles.marginKilde}>
                 <Kilde
                     kilde="personalia.source.dkif"
                     lenke={`https://minprofil.kontaktregisteret.no${locale === "en" ? "?locale=en" : ""}`}

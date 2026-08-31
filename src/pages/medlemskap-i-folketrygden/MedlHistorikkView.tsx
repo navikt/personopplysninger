@@ -2,6 +2,7 @@ import { CheckmarkCircleIcon } from "@navikt/aksel-icons";
 import { Alert, BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
 import { FormattedMessage, useIntl } from "react-intl";
 import type { MedlInfo } from "@/types/medl";
+import medlStyles from "./MedlHistorikk.module.css";
 import Panel from "./Panel";
 
 interface Props {
@@ -25,40 +26,40 @@ const MedlHistorikkView = (props: Props) => {
     };
 
     return (
-        <div className="medl__tabs-innhold">
-            <div className={"medl__space"}>
+        <div className={medlStyles.tabsInnhold}>
+            <div className={medlStyles.space}>
                 <BodyLong>
                     <FormattedMessage id={"medl.oversikt.ingress"} />
                 </BodyLong>
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Checkbox text={"medl.oversikt.1"} />
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Checkbox text={"medl.oversikt.2"} />
             </div>
 
-            <div className={"medl__section"}>
+            <div className={medlStyles.section}>
                 <Heading level="3" size="small">
                     <FormattedMessage id={"medl.situasjoner.tittel"} />
                 </Heading>
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Checkbox text={"medl.situasjoner.1"} />
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Checkbox text={"medl.situasjoner.2"} />
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Checkbox text={"medl.situasjoner.3"} />
             </div>
 
-            <div className={"medl__section"}>
+            <div className={medlStyles.section}>
                 <Heading level="3" size="small">
                     <FormattedMessage id={"medl.folketrygden.tittel"} />
                 </Heading>
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <BodyLong>
                     <FormattedMessage
                         id={"medl.folketrygden.ingress"}
@@ -68,18 +69,18 @@ const MedlHistorikkView = (props: Props) => {
                     />
                 </BodyLong>
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <BodyShort>
                     <FormattedMessage id={"medl.folketrygden.lanekassen"} />
                 </BodyShort>
             </div>
 
-            <div className={"medl__section"}>
+            <div className={medlStyles.section}>
                 <Heading level="3" size="small">
                     <FormattedMessage id={"medl.perioder.tittel"} />
                 </Heading>
             </div>
-            <div className={"medl__space"}>
+            <div className={medlStyles.space}>
                 <Alert variant="info">
                     <FormattedMessage id={"medl.perioder.alert"} />
                 </Alert>
@@ -98,7 +99,7 @@ const MedlHistorikkView = (props: Props) => {
                 />
             ) : null}
             {ingenPerioder && (
-                <div className={"medl__space"}>
+                <div className={medlStyles.space}>
                     <Alert variant="info">
                         <FormattedMessage id={"medl.ingendata"} />
                     </Alert>
@@ -109,8 +110,8 @@ const MedlHistorikkView = (props: Props) => {
 };
 
 const Checkbox = (props: { text: string }) => (
-    <div className="medl__checkbox">
-        <CheckmarkCircleIcon className={"medl__kalender"} aria-hidden="true" />
+    <div className={medlStyles.checkbox}>
+        <CheckmarkCircleIcon className={medlStyles.kalender} aria-hidden="true" />
         <BodyLong>
             <FormattedMessage id={props.text} />
         </BodyLong>
