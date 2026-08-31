@@ -17,3 +17,14 @@
 .modalKnapper > *:last-child {
     margin-left: 0.25rem;
 }
+
+.panel {
+    margin-top: 3rem;
+    padding: 2rem 1.5rem !important;
+}
+
+@media print {
+    .panel {
+        display: none;
+    }
+}

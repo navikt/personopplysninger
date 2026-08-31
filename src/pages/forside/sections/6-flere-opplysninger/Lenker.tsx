@@ -8,6 +8,7 @@ import SkjermingIkon from "@/assets/img/Skjerming.svg";
 import { AnchorLink } from "@/components/anchorlink/AnchorLink";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
+import sharedStyles from "@/styles/shared.module.css";
 import styles from "./Lenker.module.css";
 import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
@@ -19,7 +20,7 @@ const id = "flere-opplysninger";
 const LinksContainer = () => {
     const [{ locale }] = useStore();
     return (
-        <Box background="surface-default" className={styles.panel} id={id}>
+        <Box background="surface-default" className={sharedStyles.panel} id={id}>
             <div className={styles.content}>
                 <div className={styles.overskrift}>
                     <Heading size={"medium"} level={"2"}>

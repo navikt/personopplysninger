@@ -3,8 +3,8 @@ import { isValidBIC } from "ibantools";
 import { useFormContext } from "react-hook-form";
 import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
 import { useIntlFormatter } from "@/hooks/useIntlFormatter";
-import type { FormFields } from "@/types";
 import { isBICCountryCompliant, isLettersAndDigits } from "@/utils/validators";
+import type { FormFields } from "../../types";
 import { validerBic } from "../../utils";
 
 const BickodeField = () => {

@@ -1,7 +1,7 @@
 import { Box, Heading, ReadMore } from "@navikt/ds-react";
 import { Fragment } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import lenkerStyles from "../Lenker.module.css";
+import sharedStyles from "@/styles/shared.module.css";
 import styles from "./MerInformasjon.module.css";
 import merInformasjon from "./MerInformasjonData";
 import MerInformasjonPanelinnhold from "./MerInformasjonPanelinnhold";
@@ -10,7 +10,7 @@ const AlternativListe = () => {
     const { formatMessage: msg } = useIntl();
 
     return (
-        <Box background="surface-default" className={lenkerStyles.panel}>
+        <Box background="surface-default" className={sharedStyles.panel}>
             <div className={styles.content}>
                 <Heading size={"medium"} level={"2"}>
                     <FormattedMessage id="alternativer.tittel" />
