@@ -1,7 +1,7 @@
 import { ArrowLeftIcon } from "@navikt/aksel-icons";
 import { type NavigateOptions, useLocation, useNavigate } from "react-router-dom";
-import naturIkon from "@/assets/img/Natur.svg";
-import veilederIkon from "@/assets/img/VeilederGul.svg";
+import naturIkon from "@/assets/img/Natur.svg?url";
+import veilederIkon from "@/assets/img/VeilederGul.svg?url";
 import { redirects, validateAndDecodeRedirectUrl } from "@/utils/redirects";
 import styles from "./Redirect.module.css";
 

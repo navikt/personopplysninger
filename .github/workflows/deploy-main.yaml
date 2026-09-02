@@ -1,0 +1,38 @@
+name: "Deploy main"
+on:
+  push:
+    branches:
+      - "main"
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@71678a4147620d62d582b57fe30e1527b4add74f # main
+    with:
+      app-name: "personopplysninger"
+      clusters: '["dev-gcp", "prod-gcp"]'
+    secrets: inherit
+
+  deploy-internal:
+    needs: build-and-deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: nais/deploy/actions/deploy@027a91857992525139798892f2804b0ca21f4af6 # v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: nais/prod-gcp/intern.yaml
+          TEAM: min-side
+          VAR: image=${{ needs.build-and-deploy.outputs.image }},version=${{ github.sha }}

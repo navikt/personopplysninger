@@ -3,9 +3,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { IntlProvider } from "react-intl";
 import createFetchMock from "vitest-fetch-mock";
-import KontonummerForm from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
+import KontonummerForm from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
 
 const fetchMocker = createFetchMock(vi);
 

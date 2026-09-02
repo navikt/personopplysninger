@@ -10,21 +10,6 @@ body {
     margin: 0;
 }
 
-.pagewrapper {
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-    margin-bottom: -200px;
-    padding-bottom: 200px;
-}
-
-.app {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
 .pagecontent {
     width: 100%;
     max-width: var(--ppo-content-max-width, 800px);

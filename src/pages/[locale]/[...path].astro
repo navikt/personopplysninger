@@ -1,0 +1,20 @@
+---
+import ReactApp from "@/islands/ReactApp";
+import Layout from "@/layouts/Layout.astro";
+import { getRuntimeConfig } from "@/server/environment";
+import { getLocale } from "@/server/locale";
+
+const requestedLocale = Astro.params.locale;
+const locale = getLocale(requestedLocale);
+
+if (requestedLocale !== locale) {
+    const relativePath = Astro.url.pathname.slice(import.meta.env.BASE_URL.length).replace(/^\/+/, "");
+    return Astro.redirect(`${import.meta.env.BASE_URL}/nb/${relativePath}${Astro.url.search}`);
+}
+
+const runtimeConfig = getRuntimeConfig();
+---
+
+<Layout title="Personopplysninger - www.nav.no" locale={locale}>
+    <ReactApp client:only="react" runtimeConfig={runtimeConfig} locale={locale} />
+</Layout>

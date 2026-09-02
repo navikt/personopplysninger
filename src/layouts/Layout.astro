@@ -1,0 +1,59 @@
+---
+import { APP_URL, DITT_NAV_URL } from "astro:env/server";
+import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { getDecoratorEnvironment } from "@/server/environment";
+import { getLocale, type Locale } from "@/server/locale";
+import "@/styles/tokens.css";
+import "@/styles/global.css";
+import styles from "./Layout.module.css";
+
+export interface Props {
+    title: string;
+    locale?: Locale;
+}
+
+const { title, locale = getLocale(Astro.currentLocale) } = Astro.props;
+
+const Decorator = await fetchDecoratorHtml({
+    env: getDecoratorEnvironment(),
+    params: {
+        context: "privatperson",
+        language: locale,
+        breadcrumbs: [
+            { url: DITT_NAV_URL, title: "Min side" },
+            { url: APP_URL, title: "Personopplysninger" },
+        ],
+        availableLanguages: [
+            { url: `${APP_URL}/nb/`, locale: "nb", handleInApp: false },
+            { url: `${APP_URL}/en/`, locale: "en", handleInApp: false },
+            { url: `${APP_URL}/nn/`, locale: "nn", handleInApp: false },
+        ],
+        logoutWarning: true,
+    },
+});
+
+const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCRIPTS } = Decorator;
+---
+
+<!doctype html>
+<html lang={locale}>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="theme-color" content="#000000" />
+        <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.ico`} />
+        <title>{title}</title>
+        <Fragment set:html={DECORATOR_HEAD_ASSETS} />
+    </head>
+    <body>
+        <Fragment set:html={DECORATOR_HEADER} />
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div class={styles.pageWrapper}>
+            <main class={styles.app} id="maincontent">
+                <slot />
+            </main>
+        </div>
+        <Fragment set:html={DECORATOR_FOOTER} />
+        <Fragment set:html={DECORATOR_SCRIPTS} />
+    </body>
+</html>

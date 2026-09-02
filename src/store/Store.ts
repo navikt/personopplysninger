@@ -1,14 +1,14 @@
 import type { HTTPError } from "../components/errorMessage/ErrorMessage";
-import type { FetchDsopInfo } from "../pages/digital-samhandling-offentlig-privat/DsopFetch";
-import type { FetchKontaktInfo } from "../pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import type { FetchInstInfo } from "../pages/institusjonsopphold/InstFetch";
-import type { FetchMedlInfo } from "../pages/medlemskap-i-folketrygden/MedlFetch";
 import type { Auth, FetchAuth } from "../types/authInfo";
 import type { DsopInfo } from "../types/dsop";
 import type { InstInfo } from "../types/inst";
 import type { KontaktInfo } from "../types/kontaktInfo";
 import type { MedlInfo } from "../types/medl";
 import type { PersonInfo } from "../types/personInfo";
+import type { FetchDsopInfo } from "../views/digital-samhandling-offentlig-privat/DsopFetch";
+import type { FetchKontaktInfo } from "../views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
+import type { FetchInstInfo } from "../views/institusjonsopphold/InstFetch";
+import type { FetchMedlInfo } from "../views/medlemskap-i-folketrygden/MedlFetch";
 import type { FetchPersonInfo } from "./providers/PersonInfo";
 
 const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && "en") ??

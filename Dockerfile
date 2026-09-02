@@ -1,13 +1,12 @@
 FROM europe-north1-docker.pkg.dev/cgr-nav/pull-through/nav.no/node:24-slim
-# RUN apk add --no-cache bash
-ENV NODE_ENV production
 
-WORKDIR usr/src/app
-COPY server server/
-COPY build build/
+WORKDIR /usr/src/app
+COPY ./dist ./dist
+COPY ./node_modules ./node_modules
 
-WORKDIR server
+ENV HOST=0.0.0.0
+ENV PORT=3000
 
-CMD ["./server.js"]
+CMD ["./dist/server/entry.mjs"]
 
-EXPOSE 8080
+EXPOSE 3000

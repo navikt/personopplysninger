@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import dsopInfo from "@/mocks/fixtures/dsop-info.json";
-import DsopHistorikkView from "@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
 import nbMessages from "@/text/nb";
+import DsopHistorikkView from "@/views/digital-samhandling-offentlig-privat/historikk/DsopHistorikkView";
 
 vi.mock("react-router-dom", () => ({
     Link: () => <div />,

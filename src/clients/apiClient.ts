@@ -1,14 +1,13 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
-import type { OutboundTlfnummer } from "@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
-import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
+import { getRuntimeConfig } from "@/runtime-config/runtimeConfig";
 import type { Locale } from "@/store/Store";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
 import { getLoginRedirectUrl } from "@/utils/redirects";
+import type { OutboundTlfnummer } from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
+import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const parseJson = (data: Response) => data.json();
-
-const { VITE_API_URL, VITE_ENDRE_KONTONUMMER_URL, VITE_LOGIN_URL, VITE_INNLOGGINGSSTATUS_URL } = import.meta.env;
 
 /*
    GET
@@ -33,23 +32,23 @@ const sjekkAuthHentJson = (url: string) =>
             throw error;
         });
 
-export const fetchInnloggingsStatus = () => sjekkAuthHentJson(VITE_INNLOGGINGSSTATUS_URL || "");
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(getRuntimeConfig().innloggingsstatusUrl || "");
 
-export const fetchKontaktInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/kontaktinformasjon`);
+export const fetchKontaktInfo = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/kontaktinformasjon`);
 
-export const fetchRetningsnumre = () => sjekkAuthHentJson(`${VITE_API_URL}/retningsnumre`);
+export const fetchRetningsnumre = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/retningsnumre`);
 
-export const fetchInstInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/institusjonsopphold`);
+export const fetchInstInfo = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/institusjonsopphold`);
 
-export const fetchMedlInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/medl`);
+export const fetchMedlInfo = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/medl`);
 
-export const fetchPersonInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/personalia`);
+export const fetchPersonInfo = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/personalia`);
 
-export const fetchLand = () => sjekkAuthHentJson(`${VITE_API_URL}/land`);
+export const fetchLand = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/land`);
 
-export const fetchValutaer = () => sjekkAuthHentJson(`${VITE_API_URL}/valuta`);
+export const fetchValutaer = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/valuta`);
 
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${VITE_API_URL}/sporingslogg`);
+export const fetchDsopInfo = () => sjekkAuthHentJson(`${getRuntimeConfig().apiUrl}/sporingslogg`);
 
 /*
     POST
@@ -105,14 +104,14 @@ const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
         });
 };
 
-export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${VITE_API_URL}/endreTelefonnummer`, data);
+export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${getRuntimeConfig().apiUrl}/endreTelefonnummer`, data);
 
-export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${VITE_API_URL}/slettTelefonnummer`, data);
+export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${getRuntimeConfig().apiUrl}/slettTelefonnummer`, data);
 
 export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
-    reauthenticate(`${VITE_ENDRE_KONTONUMMER_URL}/endreKontonummer`, data, locale);
+    reauthenticate(`${getRuntimeConfig().endreKontonummerUrl}/endreKontonummer`, data, locale);
 
-export const slettKontaktadresse = () => postJson(`${VITE_API_URL}/slettKontaktadresse`);
+export const slettKontaktadresse = () => postJson(`${getRuntimeConfig().apiUrl}/slettKontaktadresse`);
 
 /*
     UTILS
@@ -142,7 +141,7 @@ const sjekkAuth = (response: Response): Response => {
 
 export const sendTilLogin = () => {
     const redirectUrl = getLoginRedirectUrl();
-    window.location.assign(`${VITE_LOGIN_URL}?redirect=${redirectUrl}&level=Level4`);
+    window.location.assign(`${getRuntimeConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
 };
 
 const sjekkHttpFeil = async (response: Response) => {

@@ -4,7 +4,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="_tittel_e48902"
+      class="_tittel_715c62"
     >
       <h2
         class="navds-heading navds-heading--small"
@@ -18,7 +18,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
       </p>
     </div>
     <hr
-      class="_lineWide_5f12c1"
+      class="_lineWide_73dfc6"
     />
     <div
       class="box"
@@ -27,11 +27,11 @@ exports[`InstDetaljerView > renders correctly 1`] = `
         class="box__content"
       >
         <dl
-          class="_list_32586e"
+          class="_list_f0abfa"
         >
           <div>
             <dt
-              class="_listElementHeading_456e20"
+              class="_listElementHeading_2099ad"
             >
               <span
                 class="navds-label"
@@ -45,7 +45,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
           </div>
           <div>
             <dt
-              class="_listElementHeading_456e20"
+              class="_listElementHeading_2099ad"
             >
               <span
                 class="navds-label"
@@ -55,7 +55,7 @@ exports[`InstDetaljerView > renders correctly 1`] = `
             </dt>
             <dd>
               <div
-                class="_periode_4b5fd8"
+                class="_periode_5b25e1"
               >
                 13.06.2017 - 15.09.2017
               </div>

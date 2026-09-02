@@ -4,7 +4,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="_tittel_e48902"
+      class="_tittel_715c62"
     >
       <h2
         class="navds-heading navds-heading--small"
@@ -18,7 +18,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
       </p>
     </div>
     <hr
-      class="_lineWide_5f12c1"
+      class="_lineWide_73dfc6"
     />
     <div
       class="box"
@@ -27,11 +27,11 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
         class="box__content"
       >
         <dl
-          class="_list_32586e"
+          class="_list_f0abfa"
         >
           <div>
             <dt
-              class="_listElementHeading_456e20"
+              class="_listElementHeading_2099ad"
             >
               <span
                 class="navds-label"
@@ -45,7 +45,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
           </div>
           <div>
             <dt
-              class="_listElementHeading_456e20"
+              class="_listElementHeading_2099ad"
             >
               <span
                 class="navds-label"
@@ -59,7 +59,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
           </div>
           <div>
             <dt
-              class="_listElementHeading_456e20"
+              class="_listElementHeading_2099ad"
             >
               <span
                 class="navds-label"
@@ -74,7 +74,7 @@ exports[`DsopDetaljerView > renders correctly 1`] = `
         </dl>
       </div>
       <div
-        class="_container_e48902"
+        class="_container_715c62"
       >
         <button
           class="navds-button navds-button--primary navds-button--medium"

@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import Header from "@/pages/forside/sections/3-header/Header";
-import headerStyles from "@/pages/forside/sections/3-header/Header.module.css";
 import { StoreContext } from "@/store/Context";
 import { initialState } from "@/store/Store";
 import nbMessages from "@/text/nb";
 import type { FetchAuth } from "@/types/authInfo";
+import Header from "@/views/forside/sections/3-header/Header";
+import headerStyles from "@/views/forside/sections/3-header/Header.module.css";
 
 vi.mock("react-modal");
-vi.mock("@/pages/forside/sections/4-personinfo/PersonInfo", () => ({
+vi.mock("@/views/forside/sections/4-personinfo/PersonInfo", () => ({
     default: () => <div>Laster innhold...</div>,
 }));
 

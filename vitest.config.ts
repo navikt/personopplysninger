@@ -1,17 +1,18 @@
-import react from "@vitejs/plugin-react";
-import path from "path";
-import { defineConfig } from "vitest/config";
+import { fileURLToPath } from "node:url";
+import { getViteConfig } from "astro/config";
 
-export default defineConfig({
-    plugins: [react()],
-    test: {
-        globals: true, // Ensure globals are enabled
-        environment: "jsdom",
-        setupFiles: "./setupTests.ts",
-    },
+export default getViteConfig({
     resolve: {
         alias: {
-            "@": path.resolve(__dirname, "./src"),
+            "@": fileURLToPath(new URL("./src", import.meta.url)),
         },
+    },
+    // Astro's helper accepts this at runtime, but its type here doesn't include Vitest's augmentation.
+    // @ts-expect-error Vitest config
+    test: {
+        globals: true,
+        environment: "jsdom",
+        setupFiles: ["./setupTests.ts"],
+        include: ["src/**/*.test.{ts,tsx}"],
     },
 });

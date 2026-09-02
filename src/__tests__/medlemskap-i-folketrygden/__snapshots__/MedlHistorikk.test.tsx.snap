@@ -3,10 +3,10 @@
 exports[`MedlHistorikkView > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="_tabsInnhold_7bd5cd"
+    class="_tabsInnhold_57d8c0"
   >
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <p
         class="navds-body-long navds-body-long--medium"
@@ -15,14 +15,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
-        class="_checkbox_7bd5cd"
+        class="_checkbox_57d8c0"
       >
         <svg
           aria-hidden="true"
-          class="_kalender_7bd5cd"
+          class="_kalender_57d8c0"
           fill="none"
           focusable="false"
           height="1em"
@@ -46,14 +46,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
-        class="_checkbox_7bd5cd"
+        class="_checkbox_57d8c0"
       >
         <svg
           aria-hidden="true"
-          class="_kalender_7bd5cd"
+          class="_kalender_57d8c0"
           fill="none"
           focusable="false"
           height="1em"
@@ -77,7 +77,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_section_7bd5cd"
+      class="_section_57d8c0"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -86,14 +86,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
-        class="_checkbox_7bd5cd"
+        class="_checkbox_57d8c0"
       >
         <svg
           aria-hidden="true"
-          class="_kalender_7bd5cd"
+          class="_kalender_57d8c0"
           fill="none"
           focusable="false"
           height="1em"
@@ -117,14 +117,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
-        class="_checkbox_7bd5cd"
+        class="_checkbox_57d8c0"
       >
         <svg
           aria-hidden="true"
-          class="_kalender_7bd5cd"
+          class="_kalender_57d8c0"
           fill="none"
           focusable="false"
           height="1em"
@@ -148,14 +148,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
-        class="_checkbox_7bd5cd"
+        class="_checkbox_57d8c0"
       >
         <svg
           aria-hidden="true"
-          class="_kalender_7bd5cd"
+          class="_kalender_57d8c0"
           fill="none"
           focusable="false"
           height="1em"
@@ -179,7 +179,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_section_7bd5cd"
+      class="_section_57d8c0"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -188,7 +188,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <p
         class="navds-body-long navds-body-long--medium"
@@ -204,7 +204,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <p
         class="navds-body-short navds-body-short--medium"
@@ -213,7 +213,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </p>
     </div>
     <div
-      class="_section_7bd5cd"
+      class="_section_57d8c0"
     >
       <h3
         class="navds-heading navds-heading--small"
@@ -222,7 +222,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </h3>
     </div>
     <div
-      class="_space_7bd5cd"
+      class="_space_57d8c0"
     >
       <div
         class="navds-alert navds-alert--info navds-alert--medium"
@@ -258,7 +258,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="navds-accordion _space_7bd5cd navds-accordion--medium navds-accordion--indent"
+      class="navds-accordion _space_57d8c0 navds-accordion--medium navds-accordion--indent"
     >
       <div
         class="navds-accordion__item"
@@ -307,20 +307,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
             Oversikten viser perioder der du har søkt Nav om medlemskap i folketrygden og fått bekreftet det.
           </p>
           <div
-            class="_flexTable_7bd5cd"
+            class="_flexTable_57d8c0"
           >
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -343,14 +343,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -361,7 +361,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -369,7 +369,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -389,7 +389,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -412,7 +412,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -423,7 +423,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -431,7 +431,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -451,7 +451,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -477,17 +477,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -510,14 +510,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -528,7 +528,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -536,7 +536,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -556,7 +556,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -579,7 +579,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -590,7 +590,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -598,7 +598,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -618,7 +618,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -644,17 +644,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -677,14 +677,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -695,7 +695,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -703,7 +703,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -723,7 +723,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -746,7 +746,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -757,7 +757,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -765,7 +765,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -785,7 +785,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -811,17 +811,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -844,14 +844,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -862,7 +862,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -870,7 +870,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -890,7 +890,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -913,7 +913,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -924,7 +924,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -932,7 +932,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -952,7 +952,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -978,17 +978,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1011,14 +1011,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1029,7 +1029,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1037,7 +1037,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1057,7 +1057,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1080,7 +1080,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1091,7 +1091,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1099,7 +1099,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1119,7 +1119,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1145,17 +1145,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1178,14 +1178,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1196,7 +1196,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1204,7 +1204,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1224,7 +1224,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1247,7 +1247,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1258,7 +1258,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1266,7 +1266,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1286,7 +1286,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1312,17 +1312,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1345,14 +1345,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1363,7 +1363,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1371,7 +1371,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1391,7 +1391,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1414,7 +1414,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1425,7 +1425,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1433,7 +1433,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1453,7 +1453,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1479,17 +1479,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1512,14 +1512,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1530,7 +1530,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1538,7 +1538,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1558,7 +1558,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1581,7 +1581,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1592,7 +1592,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1600,7 +1600,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1620,7 +1620,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1646,17 +1646,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1679,14 +1679,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1697,7 +1697,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1705,7 +1705,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1725,7 +1725,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1748,7 +1748,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1759,7 +1759,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1767,7 +1767,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1787,7 +1787,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1813,17 +1813,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -1846,14 +1846,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1864,7 +1864,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1872,7 +1872,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1892,7 +1892,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1915,7 +1915,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -1926,7 +1926,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -1934,7 +1934,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -1954,7 +1954,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -1980,17 +1980,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2013,14 +2013,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2031,7 +2031,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2039,7 +2039,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2059,7 +2059,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2082,7 +2082,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2093,7 +2093,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2101,7 +2101,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2121,7 +2121,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2151,7 +2151,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="navds-accordion _space_7bd5cd navds-accordion--medium navds-accordion--indent"
+      class="navds-accordion _space_57d8c0 navds-accordion--medium navds-accordion--indent"
     >
       <div
         class="navds-accordion__item"
@@ -2200,20 +2200,20 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
             Oversikten viser perioder der Nav har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.
           </p>
           <div
-            class="_flexTable_7bd5cd"
+            class="_flexTable_57d8c0"
           >
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2236,14 +2236,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2254,7 +2254,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2262,7 +2262,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2282,7 +2282,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2305,7 +2305,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2316,7 +2316,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2324,7 +2324,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2344,7 +2344,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2367,7 +2367,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2378,7 +2378,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2386,7 +2386,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2406,7 +2406,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2424,7 +2424,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="_land_7bd5cd"
+                        class="_land_57d8c0"
                       >
                         DANMARK
                       </dd>
@@ -2434,17 +2434,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2467,14 +2467,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2485,7 +2485,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2493,7 +2493,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2513,7 +2513,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2536,7 +2536,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2547,7 +2547,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2555,7 +2555,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2575,7 +2575,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2598,7 +2598,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2609,7 +2609,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2617,7 +2617,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2637,7 +2637,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2655,7 +2655,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="_land_7bd5cd"
+                        class="_land_57d8c0"
                       >
                         SVERIGE
                       </dd>
@@ -2665,17 +2665,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2698,14 +2698,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2716,7 +2716,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2724,7 +2724,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2744,7 +2744,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2767,7 +2767,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2778,7 +2778,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2786,7 +2786,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2806,7 +2806,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2829,7 +2829,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2840,7 +2840,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2848,7 +2848,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2868,7 +2868,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2886,7 +2886,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="_land_7bd5cd"
+                        class="_land_57d8c0"
                       >
                         CANADA
                       </dd>
@@ -2896,17 +2896,17 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
               </div>
             </div>
             <div
-              class="_flexRad_7bd5cd"
+              class="_flexRad_57d8c0"
             >
               <div
-                class="_flexKolonne_7bd5cd"
+                class="_flexKolonne_57d8c0"
               >
                 <div
-                  class="_heading_7bd5cd"
+                  class="_heading_57d8c0"
                 >
                   <svg
                     aria-hidden="true"
-                    class="_kalender_7bd5cd"
+                    class="_kalender_57d8c0"
                     fill="none"
                     focusable="false"
                     height="1em"
@@ -2929,14 +2929,14 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                   </p>
                 </div>
                 <div
-                  class="_flexGrid_7bd5cd box__content"
+                  class="_flexGrid_57d8c0 box__content"
                 >
                   <dl
-                    class="_list_32586e"
+                    class="_list_f0abfa"
                   >
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -2947,7 +2947,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Hjemmel"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -2955,7 +2955,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -2975,7 +2975,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -2998,7 +2998,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -3009,7 +3009,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Trygdedekning"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -3017,7 +3017,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -3037,7 +3037,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -3060,7 +3060,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                     </div>
                     <div>
                       <dt
-                        class="_listElementHeading_456e20"
+                        class="_listElementHeading_2099ad"
                       >
                         <span
                           class="navds-label"
@@ -3071,7 +3071,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           <button
                             aria-expanded="false"
                             aria-label="Mer om Land"
-                            class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+                            class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
                             type="button"
                           >
                             <span
@@ -3079,7 +3079,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                             >
                               <svg
                                 aria-hidden="true"
-                                class="_icon_54955a"
+                                class="_icon_1b65be"
                                 fill="none"
                                 focusable="false"
                                 height="1em"
@@ -3099,7 +3099,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                           </button>
                           <div
                             aria-hidden="true"
-                            class="navds-popover _popover_54955a navds-popover--hidden"
+                            class="navds-popover _popover_1b65be navds-popover--hidden"
                             data-index="0"
                             data-placement="top"
                             style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -3117,7 +3117,7 @@ exports[`MedlHistorikkView > renders correctly 1`] = `
                         </div>
                       </dt>
                       <dd
-                        class="_land_7bd5cd"
+                        class="_land_57d8c0"
                       >
                         CANADA
                       </dd>

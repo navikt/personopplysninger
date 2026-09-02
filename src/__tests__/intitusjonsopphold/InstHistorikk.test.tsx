@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import instInfo from "@/mocks/fixtures/inst-info.json";
-import InstHistorikkView from "@/pages/institusjonsopphold/historikk/InstHistorikkView";
 import nbMessages from "@/text/nb";
+import InstHistorikkView from "@/views/institusjonsopphold/historikk/InstHistorikkView";
 
 vi.mock("react-router-dom", () => ({
     Link: () => <div />,

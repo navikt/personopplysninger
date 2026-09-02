@@ -2,11 +2,11 @@ import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import { MemoryRouter } from "react-router-dom";
 import personInfo from "@/mocks/fixtures/person-info.json";
-import EndreOpplysningerView from "@/pages/endre-personopplysninger/EndreOpplysningerView";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
 import type { Adresser } from "@/types/adresser";
 import type { Personalia } from "@/types/personalia";
+import EndreOpplysningerView from "@/views/endre-personopplysninger/EndreOpplysningerView";
 
 vi.mock("react-modal");
 

@@ -52,13 +52,13 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="_tabell_4b5fd8"
+    class="_tabell_5b25e1"
   >
     <div
-      class="_flexRad_97dcbd _head_4b5fd8"
+      class="_flexRad_44a599 _head_5b25e1"
     >
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <p
           class="navds-label"
@@ -67,7 +67,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         </p>
       </div>
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <p
           class="navds-label"
@@ -78,11 +78,11 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
     <div>
       <div
-        class="_flexRad_97dcbd"
+        class="_flexRad_44a599"
         style="transition-delay: 50ms; font-weight: normal;"
       >
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -91,17 +91,17 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <div />
         </div>
       </div>
       <div
-        class="_flexRad_97dcbd"
+        class="_flexRad_44a599"
         style="transition-delay: 65ms; font-weight: normal;"
       >
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -112,7 +112,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
             <button
               aria-expanded="false"
               aria-label="Mer om Sluttdato"
-              class="_helpButton_54955a navds-button navds-button--tertiary navds-button--medium"
+              class="_helpButton_1b65be navds-button navds-button--tertiary navds-button--medium"
               type="button"
             >
               <span
@@ -120,7 +120,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
               >
                 <svg
                   aria-hidden="true"
-                  class="_icon_54955a"
+                  class="_icon_1b65be"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -140,7 +140,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
             </button>
             <div
               aria-hidden="true"
-              class="navds-popover _popover_54955a navds-popover--hidden"
+              class="navds-popover _popover_1b65be navds-popover--hidden"
               data-index="0"
               data-placement="top"
               style="position: absolute; left: 0px; top: 0px; transform: translate(0px, 0px);"
@@ -158,17 +158,17 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </div>
         </div>
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <div />
         </div>
       </div>
       <div
-        class="_flexRad_97dcbd"
+        class="_flexRad_44a599"
         style="transition-delay: 80ms; font-weight: normal;"
       >
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <p
             class="navds-body-short navds-body-short--medium"
@@ -177,7 +177,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="_flexKolonne_97dcbd"
+          class="_flexKolonne_44a599"
         >
           <div />
         </div>
@@ -185,10 +185,10 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="_kilde_4b5fd8"
+    class="_kilde_5b25e1"
   >
     <div
-      class="_tekst_2ca801"
+      class="_tekst_8acd93"
     >
       <p
         class="navds-detail navds-typo--spacing"

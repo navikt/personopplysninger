@@ -15,7 +15,7 @@ exports[`Utbetalinger with kontonummer renders correctly 1`] = `
         <img
           alt=""
           class="box__ikon"
-          src="Kontonummer.svg"
+          src="Kontonummer.svg?url"
         />
       </div>
       <div
@@ -154,7 +154,7 @@ exports[`Utbetalinger with utenlandsk bank renders correctly 1`] = `
         <img
           alt=""
           class="box__ikon"
-          src="Kontonummer.svg"
+          src="Kontonummer.svg?url"
         />
       </div>
       <div

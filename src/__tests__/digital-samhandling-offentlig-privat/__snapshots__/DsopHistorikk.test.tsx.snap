@@ -3,10 +3,10 @@
 exports[`DsopHistorikkView > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="_tabsInnhold_97dcbd _flexTable_97dcbd"
+    class="_tabsInnhold_44a599 _flexTable_44a599"
   >
     <div
-      class="_info_97dcbd"
+      class="_info_44a599"
     >
       <div
         class="navds-alert navds-alert--info navds-alert--medium"
@@ -53,10 +53,10 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <p
           class="navds-label"
@@ -65,7 +65,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
         </p>
       </div>
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <p
           class="navds-label"
@@ -75,10 +75,10 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <button
-        class="_flexKolonne_97dcbd af-liste__ekspander"
+        class="_flexKolonne_44a599 af-liste__ekspander"
         type="button"
       >
         2019 
@@ -103,52 +103,52 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div />
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         18.06 kl. 10:45
       </div>
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <div />
       </div>
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         18.06 kl. 10:45
       </div>
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <div />
       </div>
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         18.06 kl. 10:51
       </div>
       <div
-        class="_flexKolonne_97dcbd"
+        class="_flexKolonne_44a599"
       >
         <div />
       </div>
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <button
-        class="_flexKolonne_97dcbd af-liste__ekspander"
+        class="_flexKolonne_44a599 af-liste__ekspander"
         type="button"
       >
         2018 
@@ -173,10 +173,10 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div />
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <button
-        class="_flexKolonne_97dcbd af-liste__ekspander"
+        class="_flexKolonne_44a599 af-liste__ekspander"
         type="button"
       >
         2017 
@@ -201,10 +201,10 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div />
     </div>
     <div
-      class="_flexRad_97dcbd"
+      class="_flexRad_44a599"
     >
       <button
-        class="_flexKolonne_97dcbd af-liste__ekspander"
+        class="_flexKolonne_44a599 af-liste__ekspander"
         type="button"
       >
         2016 

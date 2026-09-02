@@ -130,7 +130,7 @@ Prosjektspesifikke tokens (layout, breakpoints) er definert i `src/styles/tokens
 | Kategori                              | Eksempel                                     | Tillatt |
 |---------------------------------------|----------------------------------------------|---------|
 | Dokumentnivå                          | `html`, `body`                               | ✅      |
-| Strukturelle hooks i `index.html`     | `.pagewrapper`, `.app`                       | ✅      |
+| Layout-struktur                      | `Layout.module.css`                          | ❌      |
 | App-skjelettklasser i `App.tsx`       | `.pagecontent`, `.wrapper`                   | ✅ (midlertidig) |
 | Delte layout-hooks på tvers av sider  | `.underseksjon__*`                           | ✅ (midlertidig) |
 | Tredjeparts-/vendor-selektorer        | `.ReactModal__Overlay`, `.navds-*`           | ✅      |
@@ -138,18 +138,18 @@ Prosjektspesifikke tokens (layout, breakpoints) er definert i `src/styles/tokens
 | Komponent-spesifikke stiler           | `.header__seksjon`, `.spinner-wrapper`       | ❌ — bruk CSS Module |
 | Overskriving av `--a-*`-tokens        | `--a-spacing-4: 20px`                        | ❌ aldri |
 
-## 7. Importrekkefølge i `index.tsx`
+## 7. Importrekkefølge
 
 ```tsx
-// 1. Aksel CSS (vendor)
+// Layout.astro: globale stilark
 import "@navikt/ds-css";
-// 2. Andre vendor-pakker
+import "@/styles/tokens.css";
+import "@/styles/global.css";
+
+// App.tsx: vendor-CSS for React-komponenten
 import "@navikt/arbeidsforhold/index.css";
-// 3. Prosjektspesifikke tokens (må komme etter Aksel slik at --a-* er definert)
-import "./styles/tokens.css";
-// 4. Eksplisitt global grense
-import "./styles/global.css";
-// 5. Komponent-moduler importeres der komponentene brukes
+
+// Komponentmoduler importeres der komponentene brukes
 ```
 
 ## 8. Tilgjengelighet (UU)

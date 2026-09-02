@@ -1,0 +1,75 @@
+apiVersion: nais.io/v1alpha1
+kind: Application
+metadata:
+  name: personopplysninger
+  namespace: personbruker
+  labels:
+    team: personbruker
+spec:
+  image: {{image}}
+  port: 3000
+  liveness:
+    path: /person/personopplysninger/api/internal/isAlive
+    initialDelay: 10
+  readiness:
+    path: /person/personopplysninger/api/internal/isReady
+    initialDelay: 10
+  observability:
+    autoInstrumentation:
+      enabled: true
+      runtime: nodejs
+  idporten:
+    enabled: true
+    sidecar:
+      enabled: true
+      autoLogin: false
+  ingresses:
+    - "https://www.ansatt.dev.nav.no/person/personopplysninger"
+  accessPolicy:
+    outbound:
+      rules:
+        - application: nav-dekoratoren
+          namespace: personbruker
+      external:
+        - host: www.intern.dev.nav.no
+        - host: www.ansatt.dev.nav.no
+        - host: www.ekstern.dev.nav.no
+        - host: dekoratoren.ekstern.dev.nav.no
+  replicas:
+    min: 1
+    max: 2
+  resources:
+    limits:
+      memory: 1024Mi
+    requests:
+      cpu: 50m
+      memory: 128Mi
+  env:
+    - name: APP_ENV
+      value: dev
+    - name: BUILD_VERSION
+      value: "{{version}}"
+    - name: APP_URL
+      value: https://www.ansatt.dev.nav.no/person/personopplysninger
+    - name: API_URL
+      value: https://www.ansatt.dev.nav.no/tms-personopplysninger-api
+    - name: ENDRE_KONTONUMMER_URL
+      value: https://www.ansatt.dev.nav.no/tms-endre-kontonummer
+    - name: LOGIN_URL
+      value: https://login.ekstern.dev.nav.no/oauth2/login
+    - name: INNLOGGINGSSTATUS_URL
+      value: https://www.ekstern.dev.nav.no/person/nav-dekoratoren-api/auth
+    - name: DINE_SAKER_URL
+      value: https://www.intern.dev.nav.no/dokumentarkiv
+    - name: DITT_NAV_URL
+      value: https://www.intern.dev.nav.no/minside
+    - name: PDL_URL
+      value: https://www.intern.dev.nav.no/person/pdl-fullmakt-ui
+    - name: SKJERMING_URL
+      value: https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming
+    - name: SYKEFRAVAER_URL
+      value: https://www.ekstern.dev.nav.no/syk/sykefravaer
+    - name: UTBETALINGSOVERSIKT_URL
+      value: https://www.intern.dev.nav.no/utbetalingsoversikt/
+    - name: TELEMETRY_URL
+      value: https://telemetry.ekstern.dev.nav.no/collect

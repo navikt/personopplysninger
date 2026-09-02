@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import personaliaIkon from "@/assets/img/Personalia.svg";
+import personaliaIkon from "@/assets/img/Personalia.svg?url";
 import { fetchPersonInfo } from "@/clients/apiClient";
 import Box from "@/components/box/Box";
 import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";

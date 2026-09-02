@@ -1,4 +1,5 @@
-const baseUrl = import.meta.env.VITE_APP_URL;
+import { getRuntimeConfig } from "@/runtime-config/runtimeConfig";
+
 const redirectPathParam = "path";
 
 export const redirects: {
@@ -55,7 +56,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginRedirectUrl = () => {
     const encodedPath = btoa(window.location.pathname + window.location.hash);
-    return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+    return `${getRuntimeConfig().appUrl}?${redirectPathParam}=${encodedPath}`;
 };
 
 export const getRedirectPathFromParam = () => {

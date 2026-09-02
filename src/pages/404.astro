@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+Astro.response.status = 404;
+---
+
+<Layout title="Fant ikke siden - www.nav.no">
+    <div style="text-align: center; padding: 2rem 1rem;">
+        <h1>Fant ikke siden</h1>
+        <p>
+            Beklager, siden finnes ikke. Gå til <a href="/person/personopplysninger/nb/">Personopplysninger</a>.
+        </p>
+        <h2>In English</h2>
+        <p>
+            Sorry, the page could not be found. Go to <a href="/person/personopplysninger/en/">Personal information</a>.
+        </p>
+    </div>
+</Layout>

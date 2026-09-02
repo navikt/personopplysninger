@@ -1,0 +1,21 @@
+name: "Deploy dev"
+on: workflow_dispatch
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
+
+concurrency:
+  group: deploy-dev
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    # Pinned to a specific commit (immutable) rather than a movable ref, per
+    # our GitHub Actions standards. Comment records the human-readable ref.
+    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@71678a4147620d62d582b57fe30e1527b4add74f # main
+    with:
+      app-name: "personopplysninger"
+      clusters: '["dev-gcp"]'
+    secrets: inherit

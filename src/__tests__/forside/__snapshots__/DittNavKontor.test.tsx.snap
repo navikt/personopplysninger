@@ -3,7 +3,7 @@
 exports[`DittNavKontor > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="_wrapper_5f12c1"
+    class="_wrapper_73dfc6"
     id="ditt-nav-kontor"
   >
     <div
@@ -23,31 +23,31 @@ exports[`DittNavKontor > renders correctly 1`] = `
         class="navds-guide-panel__content"
       >
         <div
-          class="_container_5f12c1"
+          class="_container_73dfc6"
         >
           <div
-            class="_header_5f12c1"
+            class="_header_73dfc6"
           >
             <div
-              class="_titleContainer_5f12c1"
+              class="_titleContainer_73dfc6"
             >
               <div
-                class="_line_5f12c1"
+                class="_line_73dfc6"
               />
               <h2
-                class="_title_5f12c1 navds-heading navds-heading--medium"
+                class="_title_73dfc6 navds-heading navds-heading--medium"
               >
                 Ditt Nav-kontor
               </h2>
               <button
                 aria-label="Les mer om denne seksjonen."
                 aria-pressed="false"
-                class="_titleIButton_2dee1a"
+                class="_titleIButton_137b83"
                 type="button"
               >
                 <svg
                   aria-hidden="true"
-                  class="_titleIIcon_2dee1a"
+                  class="_titleIIcon_137b83"
                   fill="none"
                   focusable="false"
                   height="1em"
@@ -66,7 +66,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
               </button>
               <dialog
                 aria-labelledby=":r0:"
-                class="navds-modal _modal_2dee1a navds-modal--polyfilled navds-modal--autowidth"
+                class="navds-modal _modal_137b83 navds-modal--polyfilled navds-modal--autowidth"
                 role="dialog"
               >
                 <div
@@ -112,7 +112,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
                   class="navds-modal__body"
                 >
                   <div
-                    class="_ingress_2dee1a"
+                    class="_ingress_137b83"
                   >
                     <p
                       class="navds-body-long navds-body-long--medium"
@@ -123,16 +123,16 @@ exports[`DittNavKontor > renders correctly 1`] = `
                 </div>
               </dialog>
               <div
-                class="_line_5f12c1"
+                class="_line_73dfc6"
               />
             </div>
             <a
-              class="navds-link _anchorLink_989f08 navds-link--action"
+              class="navds-link _anchorLink_d25aa0 navds-link--action"
               href="#ditt-nav-kontor"
             >
               <svg
                 aria-hidden="true"
-                class="_icon_989f08"
+                class="_icon_d25aa0"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -152,7 +152,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             </a>
           </div>
           <div
-            class="_ingress_99204d"
+            class="_ingress_5c6833"
           >
             <p
               class="navds-body-short navds-body-short--medium"
@@ -404,11 +404,11 @@ exports[`DittNavKontor > renders correctly 1`] = `
             />
           </div>
           <dl
-            class="_footer_99204d list"
+            class="_footer_5c6833 list"
           >
             <div>
               <dt
-                class="_listElementHeading_456e20"
+                class="_listElementHeading_2099ad"
               >
                 <span
                   class="navds-label"
@@ -427,7 +427,7 @@ exports[`DittNavKontor > renders correctly 1`] = `
             </div>
           </dl>
           <div
-            class="_tekst_2ca801"
+            class="_tekst_8acd93"
           >
             <p
               class="navds-detail navds-typo--spacing"
