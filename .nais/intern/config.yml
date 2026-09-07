@@ -26,6 +26,7 @@ spec:
     sidecar:
       enabled: true
       autoLogin: false
+      level: Level4
   accessPolicy:
     outbound:
       rules:

@@ -2,6 +2,7 @@
 
 /dist
 /src/css
+/.astro
 
 # dependencies
 /server/node_modules

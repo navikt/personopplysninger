@@ -104,6 +104,21 @@ jobs:
           echo "VITE_PENSJONSOPPTJENING_URL=${{ inputs.VITE_PENSJONSOPPTJENING_URL }}" >> $GITHUB_ENV
           echo "VITE_INNLOGGINGSSTATUS_URL=${{ inputs.VITE_INNLOGGINGSSTATUS_URL }}" >> $GITHUB_ENV
           echo "VITE_TELEMETRY_URL=${{ inputs.VITE_TELEMETRY_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_ENV=${{ inputs.env }}" >> $GITHUB_ENV
+          echo "PUBLIC_BUILD_VERSION=${{ inputs.VITE_BUILD_VERSION }}" >> $GITHUB_ENV
+          echo "PUBLIC_DINE_SAKER_URL=${{ inputs.VITE_DINE_SAKER_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_PDL_URL=${{ inputs.VITE_PDL_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_SKJERMING_URL=${{ inputs.VITE_SKJERMING_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_APP_URL=${{ inputs.VITE_APP_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_API_URL=${{ inputs.VITE_API_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_ENDRE_KONTONUMMER_URL=${{ inputs.VITE_ENDRE_KONTONUMMER_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_UTBETALINGSOVERSIKT_URL=${{ inputs.VITE_UTBETALINGSOVERSIKT_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_SYKEFRAVAER_URL=${{ inputs.VITE_SYKEFRAVAER_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_LOGIN_URL=${{ inputs.VITE_LOGIN_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_DITT_NAV_URL=${{ inputs.VITE_DITT_NAV_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_PENSJONSOPPTJENING_URL=${{ inputs.VITE_PENSJONSOPPTJENING_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_INNLOGGINGSSTATUS_URL=${{ inputs.VITE_INNLOGGINGSSTATUS_URL }}" >> $GITHUB_ENV
+          echo "PUBLIC_TELEMETRY_URL=${{ inputs.VITE_TELEMETRY_URL }}" >> $GITHUB_ENV
       - name: Install dependencies
         run: npm ci
         env:
