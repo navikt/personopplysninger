@@ -1,0 +1,36 @@
+.container {
+    width: 100%;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.content {
+    margin: 2rem 0;
+    padding: 2rem !important;
+}
+
+.headingRow {
+    display: flex;
+    align-content: baseline;
+    justify-content: space-between;
+}
+
+.filler,
+.back {
+    display: flex;
+    width: 100px;
+    align-items: flex-end;
+}
+
+.back a {
+    display: flex;
+    align-items: center;
+}
+
+.heading {
+    text-align: center;
+}

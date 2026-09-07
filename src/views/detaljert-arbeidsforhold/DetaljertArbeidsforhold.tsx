@@ -7,8 +7,6 @@ import PageContainer from "@/components/pagecontainer/PageContainer";
 import { useRuntimeConfig } from "@/runtime-config/RuntimeConfigContext";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
-// Side-effect: loads styles for @navikt/arbeidsforhold's internal .da__* elements
-import "./DetaljertArbeidsforhold.module.css";
 
 interface Routes {
     id: string;
