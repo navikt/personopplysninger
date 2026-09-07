@@ -1,35 +1,39 @@
-import { DetaljertArbeidsforhold } from "@navikt/arbeidsforhold";
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { useIntl } from "react-intl";
-import { type Params, useParams } from "react-router-dom";
 import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer";
+import Spinner from "@/components/spinner/Spinner";
+import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
+import type { Props as DetaljertArbeidsforholdClientProps } from "./DetaljertArbeidsforholdClient";
 // Side-effect: loads styles for @navikt/arbeidsforhold's internal .da__* elements
 import "./DetaljertArbeidsforhold.module.css";
 
-const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
-const localApiUrl = import.meta.env.VITE_ENV === "local" ? `${import.meta.env.VITE_API_URL}/arbeidsforhold/{id}` : undefined;
+const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/{id}` : undefined;
+const DetaljertArbeidsforholdFallback = (_: DetaljertArbeidsforholdClientProps) => <Spinner />;
+const DetaljertArbeidsforholdClient =
+    typeof window === "undefined" ? DetaljertArbeidsforholdFallback : lazy(() => import("./DetaljertArbeidsforholdClient"));
 
-interface Routes {
-    id: string;
+interface Props {
+    id?: string;
+    pathname?: string;
 }
 
-const Arbeidsforhold = () => {
+const Arbeidsforhold = ({ id, pathname }: Props) => {
     const { locale } = useIntl();
-    const params = useParams<Readonly<Params<keyof Routes>>>();
     const [{ personInfo }] = useStore();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
-    if (typeof params.id === "undefined") {
+    if (typeof id === "undefined") {
         return null;
     }
 
-    const id: number = parseInt(params.id, 10);
+    const navArbeidsforholdId = parseInt(id, 10);
 
     const printName = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.fornavn} ${personInfo.data.personalia?.etternavn}` : "";
 
@@ -41,17 +45,18 @@ const Arbeidsforhold = () => {
             icon={arbeidsforholdIkon}
             brodsmulesti={[{ title: "arbeidsforhold.tittel" }]}
             backTo={"/#arbeidsforhold"}
+            pathname={pathname}
         >
-            <DetaljertArbeidsforhold
-                rolle={"ARBEIDSTAKER"}
-                miljo={miljo}
-                customApiUrl={localApiUrl}
-                locale={locale as Locale}
-                navArbeidsforholdId={id}
-                printActivated={true}
-                printName={printName}
-                printSSN={printSSN}
-            />
+            <Suspense fallback={<Spinner />}>
+                <DetaljertArbeidsforholdClient
+                    miljo={miljo}
+                    customApiUrl={localApiUrl}
+                    locale={locale as Locale}
+                    navArbeidsforholdId={navArbeidsforholdId}
+                    printName={printName}
+                    printSSN={printSSN}
+                />
+            </Suspense>
         </PageContainer>
     );
 };

@@ -11,12 +11,13 @@ interface Props {
     backTo: string;
     icon?: string;
     brodsmulesti: BrodsmuleLenke[];
+    pathname?: string;
 }
 
 const PageContainer = (props: Props) => {
     return (
         <div className="da__container">
-            <Brodsmulesti hierarki={props.brodsmulesti} />
+            <Brodsmulesti hierarki={props.brodsmulesti} pathname={props.pathname} />
             {props.icon && (
                 <div className="da__icon">
                     <Icon backgroundImage={props.icon} backgroundColor="#99C1E9" />

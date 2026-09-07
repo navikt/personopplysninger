@@ -4,14 +4,24 @@ import PageContainer from "@/components/pagecontainer/PageContainer";
 import WithInst from "../InstFetch";
 import InstHistorikkView from "./InstHistorikkView";
 
-const InstHistorikk = () => {
+interface Props {
+    pathname?: string;
+}
+
+const InstHistorikk = ({ pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <PageContainer tittelId={"inst.tittel"} icon={INSTIkon} backTo={"/#flere-opplysninger"} brodsmulesti={[{ title: "inst.tittel" }]}>
-            <WithInst>{({ data }) => <InstHistorikkView instInfo={data} />}</WithInst>
+        <PageContainer
+            tittelId={"inst.tittel"}
+            icon={INSTIkon}
+            backTo={"/#flere-opplysninger"}
+            brodsmulesti={[{ title: "inst.tittel" }]}
+            pathname={pathname}
+        >
+            <WithInst>{({ data }) => <InstHistorikkView instInfo={data} pathname={pathname} />}</WithInst>
         </PageContainer>
     );
 };

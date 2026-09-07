@@ -4,8 +4,7 @@ import jobbsok from "@/assets/img/LedigeStillinger.svg";
 import pensjon from "@/assets/img/Pensjon.svg";
 import sykefravaer from "@/assets/img/Sykepenger.svg";
 import utbetalinger from "@/assets/img/Utbetalinger.svg";
-
-const { VITE_UTBETALINGSOVERSIKT_URL, VITE_SYKEFRAVAER_URL, VITE_DINE_SAKER_URL } = import.meta.env;
+import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 
 export default (locale: string) => [
     {
@@ -13,7 +12,7 @@ export default (locale: string) => [
         tittel: "lenker.dokumentarkiv.tittel",
         beskrivelse: "lenker.dokumentarkiv.beskrivelse",
         lenkeTekst: "lenker.dokumentarkiv.lenkeTekst",
-        url: `${VITE_DINE_SAKER_URL}${locale === "en" ? "?lang=en" : ""}`,
+        url: `${runtimeEnvironment.dineSakerUrl}${locale === "en" ? "?lang=en" : ""}`,
         icon: dineSaker,
     },
     {
@@ -21,7 +20,7 @@ export default (locale: string) => [
         tittel: "lenker.utbetalinger.tittel",
         beskrivelse: "lenker.utbetalinger.beskrivelse",
         lenkeTekst: "lenker.utbetalinger.lenkeTekst",
-        url: VITE_UTBETALINGSOVERSIKT_URL,
+        url: runtimeEnvironment.utbetalingsoversiktUrl,
         icon: utbetalinger,
     },
     {
@@ -29,7 +28,7 @@ export default (locale: string) => [
         tittel: "lenker.sykefravaer.tittel",
         beskrivelse: "lenker.sykefravaer.beskrivelse",
         lenkeTekst: "lenker.sykefravaer.lenkeTekst",
-        url: VITE_SYKEFRAVAER_URL,
+        url: runtimeEnvironment.sykefravaerUrl,
         icon: sykefravaer,
     },
     {

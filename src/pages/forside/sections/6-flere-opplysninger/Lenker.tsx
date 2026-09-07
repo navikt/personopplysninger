@@ -6,14 +6,13 @@ import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
 import MEDLIkon from "@/assets/img/MEDL.svg";
 import SkjermingIkon from "@/assets/img/Skjerming.svg";
 import { AnchorLink } from "@/components/anchorlink/AnchorLink";
+import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 import sharedStyles from "@/styles/shared.module.css";
 import styles from "./Lenker.module.css";
 import lenker from "./LenkerData";
 import LinkBox from "./linkbox/LinkBox";
-
-const { VITE_PDL_URL, VITE_SKJERMING_URL } = import.meta.env;
 
 const id = "flere-opplysninger";
 
@@ -81,7 +80,7 @@ const LinksContainer = () => {
                     tittel={"lenker.fullmakt.tittel"}
                     beskrivelse={"lenker.fullmakt.beskrivelse"}
                     lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-                    to={`${VITE_PDL_URL}`}
+                    to={runtimeEnvironment.pdlUrl}
                     component={"a"}
                 />
                 <LinkBox
@@ -90,7 +89,7 @@ const LinksContainer = () => {
                     tittel={"lenker.skjerming.tittel"}
                     beskrivelse={"lenker.skjerming.beskrivelse"}
                     lenkeTekst={"lenker.skjerming.lenkeTekst"}
-                    to={`${VITE_SKJERMING_URL}`}
+                    to={runtimeEnvironment.skjermingUrl}
                     component={"a"}
                 />
             </div>

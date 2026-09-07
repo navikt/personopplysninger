@@ -1,4 +1,6 @@
-const baseUrl = import.meta.env.VITE_APP_URL;
+import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+
+const baseUrl = runtimeEnvironment.appUrl;
 const redirectPathParam = "path";
 
 export const redirects: {
@@ -43,14 +45,18 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
         return null;
     }
 
-    const decodedUrl = decodeURIComponent(encodedUrl);
+    try {
+        const decodedUrl = decodeURIComponent(encodedUrl);
 
-    // Leverage the DOM API to sanitise the URL and then
-    // building it back up using only valid parts
-    const url = new URL(decodedUrl);
-    const sanitizedUrl = `${url.protocol}//${url.host}${url.pathname}${url.search}`;
+        // Leverage the DOM API to sanitise the URL and then
+        // building it back up using only valid parts
+        const url = new URL(decodedUrl);
+        const sanitizedUrl = `${url.protocol}//${url.host}${url.pathname}${url.search}`;
 
-    return navnoUrlPattern.test(sanitizedUrl) ? sanitizedUrl : null;
+        return navnoUrlPattern.test(sanitizedUrl) ? sanitizedUrl : null;
+    } catch {
+        return null;
+    }
 };
 
 export const getLoginRedirectUrl = () => {

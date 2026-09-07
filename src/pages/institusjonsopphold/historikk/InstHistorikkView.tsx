@@ -4,7 +4,6 @@ import classNames from "classnames";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
-import { Link, useLocation } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
 import Kilde from "@/components/kilde/Kilde";
@@ -13,11 +12,11 @@ import historikkStyles from "@/styles/historikk.module.css";
 import type { InstInfo } from "@/types/inst";
 import instStyles from "../Inst.module.css";
 
-const InstHistorikkView = (props: { instInfo: InstInfo }) => {
+const InstHistorikkView = (props: { instInfo: InstInfo; pathname?: string }) => {
     const [viewAmount, setViewAmount] = useState(20);
-    const location = useLocation();
     const { formatMessage } = useIntlFormatter();
-    const { instInfo } = props;
+    const { instInfo, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
+    const detailsPath = pathname.replace(/\/$/, "");
 
     let animateDelay = 0;
     let animateDelayKey = 0;
@@ -90,9 +89,12 @@ const InstHistorikkView = (props: { instInfo: InstInfo }) => {
                                                     )}
                                                 </div>
                                                 <div className={historikkStyles.flexKolonne}>
-                                                    <Link to={`${location.pathname}/${innslag.registreringstidspunkt}`} className="lenke">
+                                                    <a
+                                                        href={`${detailsPath}/${encodeURIComponent(innslag.registreringstidspunkt)}`}
+                                                        className="lenke"
+                                                    >
                                                         <BodyShort>{innslag.institusjonsnavn}</BodyShort>
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </CSSTransition>
