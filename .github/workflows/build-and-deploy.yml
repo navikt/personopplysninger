@@ -86,7 +86,6 @@ jobs:
           echo "IMAGE_NAME=$(echo ${GITHUB_REPOSITORY##*/})" >> $GITHUB_ENV
           echo "IMAGE_VERSION=${IMAGE_VERSION_RAW,,}" >> $GITHUB_ENV
           echo "GITHUB_TOKEN=$(echo ${GITHUB_TOKEN})" >> $GITHUB_ENV
-          echo "PUBLIC_URL=https://cdn.nav.no/personbruker/personopplysninger/$(echo ${IMAGE_VERSION_RAW,,})/build" >> $GITHUB_ENV
       - name: Define client-side environment
         run: |
           echo "VITE_ENV=${{ inputs.env }}" >> $GITHUB_ENV
@@ -125,21 +124,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Running tests
         run: npm test
-      - name: Build application
+      - name: Build Astro application
         run: npm run build
       - name: Prune dependencies
-        run: npm prune --production
-      - name: Upload assets to CDN
-        id: upload
-        uses: nais/deploy/actions/cdn-upload/v2@master
-        with:
-          team: personbruker
-          source: ./build
-          destination: personopplysninger/${{ env.IMAGE_VERSION }}
-          project_id: ${{ vars.NAIS_MANAGEMENT_PROJECT_ID }}
-          identity_provider: ${{ secrets.NAIS_WORKLOAD_IDENTITY_PROVIDER }}
-      - name: 'CDN upload results'
-        run: echo Uploaded file to CDN ${{ steps.upload.outputs.uploaded }}
+        run: npm prune --omit=dev
       - name: Build and push docker image
         uses: nais/docker-build-push@v0
         id: docker-push

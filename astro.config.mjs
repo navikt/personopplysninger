@@ -3,6 +3,8 @@ import react from "@astrojs/react";
 import { defineConfig, envField } from "astro/config";
 import path from "path";
 
+const mockServerPort = Number(process.env.MOCK_SERVER_PORT) || 3007;
+
 export default defineConfig({
     base: "/person/personopplysninger",
     output: "server",
@@ -41,6 +43,9 @@ export default defineConfig({
             PUBLIC_TELEMETRY_URL: envField.string({ context: "client", access: "public", url: true }),
         },
     },
+    server: {
+        port: 3006,
+    },
     vite: {
         build: {
             sourcemap: true,
@@ -48,6 +53,11 @@ export default defineConfig({
         resolve: {
             alias: {
                 "@": path.resolve("./src"),
+            },
+        },
+        server: {
+            proxy: {
+                "/api": `http://localhost:${mockServerPort}`,
             },
         },
     },

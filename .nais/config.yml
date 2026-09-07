@@ -14,10 +14,10 @@ spec:
      - {{url}}
   {{/each}}
   liveness:
-    path: /person/personopplysninger/internal/isAlive
+    path: /person/personopplysninger/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /person/personopplysninger/internal/isReady
+    path: /person/personopplysninger/api/internal/isReady
     initialDelay: 10
   observability:
     autoInstrumentation:

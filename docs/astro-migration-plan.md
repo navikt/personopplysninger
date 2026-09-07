@@ -265,7 +265,7 @@ hydrering.
 
 ### Fase 8: Oppdater lokal utvikling og mocks
 
-1. Bruk samme Astro-server lokalt og i deploy.
+1. Bruk Astro-serveren lokalt. Astro blir også deploy-runtime i fase 9.
 2. Vurder `@navikt/astro-mocks`, som i referanserepoet, for enkle
    backend-mocks.
 3. Behold eksisterende Hono-mocks midlertidig hvis det gir mindre risiko.
