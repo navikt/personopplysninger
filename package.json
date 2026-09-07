@@ -26,6 +26,7 @@
         "build": "npm run astro:build",
         "build:vite": "vite build",
         "test": "vitest",
+        "test:e2e": "playwright test",
         "analyze": "npx vite-bundle-visualizer"
     },
     "dependencyComments": {
@@ -75,8 +76,10 @@
     },
     "devDependencies": {
         "@astrojs/check": "0.9.10",
+        "@axe-core/playwright": "^4.12.1",
         "@biomejs/biome": "2.5.7",
         "@hono/node-server": "2.1.1",
+        "@playwright/test": "^1.62.1",
         "@testing-library/dom": "10.4.0",
         "@testing-library/jest-dom": "6.6.3",
         "@testing-library/react": "16.2.0",
