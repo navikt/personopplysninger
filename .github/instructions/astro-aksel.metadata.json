@@ -1,0 +1,13 @@
+{
+  "title": "Astro/Aksel Development",
+  "description": "When writing Astro applications with Aksel Design System: Astro pages, islands, endpoints, middleware, spacing tokens, responsive layouts, and Nav patterns.",
+  "tags": [
+    "astro",
+    "aksel",
+    "nav-design-system",
+    "frontend",
+    "islands",
+    "accessibility",
+    "responsive-design"
+  ]
+}
