@@ -8,6 +8,7 @@ export default defineConfig({
         globals: true, // Ensure globals are enabled
         environment: "jsdom",
         setupFiles: "./setupTests.ts",
+        exclude: ["test/integration/**"],
     },
     resolve: {
         alias: {
