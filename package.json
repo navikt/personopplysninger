@@ -113,7 +113,8 @@
     "overrides": {
         "vite-plugin-node-polyfills": {
             "vite": "^6.0.0"
-        }
+        },
+        "form-data": "^4.0.4"
     },
     "browserslist": {
         "production": [

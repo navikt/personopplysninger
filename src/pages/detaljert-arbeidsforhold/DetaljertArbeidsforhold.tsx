@@ -6,9 +6,6 @@ import Spinner from "@/components/spinner/Spinner";
 import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
-import type { Props as DetaljertArbeidsforholdClientProps } from "./DetaljertArbeidsforholdClient";
-// Side-effect: loads styles for @navikt/arbeidsforhold's internal .da__* elements
-import "./DetaljertArbeidsforhold.module.css";
 
 const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
 const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/{id}` : undefined;
