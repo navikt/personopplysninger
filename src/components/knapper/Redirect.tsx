@@ -1,7 +1,8 @@
 import { ArrowLeftIcon } from "@navikt/aksel-icons";
-import { type NavigateOptions, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import naturIkon from "@/assets/img/Natur.svg";
 import veilederIkon from "@/assets/img/VeilederGul.svg";
+import { getAssetUrl } from "@/utils/assets";
 import { redirects, validateAndDecodeRedirectUrl } from "@/utils/redirects";
 import styles from "./Redirect.module.css";
 
@@ -11,29 +12,26 @@ interface Props {
 }
 
 const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
-    const navigate = useNavigate();
-    const location = useLocation();
+    const redirectUrl = tjeneste && encodedUrl ? validateAndDecodeRedirectUrl(encodedUrl) : null;
+    const redirect = tjeneste ? redirects[tjeneste] : undefined;
+    const invalidRedirect = Boolean(tjeneste && encodedUrl && (!redirectUrl || !redirect));
 
-    if (!tjeneste || !encodedUrl) {
+    useEffect(() => {
+        if (invalidRedirect) {
+            const fallbackPath = window.location.pathname.split("sendt-fra")[0];
+            window.location.replace(fallbackPath);
+        }
+    }, [invalidRedirect]);
+
+    if (!redirectUrl || !redirect) {
         return null;
     }
-
-    const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
-    // If the redirect-url is not a valid nav.no url, redirect to the app front page
-    if (!redirectUrl) {
-        const basePath = location.pathname.split("sendt-fra")[0];
-        const navigateOptions: NavigateOptions = { replace: true };
-        navigate(basePath, navigateOptions);
-        return null;
-    }
-
-    const redirect = redirects[tjeneste];
 
     return (
         <div className={styles.container}>
-            <div className={styles.wrapperInner} style={{ backgroundImage: `url(${naturIkon})` }}>
+            <div className={styles.wrapperInner} style={{ backgroundImage: `url(${getAssetUrl(naturIkon)})` }}>
                 <span className={styles.ikonContainer}>
-                    <img src={veilederIkon} className={styles.ikon} alt="Veileder" />
+                    <img src={getAssetUrl(veilederIkon)} className={styles.ikon} alt="Veileder" />
                 </span>
                 <div className={styles.content}>
                     <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />

@@ -1,0 +1,33 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import type { Locale } from "@/store/Store";
+import AstroPageRoot, { type AstroPage } from "./AstroPageRoot";
+
+interface Props {
+    page: AstroPage;
+    locale: Locale;
+    pathname: string;
+    id?: string;
+    tjeneste?: string;
+    redirectUrl?: string;
+    backTo?: string;
+}
+
+const { page, locale, pathname, id, tjeneste, redirectUrl, backTo } = Astro.props;
+const validation = Astro.locals.validation;
+const authName = validation?.ok && typeof validation.payload.name === "string" ? validation.payload.name : "";
+---
+
+<Layout title="Personopplysninger">
+    <AstroPageRoot
+        client:load
+        page={page}
+        locale={locale}
+        pathname={pathname}
+        authName={authName}
+        id={id}
+        tjeneste={tjeneste}
+        redirectUrl={redirectUrl}
+        backTo={backTo}
+    />
+</Layout>

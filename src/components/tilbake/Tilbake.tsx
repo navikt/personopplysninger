@@ -1,6 +1,5 @@
 import { ChevronLeftIcon } from "@navikt/aksel-icons";
 import { FormattedMessage } from "react-intl";
-import { Link } from "react-router-dom";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 import styles from "./Tilbake.module.css";
@@ -17,7 +16,7 @@ const Tilbake = (props: Props) => {
         <Link to={`${basePath}/${locale}${to}`} className={styles.link}>
             <ChevronLeftIcon className={styles.icon} aria-hidden="true" />
             <FormattedMessage id="side.tilbake" />
-        </Link>
+        </a>
     );
 };
 

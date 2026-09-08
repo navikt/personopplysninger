@@ -1,16 +1,21 @@
-import { type AFListeOnClick, ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
+import type { AFListeOnClick } from "@navikt/arbeidsforhold";
 import { Alert } from "@navikt/ds-react";
+import { lazy, Suspense } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Link } from "react-router-dom";
 import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import Box from "@/components/box/Box";
 import Kilde from "@/components/kilde/Kilde";
+import Spinner from "@/components/spinner/Spinner";
+import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
+import type { Props as ArbeidsforholdListeProps } from "./ArbeidsforholdListe";
 
-const miljo = import.meta.env.VITE_ENV?.toUpperCase() as "local" | "dev" | "prod";
-const localApiUrl = import.meta.env.VITE_ENV === "local" ? `${import.meta.env.VITE_API_URL}/arbeidsforhold/forenklet/alle` : undefined;
+const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/forenklet/alle` : undefined;
+const ArbeidsforholdListeFallback = (_: ArbeidsforholdListeProps) => <Spinner />;
+const ArbeidsforholdListe = typeof window === "undefined" ? ArbeidsforholdListeFallback : lazy(() => import("./ArbeidsforholdListe"));
 
 const Arbeidsforhold = () => {
     const { locale } = useIntl();
@@ -21,22 +26,22 @@ const Arbeidsforhold = () => {
     const printSSN = personInfo.status === "RESULT" ? `${personInfo.data.personalia?.personident?.verdi}` : "";
 
     const onClick = {
-        type: "REACT_ROUTER_LENKE",
-        Component: Link,
-        to: `${basePath}/${locale}/arbeidsforhold/{id}`,
+        type: "LENKE",
+        href: `${basePath}/${locale}/arbeidsforhold/{id}`,
     } as AFListeOnClick;
 
     return (
         <Box id="arbeidsforhold" tittel="arbeidsforhold.tittel" beskrivelse="arbeidsforhold.beskrivelse" icon={arbeidsforholdIkon} visAnkerlenke>
-            <ListeMedArbeidsforhold
-                miljo={miljo}
-                customApiUrl={localApiUrl}
-                locale={locale as Locale}
-                onClick={onClick}
-                printActivated={true}
-                printName={printName}
-                printSSN={printSSN}
-            />
+            <Suspense fallback={<Spinner />}>
+                <ArbeidsforholdListe
+                    miljo={miljo}
+                    customApiUrl={localApiUrl}
+                    locale={locale as Locale}
+                    onClick={onClick}
+                    printName={printName}
+                    printSSN={printSSN}
+                />
+            </Suspense>
             <Alert variant="info">
                 <FormattedMessage
                     id="arbeidsforhold.disclaimer"

@@ -4,6 +4,7 @@ import veilederIkon from "@/assets/img/Veileder.svg";
 import boxStyles from "@/components/box/Box.module.css";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import { useStore } from "@/store/Context";
+import { getAssetUrl } from "@/utils/assets";
 import { formatName } from "@/utils/text";
 import Spinner from "../4-personinfo/PersonInfo";
 import styles from "./Header.module.css";
@@ -19,7 +20,7 @@ const Header = () => {
         case "RESULT": {
             const { name } = authInfo.data;
             const fornavn = name;
-            const Veileder = <img src={veilederIkon} className={styles.ikon} alt="" aria-hidden="true" />;
+            const Veileder = <img src={getAssetUrl(veilederIkon)} className={styles.ikon} alt="" aria-hidden="true" />;
 
             return (
                 <div className={styles.header}>

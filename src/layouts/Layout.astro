@@ -1,0 +1,55 @@
+---
+import "@navikt/ds-css";
+import "@navikt/arbeidsforhold/index.css";
+import { type DecoratorLocale, fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
+import "../styles/global.css";
+import "../styles/tokens.css";
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+const language = (Astro.currentLocale ?? "nb") as DecoratorLocale;
+const decoratorEnvironment = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "dev";
+
+const decorator = await fetchDecoratorHtml({
+    env: decoratorEnvironment,
+    params: {
+        context: "privatperson",
+        language,
+        breadcrumbs: [
+            { url: "https://www.nav.no/minside/", title: "Min side" },
+            { url: "https://www.nav.no/person/personopplysninger/", title: "Personopplysninger" },
+        ],
+        availableLanguages: [
+            { url: "https://www.nav.no/person/personopplysninger/nb/", locale: "nb" },
+            { url: "https://www.nav.no/person/personopplysninger/en/", locale: "en" },
+            { url: "https://www.nav.no/person/personopplysninger/nn/", locale: "nn" },
+        ],
+        logoutWarning: true,
+    },
+});
+
+const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCRIPTS } = decorator;
+---
+
+<!doctype html>
+<html lang={language}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <Fragment set:html={DECORATOR_HEAD_ASSETS} />
+    </head>
+    <body>
+        <Fragment set:html={DECORATOR_HEADER} />
+        <div class="pagewrapper">
+            <main class="app">
+                <slot />
+            </main>
+        </div>
+        <Fragment set:html={DECORATOR_FOOTER} />
+        <Fragment set:html={DECORATOR_SCRIPTS} />
+    </body>
+</html>

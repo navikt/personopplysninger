@@ -23,7 +23,27 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
       - name: Lint application
         run: npm run lint
-      - name: Build application
+      - name: Build Astro application
         run: npm run build
+        env:
+          PUBLIC_ENV: local
+          PUBLIC_BUILD_VERSION: ci
+          PUBLIC_DINE_SAKER_URL: https://example.invalid/dokumentarkiv
+          PUBLIC_PDL_URL: https://example.invalid/pdl-fullmakt-ui
+          PUBLIC_SKJERMING_URL: https://example.invalid/skjerming
+          PUBLIC_APP_URL: https://example.invalid/person/personopplysninger
+          PUBLIC_API_URL: https://example.invalid/api
+          PUBLIC_ENDRE_KONTONUMMER_URL: https://example.invalid/api
+          PUBLIC_UTBETALINGSOVERSIKT_URL: https://example.invalid/utbetalingsoversikt
+          PUBLIC_SYKEFRAVAER_URL: https://example.invalid/sykefravaer
+          PUBLIC_LOGIN_URL: https://example.invalid/oauth2/login
+          PUBLIC_DITT_NAV_URL: https://example.invalid/minside
+          PUBLIC_PENSJONSOPPTJENING_URL: https://example.invalid/pensjon/opptjening
+          PUBLIC_INNLOGGINGSSTATUS_URL: https://example.invalid/api/auth
+          PUBLIC_TELEMETRY_URL: https://example.invalid/collect
       - name: Run tests
         run: npm test
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Run end-to-end tests
+        run: npm run test:e2e

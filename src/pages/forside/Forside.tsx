@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { type Params, useParams } from "react-router-dom";
 import RedirectKnapp from "@/components/knapper/Redirect";
 import { useStore } from "@/store/Context";
 import { smoothScrollToTarget } from "@/utils/scroll-to";
@@ -11,15 +10,13 @@ import Arbeidsforhold from "./sections/5-arbeidsforhold/Arbeidsforhold";
 import EksterneLenker from "./sections/6-flere-opplysninger/Lenker";
 import MerInformasjon from "./sections/7-mer-informasjon/MerInformasjon";
 
-interface Routes {
+interface Props {
     tjeneste?: string;
     redirectUrl?: string;
+    pathname?: string;
 }
 
-const Forside = () => {
-    const params = useParams<Readonly<Params<keyof Routes>>>();
-    const { tjeneste, redirectUrl } = params;
-
+const Forside = ({ tjeneste, redirectUrl, pathname }: Props) => {
     const [{ authInfo, personInfo, kontaktInfo }] = useStore();
 
     const isLoaded = ![authInfo, personInfo, kontaktInfo].some((item) => item.status === "LOADING");
@@ -32,10 +29,10 @@ const Forside = () => {
 
     return (
         <>
-            <Brodsmulesti />
+            <Brodsmulesti pathname={pathname} />
             <Sidetittel />
             <Header />
-            <PersonInfo />
+            <PersonInfo pathname={pathname} />
             <Arbeidsforhold />
             <EksterneLenker />
             <MerInformasjon />
