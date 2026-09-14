@@ -9,10 +9,11 @@ import type { Personalia } from "@/types/personalia";
 interface Props {
     personalia?: Personalia;
     adresser?: Adresser;
+    pathname?: string;
 }
 
 const EndreOpplysningerView = (props: Props) => {
-    const { personalia, adresser } = props;
+    const { personalia, adresser, pathname } = props;
     return (
         <>
             {personalia && (
@@ -26,6 +27,7 @@ const EndreOpplysningerView = (props: Props) => {
                     kontonr={personalia.kontonr}
                     utenlandskbank={personalia.utenlandskbank}
                     kontoregisterStatus={personalia.kontoregisterStatus}
+                    pathname={pathname}
                 />
             )}
         </>

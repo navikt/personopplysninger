@@ -1,0 +1,8 @@
+---
+import AstroPage from "@/components/astro/AstroPage.astro";
+import type { Locale } from "@/store/Store";
+
+const locale = Astro.currentLocale as Locale;
+---
+
+<AstroPage page="dsopDetaljer" locale={locale} pathname={Astro.url.pathname} id={Astro.params.id} />

@@ -1,7 +1,6 @@
 import { ChevronRightIcon } from "@navikt/aksel-icons";
 import { BodyLong, Label } from "@navikt/ds-react";
 import { FormattedMessage } from "react-intl";
-import { Link } from "react-router-dom";
 import Icon from "@/components/icon/Icon";
 import styles from "./LinkBox.module.css";
 
@@ -46,9 +45,9 @@ const LinkBox = (props: Props) => {
     switch (props.component) {
         case "Link":
             return (
-                <Link className={styles.rad} to={props.to}>
+                <a className={styles.rad} href={props.to}>
                     <Box {...props} />
-                </Link>
+                </a>
             );
         case "a":
             return (

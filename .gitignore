@@ -2,6 +2,7 @@
 
 /dist
 /src/css
+/.astro
 
 # dependencies
 /server/node_modules
@@ -9,6 +10,8 @@
 
 # testing
 /coverage
+/playwright-report
+/test-results
 
 # production
 /build

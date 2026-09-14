@@ -1,0 +1,10 @@
+---
+import AstroPage from "@/components/astro/AstroPage.astro";
+import type { Locale } from "@/store/Store";
+
+const locale = Astro.currentLocale as Locale;
+const requestedBackTo = Astro.url.searchParams.get("backTo");
+const backTo = requestedBackTo?.startsWith("/") && !requestedBackTo.startsWith("//") ? requestedBackTo : undefined;
+---
+
+<AstroPage page="endreKontonummer" locale={locale} pathname={Astro.url.pathname} backTo={backTo} />

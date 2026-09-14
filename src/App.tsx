@@ -1,7 +1,7 @@
 import { initializeFaro } from "@grafana/faro-web-sdk";
 import { Fragment, useEffect } from "react";
 import { useIntl } from "react-intl";
-import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate } from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router, Routes, useLocation, useNavigate, useParams } from "react-router-dom";
 import { basePath } from "./constants";
 import PageNotFound from "./pages/404/404";
 import DetaljertArbeidsforhold from "./pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
@@ -65,28 +65,32 @@ const App = () => {
                                 <Route
                                     caseSensitive={true}
                                     path={`${basePathWithLanguage}/arbeidsforhold/:id`}
-                                    element={<DetaljertArbeidsforhold />}
+                                    element={<DetaljertArbeidsforholdRoute />}
                                 />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop`} element={<DsopHistorikk />} />
-                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljer />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/dsop/:id`} element={<DsopDetaljerRoute />} />
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold`} element={<InstHistorikk />} />
-                                <Route caseSensitive={true} path={`${basePathWithLanguage}/institusjonsopphold/:id`} element={<InstDetaljer />} />
+                                <Route
+                                    caseSensitive={true}
+                                    path={`${basePathWithLanguage}/institusjonsopphold/:id`}
+                                    element={<InstDetaljerRoute />}
+                                />
                                 {tillatteTjenester.map((tjeneste) => (
                                     <Fragment key={tjeneste}>
                                         <Route
                                             caseSensitive={true}
                                             path={`${basePathWithLanguage}/sendt-fra/${tjeneste}/:redirectUrl`}
-                                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                            element={<EndreOpplysningerRoute tjeneste={tjeneste} />}
                                         />
                                         <Route
                                             caseSensitive={true}
                                             path={`${basePathWithLanguage}/endre-opplysninger/sendt-fra/${tjeneste}/:redirectUrl`}
-                                            element={<EndreOpplysninger tjeneste={tjeneste} />}
+                                            element={<EndreOpplysningerRoute tjeneste={tjeneste} />}
                                         />
                                     </Fragment>
                                 ))}
                                 <Route caseSensitive={true} path={`${basePathWithLanguage}/medlemskap-i-folketrygden`} element={<MedlHistorikk />} />
-                                <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummer />} />
+                                <Route caseSensitive={true} path={`${basePathWithLanguage}/endre-kontonummer`} element={<EndreKontonummerRoute />} />
                                 <Route element={<PageNotFound />} />
                             </Routes>
                         </WithAuth>
@@ -112,6 +116,34 @@ const RedirectToLocale = (props: { children: JSX.Element }) => {
         }
     }, [locale, location, history]);
     return props.children;
+};
+
+const DetaljertArbeidsforholdRoute = () => {
+    const { id } = useParams();
+    return <DetaljertArbeidsforhold id={id} />;
+};
+
+const DsopDetaljerRoute = () => {
+    const { id } = useParams();
+    return <DsopDetaljer id={id} />;
+};
+
+const InstDetaljerRoute = () => {
+    const { id } = useParams();
+    return <InstDetaljer id={id} />;
+};
+
+const EndreOpplysningerRoute = ({ tjeneste }: { tjeneste: string }) => {
+    const { redirectUrl } = useParams();
+    return <EndreOpplysninger tjeneste={tjeneste} redirectUrl={redirectUrl} />;
+};
+
+const EndreKontonummerRoute = () => {
+    const location = useLocation();
+    const state = location.state as { backTo?: string } | null;
+    const backTo = state?.backTo ?? new URLSearchParams(location.search).get("backTo") ?? undefined;
+
+    return <EndreKontonummer backTo={backTo} />;
 };
 
 export default App;

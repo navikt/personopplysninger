@@ -944,8 +944,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
             </div>
           </dl>
           <a
-            data-discover="true"
-            href="/person/personopplysninger/nb/endre-kontonummer"
+            href="/person/personopplysninger/nb/endre-kontonummer?backTo=%2F"
           >
             Endre kontonummer for utbetaling
           </a>

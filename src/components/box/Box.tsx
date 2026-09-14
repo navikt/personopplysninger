@@ -3,6 +3,7 @@ import type React from "react";
 import { FormattedMessage } from "react-intl";
 import { AnchorLink } from "@/components/anchorlink/AnchorLink";
 import Infotekst from "@/components/infotekst/Infotekst";
+import { getAssetUrl } from "@/utils/assets";
 import styles from "./Box.module.css";
 
 interface Props {
@@ -16,7 +17,7 @@ interface Props {
 
 const Box = (props: Props) => {
     const { tittel, beskrivelse, icon, children, id, visAnkerlenke } = props;
-    const Veileder = <img src={icon} alt="" />;
+    const Veileder = <img src={getAssetUrl(icon)} alt="" />;
 
     return (
         <div className={styles.wrapper} id={id}>

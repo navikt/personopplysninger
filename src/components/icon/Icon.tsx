@@ -1,3 +1,4 @@
+import { getAssetUrl } from "@/utils/assets";
 import styles from "./Icon.module.css";
 
 interface Props {
@@ -11,7 +12,7 @@ const Icon = (props: Props) => {
             className={styles.circle}
             aria-hidden={props.ariaHidden}
             style={{
-                backgroundImage: `url(${props.backgroundImage})`,
+                backgroundImage: `url(${getAssetUrl(props.backgroundImage)})`,
                 backgroundColor: props.backgroundColor,
             }}
         />

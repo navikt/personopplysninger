@@ -4,18 +4,18 @@ import classNames from "classnames";
 import dayjs from "dayjs";
 import { Fragment, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Link as ReactLink, useLocation } from "react-router-dom";
 import historikkStyles from "@/styles/historikk.module.css";
 import type { DsopInfo } from "@/types/dsop";
 
 interface Props {
     dsopInfo: DsopInfo;
+    pathname?: string;
 }
 
 export const DsopHistorikkView = (props: Props) => {
-    const location = useLocation();
     const { locale } = useIntl();
-    const { dsopInfo } = props;
+    const { dsopInfo, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
+    const detailsPath = pathname.replace(/\/$/, "");
 
     const initState: {
         [year: string]: {
@@ -116,9 +116,9 @@ export const DsopHistorikkView = (props: Props) => {
                                                     {dayjs(innslag.uthentingsTidspunkt).format("DD.MM kl. hh:mm")}
                                                 </div>
                                                 <div className={historikkStyles.flexKolonne}>
-                                                    <Link as={ReactLink} to={`${location.pathname}/${innslag.uthentingsTidspunkt}`} className="lenke">
+                                                    <a href={`${detailsPath}/${encodeURIComponent(innslag.uthentingsTidspunkt)}`} className="lenke">
                                                         {innslag.mottakernavn}
-                                                    </Link>
+                                                    </a>
                                                 </div>
                                             </div>
                                         ))}

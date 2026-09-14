@@ -1,18 +1,15 @@
 import { useEffect } from "react";
-import { type Params, useParams } from "react-router-dom";
 import DSOPIkon from "@/assets/img/DSOP.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer";
 import WithDSOP from "../DsopFetch";
 import DsopDetaljerView from "./DsopDetaljerView";
 
-interface Routes {
-    id: string;
+interface Props {
+    id?: string;
+    pathname?: string;
 }
 
-const DsopDetaljer = () => {
-    const params = useParams<Readonly<Params<keyof Routes>>>();
-    const { id } = params;
-
+const DsopDetaljer = ({ id, pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -27,6 +24,7 @@ const DsopDetaljer = () => {
             icon={DSOPIkon}
             backTo={"/dsop"}
             brodsmulesti={[{ title: "dsop.tittel", path: "/dsop" }, { title: "dsop.levertedata" }]}
+            pathname={pathname}
         >
             <WithDSOP>{({ data }) => <DsopDetaljerView dsopInfo={data} id={id} />}</WithDSOP>
         </PageContainer>

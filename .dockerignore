@@ -2,3 +2,13 @@ LICENSE.md
 CODEOWNERS
 README.md
 coverage/*
+.git
+.github
+.env
+.env.*
+build
+docs
+public
+scripts
+server
+src

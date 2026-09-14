@@ -15,7 +15,11 @@ const Loader = () => (
     </Box>
 );
 
-const PersonInfo = () => {
+interface Props {
+    pathname?: string;
+}
+
+const PersonInfo = ({ pathname }: Props) => {
     return (
         <MedPersonInfo loader={<Loader />} error={ErrorWithBox}>
             {({ personalia, adresser, enhetKontaktInformasjon }) => (
@@ -29,6 +33,7 @@ const PersonInfo = () => {
                             personident={personalia.personident}
                             utenlandskbank={personalia.utenlandskbank}
                             kontoregisterStatus={personalia.kontoregisterStatus}
+                            pathname={pathname}
                         />
                     )}
                     {adresser && enhetKontaktInformasjon && <DittNavKontor enhetKontaktInformasjon={enhetKontaktInformasjon} />}

@@ -26,8 +26,8 @@ Start applikasjonen lokalt:
 npm start
 ```
 
-`npm start` starter Vite på port 3006 og en separat Hono-server på port 3007.
-Vite videresender `/api` til Hono-serveren, slik at nettleseren fortsatt bruker
+`npm start` starter Astro på port 3006 og en separat Hono-server på port 3007.
+Astro videresender `/api` til Hono-serveren, slik at nettleseren fortsatt bruker
 samme origin. Dekoratøren hentes fra dev-miljøet, så lokal kjøring krever ikke
 Docker Compose.
 
@@ -46,7 +46,10 @@ endepunktspesifikke forsinkelsen, for eksempel:
 
 ## Tester
 
-Tester ligger under `/src/__tests__`. Disse kan kjøres med kommandoen `npm test`.
+Vitest-tester ligger under `/src/__tests__` og kjøres med `npm test`. Playwright-tester
+for Astro-rutene ligger under `/test/integration` og kjøres med `npm run test:e2e`.
+Kjør `npx playwright install --with-deps chromium` første gang, eller når
+Playwright-versjonen oppdateres.
 
 #### Snapshot-tester
 
