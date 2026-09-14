@@ -13,7 +13,7 @@ const Tilbake = (props: Props) => {
     const [{ locale }] = useStore();
 
     return (
-        <Link to={`${basePath}/${locale}${to}`} className={styles.link}>
+        <a href={`${basePath}/${locale}${to}`} className={styles.link}>
             <ChevronLeftIcon className={styles.icon} aria-hidden="true" />
             <FormattedMessage id="side.tilbake" />
         </a>
