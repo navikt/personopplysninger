@@ -114,11 +114,11 @@ exports[`Personalia > renders correctly 1`] = `
                   <div
                     class="_ingress_2dee1a"
                   >
-                    <p
+                    <div
                       class="navds-body-long navds-body-long--medium"
                     >
                       Vi må vite hvem du er og hvordan vi kan kontakte deg. Hvis du skal ha tjenester eller søker om økonomisk støtte, trenger vi opplysninger for å kunne vurdere hva du har krav på. For å kunne utbetale penger trenger vi kontonummeret ditt og en adresse.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </dialog>

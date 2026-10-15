@@ -37,7 +37,7 @@ function Infotekst(props: HjelpetekstProps) {
                 </Modal.Header>
                 <Modal.Body>
                     <div className={styles.ingress}>
-                        <BodyLong>
+                        <BodyLong as="div">
                             <FormattedMessage
                                 id={beskrivelseID}
                                 values={{
