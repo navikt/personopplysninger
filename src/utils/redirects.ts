@@ -61,7 +61,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginRedirectUrl = () => {
     const encodedPath = btoa(window.location.pathname + window.location.hash);
-    return `${baseUrl}?${redirectPathParam}=${encodedPath}`;
+    return `${baseUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
 };
 
 export const getRedirectPathFromParam = () => {
@@ -71,4 +71,34 @@ export const getRedirectPathFromParam = () => {
     }
 
     return null;
+};
+
+/**
+ * Tolker ?path-parameteren som settes av getLoginRedirectUrl, slik at brukeren
+ * havner tilbake på siden de kom fra etter innlogging. Returnerer kun stier
+ * under basestien på samme opprinnelse, ellers null.
+ */
+export const resolveLoginReturnPath = (encodedPath: string | null, basePath: string) => {
+    if (!encodedPath) {
+        return null;
+    }
+
+    try {
+        const path = atob(encodedPath);
+        const prefix = `${basePath}/`;
+
+        if (!path.startsWith(prefix) || path.startsWith(`${prefix}/`) || path.includes("\\")) {
+            return null;
+        }
+
+        const url = new URL(path, "http://localhost");
+
+        if (url.origin !== "http://localhost" || !url.pathname.startsWith(prefix) || url.pathname.split("/").includes("..")) {
+            return null;
+        }
+
+        return `${url.pathname}${url.search}${url.hash}`;
+    } catch {
+        return null;
+    }
 };

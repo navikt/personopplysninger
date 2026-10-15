@@ -63,3 +63,22 @@ test("ukjente stier med språk gir fortsatt 404", async ({ request }) => {
         expect(response.headers().location, sti).toBeUndefined();
     }
 });
+
+test("sender brukeren tilbake til siden fra ?path etter innlogging", async ({ request }) => {
+    const path = Buffer.from(`${basePath}/nb/dsop`).toString("base64");
+
+    const response = await request.get(`.?path=${encodeURIComponent(path)}`, { maxRedirects: 0 });
+
+    expect(response.status()).toBe(302);
+    expect(response.headers().location).toBe(`${basePath}/nb/dsop`);
+});
+
+test("ignorerer ?path som peker utenfor appen", async ({ request }) => {
+    for (const mål of ["https://evil.example/", "//evil.example/", `${basePath}//evil.example/`]) {
+        const path = Buffer.from(mål).toString("base64");
+
+        const response = await request.get(`.?path=${encodeURIComponent(path)}`, { maxRedirects: 0 });
+
+        expect(response.headers().location).toBe(`${basePath}/nb/`);
+    }
+});
