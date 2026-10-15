@@ -31,18 +31,22 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
             }
         });
 
+        const origin = window.location.origin;
         setAvailableLanguages([
             {
-                url: `${pathname.replace(/\/(nn|en)(\/|$)/, "/nb/")}`,
+                url: `${origin}${pathname.replace(/\/(nn|en)(\/|$)/, "/nb/")}`,
                 locale: "nb",
+                handleInApp: false,
             },
             {
-                url: `${pathname.replace(/\/(nb|nn)(\/|$)/, "/en/")}`,
+                url: `${origin}${pathname.replace(/\/(nb|nn)(\/|$)/, "/en/")}`,
                 locale: "en",
+                handleInApp: false,
             },
             {
-                url: `${pathname.replace(/\/(nb|en)(\/|$)/, "/nn/")}`,
+                url: `${origin}${pathname.replace(/\/(nb|en)(\/|$)/, "/nn/")}`,
                 locale: "nn",
+                handleInApp: false,
             },
         ]);
     }, [pathname]);
