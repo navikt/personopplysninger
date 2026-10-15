@@ -6,6 +6,7 @@ import Spinner from "@/components/spinner/Spinner";
 import { runtimeEnvironment } from "@/config/runtimeEnvironment";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
+import type { Props as DetaljertArbeidsforholdClientProps } from "./DetaljertArbeidsforholdClient";
 
 const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
 const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/{id}` : undefined;
