@@ -27,6 +27,7 @@
         "build:vite": "vite build",
         "test": "vitest",
         "test:e2e": "playwright test",
+        "test:e2e:install": "playwright install --with-deps chromium",
         "analyze": "npx vite-bundle-visualizer"
     },
     "dependencyComments": {

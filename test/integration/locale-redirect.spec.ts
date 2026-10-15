@@ -24,7 +24,7 @@ test("videresender sendt-fra-lenker uten å endre den kodede tilbake-lenken", as
 
     const sideRespons = await page.goto(sti);
     expect(sideRespons?.status()).toBe(200);
-    await expect(page).toHaveURL(new RegExp(`${basePath}/nb/${sti.replace(/[.%]/g, "\\$&")}$`));
+    await expect(page).toHaveURL((url) => url.pathname === `${basePath}/nb/${sti}`);
     await expect(page.getByText("Du har blitt sendt fra alderspensjon.", { exact: false })).toBeVisible();
 });
 
