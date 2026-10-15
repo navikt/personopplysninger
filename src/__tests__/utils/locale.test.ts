@@ -8,9 +8,9 @@ describe("getLocaleRedirect", () => {
     });
 
     it("beholder query-parametere og kodede segmenter", () => {
-        expect(
-            getLocaleRedirect(`${basePath}/endre-opplysninger/sendt-fra/skjema/alderspensjon/https%3A%2F%2Fwww.nav.no%2F`, "?a=1", basePath),
-        ).toBe(`${basePath}/nb/endre-opplysninger/sendt-fra/skjema/alderspensjon/https%3A%2F%2Fwww.nav.no%2F?a=1`);
+        expect(getLocaleRedirect(`${basePath}/endre-opplysninger/sendt-fra/skjema/alderspensjon/https%3A%2F%2Fwww.nav.no%2F`, "?a=1", basePath)).toBe(
+            `${basePath}/nb/endre-opplysninger/sendt-fra/skjema/alderspensjon/https%3A%2F%2Fwww.nav.no%2F?a=1`,
+        );
     });
 
     it("lar stier med språk være i fred", () => {
