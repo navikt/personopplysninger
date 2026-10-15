@@ -14,7 +14,7 @@ interface Props {
     children: (data: PersonInfo) => JSX.Element;
 }
 
-const MedPersonInfo = (props: Props) => {
+export const useLoadPersonInfo = () => {
     const [{ personInfo }, dispatch] = useStore();
 
     useEffect(() => {
@@ -29,6 +29,12 @@ const MedPersonInfo = (props: Props) => {
                 .catch((error: HTTPError) => dispatch({ type: "SETT_PERSON_INFO_ERROR", payload: error }));
         }
     }, [personInfo, dispatch]);
+
+    return personInfo;
+};
+
+const MedPersonInfo = (props: Props) => {
+    const personInfo = useLoadPersonInfo();
 
     switch (personInfo.status) {
         case "LOADING":

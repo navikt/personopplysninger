@@ -4,7 +4,7 @@ import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer";
 import Spinner from "@/components/spinner/Spinner";
 import { runtimeEnvironment } from "@/config/runtimeEnvironment";
-import { useStore } from "@/store/Context";
+import { useLoadPersonInfo } from "@/store/providers/PersonInfo";
 import type { Locale } from "@/store/Store";
 import type { Props as DetaljertArbeidsforholdClientProps } from "./DetaljertArbeidsforholdClient";
 
@@ -21,7 +21,7 @@ interface Props {
 
 const Arbeidsforhold = ({ id, pathname }: Props) => {
     const { locale } = useIntl();
-    const [{ personInfo }] = useStore();
+    const personInfo = useLoadPersonInfo();
 
     useEffect(() => {
         window.scrollTo(0, 0);
