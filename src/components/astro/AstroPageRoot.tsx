@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect } from "react";
 import DetaljertArbeidsforhold from "@/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import DsopDetaljer from "@/pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
 import DsopHistorikk from "@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
@@ -11,6 +11,7 @@ import MedlHistorikk from "@/pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { Locale } from "@/store/Store";
+import { startFaro } from "@/utils/faro";
 
 export type AstroPage =
     | "forside"
@@ -35,6 +36,10 @@ interface Props {
 }
 
 const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo }: Props) => {
+    useEffect(() => {
+        startFaro();
+    }, []);
+
     const pages: Record<AstroPage, ReactNode> = {
         forside: <Forside pathname={pathname} />,
         arbeidsforhold: <DetaljertArbeidsforhold id={id} pathname={pathname} />,
