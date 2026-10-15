@@ -1,6 +1,8 @@
 import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
+import { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import veilederIkon from "@/assets/img/Veileder.svg";
+import { fetchInnloggingsStatus } from "@/clients/apiClient";
 import boxStyles from "@/components/box/Box.module.css";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import { useStore } from "@/store/Context";
@@ -10,7 +12,18 @@ import Spinner from "../4-personinfo/PersonInfo";
 import styles from "./Header.module.css";
 
 const Header = () => {
-    const [{ authInfo }] = useStore();
+    const [{ authInfo }, dispatch] = useStore();
+    const manglerNavn = authInfo.status === "RESULT" && !authInfo.data.name;
+
+    // ID-porten-tokenet har ikke navn, så det hentes fra innloggingsstatus som før
+    useEffect(() => {
+        if (!manglerNavn) {
+            return;
+        }
+        fetchInnloggingsStatus()
+            .then((auth) => dispatch({ type: "SETT_AUTH_RESULT", payload: auth }))
+            .catch(() => undefined);
+    }, [manglerNavn, dispatch]);
 
     switch (authInfo.status) {
         default:
