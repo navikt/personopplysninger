@@ -1,6 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3006/person/personopplysninger";
+// Avsluttende skråstrek gjør at relative stier i testene løses under base-stien.
+const baseURL = `${(process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3006/person/personopplysninger").replace(/\/$/, "")}/`;
 
 export default defineConfig({
     testDir: "./test/integration",
@@ -26,7 +27,7 @@ export default defineConfig({
               env: {
                   NODE_ENV: "development",
               },
-              url: `${baseURL}/api/internal/isAlive`,
+              url: `${baseURL}api/internal/isAlive`,
               reuseExistingServer: !process.env.CI,
               timeout: 120_000,
           },

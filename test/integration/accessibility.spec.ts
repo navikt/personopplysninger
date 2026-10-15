@@ -3,7 +3,7 @@ import { expect, test } from "@playwright/test";
 
 test.describe("Personopplysninger forside", () => {
     test("har norsk dokumentsemantikk og ingen WCAG AA-brudd i hovedinnholdet", async ({ page }) => {
-        const response = await page.goto("/nb/", { waitUntil: "domcontentloaded" });
+        const response = await page.goto("nb/", { waitUntil: "domcontentloaded" });
 
         expect(response?.ok(), "Expected the Norwegian home route to return a successful response").toBeTruthy();
         await expect(page).toHaveTitle("Personopplysninger");

@@ -57,7 +57,8 @@ export default defineConfig({
         },
         server: {
             proxy: {
-                "/api": `http://localhost:${mockServerPort}`,
+                // Helsesjekkene under /api/internal er Astro-ruter og skal ikke til mock-serveren.
+                "^/api/(?!internal/)": `http://localhost:${mockServerPort}`,
             },
         },
     },
