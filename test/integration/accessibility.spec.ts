@@ -6,7 +6,7 @@ test.describe("Personopplysninger forside", () => {
         const response = await page.goto("nb/", { waitUntil: "domcontentloaded" });
 
         expect(response?.ok(), "Expected the Norwegian home route to return a successful response").toBeTruthy();
-        await expect(page).toHaveTitle("Personopplysninger");
+        await expect(page).toHaveTitle("Personopplysninger - www.nav.no");
         await expect(page.locator("html")).toHaveAttribute("lang", "nb");
 
         const main = page.getByRole("main");

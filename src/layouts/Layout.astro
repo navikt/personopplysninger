@@ -45,7 +45,7 @@ const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCR
     <body>
         <Fragment set:html={DECORATOR_HEADER} />
         <div class="pagewrapper">
-            <main class="app">
+            <main class="app" id="maincontent">
                 <slot />
             </main>
         </div>

@@ -11,8 +11,9 @@ for (const { locale, heading, firstName } of locales) {
         const response = await page.goto(`${locale}/`);
 
         expect(response?.status()).toBe(200);
-        await expect(page).toHaveTitle("Personopplysninger");
+        await expect(page).toHaveTitle("Personopplysninger - www.nav.no");
         await expect(page.locator("html")).toHaveAttribute("lang", locale);
+        await expect(page.getByRole("main")).toHaveAttribute("id", "maincontent");
         await expect(page.getByRole("heading", { level: 1, name: heading })).toBeVisible();
         await expect(page.getByText(firstName, { exact: true })).toBeVisible();
 
