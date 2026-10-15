@@ -16,4 +16,4 @@ COPY --from=runtime-files /app/node_modules ./node_modules
 
 EXPOSE 8080
 
-CMD ["node", "dist/server/entry.mjs"]
+CMD ["./dist/server/entry.mjs"]
