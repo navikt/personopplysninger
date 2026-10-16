@@ -44,6 +44,7 @@ spec:
         - host: www.nav.no
         - host: nav.no
   ingresses:
+    - "https://www.nav.no/person/personopplysninger"
     - "https://www.intern.nav.no/person/personopplysninger"
   env:
     - name: API_PATH

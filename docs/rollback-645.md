@@ -6,7 +6,7 @@ Personopplysninger flyttes fra to Nais-apper (offentlig i `personbruker`, intern
 | Steg | Endring | Offentlig `www.nav.no` | Intern `www.intern.nav.no` |
 | --- | --- | --- | --- |
 | A | Ny pipeline, runtime-konfig, `nais/{dev-gcp,prod-gcp}` | Legacy-app i `personbruker` (uendret) | Ny app (canary) |
-| B | Offentlig ingress flyttes til ny app | Ny app | Ny app |
+| B | Offentlig ingress legges til ny app (legacy kjører videre som reserve) | Ny app | Ny app |
 | C | Legacy-app, `.nais/` og rollback-workflow slettes | Ny app | Ny app |
 
 Mellom A og B kan legacy-appen ikke bygges på nytt (felles workflow bygger kun for `min-side` og krever
@@ -34,12 +34,16 @@ Offentlig prod er ikke berørt. Velg én av:
 
 ## Etter steg B: ny app feiler på offentlig ingress
 
-Rekkefølgen er viktig: Nais stopper ikke to apper fra å deklarere samme ingress, og hva HAProxy gjør
-da er udefinert. Fjern alltid ingressen fra den ene appen før den andre får den.
+Steg B legger `https://www.nav.no/person/personopplysninger` til den nye appen mens legacy-appen i
+`personbruker` fortsatt kjører med samme ingress. Nais stopper ikke to apper fra å deklarere samme
+ingress. Da dette ble testet i dev, gikk alle forespørsler til den sist deployede appen. Legacy-appen
+beholdes til steg C, slik at den kan ta over igjen.
 
-1. Fjern `https://www.nav.no/person/personopplysninger` fra `nais/prod-gcp/nais.yaml` og merg til `main`
-   (deployes til `prod-gcp`). Vent til deployen er ferdig.
-2. Deploy legacy-appen med siste legacy-image:
+Mens legacy-appen fortsatt finnes:
+
+1. Fjern `https://www.nav.no/person/personopplysninger` fra `nais/prod-gcp/nais.yaml` og merg til `main`.
+2. Når deployen er ferdig, svarer legacy-appen alene på ingressen. Hvis den ikke gjør det (f.eks. fordi
+   den er skalert ned), redeploy den med siste legacy-image:
 
    ```sh
    gh workflow run legacy-rollback.yml -R navikt/personopplysninger \
@@ -47,10 +51,11 @@ da er udefinert. Fjern alltid ingressen fra den ene appen før den andre får de
      -f image=europe-north1-docker.pkg.dev/nais-management-233d/personbruker/personopplysninger-release-main:2026.10.16-08.58-9215052
    ```
 
-3. Verifiser at `https://www.nav.no/person/personopplysninger/nb/` sender til innlogging og at siden
-   laster etter innlogging.
+3. Verifiser at `https://www.nav.no/person/personopplysninger/nb/` laster legacy-appen (assets fra
+   `/person/personopplysninger/_astro/`, ikke fra `cdn.nav.no/min-side`).
 
-Brukerne får 404 i tiden mellom steg 1 og 2 (typisk et par minutter).
+Hvis legacy-appen allerede er slettet: kjør først steg 2, deretter steg 1. Det gir et par minutter
+med overlapp i stedet for nedetid.
 
 ## Etter steg C
 
