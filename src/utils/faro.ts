@@ -1,19 +1,20 @@
 import { initializeFaro } from "@grafana/faro-web-sdk";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { getRuntimeConfig } from "@/config/runtimeConfig";
 
 let started = false;
 
 export const startFaro = () => {
-    if (started || runtimeEnvironment.environment === "local") {
+    const { environment, telemetryUrl, buildVersion } = getRuntimeConfig();
+    if (started || environment === "local") {
         return;
     }
 
     started = true;
     initializeFaro({
-        url: runtimeEnvironment.telemetryUrl,
+        url: telemetryUrl,
         app: {
             name: "personopplysninger",
-            version: runtimeEnvironment.buildVersion,
+            version: buildVersion,
         },
     });
 };

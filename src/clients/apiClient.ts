@@ -1,5 +1,5 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { getRuntimeConfig } from "@/config/runtimeConfig";
 import type { Locale } from "@/store/Store";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
@@ -9,7 +9,7 @@ import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/view
 
 const parseJson = (data: Response) => data.json();
 
-const { apiUrl, endreKontonummerUrl, innloggingsstatusUrl, loginUrl } = runtimeEnvironment;
+const apiUrl = () => getRuntimeConfig().apiUrl;
 
 /*
    GET
@@ -34,23 +34,23 @@ const sjekkAuthHentJson = (url: string) =>
             throw error;
         });
 
-export const fetchInnloggingsStatus = () => sjekkAuthHentJson(innloggingsstatusUrl);
+export const fetchInnloggingsStatus = () => sjekkAuthHentJson(getRuntimeConfig().innloggingsstatusUrl);
 
-export const fetchKontaktInfo = () => sjekkAuthHentJson(`${apiUrl}/kontaktinformasjon`);
+export const fetchKontaktInfo = () => sjekkAuthHentJson(`${apiUrl()}/kontaktinformasjon`);
 
-export const fetchRetningsnumre = () => sjekkAuthHentJson(`${apiUrl}/retningsnumre`);
+export const fetchRetningsnumre = () => sjekkAuthHentJson(`${apiUrl()}/retningsnumre`);
 
-export const fetchInstInfo = () => sjekkAuthHentJson(`${apiUrl}/institusjonsopphold`);
+export const fetchInstInfo = () => sjekkAuthHentJson(`${apiUrl()}/institusjonsopphold`);
 
-export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl}/medl`);
+export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl()}/medl`);
 
-export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl}/personalia`);
+export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`);
 
-export const fetchLand = () => sjekkAuthHentJson(`${apiUrl}/land`);
+export const fetchLand = () => sjekkAuthHentJson(`${apiUrl()}/land`);
 
-export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl}/valuta`);
+export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl()}/valuta`);
 
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${apiUrl}/sporingslogg`);
+export const fetchDsopInfo = () => sjekkAuthHentJson(`${apiUrl()}/sporingslogg`);
 
 /*
     POST
@@ -106,14 +106,14 @@ const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
         });
 };
 
-export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl}/endreTelefonnummer`, data);
+export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/endreTelefonnummer`, data);
 
-export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl}/slettTelefonnummer`, data);
+export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/slettTelefonnummer`, data);
 
 export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
-    reauthenticate(`${endreKontonummerUrl}/endreKontonummer`, data, locale);
+    reauthenticate(`${getRuntimeConfig().endreKontonummerUrl}/endreKontonummer`, data, locale);
 
-export const slettKontaktadresse = () => postJson(`${apiUrl}/slettKontaktadresse`);
+export const slettKontaktadresse = () => postJson(`${apiUrl()}/slettKontaktadresse`);
 
 /*
     UTILS
@@ -143,7 +143,7 @@ const sjekkAuth = (response: Response): Response => {
 
 export const sendTilLogin = () => {
     const redirectUrl = getLoginRedirectUrl();
-    window.location.assign(`${loginUrl}?redirect=${redirectUrl}&level=Level4`);
+    window.location.assign(`${getRuntimeConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
 };
 
 const sjekkHttpFeil = async (response: Response) => {

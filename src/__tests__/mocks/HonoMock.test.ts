@@ -56,7 +56,7 @@ describe("Hono mock API", () => {
         });
 
         expect(await response.json()).toEqual({
-            redirect: "http://localhost:3006/person/personopplysninger/nn/endre-kontonummer?result=success",
+            redirect: "http://localhost:4321/person/personopplysninger/nn/endre-kontonummer?result=success",
         });
         expect(response.headers.get("set-cookie")).toContain("kontonr-result=success");
     });

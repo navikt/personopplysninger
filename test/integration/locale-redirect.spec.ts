@@ -42,7 +42,7 @@ test("videresender aldri til et annet domene", async ({ request }) => {
         const location = response.headers().location ?? "";
 
         expect(location.startsWith(`${basePath}/nb/`), `${sti} -> ${location}`).toBe(true);
-        expect(new URL(location, "http://localhost:3006").origin).toBe("http://localhost:3006");
+        expect(new URL(location, "http://localhost:4321").origin).toBe("http://localhost:4321");
     }
 });
 

@@ -1,7 +1,7 @@
 import { onBreadcrumbClick, onLanguageSelect, setAvailableLanguages, setBreadcrumbs } from "@navikt/nav-dekoratoren-moduler";
 import { useEffect } from "react";
 import { useIntl } from "react-intl";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { useRuntimeConfig } from "@/config/runtimeConfig";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 
@@ -16,6 +16,7 @@ interface BrodsmulestiProps {
 }
 
 const Brodsmulesti = (props: BrodsmulestiProps) => {
+    const { dittNavUrl } = useRuntimeConfig();
     const [{ locale }] = useStore();
     const { formatMessage } = useIntl();
     const { hierarki, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
@@ -55,7 +56,7 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
     useEffect(() => {
         const baseBreadcrumbs = [
             {
-                url: runtimeEnvironment.dittNavUrl,
+                url: dittNavUrl,
                 title: formatMessage({ id: "brodsmulesti.minside" }),
             },
             {

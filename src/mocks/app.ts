@@ -73,7 +73,7 @@ export const createMockApp = () => {
         return respond(
             context,
             {
-                redirect: `http://localhost:3006/person/personopplysninger/${locale}/endre-kontonummer?result=success`,
+                redirect: `http://localhost:4321/person/personopplysninger/${locale}/endre-kontonummer?result=success`,
             },
             [200, 500],
         );

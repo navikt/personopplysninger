@@ -1,12 +1,14 @@
+import type { Miljo } from "@/config/runtimeConfig";
+import { testRuntimeConfig } from "./testRuntimeConfig";
+
 const { initializeFaro } = vi.hoisted(() => ({ initializeFaro: vi.fn() }));
 
 vi.mock("@grafana/faro-web-sdk", () => ({ initializeFaro }));
 
-const loadFaro = async (environment: string) => {
+const loadFaro = async (environment: Miljo) => {
     vi.resetModules();
-    vi.doMock("@/config/runtimeEnvironment", () => ({
-        runtimeEnvironment: { environment, telemetryUrl: "https://telemetri.example/collect", buildVersion: "abc123" },
-    }));
+    const { setRuntimeConfig } = await import("@/config/runtimeConfig");
+    setRuntimeConfig({ ...testRuntimeConfig, environment, telemetryUrl: "https://telemetri.example/collect", buildVersion: "abc123" });
     return import("@/utils/faro");
 };
 

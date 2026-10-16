@@ -4,15 +4,15 @@ import jobbsok from "@/assets/img/LedigeStillinger.svg";
 import pensjon from "@/assets/img/Pensjon.svg";
 import sykefravaer from "@/assets/img/Sykepenger.svg";
 import utbetalinger from "@/assets/img/Utbetalinger.svg";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import type { RuntimeConfig } from "@/config/runtimeConfig";
 
-export default (locale: string) => [
+export default (locale: string, { dineSakerUrl, utbetalingsoversiktUrl, sykefravaerUrl }: RuntimeConfig) => [
     {
         id: "dine-saker",
         tittel: "lenker.dokumentarkiv.tittel",
         beskrivelse: "lenker.dokumentarkiv.beskrivelse",
         lenkeTekst: "lenker.dokumentarkiv.lenkeTekst",
-        url: `${runtimeEnvironment.dineSakerUrl}${locale === "en" ? "?lang=en" : ""}`,
+        url: `${dineSakerUrl}${locale === "en" ? "?lang=en" : ""}`,
         icon: dineSaker,
     },
     {
@@ -20,7 +20,7 @@ export default (locale: string) => [
         tittel: "lenker.utbetalinger.tittel",
         beskrivelse: "lenker.utbetalinger.beskrivelse",
         lenkeTekst: "lenker.utbetalinger.lenkeTekst",
-        url: runtimeEnvironment.utbetalingsoversiktUrl,
+        url: utbetalingsoversiktUrl,
         icon: utbetalinger,
     },
     {
@@ -28,7 +28,7 @@ export default (locale: string) => [
         tittel: "lenker.sykefravaer.tittel",
         beskrivelse: "lenker.sykefravaer.beskrivelse",
         lenkeTekst: "lenker.sykefravaer.lenkeTekst",
-        url: runtimeEnvironment.sykefravaerUrl,
+        url: sykefravaerUrl,
         icon: sykefravaer,
     },
     {

@@ -3,12 +3,10 @@ import { useIntl } from "react-intl";
 import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer";
 import Spinner from "@/components/spinner/Spinner";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { useRuntimeConfig } from "@/config/runtimeConfig";
 import { useLoadPersonInfo } from "@/store/providers/PersonInfo";
 import type { Locale } from "@/store/Store";
 
-const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
-const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/{id}` : undefined;
 const DetaljertArbeidsforholdClient = lazy(() => import("./DetaljertArbeidsforholdClient"));
 
 interface Props {
@@ -17,6 +15,9 @@ interface Props {
 }
 
 const Arbeidsforhold = ({ id, pathname }: Props) => {
+    const { environment, apiUrl } = useRuntimeConfig();
+    const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+    const localApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/{id}` : undefined;
     const { locale } = useIntl();
     const personInfo = useLoadPersonInfo();
     const [mounted, setMounted] = useState(false);

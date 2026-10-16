@@ -6,7 +6,7 @@ import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
 import MEDLIkon from "@/assets/img/MEDL.svg";
 import SkjermingIkon from "@/assets/img/Skjerming.svg";
 import { AnchorLink } from "@/components/anchorlink/AnchorLink";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { useRuntimeConfig } from "@/config/runtimeConfig";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 import sharedStyles from "@/styles/shared.module.css";
@@ -17,6 +17,8 @@ import LinkBox from "./linkbox/LinkBox";
 const id = "flere-opplysninger";
 
 const LinksContainer = () => {
+    const runtimeConfig = useRuntimeConfig();
+    const { pdlUrl, skjermingUrl } = runtimeConfig;
     const [{ locale }] = useStore();
     return (
         <Box background="surface-default" className={sharedStyles.panel} id={id}>
@@ -32,7 +34,7 @@ const LinksContainer = () => {
                         <FormattedMessage id="lenker.beskrivelse" />
                     </BodyLong>
                 </div>
-                {lenker(locale).map(
+                {lenker(locale, runtimeConfig).map(
                     (link) =>
                         link.url && (
                             <LinkBox
@@ -80,7 +82,7 @@ const LinksContainer = () => {
                     tittel={"lenker.fullmakt.tittel"}
                     beskrivelse={"lenker.fullmakt.beskrivelse"}
                     lenkeTekst={"lenker.fullmakt.lenkeTekst"}
-                    to={runtimeEnvironment.pdlUrl}
+                    to={pdlUrl}
                     component={"a"}
                 />
                 <LinkBox
@@ -89,7 +91,7 @@ const LinksContainer = () => {
                     tittel={"lenker.skjerming.tittel"}
                     beskrivelse={"lenker.skjerming.beskrivelse"}
                     lenkeTekst={"lenker.skjerming.lenkeTekst"}
-                    to={runtimeEnvironment.skjermingUrl}
+                    to={skjermingUrl}
                     component={"a"}
                 />
             </div>

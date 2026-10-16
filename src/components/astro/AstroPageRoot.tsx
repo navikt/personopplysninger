@@ -1,4 +1,5 @@
 import { type ReactNode, useEffect } from "react";
+import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { Locale } from "@/store/Store";
@@ -33,9 +34,16 @@ interface Props {
     tjeneste?: string;
     redirectUrl?: string;
     backTo?: string;
+    config: RuntimeConfig;
 }
 
-const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo }: Props) => {
+const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo, config }: Props) => {
+    // Kode utenfor React (API-klient, Faro) leser den globale verdien. Settes kun i nettleseren,
+    // fordi serveren deler modulen mellom samtidige forespørsler.
+    if (typeof window !== "undefined") {
+        setRuntimeConfig(config);
+    }
+
     useEffect(() => {
         startFaro();
     }, []);
@@ -53,16 +61,18 @@ const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, re
     };
 
     return (
-        <StoreProvider
-            initialLocale={locale}
-            initialAuthInfo={{ status: "RESULT", data: { authenticated: true, securityLevel: "4", name: authName } }}
-        >
-            <WithLanguages>
-                <div className="pagecontent">
-                    <div className="wrapper">{pages[page]}</div>
-                </div>
-            </WithLanguages>
-        </StoreProvider>
+        <RuntimeConfigContext.Provider value={config}>
+            <StoreProvider
+                initialLocale={locale}
+                initialAuthInfo={{ status: "RESULT", data: { authenticated: true, securityLevel: "4", name: authName } }}
+            >
+                <WithLanguages>
+                    <div className="pagecontent">
+                        <div className="wrapper">{pages[page]}</div>
+                    </div>
+                </WithLanguages>
+            </StoreProvider>
+        </RuntimeConfigContext.Provider>
     );
 };
 
