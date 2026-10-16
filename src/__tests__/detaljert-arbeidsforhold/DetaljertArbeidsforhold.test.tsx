@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import { fetchPersonInfo } from "@/clients/apiClient";
-import DetaljertArbeidsforhold from "@/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
+import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 
 vi.mock("@/clients/apiClient", () => ({ fetchPersonInfo: vi.fn() }));
-vi.mock("@/pages/detaljert-arbeidsforhold/DetaljertArbeidsforholdClient", () => ({
+vi.mock("@/views/detaljert-arbeidsforhold/DetaljertArbeidsforholdClient", () => ({
     default: ({ printName, printSSN }: { printName: string; printSSN: string }) => (
         <output>
             {printName}|{printSSN}

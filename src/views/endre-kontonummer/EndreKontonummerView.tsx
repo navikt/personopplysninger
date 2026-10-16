@@ -4,9 +4,9 @@ import { useState } from "react";
 import { FormattedMessage } from "react-intl";
 import Kilde from "@/components/kilde/Kilde";
 import { useIntlFormatter } from "@/hooks/useIntlFormatter";
-import KontonummerForm from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
-import NorskKontonummer from "@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer";
-import Utenlandskonto from "@/pages/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto";
+import KontonummerForm from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
+import NorskKontonummer from "@/views/forside/sections/4-personinfo/4-utbetalinger/visning/NorskKontonummer";
+import Utenlandskonto from "@/views/forside/sections/4-personinfo/4-utbetalinger/visning/UtenlandsBankkonto";
 import type { UtbetalingerProps } from "../forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
 import { EndreKontonummerResult } from "./result/EndreKontonummerResult";
 

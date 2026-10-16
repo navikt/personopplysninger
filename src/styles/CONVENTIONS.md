@@ -15,7 +15,7 @@ src/
 │   └── spinner/
 │       ├── Spinner.tsx
 │       └── Spinner.module.css   ← Referanseimplementasjon (delt komponent)
-└── pages/
+└── views/
     └── forside/sections/3-header/
         ├── Header.tsx
         └── Header.module.css    ← Referanseimplementasjon (sideseksjon)

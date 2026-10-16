@@ -1,9 +1,9 @@
 import { setAvailableLanguages } from "@navikt/nav-dekoratoren-moduler";
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import Brodsmulesti from "@/pages/forside/sections/2-brodsmulesti/Brodsmulesti";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
+import Brodsmulesti from "@/views/forside/sections/2-brodsmulesti/Brodsmulesti";
 
 vi.mock("@navikt/nav-dekoratoren-moduler", () => ({
     onBreadcrumbClick: vi.fn(),

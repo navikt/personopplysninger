@@ -52,10 +52,10 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="_tabell_4b5fd8"
+    class="_tabell_6548c9"
   >
     <div
-      class="_flexRad_97dcbd _head_4b5fd8"
+      class="_flexRad_97dcbd _head_6548c9"
     >
       <div
         class="_flexKolonne_97dcbd"
@@ -212,7 +212,7 @@ exports[`InstHistorikkView > renders correctly 1`] = `
     </div>
   </div>
   <div
-    class="_kilde_4b5fd8"
+    class="_kilde_6548c9"
   >
     <div
       class="_tekst_2ca801"
