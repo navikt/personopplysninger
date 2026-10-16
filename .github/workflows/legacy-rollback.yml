@@ -1,0 +1,34 @@
+# Ruller tilbake til de gamle Nais-appene (personbruker offentlig / min-side intern på port 8080)
+# med et tidligere bygget image. Se docs/rollback-645.md. Fjernes når #645 er ferdig.
+name: "Rollback til legacy-app"
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Hvilken legacy-app som skal deployes"
+        required: true
+        type: choice
+        options:
+          - public
+          - intern
+      image:
+        description: "Fullt image-navn fra siste legacy-deploy (se docs/rollback-645.md)"
+        required: true
+        type: string
+
+permissions:
+  contents: "read"
+  id-token: "write"
+
+jobs:
+  rollback:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy legacy-manifest
+        uses: nais/deploy/actions/deploy@v2
+        env:
+          CLUSTER: prod-gcp
+          RESOURCE: ${{ inputs.target == 'public' && '.nais/config.yml' || '.nais/intern/config.yml' }}
+          VARS: ${{ inputs.target == 'public' && '.nais/vars-prod.yml' || '.nais/intern/vars-prod.yml' }}
+          VAR: image=${{ inputs.image }}

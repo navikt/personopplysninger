@@ -16,42 +16,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
       - name: Setup node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           registry-url: 'https://npm.pkg.github.com'
-          cache: 'npm'
+          cache: 'pnpm'
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile --config.minimum-release-age=10080
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Lint application
-        run: npm run lint
+        run: pnpm run lint
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
       - name: Build Astro application
-        run: npm run build
-        env:
-          PUBLIC_ENV: local
-          PUBLIC_BUILD_VERSION: ci
-          PUBLIC_DINE_SAKER_URL: https://example.invalid/dokumentarkiv
-          PUBLIC_PDL_URL: https://example.invalid/pdl-fullmakt-ui
-          PUBLIC_SKJERMING_URL: https://example.invalid/skjerming
-          PUBLIC_APP_URL: https://example.invalid/person/personopplysninger
-          PUBLIC_API_URL: https://example.invalid/api
-          PUBLIC_ENDRE_KONTONUMMER_URL: https://example.invalid/api
-          PUBLIC_UTBETALINGSOVERSIKT_URL: https://example.invalid/utbetalingsoversikt
-          PUBLIC_SYKEFRAVAER_URL: https://example.invalid/sykefravaer
-          PUBLIC_LOGIN_URL: https://example.invalid/oauth2/login
-          PUBLIC_DITT_NAV_URL: https://example.invalid/minside
-          PUBLIC_PENSJONSOPPTJENING_URL: https://example.invalid/pensjon/opptjening
-          PUBLIC_INNLOGGINGSSTATUS_URL: https://example.invalid/api/auth
-          PUBLIC_TELEMETRY_URL: https://example.invalid/collect
+        run: pnpm run build
       - name: Run tests
-        run: npm test
+        run: pnpm run test
       - name: Install Playwright browser
-        run: npm run test:e2e:install
+        run: pnpm run test:e2e:install
       - name: Run end-to-end tests
-        run: npm run test:e2e
+        run: pnpm run test:e2e

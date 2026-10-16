@@ -9,19 +9,19 @@
         "node": ">=24.0.0"
     },
     "scripts": {
-        "start": "npm run start:astro",
-        "start:astro": "concurrently --kill-others-on-fail --names app,mocks \"npm:astro:dev\" \"npm:start:mocks\"",
-        "start:mocks": "tsx watch src/mocks/server.ts",
-        "astro:dev": "node scripts/astro-dev.mjs",
-        "astro:build": "astro check --tsconfig tsconfig.astro.json && astro build",
-        "astro:preview": "astro preview",
+        "dev": "concurrently --kill-others-on-fail --names app,mocks \"pnpm:dev:astro\" \"pnpm:dev:mocks\"",
+        "start": "pnpm dev",
+        "dev:astro": "astro dev",
+        "dev:mocks": "tsx watch src/mocks/server.ts",
+        "build": "astro check --tsconfig tsconfig.astro.json && astro build",
+        "preview": "astro preview",
         "astro:check": "astro check --tsconfig tsconfig.astro.json",
         "lint": "biome check --no-errors-on-unmatched .",
         "format": "biome format --write --no-errors-on-unmatched .",
         "typecheck": "tsc --noEmit",
         "prepare": "lefthook install",
-        "build": "npm run astro:build",
-        "test": "vitest",
+        "test": "vitest run",
+        "test:watch": "vitest",
         "test:e2e": "playwright test",
         "test:e2e:install": "playwright install --with-deps chromium"
     },
@@ -41,6 +41,7 @@
         "@navikt/aksel-icons": "7.17.4",
         "@navikt/arbeidsforhold": "4.3.1",
         "@navikt/astro-auth": "1.0.8",
+        "@navikt/astro-logger": "1.0.0",
         "@navikt/ds-css": "7.17.4",
         "@navikt/ds-react": "7.17.4",
         "@navikt/fnrvalidator": "2.1.5",
@@ -60,6 +61,7 @@
         "lodash.throttle": "4.1.1",
         "node-cache": "5.1.2",
         "node-fetch": "3.3.2",
+        "pino": "10.3.1",
         "react": "18.3.1",
         "react-collapse": "5.1.1",
         "react-day-picker": "9.6.3",
@@ -67,7 +69,8 @@
         "react-hook-form": "7.54.2",
         "react-intl": "7.1.10",
         "react-modal": "3.16.3",
-        "react-select": "5.10.1"
+        "react-select": "5.10.1",
+        "react-transition-group": "4.4.5"
     },
     "devDependencies": {
         "@astrojs/check": "0.9.10",
@@ -89,6 +92,7 @@
         "@types/react-modal": "3.16.3",
         "@types/react-select": "5.0.1",
         "@types/react-test-renderer": "18.3.0",
+        "@types/react-transition-group": "4.4.5",
         "classnames": "2.5.1",
         "concurrently": "10.0.5",
         "hono": "4.13.5",
@@ -99,9 +103,6 @@
         "vite": "6.3.3",
         "vitest": "3.0.9",
         "vitest-fetch-mock": "0.4.5"
-    },
-    "overrides": {
-        "form-data": "^4.0.4"
     },
     "browserslist": {
         "production": [

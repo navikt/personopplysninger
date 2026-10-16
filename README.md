@@ -1,6 +1,6 @@
 # Personopplysninger
 
-![Deploy-to-prod](https://github.com/navikt/personopplysninger/workflows/Deploy-to-prod/badge.svg) | ![Deploy-to-dev](https://github.com/navikt/personopplysninger/workflows/Deploy-to-dev/badge.svg)
+![Deploy main](https://github.com/navikt/personopplysninger/actions/workflows/deploy-main.yaml/badge.svg)
 
 React applikasjon som skal gi brukeren innsikt i informasjonen Nav har lagret.
 
@@ -10,31 +10,25 @@ Hent repoet fra github
 
 `git clone https://github.com/navikt/personopplysninger.git`
 
-Installer nødvendige pakker:
+Installer nødvendige pakker (pnpm 10, Node 24):
 
-`npm install`
-
-Kopier environment-variabler fra eksempelfilen:
-
-```
-cp .env.sample .env
-```
+`pnpm install`
 
 Start applikasjonen lokalt:
 
 ```shell
-npm start
+pnpm dev
 ```
 
-`npm start` starter Astro på port 3006 og en separat Hono-server på port 3007.
+`pnpm dev` starter Astro på port 4321 og en separat Hono-server på port 3007.
 Astro videresender `/api` til Hono-serveren, slik at nettleseren fortsatt bruker
 samme origin. Dekoratøren hentes fra dev-miljøet, så lokal kjøring krever ikke
-Docker Compose.
+Docker Compose. Miljøvariablene har lokale standardverdier i `astro.config.mjs`.
 
 ## Mock-serveren
 
 Mockdata ligger i `src/mocks/fixtures`, og rutene er definert i
-`src/mocks/app.ts`. Mock-serveren kan startes separat med `npm run start:mocks`.
+`src/mocks/app.ts`. Mock-serveren kan startes separat med `pnpm dev:mocks`.
 
 Legg til `scenario=empty` eller `scenario=error` på et mock-endepunkt for å
 teste tomme data eller feil. `delay=<millisekunder>` overstyrer den
@@ -46,9 +40,9 @@ endepunktspesifikke forsinkelsen, for eksempel:
 
 ## Tester
 
-Vitest-tester ligger under `/src/__tests__` og kjøres med `npm test`. Playwright-tester
-for Astro-rutene ligger under `/test/integration` og kjøres med `npm run test:e2e`.
-Kjør `npx playwright install --with-deps chromium` første gang, eller når
+Vitest-tester ligger under `/src/__tests__` og kjøres med `pnpm test`. Playwright-tester
+for Astro-rutene ligger under `/test/integration` og kjøres med `pnpm test:e2e`.
+Kjør `pnpm test:e2e:install` første gang, eller når
 Playwright-versjonen oppdateres.
 
 #### Snapshot-tester
@@ -56,36 +50,33 @@ Playwright-versjonen oppdateres.
 En del av testene er snapshot-tester. Hensikten med disse testene er å avdekke utilsiktede endringer i UIet. En typisk
 snapshot test rendrer en komponent, tar et snapshot og sammenligner dette med en referanse-snapshot som er lagret i
 repoet. Testen vil feile dersom de to snapshotene ikke er like. Man kan oppdatere snapshotet i repoet ved å kjøre
-kommandoen `npm test -- -u`.
+kommandoen `pnpm test -u`.
 
 ## Deployering
 
-Merk: Bruk develop-branchen når vi deployer til dev.
+Appen bygges og deployes med felles workflow fra
+[navikt/tms-deploy](https://github.com/navikt/tms-deploy) (`astro-deploy-v1`). Samme image kjører i alle
+miljøer; miljøverdiene settes i `nais/<cluster>/nais.yaml` og leses ved kjøring.
 
 ### Dev
 
-1. Opprett en PR mot develop. Sett den gjerne til DRAFT hvis du vil signalisere at den ikke er klar for test.
-2. Besøk https://github.com/navikt/personopplysninger/actions
-3. Velg workflow `Deploy-to-web`, velg develop-branchen og deretter `Run workflow`.
+Dev er ett delt miljø. Sjekk hva som kjører før du deployer:
 
-_eller_
+```shell
+gh run list --workflow=deploy-dev.yaml
+gh workflow run deploy-dev.yaml --ref <branch>
+```
 
-Benytt [Github CLI](https://cli.github.com/) for å deploye via kommandolinjen:
-
-`gh workflow run workflow_dispatch -b develop`
+En push til en branch som starter med `dev-` deployer også til dev.
 
 ### Prod
 
-- Lag en PR til main, og merge inn etter godkjenning (En automatisk release vil oppstå ved deploy til main)
-
-#### Om semver
-
-`npm version patch` vil bumpe versjon fra feks v1.1.1 til v1.1.2. Diskuter med teamet om versjonen er en minor eller kun en patch. Hvis minor bruker du `npm version minor` istedet. Du kan lese mer på [semver.org](https://semver.org/)
+Merge til `main` deployer til `prod-gcp`. Se [docs/rollback-645.md](docs/rollback-645.md) for rollback
+mens flyttingen til min-side pågår.
 
 ## Logging
 
-Feil ved API-kall blir logget via frontendlogger og vises i Kibana<br>
-[https://logs.adeo.no](https://logs.adeo.no/app/kibana#/discover/ad01c200-4af4-11e9-a5a6-7fddb220bd0c)
+Serveren logger JSON via `@navikt/astro-logger`. Feil i nettleseren sendes til Grafana Faro.
 
 ## Henvendelser
 

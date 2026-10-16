@@ -1,0 +1,19 @@
+name: "Deploy dev"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "dev-*"
+
+permissions:
+  contents: "read"
+  id-token: "write"
+  packages: "write"
+
+jobs:
+  build-and-deploy:
+    uses: navikt/tms-deploy/.github/workflows/astro-deploy-v1.yaml@main
+    with:
+      app-name: "personopplysninger"
+      clusters: '["dev-gcp"]'
+    secrets: inherit

@@ -6,16 +6,17 @@ import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import Box from "@/components/box/Box";
 import Kilde from "@/components/kilde/Kilde";
 import Spinner from "@/components/spinner/Spinner";
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { useRuntimeConfig } from "@/config/runtimeConfig";
 import { basePath } from "@/constants";
 import { useStore } from "@/store/Context";
 import type { Locale } from "@/store/Store";
 
-const miljo = runtimeEnvironment.environment?.toUpperCase() as "LOCAL" | "DEV" | "PROD";
-const localApiUrl = runtimeEnvironment.environment === "local" ? `${runtimeEnvironment.apiUrl}/arbeidsforhold/forenklet/alle` : undefined;
 const ArbeidsforholdListe = lazy(() => import("./ArbeidsforholdListe"));
 
 const Arbeidsforhold = () => {
+    const { environment, apiUrl } = useRuntimeConfig();
+    const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+    const localApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/forenklet/alle` : undefined;
     const { locale } = useIntl();
     const [{ personInfo }] = useStore();
     const [mounted, setMounted] = useState(false);

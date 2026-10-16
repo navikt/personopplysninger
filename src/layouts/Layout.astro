@@ -2,6 +2,7 @@
 import "@navikt/ds-css";
 import "@navikt/arbeidsforhold/index.css";
 import { type DecoratorLocale, fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import "../styles/global.css";
 import "../styles/tokens.css";
 
@@ -11,7 +12,8 @@ interface Props {
 
 const { title } = Astro.props;
 const language = (Astro.currentLocale ?? "nb") as DecoratorLocale;
-const decoratorEnvironment = process.env.NAIS_CLUSTER_NAME === "prod-gcp" ? "prod" : "dev";
+const { environment, appUrl, dittNavUrl } = getServerRuntimeConfig(Astro.url);
+const decoratorEnvironment = environment === "prod" ? "prod" : "dev";
 
 const decorator = await fetchDecoratorHtml({
     env: decoratorEnvironment,
@@ -19,13 +21,13 @@ const decorator = await fetchDecoratorHtml({
         context: "privatperson",
         language,
         breadcrumbs: [
-            { url: "https://www.nav.no/minside/", title: "Min side" },
-            { url: "https://www.nav.no/person/personopplysninger/", title: "Personopplysninger" },
+            { url: dittNavUrl, title: "Min side" },
+            { url: `${appUrl}/`, title: "Personopplysninger" },
         ],
         availableLanguages: [
-            { url: "https://www.nav.no/person/personopplysninger/nb/", locale: "nb" },
-            { url: "https://www.nav.no/person/personopplysninger/en/", locale: "en" },
-            { url: "https://www.nav.no/person/personopplysninger/nn/", locale: "nn" },
+            { url: `${appUrl}/nb/`, locale: "nb" },
+            { url: `${appUrl}/en/`, locale: "en" },
+            { url: `${appUrl}/nn/`, locale: "nn" },
         ],
         logoutWarning: true,
     },

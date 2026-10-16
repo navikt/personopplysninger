@@ -1,7 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
 
 // Avsluttende skråstrek gjør at relative stier i testene løses under base-stien.
-const baseURL = `${(process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:3006/person/personopplysninger").replace(/\/$/, "")}/`;
+const baseURL = `${(process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:4321/person/personopplysninger").replace(/\/$/, "")}/`;
 
 export default defineConfig({
     testDir: "./test/integration",
@@ -23,7 +23,7 @@ export default defineConfig({
     webServer: process.env.PLAYWRIGHT_BASE_URL
         ? undefined
         : {
-              command: "npm start",
+              command: "pnpm dev",
               env: {
                   NODE_ENV: "development",
               },

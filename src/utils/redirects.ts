@@ -1,6 +1,5 @@
-import { runtimeEnvironment } from "@/config/runtimeEnvironment";
+import { getRuntimeConfig } from "@/config/runtimeConfig";
 
-const baseUrl = runtimeEnvironment.appUrl;
 const redirectPathParam = "path";
 
 export const redirects: {
@@ -61,7 +60,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginRedirectUrl = () => {
     const encodedPath = btoa(window.location.pathname + window.location.hash);
-    return `${baseUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
+    return `${getRuntimeConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
 };
 
 export const getRedirectPathFromParam = () => {
