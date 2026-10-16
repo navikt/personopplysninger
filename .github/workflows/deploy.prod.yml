@@ -16,7 +16,7 @@ jobs:
       env: prod
       imageSuffix: release-${{ github.ref_name }}
       appOrigin: 'https://www.nav.no'
-      VITE_BUILD_VERSION: ${{ github.event.release.tag_name }}
+      VITE_BUILD_VERSION: ${{ github.event.release.tag_name || format('prod-{0}', github.sha) }}
       VITE_DINE_SAKER_URL: 'https://www.nav.no/dokumentarkiv'
       VITE_PDL_URL: 'https://www.nav.no/person/pdl-fullmakt-ui'
       VITE_SKJERMING_URL: 'https://www.nav.no/person/personopplysninger/skjerming'
