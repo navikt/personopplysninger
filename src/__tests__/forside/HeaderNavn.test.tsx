@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import { fetchInnloggingsStatus } from "@/clients/apiClient";
-import Header from "@/pages/forside/sections/3-header/Header";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
+import Header from "@/views/forside/sections/3-header/Header";
 
 vi.mock("react-modal");
 vi.mock("@/clients/apiClient", () => ({ fetchInnloggingsStatus: vi.fn() }));

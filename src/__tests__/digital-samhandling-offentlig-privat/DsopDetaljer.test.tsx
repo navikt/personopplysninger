@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
 import dsopInfo from "@/mocks/fixtures/dsop-info.json";
-import DsopDetaljerView from "@/pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerView";
 import nbMessages from "@/text/nb";
+import DsopDetaljerView from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljerView";
 
 describe("DsopDetaljerView", () => {
     it("renders correctly", () => {

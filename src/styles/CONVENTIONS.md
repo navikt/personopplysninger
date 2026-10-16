@@ -15,7 +15,7 @@ src/
 │   └── spinner/
 │       ├── Spinner.tsx
 │       └── Spinner.module.css   ← Referanseimplementasjon (delt komponent)
-└── pages/
+└── views/
     └── forside/sections/3-header/
         ├── Header.tsx
         └── Header.module.css    ← Referanseimplementasjon (sideseksjon)
@@ -130,26 +130,28 @@ Prosjektspesifikke tokens (layout, breakpoints) er definert i `src/styles/tokens
 | Kategori                              | Eksempel                                     | Tillatt |
 |---------------------------------------|----------------------------------------------|---------|
 | Dokumentnivå                          | `html`, `body`                               | ✅      |
-| Strukturelle hooks i `index.html`     | `.pagewrapper`, `.app`                       | ✅      |
-| App-skjelettklasser i `App.tsx`       | `.pagecontent`, `.wrapper`                   | ✅ (midlertidig) |
+| Strukturelle hooks i `Layout.astro`   | `.pagewrapper`, `.app`                       | ✅      |
+| App-skjelettklasser i `AstroPageRoot.tsx` | `.pagecontent`, `.wrapper`                   | ✅ (midlertidig) |
 | Delte layout-hooks på tvers av sider  | `.underseksjon__*`                           | ✅ (midlertidig) |
 | Tredjeparts-/vendor-selektorer        | `.ReactModal__Overlay`, `.navds-*`           | ✅      |
 | Felles hjelpeklasser uten tilhørighet | `.capitalize`                                | ✅      |
 | Komponent-spesifikke stiler           | `.header__seksjon`, `.spinner-wrapper`       | ❌ — bruk CSS Module |
 | Overskriving av `--a-*`-tokens        | `--a-spacing-4: 20px`                        | ❌ aldri |
 
-## 7. Importrekkefølge i `index.tsx`
+## 7. Importrekkefølge i `Layout.astro`
 
-```tsx
+```astro
+---
 // 1. Aksel CSS (vendor)
 import "@navikt/ds-css";
 // 2. Andre vendor-pakker
 import "@navikt/arbeidsforhold/index.css";
-// 3. Prosjektspesifikke tokens (må komme etter Aksel slik at --a-* er definert)
-import "./styles/tokens.css";
-// 4. Eksplisitt global grense
-import "./styles/global.css";
+// 3. Eksplisitt global grense
+import "../styles/global.css";
+// 4. Prosjektspesifikke tokens
+import "../styles/tokens.css";
 // 5. Komponent-moduler importeres der komponentene brukes
+---
 ```
 
 ## 8. Tilgjengelighet (UU)

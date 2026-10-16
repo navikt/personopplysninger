@@ -1,11 +1,11 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import { runtimeEnvironment } from "@/config/runtimeEnvironment";
-import type { OutboundTlfnummer } from "@/pages/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
-import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/pages/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 import type { Locale } from "@/store/Store";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
 import { getLoginRedirectUrl } from "@/utils/redirects";
+import type { OutboundTlfnummer } from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
+import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const parseJson = (data: Response) => data.json();
 

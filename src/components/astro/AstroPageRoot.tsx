@@ -1,17 +1,17 @@
 import { type ReactNode, useEffect } from "react";
-import DetaljertArbeidsforhold from "@/pages/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
-import DsopDetaljer from "@/pages/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
-import DsopHistorikk from "@/pages/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
-import { EndreKontonummer } from "@/pages/endre-kontonummer/EndreKontonummer";
-import EndreOpplysninger from "@/pages/endre-personopplysninger/EndreOpplysninger";
-import Forside from "@/pages/forside/Forside";
-import InstDetaljer from "@/pages/institusjonsopphold/detaljer/InstDetaljer";
-import InstHistorikk from "@/pages/institusjonsopphold/historikk/InstHistorikk";
-import MedlHistorikk from "@/pages/medlemskap-i-folketrygden/MedlHistorikk";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { Locale } from "@/store/Store";
 import { startFaro } from "@/utils/faro";
+import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
+import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
+import DsopHistorikk from "@/views/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
+import { EndreKontonummer } from "@/views/endre-kontonummer/EndreKontonummer";
+import EndreOpplysninger from "@/views/endre-personopplysninger/EndreOpplysninger";
+import Forside from "@/views/forside/Forside";
+import InstDetaljer from "@/views/institusjonsopphold/detaljer/InstDetaljer";
+import InstHistorikk from "@/views/institusjonsopphold/historikk/InstHistorikk";
+import MedlHistorikk from "@/views/medlemskap-i-folketrygden/MedlHistorikk";
 
 export type AstroPage =
     | "forside"

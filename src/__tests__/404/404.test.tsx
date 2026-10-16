@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import PageNotFound from "@/pages/404/404";
+import PageNotFound from "@/views/404/404";
 
 describe("PageNotFound", () => {
     it("renders correctly", () => {
