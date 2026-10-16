@@ -71,8 +71,8 @@ En push til en branch som starter med `dev-` deployer også til dev.
 
 ### Prod
 
-Merge til `main` deployer til `prod-gcp`. Se [docs/rollback-645.md](docs/rollback-645.md) for rollback
-mens flyttingen til min-side pågår.
+Merge til `main` deployer til `prod-gcp`. Appen svarer på både `www.nav.no` og `www.intern.nav.no`.
+Rollback: revert på `main`, eller kjør en tidligere `Deploy main` på nytt.
 
 ## Logging
 
