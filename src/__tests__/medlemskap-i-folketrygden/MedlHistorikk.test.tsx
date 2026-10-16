@@ -5,13 +5,6 @@ import MedlHistorikkView from "@/pages/medlemskap-i-folketrygden/MedlHistorikkVi
 import nbMessages from "@/text/nb";
 import type { MedlInfo } from "@/types/medl";
 
-vi.mock("react-router-dom", () => ({
-    Link: () => <div />,
-    useLocation: () => ({
-        pathname: "pathname",
-    }),
-}));
-
 describe("MedlHistorikkView", () => {
     it("renders correctly", () => {
         const { asFragment } = render(

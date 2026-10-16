@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import { MemoryRouter } from "react-router-dom";
 import personInfo from "@/mocks/fixtures/person-info.json";
 import personInfoUtenlandskbank from "@/mocks/fixtures/person-info-utenlandskbank.json";
 import Utbetalinger from "@/pages/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger";
@@ -16,9 +15,7 @@ describe["skip"]("Utbetalinger", () => {
         const { asFragment } = render(
             <StoreProvider>
                 <IntlProvider locale={"nb"} messages={nbMessages}>
-                    <MemoryRouter>
-                        <Utbetalinger kontonr={personInfo.personalia.kontonr} kontoregisterStatus={"OK"} />
-                    </MemoryRouter>
+                    <Utbetalinger kontonr={personInfo.personalia.kontonr} kontoregisterStatus={"OK"} />
                 </IntlProvider>
             </StoreProvider>,
         );
@@ -29,12 +26,10 @@ describe["skip"]("Utbetalinger", () => {
         const { asFragment } = render(
             <StoreProvider>
                 <IntlProvider locale={"nb"} messages={nbMessages}>
-                    <MemoryRouter>
-                        <Utbetalinger
-                            utenlandskbank={personInfoUtenlandskbank.personalia.utenlandskbank as unknown as UtenlandskBankkonto}
-                            kontoregisterStatus={"OK"}
-                        />
-                    </MemoryRouter>
+                    <Utbetalinger
+                        utenlandskbank={personInfoUtenlandskbank.personalia.utenlandskbank as unknown as UtenlandskBankkonto}
+                        kontoregisterStatus={"OK"}
+                    />
                 </IntlProvider>
             </StoreProvider>,
         );

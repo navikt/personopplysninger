@@ -4,13 +4,6 @@ import instInfo from "@/mocks/fixtures/inst-info.json";
 import InstDetaljerView from "@/pages/institusjonsopphold/detaljer/InstDetaljerView";
 import nbMessages from "@/text/nb";
 
-vi.mock("react-router-dom", () => ({
-    Link: () => <div />,
-    useLocation: () => ({
-        pathname: "pathname",
-    }),
-}));
-
 describe("InstDetaljerView", () => {
     it("renders correctly", () => {
         const { asFragment } = render(
