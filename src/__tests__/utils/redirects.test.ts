@@ -1,4 +1,6 @@
+import { setRuntimeConfig } from "@/config/runtimeConfig";
 import { getLoginRedirectUrl, resolveLoginReturnPath } from "@/utils/redirects";
+import { testRuntimeConfig } from "./testRuntimeConfig";
 
 const basePath = "/person/personopplysninger";
 const encode = (path: string) => btoa(path);
@@ -40,5 +42,13 @@ describe("getLoginRedirectUrl", () => {
         expect(param).not.toBeNull();
         expect(atob(param as string)).toBe(window.location.pathname + window.location.hash);
         expect(url).toContain("%2B");
+    });
+
+    it("sender brukeren tilbake til appens URL for vertsnavnet de kom inn på", () => {
+        setRuntimeConfig({ ...testRuntimeConfig, appUrl: "https://www.intern.nav.no/person/personopplysninger" });
+
+        expect(getLoginRedirectUrl()).toMatch(/^https:\/\/www\.intern\.nav\.no\/person\/personopplysninger\?path=/);
+
+        setRuntimeConfig(testRuntimeConfig);
     });
 });

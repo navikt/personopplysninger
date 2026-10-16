@@ -41,15 +41,18 @@ describe("buildRuntimeConfig", () => {
         expect(build("http://www.nav.no/person/personopplysninger/nb/", "prod-gcp").appUrl).toBe("https://www.nav.no/person/personopplysninger");
     });
 
-    it.each(["http://evil.example/person/personopplysninger/", "http://nav.no.evil.example/", "http://localhost:3000/", "http://10.0.0.1:3000/"])(
-        "faller tilbake til APP_ORIGIN for verter utenfor nav.no i dev og prod (%s)",
-        (url) => {
-            const config = build(url, "prod-gcp");
+    it.each([
+        "http://evil.example/person/personopplysninger/",
+        "http://nav.no.evil.example/",
+        "http://localhost:3000/",
+        "http://10.0.0.1:3000/",
+        "http://www.intern.nav.no:8080/",
+    ])("faller tilbake til APP_ORIGIN for verter utenfor nav.no i dev og prod (%s)", (url) => {
+        const config = build(url, "prod-gcp");
 
-            expect(config.appUrl).toBe("https://www.nav.no/person/personopplysninger");
-            expect(config.apiUrl).toBe("https://www.nav.no/tms-personopplysninger-api");
-        },
-    );
+        expect(config.appUrl).toBe("https://www.nav.no/person/personopplysninger");
+        expect(config.apiUrl).toBe("https://www.nav.no/tms-personopplysninger-api");
+    });
 
     it("godtar nav.no uten www", () => {
         expect(build("https://nav.no/person/personopplysninger/", "prod-gcp").appUrl).toBe("https://nav.no/person/personopplysninger");
