@@ -12,6 +12,10 @@ Personopplysninger flyttes fra to Nais-apper (offentlig i `personbruker`, intern
 Mellom A og B kan legacy-appen ikke bygges på nytt (felles workflow bygger kun for `min-side` og krever
 `pnpm-lock.yaml`). Offentlig prod står derfor på siste legacy-image til B er gjennomført.
 
+I dev-gcp gjøres samme flytting før steg A merges: den nye appen deployes fra en `dev-*`-branch mens
+legacy-appen i `personbruker` fortsatt har ingressen, og legacy-appen slettes etterpå. Dev har ingen
+rollback utover å deploye en tidligere branch.
+
 ## Siste legacy-image
 
 | App | Image | Commit |
