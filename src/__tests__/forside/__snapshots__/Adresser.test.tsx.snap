@@ -114,7 +114,7 @@ exports[`Adresser > renders correctly 1`] = `
                   <div
                     class="_ingress_2dee1a"
                   >
-                    <p
+                    <div
                       class="navds-body-long navds-body-long--medium"
                     >
                       Under ser du adressetyper i Folkeregisteret. Du kan ha flere adressetyper samtidig. Du kan endre adresser i Folkeregisteret hos Skatteetaten.
@@ -158,7 +158,7 @@ En adresse der du kan nås per post.
                       <br />
                       
 Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene adressen er registrert under delt bosted.
-                    </p>
+                    </div>
                   </div>
                 </div>
               </dialog>

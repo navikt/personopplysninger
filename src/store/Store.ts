@@ -11,20 +11,6 @@ import type { MedlInfo } from "../types/medl";
 import type { PersonInfo } from "../types/personInfo";
 import type { FetchPersonInfo } from "./providers/PersonInfo";
 
-const initialLocale = ((window.location.pathname.match(/\/en($|\/)/) && "en") ??
-    (window.location.pathname.match(/\/nn($|\/)/) && "nn") ??
-    "nb") as Locale;
-
-export const initialState = {
-    formKey: 0,
-    locale: initialLocale,
-    authInfo: { status: "LOADING" } as FetchAuth,
-    dsopInfo: { status: "LOADING" } as FetchDsopInfo,
-    instInfo: { status: "LOADING" } as FetchInstInfo,
-    personInfo: { status: "LOADING" } as FetchPersonInfo,
-    kontaktInfo: { status: "LOADING" } as FetchKontaktInfo,
-    medlInfo: { status: "LOADING" } as FetchMedlInfo,
-};
 export type Locale = "nb" | "en" | "nn";
 
 export interface Store {
@@ -37,6 +23,35 @@ export interface Store {
     kontaktInfo: FetchKontaktInfo;
     medlInfo: FetchMedlInfo;
 }
+
+const getInitialLocale = (): Locale => {
+    if (typeof window === "undefined") {
+        return "nb";
+    }
+
+    if (window.location.pathname.match(/\/en($|\/)/)) {
+        return "en";
+    }
+
+    if (window.location.pathname.match(/\/nn($|\/)/)) {
+        return "nn";
+    }
+
+    return "nb";
+};
+
+export const createInitialState = (locale = getInitialLocale(), authInfo: FetchAuth = { status: "LOADING" }): Store => ({
+    formKey: 0,
+    locale,
+    authInfo,
+    dsopInfo: { status: "LOADING" },
+    instInfo: { status: "LOADING" },
+    personInfo: { status: "LOADING" },
+    kontaktInfo: { status: "LOADING" },
+    medlInfo: { status: "LOADING" },
+});
+
+export const initialState = createInitialState();
 
 export type Action =
     | {

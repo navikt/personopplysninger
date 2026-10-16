@@ -113,7 +113,12 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div
         class="_flexKolonne_97dcbd"
       >
-        <div />
+        <a
+          class="lenke"
+          href="/person/personopplysninger/nb/dsop/2019-06-18T10%3A45%3A51.634"
+        >
+          STOREBRAND LIVSFORSIKRING AS
+        </a>
       </div>
     </div>
     <div
@@ -127,7 +132,12 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div
         class="_flexKolonne_97dcbd"
       >
-        <div />
+        <a
+          class="lenke"
+          href="/person/personopplysninger/nb/dsop/2019-06-18T10%3A45%3A52.101"
+        >
+          GJENSIDIGE FORSIKRING AS
+        </a>
       </div>
     </div>
     <div
@@ -141,7 +151,12 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
       <div
         class="_flexKolonne_97dcbd"
       >
-        <div />
+        <a
+          class="lenke"
+          href="/person/personopplysninger/nb/dsop/2019-06-18T10%3A51%3A55.535"
+        >
+          STOREBRAND LIVSFORSIKRING AS
+        </a>
       </div>
     </div>
     <div

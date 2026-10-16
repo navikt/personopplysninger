@@ -1,0 +1,22 @@
+---
+import AstroPage from "@/components/astro/AstroPage.astro";
+import type { Locale } from "@/store/Store";
+import { tillatteTjenester, validateAndDecodeRedirectUrl } from "@/utils/redirects";
+
+const locale = Astro.currentLocale as Locale;
+const segments = Astro.params.route?.split("/") ?? [];
+const redirectUrl = segments.pop();
+const tjeneste = segments.join("/");
+
+if (!tillatteTjenester.includes(tjeneste) || !validateAndDecodeRedirectUrl(redirectUrl)) {
+    return Astro.redirect(`/person/personopplysninger/${locale}/`);
+}
+---
+
+<AstroPage
+    page="endreOpplysninger"
+    locale={locale}
+    pathname={Astro.url.pathname}
+    tjeneste={tjeneste}
+    redirectUrl={redirectUrl}
+/>

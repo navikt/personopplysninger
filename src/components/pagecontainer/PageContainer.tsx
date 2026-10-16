@@ -12,6 +12,7 @@ interface Props {
     backTo: string;
     icon?: string;
     brodsmulesti: BrodsmuleLenke[];
+    pathname?: string;
 }
 
 const PageContainer = (props: Props) => {

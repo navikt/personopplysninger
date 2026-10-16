@@ -10,13 +10,23 @@ import MedlHistorikkView from "./MedlHistorikkView";
   Unntak fra medlemskap i folketrygden
 */
 
-const MedlHistorikk = () => {
+interface Props {
+    pathname?: string;
+}
+
+const MedlHistorikk = ({ pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
 
     return (
-        <PageContainer tittelId={"medl.tittel"} icon={MEDLIkon} backTo={"/#flere-opplysninger"} brodsmulesti={[{ title: "medl.tittel" }]}>
+        <PageContainer
+            tittelId={"medl.tittel"}
+            icon={MEDLIkon}
+            backTo={"/#flere-opplysninger"}
+            brodsmulesti={[{ title: "medl.tittel" }]}
+            pathname={pathname}
+        >
             <WithMEDL>{({ data }) => <MedlHistorikkView medlInfo={data} />}</WithMEDL>
         </PageContainer>
     );

@@ -1,0 +1,8 @@
+---
+import { resolveLoginReturnPath } from "@/utils/redirects";
+
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
+const returnPath = resolveLoginReturnPath(Astro.url.searchParams.get("path"), basePath);
+
+return Astro.redirect(returnPath ?? `${Astro.url.pathname.replace(/\/$/, "")}/nb/`);
+---

@@ -12,10 +12,10 @@ spec:
   ingresses:
     - "https://www.intern.nav.no/person/personopplysninger"
   liveness:
-    path: /person/personopplysninger/internal/isAlive
+    path: /person/personopplysninger/api/internal/isAlive
     initialDelay: 10
   readiness:
-    path: /person/personopplysninger/internal/isReady
+    path: /person/personopplysninger/api/internal/isReady
     initialDelay: 10
   observability:
     autoInstrumentation:
@@ -26,6 +26,7 @@ spec:
     sidecar:
       enabled: true
       autoLogin: false
+      level: Level4
   accessPolicy:
     outbound:
       rules:

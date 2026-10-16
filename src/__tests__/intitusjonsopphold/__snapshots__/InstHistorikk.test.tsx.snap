@@ -93,7 +93,16 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         <div
           class="_flexKolonne_97dcbd"
         >
-          <div />
+          <a
+            class="lenke"
+            href="/person/personopplysninger/nb/institusjonsopphold/2018-12-19T11%3A03%3A57.507"
+          >
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              VIK FENGSEL
+            </p>
+          </a>
         </div>
       </div>
       <div
@@ -160,7 +169,16 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         <div
           class="_flexKolonne_97dcbd"
         >
-          <div />
+          <a
+            class="lenke"
+            href="/person/personopplysninger/nb/institusjonsopphold/2020-12-20T14%3A14%3A04.260405"
+          >
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              VIK FENGSEL
+            </p>
+          </a>
         </div>
       </div>
       <div
@@ -179,7 +197,16 @@ exports[`InstHistorikkView > renders correctly 1`] = `
         <div
           class="_flexKolonne_97dcbd"
         >
-          <div />
+          <a
+            class="lenke"
+            href="/person/personopplysninger/nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816"
+          >
+            <p
+              class="navds-body-short navds-body-short--medium"
+            >
+              VIK FENGSEL
+            </p>
+          </a>
         </div>
       </div>
     </div>

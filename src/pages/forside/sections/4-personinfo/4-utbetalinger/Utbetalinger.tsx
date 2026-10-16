@@ -1,6 +1,5 @@
 import { Alert } from "@navikt/ds-react";
 import { FormattedMessage, useIntl } from "react-intl";
-import { Link } from "react-router-dom";
 import kontonummerIkon from "@/assets/img/Kontonummer.svg";
 import Box from "@/components/box/Box";
 import { basePath } from "@/constants";
@@ -42,14 +41,17 @@ export interface UtbetalingerProps {
     personident?: { verdi: string; type: string };
     kontonr?: string;
     kontoregisterStatus: string;
+    pathname?: string;
 }
 
 const Utbetalinger = (props: UtbetalingerProps) => {
-    const { kontonr, utenlandskbank } = props;
+    const { kontonr, utenlandskbank, pathname } = props;
 
     const [{ locale }] = useStore();
     const baseUrlWithLocale = `${basePath}/${locale}`;
-    const backTo = window.location.pathname.replace(baseUrlWithLocale, "");
+    const currentPathname = pathname ?? (typeof window === "undefined" ? "" : window.location.pathname);
+    const backTo = currentPathname.replace(baseUrlWithLocale, "");
+    const backToQuery = backTo ? `?backTo=${encodeURIComponent(backTo)}` : "";
 
     return (
         <Box id="utbetaling" tittel="utbetalinger.tittel" icon={kontonummerIkon} visAnkerlenke>
@@ -79,9 +81,9 @@ const Utbetalinger = (props: UtbetalingerProps) => {
                     />
                 </div>
             )}
-            <Link to={`${baseUrlWithLocale}/endre-kontonummer`} state={{ backTo }}>
+            <a href={`${baseUrlWithLocale}/endre-kontonummer${backToQuery}`}>
                 <FormattedMessage id={"endreKontonummer.tittel"} />
-            </Link>
+            </a>
         </Box>
     );
 };

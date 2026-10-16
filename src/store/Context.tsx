@@ -1,14 +1,17 @@
 import { createContext, type Dispatch, useContext, useReducer } from "react";
-import { type Action, initialState, reducer, type Store } from "./Store";
+import type { FetchAuth } from "@/types/authInfo";
+import { type Action, createInitialState, type Locale, reducer, type Store } from "./Store";
 
 interface Props {
     children: JSX.Element | JSX.Element[];
+    initialLocale?: Locale;
+    initialAuthInfo?: FetchAuth;
 }
 
 export const StoreContext = createContext({} as [Store, Dispatch<Action>]);
 export const StoreProvider = (props: Props) => {
-    const { children } = props;
+    const { children, initialLocale, initialAuthInfo } = props;
 
-    return <StoreContext.Provider value={useReducer(reducer, initialState)}>{children}</StoreContext.Provider>;
+    return <StoreContext.Provider value={useReducer(reducer, createInitialState(initialLocale, initialAuthInfo))}>{children}</StoreContext.Provider>;
 };
 export const useStore = () => useContext(StoreContext);
