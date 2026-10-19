@@ -1,7 +1,7 @@
 ---
 import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import Layout from "@/layouts/Layout.astro";
-import type { Locale } from "@/store/Store";
+import type { InitialData, Locale } from "@/store/Store";
 import AstroPageRoot, { type AstroPage } from "./AstroPageRoot";
 
 interface Props {
@@ -12,9 +12,10 @@ interface Props {
     tjeneste?: string;
     redirectUrl?: string;
     backTo?: string;
+    initialData?: InitialData;
 }
 
-const { page, locale, pathname, id, tjeneste, redirectUrl, backTo } = Astro.props;
+const { page, locale, pathname, id, tjeneste, redirectUrl, backTo, initialData } = Astro.props;
 const validation = Astro.locals.validation;
 const config = getServerRuntimeConfig(Astro.url);
 const authName = validation?.ok && typeof validation.payload.name === "string" ? validation.payload.name : "";
@@ -32,5 +33,6 @@ const authName = validation?.ok && typeof validation.payload.name === "string" ?
         redirectUrl={redirectUrl}
         backTo={backTo}
         config={config}
+        initialData={initialData}
     />
 </Layout>

@@ -40,6 +40,7 @@ spec:
       rules:
         - application: nav-dekoratoren
           namespace: personbruker
+        - application: tms-personopplysninger-api
       external:
         - host: www.intern.dev.nav.no
         - host: www.ansatt.dev.nav.no
@@ -66,6 +67,8 @@ spec:
       value: "https://login.ekstern.dev.nav.no/oauth2/login"
     - name: PDL_URL
       value: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui"
+    - name: PERSONOPPLYSNINGER_API_URL
+      value: "http://tms-personopplysninger-api/tms-personopplysninger-api"
     - name: SKJERMING_URL
       value: "https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming"
     - name: SYKEFRAVAER_URL
