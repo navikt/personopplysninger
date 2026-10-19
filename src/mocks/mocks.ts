@@ -1,3 +1,4 @@
+import { randomInt } from "node:crypto";
 import type { MockContext, MockDefinition } from "@navikt/astro-mocks";
 import arbeidsforholdDetaljert from "./fixtures/arbeidsforhold-detaljert.json";
 import arbeidsforholdListe from "./fixtures/arbeidsforhold-liste.json";
@@ -26,7 +27,7 @@ const getDelay = (query: URLSearchParams, [min, max]: [number, number]) => {
     if (configuredDelay !== null) {
         return Math.max(0, Number(configuredDelay) || 0);
     }
-    return Math.random() * (max - min) + min;
+    return randomInt(min, max);
 };
 
 // ?scenario=error gir 500 og ?scenario=empty et tomt svar, for å teste feil- og tomtilstander lokalt.
