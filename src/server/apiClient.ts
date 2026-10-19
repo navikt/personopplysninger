@@ -54,12 +54,22 @@ export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<Server
         return { status: "UNAUTHORIZED" };
     }
 
-    if (!response.ok) {
-        logger.error(`API-kall ${path} feilet med status ${response.status}`);
-        return response.status === 400 ? feil(400, await response.text()) : feil(response.status);
-    }
+    // Tidsfristen gjelder også lesingen av svaret, og et svar som ikke kan leses skal gi feiltilstand, ikke 500.
+    try {
+        if (!response.ok) {
+            logger.error(`API-kall ${path} feilet med status ${response.status}`);
+            return response.status === 400 ? feil(400, await response.text()) : feil(response.status);
+        }
 
-    return { status: "RESULT", data: (await response.json()) as T };
+        return { status: "RESULT", data: (await response.json()) as T };
+    } catch (error) {
+        if (error instanceof DOMException && error.name === "TimeoutError") {
+            logger.error(`API-kall ${path} fikk ikke hele svaret innen ${timeoutMs} ms`);
+            return feil(504);
+        }
+        logger.error(`API-kall ${path} ga et svar som ikke kunne leses: ${error instanceof Error ? error.name : "ukjent feil"}`);
+        return feil(502);
+    }
 };
 
 // Samme form som @navikt/astro-auth bruker når brukeren mangler gyldig token.

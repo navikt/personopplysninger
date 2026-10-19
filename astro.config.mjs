@@ -58,6 +58,10 @@ export default defineConfig({
         build: {
             sourcemap: true,
         },
+        // Server-kallene lokalt går til mockene på port 4321; ikke flytt dev-serveren til en annen port.
+        server: {
+            strictPort: true,
+        },
         resolve: {
             alias: {
                 "@": path.resolve("./src"),

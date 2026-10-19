@@ -64,6 +64,21 @@ describe("hentFraApi", () => {
         timeoutSpy.mockRestore();
     });
 
+    it("gir feiltilstand 502 når API-et svarer med noe som ikke er JSON", async () => {
+        const { deps, logger } = lagDeps(svar(200, "<html>proxyfeil</html>"));
+
+        await expect(hentFraApi("/medl", deps)).resolves.toEqual({ status: "ERROR", error: { code: 502, text: feiltekst } });
+        expect(logger.error).toHaveBeenCalledWith(expect.stringContaining("API-kall /medl ga et svar som ikke kunne leses"));
+    });
+
+    it("gir feiltilstand 504 når tidsfristen går ut mens svaret leses", async () => {
+        const response = new Response("{}", { status: 200 });
+        vi.spyOn(response, "json").mockRejectedValue(new DOMException("Timeout", "TimeoutError"));
+        const { deps } = lagDeps(vi.fn<typeof fetch>().mockResolvedValue(response));
+
+        await expect(hentFraApi("/medl", deps)).resolves.toEqual({ status: "ERROR", error: { code: 504, text: feiltekst } });
+    });
+
     it("gir feiltilstand 502 når API-et ikke kan nås", async () => {
         const { deps, logger } = lagDeps(vi.fn<typeof fetch>().mockRejectedValue(new TypeError("fetch failed")));
 

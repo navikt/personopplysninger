@@ -4,7 +4,8 @@ test("medlemskap har dataene i HTML-en fra serveren, før JavaScript kjører", a
     const response = await request.get("nb/medlemskap-i-folketrygden");
 
     expect(response.status()).toBe(200);
-    expect(await response.text()).toContain("DANMARK");
+    // Sjekker rendret markup, ikke bare øyas serialiserte props (som også inneholder dataene).
+    expect(await response.text()).toMatch(/<dd[^>]*>DANMARK<\/dd>/);
 });
 
 test("medlemskap henter ikke dataene på nytt i nettleseren", async ({ page }) => {
