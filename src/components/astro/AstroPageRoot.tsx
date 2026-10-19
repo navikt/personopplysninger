@@ -2,7 +2,7 @@ import { type ReactNode, useEffect } from "react";
 import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
-import type { Locale } from "@/store/Store";
+import type { InitialData, Locale } from "@/store/Store";
 import { startFaro } from "@/utils/faro";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
@@ -35,9 +35,10 @@ interface Props {
     redirectUrl?: string;
     backTo?: string;
     config: RuntimeConfig;
+    initialData?: InitialData;
 }
 
-const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo, config }: Props) => {
+const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo, config, initialData }: Props) => {
     // Kode utenfor React (API-klient, Faro) leser den globale verdien. Settes kun i nettleseren,
     // fordi serveren deler modulen mellom samtidige forespørsler.
     if (typeof window !== "undefined") {
@@ -65,6 +66,7 @@ const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, re
             <StoreProvider
                 initialLocale={locale}
                 initialAuthInfo={{ status: "RESULT", data: { authenticated: true, securityLevel: "4", name: authName } }}
+                initialData={initialData}
             >
                 <WithLanguages>
                     <div className="pagecontent">

@@ -1,8 +1,17 @@
 ---
 import AstroPage from "@/components/astro/AstroPage.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { Locale } from "@/store/Store";
+import type { MedlInfo } from "@/types/medl";
 
 const locale = Astro.currentLocale as Locale;
+
+// Siden venter på dataene, så innholdet ligger i første HTML uten layout-skift.
+const medlInfo = await hentFraApi<MedlInfo>("/medl", personopplysningerApi(Astro));
+if (medlInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
 ---
 
-<AstroPage page="medlemskap" locale={locale} pathname={Astro.url.pathname} />
+<AstroPage page="medlemskap" locale={locale} pathname={Astro.url.pathname} initialData={{ medlInfo }} />

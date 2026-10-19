@@ -40,7 +40,14 @@ const getInitialLocale = (): Locale => {
     return "nb";
 };
 
-export const createInitialState = (locale = getInitialLocale(), authInfo: FetchAuth = { status: "LOADING" }): Store => ({
+// Data serveren allerede har hentet. Slices som er satt her hentes ikke på nytt i nettleseren.
+export type InitialData = Partial<Pick<Store, "personInfo" | "dsopInfo" | "instInfo" | "kontaktInfo" | "medlInfo">>;
+
+export const createInitialState = (
+    locale = getInitialLocale(),
+    authInfo: FetchAuth = { status: "LOADING" },
+    initialData: InitialData = {},
+): Store => ({
     formKey: 0,
     locale,
     authInfo,
@@ -49,6 +56,7 @@ export const createInitialState = (locale = getInitialLocale(), authInfo: FetchA
     personInfo: { status: "LOADING" },
     kontaktInfo: { status: "LOADING" },
     medlInfo: { status: "LOADING" },
+    ...initialData,
 });
 
 export const initialState = createInitialState();

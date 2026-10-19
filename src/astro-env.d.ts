@@ -9,6 +9,7 @@ declare module "astro:env/server" {
     export const INNLOGGINGSSTATUS_URL: string;
     export const LOGIN_URL: string;
     export const PDL_URL: string;
+    export const PERSONOPPLYSNINGER_API_URL: string;
     export const SKJERMING_URL: string;
     export const SYKEFRAVAER_URL: string;
     export const TELEMETRY_URL: string;

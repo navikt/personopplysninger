@@ -20,15 +20,15 @@ Start applikasjonen lokalt:
 pnpm dev
 ```
 
-`pnpm dev` starter Astro på port 4321 og en separat Hono-server på port 3007.
-Astro videresender `/api` til Hono-serveren, slik at nettleseren fortsatt bruker
-samme origin. Dekoratøren hentes fra dev-miljøet, så lokal kjøring krever ikke
+`pnpm dev` starter Astro på port 4321. Mock-API-et serveres av samme dev-server
+under `/api` med `@navikt/astro-mocks`, både for nettleseren og for sider som
+henter data på serveren (der brukes et falskt token i stedet for TokenX). Dekoratøren hentes fra dev-miljøet, så lokal kjøring krever ikke
 Docker Compose. Miljøvariablene har lokale standardverdier i `astro.config.mjs`.
 
-## Mock-serveren
+## Mock-API
 
 Mockdata ligger i `src/mocks/fixtures`, og rutene er definert i
-`src/mocks/app.ts`. Mock-serveren kan startes separat med `pnpm dev:mocks`.
+`src/mocks/mocks.ts`. Mockene finnes bare i `astro dev`, aldri i bygget.
 
 Legg til `scenario=empty` eller `scenario=error` på et mock-endepunkt for å
 teste tomme data eller feil. `delay=<millisekunder>` overstyrer den

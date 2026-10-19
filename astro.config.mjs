@@ -1,9 +1,9 @@
 import node from "@astrojs/node";
 import react from "@astrojs/react";
+import mockServer from "@navikt/astro-mocks";
 import { defineConfig, envField } from "astro/config";
 import path from "path";
-
-const mockServerPort = Number(process.env.MOCK_SERVER_PORT) || 3007;
+import { mocks } from "./src/mocks/mocks.ts";
 
 export default defineConfig({
     base: "/person/personopplysninger",
@@ -14,7 +14,8 @@ export default defineConfig({
     build: {
         assetsPrefix: "https://cdn.nav.no/min-side/personopplysninger",
     },
-    integrations: [react()],
+    // Mockene registreres bare av `astro dev` og påvirker aldri bygget.
+    integrations: [react(), mockServer({ mocks })],
     logger: { entrypoint: "@navikt/astro-logger" },
     i18n: {
         defaultLocale: "nb",
@@ -37,6 +38,8 @@ export default defineConfig({
             INNLOGGINGSSTATUS_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api/auth" }),
             LOGIN_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/oauth2/login" }),
             PDL_URL: envField.string({ context: "server", access: "secret", default: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" }),
+            // Server-side kall går internt i clusteret; lokalt svarer mockene på dev-serveren.
+            PERSONOPPLYSNINGER_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api" }),
             SKJERMING_URL: envField.string({
                 context: "server",
                 access: "secret",
@@ -55,15 +58,13 @@ export default defineConfig({
         build: {
             sourcemap: true,
         },
+        // Server-kallene lokalt går til mockene på port 4321; ikke flytt dev-serveren til en annen port.
+        server: {
+            strictPort: true,
+        },
         resolve: {
             alias: {
                 "@": path.resolve("./src"),
-            },
-        },
-        server: {
-            proxy: {
-                // Helsesjekkene under /api/internal er Astro-ruter og skal ikke til mock-serveren.
-                "^/api/(?!internal/)": `http://localhost:${mockServerPort}`,
             },
         },
     },
