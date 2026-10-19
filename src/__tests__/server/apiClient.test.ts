@@ -54,6 +54,16 @@ describe("hentFraApi", () => {
         expect(logger.error).toHaveBeenCalledWith("API-kall /medl fikk ikke svar innen 50 ms");
     });
 
+    it("venter maks 5 sekunder på API-et når ingen annen frist er gitt", async () => {
+        const timeoutSpy = vi.spyOn(AbortSignal, "timeout");
+        const { deps } = lagDeps(svar(200, "{}"));
+
+        await hentFraApi("/medl", { ...deps, timeoutMs: undefined });
+
+        expect(timeoutSpy).toHaveBeenCalledWith(5000);
+        timeoutSpy.mockRestore();
+    });
+
     it("gir feiltilstand 502 når API-et ikke kan nås", async () => {
         const { deps, logger } = lagDeps(vi.fn<typeof fetch>().mockRejectedValue(new TypeError("fetch failed")));
 
