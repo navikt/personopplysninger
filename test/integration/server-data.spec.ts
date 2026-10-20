@@ -70,3 +70,39 @@ test.describe("DSOP", () => {
         await expect(main.getByRole("link", { name: "Tilbake" })).toHaveAttribute("href", /\/nb\/dsop$/);
     });
 });
+
+test.describe("Institusjonsopphold", () => {
+    test("historikken har dataene i HTML-en fra serveren", async ({ request }) => {
+        const response = await request.get("nb/institusjonsopphold");
+
+        expect(response.status()).toBe(200);
+        expect(await response.text()).toMatch(
+            /href="[^"]*\/nb\/institusjonsopphold\/2017-10-02T07%3A38%3A56\.816"[^>]*><p[^>]*>VIK FENGSEL<\/p><\/a>/,
+        );
+    });
+
+    test("historikken henter ikke dataene på nytt i nettleseren", async ({ page }) => {
+        await ikkeHentetIgjen(page, "nb/institusjonsopphold", "/api/institusjonsopphold", "VIK FENGSEL");
+    });
+
+    test("detaljsiden har oppholdet i HTML-en fra serveren", async ({ request }) => {
+        const response = await request.get("nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816");
+
+        expect(response.status()).toBe(200);
+        expect(await response.text()).toMatch(/<h2[^>]*>VIK FENGSEL<\/h2>/);
+    });
+
+    test("detaljsiden henter ikke dataene på nytt i nettleseren", async ({ page }) => {
+        await ikkeHentetIgjen(page, "nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816", "/api/institusjonsopphold", "VIK FENGSEL");
+    });
+
+    test("ukjent opphold gir 404 med dagens tekst og tilbakelenke", async ({ page }) => {
+        const response = await page.goto("nb/institusjonsopphold/2000-01-01T00%3A00%3A00");
+
+        expect(response?.status()).toBe(404);
+        expect(response?.headers()["cache-control"]).toBe("private, no-store");
+        const main = page.getByRole("main");
+        await expect(main.getByText("Det er ingen institusjonsopphold å vise.")).toBeVisible();
+        await expect(main.getByRole("link", { name: "Tilbake" })).toHaveAttribute("href", /\/nb\/institusjonsopphold$/);
+    });
+});

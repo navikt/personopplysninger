@@ -1,6 +1,7 @@
 // @vitest-environment node
-import { finnDsopInnslag, medData, svarstatus, tilDsopHistorikk } from "@/server/historikk";
+import { finnDsopInnslag, finnInstInnslag, medData, svarstatus, tilDsopHistorikk } from "@/server/historikk";
 import type { DsopInfo } from "@/types/dsop";
+import type { InstInfo } from "@/types/inst";
 
 const sporingslogg: DsopInfo = [
     {
@@ -49,6 +50,38 @@ describe("finnDsopInnslag", () => {
     it("gir ingenting for et ukjent eller manglende tidspunkt", () => {
         expect(finnDsopInnslag(sporingslogg, "2019-06-18T10:45:52")).toBeUndefined();
         expect(finnDsopInnslag(sporingslogg, undefined)).toBeUndefined();
+    });
+});
+
+describe("finnInstInnslag", () => {
+    const opphold: InstInfo = [
+        {
+            organisasjonsnummer: "974736942",
+            institusjonsnavn: "VIK FENGSEL",
+            institusjonstype: "Fengsel",
+            startdato: "2017-10-01",
+            faktiskSluttdato: "2017-10-31",
+            registreringstidspunkt: "2017-10-02T07:38:56.816",
+            fiktivSluttdato: false,
+        },
+        {
+            organisasjonsnummer: "974589222",
+            institusjonsnavn: "HELSE BERGEN HF",
+            institusjonstype: "Sykehus",
+            startdato: "2018-12-18",
+            faktiskSluttdato: "",
+            registreringstidspunkt: "2018-12-19T11:03:57.507",
+            fiktivSluttdato: true,
+        },
+    ];
+
+    it("finner oppholdet med samme registreringstidspunkt", () => {
+        expect(finnInstInnslag(opphold, "2018-12-19T11:03:57.507")).toBe(opphold[1]);
+    });
+
+    it("gir ingenting for et ukjent eller manglende tidspunkt", () => {
+        expect(finnInstInnslag(opphold, "2018-12-19T11:03:57")).toBeUndefined();
+        expect(finnInstInnslag(opphold, undefined)).toBeUndefined();
     });
 });
 

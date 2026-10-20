@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 import { FormattedMessage } from "react-intl";
 import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
+import MedHentetData from "@/components/hentetData/MedHentetData";
 import Kilde from "@/components/kilde/Kilde";
 import PageContainer from "@/components/pagecontainer/PageContainer";
+import type { HentetData } from "@/types/hentetData";
+import type { InstInnslag } from "@/types/inst";
 import instStyles from "../Inst.module.css";
-import WithInst from "../InstFetch";
 import InstDetaljerView from "./InstDetaljerView";
 
 interface Props {
-    id?: string;
+    innslag: HentetData<InstInnslag | undefined>;
     pathname?: string;
 }
 
-const InstDetaljer = ({ id, pathname }: Props) => {
+const InstDetaljer = ({ innslag, pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -25,19 +27,17 @@ const InstDetaljer = ({ id, pathname }: Props) => {
             brodsmulesti={[{ title: "inst.tittel", path: "/institusjonsopphold" }, { title: "inst.detaljer" }]}
             pathname={pathname}
         >
-            <WithInst>
-                {({ data }) => {
-                    const innslag = data.filter((d) => d.registreringstidspunkt === id).shift();
-
-                    return innslag ? (
-                        <InstDetaljerView innslag={innslag} />
+            <MedHentetData hentet={innslag}>
+                {(funnet) =>
+                    funnet ? (
+                        <InstDetaljerView innslag={funnet} />
                     ) : (
                         <div>
                             <FormattedMessage id="inst.ingendata" />
                         </div>
-                    );
-                }}
-            </WithInst>
+                    )
+                }
+            </MedHentetData>
             <div className={instStyles.kilde}>
                 <Kilde kilde="inst.kilde" lenkeType="INGEN" />
             </div>

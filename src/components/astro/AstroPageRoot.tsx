@@ -5,6 +5,7 @@ import WithLanguages from "@/store/providers/Language";
 import type { InitialData, Locale } from "@/store/Store";
 import type { DsopDetaljInnslag, DsopHistorikkInfo } from "@/types/dsop";
 import type { HentetData } from "@/types/hentetData";
+import type { InstInfo, InstInnslag } from "@/types/inst";
 import { startFaro } from "@/utils/faro";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
@@ -19,17 +20,12 @@ import MedlHistorikk from "@/views/medlemskap-i-folketrygden/MedlHistorikk";
 // Sider som får dataene sine fra serveren har egne, typede props. De andre henter selv i nettleseren.
 type PageProps =
     | {
-          page:
-              | "forside"
-              | "arbeidsforhold"
-              | "institusjonsoppholdHistorikk"
-              | "institusjonsoppholdDetaljer"
-              | "medlemskap"
-              | "endreKontonummer"
-              | "endreOpplysninger";
+          page: "forside" | "arbeidsforhold" | "medlemskap" | "endreKontonummer" | "endreOpplysninger";
       }
     | { page: "dsopHistorikk"; dsopInfo: HentetData<DsopHistorikkInfo> }
-    | { page: "dsopDetaljer"; innslag: HentetData<DsopDetaljInnslag | undefined> };
+    | { page: "dsopDetaljer"; innslag: HentetData<DsopDetaljInnslag | undefined> }
+    | { page: "institusjonsoppholdHistorikk"; instInfo: HentetData<InstInfo> }
+    | { page: "institusjonsoppholdDetaljer"; innslag: HentetData<InstInnslag | undefined> };
 
 export type AstroPage = PageProps["page"];
 
@@ -62,9 +58,9 @@ const renderPage = (props: Props): ReactNode => {
         case "dsopDetaljer":
             return <DsopDetaljer innslag={props.innslag} pathname={pathname} />;
         case "institusjonsoppholdHistorikk":
-            return <InstHistorikk pathname={pathname} />;
+            return <InstHistorikk instInfo={props.instInfo} pathname={pathname} />;
         case "institusjonsoppholdDetaljer":
-            return <InstDetaljer id={id} pathname={pathname} />;
+            return <InstDetaljer innslag={props.innslag} pathname={pathname} />;
         case "medlemskap":
             return <MedlHistorikk pathname={pathname} />;
         case "endreKontonummer":

@@ -1,9 +1,22 @@
 ---
 import AstroPage from "@/components/astro/AstroPage.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { finnInstInnslag, medData, svarstatus } from "@/server/historikk";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { Locale } from "@/store/Store";
+import type { InstInfo } from "@/types/inst";
 import { decodeRouteParam } from "@/utils/params";
 
 const locale = Astro.currentLocale as Locale;
+const id = decodeRouteParam(Astro.params.id);
+
+const instInfo = await hentFraApi<InstInfo>("/institusjonsopphold", personopplysningerApi(Astro));
+if (instInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const innslag = medData(instInfo, (opphold) => finnInstInnslag(opphold, id));
+Astro.response.status = svarstatus(innslag);
 ---
 
-<AstroPage page="institusjonsoppholdDetaljer" locale={locale} pathname={Astro.url.pathname} id={decodeRouteParam(Astro.params.id)} />
+<AstroPage page="institusjonsoppholdDetaljer" locale={locale} pathname={Astro.url.pathname} innslag={innslag} />
