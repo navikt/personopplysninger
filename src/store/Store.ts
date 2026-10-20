@@ -1,13 +1,9 @@
 import type { HTTPError } from "../components/errorMessage/ErrorMessage";
 import type { Auth, FetchAuth } from "../types/authInfo";
-import type { DsopInfo } from "../types/dsop";
-import type { InstInfo } from "../types/inst";
 import type { KontaktInfo } from "../types/kontaktInfo";
 import type { MedlInfo } from "../types/medl";
 import type { PersonInfo } from "../types/personInfo";
-import type { FetchDsopInfo } from "../views/digital-samhandling-offentlig-privat/DsopFetch";
 import type { FetchKontaktInfo } from "../views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import type { FetchInstInfo } from "../views/institusjonsopphold/InstFetch";
 import type { FetchMedlInfo } from "../views/medlemskap-i-folketrygden/MedlFetch";
 import type { FetchPersonInfo } from "./providers/PersonInfo";
 
@@ -18,8 +14,6 @@ export interface Store {
     locale: Locale;
     authInfo: FetchAuth;
     personInfo: FetchPersonInfo;
-    dsopInfo: FetchDsopInfo;
-    instInfo: FetchInstInfo;
     kontaktInfo: FetchKontaktInfo;
     medlInfo: FetchMedlInfo;
 }
@@ -41,7 +35,7 @@ const getInitialLocale = (): Locale => {
 };
 
 // Data serveren allerede har hentet. Slices som er satt her hentes ikke på nytt i nettleseren.
-export type InitialData = Partial<Pick<Store, "personInfo" | "dsopInfo" | "instInfo" | "kontaktInfo" | "medlInfo">>;
+export type InitialData = Partial<Pick<Store, "personInfo" | "kontaktInfo" | "medlInfo">>;
 
 export const createInitialState = (
     locale = getInitialLocale(),
@@ -51,8 +45,6 @@ export const createInitialState = (
     formKey: 0,
     locale,
     authInfo,
-    dsopInfo: { status: "LOADING" },
-    instInfo: { status: "LOADING" },
     personInfo: { status: "LOADING" },
     kontaktInfo: { status: "LOADING" },
     medlInfo: { status: "LOADING" },
@@ -88,22 +80,6 @@ export type Action =
       }
     | {
           type: "SETT_KONTAKT_INFO_ERROR";
-          payload: HTTPError;
-      }
-    | {
-          type: "SETT_DSOP_INFO_RESULT";
-          payload: DsopInfo;
-      }
-    | {
-          type: "SETT_DSOP_INFO_ERROR";
-          payload: HTTPError;
-      }
-    | {
-          type: "SETT_INST_INFO_RESULT";
-          payload: InstInfo;
-      }
-    | {
-          type: "SETT_INST_INFO_ERROR";
           payload: HTTPError;
       }
     | {
@@ -176,38 +152,6 @@ export const reducer = (state: Store, action: Action) => {
                     status: "ERROR",
                     error: action.payload,
                 } as FetchKontaktInfo,
-            };
-        case "SETT_DSOP_INFO_RESULT":
-            return {
-                ...state,
-                dsopInfo: {
-                    status: "RESULT",
-                    data: action.payload,
-                } as FetchDsopInfo,
-            };
-        case "SETT_DSOP_INFO_ERROR":
-            return {
-                ...state,
-                dsopInfo: {
-                    status: "ERROR",
-                    error: action.payload,
-                } as FetchDsopInfo,
-            };
-        case "SETT_INST_INFO_RESULT":
-            return {
-                ...state,
-                instInfo: {
-                    status: "RESULT",
-                    data: action.payload,
-                } as FetchInstInfo,
-            };
-        case "SETT_INST_INFO_ERROR":
-            return {
-                ...state,
-                instInfo: {
-                    status: "ERROR",
-                    error: action.payload,
-                } as FetchInstInfo,
             };
         case "SETT_MEDL_INFO_RESULT":
             return {

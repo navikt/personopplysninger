@@ -40,8 +40,6 @@ export const fetchKontaktInfo = () => sjekkAuthHentJson(`${apiUrl()}/kontaktinfo
 
 export const fetchRetningsnumre = () => sjekkAuthHentJson(`${apiUrl()}/retningsnumre`);
 
-export const fetchInstInfo = () => sjekkAuthHentJson(`${apiUrl()}/institusjonsopphold`);
-
 export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl()}/medl`);
 
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`);
@@ -49,8 +47,6 @@ export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`)
 export const fetchLand = () => sjekkAuthHentJson(`${apiUrl()}/land`);
 
 export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl()}/valuta`);
-
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${apiUrl()}/sporingslogg`);
 
 /*
     POST

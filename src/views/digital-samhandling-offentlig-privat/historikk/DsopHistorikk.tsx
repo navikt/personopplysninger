@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import DSOPIkon from "@/assets/img/DSOP.svg";
+import MedHentetData from "@/components/hentetData/MedHentetData";
 import PageContainer from "@/components/pagecontainer/PageContainer";
-import WithDSOP from "../DsopFetch";
+import type { DsopHistorikkInfo } from "@/types/dsop";
+import type { HentetData } from "@/types/hentetData";
 import DsopHistorikkView from "./DsopHistorikkView";
 
 interface Props {
+    dsopInfo: HentetData<DsopHistorikkInfo>;
     pathname?: string;
 }
 
-const DsopHistorikk = ({ pathname }: Props) => {
+const DsopHistorikk = ({ dsopInfo, pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
@@ -21,7 +24,7 @@ const DsopHistorikk = ({ pathname }: Props) => {
             brodsmulesti={[{ title: "dsop.tittel" }]}
             pathname={pathname}
         >
-            <WithDSOP>{({ data }) => <DsopHistorikkView dsopInfo={data} pathname={pathname} />}</WithDSOP>
+            <MedHentetData hentet={dsopInfo}>{(data) => <DsopHistorikkView dsopInfo={data} pathname={pathname} />}</MedHentetData>
         </PageContainer>
     );
 };
