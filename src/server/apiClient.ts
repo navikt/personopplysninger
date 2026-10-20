@@ -1,6 +1,6 @@
-import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
+import type { HentetData } from "@/types/hentetData";
 
-export type ServerResult<T> = { status: "RESULT"; data: T } | { status: "ERROR"; error: HTTPError } | { status: "UNAUTHORIZED" };
+export type ServerResult<T> = HentetData<T> | { status: "UNAUTHORIZED" };
 
 interface Logger {
     warn: (message: string) => void;

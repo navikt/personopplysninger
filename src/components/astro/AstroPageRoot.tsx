@@ -3,6 +3,8 @@ import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/co
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { InitialData, Locale } from "@/store/Store";
+import type { DsopDetaljInnslag, DsopHistorikkInfo } from "@/types/dsop";
+import type { HentetData } from "@/types/hentetData";
 import { startFaro } from "@/utils/faro";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
@@ -14,31 +16,67 @@ import InstDetaljer from "@/views/institusjonsopphold/detaljer/InstDetaljer";
 import InstHistorikk from "@/views/institusjonsopphold/historikk/InstHistorikk";
 import MedlHistorikk from "@/views/medlemskap-i-folketrygden/MedlHistorikk";
 
-export type AstroPage =
-    | "forside"
-    | "arbeidsforhold"
-    | "dsopHistorikk"
-    | "dsopDetaljer"
-    | "institusjonsoppholdHistorikk"
-    | "institusjonsoppholdDetaljer"
-    | "medlemskap"
-    | "endreKontonummer"
-    | "endreOpplysninger";
+// Sider som får dataene sine fra serveren har egne, typede props. De andre henter selv i nettleseren.
+type PageProps =
+    | {
+          page:
+              | "forside"
+              | "arbeidsforhold"
+              | "institusjonsoppholdHistorikk"
+              | "institusjonsoppholdDetaljer"
+              | "medlemskap"
+              | "endreKontonummer"
+              | "endreOpplysninger";
+      }
+    | { page: "dsopHistorikk"; dsopInfo: HentetData<DsopHistorikkInfo> }
+    | { page: "dsopDetaljer"; innslag: HentetData<DsopDetaljInnslag | undefined> };
 
-interface Props {
-    page: AstroPage;
+export type AstroPage = PageProps["page"];
+
+// Props som Astro-siden sender inn. AstroPage.astro legger til navn og konfigurasjon.
+export type AstroPageProps = PageProps & {
     locale: Locale;
     pathname: string;
-    authName?: string;
     id?: string;
     tjeneste?: string;
     redirectUrl?: string;
     backTo?: string;
-    config: RuntimeConfig;
     initialData?: InitialData;
-}
+};
 
-const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, redirectUrl, backTo, config, initialData }: Props) => {
+type Props = AstroPageProps & {
+    authName?: string;
+    config: RuntimeConfig;
+};
+
+const renderPage = (props: Props): ReactNode => {
+    const { pathname, id } = props;
+
+    switch (props.page) {
+        case "forside":
+            return <Forside pathname={pathname} />;
+        case "arbeidsforhold":
+            return <DetaljertArbeidsforhold id={id} pathname={pathname} />;
+        case "dsopHistorikk":
+            return <DsopHistorikk dsopInfo={props.dsopInfo} pathname={pathname} />;
+        case "dsopDetaljer":
+            return <DsopDetaljer innslag={props.innslag} pathname={pathname} />;
+        case "institusjonsoppholdHistorikk":
+            return <InstHistorikk pathname={pathname} />;
+        case "institusjonsoppholdDetaljer":
+            return <InstDetaljer id={id} pathname={pathname} />;
+        case "medlemskap":
+            return <MedlHistorikk pathname={pathname} />;
+        case "endreKontonummer":
+            return <EndreKontonummer backTo={props.backTo} pathname={pathname} />;
+        case "endreOpplysninger":
+            return <EndreOpplysninger tjeneste={props.tjeneste} redirectUrl={props.redirectUrl} pathname={pathname} />;
+    }
+};
+
+const AstroPageRoot = (props: Props) => {
+    const { locale, authName = "", config, initialData } = props;
+
     // Kode utenfor React (API-klient, Faro) leser den globale verdien. Settes kun i nettleseren,
     // fordi serveren deler modulen mellom samtidige forespørsler.
     if (typeof window !== "undefined") {
@@ -49,18 +87,6 @@ const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, re
         startFaro();
     }, []);
 
-    const pages: Record<AstroPage, ReactNode> = {
-        forside: <Forside pathname={pathname} />,
-        arbeidsforhold: <DetaljertArbeidsforhold id={id} pathname={pathname} />,
-        dsopHistorikk: <DsopHistorikk pathname={pathname} />,
-        dsopDetaljer: <DsopDetaljer id={id} pathname={pathname} />,
-        institusjonsoppholdHistorikk: <InstHistorikk pathname={pathname} />,
-        institusjonsoppholdDetaljer: <InstDetaljer id={id} pathname={pathname} />,
-        medlemskap: <MedlHistorikk pathname={pathname} />,
-        endreKontonummer: <EndreKontonummer backTo={backTo} pathname={pathname} />,
-        endreOpplysninger: <EndreOpplysninger tjeneste={tjeneste} redirectUrl={redirectUrl} pathname={pathname} />,
-    };
-
     return (
         <RuntimeConfigContext.Provider value={config}>
             <StoreProvider
@@ -70,7 +96,7 @@ const AstroPageRoot = ({ page, locale, pathname, authName = "", id, tjeneste, re
             >
                 <WithLanguages>
                     <div className="pagecontent">
-                        <div className="wrapper">{pages[page]}</div>
+                        <div className="wrapper">{renderPage(props)}</div>
                     </div>
                 </WithLanguages>
             </StoreProvider>

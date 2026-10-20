@@ -5,10 +5,10 @@ import dayjs from "dayjs";
 import { Fragment, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import historikkStyles from "@/styles/historikk.module.css";
-import type { DsopInfo } from "@/types/dsop";
+import type { DsopHistorikkInfo } from "@/types/dsop";
 
 interface Props {
-    dsopInfo: DsopInfo;
+    dsopInfo: DsopHistorikkInfo;
     pathname?: string;
 }
 
@@ -19,7 +19,7 @@ export const DsopHistorikkView = (props: Props) => {
 
     const initState: {
         [year: string]: {
-            innslag: DsopInfo;
+            innslag: DsopHistorikkInfo;
             ekspandert: boolean;
         };
     } = {};

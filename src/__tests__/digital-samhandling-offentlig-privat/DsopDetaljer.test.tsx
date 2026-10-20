@@ -8,7 +8,7 @@ describe("DsopDetaljerView", () => {
     it("renders correctly", () => {
         const { asFragment } = render(
             <IntlProvider locale={"nb"} messages={nbMessages}>
-                <DsopDetaljerView dsopInfo={dsopInfo} id={"2019-06-18T10:45:51.634"} />
+                <DsopDetaljerView innslag={dsopInfo[0]} />
             </IntlProvider>,
         );
         expect(asFragment()).toMatchSnapshot();

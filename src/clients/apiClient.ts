@@ -50,8 +50,6 @@ export const fetchLand = () => sjekkAuthHentJson(`${apiUrl()}/land`);
 
 export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl()}/valuta`);
 
-export const fetchDsopInfo = () => sjekkAuthHentJson(`${apiUrl()}/sporingslogg`);
-
 /*
     POST
  */

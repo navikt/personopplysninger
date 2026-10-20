@@ -1,22 +1,21 @@
 import { useEffect } from "react";
+import { FormattedMessage } from "react-intl";
 import DSOPIkon from "@/assets/img/DSOP.svg";
+import MedHentetData from "@/components/hentetData/MedHentetData";
 import PageContainer from "@/components/pagecontainer/PageContainer";
-import WithDSOP from "../DsopFetch";
+import type { DsopDetaljInnslag } from "@/types/dsop";
+import type { HentetData } from "@/types/hentetData";
 import DsopDetaljerView from "./DsopDetaljerView";
 
 interface Props {
-    id?: string;
+    innslag: HentetData<DsopDetaljInnslag | undefined>;
     pathname?: string;
 }
 
-const DsopDetaljer = ({ id, pathname }: Props) => {
+const DsopDetaljer = ({ innslag, pathname }: Props) => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
-    if (typeof id === "undefined") {
-        return null;
-    }
 
     return (
         <PageContainer
@@ -26,7 +25,17 @@ const DsopDetaljer = ({ id, pathname }: Props) => {
             brodsmulesti={[{ title: "dsop.tittel", path: "/dsop" }, { title: "dsop.levertedata" }]}
             pathname={pathname}
         >
-            <WithDSOP>{({ data }) => <DsopDetaljerView dsopInfo={data} id={id} />}</WithDSOP>
+            <MedHentetData hentet={innslag}>
+                {(funnet) =>
+                    funnet ? (
+                        <DsopDetaljerView innslag={funnet} />
+                    ) : (
+                        <div>
+                            <FormattedMessage id="dsop.ingendata" />
+                        </div>
+                    )
+                }
+            </MedHentetData>
         </PageContainer>
     );
 };

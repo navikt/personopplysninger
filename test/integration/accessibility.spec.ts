@@ -1,5 +1,10 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
+
+const wcagTags = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
+
+// Dekoratøren rendres på serveren og vedlikeholdes utenfor appen, så bare hovedinnholdet sjekkes.
+const finnBrudd = async (page: Page) => (await new AxeBuilder({ page }).include("main").withTags(wcagTags).analyze()).violations;
 
 test.describe("Personopplysninger forside", () => {
     test("har norsk dokumentsemantikk og ingen WCAG AA-brudd i hovedinnholdet", async ({ page }) => {
@@ -16,12 +21,24 @@ test.describe("Personopplysninger forside", () => {
         // Wait for mocked person data so axe evaluates the rendered route, not only its loading state.
         await expect(main.getByText("Fornavn", { exact: true })).toBeVisible();
 
-        const results = await new AxeBuilder({ page })
-            // The NAV decorator is server-rendered and maintained independently of this application.
-            .include("main")
-            .withTags(["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"])
-            .analyze();
-
-        expect(results.violations).toEqual([]);
+        expect(await finnBrudd(page)).toEqual([]);
     });
 });
+
+const historikkOgDetaljer = [
+    { sti: "nb/dsop", innhold: "STOREBRAND LIVSFORSIKRING AS" },
+    { sti: "nb/dsop/2019-06-18T10%3A45%3A51.634", innhold: "STOREBRAND LIVSFORSIKRING AS" },
+    { sti: "nb/institusjonsopphold", innhold: "VIK FENGSEL" },
+    { sti: "nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816", innhold: "VIK FENGSEL" },
+];
+
+for (const { sti, innhold } of historikkOgDetaljer) {
+    test(`${sti} har ingen WCAG AA-brudd i hovedinnholdet`, async ({ page }) => {
+        const response = await page.goto(sti, { waitUntil: "domcontentloaded" });
+
+        expect(response?.status()).toBe(200);
+        await expect(page.getByRole("main").getByText(innhold).first()).toBeVisible();
+
+        expect(await finnBrudd(page)).toEqual([]);
+    });
+}

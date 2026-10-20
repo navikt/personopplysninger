@@ -1,8 +1,18 @@
 ---
 import AstroPage from "@/components/astro/AstroPage.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { medData, tilDsopHistorikk } from "@/server/historikk";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { Locale } from "@/store/Store";
+import type { DsopInfo } from "@/types/dsop";
 
 const locale = Astro.currentLocale as Locale;
+
+// Siden venter på dataene, så innholdet ligger i første HTML uten layout-skift.
+const sporingslogg = await hentFraApi<DsopInfo>("/sporingslogg", personopplysningerApi(Astro));
+if (sporingslogg.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
 ---
 
-<AstroPage page="dsopHistorikk" locale={locale} pathname={Astro.url.pathname} />
+<AstroPage page="dsopHistorikk" locale={locale} pathname={Astro.url.pathname} dsopInfo={medData(sporingslogg, tilDsopHistorikk)} />

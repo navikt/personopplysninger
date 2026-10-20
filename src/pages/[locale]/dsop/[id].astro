@@ -1,9 +1,22 @@
 ---
 import AstroPage from "@/components/astro/AstroPage.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { finnDsopInnslag, medData, svarstatus } from "@/server/historikk";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { Locale } from "@/store/Store";
+import type { DsopInfo } from "@/types/dsop";
 import { decodeRouteParam } from "@/utils/params";
 
 const locale = Astro.currentLocale as Locale;
+const id = decodeRouteParam(Astro.params.id);
+
+const sporingslogg = await hentFraApi<DsopInfo>("/sporingslogg", personopplysningerApi(Astro));
+if (sporingslogg.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const innslag = medData(sporingslogg, (logg) => finnDsopInnslag(logg, id));
+Astro.response.status = svarstatus(innslag);
 ---
 
-<AstroPage page="dsopDetaljer" locale={locale} pathname={Astro.url.pathname} id={decodeRouteParam(Astro.params.id)} />
+<AstroPage page="dsopDetaljer" locale={locale} pathname={Astro.url.pathname} innslag={innslag} />
