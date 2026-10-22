@@ -3,3 +3,13 @@ allowBuilds:
   lefthook: true
 overrides:
   form-data: ^4.0.4
+  http-cache-semantics: ^4.3.0
+  lodash: ^4.18.0
+  picomatch@2: ^2.3.2
+  react-router: 6.30.6
+  react-router-dom: 6.30.6
+  rollup: ^4.59.0
+  sharp: ^0.35.5
+  source-map-js: ^1.2.2
+  ws@8: ^8.21.0
+  yaml@1: ^1.10.3
