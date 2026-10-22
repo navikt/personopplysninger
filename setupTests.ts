@@ -4,6 +4,15 @@ import createFetchMock from "vitest-fetch-mock";
 import { testRuntimeConfig } from "@/__tests__/utils/testRuntimeConfig";
 import { setRuntimeConfig } from "@/config/runtimeConfig";
 
+// Dekoratørens klient venter på dekoratøren med en timer som aldri stopper i testene,
+// og som kan gå etter at jsdom er revet ned.
+vi.mock("@navikt/nav-dekoratoren-moduler", () => ({
+    onBreadcrumbClick: vi.fn(),
+    onLanguageSelect: vi.fn(),
+    setAvailableLanguages: vi.fn(),
+    setBreadcrumbs: vi.fn(),
+}));
+
 const fetchMocker = createFetchMock(vi);
 
 expect.extend(matchers);
