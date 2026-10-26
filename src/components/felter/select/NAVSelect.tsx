@@ -61,7 +61,7 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
               .filter(
                   (option: OptionType) =>
                       // Find closest match
-                      (props.option && option.value === props.option.value) ??
+                      (props.option && option.value === props.option.value) ||
                       (props.option &&
                           option.label.replace(`(${option.value})`, "").toUpperCase().trim() === props.option.label.trim().toUpperCase()),
               )
