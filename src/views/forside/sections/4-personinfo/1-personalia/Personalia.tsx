@@ -39,9 +39,9 @@ const Personalia = (props: Props) => {
                         titleId="personalia.citizenship"
                         content={
                             <>
-                                {statsborgerskap?.map((i, key) => {
-                                    return <div key={key}>{i}</div>;
-                                })}
+                                {statsborgerskap.map((land, i) => (
+                                    <div key={i}>{land}</div>
+                                ))}
                             </>
                         }
                     />

@@ -1,6 +1,5 @@
 import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
-import type React from "react";
-import { useState } from "react";
+import { type Dispatch, useState } from "react";
 import { type FieldValues, FormProvider, useForm } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
 import { fetchPersonInfo, postKontonummer } from "@/clients/apiClient";
@@ -122,7 +121,7 @@ const submitKontonummer = (
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
     settOpprettEllerEndre: (value: boolean) => void,
-    dispatch: React.Dispatch<Action>,
+    dispatch: Dispatch<Action>,
     locale: Locale,
 ) => {
     type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
@@ -142,7 +141,7 @@ const submitKontonummer = (
         .then(() => settLoading(false));
 };
 
-const getUpdatedData = (dispatch: React.Dispatch<Action>) =>
+const getUpdatedData = (dispatch: Dispatch<Action>) =>
     fetchPersonInfo().then((personInfo) => {
         dispatch({
             type: "SETT_PERSON_INFO_RESULT",

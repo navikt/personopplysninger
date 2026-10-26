@@ -81,7 +81,7 @@ const Adresse = (props: Props) => {
     );
 };
 
-function mapOppholdAnnetSted(oppholdAnnetSted: string): string {
+const mapOppholdAnnetSted = (oppholdAnnetSted: string) => {
     switch (oppholdAnnetSted) {
         case "MILITAER":
             return "adresse.oppholdsadresse.militaer";
@@ -92,7 +92,7 @@ function mapOppholdAnnetSted(oppholdAnnetSted: string): string {
         case "PENDLER":
             return "adresse.oppholdsadresse.pendler";
     }
-    return oppholdAnnetSted; // Bruk kode direkte som fallback
-}
+    return oppholdAnnetSted;
+};
 
 export default Adresse;

@@ -1,5 +1,4 @@
 import { Heading } from "@navikt/ds-react";
-import classNames from "classnames";
 import { FormattedMessage } from "react-intl";
 import kontaktIkon from "@/assets/img/Kontakt.svg";
 import Box from "@/components/box/Box";
@@ -28,7 +27,7 @@ const KontaktInfo = (props: Props) => {
                     <div className={styles.telefonnummer}>
                         <TelefonnummerHosNav tlfnr={props.tlfnr} />
                     </div>
-                    <div className={classNames("underseksjon__header", "underseksjon__divider", dkifStyles.overskriftContainer)}>
+                    <div className={`underseksjon__header underseksjon__divider ${dkifStyles.overskriftContainer}`}>
                         <Heading size={"small"} level={"3"}>
                             <FormattedMessage id="personalia.dkif.overskrift" />
                         </Heading>

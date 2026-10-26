@@ -1,5 +1,5 @@
 import { Heading, ReadMore } from "@navikt/ds-react";
-import * as React from "react";
+import { useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import ListElement from "@/components/listelement/ListElement";
 import adresseStyles from "../Adresser.module.css";
@@ -15,7 +15,7 @@ interface Props {
 
 const AdressePanel = (props: Props) => {
     const { formatMessage: msg } = useIntl();
-    const [isOpen, setIsOpen] = React.useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleReadMore = () => {
         setIsOpen(!isOpen);
@@ -32,7 +32,7 @@ const AdressePanel = (props: Props) => {
             {props.children}
             {(props.bruksenhetsnummer ?? props.kommune ?? props.flyttedatoFormatert ?? props.gyldigTilOgMedFormatert) && (
                 <ReadMore className={adresseStyles.lesmer} header={readMoreLabel} onClick={toggleReadMore}>
-                    <dl className="list address-columns">
+                    <dl>
                         {props.bruksenhetsnummer && <ListElement titleId="adresse.bolignummer" content={props.bruksenhetsnummer} />}
                         {props.kommune && <ListElement titleId="adresse.kommune" content={props.kommune} />}
                         {props.flyttedatoFormatert && <ListElement titleId="adresse.dato" content={props.flyttedatoFormatert} />}
