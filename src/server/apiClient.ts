@@ -11,39 +11,35 @@ export interface ApiDeps {
     baseUrl: string;
     getOboToken: () => Promise<string>;
     logger: Logger;
-    timeoutMs?: number;
-    fetch?: typeof fetch;
 }
 
 const standardFeiltekst = "Oisann, noe gikk galt! Prøv igjen senere.";
 
 const feil = (code: number, text = standardFeiltekst): ServerResult<never> => ({ status: "ERROR", error: { code, text } });
 
-const meldingFra = (error: unknown) => (error instanceof Error ? error.message : String(error));
-
 export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<ServerResult<T>> => {
-    const { baseUrl, getOboToken, logger, timeoutMs = 5000, fetch: fetchImpl = fetch } = deps;
+    const { baseUrl, getOboToken, logger } = deps;
 
     let token: string;
     try {
         token = await getOboToken();
-    } catch (error) {
-        logger.error(`API-kall ${path}: ${meldingFra(error)}`);
+    } catch (error: any) {
+        logger.error(`API-kall ${path}: ${error.message}`);
         return feil(500);
     }
 
     let response: Response;
     try {
-        response = await fetchImpl(`${baseUrl}${path}`, {
+        response = await fetch(`${baseUrl}${path}`, {
             headers: { Authorization: `Bearer ${token}`, Accept: "application/json" },
-            signal: AbortSignal.timeout(timeoutMs),
+            signal: AbortSignal.timeout(5000),
         });
-    } catch (error) {
+    } catch (error: any) {
         if (error instanceof DOMException && error.name === "TimeoutError") {
-            logger.error(`API-kall ${path} fikk ikke svar innen ${timeoutMs} ms`);
+            logger.error(`API-kall ${path} fikk ikke svar innen 5000 ms`);
             return feil(504);
         }
-        logger.error(`API-kall ${path} kunne ikke nå API-et: ${meldingFra(error)}`);
+        logger.error(`API-kall ${path} kunne ikke nå API-et: ${error.message}`);
         return feil(502);
     }
 
@@ -61,7 +57,7 @@ export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<Server
         return { status: "RESULT", data: (await response.json()) as T };
     } catch (error) {
         if (error instanceof DOMException && error.name === "TimeoutError") {
-            logger.error(`API-kall ${path} fikk ikke hele svaret innen ${timeoutMs} ms`);
+            logger.error(`API-kall ${path} fikk ikke hele svaret innen 5000 ms`);
             return feil(504);
         }
         logger.error(`API-kall ${path} ga et svar som ikke kunne leses: ${error instanceof Error ? error.name : "ukjent feil"}`);

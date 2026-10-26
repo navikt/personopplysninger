@@ -1,13 +1,7 @@
-type TokenResult = { ok: true; token: string } | { ok: false; error: Error };
+import { requestTokenxOboToken } from "@navikt/oasis";
 
-interface Options {
-    audience: string;
-    isLocal: boolean;
-    requestOboToken: (token: string, audience: string) => Promise<TokenResult>;
-}
-
-export const getOboToken = async (token: string | undefined, { audience, isLocal, requestOboToken }: Options) => {
-    if (isLocal) {
+export const getOboToken = async (token: string | undefined, audience: string) => {
+    if (process.env.NODE_ENV === "development") {
         return "Fake token";
     }
 
@@ -15,7 +9,7 @@ export const getOboToken = async (token: string | undefined, { audience, isLocal
         throw new Error("Mangler brukertoken");
     }
 
-    const result = await requestOboToken(token, audience);
+    const result = await requestTokenxOboToken(token, audience);
     if (!result.ok) {
         throw new Error(`OBO-veksling mot ${audience} feilet: ${result.error.message}`);
     }
