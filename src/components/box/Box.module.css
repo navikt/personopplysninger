@@ -12,7 +12,6 @@
     border: none;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .title {
         flex-shrink: 0;
@@ -24,7 +23,6 @@
     width: 100%;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .line:first-child {
         margin-right: 2rem;
@@ -37,7 +35,6 @@
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .line:last-child {
         margin-left: 2rem;
@@ -56,7 +53,6 @@
     gap: 1rem;
 }
 
-/* --ppo-bp-desktop: 959px */
 @media (min-width: 959px) {
     .container {
         padding: 0 3rem;

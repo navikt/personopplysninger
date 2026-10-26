@@ -49,7 +49,6 @@
     background-position: bottom right;
 }
 
-/* --ppo-bp-desktop: 959px */
 @media (max-width: 959px) {
     .wrapperInner {
         background-image: none !important;

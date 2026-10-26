@@ -1,10 +1,4 @@
 :root {
-    /*
-   * @maxMobile og @minMobile er 420px. @maxDesktop, @maxTablet,
-   * Desktop breakpoint er 959px.
-   * Custom properties cannot be used in media queries, so modules use the
-   * corresponding literal values there.
-   */
     --ppo-bp-mobile: 420px;
     --ppo-bp-desktop: 959px;
     --ppo-content-max-width: 800px;

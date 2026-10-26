@@ -13,7 +13,6 @@
 }
 
 .ikon {
-    /* Overrides GuidePanel's image dimensions. */
     width: 100% !important;
     height: 100% !important;
 }

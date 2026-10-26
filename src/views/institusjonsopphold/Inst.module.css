@@ -2,7 +2,6 @@
     margin: 1rem 0;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .head {
         display: none;

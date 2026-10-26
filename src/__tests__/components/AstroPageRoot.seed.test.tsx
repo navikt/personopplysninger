@@ -175,7 +175,6 @@ describe("Institusjonsopphold-sidene med data fra serveren", () => {
             />,
         );
 
-        // Alle oppholdene i mock-dataene er på samme institusjon, så lenkene skilles på tidspunktet.
         expect(screen.getAllByRole("link", { name: "VIK FENGSEL" }).map((lenke) => lenke.getAttribute("href"))).toContain(
             "/person/personopplysninger/nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816",
         );

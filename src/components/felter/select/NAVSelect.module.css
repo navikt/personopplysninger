@@ -70,7 +70,6 @@
     border-bottom: 1px solid #979797;
 }
 
-/* --ppo-bp-desktop: 959px */
 @media (min-width: 959px) {
     :global(.KodeverkSelect__menu) {
         min-width: 305px;

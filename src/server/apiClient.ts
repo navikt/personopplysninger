@@ -15,14 +15,12 @@ export interface ApiDeps {
     fetch?: typeof fetch;
 }
 
-// Samme tekst som nettleserklienten viser, slik at feiltilstanden ser lik ut uansett hvor dataene hentes.
 const standardFeiltekst = "Oisann, noe gikk galt! Prøv igjen senere.";
 
 const feil = (code: number, text = standardFeiltekst): ServerResult<never> => ({ status: "ERROR", error: { code, text } });
 
 const meldingFra = (error: unknown) => (error instanceof Error ? error.message : String(error));
 
-// Logger bare sti, status og feiltype: svarinnhold og token kan inneholde persondata.
 export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<ServerResult<T>> => {
     const { baseUrl, getOboToken, logger, timeoutMs = 5000, fetch: fetchImpl = fetch } = deps;
 
@@ -54,7 +52,6 @@ export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<Server
         return { status: "UNAUTHORIZED" };
     }
 
-    // Tidsfristen gjelder også lesingen av svaret, og et svar som ikke kan leses skal gi feiltilstand, ikke 500.
     try {
         if (!response.ok) {
             logger.error(`API-kall ${path} feilet med status ${response.status}`);
@@ -72,6 +69,5 @@ export const hentFraApi = async <T>(path: string, deps: ApiDeps): Promise<Server
     }
 };
 
-// Samme form som @navikt/astro-auth bruker når brukeren mangler gyldig token.
 export const loginUrlFor = (url: URL, basePath: string) =>
     `${basePath.replace(/\/$/, "")}/oauth2/login?redirect=${url.pathname}${encodeURIComponent(url.search)}`;

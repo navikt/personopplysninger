@@ -1,8 +1,3 @@
-/*
- * Delt modul for historikk-tabellvisning.
- * Brukes av DsopHistorikkView og InstHistorikkView.
- */
-
 .flexTable {
     max-width: 100%;
     border-collapse: collapse;
@@ -14,21 +9,18 @@
     padding: 0.25rem 0;
 }
 
-/* --ppo-bp-desktop: 959px */
 @media (min-width: 959px) {
     .flexRad {
         flex-direction: row;
     }
 }
 
-/* --ppo-bp-tablet-max: 959px */
 @media (max-width: 959px) {
     .flexRad {
         flex-direction: row;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .flexRad {
         flex-direction: column;
@@ -41,7 +33,6 @@
     flex-basis: 100%;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .tabsInnhold {
         padding: 1rem 2rem;

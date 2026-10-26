@@ -1,15 +1,12 @@
 export type Adresse =
-    // TPS
     | PostadresseIFrittFormat
     | UtenlandskAdresseIFrittFormat
-    // PDL
     | Vegadresse
     | Postboksadresse
     | UtenlandskAdresse
     | Matrikkeladresse
     | Ukjentbosted;
 
-// TPS
 export interface PostadresseIFrittFormat {
     type: "POSTADRESSE_I_FRITT_FORMAT";
     adresselinje1?: string;
@@ -27,7 +24,6 @@ export interface UtenlandskAdresseIFrittFormat {
     land?: string;
 }
 
-// PDL
 export interface Vegadresse {
     type: "VEGADRESSE";
     husnummer?: string;

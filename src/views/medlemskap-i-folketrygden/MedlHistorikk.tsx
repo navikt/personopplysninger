@@ -4,12 +4,6 @@ import PageContainer from "@/components/pagecontainer/PageContainer";
 import WithMEDL from "./MedlFetch";
 import MedlHistorikkView from "./MedlHistorikkView";
 
-/*
-  Hent data
-  Obs! Merk at listen består av
-  Unntak fra medlemskap i folketrygden
-*/
-
 interface Props {
     pathname?: string;
 }

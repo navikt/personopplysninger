@@ -1,5 +1,3 @@
-/* Adresser.module.css – delt modul for alle komponenter i 3-adresser-treet */
-
 .selectHeader {
     display: flex;
 }
@@ -8,7 +6,6 @@
     margin-top: 1rem;
 }
 
-/* Context: box > lesmer – override Aksel ReadMore-internals */
 .box .lesmer :global(.lesMerPanel__toggle) {
     justify-content: flex-start;
 }
@@ -19,7 +16,6 @@
     border: 0;
 }
 
-/* .navds-button is added by the Aksel Button component */
 .slettKontaktadresse:global(.navds-button) {
     margin-left: -1.5rem;
 }
@@ -48,14 +44,12 @@
     padding: 0.5rem;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .landSelect {
         width: 100%;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .landSelect {
         width: 40%;
@@ -66,7 +60,6 @@
     width: 100%;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .withoutLabel {
         padding-top: 30px;
@@ -78,35 +71,30 @@
     width: 100%;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .rad {
         flex-direction: column;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .kolonne {
         width: 100%;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .kolonne {
         width: 50%;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .kolonne:first-child {
         padding-right: 0.25rem;
     }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .kolonne:last-child {
         padding-left: 0.25rem;
@@ -130,7 +118,6 @@
     padding-right: 0.5rem;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (min-width: 420px) {
     .inputBolignummer {
         max-width: 148px;

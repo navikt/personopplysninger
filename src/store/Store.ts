@@ -34,7 +34,6 @@ const getInitialLocale = (): Locale => {
     return "nb";
 };
 
-// Data serveren allerede har hentet. Slices som er satt her hentes ikke på nytt i nettleseren.
 export type InitialData = Partial<Pick<Store, "personInfo" | "kontaktInfo" | "medlInfo">>;
 
 export const createInitialState = (

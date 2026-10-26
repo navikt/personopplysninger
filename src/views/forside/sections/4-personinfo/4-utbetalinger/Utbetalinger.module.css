@@ -2,7 +2,6 @@
     display: flex;
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
     .rad {
         flex-direction: column;

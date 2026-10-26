@@ -1,6 +1,5 @@
 import { defineConfig, devices } from "@playwright/test";
 
-// Avsluttende skråstrek gjør at relative stier i testene løses under base-stien.
 const baseURL = `${(process.env.PLAYWRIGHT_BASE_URL ?? "http://localhost:4321/person/personopplysninger").replace(/\/$/, "")}/`;
 
 export default defineConfig({

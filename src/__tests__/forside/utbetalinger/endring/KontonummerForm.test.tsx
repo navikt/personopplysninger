@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { IntlProvider } from "react-intl";
@@ -510,7 +509,6 @@ const selectRadio = async (name: string) => {
 };
 
 const inputCombobox = async (name: string, value: string) => {
-    // Må først skrive inn verdien og deretter trykke på den i nedtrekksmenyen
     fireEvent.input(getComboboxByName(name), {
         target: { value: value },
     });

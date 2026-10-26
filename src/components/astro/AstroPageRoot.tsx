@@ -17,7 +17,6 @@ import InstDetaljer from "@/views/institusjonsopphold/detaljer/InstDetaljer";
 import InstHistorikk from "@/views/institusjonsopphold/historikk/InstHistorikk";
 import MedlHistorikk from "@/views/medlemskap-i-folketrygden/MedlHistorikk";
 
-// Sider som får dataene sine fra serveren har egne, typede props. De andre henter selv i nettleseren.
 type PageProps =
     | {
           page: "forside" | "arbeidsforhold" | "medlemskap" | "endreKontonummer" | "endreOpplysninger";
@@ -29,7 +28,6 @@ type PageProps =
 
 export type AstroPage = PageProps["page"];
 
-// Props som Astro-siden sender inn. AstroPage.astro legger til navn og konfigurasjon.
 export type AstroPageProps = PageProps & {
     locale: Locale;
     pathname: string;
@@ -73,8 +71,6 @@ const renderPage = (props: Props): ReactNode => {
 const AstroPageRoot = (props: Props) => {
     const { locale, authName = "", config, initialData } = props;
 
-    // Kode utenfor React (API-klient, Faro) leser den globale verdien. Settes kun i nettleseren,
-    // fordi serveren deler modulen mellom samtidige forespørsler.
     if (typeof window !== "undefined") {
         setRuntimeConfig(config);
     }

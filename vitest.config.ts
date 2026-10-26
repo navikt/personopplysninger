@@ -3,7 +3,7 @@ import { configDefaults, defineConfig } from "vitest/config";
 
 export default defineConfig({
     test: {
-        globals: true, // Ensure globals are enabled
+        globals: true,
         environment: "jsdom",
         setupFiles: "./setupTests.ts",
         exclude: [...configDefaults.exclude, "test/integration/**"],

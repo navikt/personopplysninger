@@ -2,7 +2,6 @@ import { authenticate } from "@navikt/astro-auth";
 import { defineMiddleware, sequence } from "astro/middleware";
 import { getLocaleRedirect } from "@/utils/locale";
 
-// Sidene inneholder personopplysninger og skal aldri lagres av nettleser eller mellomliggende cacher.
 const noStore = defineMiddleware(async ({ url }, next) => {
     const response = await next();
 

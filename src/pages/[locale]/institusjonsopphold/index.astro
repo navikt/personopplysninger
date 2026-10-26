@@ -7,7 +7,6 @@ import type { InstInfo } from "@/types/inst";
 
 const locale = Astro.currentLocale as Locale;
 
-// Siden venter på dataene, så innholdet ligger i første HTML uten layout-skift.
 const instInfo = await hentFraApi<InstInfo>("/institusjonsopphold", personopplysningerApi(Astro));
 if (instInfo.status === "UNAUTHORIZED") {
     return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
