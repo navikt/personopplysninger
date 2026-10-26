@@ -57,7 +57,7 @@ const Header = () => {
                                         id="header.description"
                                         values={{
                                             a: (text) => (
-                                                <Link href="/personvern" target="blank" rel="noopener noreferrer" className={styles.link}>
+                                                <Link href="/personvern" target="_blank" rel="noopener noreferrer" className={styles.link}>
                                                     {text}
                                                 </Link>
                                             ),

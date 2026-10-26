@@ -47,5 +47,10 @@ describe("Header", () => {
             const veileder = container.querySelector("img");
             expect(veileder).toHaveAttribute("alt", "");
         });
+
+        it("personvern-lenken åpner i ny fane", () => {
+            const { container } = renderHeader(authResult);
+            expect(container.querySelector('a[href="/personvern"]')).toHaveAttribute("target", "_blank");
+        });
     });
 });
