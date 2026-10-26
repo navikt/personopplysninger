@@ -67,14 +67,12 @@ const AndreAdresser = (props: Props) => {
             )}
             {kontaktadresse && (
                 <>
-                    {kontaktadresse && (
-                        <Adresse
-                            adresse={kontaktadresse?.adresse}
-                            coAdressenavn={kontaktadresse.coAdressenavn}
-                            gyldigTilOgMed={kontaktadresse.gyldigTilOgMed}
-                            tittel={"adresse.kontaktadresse.nav"}
-                        />
-                    )}
+                    <Adresse
+                        adresse={kontaktadresse.adresse}
+                        coAdressenavn={kontaktadresse.coAdressenavn}
+                        gyldigTilOgMed={kontaktadresse.gyldigTilOgMed}
+                        tittel={"adresse.kontaktadresse.nav"}
+                    />
                     <Button
                         variant="tertiary"
                         onClick={apneSlettModal}
@@ -119,7 +117,7 @@ const AndreAdresser = (props: Props) => {
                     )}
                 </>
             )}
-            {<Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />}
+            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
         </>
     );
 };

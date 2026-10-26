@@ -125,7 +125,7 @@ const sjekkAuth = (response: Response): Response => {
     return response;
 };
 
-export const sendTilLogin = () => {
+const sendTilLogin = () => {
     const redirectUrl = getLoginRedirectUrl();
     window.location.assign(`${getRuntimeConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
 };

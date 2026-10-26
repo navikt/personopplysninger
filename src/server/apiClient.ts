@@ -1,6 +1,6 @@
 import type { HentetData } from "@/types/hentetData";
 
-export type ServerResult<T> = HentetData<T> | { status: "UNAUTHORIZED" };
+type ServerResult<T> = HentetData<T> | { status: "UNAUTHORIZED" };
 
 interface Logger {
     warn: (message: string) => void;

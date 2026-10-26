@@ -64,11 +64,9 @@ const TelefonnummerHosNav = (props: Props) => {
                             onChangeSuccess={onChangeSuccess}
                         />
                     )}
-                    {
-                        <div className={dkifStyles.marginKilde}>
-                            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-                        </div>
-                    }
+                    <div className={dkifStyles.marginKilde}>
+                        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+                    </div>
                 </div>
             ) : (
                 <div className="underseksjon__beskrivelse">

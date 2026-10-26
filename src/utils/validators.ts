@@ -63,9 +63,9 @@ const COLON = ":";
 const NUMBER_SIGN = "#";
 const AMPERSAND = "&";
 
-export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp => new RegExp(regExpAsArray.join(""), flag);
+const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp => new RegExp(regExpAsArray.join(""), flag);
 
-export const regExpPattern = {
+const regExpPattern = {
     onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
     onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
     onlyAlphaNumeric: regExpCreator(["^[", NORWEGIAN_LETTERS, DIGITS, "]+$"]),
@@ -88,7 +88,7 @@ export const regExpPattern = {
     validBanknavn: regExpCreator(["^[", ALL_LETTERS, DIGITS, SPACE, HYPHEN, PERIOD, COMMA, APOSTROPHE, FORWARD_SLASH, AMPERSAND, "]+$"]),
 };
 
-export const BLACKLISTED_WORDS = ["ukjent", "ikke kjent", "vet ikke", "uoppgitt", "n.n.", "nomen nescio"];
+const BLACKLISTED_WORDS = ["ukjent", "ikke kjent", "vet ikke", "uoppgitt", "n.n.", "nomen nescio"];
 
 const normalizeInput = (val: string): string => {
     const dekomponert = val.normalize("NFD");

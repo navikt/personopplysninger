@@ -45,7 +45,6 @@ const LinksContainer = () => {
                                 beskrivelse={link.beskrivelse}
                                 lenkeTekst={link.lenkeTekst}
                                 to={link.url}
-                                component={"a"}
                             />
                         ),
                 )}
@@ -56,7 +55,6 @@ const LinksContainer = () => {
                     beskrivelse={"lenker.inst.beskrivelse"}
                     lenkeTekst={"lenker.inst.lenkeTekst"}
                     to={`${basePath}/${locale}/institusjonsopphold`}
-                    component={"Link"}
                 />
                 <LinkBox
                     id={"dsop"}
@@ -65,7 +63,6 @@ const LinksContainer = () => {
                     beskrivelse={"lenker.dsop.beskrivelse"}
                     lenkeTekst={"lenker.dsop.lenkeTekst"}
                     to={`${basePath}/${locale}/dsop`}
-                    component={"Link"}
                 />
                 <LinkBox
                     id={"medl"}
@@ -74,7 +71,6 @@ const LinksContainer = () => {
                     beskrivelse={"lenker.medl.beskrivelse"}
                     lenkeTekst={"lenker.medl.lenkeTekst"}
                     to={`${basePath}/${locale}/medlemskap-i-folketrygden`}
-                    component={"Link"}
                 />
                 <LinkBox
                     id={"fullmakt"}
@@ -83,7 +79,6 @@ const LinksContainer = () => {
                     beskrivelse={"lenker.fullmakt.beskrivelse"}
                     lenkeTekst={"lenker.fullmakt.lenkeTekst"}
                     to={pdlUrl}
-                    component={"a"}
                 />
                 <LinkBox
                     id={"skjerming"}
@@ -92,7 +87,6 @@ const LinksContainer = () => {
                     beskrivelse={"lenker.skjerming.beskrivelse"}
                     lenkeTekst={"lenker.skjerming.lenkeTekst"}
                     to={skjermingUrl}
-                    component={"a"}
                 />
             </div>
         </Box>

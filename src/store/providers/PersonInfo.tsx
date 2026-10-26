@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import personaliaIkon from "@/assets/img/Personalia.svg";
 import { fetchPersonInfo } from "@/clients/apiClient";
-import Box from "@/components/box/Box";
-import ErrorMessage, { type HTTPError } from "@/components/errorMessage/ErrorMessage";
+import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
 import { useStore } from "@/store/Context";
 import type { PersonInfo } from "@/types/personInfo";
 
@@ -45,11 +43,5 @@ const MedPersonInfo = (props: Props) => {
             return props.error(personInfo.error);
     }
 };
-
-export const PersonInfoErrorWithBox = (error: HTTPError) => (
-    <Box id="personalia" tittel="personalia.tittel" beskrivelse="personalia.beskrivelse" icon={personaliaIkon}>
-        <ErrorMessage error={error} />
-    </Box>
-);
 
 export default MedPersonInfo;

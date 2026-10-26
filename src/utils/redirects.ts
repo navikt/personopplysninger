@@ -44,15 +44,6 @@ export const getLoginRedirectUrl = () => {
     return `${getRuntimeConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
 };
 
-export const getRedirectPathFromParam = () => {
-    const encodedPath = new URLSearchParams(window.location.search).get(redirectPathParam);
-    if (encodedPath) {
-        return atob(encodedPath);
-    }
-
-    return null;
-};
-
 export const resolveLoginReturnPath = (encodedPath: string | null, basePath: string) => {
     if (!encodedPath) {
         return null;

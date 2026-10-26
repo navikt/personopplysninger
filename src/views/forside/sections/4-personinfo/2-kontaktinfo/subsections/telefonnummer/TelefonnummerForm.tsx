@@ -41,7 +41,7 @@ const TelefonnummerForm = (props: Props) => {
     const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | undefined>();
     const { prioritet, tlfnr, onChangeSuccess } = props;
-    const [{ formKey }, dispatch] = useStore();
+    const [, dispatch] = useStore();
 
     const getUpdatedData = () =>
         fetchPersonInfo().then((personInfo) => {
@@ -80,7 +80,7 @@ const TelefonnummerForm = (props: Props) => {
     const tlfNummerMaxLength = watch().landskode && watch().landskode.value === "+47" ? 8 : 16;
 
     return (
-        <form key={formKey} onSubmit={handleSubmit(submit)}>
+        <form onSubmit={handleSubmit(submit)}>
             <div className={tlfStyles.inputContainer}>
                 <div className={classNames(tlfStyles.input, tlfStyles.inputLandkode)}>
                     <SelectLandskode

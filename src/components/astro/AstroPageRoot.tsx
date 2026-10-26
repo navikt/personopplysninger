@@ -26,8 +26,6 @@ type PageProps =
     | { page: "institusjonsoppholdHistorikk"; instInfo: HentetData<InstInfo> }
     | { page: "institusjonsoppholdDetaljer"; innslag: HentetData<InstInnslag | undefined> };
 
-export type AstroPage = PageProps["page"];
-
 export type AstroPageProps = PageProps & {
     locale: Locale;
     pathname: string;

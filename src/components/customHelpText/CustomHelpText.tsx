@@ -7,17 +7,16 @@ import styles from "./CustomHelpText.module.css";
 type CustomHelpTextProps = {
     title: string;
     children: React.ReactNode;
-    className?: string;
     placement?: HelpTextProps["placement"];
 };
 
-export const CustomHelpText = ({ title, children, className, placement = "top" }: CustomHelpTextProps) => {
+export const CustomHelpText = ({ title, children, placement = "top" }: CustomHelpTextProps) => {
     const inputRef = useRef(null);
     const [openState, setOpenState] = useState<boolean>(false);
     const { formatMessage } = useIntlFormatter();
 
     return (
-        <div className={className}>
+        <div>
             <Button
                 type="button"
                 variant="tertiary"

@@ -1,5 +1,4 @@
 export const UNKNOWN = "ukjent-verdi";
-export const print = (tekst?: string) => (tekst ? tekst : "");
 
 export const formatName = (str?: string) =>
     str
