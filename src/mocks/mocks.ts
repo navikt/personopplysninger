@@ -13,9 +13,9 @@ import postnummer from "./fixtures/postnummer.json";
 import retningsnumre from "./fixtures/retningsnumre.json";
 import valutaer from "./fixtures/valutaer.json";
 
-type MockData = Record<string, unknown> | unknown[];
+type MockData = object | object[];
 
-const json = (data: unknown, init: ResponseInit = {}) =>
+const json = (data: object, init: ResponseInit = {}) =>
     new Response(JSON.stringify(data), {
         ...init,
         headers: { "Content-Type": "application/json; charset=utf-8", ...init.headers },
