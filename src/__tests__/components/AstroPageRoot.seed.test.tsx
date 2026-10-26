@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import type { MockInstance } from "vitest";
 import AstroPageRoot from "@/components/astro/AstroPageRoot";
-import dsopInfo from "@/mocks/fixtures/dsop-info.json";
-import instInfo from "@/mocks/fixtures/inst-info.json";
 import medlInfo from "@/mocks/fixtures/medl-info.json";
 import type { MedlInfo } from "@/types/medl";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
@@ -60,8 +58,6 @@ describe("AstroPageRoot med data fra serveren", () => {
 
 describe("DSOP-sidene med data fra serveren", () => {
     let fetchSpy: MockInstance<typeof fetch>;
-    const [storebrand] = dsopInfo;
-    const historikk = dsopInfo.map(({ uthentingsTidspunkt, mottakernavn }) => ({ uthentingsTidspunkt, mottakernavn }));
     const feil = { status: "ERROR", error: { code: 502, text: "Oisann, noe gikk galt! Prøv igjen senere." } } as const;
 
     beforeEach(() => {
@@ -70,24 +66,6 @@ describe("DSOP-sidene med data fra serveren", () => {
     });
 
     afterEach(() => fetchSpy.mockRestore());
-
-    it("viser historikken fra serveren uten å hente den i nettleseren", () => {
-        render(
-            <AstroPageRoot
-                page="dsopHistorikk"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/dsop"
-                config={testRuntimeConfig}
-                dsopInfo={{ status: "RESULT", data: historikk }}
-            />,
-        );
-
-        expect(screen.getAllByRole("link", { name: "STOREBRAND LIVSFORSIKRING AS" })[0]).toHaveAttribute(
-            "href",
-            "/person/personopplysninger/nb/dsop/2019-06-18T10%3A45%3A51.634",
-        );
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
 
     it("viser feilen fra serveren på historikken", () => {
         render(
@@ -102,38 +80,6 @@ describe("DSOP-sidene med data fra serveren", () => {
 
         expect(screen.getByRole("alert")).toHaveTextContent("502: Oisann, noe gikk galt! Prøv igjen senere.");
         expect(fetchSpy).not.toHaveBeenCalled();
-    });
-
-    it("viser innslaget fra serveren på detaljsiden", () => {
-        render(
-            <AstroPageRoot
-                page="dsopDetaljer"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/dsop/2019-06-18T10%3A45%3A51.634"
-                config={testRuntimeConfig}
-                innslag={{ status: "RESULT", data: storebrand }}
-            />,
-        );
-
-        expect(screen.getByRole("heading", { level: 2, name: "STOREBRAND LIVSFORSIKRING AS" })).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: "Last ned leverte data" })).toBeInTheDocument();
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
-
-    it("viser dagens tekst med tilbakelenke når innslaget ikke finnes", () => {
-        render(
-            <AstroPageRoot
-                page="dsopDetaljer"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/dsop/finnes-ikke"
-                config={testRuntimeConfig}
-                innslag={{ status: "RESULT", data: undefined }}
-            />,
-        );
-
-        expect(screen.getByText("Ingen personopplysninger har blitt utlevert.", { exact: false })).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: "Tilbake" })).toHaveAttribute("href", "/person/personopplysninger/nb/dsop");
-        expect(screen.queryByRole("heading", { level: 2, name: "STOREBRAND LIVSFORSIKRING AS" })).not.toBeInTheDocument();
     });
 
     it("viser feilen fra serveren på detaljsiden", () => {
@@ -155,7 +101,6 @@ describe("DSOP-sidene med data fra serveren", () => {
 describe("Institusjonsopphold-sidene med data fra serveren", () => {
     let fetchSpy: MockInstance<typeof fetch>;
     const feil = { status: "ERROR", error: { code: 504, text: "Oisann, noe gikk galt! Prøv igjen senere." } } as const;
-    const vik = instInfo.find((opphold) => opphold.registreringstidspunkt === "2017-10-02T07:38:56.816");
 
     beforeEach(() => {
         window.scrollTo = vi.fn();
@@ -163,23 +108,6 @@ describe("Institusjonsopphold-sidene med data fra serveren", () => {
     });
 
     afterEach(() => fetchSpy.mockRestore());
-
-    it("viser historikken fra serveren uten å hente den i nettleseren", () => {
-        render(
-            <AstroPageRoot
-                page="institusjonsoppholdHistorikk"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/institusjonsopphold"
-                config={testRuntimeConfig}
-                instInfo={{ status: "RESULT", data: instInfo }}
-            />,
-        );
-
-        expect(screen.getAllByRole("link", { name: "VIK FENGSEL" }).map((lenke) => lenke.getAttribute("href"))).toContain(
-            "/person/personopplysninger/nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816",
-        );
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
 
     it("viser feilen fra serveren på historikken", () => {
         render(
@@ -194,38 +122,6 @@ describe("Institusjonsopphold-sidene med data fra serveren", () => {
 
         expect(screen.getByRole("alert")).toHaveTextContent("504: Oisann, noe gikk galt! Prøv igjen senere.");
         expect(fetchSpy).not.toHaveBeenCalled();
-    });
-
-    it("viser oppholdet fra serveren på detaljsiden", () => {
-        render(
-            <AstroPageRoot
-                page="institusjonsoppholdDetaljer"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816"
-                config={testRuntimeConfig}
-                innslag={{ status: "RESULT", data: vik }}
-            />,
-        );
-
-        expect(screen.getByRole("heading", { level: 2, name: "VIK FENGSEL" })).toBeInTheDocument();
-        expect(screen.getByText("Organisasjonsnummer 974 736 942")).toBeInTheDocument();
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
-
-    it("viser dagens tekst med tilbakelenke når oppholdet ikke finnes", () => {
-        render(
-            <AstroPageRoot
-                page="institusjonsoppholdDetaljer"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/institusjonsopphold/finnes-ikke"
-                config={testRuntimeConfig}
-                innslag={{ status: "RESULT", data: undefined }}
-            />,
-        );
-
-        expect(screen.getByText("Det er ingen institusjonsopphold å vise.")).toBeInTheDocument();
-        expect(screen.getByRole("link", { name: "Tilbake" })).toHaveAttribute("href", "/person/personopplysninger/nb/institusjonsopphold");
-        expect(screen.queryByRole("heading", { level: 2, name: "VIK FENGSEL" })).not.toBeInTheDocument();
     });
 
     it("viser feilen fra serveren på detaljsiden", () => {

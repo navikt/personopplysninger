@@ -7,7 +7,7 @@ const locales = [
 ];
 
 for (const { locale, heading, firstName } of locales) {
-    test(`renders and reloads the ${locale} Astro route`, async ({ page }) => {
+    test(`viser og laster ${locale}-siden på nytt`, async ({ page }) => {
         const response = await page.goto(`${locale}/`);
 
         expect(response?.status()).toBe(200);
@@ -22,20 +22,20 @@ for (const { locale, heading, firstName } of locales) {
     });
 }
 
-test("serves Astro health endpoints without authentication", async ({ request }) => {
+test("helse-endepunktene svarer uten innlogging", async ({ request }) => {
     const [alive, ready] = await Promise.all([request.get("api/internal/isAlive"), request.get("api/internal/isReady")]);
 
     expect(alive.status()).toBe(200);
     expect(ready.status()).toBe(200);
 });
 
-test("redirects the arbeidsforhold shortcut to the home section", async ({ page }) => {
+test("sender arbeidsforhold-snarveien til seksjonen på forsiden", async ({ page }) => {
     await page.goto("nb/arbeidsforhold");
 
     await expect(page).toHaveURL(/\/person\/personopplysninger\/nb\/#arbeidsforhold$/);
 });
 
-test("renders the existing error state when a client fetch fails", async ({ page }) => {
+test("viser feilmeldingen når en henting i nettleseren feiler", async ({ page }) => {
     await page.route("**/api/personalia", (route) =>
         route.fulfill({
             status: 500,
