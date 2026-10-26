@@ -12,7 +12,7 @@ interface Props {
 const MedlHistorikkView = (props: Props) => {
     const { medlInfo } = props;
     const { locale } = useIntl();
-    const perioder = medlInfo?.perioder || [];
+    const perioder = medlInfo.perioder || [];
 
     const medMedlemskap = perioder.filter((periode) => periode.medlem && !periode.studieinformasjon);
     const utenMedlemskap = perioder.filter((periode) => !periode.medlem);

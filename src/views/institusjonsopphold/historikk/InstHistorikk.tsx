@@ -8,7 +8,7 @@ import InstHistorikkView from "./InstHistorikkView";
 
 interface Props {
     instInfo: HentetData<InstInfo>;
-    pathname?: string;
+    pathname: string;
 }
 
 const InstHistorikk = ({ instInfo, pathname }: Props) => {

@@ -1,6 +1,5 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@navikt/aksel-icons";
 import { Alert, Label, Link } from "@navikt/ds-react";
-import classNames from "classnames";
 import dayjs from "dayjs";
 import { Fragment, useState } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
@@ -9,12 +8,12 @@ import type { DsopHistorikkInfo } from "@/types/dsop";
 
 interface Props {
     dsopInfo: DsopHistorikkInfo;
-    pathname?: string;
+    pathname: string;
 }
 
 const DsopHistorikkView = (props: Props) => {
     const { locale } = useIntl();
-    const { dsopInfo, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
+    const { dsopInfo, pathname } = props;
     const detailsPath = pathname.replace(/\/$/, "");
 
     const initState: {
@@ -40,7 +39,7 @@ const DsopHistorikkView = (props: Props) => {
     const [data, setData] = useState(initState);
 
     return (
-        <div className={classNames(historikkStyles.tabsInnhold, historikkStyles.flexTable)}>
+        <div className={`${historikkStyles.tabsInnhold} ${historikkStyles.flexTable}`}>
             {Object.keys(data).length > 0 ? (
                 <>
                     <div className={historikkStyles.info}>
@@ -100,11 +99,7 @@ const DsopHistorikkView = (props: Props) => {
                             return (
                                 <Fragment key={year}>
                                     <div className={historikkStyles.flexRad}>
-                                        <button
-                                            type="button"
-                                            className={classNames(historikkStyles.flexKolonne, "af-liste__ekspander")}
-                                            onClick={onClick}
-                                        >
+                                        <button type="button" className={`${historikkStyles.flexKolonne} af-liste__ekspander`} onClick={onClick}>
                                             {year} {value.ekspandert ? <ChevronUpIcon aria-hidden="true" /> : <ChevronDownIcon aria-hidden="true" />}
                                         </button>
                                         <div />

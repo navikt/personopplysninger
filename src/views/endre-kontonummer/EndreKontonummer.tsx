@@ -10,16 +10,14 @@ import { EndreKontonummerView } from "./EndreKontonummerView";
 
 interface Props {
     backTo?: string;
-    pathname?: string;
+    pathname: string;
 }
-
-const isInternalPath = (path: string | undefined) => path?.startsWith("/") && !path.startsWith("//");
 
 export const EndreKontonummer = ({ backTo, pathname }: Props) => {
     const intl = useIntl();
     const lenkeUrl = intl.formatMessage({ id: "endreKontonummer.lenkeURL" });
 
-    const backToUtbetaling = `${isInternalPath(backTo) ? backTo : ""}#utbetaling`;
+    const backToUtbetaling = `${backTo ?? ""}#utbetaling`;
 
     useEffect(() => {
         window.scrollTo(0, 0);

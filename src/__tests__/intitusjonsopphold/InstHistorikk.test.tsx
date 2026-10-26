@@ -22,7 +22,7 @@ describe("InstHistorikkView", () => {
     it("shows updated empty-state and source text when there are no stays", () => {
         render(
             <IntlProvider locale={"nb"} messages={nbMessages}>
-                <InstHistorikkView instInfo={[]} />
+                <InstHistorikkView instInfo={[]} pathname="/person/personopplysninger/nb/institusjonsopphold" />
             </IntlProvider>,
         );
 
