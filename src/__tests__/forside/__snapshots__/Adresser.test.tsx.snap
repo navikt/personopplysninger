@@ -584,7 +584,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               />
             </div>
             <button
-              class="_slettKontaktadresse_781efe knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+              class="_slettKontaktadresse_781efe navds-button navds-button--tertiary navds-button--medium"
             >
               <span
                 class="navds-button__icon"

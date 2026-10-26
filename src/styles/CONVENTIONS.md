@@ -119,7 +119,7 @@ color: #262626;
 border: 1px solid #c6c2bf;
 ```
 
-Prosjektspesifikke tokens (layout, breakpoints) er definert i `src/styles/tokens.css`.
+Prosjektspesifikke tokens (layout) er definert i `src/styles/tokens.css`.
 
 ## 6. Hva er tillatt i `src/styles/global.css`
 

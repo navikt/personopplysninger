@@ -92,7 +92,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     icon={<PlusCircleIcon className={kildeStyles.icon} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
-                    className={`${tlfStyles.leggtil} knapp-med-ikon lenke`}
+                    className={tlfStyles.leggtil}
                 >
                     <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
                 </Button>

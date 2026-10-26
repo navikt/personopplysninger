@@ -78,7 +78,7 @@ const AndreAdresser = (props: Props) => {
                     <Button
                         variant="tertiary"
                         onClick={apneSlettModal}
-                        className={`${adresseStyles.slettKontaktadresse} knapp-med-ikon`}
+                        className={adresseStyles.slettKontaktadresse}
                         icon={<TrashIcon aria-hidden={true} />}
                     >
                         <FormattedMessage id={"side.slett.kontaktadresse"} />

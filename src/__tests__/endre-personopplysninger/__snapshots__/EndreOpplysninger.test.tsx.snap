@@ -73,7 +73,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                 >
                   <button
                     aria-label="Endre telefonnummer"
-                    class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+                    class="navds-button navds-button--tertiary navds-button--medium"
                   >
                     <span
                       class="navds-button__icon"
@@ -105,7 +105,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
                   </button>
                   <button
                     aria-label="Slett telefonnummer"
-                    class="knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+                    class="navds-button navds-button--tertiary navds-button--medium"
                   >
                     <span
                       class="navds-button__icon"
@@ -153,7 +153,7 @@ exports[`EndreOpplysningerView > renders correctly 1`] = `
             </div>
           </div>
           <button
-            class="_leggtil_db2507 knapp-med-ikon lenke navds-button navds-button--tertiary navds-button--medium"
+            class="_leggtil_db2507 navds-button navds-button--tertiary navds-button--medium"
           >
             <span
               class="navds-button__icon"
@@ -769,7 +769,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
               />
             </div>
             <button
-              class="_slettKontaktadresse_781efe knapp-med-ikon navds-button navds-button--tertiary navds-button--medium"
+              class="_slettKontaktadresse_781efe navds-button navds-button--tertiary navds-button--medium"
             >
               <span
                 class="navds-button__icon"

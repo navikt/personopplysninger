@@ -25,7 +25,7 @@ body {
 
 .pagecontent {
     width: 100%;
-    max-width: var(--ppo-content-max-width, 800px);
+    max-width: var(--ppo-content-max-width);
 }
 
 .wrapper {

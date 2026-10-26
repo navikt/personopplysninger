@@ -17,7 +17,7 @@ export interface Props {
 const Box = (props: Props) => {
     return (
         <>
-            <div className={`${styles.iconContainer} icon__container`}>
+            <div className={styles.iconContainer}>
                 <Icon backgroundImage={props.icon} ariaHidden={true} />
             </div>
             <div className={styles.content}>

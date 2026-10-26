@@ -1,7 +1,3 @@
-.lenkepanel {
-    margin-bottom: 0.3rem;
-}
-
 .rad {
     display: flex;
     padding: 1rem 0;
@@ -31,11 +27,6 @@
     .iconContainer {
         padding: 0 0.5rem 0 0;
     }
-}
-
-.lenkeContainer {
-    display: flex;
-    align-items: center;
 }
 
 .lenke {

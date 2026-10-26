@@ -95,7 +95,7 @@ const TelefonnummerForm = (props: Props) => {
                         submitted={isSubmitted}
                     />
                 </div>
-                <div className={`${tlfStyles.input} input--m`}>
+                <div className={tlfStyles.input}>
                     <TextField
                         {...register("tlfnummer", {
                             required: msg({ id: "validation.tlfnr.pakrevd" }),

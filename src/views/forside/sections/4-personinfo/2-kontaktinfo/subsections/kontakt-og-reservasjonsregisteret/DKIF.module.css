@@ -3,13 +3,6 @@
     align-items: center;
 }
 
-.overskriftIIcon {
-    max-width: 1.5rem;
-    min-width: 1.5rem;
-    margin: 0 1rem;
-    cursor: pointer;
-}
-
 .marginKilde {
     margin-top: 1rem;
 }
