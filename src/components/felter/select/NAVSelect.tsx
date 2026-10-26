@@ -50,11 +50,6 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
         "KodeverkSelect__control-feil": props.submitted && props.error,
     });
 
-    const containerClasses = cls({
-        skjemaelement: true,
-        KodeverkSelect: true,
-    });
-
     const value = props.option
         ? props.options
               .filter(
@@ -96,11 +91,11 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     };
 
     return !props.fetchError ? (
-        <div className={containerClasses}>
+        <div className="skjemaelement KodeverkSelect">
             <div className={styles.header}>
                 <LabelMedHjelpetekst label={props.label} hjelpetekst={props.hjelpetekst} labelId={labelId} labelForId={props.id} />
             </div>
-            <div className={`${cls("KodeverkSelect--select-wrapper")}`}>
+            <div className="KodeverkSelect--select-wrapper">
                 <Select
                     aria-labelledby={labelId}
                     id={props.id}

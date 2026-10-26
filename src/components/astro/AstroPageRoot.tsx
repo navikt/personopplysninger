@@ -1,4 +1,4 @@
-import { type ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
@@ -41,7 +41,7 @@ type Props = AstroPageProps & {
     config: RuntimeConfig;
 };
 
-const renderPage = (props: Props): ReactNode => {
+const renderPage = (props: Props) => {
     const { pathname, id } = props;
 
     switch (props.page) {

@@ -5,15 +5,14 @@ import { Fragment, useId, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import styles from "./Infotekst.module.css";
 
-interface HjelpetekstProps {
+interface Props {
     overskriftID: string;
     beskrivelseID: string;
 }
 
-function Infotekst(props: HjelpetekstProps) {
+const Infotekst = ({ overskriftID, beskrivelseID }: Props) => {
     const [hover, settHover] = useState(false);
     const [erSynlig, settErSynlig] = useState(false);
-    const { overskriftID, beskrivelseID } = props;
     const modalID = useId();
 
     return (
@@ -65,6 +64,6 @@ function Infotekst(props: HjelpetekstProps) {
             </Modal>
         </>
     );
-}
+};
 
 export default Infotekst;

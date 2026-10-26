@@ -3,7 +3,7 @@ import type React from "react";
 import { FormattedMessage } from "react-intl";
 import styles from "./Kilde.module.css";
 
-type IconType = string | React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
+type IconType = React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
 
 type Props =
     | {
@@ -25,10 +25,7 @@ type Props =
           ikon?: IconType;
       };
 
-const Icon = ({ icon }: { icon: IconType }) => {
-    const IconComponent = icon;
-    return <IconComponent aria-hidden="true" className={styles.iconAksel} />;
-};
+const Icon = ({ icon: IconComponent }: { icon: IconType }) => <IconComponent aria-hidden="true" className={styles.iconAksel} />;
 
 const Knapp = (props: Props) => {
     switch (props.lenkeType) {
