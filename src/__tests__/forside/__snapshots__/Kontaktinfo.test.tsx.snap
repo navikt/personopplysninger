@@ -3,7 +3,7 @@
 exports[`DKIF > renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="telefonnummer"
+    class="_telefonnummer_51d259"
   >
     <dl
       class="_list_f0abfa"
@@ -53,7 +53,7 @@ exports[`DKIF > renders correctly 1`] = `
     </dl>
   </div>
   <div
-    class="telefonnummer"
+    class="_telefonnummer_51d259"
   >
     <div
       class="navds-alert navds-alert--info navds-alert--medium navds-alert--inline"

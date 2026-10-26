@@ -6,6 +6,7 @@ import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import { useStore } from "@/store/Context";
 import type { KontaktInfo } from "@/types/kontaktInfo";
+import kontaktInfoStyles from "../../KontaktInfo.module.css";
 import dkifStyles from "./DKIF.module.css";
 
 interface Props {
@@ -17,14 +18,14 @@ const KontaktInformasjon = (props: Props) => {
     const [{ locale }] = useStore();
     return mobiltelefonnummer || epostadresse ? (
         <>
-            <div className="telefonnummer">
+            <div className={kontaktInfoStyles.telefonnummer}>
                 <Liste>
                     <ListElement titleId="personalia.tlfnr" content={mobiltelefonnummer} />
                     <ListElement titleId="personalia.spraak" content={spraak} />
                     <ListElement titleId="personalia.email" content={epostadresse} />
                 </Liste>
             </div>
-            <div className="telefonnummer">
+            <div className={kontaktInfoStyles.telefonnummer}>
                 <Alert variant="info" inline={true}>
                     <FormattedMessage
                         id={reservert ? "kontaktogreservasjonsregister-disclaimer-reservert" : "kontaktogreservasjonsregister-disclaimer"}
