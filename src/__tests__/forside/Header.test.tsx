@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
+import spinnerStyles from "@/components/spinner/Spinner.module.css";
 import { StoreContext } from "@/store/Context";
 import { initialState } from "@/store/Store";
 import nbMessages from "@/text/nb";
@@ -8,9 +9,6 @@ import Header from "@/views/forside/sections/3-header/Header";
 import headerStyles from "@/views/forside/sections/3-header/Header.module.css";
 
 vi.mock("react-modal");
-vi.mock("@/views/forside/sections/4-personinfo/PersonInfo", () => ({
-    default: () => <div>Laster innhold...</div>,
-}));
 
 const renderHeader = (authInfo: FetchAuth) => {
     const mockDispatch = vi.fn();
@@ -26,8 +24,9 @@ const renderHeader = (authInfo: FetchAuth) => {
 describe("Header", () => {
     describe("LOADING-tilstand", () => {
         it("viser lasteindikator", () => {
-            renderHeader({ status: "LOADING" });
+            const { container } = renderHeader({ status: "LOADING" });
             expect(screen.getByText("Laster innhold...")).toBeInTheDocument();
+            expect(container.firstElementChild).toHaveClass(spinnerStyles.wrapper);
         });
     });
 

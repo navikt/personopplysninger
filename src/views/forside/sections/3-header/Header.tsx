@@ -5,10 +5,10 @@ import veilederIkon from "@/assets/img/Veileder.svg";
 import { fetchInnloggingsStatus } from "@/clients/apiClient";
 import boxStyles from "@/components/box/Box.module.css";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import Spinner from "@/components/spinner/Spinner";
 import { useStore } from "@/store/Context";
 import { getAssetUrl } from "@/utils/assets";
 import { formatName } from "@/utils/text";
-import Spinner from "../4-personinfo/PersonInfo";
 import styles from "./Header.module.css";
 
 const Header = () => {
