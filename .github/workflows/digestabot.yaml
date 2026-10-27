@@ -1,0 +1,24 @@
+name: "Check for newer image versions"
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Every Monday at 08:00 UTC.
+    - cron: "0 8 * * 1"
+
+jobs:
+  digest-update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+        with:
+          persist-credentials: false
+      - uses: navikt/digestabot@3302a753e533ceb9ec216de7f78345436cd636e3 # Reference repository revision
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          team: min-side

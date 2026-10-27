@@ -1,0 +1,20 @@
+name: Digestabot Auto-merge
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 9 * * 1"
+
+env:
+  TZ: Europe/Oslo
+
+jobs:
+  digestabot-automerge:
+    name: Digestabot Auto-merge
+    permissions:
+      contents: read
+      pull-requests: write
+    uses: navikt/tms-deploy/.github/workflows/digestabot-automerge.yaml@f78b307c3075ea8676420539c62a65c1ba7d5664 # main
+    secrets:
+      APP_ID: ${{ vars.APP_CLIENT_ID }}
+      PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
