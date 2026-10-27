@@ -14,7 +14,6 @@ const matchPath = (pattern: string, pathname: string) => {
     return params;
 };
 
-// Kaller mock-definisjonen slik @navikt/astro-mocks gjør på dev-serveren.
 const request = async (pathAndQuery: string, init: { method?: HttpMethod; headers?: Record<string, string> } = {}) => {
     const url = new URL(pathAndQuery, "http://localhost:4321");
     const method = init.method ?? "GET";
