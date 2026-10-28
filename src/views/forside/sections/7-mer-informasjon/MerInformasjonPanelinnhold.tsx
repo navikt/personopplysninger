@@ -32,7 +32,7 @@ const Alternativ = (props: Props) => {
                     ),
                     telefonLenke: (text) => <Link href="tel:004755553333">{text}</Link>,
                     trygdeavtalerLenke: (text) => (
-                        <Link href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler" rel="noopener noreferrer" target="blank">
+                        <Link href="https://lovdata.no/nav/andre-rettskilder/Trygdeavtaler" rel="noopener noreferrer" target="_blank">
                             {text}
                         </Link>
                     ),

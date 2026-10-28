@@ -55,7 +55,7 @@ export const DsopHistorikkView = (props: Props) => {
                                                     ? "https://www.nav.no/personvernerklaering/en#who"
                                                     : "https://www.nav.no/personvernerklaering#hvem"
                                             }
-                                            target="blank"
+                                            target="_blank"
                                         >
                                             {text}
                                         </Link>
@@ -139,7 +139,7 @@ export const DsopHistorikkView = (props: Props) => {
                                                 ? "https://www.nav.no/personvernerklaering/en#who"
                                                 : "https://www.nav.no/personvernerklaering#hvem"
                                         }
-                                        target="blank"
+                                        target="_blank"
                                     >
                                         {text}
                                     </Link>

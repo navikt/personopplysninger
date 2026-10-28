@@ -44,7 +44,7 @@ exports[`DsopHistorikkView > renders correctly 1`] = `
           <a
             class="navds-link navds-link--action"
             href="https://www.nav.no/personvernerklaering#hvem"
-            target="blank"
+            target="_blank"
           >
             personvernerklæringen til Nav
           </a>

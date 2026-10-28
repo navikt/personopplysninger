@@ -18,7 +18,7 @@ interface Props {
 const PageContainer = (props: Props) => {
     return (
         <div className={styles.container}>
-            <Brodsmulesti hierarki={props.brodsmulesti} />
+            <Brodsmulesti hierarki={props.brodsmulesti} pathname={props.pathname} />
             {props.icon && (
                 <div className={styles.icon}>
                     <Icon backgroundImage={props.icon} backgroundColor="#99C1E9" />

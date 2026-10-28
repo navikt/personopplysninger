@@ -5,6 +5,7 @@ import personInfo from "@/mocks/fixtures/person-info.json";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
 import type { Tlfnr } from "@/types/personalia";
+import kontaktInfoStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.module.css";
 import DKIF from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF";
 import TelefonnummerHosNav from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav";
 
@@ -18,6 +19,17 @@ describe("DKIF", () => {
             </StoreProvider>,
         );
         expect(asFragment()).toMatchSnapshot();
+    });
+
+    it("første blokk har avstand ned til varselet", () => {
+        const { container } = render(
+            <StoreProvider>
+                <IntlProvider locale={"nb"} messages={nbMessages}>
+                    <DKIF info={kontaktInfo} />
+                </IntlProvider>
+            </StoreProvider>,
+        );
+        expect(container.firstElementChild).toHaveClass(kontaktInfoStyles.telefonnummer);
     });
 });
 
