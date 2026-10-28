@@ -54,48 +54,6 @@ describe("AstroPageRoot med data fra serveren", () => {
     });
 });
 
-describe("DSOP-sidene med data fra serveren", () => {
-    let fetchSpy: MockInstance<typeof fetch>;
-    const feil = { status: "ERROR", error: { code: 502, text: "Oisann, noe gikk galt! Prøv igjen senere." } } as const;
-
-    beforeEach(() => {
-        window.scrollTo = vi.fn();
-        fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response("[]"));
-    });
-
-    afterEach(() => fetchSpy.mockRestore());
-
-    it("viser feilen fra serveren på historikken", () => {
-        render(
-            <AstroPageRoot
-                page="dsopHistorikk"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/dsop"
-                config={testRuntimeConfig}
-                dsopInfo={feil}
-            />,
-        );
-
-        expect(screen.getByRole("alert")).toHaveTextContent("502: Oisann, noe gikk galt! Prøv igjen senere.");
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
-
-    it("viser feilen fra serveren på detaljsiden", () => {
-        render(
-            <AstroPageRoot
-                page="dsopDetaljer"
-                locale="nb"
-                pathname="/person/personopplysninger/nb/dsop/2019-06-18T10%3A45%3A51.634"
-                config={testRuntimeConfig}
-                innslag={feil}
-            />,
-        );
-
-        expect(screen.getByRole("alert")).toHaveTextContent("502: Oisann, noe gikk galt! Prøv igjen senere.");
-        expect(fetchSpy).not.toHaveBeenCalled();
-    });
-});
-
 describe("Institusjonsopphold-sidene med data fra serveren", () => {
     let fetchSpy: MockInstance<typeof fetch>;
     const feil = { status: "ERROR", error: { code: 504, text: "Oisann, noe gikk galt! Prøv igjen senere." } } as const;

@@ -34,10 +34,4 @@ export default {
             <p>Vi oppfordrer deg til å kontakte Nav før du klager til Datatilsynet, slik at vi kan vurdere spørsmålene dine og informere deg
             om hvordan vi behandler personopplysninger.</p>`,
     },
-    dsop: {
-        info:
-            "Her kan du laste ned en logg med opplysninger Nav har gitt til forsikringsselskap basert på samtykke du har gitt i Altinn. Nav kan utlevere opplysninger fordi du har gitt samtykke, eller fordi Nav har hjemmel i lov. Nav kan ha derfor ha delt flere opplysninger enn de du ser i denne loggen." +
-            "<br></br><br></br>" +
-            "Du kan lese om hvilke opplysninger Nav kan utlevere i <a>personvernerklæringen til Nav</a>. Her kan du også lese om hvordan du tar kontakt med Nav hvis du har spørsmål om rettighetene dine og personvern.",
-    },
 };

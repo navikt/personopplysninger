@@ -2,12 +2,9 @@ import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/co
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { InitialData, Locale } from "@/store/Store";
-import type { DsopDetaljInnslag, DsopHistorikkInfo } from "@/types/dsop";
 import type { HentetData } from "@/types/hentetData";
 import type { InstInfo, InstInnslag } from "@/types/inst";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
-import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
-import DsopHistorikk from "@/views/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
 import { EndreKontonummer } from "@/views/endre-kontonummer/EndreKontonummer";
 import EndreOpplysninger from "@/views/endre-personopplysninger/EndreOpplysninger";
 import Forside from "@/views/forside/Forside";
@@ -19,8 +16,6 @@ type PageProps =
     | {
           page: "forside" | "arbeidsforhold" | "medlemskap" | "endreKontonummer" | "endreOpplysninger";
       }
-    | { page: "dsopHistorikk"; dsopInfo: HentetData<DsopHistorikkInfo> }
-    | { page: "dsopDetaljer"; innslag: HentetData<DsopDetaljInnslag | undefined> }
     | { page: "institusjonsoppholdHistorikk"; instInfo: HentetData<InstInfo> }
     | { page: "institusjonsoppholdDetaljer"; innslag: HentetData<InstInnslag | undefined> };
 
@@ -47,10 +42,6 @@ const renderPage = (props: Props) => {
             return <Forside pathname={pathname} />;
         case "arbeidsforhold":
             return <DetaljertArbeidsforhold id={id} pathname={pathname} />;
-        case "dsopHistorikk":
-            return <DsopHistorikk dsopInfo={props.dsopInfo} pathname={pathname} />;
-        case "dsopDetaljer":
-            return <DsopDetaljer innslag={props.innslag} pathname={pathname} />;
         case "institusjonsoppholdHistorikk":
             return <InstHistorikk instInfo={props.instInfo} pathname={pathname} />;
         case "institusjonsoppholdDetaljer":

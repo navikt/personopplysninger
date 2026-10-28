@@ -28,7 +28,7 @@ describe("Brodsmulesti", () => {
         render(
             <StoreProvider initialLocale="nb">
                 <IntlProvider locale="nb" messages={nbMessages}>
-                    <PageContainer tittelId="dsop.tittel" backTo="/" brodsmulesti={[]} pathname="/person/personopplysninger/nb/dsop">
+                    <PageContainer tittelId="lenker.dsop.tittel" backTo="/" brodsmulesti={[]} pathname="/person/personopplysninger/nb/dsop">
                         <div />
                     </PageContainer>
                 </IntlProvider>
