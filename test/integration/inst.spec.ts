@@ -36,6 +36,7 @@ test("hjelpeteksten åpnes over knappen og lukkes med Escape", async ({ page }) 
     const knapp = page.getByRole("button", { name: "Mer om Sluttdato" }).first();
 
     await knapp.evaluate((element) => element.scrollIntoView({ block: "center" }));
+    await expect(knapp).toBeVisible();
     await knapp.dispatchEvent("click");
     const boble = page.getByText("Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.").first();
     await expect(boble).toBeVisible();
