@@ -11,6 +11,7 @@ const historikkOgDetaljer = [
     { sti: "nb/dsop/2019-06-18T10%3A45%3A51.634", innhold: "STOREBRAND LIVSFORSIKRING AS" },
     { sti: "nb/institusjonsopphold", innhold: "VIK FENGSEL" },
     { sti: "nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816", innhold: "VIK FENGSEL" },
+    { sti: "nb/medlemskap-i-folketrygden", innhold: "Uten medlemskap" },
 ];
 
 for (const { sti, innhold } of historikkOgDetaljer) {

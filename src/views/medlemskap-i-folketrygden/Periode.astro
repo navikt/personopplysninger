@@ -1,0 +1,52 @@
+---
+import { CalendarIcon } from "@navikt/aksel-icons";
+import { BodyLong } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import ListElement from "@/components/listelement/ListElement.astro";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import type { Language } from "@/language/language";
+import type { MedlInnslag } from "@/types/medl";
+import medlStyles from "./MedlHistorikk.module.css";
+import { text } from "./medlText";
+
+interface Props {
+    language: Language;
+    periode: MedlInnslag;
+}
+
+const { language, periode } = Astro.props;
+---
+
+<div class={medlStyles.flexRad}>
+    <div class={medlStyles.flexKolonne}>
+        <div class={medlStyles.heading}>
+            <CalendarIcon className={medlStyles.kalender} aria-hidden={true} />
+            <BodyLong>{text.periode[language]}{" "}{dayjs(periode.fraOgMed).format("DD.MM.YY")}{" - "}{dayjs(periode.tilOgMed).format("DD.MM.YY")}</BodyLong>
+        </div>
+        <div class={`${medlStyles.flexGrid} box__content`}>
+            <dl class={listeStyles.list}>
+                <ListElement language={language} tittel={text.hjemmel[language]} innhold={periode.hjemmel} hjelpetekst={text.hjemmelHjelpetekst[language]} />
+                <ListElement
+                    language={language}
+                    tittel={text.trygdedekning[language]}
+                    innhold={periode.trygdedekning}
+                    hjelpetekst={text.trygdedekningHjelpetekst[language]}
+                />
+                <ListElement
+                    language={language}
+                    className={medlStyles.land}
+                    tittel={text.lovvalgsland[language]}
+                    innhold={periode.lovvalgsland}
+                    hjelpetekst={text.lovvalgslandHjelpetekst[language]}
+                />
+                <ListElement
+                    language={language}
+                    className={medlStyles.land}
+                    tittel={text.statsborgerland[language]}
+                    innhold={periode.studieinformasjon?.statsborgerland}
+                />
+                <ListElement language={language} className={medlStyles.land} tittel={text.studieland[language]} innhold={periode.studieinformasjon?.studieland} />
+            </dl>
+        </div>
+    </div>
+</div>
