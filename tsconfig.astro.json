@@ -8,6 +8,14 @@
             "@/*": ["./src/*"]
         }
     },
-    "include": [".astro/types.d.ts", "src/**/*.astro", "src/config/**/*.ts", "src/middleware.ts", "src/server/**/*.ts", "src/pages/api/**/*.ts"],
+    "include": [
+        ".astro/types.d.ts",
+        "src/**/*.astro",
+        "src/config/**/*.ts",
+        "src/middleware.ts",
+        "src/server/**/*.ts",
+        "src/pages/api/**/*.ts",
+        "src/**/*.astro.test.ts"
+    ],
     "exclude": ["src/astro-env.d.ts"]
 }
