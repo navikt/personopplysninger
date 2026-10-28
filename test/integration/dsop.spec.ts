@@ -47,3 +47,29 @@ test("har tittel og tilbakelenke på valgt språk", async ({ page }) => {
         "/person/personopplysninger/en/#flere-opplysninger",
     );
 });
+
+test("detaljsiden har bare nedlastingsknappen som øy", async ({ page }) => {
+    await page.goto("nb/dsop/2019-06-18T10%3A45%3A52.101");
+
+    await expect(page.locator("astro-island")).toHaveCount(1);
+    await expect(page.locator("astro-island").getByRole("button", { name: "Last ned leverte data" })).toBeVisible();
+    await expect(page.locator("astro-island").getByRole("heading")).toHaveCount(0);
+});
+
+test("laster ned de leverte dataene", async ({ page }) => {
+    await page.goto("nb/dsop/2019-06-18T10%3A45%3A52.101");
+
+    const nedlasting = page.waitForEvent("download");
+    await page.getByRole("button", { name: "Last ned leverte data" }).click();
+
+    expect((await nedlasting).suggestedFilename()).toBe("utleverte-data.json");
+});
+
+test("detaljsiden viser organisasjonsnummer og felter på engelsk", async ({ page }) => {
+    await page.goto("en/dsop/2019-06-18T10%3A45%3A52.101");
+
+    await expect(page.getByRole("heading", { level: 2, name: "GJENSIDIGE FORSIKRING AS" })).toBeVisible();
+    await expect(page.getByText(/^Organisation number /)).toBeVisible();
+    await expect(page.getByText("Retrieval time")).toBeVisible();
+    await expect(page.getByRole("main").getByRole("link", { name: "Back" })).toHaveAttribute("href", "/person/personopplysninger/en/dsop");
+});
