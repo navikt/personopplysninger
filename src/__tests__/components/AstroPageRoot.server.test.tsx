@@ -6,7 +6,6 @@ import medlInfo from "@/mocks/fixtures/medl-info.json";
 import type { MedlInfo } from "@/types/medl";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
-vi.mock("@/utils/faro", () => ({ startFaro: vi.fn() }));
 vi.mock("@/views/forside/Forside", () => ({
     default: () => <div>forside {useRuntimeConfig().apiUrl}</div>,
 }));

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
@@ -6,7 +5,6 @@ import type { InitialData, Locale } from "@/store/Store";
 import type { DsopDetaljInnslag, DsopHistorikkInfo } from "@/types/dsop";
 import type { HentetData } from "@/types/hentetData";
 import type { InstInfo, InstInnslag } from "@/types/inst";
-import { startFaro } from "@/utils/faro";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import DsopDetaljer from "@/views/digital-samhandling-offentlig-privat/detaljer/DsopDetaljer";
 import DsopHistorikk from "@/views/digital-samhandling-offentlig-privat/historikk/DsopHistorikk";
@@ -72,10 +70,6 @@ const AstroPageRoot = (props: Props) => {
     if (typeof window !== "undefined") {
         setRuntimeConfig(config);
     }
-
-    useEffect(() => {
-        startFaro();
-    }, []);
 
     return (
         <RuntimeConfigContext.Provider value={config}>

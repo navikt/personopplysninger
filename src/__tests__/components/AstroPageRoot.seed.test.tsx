@@ -5,8 +5,6 @@ import medlInfo from "@/mocks/fixtures/medl-info.json";
 import type { MedlInfo } from "@/types/medl";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
-vi.mock("@/utils/faro", () => ({ startFaro: vi.fn() }));
-
 const pathname = "/person/personopplysninger/nb/medlemskap-i-folketrygden";
 
 describe("AstroPageRoot med data fra serveren", () => {

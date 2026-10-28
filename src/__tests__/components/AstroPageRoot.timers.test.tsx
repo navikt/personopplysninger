@@ -4,8 +4,6 @@ import medlInfo from "@/mocks/fixtures/medl-info.json";
 import type { MedlInfo } from "@/types/medl";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
-vi.mock("@/utils/faro", () => ({ startFaro: vi.fn() }));
-
 describe("AstroPageRoot i testmiljøet", () => {
     beforeEach(() => {
         vi.useFakeTimers();
