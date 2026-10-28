@@ -1,4 +1,9 @@
 export const text = {
+    merOm: {
+        nb: "Mer om",
+        nn: "Mer om",
+        en: "More about",
+    },
     tilbake: {
         nb: "Tilbake",
         nn: "Tilbake",

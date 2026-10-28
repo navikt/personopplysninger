@@ -1,0 +1,25 @@
+.hjelpetekst {
+    display: inline-block;
+}
+
+.popover {
+    font-weight: normal;
+    max-width: 50%;
+    overflow: visible;
+}
+
+.pil {
+    bottom: -0.5rem;
+    left: calc(50% - 0.5rem);
+    border-left-color: transparent;
+    border-top-color: transparent;
+}
+
+@supports (position-area: top) {
+    .popover {
+        inset: auto;
+        margin: 0 0 0.5rem 0;
+        position-area: top;
+        position-try-fallbacks: flip-block;
+    }
+}

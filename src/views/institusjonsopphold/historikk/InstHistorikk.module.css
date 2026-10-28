@@ -1,0 +1,24 @@
+.rad[data-nyeste] {
+    font-weight: bold;
+    animation: fadeInn 100ms ease-in;
+}
+
+@keyframes fadeInn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media (scripting: none) {
+    .rad[hidden] {
+        display: flex !important;
+    }
+
+    .seFlerJs {
+        display: none;
+    }
+}

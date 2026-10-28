@@ -1,11 +1,16 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
+import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import PageContainer from "@/components/pagecontainer/PageContainer.astro";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
-import type { Locale } from "@/store/Store";
 import type { InstInfo } from "@/types/inst";
+import { text } from "@/views/institusjonsopphold/instText";
+import InstHistorikk from "@/views/institusjonsopphold/historikk/InstHistorikk.astro";
 
-const locale = Astro.currentLocale as Locale;
+const language = Astro.currentLocale as Language;
 
 const instInfo = await hentFraApi<InstInfo>("/institusjonsopphold", personopplysningerApi(Astro));
 if (instInfo.status === "UNAUTHORIZED") {
@@ -13,4 +18,12 @@ if (instInfo.status === "UNAUTHORIZED") {
 }
 ---
 
-<AstroPage page="institusjonsoppholdHistorikk" locale={locale} pathname={Astro.url.pathname} instInfo={instInfo} />
+<Layout title="Personopplysninger - www.nav.no" brodsmuler={[{ sti: "/institusjonsopphold", tittel: text.tittel[language] }]}>
+    <div class="pagecontent">
+        <div class="wrapper">
+            <PageContainer language={language} tittel={text.tittel[language]} ikon={INSTIkon} tilbakeTil="/#flere-opplysninger">
+                {instInfo.status === "RESULT" ? <InstHistorikk language={language} instInfo={instInfo.data} /> : <ErrorMessage error={instInfo.error} />}
+            </PageContainer>
+        </div>
+    </div>
+</Layout>
