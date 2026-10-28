@@ -1,0 +1,51 @@
+---
+import { BodyShort, Heading, Label } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import boxStyles from "@/components/box/Box.module.css";
+import listElementStyles from "@/components/listelement/ListElement.module.css";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
+import detaljerStyles from "@/styles/detaljer.module.css";
+import type { DsopDetaljInnslag } from "@/types/dsop";
+import { text } from "../dsopText";
+import LastNedData from "./LastNedData";
+
+interface Props {
+    language: Language;
+    innslag: DsopDetaljInnslag;
+}
+
+const { language, innslag } = Astro.props;
+
+const felter = [
+    { tittel: text.uthentingstidspunkt[language], verdi: dayjs(innslag.uthentingsTidspunkt).format("DD.MM.YYYY hh:mm") },
+    { tittel: text.personnummer[language], verdi: innslag.person },
+    { tittel: text.tema[language], verdi: innslag.tema },
+];
+---
+
+<div>
+    <div class={detaljerStyles.tittel}>
+        <Heading level="2" size="small">{innslag.mottakernavn}</Heading>
+        <BodyShort>{felles.organisasjonsnummer[language](innslag.mottaker)}</BodyShort>
+    </div>
+    <hr class={boxStyles.lineWide} />
+    <div class="box">
+        <div class="box__content">
+            <dl class={listeStyles.list}>
+                {felter.map((felt) => felt.verdi && (
+                    <div>
+                        <dt class={listElementStyles.listElementHeading}>
+                            <Label as="span">{felt.tittel}</Label>
+                        </dt>
+                        <dd>{felt.verdi}</dd>
+                    </div>
+                ))}
+            </dl>
+        </div>
+        <div class={detaljerStyles.container}>
+            <LastNedData language={language} leverteData={innslag.leverteData} client:load />
+        </div>
+    </div>
+</div>
