@@ -26,13 +26,6 @@
     align-items: center;
 }
 
-@media (max-width: 420px) {
-    .verdi {
-        margin-bottom: 0.5rem;
-        width: 100%;
-    }
-}
-
 .inputContainer {
     display: flex;
     flex-wrap: wrap;
@@ -55,4 +48,11 @@
 
 .knapp:last-child {
     margin-left: 0.5rem;
+}
+
+@media (max-width: 420px) {
+    .verdi {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
 }
