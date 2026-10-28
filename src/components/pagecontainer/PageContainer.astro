@@ -1,0 +1,42 @@
+---
+import { ChevronLeftIcon } from "@navikt/aksel-icons";
+import { Box, Heading } from "@navikt/ds-react";
+import tilbakeStyles from "@/components/tilbake/Tilbake.module.css";
+import { basePath } from "@/constants";
+import type { Language } from "@/language/language";
+import { text } from "@/language/text";
+import { getAssetUrl } from "@/utils/assets";
+import styles from "./PageContainer.module.css";
+
+interface Props {
+    language: Language;
+    tittel: string;
+    ikon: string | { src: string };
+    tilbakeTil: string;
+}
+
+const { language, tittel, ikon, tilbakeTil } = Astro.props;
+---
+
+<div class={styles.container}>
+    <div class={styles.icon}>
+        <div class={styles.ikonSirkel}>
+            <img src={getAssetUrl(ikon)} alt="" />
+        </div>
+    </div>
+    <div class={styles.row}>
+        <div class={styles.back}>
+            <a href={`${basePath}/${language}${tilbakeTil}`} class={tilbakeStyles.link}>
+                <ChevronLeftIcon className={tilbakeStyles.icon} aria-hidden={true} />
+                {text.tilbake[language]}
+            </a>
+        </div>
+        <div class={styles.heading}>
+            <Heading size="medium" level="2">{tittel}</Heading>
+        </div>
+        <div class={styles.filler}></div>
+    </div>
+    <Box background="surface-default" className={styles.content}>
+        <slot />
+    </Box>
+</div>

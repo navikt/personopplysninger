@@ -1,0 +1,24 @@
+---
+import { Link } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import { text } from "./dsopText";
+
+interface Props {
+    language: Language;
+    ingenData: boolean;
+}
+
+const { language, ingenData } = Astro.props;
+---
+
+{ingenData && (
+    <>
+        {text.ingenData[language]}
+        <br />
+        <br />
+    </>
+)}
+{text.info[language]}
+<br />
+<br />
+{text.personvernFoer[language]}<Link href={text.personvernUrl[language]} target="_blank">{text.personvernLenke[language]}</Link>{text.personvernEtter[language]}

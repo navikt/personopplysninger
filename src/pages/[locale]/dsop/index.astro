@@ -1,17 +1,32 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
+import DSOPIkon from "@/assets/img/DSOP.svg";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import PageContainer from "@/components/pagecontainer/PageContainer.astro";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { medData, tilDsopHistorikk } from "@/server/historikk";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
-import type { Locale } from "@/store/Store";
 import type { DsopInfo } from "@/types/dsop";
+import { text } from "@/views/digital-samhandling-offentlig-privat/dsopText";
+import DsopHistorikk from "@/views/digital-samhandling-offentlig-privat/historikk/DsopHistorikk.astro";
 
-const locale = Astro.currentLocale as Locale;
+const language = Astro.currentLocale as Language;
 
 const sporingslogg = await hentFraApi<DsopInfo>("/sporingslogg", personopplysningerApi(Astro));
 if (sporingslogg.status === "UNAUTHORIZED") {
     return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
 }
+
+const dsopInfo = medData(sporingslogg, tilDsopHistorikk);
 ---
 
-<AstroPage page="dsopHistorikk" locale={locale} pathname={Astro.url.pathname} dsopInfo={medData(sporingslogg, tilDsopHistorikk)} />
+<Layout title="Personopplysninger - www.nav.no" brodsmuler={[{ sti: "/dsop", tittel: text.tittel[language] }]}>
+    <div class="pagecontent">
+        <div class="wrapper">
+            <PageContainer language={language} tittel={text.tittel[language]} ikon={DSOPIkon} tilbakeTil="/#flere-opplysninger">
+                {dsopInfo.status === "RESULT" ? <DsopHistorikk language={language} dsopInfo={dsopInfo.data} /> : <ErrorMessage error={dsopInfo.error} />}
+            </PageContainer>
+        </div>
+    </div>
+</Layout>

@@ -1,0 +1,20 @@
+.aarKnapp {
+    cursor: pointer;
+    list-style: none;
+}
+
+.aarKnapp::-webkit-details-marker {
+    display: none;
+}
+
+.opp {
+    display: none;
+}
+
+.aar[open] .opp {
+    display: inline;
+}
+
+.aar[open] .ned {
+    display: none;
+}

@@ -1,0 +1,68 @@
+---
+import { ChevronDownIcon, ChevronUpIcon } from "@navikt/aksel-icons";
+import { Alert, Label } from "@navikt/ds-react";
+import dayjs from "dayjs";
+import { basePath } from "@/constants";
+import type { Language } from "@/language/language";
+import historikkStyles from "@/styles/historikk.module.css";
+import type { DsopHistorikkInfo } from "@/types/dsop";
+import { text } from "../dsopText";
+import { grupperPerAar } from "../dsopUtils";
+import PersonvernInfo from "../PersonvernInfo.astro";
+import styles from "./DsopHistorikk.module.css";
+
+interface Props {
+    language: Language;
+    dsopInfo: DsopHistorikkInfo;
+}
+
+const { language, dsopInfo } = Astro.props;
+
+const grupper = grupperPerAar(dsopInfo);
+const hasInnslag = grupper.length > 0;
+---
+
+<div class={`${historikkStyles.tabsInnhold} ${historikkStyles.flexTable}`}>
+    {hasInnslag ? (
+        <>
+            <div class={historikkStyles.info}>
+                <Alert variant="info">
+                    <PersonvernInfo language={language} ingenData={false} />
+                </Alert>
+            </div>
+            <div class={historikkStyles.flexRad}>
+                <div class={historikkStyles.flexKolonne}>
+                    <Label as="p">{text.uthentingstidspunkt[language]}</Label>
+                </div>
+                <div class={historikkStyles.flexKolonne}>
+                    <Label as="p">{text.mottaker[language]}</Label>
+                </div>
+            </div>
+            {grupper.map((gruppe) => (
+                <details class={styles.aar} open={gruppe.aapen}>
+                    <summary class={`${historikkStyles.flexRad} ${styles.aarKnapp}`}>
+                        <span class={`${historikkStyles.flexKolonne} af-liste__ekspander`}>
+                            {gruppe.aar} <ChevronDownIcon className={styles.ned} aria-hidden={true} /><ChevronUpIcon className={styles.opp} aria-hidden={true} />
+                        </span>
+                    </summary>
+                    {gruppe.innslag.map((innslag) => (
+                        <div class={historikkStyles.flexRad}>
+                            <div class={historikkStyles.flexKolonne}>{dayjs(innslag.uthentingsTidspunkt).format("DD.MM kl. hh:mm")}</div>
+                            <div class={historikkStyles.flexKolonne}>
+                                <a href={`${basePath}/${language}/dsop/${encodeURIComponent(innslag.uthentingsTidspunkt)}`} class="lenke">
+                                    {innslag.mottakernavn}
+                                </a>
+                            </div>
+                        </div>
+                    ))}
+                </details>
+            ))}
+        </>
+    ) : (
+        <div class={historikkStyles.ingenData}>
+            <Alert variant="info">
+                <PersonvernInfo language={language} ingenData={true} />
+            </Alert>
+        </div>
+    )}
+</div>
