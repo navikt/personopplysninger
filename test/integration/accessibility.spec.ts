@@ -24,3 +24,11 @@ for (const { sti, innhold } of historikkOgDetaljer) {
         expect(await finnBrudd(page)).toEqual([]);
     });
 }
+
+test("nb/medlemskap-i-folketrygden har ingen WCAG AA-brudd med åpent panel", async ({ page }) => {
+    await page.goto("nb/medlemskap-i-folketrygden", { waitUntil: "domcontentloaded" });
+    await page.locator("details", { hasText: "DANMARK" }).locator("summary").click();
+    await expect(page.getByRole("main").getByText("DANMARK").first()).toBeVisible();
+
+    expect(await finnBrudd(page)).toEqual([]);
+});

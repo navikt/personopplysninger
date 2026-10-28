@@ -1,15 +1,15 @@
 ---
 import { ChevronDownIcon } from "@navikt/aksel-icons";
-import { Alert, BodyShort, Link, Label } from "@navikt/ds-react";
+import { Alert, BodyShort, Label, Link } from "@navikt/ds-react";
 import Hjelpetekst from "@/components/hjelpetekst/Hjelpetekst.astro";
 import Kilde from "@/components/kilde/Kilde.astro";
 import { basePath } from "@/constants";
 import type { Language } from "@/language/language";
 import historikkStyles from "@/styles/historikk.module.css";
 import type { InstInfo } from "@/types/inst";
+import instStyles from "../Inst.module.css";
 import { text } from "../instText";
 import { periode, sorterOpphold } from "../instUtils";
-import instStyles from "../Inst.module.css";
 import styles from "./InstHistorikk.module.css";
 
 interface Props {

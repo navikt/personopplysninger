@@ -56,7 +56,10 @@ test("lenker og tekster på valgt språk", async ({ page }) => {
         "href",
         "https://www.nav.no/samarbeidspartner/opphold-institusjon",
     );
-    await expect(page.getByRole("main").getByRole("link", { name: "Back" })).toHaveAttribute("href", "/person/personopplysninger/en/#flere-opplysninger");
+    await expect(page.getByRole("main").getByRole("link", { name: "Back" })).toHaveAttribute(
+        "href",
+        "/person/personopplysninger/en/#flere-opplysninger",
+    );
     await expect(page.getByRole("button", { name: "Show more" })).toBeVisible();
     await expect(page.getByText("SOURCE: INSTITUTIONAL STAY REGISTER")).toBeVisible();
 });
@@ -75,7 +78,10 @@ test("detaljen har ingen øyer og viser opplysningene på valgt språk", async (
     await expect(page.getByText("Type of institution")).toBeVisible();
     await expect(page.getByText("13.06.2017 - 15.09.2017")).toBeVisible();
     await expect(page.locator("astro-island")).toHaveCount(0);
-    await expect(page.getByRole("main").getByRole("link", { name: "Back" })).toHaveAttribute("href", "/person/personopplysninger/en/institusjonsopphold");
+    await expect(page.getByRole("main").getByRole("link", { name: "Back" })).toHaveAttribute(
+        "href",
+        "/person/personopplysninger/en/institusjonsopphold",
+    );
 });
 
 test("detaljen viser hjelpetekst for fiktiv sluttdato", async ({ page }) => {

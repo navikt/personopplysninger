@@ -9,7 +9,7 @@ test("har ingen øyer", async ({ page }) => {
 
 test("panelene er lukket og kan åpnes og lukkes", async ({ page }) => {
     await page.goto("nb/medlemskap-i-folketrygden");
-    const panel = page.locator("details").nth(1);
+    const panel = page.locator("details", { hasText: "DANMARK" });
 
     await expect(panel).not.toHaveAttribute("open");
     await panel.locator("summary").click();
