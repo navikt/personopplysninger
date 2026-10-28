@@ -9,12 +9,6 @@
     background: transparent;
 }
 
-@media (min-width: 959px) {
-    .modal {
-        max-width: 700px;
-    }
-}
-
 .ingress {
     max-width: 100%;
 }
@@ -39,4 +33,10 @@
 .titleIIconHover {
     background-color: var(--a-surface-action);
     color: white;
+}
+
+@media (min-width: 959px) {
+    .modal {
+        max-width: 700px;
+    }
 }

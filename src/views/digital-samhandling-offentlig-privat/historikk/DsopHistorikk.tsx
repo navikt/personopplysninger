@@ -8,7 +8,7 @@ import DsopHistorikkView from "./DsopHistorikkView";
 
 interface Props {
     dsopInfo: HentetData<DsopHistorikkInfo>;
-    pathname?: string;
+    pathname: string;
 }
 
 const DsopHistorikk = ({ dsopInfo, pathname }: Props) => {

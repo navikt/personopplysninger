@@ -5,7 +5,7 @@ import WithMEDL from "./MedlFetch";
 import MedlHistorikkView from "./MedlHistorikkView";
 
 interface Props {
-    pathname?: string;
+    pathname: string;
 }
 
 const MedlHistorikk = ({ pathname }: Props) => {

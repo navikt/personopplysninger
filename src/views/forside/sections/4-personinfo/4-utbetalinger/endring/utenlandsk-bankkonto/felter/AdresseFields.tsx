@@ -30,20 +30,11 @@ const AdresseFields = () => {
 
     const requiredOnCondition = (value: string, condition: boolean, messageId: string) => (condition ? !!value || formatMessage(messageId) : true);
 
-    const adressePakrevd = "validation.adresse.pakrevd";
-    const adresselinjePakrevd = "validation.adresselinje.pakrevd";
-    const firstCharNotSpace = "validation.firstchar.notspace";
-    const svartelisteFelles = "validation.svarteliste.felles";
-    const multipleSpaces = "validation.multiple.spaces";
-    const onlySpaceSignsDigits = "validation.only.space.signs.or.digits";
-    const onlySpaceSigns = "validation.only.space.or.signs";
-    const adresselinjeUgyldig = "validation.adresselinje.ugyldig";
-
     const baseAdresseValidation = {
-        firstCharNotSpace: (v: string) => validateIfSet(v, isFirstCharNotSpace(v), firstCharNotSpace),
-        notBlacklisted: (v: string) => validateIfSet(v, !isBlacklistedCommon(v), svartelisteFelles),
-        noCombinedSpaces: (v: string) => validateIfSet(v, !hasMultipleCombinedSpaces(v), multipleSpaces),
-        validAdresselinje: (v: string) => validateIfSet(v, isValidAdresselinje(v), adresselinjeUgyldig),
+        firstCharNotSpace: (v: string) => validateIfSet(v, isFirstCharNotSpace(v), "validation.firstchar.notspace"),
+        notBlacklisted: (v: string) => validateIfSet(v, !isBlacklistedCommon(v), "validation.svarteliste.felles"),
+        noCombinedSpaces: (v: string) => validateIfSet(v, !hasMultipleCombinedSpaces(v), "validation.multiple.spaces"),
+        validAdresselinje: (v: string) => validateIfSet(v, isValidAdresselinje(v), "validation.adresselinje.ugyldig"),
     };
 
     return (
@@ -55,8 +46,8 @@ const AdresseFields = () => {
             <TextField
                 {...register("adresse1", {
                     validate: {
-                        required: (v) => requiredOnCondition(v, shouldValidateAdresse(), adressePakrevd),
-                        notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), onlySpaceSignsDigits),
+                        required: (v) => requiredOnCondition(v, shouldValidateAdresse(), "validation.adresse.pakrevd"),
+                        notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), "validation.only.space.signs.or.digits"),
                         ...baseAdresseValidation,
                     },
                 })}
@@ -73,8 +64,8 @@ const AdresseFields = () => {
                 {...register("adresse2", {
                     onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
                     validate: {
-                        required: (v) => requiredOnCondition(v, !!watch().adresse3, adresselinjePakrevd),
-                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+                        required: (v) => requiredOnCondition(v, !!watch().adresse3, "validation.adresselinje.pakrevd"),
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), "validation.only.space.or.signs"),
                         ...baseAdresseValidation,
                     },
                 })}
@@ -91,7 +82,7 @@ const AdresseFields = () => {
                 {...register("adresse3", {
                     onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
                     validate: {
-                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), onlySpaceSigns),
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), "validation.only.space.or.signs"),
                         ...baseAdresseValidation,
                     },
                 })}

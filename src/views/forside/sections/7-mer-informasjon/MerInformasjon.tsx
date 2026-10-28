@@ -1,5 +1,4 @@
 import { Box, Heading, ReadMore } from "@navikt/ds-react";
-import { Fragment } from "react";
 import { FormattedMessage, useIntl } from "react-intl";
 import sharedStyles from "@/styles/shared.module.css";
 import styles from "./MerInformasjon.module.css";
@@ -15,12 +14,10 @@ const AlternativListe = () => {
                 <Heading size={"medium"} level={"2"}>
                     <FormattedMessage id="alternativer.tittel" />
                 </Heading>
-                {merInformasjon.map((info, i) => (
-                    <Fragment key={i}>
-                        <ReadMore key={info.id} header={msg({ id: info.tittel })}>
-                            <MerInformasjonPanelinnhold melding={info.melding} />
-                        </ReadMore>
-                    </Fragment>
+                {merInformasjon.map((info) => (
+                    <ReadMore key={info.id} header={msg({ id: info.tittel })}>
+                        <MerInformasjonPanelinnhold melding={info.melding} />
+                    </ReadMore>
                 ))}
             </div>
         </Box>

@@ -31,16 +31,15 @@ const Header = () => {
         }
         case "RESULT": {
             const { name } = authInfo.data;
-            const fornavn = name;
-            const Veileder = <img src={getAssetUrl(veilederIkon)} className={styles.ikon} alt="" aria-hidden="true" />;
+            const Veileder = <img src={getAssetUrl(veilederIkon)} className={styles.ikon} alt="" />;
 
             return (
                 <div className={styles.header}>
                     <GuidePanel illustration={Veileder} poster={true}>
                         <div className={`${boxStyles.container} ${styles.content}`}>
                             <Heading size={"medium"} level={"2"}>
-                                {fornavn ? (
-                                    <FormattedMessage id="header.hello.name" values={{ name: formatName(fornavn) }} />
+                                {name ? (
+                                    <FormattedMessage id="header.hello.name" values={{ name: formatName(name) }} />
                                 ) : (
                                     <FormattedMessage id="header.hello" />
                                 )}

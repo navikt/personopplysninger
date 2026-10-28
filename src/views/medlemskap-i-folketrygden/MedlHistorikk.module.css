@@ -35,12 +35,6 @@
     padding: 0.5rem 0;
 }
 
-@media (max-width: 420px) {
-    .flexRad {
-        flex-direction: column;
-    }
-}
-
 .flexKolonne {
     padding: 0.25rem 0;
     flex-basis: 100%;
@@ -50,16 +44,22 @@
     margin-left: 2rem;
 }
 
-@media (min-width: 420px) {
-    .tabsInnhold {
-        padding: 1rem 2rem;
-    }
-}
-
 .land {
     text-transform: lowercase;
 }
 
 .land::first-letter {
     text-transform: uppercase;
+}
+
+@media (max-width: 420px) {
+    .flexRad {
+        flex-direction: column;
+    }
+}
+
+@media (min-width: 420px) {
+    .tabsInnhold {
+        padding: 1rem 2rem;
+    }
 }

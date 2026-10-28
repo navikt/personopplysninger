@@ -26,13 +26,6 @@
     align-items: center;
 }
 
-@media (max-width: 420px) {
-    .verdi {
-        margin-bottom: 0.5rem;
-        width: 100%;
-    }
-}
-
 .inputContainer {
     display: flex;
     flex-wrap: wrap;
@@ -40,10 +33,8 @@
     gap: 1rem;
 }
 
-@media (max-width: 959px), (min-width: 959px) {
-    .input {
-        margin-right: 0.5rem;
-    }
+.input {
+    margin-right: 0.5rem;
 }
 
 .inputLandkode {
@@ -57,4 +48,11 @@
 
 .knapp:last-child {
     margin-left: 0.5rem;
+}
+
+@media (max-width: 420px) {
+    .verdi {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
 }

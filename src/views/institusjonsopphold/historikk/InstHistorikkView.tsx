@@ -1,6 +1,5 @@
 import { ChevronDownIcon } from "@navikt/aksel-icons";
 import { Alert, BodyShort, Button, Link as DsLink, Label } from "@navikt/ds-react";
-import classNames from "classnames";
 import dayjs from "dayjs";
 import { useState } from "react";
 import { FormattedMessage } from "react-intl";
@@ -12,15 +11,11 @@ import historikkStyles from "@/styles/historikk.module.css";
 import type { InstInfo } from "@/types/inst";
 import instStyles from "../Inst.module.css";
 
-const InstHistorikkView = (props: { instInfo: InstInfo; pathname?: string }) => {
+const InstHistorikkView = (props: { instInfo: InstInfo; pathname: string }) => {
     const [viewAmount, setViewAmount] = useState(20);
     const { formatMessage } = useIntlFormatter();
-    const { instInfo, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
+    const { instInfo, pathname } = props;
     const detailsPath = pathname.replace(/\/$/, "");
-
-    let animateDelay = 0;
-    let animateDelayKey = 0;
-    let animateDelaySum = 0;
 
     return (
         <>
@@ -37,7 +32,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo; pathname?: string }) => 
             <div className={instStyles.tabell}>
                 {instInfo.length > 0 ? (
                     <>
-                        <div className={classNames(historikkStyles.flexRad, instStyles.head)}>
+                        <div className={`${historikkStyles.flexRad} ${instStyles.head}`}>
                             <div className={historikkStyles.flexKolonne}>
                                 <Label as="p">
                                     <FormattedMessage id="inst.periode" />
@@ -54,14 +49,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo; pathname?: string }) => 
                                 .sort((a, b) => (dayjs(a.startdato) > dayjs(b.startdato) ? -1 : 1))
                                 .slice(0, viewAmount)
                                 .map((innslag, i) => {
-                                    if (animateDelayKey >= 20) {
-                                        animateDelay = 0;
-                                        animateDelayKey = 0;
-                                        animateDelaySum = 0;
-                                    }
-                                    animateDelay = 50 + animateDelayKey * 15;
-                                    animateDelaySum = +animateDelay;
-                                    animateDelayKey++;
+                                    const animateDelay = 50 + (i % 20) * 15;
 
                                     const startdato = dayjs(innslag.startdato).format("DD.MM.YYYY");
                                     const faktiskSluttdato = innslag.faktiskSluttdato ? dayjs(innslag.faktiskSluttdato).format("DD.MM.YYYY") : "";
@@ -77,7 +65,7 @@ const InstHistorikkView = (props: { instInfo: InstInfo; pathname?: string }) => 
                                                 transitionDelay: `${animateDelay}ms`,
                                                 fontWeight: i >= 20 && i >= viewAmount - 20 ? "bold" : "normal",
                                             }}
-                                            timeout={100 + animateDelaySum}
+                                            timeout={100 + animateDelay}
                                         >
                                             <div className={historikkStyles.flexRad}>
                                                 <div className={historikkStyles.flexKolonne}>

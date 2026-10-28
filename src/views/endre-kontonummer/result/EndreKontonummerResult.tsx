@@ -3,34 +3,22 @@ import Cookies from "js-cookie";
 import { FormattedMessage } from "react-intl";
 import styles from "./EndreKontonummerResult.module.css";
 
-type Result = "success" | "error";
-
-const RESULT_COOKIE = "kontonr-result";
-
-const COOKIE_OPTIONS = { path: "/", domain: ".nav.no" } as const;
-
-const resultTextIdMap: Record<string, string> = {
-    success: "endreKontonummer.success",
-    error: "endreKontonummer.error",
-} as const;
-
 export const EndreKontonummerResult = () => {
-    const result = Cookies.get(RESULT_COOKIE) as Result | undefined;
+    const result = Cookies.get("kontonr-result");
     if (!result) {
         return null;
     }
 
-    Cookies.remove(RESULT_COOKIE, COOKIE_OPTIONS);
+    Cookies.remove("kontonr-result", { path: "/", domain: ".nav.no" });
 
-    const resultTextId = resultTextIdMap[result];
-    if (!resultTextId) {
+    if (result !== "success" && result !== "error") {
         return null;
     }
 
     return (
         <Alert variant={result} className={styles.endreKontonrResult}>
             <FormattedMessage
-                id={resultTextId}
+                id={`endreKontonummer.${result}`}
                 values={{
                     p: (text) => <BodyLong>{text}</BodyLong>,
                 }}

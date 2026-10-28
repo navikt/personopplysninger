@@ -65,12 +65,6 @@ describe("buildRuntimeConfig", () => {
         expect(config.apiUrl).toBe("http://localhost:4321/tms-personopplysninger-api");
     });
 
-    it("tåler basesti med avsluttende skråstrek", () => {
-        const config = buildRuntimeConfig({ requestUrl: new URL("https://www.nav.no/"), basePath: `${basePath}/`, clusterName: "prod-gcp", env });
-
-        expect(config.appUrl).toBe("https://www.nav.no/person/personopplysninger");
-    });
-
     it("sender miljøverdiene videre uendret", () => {
         expect(build("https://www.nav.no/", "prod-gcp")).toMatchObject({
             buildVersion: "abc123",

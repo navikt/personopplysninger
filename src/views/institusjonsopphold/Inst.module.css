@@ -2,12 +2,6 @@
     margin: 1rem 0;
 }
 
-@media (max-width: 420px) {
-    .head {
-        display: none;
-    }
-}
-
 .kilde {
     margin-top: 1rem;
 }
@@ -28,5 +22,13 @@
 
 .animateEnterActive {
     opacity: 1;
-    transition: all 100ms ease-in;
+    transition-property: opacity;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in;
+}
+
+@media (max-width: 420px) {
+    .head {
+        display: none;
+    }
 }

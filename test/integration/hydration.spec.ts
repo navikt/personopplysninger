@@ -18,7 +18,7 @@ const paths = [
 const hydrationProblem = /hydrat|did not match|validateDOMNesting|Expected server HTML/i;
 
 for (const path of paths) {
-    test(`hydrates ${path} without mismatch against the server HTML`, async ({ page }) => {
+    test(`hydrerer ${path} uten avvik fra server-HTML-en`, async ({ page }) => {
         const problems: string[] = [];
         page.on("console", (message) => {
             if (hydrationProblem.test(message.text())) problems.push(message.text());

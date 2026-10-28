@@ -1,7 +1,7 @@
 import { DetaljertArbeidsforhold as DetaljertArbeidsforholdComponent } from "@navikt/arbeidsforhold";
 import type { Locale } from "@/store/Store";
 
-export interface Props {
+interface Props {
     miljo: "LOCAL" | "DEV" | "PROD";
     customApiUrl?: string;
     locale: Locale;

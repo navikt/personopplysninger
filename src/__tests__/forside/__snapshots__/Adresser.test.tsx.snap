@@ -280,9 +280,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                     data-state="closed"
                   >
-                    <dl
-                      class="list address-columns"
-                    >
+                    <dl>
                       <div>
                         <dt
                           class="_listElementHeading_2099ad"
@@ -408,9 +406,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
                     class="navds-read-more__content navds-read-more__content--closed navds-body-long navds-body-long--medium"
                     data-state="closed"
                   >
-                    <dl
-                      class="list address-columns"
-                    >
+                    <dl>
                       <div>
                         <dt
                           class="_listElementHeading_2099ad"

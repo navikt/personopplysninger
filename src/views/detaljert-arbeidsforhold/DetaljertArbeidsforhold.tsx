@@ -11,7 +11,7 @@ const DetaljertArbeidsforholdClient = lazy(() => import("./DetaljertArbeidsforho
 
 interface Props {
     id?: string;
-    pathname?: string;
+    pathname: string;
 }
 
 const Arbeidsforhold = ({ id, pathname }: Props) => {
