@@ -1,9 +1,3 @@
-/*
- * Delte stiler som brukes på tvers av sideseksjoner.
- * Kun for stiler som deles mellom to eller flere urelaterte komponenter.
- */
-
-/** Knapperad i modale dialoger (slett/bekreft) */
 .modalKnapper {
     display: flex;
     margin-top: 2rem;

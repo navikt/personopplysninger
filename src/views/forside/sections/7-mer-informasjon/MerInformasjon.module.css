@@ -1,11 +1,9 @@
-/* --ppo-bp-desktop: 959px */
 @media (min-width: 959px) {
     .content {
         padding: 1rem 3rem;
     }
 }
 
-/* --ppo-bp-desktop-max: 959px */
 @media (max-width: 959px) {
     .content {
         padding: 1rem 0;
@@ -18,7 +16,6 @@
     gap: 1rem;
 }
 
-/* Aksel navds-link rendered inline (vendor override) */
 .content :global(.navds-link) {
     display: inline;
 }

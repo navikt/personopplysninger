@@ -3,7 +3,6 @@ import { expect, type Page, test } from "@playwright/test";
 
 const wcagTags = ["wcag2a", "wcag2aa", "wcag21aa", "wcag22aa"];
 
-// Dekoratøren rendres på serveren og vedlikeholdes utenfor appen, så bare hovedinnholdet sjekkes.
 const finnBrudd = async (page: Page) => (await new AxeBuilder({ page }).include("main").withTags(wcagTags).analyze()).violations;
 
 test.describe("Personopplysninger forside", () => {
@@ -18,7 +17,6 @@ test.describe("Personopplysninger forside", () => {
         await expect(main).toHaveCount(1);
         await expect(main.getByRole("heading", { level: 1, name: "Personopplysninger" })).toBeVisible();
 
-        // Wait for mocked person data so axe evaluates the rendered route, not only its loading state.
         await expect(main.getByText("Fornavn", { exact: true })).toBeVisible();
 
         expect(await finnBrudd(page)).toEqual([]);

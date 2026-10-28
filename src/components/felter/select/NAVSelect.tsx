@@ -42,7 +42,6 @@ const DropdownIndicator = () => (
         <ChevronDownIcon aria-hidden="true" />
     </div>
 );
-/* eslint-disable-next-line*/
 const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     const labelId = props.id + "_label";
 
@@ -60,7 +59,6 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
         ? props.options
               .filter(
                   (option: OptionType) =>
-                      // Find closest match
                       (props.option && option.value === props.option.value) ||
                       (props.option &&
                           option.label.replace(`(${option.value})`, "").toUpperCase().trim() === props.option.label.trim().toUpperCase()),
@@ -80,8 +78,6 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
         }
     };
 
-    // Legg til border på option
-    // TODO: Forenkling
     const Option = (optionProps: OptionProps<OptionType, boolean>) => {
         if (props.borderUnderNth) {
             const { innerProps } = optionProps;

@@ -5,7 +5,6 @@ import type { InstInfo, InstInnslag } from "@/types/inst";
 export const medData = <T, U>(hentet: HentetData<T>, bearbeid: (data: T) => U): HentetData<U> =>
     hentet.status === "RESULT" ? { status: "RESULT", data: bearbeid(hentet.data) } : hentet;
 
-// Et innslag som ikke finnes er 404. Feil fra API-et viser dagens feilmelding på siden, med 200.
 export const svarstatus = (innslag: HentetData<unknown>) => (innslag.status === "RESULT" && innslag.data === undefined ? 404 : 200);
 
 export const tilDsopHistorikk = (sporingslogg: DsopInfo): DsopHistorikkInfo =>

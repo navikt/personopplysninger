@@ -64,11 +64,9 @@ const TelefonnummerHosNav = (props: Props) => {
                             onChangeSuccess={onChangeSuccess}
                         />
                     )}
-                    {
-                        <div className={dkifStyles.marginKilde}>
-                            <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
-                        </div>
-                    }
+                    <div className={dkifStyles.marginKilde}>
+                        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+                    </div>
                 </div>
             ) : (
                 <div className="underseksjon__beskrivelse">
@@ -92,7 +90,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     icon={<PlusCircleIcon className={kildeStyles.icon} aria-hidden="true" />}
                     variant="tertiary"
                     onClick={onLeggTil}
-                    className={`${tlfStyles.leggtil} knapp-med-ikon lenke`}
+                    className={tlfStyles.leggtil}
                 >
                     <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
                 </Button>

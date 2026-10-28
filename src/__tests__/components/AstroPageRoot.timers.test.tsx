@@ -6,9 +6,6 @@ import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 vi.mock("@/utils/faro", () => ({ startFaro: vi.fn() }));
 
-// Dekoratørens klient spør etter vinduet hvert 50. ms til dekoratøren svarer.
-// I testene svarer den aldri, så en slik timer kan gå etter at jsdom er revet ned
-// og gi «window is not defined» i CI.
 describe("AstroPageRoot i testmiljøet", () => {
     beforeEach(() => {
         vi.useFakeTimers();

@@ -11,10 +11,6 @@ const parseJson = (data: Response) => data.json();
 
 const apiUrl = () => getRuntimeConfig().apiUrl;
 
-/*
-   GET
- */
-
 const sjekkAuthHentJson = (url: string) =>
     fetch(url, {
         method: "GET",
@@ -47,10 +43,6 @@ export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`)
 export const fetchLand = () => sjekkAuthHentJson(`${apiUrl()}/land`);
 
 export const fetchValutaer = () => sjekkAuthHentJson(`${apiUrl()}/valuta`);
-
-/*
-    POST
- */
 
 type Outbound = OutboundTlfnummer | OutboundNorskKontonummer | OutboundUtenlandsbankonto;
 
@@ -111,10 +103,6 @@ export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlan
 
 export const slettKontaktadresse = () => postJson(`${apiUrl()}/slettKontaktadresse`);
 
-/*
-    UTILS
- */
-
 const sjekkRedirect = async (response: Response) => {
     if (response.ok) {
         const data = response.json();
@@ -137,7 +125,7 @@ const sjekkAuth = (response: Response): Response => {
     return response;
 };
 
-export const sendTilLogin = () => {
+const sendTilLogin = () => {
     const redirectUrl = getLoginRedirectUrl();
     window.location.assign(`${getRuntimeConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
 };

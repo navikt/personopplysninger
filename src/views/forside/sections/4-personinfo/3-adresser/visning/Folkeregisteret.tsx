@@ -63,7 +63,6 @@ const Folkeregisteret = (props: Props) => {
                             (kontaktadresse) => kontaktadresse.adresse?.type && utenlandskeAdressetyper.includes(kontaktadresse.adresse?.type),
                         ).length > 0
                     ) {
-                        // Må spesifiseres som norsk dersom bruker har registert utenlandsk kontaktadresse i tillegg
                         tittel = "adresse.kontaktadresse.norsk";
                     } else {
                         tittel = "adresse.kontaktadresse";
@@ -79,7 +78,6 @@ const Folkeregisteret = (props: Props) => {
                     />
                 );
             })}
-            {/* Kilde vil alltid være FREG i prod, kan være PDL i dev */}
             <Kilde
                 kilde="personalia.source.folkeregisteret"
                 lenke={

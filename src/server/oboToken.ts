@@ -6,7 +6,6 @@ interface Options {
     requestOboToken: (token: string, audience: string) => Promise<TokenResult>;
 }
 
-// Lokalt finnes verken innlogging eller TokenX; mockene godtar hvilket som helst token.
 export const getOboToken = async (token: string | undefined, { audience, isLocal, requestOboToken }: Options) => {
     if (isLocal) {
         return "Fake token";

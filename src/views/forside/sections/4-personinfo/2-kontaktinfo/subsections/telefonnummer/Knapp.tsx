@@ -13,13 +13,7 @@ interface Props {
 const Knapp = (props: Props) => {
     const { ariaLabel, onClick, ikon: Icon, tekstId } = props;
     return (
-        <Button
-            icon={<Icon className={tlfStyles.ikon} aria-hidden="true" />}
-            variant={"tertiary"}
-            className={"knapp-med-ikon"}
-            onClick={onClick}
-            aria-label={ariaLabel}
-        >
+        <Button icon={<Icon className={tlfStyles.ikon} aria-hidden="true" />} variant={"tertiary"} onClick={onClick} aria-label={ariaLabel}>
             <FormattedMessage id={tekstId} />
         </Button>
     );

@@ -107,7 +107,6 @@ describe("svarstatus", () => {
         expect(svarstatus({ status: "RESULT", data: { mottakernavn: "GJENSIDIGE FORSIKRING AS" } })).toBe(200);
     });
 
-    // Feiltilstanden er dagens feilmelding på siden, ikke en feilside (beslutning i #646).
     it("gir 200 når API-et feilet, fordi siden viser feilmeldingen", () => {
         expect(svarstatus(feil)).toBe(200);
     });

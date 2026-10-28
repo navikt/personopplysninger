@@ -4,20 +4,19 @@ import { FormattedMessage } from "react-intl";
 import Icon from "@/components/icon/Icon";
 import styles from "./LinkBox.module.css";
 
-export interface Props {
+interface Props {
     id: string;
     tittel: string;
     beskrivelse: string;
     lenkeTekst: string;
     icon?: string;
     to: string;
-    component: "a" | "Link";
 }
 
 const Box = (props: Props) => {
     return (
         <>
-            <div className={`${styles.iconContainer} icon__container`}>
+            <div className={styles.iconContainer}>
                 <Icon backgroundImage={props.icon} ariaHidden={true} />
             </div>
             <div className={styles.content}>
@@ -41,23 +40,10 @@ const Box = (props: Props) => {
     );
 };
 
-const LinkBox = (props: Props) => {
-    switch (props.component) {
-        case "Link":
-            return (
-                <a className={styles.rad} href={props.to}>
-                    <Box {...props} />
-                </a>
-            );
-        case "a":
-            return (
-                <a className={styles.rad} href={props.to}>
-                    <Box {...props} />
-                </a>
-            );
-        default:
-            return <Box {...props} />;
-    }
-};
+const LinkBox = (props: Props) => (
+    <a className={styles.rad} href={props.to}>
+        <Box {...props} />
+    </a>
+);
 
 export default LinkBox;

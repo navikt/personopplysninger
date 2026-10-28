@@ -1,14 +1,3 @@
-.rad {
-    display: flex;
-}
-
-/* --ppo-bp-mobile: 420px */
-@media (max-width: 420px) {
-    .rad {
-        flex-direction: column;
-    }
-}
-
 .knapper {
     display: flex;
     gap: 0.5rem;

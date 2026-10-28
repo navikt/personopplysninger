@@ -7,7 +7,7 @@ import styles from "./LabelMedHjelpetekst.module.css";
 interface Props {
     label: string;
     hjelpetekst?: string;
-    labelId?: string; //If labelId is defined, the component provides a label-tag
+    labelId?: string;
     labelForId?: string;
 }
 

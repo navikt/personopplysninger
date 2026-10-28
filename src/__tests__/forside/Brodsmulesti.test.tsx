@@ -6,13 +6,6 @@ import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
 import Brodsmulesti from "@/views/forside/sections/2-brodsmulesti/Brodsmulesti";
 
-vi.mock("@navikt/nav-dekoratoren-moduler", () => ({
-    onBreadcrumbClick: vi.fn(),
-    onLanguageSelect: vi.fn(),
-    setAvailableLanguages: vi.fn(),
-    setBreadcrumbs: vi.fn(),
-}));
-
 describe("Brodsmulesti", () => {
     it("sender språkvalg dekoratøren godtar: handleInApp og fulle URL-er til samme side", () => {
         render(

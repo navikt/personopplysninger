@@ -4,7 +4,6 @@ import type { AstroGlobal } from "astro";
 import type { ApiDeps } from "./apiClient";
 import { getOboToken } from "./oboToken";
 
-// Kobler server-klienten til forespørselen: brukerens token fra astro-auth, miljøets audience og Astro-loggeren.
 export const personopplysningerApi = (Astro: Pick<AstroGlobal, "locals" | "logger">): ApiDeps => ({
     baseUrl: PERSONOPPLYSNINGER_API_URL,
     getOboToken: () =>

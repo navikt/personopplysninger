@@ -3,10 +3,6 @@ import type { Tlfnr } from "../types/personalia";
 import { normalizeNummer } from "./formattering";
 import { isMod11 } from "./kontonummer";
 
-/*
-  General validators
- */
-
 export const isNormalizedLength = (value: string, length: number) => normalizeNummer(value).length === length;
 
 export const isNormalizedMod11 = (value: string) => isMod11(normalizeNummer(value));
@@ -24,10 +20,6 @@ export const isLettersAndDigits = (value: string) => {
 };
 
 export const isBlacklistedCommon = (value: string) => BLACKLISTED_WORDS.some((substring) => value.toLowerCase().includes(substring));
-
-/*
-  Special validators - Account number
- */
 
 export const isIBANCountryCompliant = (value: string, land?: OptionType) => {
     const ibanPrefix = value && value.substring(0, 2);
@@ -50,23 +42,11 @@ export const isValidBanknavn = (value: string) => !!normalizeInput(value).match(
 
 export const isValidAdresselinje = (value: string) => !!normalizeInput(value).match(regExpPattern.validBankadresselinje);
 
-/*
-  Special validators - Phone number
- */
-
 export const isNotAlreadyRegistered = (value: string, tlfnr: Tlfnr) => {
     return ![tlfnr.telefonHoved, tlfnr.telefonAlternativ].includes(value);
 };
 
 export const isNorwegianNumber = (landskode: OptionType) => landskode.value === "+47";
-
-/*
-  Utilstext
- */
-
-/*
-  Regex
- */
 
 const LATIN_LETTERS = "A-Za-z";
 const NORWEGIAN_LETTERS = LATIN_LETTERS + "ÆØÅæøå";
@@ -83,9 +63,9 @@ const COLON = ":";
 const NUMBER_SIGN = "#";
 const AMPERSAND = "&";
 
-export const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp => new RegExp(regExpAsArray.join(""), flag);
+const regExpCreator = (regExpAsArray: string[], flag = "i"): RegExp => new RegExp(regExpAsArray.join(""), flag);
 
-export const regExpPattern = {
+const regExpPattern = {
     onlyNonLetters: regExpCreator(["^[^", ALL_LETTERS, "]+$"]),
     onlySignsSpace: regExpCreator(["^[^", ALL_LETTERS, DIGITS, "]+$"]),
     onlyAlphaNumeric: regExpCreator(["^[", NORWEGIAN_LETTERS, DIGITS, "]+$"]),
@@ -108,14 +88,8 @@ export const regExpPattern = {
     validBanknavn: regExpCreator(["^[", ALL_LETTERS, DIGITS, SPACE, HYPHEN, PERIOD, COMMA, APOSTROPHE, FORWARD_SLASH, AMPERSAND, "]+$"]),
 };
 
-export const BLACKLISTED_WORDS = ["ukjent", "ikke kjent", "vet ikke", "uoppgitt", "n.n.", "nomen nescio"];
+const BLACKLISTED_WORDS = ["ukjent", "ikke kjent", "vet ikke", "uoppgitt", "n.n.", "nomen nescio"];
 
-/*
- * Normalize-funksjonen vil først dekomponere en bokstav med spesialtegn til flere kodepunkter.
- * F.eks. dekomponering av bokstaven Ç (\u00C7) vil resultere i kodepunktene \u0043 (C) og \u0327 (diakritisk tegn)
- * Deretter vil kodepunkter for diakritiske tegn strippes vekk. Man sitter da igjen med kun "base"-versjonen av bokstaven.
- * F.eks. i stringen \u0043\u0327 vil \u0327 bli gjenkjent som et diakritisk tegn og dermed strippes vekk.
- */
 const normalizeInput = (val: string): string => {
     const dekomponert = val.normalize("NFD");
     return dekomponert.replace(/[\u0300-\u036f]/g, "");

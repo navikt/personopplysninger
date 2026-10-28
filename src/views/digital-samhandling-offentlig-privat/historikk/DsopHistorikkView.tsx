@@ -12,7 +12,7 @@ interface Props {
     pathname?: string;
 }
 
-export const DsopHistorikkView = (props: Props) => {
+const DsopHistorikkView = (props: Props) => {
     const { locale } = useIntl();
     const { dsopInfo, pathname = typeof window === "undefined" ? "" : window.location.pathname } = props;
     const detailsPath = pathname.replace(/\/$/, "");
@@ -99,7 +99,7 @@ export const DsopHistorikkView = (props: Props) => {
 
                             return (
                                 <Fragment key={year}>
-                                    <div className={historikkStyles.flexRad} key={year}>
+                                    <div className={historikkStyles.flexRad}>
                                         <button
                                             type="button"
                                             className={classNames(historikkStyles.flexKolonne, "af-liste__ekspander")}

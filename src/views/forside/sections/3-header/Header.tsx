@@ -15,7 +15,6 @@ const Header = () => {
     const [{ authInfo }, dispatch] = useStore();
     const manglerNavn = authInfo.status === "RESULT" && !authInfo.data.name;
 
-    // ID-porten-tokenet har ikke navn, så det hentes fra innloggingsstatus som før
     useEffect(() => {
         if (!manglerNavn) {
             return;

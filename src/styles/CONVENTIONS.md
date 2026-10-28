@@ -90,21 +90,17 @@ Ikke kopier regler mellom moduler.
 ## 4. Breakpoints
 
 CSS custom properties kan **ikke** brukes direkte i `@media`-regler.
-Bruk de bokstavelige piksel-verdiene med kommentar:
+Bruk de bokstavelige piksel-verdiene, 959px for desktop og 420px for mobil:
 
 ```css
-/* --ppo-bp-desktop: 959px */
 @media (min-width: 959px) {
   .modal { max-width: 700px; }
 }
 
-/* --ppo-bp-mobile: 420px */
 @media (max-width: 420px) {
   .panel { flex-direction: column; }
 }
 ```
-
-Definisjonen av `--ppo-bp-desktop` og `--ppo-bp-mobile` finnes i `src/styles/tokens.css`.
 
 ## 5. Tokens og farger
 
@@ -123,7 +119,7 @@ color: #262626;
 border: 1px solid #c6c2bf;
 ```
 
-Prosjektspesifikke tokens (layout, breakpoints) er definert i `src/styles/tokens.css`.
+Prosjektspesifikke tokens (layout) er definert i `src/styles/tokens.css`.
 
 ## 6. Hva er tillatt i `src/styles/global.css`
 

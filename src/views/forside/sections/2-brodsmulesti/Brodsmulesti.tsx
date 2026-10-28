@@ -52,7 +52,6 @@ const Brodsmulesti = (props: BrodsmulestiProps) => {
         ]);
     }, [pathname]);
 
-    // Set breadcrumbs in decorator
     useEffect(() => {
         const baseBreadcrumbs = [
             {

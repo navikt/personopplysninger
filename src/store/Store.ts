@@ -10,7 +10,6 @@ import type { FetchPersonInfo } from "./providers/PersonInfo";
 export type Locale = "nb" | "en" | "nn";
 
 export interface Store {
-    formKey: number;
     locale: Locale;
     authInfo: FetchAuth;
     personInfo: FetchPersonInfo;
@@ -34,7 +33,6 @@ const getInitialLocale = (): Locale => {
     return "nb";
 };
 
-// Data serveren allerede har hentet. Slices som er satt her hentes ikke på nytt i nettleseren.
 export type InitialData = Partial<Pick<Store, "personInfo" | "kontaktInfo" | "medlInfo">>;
 
 export const createInitialState = (
@@ -42,7 +40,6 @@ export const createInitialState = (
     authInfo: FetchAuth = { status: "LOADING" },
     initialData: InitialData = {},
 ): Store => ({
-    formKey: 0,
     locale,
     authInfo,
     personInfo: { status: "LOADING" },
@@ -55,16 +52,8 @@ export const initialState = createInitialState();
 
 export type Action =
     | {
-          type: "SETT_LOCALE";
-          payload: Locale;
-      }
-    | {
           type: "SETT_AUTH_RESULT";
           payload: Auth;
-      }
-    | {
-          type: "SETT_AUTH_ERROR";
-          payload: HTTPError;
       }
     | {
           type: "SETT_PERSON_INFO_RESULT";
@@ -83,42 +72,22 @@ export type Action =
           payload: HTTPError;
       }
     | {
-          type: "SETT_SKATT_ERROR";
-          payload: HTTPError;
-      }
-    | {
           type: "SETT_MEDL_INFO_RESULT";
           payload: MedlInfo;
       }
     | {
           type: "SETT_MEDL_INFO_ERROR";
           payload: HTTPError;
-      }
-    | {
-          type: "INCREASE_FORM_KEY";
       };
 
 export const reducer = (state: Store, action: Action) => {
     switch (action.type) {
-        case "SETT_LOCALE":
-            return {
-                ...state,
-                locale: action.payload,
-            };
         case "SETT_AUTH_RESULT":
             return {
                 ...state,
                 authInfo: {
                     status: "RESULT",
                     data: action.payload,
-                } as FetchAuth,
-            };
-        case "SETT_AUTH_ERROR":
-            return {
-                ...state,
-                authInfo: {
-                    status: "ERROR",
-                    error: action.payload,
                 } as FetchAuth,
             };
         case "SETT_PERSON_INFO_RESULT":
@@ -168,11 +137,6 @@ export const reducer = (state: Store, action: Action) => {
                     status: "ERROR",
                     error: action.payload,
                 } as FetchMedlInfo,
-            };
-        case "INCREASE_FORM_KEY":
-            return {
-                ...state,
-                formKey: state.formKey + 1,
             };
         default:
             return state;

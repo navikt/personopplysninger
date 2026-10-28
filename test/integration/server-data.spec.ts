@@ -4,7 +4,6 @@ test("medlemskap har dataene i HTML-en fra serveren, før JavaScript kjører", a
     const response = await request.get("nb/medlemskap-i-folketrygden");
 
     expect(response.status()).toBe(200);
-    // Sjekker rendret markup, ikke bare øyas serialiserte props (som også inneholder dataene).
     expect(await response.text()).toMatch(/<dd[^>]*>DANMARK<\/dd>/);
 });
 
@@ -33,7 +32,6 @@ const ikkeHentetIgjen = async (page: import("@playwright/test").Page, sti: strin
 };
 
 test.describe("DSOP", () => {
-    // Starten av leverteData for første innslag i mock-dataene.
     const utleverteData = "eyJ1dHRyZWtrc3BlcmlvZGUi";
 
     test("historikken har dataene i HTML-en fra serveren, uten utleverte data", async ({ request }) => {

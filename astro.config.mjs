@@ -14,7 +14,6 @@ export default defineConfig({
     build: {
         assetsPrefix: "https://cdn.nav.no/min-side/personopplysninger",
     },
-    // Mockene registreres bare av `astro dev` og påvirker aldri bygget.
     integrations: [react(), mockServer({ mocks })],
     logger: { entrypoint: "@navikt/astro-logger" },
     i18n: {
@@ -26,8 +25,6 @@ export default defineConfig({
         },
     },
     env: {
-        // Leses ved kjøring (server/secret), siden samme image deployes til alle miljøer.
-        // Verdiene for dev og prod settes i nais/<cluster>/nais.yaml; standardverdiene gjelder lokalt.
         schema: {
             APP_ORIGIN: envField.string({ context: "server", access: "secret", default: "http://localhost:4321" }),
             API_PATH: envField.string({ context: "server", access: "secret", default: "/api" }),
@@ -38,7 +35,6 @@ export default defineConfig({
             INNLOGGINGSSTATUS_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api/auth" }),
             LOGIN_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/oauth2/login" }),
             PDL_URL: envField.string({ context: "server", access: "secret", default: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" }),
-            // Server-side kall går internt i clusteret; lokalt svarer mockene på dev-serveren.
             PERSONOPPLYSNINGER_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api" }),
             SKJERMING_URL: envField.string({
                 context: "server",
@@ -58,7 +54,6 @@ export default defineConfig({
         build: {
             sourcemap: true,
         },
-        // Server-kallene lokalt går til mockene på port 4321; ikke flytt dev-serveren til en annen port.
         server: {
             strictPort: true,
         },

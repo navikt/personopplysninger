@@ -21,7 +21,6 @@ const json = (data: unknown, init: ResponseInit = {}) =>
         headers: { "Content-Type": "application/json; charset=utf-8", ...init.headers },
     });
 
-// ?delay=<ms> gir fast forsinkelse; ellers en tilfeldig verdi i intervallet, som et ekte API.
 const getDelay = (query: URLSearchParams, [min, max]: [number, number]) => {
     const configuredDelay = query.get("delay");
     if (configuredDelay !== null) {
@@ -30,7 +29,6 @@ const getDelay = (query: URLSearchParams, [min, max]: [number, number]) => {
     return randomInt(min, max);
 };
 
-// ?scenario=error gir 500 og ?scenario=empty et tomt svar, for å teste feil- og tomtilstander lokalt.
 const respond =
     (data: MockData, delayRange: [number, number], emptyData?: MockData) =>
     async ({ query }: MockContext) => {

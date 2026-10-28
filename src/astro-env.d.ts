@@ -1,4 +1,3 @@
-// Typer for tsc utenfor Astro; astro check bruker de genererte typene i .astro/.
 declare module "astro:env/server" {
     export const API_PATH: string;
     export const APP_ORIGIN: string;
