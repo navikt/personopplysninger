@@ -16,10 +16,14 @@ const stubFetch = (fetchMock: ReturnType<typeof vi.fn<typeof fetch>>) => {
 const svar = (status: number, body: string) => stubFetch(vi.fn<typeof fetch>().mockResolvedValue(new Response(body, { status })));
 
 describe("hentFraApi", () => {
-    afterEach(() => vi.unstubAllGlobals());
+    afterEach(() => {
+        vi.unstubAllGlobals();
+        vi.restoreAllMocks();
+    });
 
     it("henter JSON med OBO-token fra API-et", async () => {
         const fetchMock = svar(200, JSON.stringify({ perioder: [] }));
+        const timeout = vi.spyOn(AbortSignal, "timeout");
         const { deps } = lagDeps();
 
         await expect(hentFraApi("/medl", deps)).resolves.toEqual({ status: "RESULT", data: { perioder: [] } });
@@ -27,7 +31,8 @@ describe("hentFraApi", () => {
         const [url, init] = fetchMock.mock.calls[0];
         expect(url).toBe("http://api.test/tms-personopplysninger-api/medl");
         expect(new Headers(init?.headers).get("Authorization")).toBe("Bearer obo-token");
-        expect(init?.signal).toBeInstanceOf(AbortSignal);
+        expect(timeout).toHaveBeenCalledWith(5000);
+        expect(init?.signal).toBe(timeout.mock.results[0].value);
     });
 
     it.each([401, 403])("gir UNAUTHORIZED ved %i, slik klienten sender til innlogging", async (status) => {
