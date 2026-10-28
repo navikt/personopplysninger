@@ -1,10 +1,8 @@
 import type { HTTPError } from "../components/errorMessage/ErrorMessage";
 import type { Auth, FetchAuth } from "../types/authInfo";
 import type { KontaktInfo } from "../types/kontaktInfo";
-import type { MedlInfo } from "../types/medl";
 import type { PersonInfo } from "../types/personInfo";
 import type { FetchKontaktInfo } from "../views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
-import type { FetchMedlInfo } from "../views/medlemskap-i-folketrygden/MedlFetch";
 import type { FetchPersonInfo } from "./providers/PersonInfo";
 
 export type Locale = "nb" | "en" | "nn";
@@ -14,7 +12,6 @@ export interface Store {
     authInfo: FetchAuth;
     personInfo: FetchPersonInfo;
     kontaktInfo: FetchKontaktInfo;
-    medlInfo: FetchMedlInfo;
 }
 
 const getInitialLocale = (): Locale => {
@@ -33,19 +30,11 @@ const getInitialLocale = (): Locale => {
     return "nb";
 };
 
-export type InitialData = Partial<Pick<Store, "personInfo" | "kontaktInfo" | "medlInfo">>;
-
-export const createInitialState = (
-    locale = getInitialLocale(),
-    authInfo: FetchAuth = { status: "LOADING" },
-    initialData: InitialData = {},
-): Store => ({
+export const createInitialState = (locale = getInitialLocale(), authInfo: FetchAuth = { status: "LOADING" }): Store => ({
     locale,
     authInfo,
     personInfo: { status: "LOADING" },
     kontaktInfo: { status: "LOADING" },
-    medlInfo: { status: "LOADING" },
-    ...initialData,
 });
 
 export const initialState = createInitialState();
@@ -69,14 +58,6 @@ export type Action =
       }
     | {
           type: "SETT_KONTAKT_INFO_ERROR";
-          payload: HTTPError;
-      }
-    | {
-          type: "SETT_MEDL_INFO_RESULT";
-          payload: MedlInfo;
-      }
-    | {
-          type: "SETT_MEDL_INFO_ERROR";
           payload: HTTPError;
       };
 
@@ -121,22 +102,6 @@ export const reducer = (state: Store, action: Action) => {
                     status: "ERROR",
                     error: action.payload,
                 } as FetchKontaktInfo,
-            };
-        case "SETT_MEDL_INFO_RESULT":
-            return {
-                ...state,
-                medlInfo: {
-                    status: "RESULT",
-                    data: action.payload,
-                } as FetchMedlInfo,
-            };
-        case "SETT_MEDL_INFO_ERROR":
-            return {
-                ...state,
-                medlInfo: {
-                    status: "ERROR",
-                    error: action.payload,
-                } as FetchMedlInfo,
             };
         default:
             return state;

@@ -36,8 +36,6 @@ export const fetchKontaktInfo = () => sjekkAuthHentJson(`${apiUrl()}/kontaktinfo
 
 export const fetchRetningsnumre = () => sjekkAuthHentJson(`${apiUrl()}/retningsnumre`);
 
-export const fetchMedlInfo = () => sjekkAuthHentJson(`${apiUrl()}/medl`);
-
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`);
 
 export const fetchLand = () => sjekkAuthHentJson(`${apiUrl()}/land`);
