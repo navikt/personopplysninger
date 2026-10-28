@@ -1,5 +1,7 @@
 .popover {
     font-weight: normal;
+    color: var(--a-text-default);
+    padding: 0;
     max-width: 50%;
     overflow: visible;
 }
@@ -14,7 +16,7 @@
 @supports (position-area: top) {
     .popover {
         inset: auto;
-        margin: 0 0 0.5rem 0;
+        margin: 0 0 1rem 0;
         position-area: top;
         position-try-fallbacks: flip-block;
     }
