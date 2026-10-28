@@ -38,4 +38,13 @@ describe("startFaro", () => {
 
         expect(initializeFaro).not.toHaveBeenCalled();
     });
+
+    it("gjør ingenting uten telemetri-element", async () => {
+        vi.resetModules();
+        document.body.innerHTML = "";
+        const { startFaro } = await import("@/utils/faro");
+
+        expect(() => startFaro()).not.toThrow();
+        expect(initializeFaro).not.toHaveBeenCalled();
+    });
 });

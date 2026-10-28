@@ -12,4 +12,16 @@ describe("getSpraakvalg", () => {
     it("beholder avsluttende skråstrek på forsiden", () => {
         expect(getSpraakvalg("https://www.nav.no/person/personopplysninger", "/nn/")[0].url).toBe("https://www.nav.no/person/personopplysninger/nb/");
     });
+
+    it("bytter språk når stien slutter på språkkoden", () => {
+        expect(getSpraakvalg("https://www.nav.no/person/personopplysninger", "/en")[1].url).toBe("https://www.nav.no/person/personopplysninger/nn");
+    });
+
+    it("lar stier uten språkkode være som de er", () => {
+        expect(getSpraakvalg("https://www.nav.no/person/personopplysninger", "/finnes/en/ikke").map((valg) => valg.url)).toEqual([
+            "https://www.nav.no/person/personopplysninger/finnes/en/ikke",
+            "https://www.nav.no/person/personopplysninger/finnes/en/ikke",
+            "https://www.nav.no/person/personopplysninger/finnes/en/ikke",
+        ]);
+    });
 });
