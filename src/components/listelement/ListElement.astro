@@ -1,0 +1,28 @@
+---
+import { Label } from "@navikt/ds-react";
+import Hjelpetekst from "@/components/hjelpetekst/Hjelpetekst.astro";
+import type { Language } from "@/language/language";
+import styles from "./ListElement.module.css";
+
+interface Props {
+    language: Language;
+    tittel: string;
+    innhold?: string | null;
+    hjelpetekst?: string;
+    className?: string;
+}
+
+const { language, tittel, innhold, hjelpetekst, className } = Astro.props;
+---
+
+{
+    (innhold || Astro.slots.has("default")) && (
+        <div>
+            <dt class={styles.listElementHeading}>
+                <Label as="span">{tittel}</Label>
+                {hjelpetekst && <Hjelpetekst language={language} tittel={tittel}>{hjelpetekst}</Hjelpetekst>}
+            </dt>
+            <dd class={className}>{innhold ?? <slot />}</dd>
+        </div>
+    )
+}

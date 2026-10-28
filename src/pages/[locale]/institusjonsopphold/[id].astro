@@ -1,13 +1,20 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
+import INSTIkon from "@/assets/img/Institusjonsopphold.svg";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import Kilde from "@/components/kilde/Kilde.astro";
+import PageContainer from "@/components/pagecontainer/PageContainer.astro";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { finnInstInnslag, medData, svarstatus } from "@/server/historikk";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
-import type { Locale } from "@/store/Store";
 import type { InstInfo } from "@/types/inst";
 import { decodeRouteParam } from "@/utils/params";
+import InstDetaljer from "@/views/institusjonsopphold/detaljer/InstDetaljer.astro";
+import instStyles from "@/views/institusjonsopphold/Inst.module.css";
+import { text } from "@/views/institusjonsopphold/instText";
 
-const locale = Astro.currentLocale as Locale;
+const language = Astro.currentLocale as Language;
 const id = decodeRouteParam(Astro.params.id);
 
 const instInfo = await hentFraApi<InstInfo>("/institusjonsopphold", personopplysningerApi(Astro));
@@ -19,4 +26,20 @@ const innslag = medData(instInfo, (opphold) => finnInstInnslag(opphold, id));
 Astro.response.status = svarstatus(innslag);
 ---
 
-<AstroPage page="institusjonsoppholdDetaljer" locale={locale} pathname={Astro.url.pathname} innslag={innslag} />
+<Layout
+    title="Personopplysninger - www.nav.no"
+    brodsmuler={[{ sti: "/institusjonsopphold", tittel: text.tittel[language] }, { sti: `/institusjonsopphold/${encodeURIComponent(id ?? "")}`, tittel: text.detaljer[language] }]}
+>
+    <div class="pagecontent">
+        <div class="wrapper">
+            <PageContainer language={language} tittel={text.tittel[language]} ikon={INSTIkon} tilbakeTil="/institusjonsopphold">
+                {innslag.status === "ERROR" && <ErrorMessage error={innslag.error} />}
+                {innslag.status === "RESULT" && innslag.data && <InstDetaljer language={language} innslag={innslag.data} />}
+                {innslag.status === "RESULT" && !innslag.data && <div>{text.ingenData[language]}</div>}
+                <div class={instStyles.kilde}>
+                    <Kilde kilde={text.kilde[language]} forklaring={text.kildeForklaring[language]} />
+                </div>
+            </PageContainer>
+        </div>
+    </div>
+</Layout>

@@ -1,0 +1,53 @@
+---
+import { BodyShort, Heading } from "@navikt/ds-react";
+import boxStyles from "@/components/box/Box.module.css";
+import Hjelpetekst from "@/components/hjelpetekst/Hjelpetekst.astro";
+import ListElement from "@/components/listelement/ListElement.astro";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
+import detaljerStyles from "@/styles/detaljer.module.css";
+import type { InstInnslag } from "@/types/inst";
+import { formatOrgnr, RADIX_DECIMAL } from "@/utils/formattering";
+import instStyles from "../Inst.module.css";
+import { text } from "../instText";
+import { periode } from "../instUtils";
+
+interface Props {
+    language: Language;
+    innslag: InstInnslag;
+}
+
+const { language, innslag } = Astro.props;
+---
+
+<div>
+    <div class={detaljerStyles.tittel}>
+        <Heading level="2" size="small">{innslag.institusjonsnavn}</Heading>
+        {
+            innslag.organisasjonsnummer && (
+                <BodyShort>{felles.organisasjonsnummer[language](formatOrgnr(parseInt(innslag.organisasjonsnummer, RADIX_DECIMAL).toString()))}</BodyShort>
+            )
+        }
+    </div>
+    <hr class={boxStyles.lineWide} />
+    <div class="box">
+        <div class="box__content">
+            <dl class={listeStyles.list}>
+                <ListElement language={language} tittel={text.institusjonstype[language]} innhold={innslag.institusjonstype} />
+                <ListElement language={language} tittel={text.periode[language]}>
+                    <div class={instStyles.periode}>
+                        {periode(innslag)}
+                        {
+                            innslag.fiktivSluttdato && (
+                                <Hjelpetekst language={language} tittel={text.fiktivSluttdatoTittel[language]}>
+                                    {text.fiktivSluttdato[language]}
+                                </Hjelpetekst>
+                            )
+                        }
+                    </div>
+                </ListElement>
+            </dl>
+        </div>
+    </div>
+</div>
