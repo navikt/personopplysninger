@@ -7,10 +7,7 @@
 }
 
 .pil {
-    bottom: -0.5rem;
-    left: calc(50% - 0.5rem);
-    border-left-color: transparent;
-    border-top-color: transparent;
+    display: none;
 }
 
 @supports (position-area: top) {
@@ -19,5 +16,13 @@
         margin: 0 0 1rem 0;
         position-area: top;
         position-try-fallbacks: flip-block;
+    }
+
+    .pil {
+        display: block;
+        bottom: -0.5rem;
+        left: calc(50% - 0.5rem);
+        border-left-color: transparent;
+        border-top-color: transparent;
     }
 }

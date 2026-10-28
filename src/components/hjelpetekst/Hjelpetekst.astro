@@ -22,7 +22,7 @@ const id = `hjelpetekst-${crypto.randomUUID()}`;
         aria-label={`${text.merOm[language]} ${tittel}`}
         class={`navds-button navds-button--tertiary navds-button--medium ${helpStyles.helpButton}`}
     >
-        <span class="navds-label"><QuestionmarkIcon className={helpStyles.icon} aria-hidden="true" /></span>
+        <span class="navds-label"><QuestionmarkIcon className={helpStyles.icon} aria-hidden={true} /></span>
     </button>
     <div id={id} popover class={`navds-popover ${styles.popover}`}>
         <div class="navds-popover__content"><slot /></div>

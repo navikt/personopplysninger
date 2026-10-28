@@ -13,6 +13,13 @@ describe("grupperPerioder", () => {
         expect(grupper.ingenPerioder).toBe(false);
     });
 
+    it("har perioder når bare én gruppe har innhold", () => {
+        const studie = { ...periode, medlem: true, studieinformasjon: { statsborgerland: "NOR", studieland: "DNK" } };
+
+        expect(grupperPerioder({ perioder: [{ ...periode, medlem: true }] }).ingenPerioder).toBe(false);
+        expect(grupperPerioder({ perioder: [studie] }).ingenPerioder).toBe(false);
+    });
+
     it("har ingen perioder når listen er tom eller mangler", () => {
         expect(grupperPerioder({ perioder: [] }).ingenPerioder).toBe(true);
         expect(grupperPerioder({}).ingenPerioder).toBe(true);

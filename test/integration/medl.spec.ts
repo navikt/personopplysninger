@@ -19,6 +19,16 @@ test("panelene er lukket og kan åpnes og lukkes", async ({ page }) => {
     await expect(panel).not.toHaveAttribute("open");
 });
 
+test("perioder uten studieinformasjon viser ikke statsborgerland og studieland", async ({ page }) => {
+    await page.goto("nb/medlemskap-i-folketrygden");
+    const panel = page.locator("details", { hasText: "DANMARK" });
+    await panel.locator("summary").click();
+
+    await expect(panel.getByText("DANMARK").first()).toBeVisible();
+    await expect(panel.getByText("Statsborgerland")).toHaveCount(0);
+    await expect(panel.getByText("Studieland")).toHaveCount(0);
+});
+
 test("hjelpetekst i en periode", async ({ page }) => {
     await page.goto("nb/medlemskap-i-folketrygden");
     const panel = page.locator("details").first();
