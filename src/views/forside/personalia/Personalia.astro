@@ -1,0 +1,42 @@
+---
+import personaliaIkon from "@/assets/img/Personalia.svg";
+import Box from "@/components/box/Box.astro";
+import Kilde from "@/components/kilde/Kilde.astro";
+import ListElement from "@/components/listelement/ListElement.astro";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import type { Language } from "@/language/language";
+import type { Personalia } from "@/types/personalia";
+import { text } from "./personaliaText";
+import { formatterPersonident, fornavnTittel } from "./personaliaUtils";
+
+interface Props {
+    language: Language;
+    personalia: Personalia;
+}
+
+const { language, personalia } = Astro.props;
+const { personident, fornavn, etternavn, statsborgerskap, foedested, sivilstand, kjoenn } = personalia;
+
+const personidentTittel = personident && personident.type === "DNR" ? text.dnr[language] : text.fnr[language];
+const formattertPersonident = formatterPersonident(personident);
+---
+
+<Box language={language} id="personalia" tittel={text.tittel[language]} ikon={personaliaIkon} ankerlenke>
+    <Fragment slot="beskrivelse">{text.beskrivelse[language]}</Fragment>
+    <dl class={listeStyles.list}>
+        <ListElement language={language} tittel={fornavnTittel(fornavn, language)} innhold={fornavn} />
+        <ListElement language={language} className="capitalize" tittel={text.etternavn[language]} innhold={etternavn} />
+        {formattertPersonident && <ListElement language={language} tittel={personidentTittel} innhold={formattertPersonident.verdi} />}
+        {statsborgerskap && (
+            <ListElement language={language} tittel={text.statsborgerskap[language]}>
+                {statsborgerskap.map((land) => (
+                    <div>{land}</div>
+                ))}
+            </ListElement>
+        )}
+        <ListElement language={language} tittel={text.foedested[language]} innhold={foedested} />
+        <ListElement language={language} tittel={text.sivilstand[language]} innhold={sivilstand} />
+        <ListElement language={language} tittel={text.kjoenn[language]} innhold={kjoenn} />
+    </dl>
+    <Kilde kilde={text.kildeFolkeregisteret[language]} lenke={text.folkeregisteretUrl[language]} lenkeTekst={text.endreIFolkeregisteret[language]} />
+</Box>

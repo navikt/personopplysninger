@@ -1,0 +1,42 @@
+---
+import { GuidePanel, Heading } from "@navikt/ds-react";
+import AnchorLink from "@/components/anchorlink/AnchorLink.astro";
+import Infotekst from "@/components/infotekst/Infotekst.astro";
+import type { Language } from "@/language/language";
+import { getAssetUrl } from "@/utils/assets";
+import styles from "./Box.module.css";
+
+interface Props {
+    language: Language;
+    id: string;
+    tittel: string;
+    ikon: string | { src: string };
+    ankerlenke?: boolean;
+}
+
+const { language, id, tittel, ikon, ankerlenke } = Astro.props;
+
+const hasBeskrivelse = Astro.slots.has("beskrivelse");
+---
+
+<div class={styles.wrapper} id={id}>
+    <GuidePanel poster>
+        <img slot="illustration" src={getAssetUrl(ikon)} alt="" />
+        <div class={styles.container}>
+            <div class={styles.header}>
+                <div class={styles.titleContainer}>
+                    <div class={styles.line}></div>
+                    <Heading size="medium" level="2" className={styles.title}>{tittel}</Heading>
+                    {hasBeskrivelse && (
+                        <Infotekst language={language} tittel={tittel}>
+                            <slot name="beskrivelse" />
+                        </Infotekst>
+                    )}
+                    <div class={styles.line}></div>
+                </div>
+                {ankerlenke && <AnchorLink language={language} id={id} />}
+            </div>
+            <slot />
+        </div>
+    </GuidePanel>
+</div>

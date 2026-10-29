@@ -6,6 +6,7 @@
 
 .wrapper {
     page-break-after: always;
+    scroll-margin-top: 1rem;
 }
 
 .wrapper :global(.navds-guide-panel__content) {

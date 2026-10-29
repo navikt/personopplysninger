@@ -54,3 +54,9 @@ body {
 .capitalize {
     text-transform: capitalize;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}

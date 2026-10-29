@@ -24,6 +24,11 @@ for (const path of paths) {
         });
 
         await page.goto(path, { waitUntil: "networkidle" });
+        await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+        for (const oy of await page.locator("astro-island").all()) {
+            await oy.scrollIntoViewIfNeeded();
+            await expect(oy).not.toHaveAttribute("ssr");
+        }
 
         expect(problems).toEqual([]);
     });

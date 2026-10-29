@@ -3,8 +3,8 @@ import AstroPageRoot from "@/components/astro/AstroPageRoot";
 import { getRuntimeConfig, setRuntimeConfig, useRuntimeConfig } from "@/config/runtimeConfig";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
-vi.mock("@/views/forside/Forside", () => ({
-    default: () => {
+vi.mock("@/views/endre-kontonummer/EndreKontonummer", () => ({
+    EndreKontonummer: () => {
         const { apiUrl } = useRuntimeConfig();
         return <div>forside {apiUrl}</div>;
     },
@@ -16,7 +16,7 @@ describe("AstroPageRoot", () => {
     afterEach(() => setRuntimeConfig(testRuntimeConfig));
 
     it("gir sidene konfigurasjonen fra serveren", () => {
-        render(<AstroPageRoot page="forside" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
+        render(<AstroPageRoot page="endreKontonummer" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
 
         expect(screen.getByText(`forside ${config.apiUrl}`)).toBeInTheDocument();
     });
@@ -24,7 +24,7 @@ describe("AstroPageRoot", () => {
     it("gjør konfigurasjonen tilgjengelig for kode utenfor React før første rendring", () => {
         setRuntimeConfig(null);
 
-        render(<AstroPageRoot page="forside" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
+        render(<AstroPageRoot page="endreKontonummer" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
 
         expect(getRuntimeConfig()).toBe(config);
     });

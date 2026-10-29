@@ -5,11 +5,9 @@ import AstroPageRoot, { type AstroPageProps } from "./AstroPageRoot";
 
 type Props = AstroPageProps;
 
-const validation = Astro.locals.validation;
 const config = getServerRuntimeConfig(Astro.url);
-const authName = validation?.ok && typeof validation.payload.name === "string" ? validation.payload.name : "";
 ---
 
 <Layout title="Personopplysninger - www.nav.no">
-    <AstroPageRoot client:load {...Astro.props} authName={authName} config={config} />
+    <AstroPageRoot client:load {...Astro.props} config={config} />
 </Layout>

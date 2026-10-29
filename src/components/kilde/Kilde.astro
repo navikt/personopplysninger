@@ -1,19 +1,33 @@
 ---
-import { Detail } from "@navikt/ds-react";
+import { ExternalLinkIcon } from "@navikt/aksel-icons";
+import { BodyLong, Detail, Link } from "@navikt/ds-react";
 import styles from "./Kilde.module.css";
 
 interface Props {
     kilde: string;
-    forklaring: string;
+    forklaring?: string;
+    lenke?: string;
+    lenkeTekst?: string;
 }
 
-const { kilde, forklaring } = Astro.props;
+const { kilde, forklaring, lenke, lenkeTekst } = Astro.props;
 ---
 
 <div class={styles.tekst}>
     <Detail spacing>
         {kilde}
-        <br />
-        <span class={styles.forklaring}>{forklaring}</span>
+        {forklaring && (
+            <>
+                <br />
+                <span class={styles.forklaring}>{forklaring}</span>
+            </>
+        )}
     </Detail>
 </div>
+{lenke && (
+    <BodyLong>
+        <Link href={lenke}>
+            <span class={styles.icon}><ExternalLinkIcon aria-hidden={true} className={styles.iconAksel} /></span>{lenkeTekst}
+        </Link>
+    </BodyLong>
+)}

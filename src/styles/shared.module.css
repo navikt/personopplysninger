@@ -15,6 +15,7 @@
 .panel {
     margin-top: 3rem;
     padding: 2rem 1.5rem !important;
+    scroll-margin-top: 1rem;
 }
 
 @media print {

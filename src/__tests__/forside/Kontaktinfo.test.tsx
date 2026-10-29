@@ -1,37 +1,10 @@
 import { render } from "@testing-library/react";
 import { IntlProvider } from "react-intl";
-import kontaktInfo from "@/mocks/fixtures/kontakt-info.json";
 import personInfo from "@/mocks/fixtures/person-info.json";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
 import type { Tlfnr } from "@/types/personalia";
-import kontaktInfoStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.module.css";
-import DKIF from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF";
 import TelefonnummerHosNav from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerHosNav";
-
-describe("DKIF", () => {
-    it("renders correctly", () => {
-        const { asFragment } = render(
-            <StoreProvider>
-                <IntlProvider locale={"nb"} messages={nbMessages}>
-                    <DKIF info={kontaktInfo} />
-                </IntlProvider>
-            </StoreProvider>,
-        );
-        expect(asFragment()).toMatchSnapshot();
-    });
-
-    it("første blokk har avstand ned til varselet", () => {
-        const { container } = render(
-            <StoreProvider>
-                <IntlProvider locale={"nb"} messages={nbMessages}>
-                    <DKIF info={kontaktInfo} />
-                </IntlProvider>
-            </StoreProvider>,
-        );
-        expect(container.firstElementChild).toHaveClass(kontaktInfoStyles.telefonnummer);
-    });
-});
 
 describe("TelefonnummerHosNav", () => {
     it("renders correctly", () => {

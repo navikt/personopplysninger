@@ -1,0 +1,19 @@
+---
+import { LinkIcon } from "@navikt/aksel-icons";
+import { Link } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import { text } from "@/language/text";
+import styles from "./AnchorLink.module.css";
+
+interface Props {
+    language: Language;
+    id: string;
+}
+
+const { language, id } = Astro.props;
+---
+
+<Link href={`#${id}`} className={styles.anchorLink}>
+    <LinkIcon className={styles.icon} aria-hidden={true} />
+    {text.lenkeHit[language]}
+</Link>

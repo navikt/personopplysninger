@@ -1,8 +1,93 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
-import type { Locale } from "@/store/Store";
+import { Heading } from "@navikt/ds-react";
+import personaliaIkon from "@/assets/img/Personalia.svg";
+import Box from "@/components/box/Box.astro";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { KontaktInfo as KontaktInfoData } from "@/types/kontaktInfo";
+import type { PersonInfo } from "@/types/personInfo";
+import Adresser from "@/views/forside/adresser/Adresser.astro";
+import Arbeidsforhold from "@/views/forside/arbeidsforhold/Arbeidsforhold.astro";
+import DittNavKontor from "@/views/forside/ditt-nav-kontor/DittNavKontor.astro";
+import { text } from "@/views/forside/forsideText";
+import Header from "@/views/forside/header/Header.astro";
+import KontaktInfo from "@/views/forside/kontaktinfo/KontaktInfo.astro";
+import Lenker from "@/views/forside/lenker/Lenker.astro";
+import MerInformasjon from "@/views/forside/mer-informasjon/MerInformasjon.astro";
+import Personalia from "@/views/forside/personalia/Personalia.astro";
+import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
+import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
+import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import DittNavKontorOy from "@/views/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontorOy";
+import ArbeidsforholdOy from "@/views/forside/sections/5-arbeidsforhold/ArbeidsforholdOy";
+import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
-const locale = Astro.currentLocale as Locale;
+const language = (Astro.currentLocale ?? "nb") as Language;
+const config = getServerRuntimeConfig(Astro.url);
+
+const api = personopplysningerApi(Astro);
+const kontaktInfo = hentFraApi<KontaktInfoData>("/kontaktinformasjon", api);
+const personInfo = await hentFraApi<PersonInfo>("/personalia", api);
+if (personInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
+const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
+const enhetKontaktInformasjon = personInfo.status === "RESULT" ? personInfo.data.enhetKontaktInformasjon : undefined;
+
+const { environment, apiUrl } = config;
+const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+const customApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/forenklet/alle` : undefined;
+const printName = personalia ? `${personalia.fornavn} ${personalia.etternavn}` : "";
+const printSSN = personalia ? `${personalia.personident?.verdi}` : "";
+
+const kontaktadressePdl = adresser?.kontaktadresser.find((adr) => adr.kilde === "pdl");
+const oppholdsadressePdl = adresser?.oppholdsadresser?.find((adr) => adr.kilde === "pdl");
+const harAndre = !!(kontaktadressePdl ?? oppholdsadressePdl);
+const andreAdresser = {
+    kontaktadresser: kontaktadressePdl ? [kontaktadressePdl] : [],
+    ...(oppholdsadressePdl && { oppholdsadresser: [oppholdsadressePdl] }),
+};
 ---
 
-<AstroPage page="forside" locale={locale} pathname={Astro.url.pathname} />
+<Layout title="Personopplysninger - www.nav.no">
+    <div class="pagecontent">
+        <div class="wrapper">
+            <Heading size="xlarge" level="1" spacing align="center">{text.tittel[language]}</Heading>
+            <Header language={language} fornavn={personalia?.fornavn} etternavn={personalia?.etternavn} />
+            {personInfo.status === "ERROR" && (
+                <Box language={language} id="personalia" tittel={personaliaText.tittel[language]} ikon={personaliaIkon}>
+                    <Fragment slot="beskrivelse">{personaliaText.beskrivelse[language]}</Fragment>
+                    <ErrorMessage error={personInfo.error} />
+                </Box>
+            )}
+            {personalia && <Personalia language={language} personalia={personalia} />}
+            {personalia && (
+                <KontaktInfo language={language} tlfnr={personalia.tlfnr} kontaktInfo={kontaktInfo}>
+                    <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} client:visible />
+                </KontaktInfo>
+            )}
+            {adresser && (
+                <Adresser language={language} adresser={adresser}>
+                    {harAndre && <AndreAdresserOy slot="andre" locale={language} config={config} adresser={andreAdresser} client:visible />}
+                </Adresser>
+            )}
+            {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
+            {adresser && enhetKontaktInformasjon && (
+                <DittNavKontor language={language} enhetKontaktInformasjon={enhetKontaktInformasjon}>
+                    <DittNavKontorOy slot="mottak" locale={language} publikumsmottak={enhetKontaktInformasjon.brukerkontakt.publikumsmottak ?? []} client:visible />
+                </DittNavKontor>
+            )}
+            <Arbeidsforhold language={language}>
+                <ArbeidsforholdOy slot="liste" locale={language} miljo={miljo} customApiUrl={customApiUrl} printName={printName} printSSN={printSSN} client:visible />
+            </Arbeidsforhold>
+            <Lenker language={language} />
+            <MerInformasjon language={language} />
+        </div>
+    </div>
+</Layout>

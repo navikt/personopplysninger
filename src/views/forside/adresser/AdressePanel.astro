@@ -1,0 +1,41 @@
+---
+import { Heading } from "@navikt/ds-react";
+import LesMer from "@/components/lesmer/LesMer.astro";
+import ListElement from "@/components/listelement/ListElement.astro";
+import type { Language } from "@/language/language";
+import adresseStyles from "@/views/forside/sections/4-personinfo/3-adresser/Adresser.module.css";
+import { text } from "./adresserText";
+
+interface Props {
+    language: Language;
+    tittel: string;
+    bruksenhetsnummer?: string;
+    kommune?: string;
+    flyttedatoFormatert?: string;
+    gyldigTilOgMedFormatert?: string;
+}
+
+const { language, tittel, bruksenhetsnummer, kommune, flyttedatoFormatert, gyldigTilOgMedFormatert } = Astro.props;
+---
+
+<div class={adresseStyles.box}>
+    <div class="underseksjon__header">
+        <Heading level="4" size="xsmall">{tittel}</Heading>
+    </div>
+    <slot />
+    {
+        (bruksenhetsnummer ?? kommune ?? flyttedatoFormatert ?? gyldigTilOgMedFormatert) && (
+            <LesMer tittel={text.visDetaljer[language]} lukkTittel={text.skjulDetaljer[language]} class={adresseStyles.lesmer}>
+                <dl>
+                    {bruksenhetsnummer && <ListElement language={language} tittel={text.bolignummer[language]} innhold={bruksenhetsnummer} />}
+                    {kommune && <ListElement language={language} tittel={text.kommune[language]} innhold={kommune} />}
+                    {flyttedatoFormatert && <ListElement language={language} tittel={text.flyttedato[language]} innhold={flyttedatoFormatert} />}
+                    {gyldigTilOgMedFormatert && (
+                        <ListElement language={language} tittel={text.gyldigTil[language]} innhold={gyldigTilOgMedFormatert} />
+                    )}
+                </dl>
+            </LesMer>
+        )
+    }
+    <div class={adresseStyles.divider}></div>
+</div>

@@ -30,10 +30,6 @@ const sjekkAuthHentJson = (url: string) =>
             throw error;
         });
 
-export const fetchInnloggingsStatus = () => sjekkAuthHentJson(getRuntimeConfig().innloggingsstatusUrl);
-
-export const fetchKontaktInfo = () => sjekkAuthHentJson(`${apiUrl()}/kontaktinformasjon`);
-
 export const fetchRetningsnumre = () => sjekkAuthHentJson(`${apiUrl()}/retningsnumre`);
 
 export const fetchPersonInfo = () => sjekkAuthHentJson(`${apiUrl()}/personalia`);

@@ -1,0 +1,55 @@
+---
+import { Alert } from "@navikt/ds-react";
+import adresseIkon from "@/assets/img/Adresse.svg";
+import Box from "@/components/box/Box.astro";
+import driftsmeldinger from "@/driftsmeldinger";
+import type { Language } from "@/language/language";
+import type { Adresser as IAdresser } from "@/types/adresser";
+import adresseStyles from "@/views/forside/sections/4-personinfo/3-adresser/Adresser.module.css";
+import { text } from "./adresserText";
+import Folkeregisteret from "./Folkeregisteret.astro";
+
+interface Props {
+    language: Language;
+    adresser: IAdresser;
+}
+
+const { language, adresser } = Astro.props;
+const { kontaktadresser, bostedsadresse, deltBosted, oppholdsadresser } = adresser;
+
+const kontaktadresserFreg = kontaktadresser.filter((adr) => adr.kilde === "freg");
+const oppholdsadresseFreg = oppholdsadresser?.find((adr) => adr.kilde === "freg");
+---
+
+<Box language={language} id="adresser" tittel={text.tittel[language]} ikon={adresseIkon} ankerlenke>
+    <Fragment slot="beskrivelse">
+        {text.beskrivelseIngress[language]}<br /><br />
+        <b>{text.bostedsadresseTittel[language]}</b><br />
+        {text.bostedsadresseTekst[language]}<br /><br />
+        <b>{text.oppholdsadresseTittel[language]}</b><br />
+        {text.oppholdsadresseTekst[language]}<br /><br />
+        <b>{text.kontaktadresseTittel[language]}</b><br />
+        {text.kontaktadresseTekst[language]}<br /><br />
+        <b>{text.deltBostedTittel[language]}</b><br />
+        {text.deltBostedTekst[language]}
+    </Fragment>
+    <div class={adresseStyles.box}>
+        {
+            driftsmeldinger.pdl && (
+                <div class={adresseStyles.driftsmelding}>
+                    <Alert role="status" variant="warning">
+                        {driftsmeldinger.pdl}
+                    </Alert>
+                </div>
+            )
+        }
+        <Folkeregisteret
+            language={language}
+            bostedsadresse={bostedsadresse}
+            deltBosted={deltBosted}
+            oppholdsadresse={oppholdsadresseFreg}
+            kontaktadresser={kontaktadresserFreg}
+        />
+        <slot name="andre" />
+    </div>
+</Box>

@@ -1,0 +1,26 @@
+---
+import { Alert, Link } from "@navikt/ds-react";
+import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
+import Box from "@/components/box/Box.astro";
+import Kilde from "@/components/kilde/Kilde.astro";
+import type { Language } from "@/language/language";
+import { text } from "./arbeidsforholdText";
+
+interface Props {
+    language: Language;
+}
+
+const { language } = Astro.props;
+---
+
+<Box language={language} id="arbeidsforhold" tittel={text.tittel[language]} ikon={arbeidsforholdIkon} ankerlenke>
+    <Fragment slot="beskrivelse">
+        <p>{text.beskrivelse1[language]}</p>
+        <p>
+            {text.beskrivelse2[language]}<br /><Link href={text.aaRegisteretUrl[language]}>{text.aaRegisteretLenke[language]}</Link>{text.beskrivelse2Etter[language]}
+        </p>
+    </Fragment>
+    <slot name="liste" />
+    <Alert variant="info">{text.disclaimer1[language]}<br />{text.disclaimer2[language]}</Alert>
+    <Kilde kilde={text.kilde[language]} forklaring={text.kildeForklaring[language]} />
+</Box>

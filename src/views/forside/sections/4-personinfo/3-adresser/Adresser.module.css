@@ -12,6 +12,16 @@
     padding: 0;
 }
 
+.lesmer > summary {
+    margin-left: -0.5rem;
+}
+
+.box .lesmer > summary + div {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
 .lesmer :global(.navds-read-more__button) {
     margin-left: -0.5rem;
 }
@@ -22,4 +32,8 @@
 
 .divider {
     padding: 0.5rem;
+}
+
+.driftsmelding {
+    padding: 1rem 0;
 }

@@ -1,0 +1,21 @@
+---
+import { ChevronDownIcon } from "@navikt/aksel-icons";
+import styles from "./LesMer.module.css";
+
+interface Props {
+    tittel: string;
+    lukkTittel?: string;
+    class?: string;
+}
+
+const { tittel, lukkTittel, class: className } = Astro.props;
+---
+
+<details class:list={[styles.lesMer, lukkTittel && styles.toTitler, className]}>
+    <summary class={styles.knapp}>
+        <ChevronDownIcon className={styles.chevron} aria-hidden={true} />
+        <span class={styles.apne}>{tittel}</span>
+        {lukkTittel && <span class={styles.lukk}>{lukkTittel}</span>}
+    </summary>
+    <div class={styles.innhold}><slot /></div>
+</details>

@@ -1,6 +1,5 @@
 import { InformationIcon } from "@navikt/aksel-icons";
 import { BodyLong, Heading, Link, Modal } from "@navikt/ds-react";
-import classNames from "classnames";
 import { Fragment, useId, useState } from "react";
 import { FormattedMessage } from "react-intl";
 import styles from "./Infotekst.module.css";
@@ -11,7 +10,6 @@ interface Props {
 }
 
 const Infotekst = ({ overskriftID, beskrivelseID }: Props) => {
-    const [hover, settHover] = useState(false);
     const [erSynlig, settErSynlig] = useState(false);
     const modalID = useId();
 
@@ -21,12 +19,10 @@ const Infotekst = ({ overskriftID, beskrivelseID }: Props) => {
                 type="button"
                 className={styles.titleIButton}
                 onClick={() => settErSynlig(!erSynlig)}
-                onMouseEnter={() => settHover(true)}
-                onMouseLeave={() => settHover(false)}
                 aria-label={"Les mer om denne seksjonen."}
                 aria-pressed={erSynlig}
             >
-                <InformationIcon className={classNames(styles.titleIIcon, hover && styles.titleIIconHover)} aria-hidden="true" />
+                <InformationIcon className={styles.titleIIcon} aria-hidden="true" />
             </button>
             <Modal open={erSynlig} onClose={() => settErSynlig(false)} className={styles.modal} aria-labelledby={modalID}>
                 <Modal.Header>

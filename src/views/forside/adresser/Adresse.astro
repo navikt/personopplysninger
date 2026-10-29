@@ -1,0 +1,71 @@
+---
+import dayjs from "dayjs";
+import type { Language } from "@/language/language";
+import type { Adresse as IAdresse } from "@/types/adresser/adresse";
+import Matrikkeladresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Matrikkeladresse";
+import PostadresseIFrittFormat from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/PostadresseIFrittFormat";
+import Postboksadresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Postboksadresse";
+import Ukjentbosted from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Ukjentbosted";
+import Vegadresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Vegadresse";
+import UtenlanskAdresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/utenlanske-adresser/UtenlanskAdresse";
+import UtenlanskAdresseIFrittFormat from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/utenlanske-adresser/UtenlanskAdresseIFrittFormat";
+import AdressePanel from "./AdressePanel.astro";
+import { oppholdAnnetStedTekst } from "./adresserUtils";
+
+interface Props {
+    language: Language;
+    tittel: string;
+    adresse?: IAdresse;
+    coAdressenavn?: string;
+    gyldigTilOgMed?: string;
+    angittFlyttedato?: string;
+    oppholdAnnetSted?: string;
+}
+
+const { language, tittel, adresse, coAdressenavn, gyldigTilOgMed, angittFlyttedato, oppholdAnnetSted } = Astro.props;
+
+const gyldigTilOgMedFormatert = gyldigTilOgMed ? dayjs(gyldigTilOgMed).format("DD.MM.YYYY") : "";
+const flyttedatoFormatert = angittFlyttedato ? dayjs(angittFlyttedato).format("DD.MM.YYYY") : "";
+
+const kommune = adresse?.type === "VEGADRESSE" || adresse?.type === "MATRIKKELADRESSE" ? adresse.kommune : undefined;
+const bruksenhetsnummer = adresse?.type === "VEGADRESSE" || adresse?.type === "MATRIKKELADRESSE" ? adresse.bruksenhetsnummer : undefined;
+const kjentType =
+    !!adresse &&
+    [
+        "POSTADRESSE_I_FRITT_FORMAT",
+        "UTENLANDSK_ADRESSE_I_FRITT_FORMAT",
+        "VEGADRESSE",
+        "POSTBOKSADRESSE",
+        "UTENLANDSK_ADRESSE",
+        "MATRIKKELADRESSE",
+        "UKJENTBOSTED",
+    ].includes(adresse.type);
+---
+
+{
+    adresse == null && oppholdAnnetSted != null && (
+        <AdressePanel language={language} tittel={tittel}>
+            {oppholdAnnetStedTekst(oppholdAnnetSted, language)}
+        </AdressePanel>
+    )
+}
+{
+    kjentType && (
+        <AdressePanel
+            language={language}
+            tittel={tittel}
+            bruksenhetsnummer={bruksenhetsnummer}
+            kommune={kommune}
+            gyldigTilOgMedFormatert={gyldigTilOgMedFormatert}
+            flyttedatoFormatert={flyttedatoFormatert}
+        >
+            {adresse?.type === "POSTADRESSE_I_FRITT_FORMAT" && <PostadresseIFrittFormat {...adresse} />}
+            {adresse?.type === "UTENLANDSK_ADRESSE_I_FRITT_FORMAT" && <UtenlanskAdresseIFrittFormat {...adresse} />}
+            {adresse?.type === "VEGADRESSE" && <Vegadresse {...adresse} coAdressenavn={coAdressenavn} />}
+            {adresse?.type === "POSTBOKSADRESSE" && <Postboksadresse {...adresse} coAdressenavn={coAdressenavn} />}
+            {adresse?.type === "UTENLANDSK_ADRESSE" && <UtenlanskAdresse {...adresse} coAdressenavn={coAdressenavn} />}
+            {adresse?.type === "MATRIKKELADRESSE" && <Matrikkeladresse {...adresse} coAdressenavn={coAdressenavn} bruksenhetsnummer="" />}
+            {adresse?.type === "UKJENTBOSTED" && <Ukjentbosted {...adresse} coAdressenavn={coAdressenavn} />}
+        </AdressePanel>
+    )
+}

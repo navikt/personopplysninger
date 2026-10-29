@@ -1,0 +1,58 @@
+---
+import { BodyLong, Box, Heading, Link } from "@navikt/ds-react";
+import LesMer from "@/components/lesmer/LesMer.astro";
+import type { Language } from "@/language/language";
+import sharedStyles from "@/styles/shared.module.css";
+import styles from "@/views/forside/sections/7-mer-informasjon/MerInformasjon.module.css";
+import { text } from "./merInformasjonText";
+
+interface Props {
+    language: Language;
+}
+
+const { language } = Astro.props;
+
+const beskjedUrl = text.beskjedUrl[language];
+---
+
+<Box background="surface-default" className={sharedStyles.panel}>
+    <div class={styles.content}>
+        <Heading size="medium" level="2">{text.tittel[language]}</Heading>
+        <LesMer tittel={text.feilopplysningerTittel[language]}>
+            <BodyLong as="div">
+                <p>{text.feilopplysningerP1[language]}</p>
+                <p>{text.feilopplysningerP2[language]}</p>
+                <p>
+                    {text.feilopplysningerP3Foer[language]}<Link href={beskjedUrl} rel="noopener noreferrer" target="_blank">{text.beskjedLenke[language]}</Link>{text.feilopplysningerP3Midt[language]}<Link href={text.telefonUrl[language]}>{text.telefon[language]}</Link>{text.feilopplysningerP3Etter[language]}
+                </p>
+            </BodyLong>
+        </LesMer>
+        <LesMer tittel={text.savnerTittel[language]}>
+            <BodyLong as="div">
+                <p>{text.savnerP1[language]}</p>
+                <p>
+                    {text.savnerP2Foer[language]}<Link href={beskjedUrl} rel="noopener noreferrer" target="_blank">{text.beskjedLenke[language]}</Link>{text.savnerP2Midt[language]}<Link href={text.telefonUrl[language]}>{text.telefon[language]}</Link>{text.savnerP2Etter[language]}
+                </p>
+            </BodyLong>
+        </LesMer>
+        <LesMer tittel={text.utlevereTittel[language]}>
+            <BodyLong as="div">
+                <p>{text.utlevereP1[language]}</p>
+                <p>
+                    <Link href={text.trygdeavtalerUrl[language]} rel="noopener noreferrer" target="_blank">{text.trygdeavtalerLenke[language]}</Link>{text.utlevereEtter[language]}
+                </p>
+            </BodyLong>
+        </LesMer>
+        <LesMer tittel={text.klageTittel[language]}>
+            <BodyLong as="div">
+                <p>
+                    {text.klageP1Foer[language]}<Link href={beskjedUrl} rel="noopener noreferrer" target="_blank">{text.beskjedLenke[language]}</Link>{text.klageP1Midt[language]}<Link href={text.telefonUrl[language]}>{text.telefon[language]}</Link>{text.klageP1Etter[language]}
+                </p>
+                <p>
+                    {text.klageP2Foer[language]}<Link href={text.datatilsynetUrl[language]} rel="noopener noreferrer" target="_blank">{text.datatilsynetLenke[language]}</Link>{text.klageP2Etter[language]}
+                </p>
+                <p>{text.klageP3[language]}</p>
+            </BodyLong>
+        </LesMer>
+    </div>
+</Box>
