@@ -1,4 +1,5 @@
 import { expect, type Page, test } from "@playwright/test";
+import personInfo from "../../src/mocks/fixtures/person-info.json" with { type: "json" };
 
 const hydrert = async (page: Page) => {
     await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
@@ -99,4 +100,59 @@ test("kontaktinformasjon fra registeret hentes på serveren", async ({ page }) =
     await expect(boks).toContainText("test@test.com");
     await expect(boks.getByRole("link", { name: /Vil du endre informasjonen/ })).toHaveAttribute("href", "https://minprofil.kontaktregisteret.no");
     expect(apiKall).toEqual([]);
+});
+
+const utenTelefon = {
+    ...personInfo,
+    personalia: { ...personInfo.personalia, tlfnr: { telefonHoved: null, telefonAlternativ: null, landskodeHoved: null, landskodeAlternativ: null } },
+};
+
+test("telefonlisten er en øy som viser nummeret fra serveren", async ({ page }) => {
+    await page.goto("nb/");
+    const oy = page.locator("astro-island", { hasText: "Telefonnummer registrert hos Nav" });
+
+    await expect(oy).toHaveCount(1);
+    await expect(oy.getByText("408 53 158")).toBeVisible();
+    await expect(page.locator("astro-island")).toHaveCount(1);
+});
+
+test("endring som blir avvist viser feilmeldingen", async ({ page }) => {
+    await page.goto("nb/");
+    await hydrert(page);
+    await page.getByRole("button", { name: "Endre telefonnummer" }).click();
+    await page.getByRole("textbox", { name: "Telefonnummer" }).fill("91234567");
+    await page.getByRole("button", { name: "Lagre" }).click();
+
+    await expect(page.getByRole("status").filter({ hasText: "Vi jobber" })).toContainText(
+        "Vi jobber med å registrere telefonnummeret du har lagt til. Det vil snart bli synlig!",
+    );
+});
+
+test("nytt nummer som venter viser infomeldingen", async ({ page }) => {
+    await page.route("**/api/endreTelefonnummer", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify({ statusType: "PENDING" }) }),
+    );
+    await page.goto("nb/");
+    await hydrert(page);
+    await page.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" }).click();
+    await page.getByRole("textbox", { name: "Telefonnummer" }).fill("91234567");
+    await page.getByRole("button", { name: "Lagre" }).click();
+
+    await expect(page.getByText("Vi har sendt inn endringen din")).toBeVisible();
+});
+
+test("sletting henter personalia på nytt og fjerner nummer og overskrift", async ({ page }) => {
+    await page.route("**/api/personalia", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(utenTelefon) }),
+    );
+    await page.goto("nb/");
+    await hydrert(page);
+    await expect(page.getByRole("heading", { level: 3, name: "Telefonnummer registrert hos Nav" })).toBeVisible();
+
+    await page.getByRole("button", { name: "Slett telefonnummer" }).click();
+    await page.getByRole("dialog").getByRole("button", { name: "Slett" }).click();
+
+    await expect(page.getByRole("heading", { level: 3, name: "Telefonnummer registrert hos Nav" })).toHaveCount(0);
+    await expect(page.getByText("408 53 158")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" })).toBeVisible();
 });

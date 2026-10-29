@@ -3,6 +3,7 @@ import { Heading } from "@navikt/ds-react";
 import personaliaIkon from "@/assets/img/Personalia.svg";
 import Box from "@/components/box/Box.astro";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import type { Language } from "@/language/language";
 import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
@@ -15,9 +16,11 @@ import Lenker from "@/views/forside/lenker/Lenker.astro";
 import MerInformasjon from "@/views/forside/mer-informasjon/MerInformasjon.astro";
 import Personalia from "@/views/forside/personalia/Personalia.astro";
 import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
+import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
 import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
+const config = getServerRuntimeConfig(Astro.url);
 
 const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
 if (personInfo.status === "UNAUTHORIZED") {
@@ -39,7 +42,11 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
                 </Box>
             )}
             {personalia && <Personalia language={language} personalia={personalia} />}
-            {personalia && <KontaktInfo language={language} tlfnr={personalia.tlfnr} />}
+            {personalia && (
+                <KontaktInfo language={language} tlfnr={personalia.tlfnr}>
+                    <TelefonnummerOy slot="telefon" locale={language} config={config} personalia={personalia} client:visible />
+                </KontaktInfo>
+            )}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
             <Lenker language={language} />
             <MerInformasjon language={language} />

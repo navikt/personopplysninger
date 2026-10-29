@@ -38,7 +38,9 @@ const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
             <div class={kontaktInfoStyles.telefonnummer}>
                 <Dkif language={language} />
             </div>
-            <slot name="telefon" />
+            <div class={kontaktInfoStyles.telefonnummer}>
+                <slot name="telefon" />
+            </div>
         </>
     )}
 </Box>

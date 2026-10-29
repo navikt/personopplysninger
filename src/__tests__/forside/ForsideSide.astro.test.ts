@@ -78,7 +78,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("https://minprofil.kontaktregisteret.no");
     });
 
-    it.skip("viser registeret etter telefonlisten når det finnes et nummer (til Task 4)", async () => {
+    it("viser registeret etter telefonlisten når det finnes et nummer", async () => {
         vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
 
         const boks = kontaktBoks(await render());
@@ -86,7 +86,7 @@ describe("Forsiden", () => {
         expect(boks.indexOf("Telefonnummer registrert hos Nav")).toBeLessThan(boks.indexOf("Opplysninger fra Kontakt - og reservasjonsregisteret"));
     });
 
-    it.skip("viser registeret først når det ikke finnes et nummer (til Task 4)", async () => {
+    it("viser registeret først når det ikke finnes et nummer", async () => {
         vi.mocked(hentFraApi).mockImplementation((path: string) =>
             Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : utenTelefon }),
         );
@@ -94,7 +94,7 @@ describe("Forsiden", () => {
         const boks = kontaktBoks(await render());
 
         expect(boks).not.toContain("Opplysninger fra Kontakt - og reservasjonsregisteret");
-        expect(boks.indexOf("12131415")).toBeLessThan(boks.indexOf("astro-island"));
+        expect(boks.indexOf("12131415")).toBeLessThan(boks.indexOf("<astro-island"));
     });
 
     it("viser feilen fra registeret bare i kontaktinformasjon-boksen", async () => {

@@ -30,10 +30,10 @@ const getInitialLocale = (): Locale => {
     return "nb";
 };
 
-export const createInitialState = (locale = getInitialLocale(), authInfo: FetchAuth = { status: "LOADING" }): Store => ({
+export const createInitialState = (locale = getInitialLocale(), authInfo: FetchAuth = { status: "LOADING" }, personInfo?: PersonInfo): Store => ({
     locale,
     authInfo,
-    personInfo: { status: "LOADING" },
+    personInfo: personInfo ? { status: "RESULT", data: personInfo } : { status: "LOADING" },
     kontaktInfo: { status: "LOADING" },
 });
 
