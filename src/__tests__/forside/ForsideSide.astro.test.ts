@@ -161,4 +161,42 @@ describe("Forsiden", () => {
         expect(html).toContain('id="adresser"');
         expect(html).not.toContain("Øvrige registrerte adresser");
     });
+
+    it("viser Ditt Nav-kontor med fanene i en øy", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const boks = html.slice(html.indexOf('id="ditt-nav-kontor"')).replaceAll("<!-- -->", "");
+
+        expect(boks).toContain("Ditt kontor er ");
+        expect(boks).toContain("Nav Halden-Aremark");
+        expect(boks).toContain('role="tablist"');
+        expect(boks).toContain('href="/person/kontakt-oss/nb/"');
+        expect(boks).toContain("Kilde: Nav");
+    });
+
+    it("sender bare publikumsmottakene til Nav-kontoret-øya", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const start = html.lastIndexOf("<astro-island", html.indexOf('role="tablist"'));
+        const props = html.slice(start, html.indexOf(">", start));
+
+        expect(props).toContain("Aremarkveien");
+        expect(props).not.toContain("10108000398");
+        expect(props).not.toContain("12345678911");
+        expect(props).not.toContain("AMIZIC");
+        expect(props).not.toContain("55553333");
+    });
+
+    it("viser ikke Ditt Nav-kontor uten publikumsmottak", async () => {
+        const utenMottak = { ...personInfo, enhetKontaktInformasjon: { ...personInfo.enhetKontaktInformasjon, brukerkontakt: {} } };
+        vi.mocked(hentFraApi).mockImplementation((path: string) =>
+            Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : utenMottak }),
+        );
+
+        const html = await render();
+
+        expect(html).not.toContain('id="ditt-nav-kontor"');
+    });
 });

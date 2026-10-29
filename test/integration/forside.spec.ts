@@ -113,7 +113,7 @@ test("telefonlisten er en øy som viser nummeret fra serveren", async ({ page })
 
     await expect(oy).toHaveCount(1);
     await expect(oy.getByText("408 53 158")).toBeVisible();
-    await expect(page.locator("astro-island")).toHaveCount(2);
+    await expect(page.locator("astro-island")).toHaveCount(3);
 });
 
 test("endring som blir avvist viser feilmeldingen", async ({ page }) => {
@@ -185,4 +185,13 @@ test("sletting av kontaktadresse henter personalia på nytt og fjerner øvrige a
 
     await expect(page.getByRole("heading", { level: 3, name: "Øvrige registrerte adresser" })).toHaveCount(0);
     await expect(page.locator("#adresser").getByText("Postboks 10 Sørstrand")).toHaveCount(0);
+});
+
+test("Nav-kontoret bytter publikumsmottak i fanene", async ({ page }) => {
+    await page.goto("nb/#ditt-nav-kontor");
+    await hydrert(page);
+
+    await page.getByRole("tab", { name: "Aremark" }).click();
+    await expect(page.getByRole("tab", { name: "Aremark" })).toHaveAttribute("aria-selected", "true");
+    await expect(page.getByRole("tabpanel")).toContainText("Aremarkveien");
 });

@@ -10,6 +10,7 @@ import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { PersonInfo } from "@/types/personInfo";
 import Adresser from "@/views/forside/adresser/Adresser.astro";
+import DittNavKontor from "@/views/forside/ditt-nav-kontor/DittNavKontor.astro";
 import { text } from "@/views/forside/forsideText";
 import Header from "@/views/forside/header/Header.astro";
 import KontaktInfo from "@/views/forside/kontaktinfo/KontaktInfo.astro";
@@ -19,6 +20,7 @@ import Personalia from "@/views/forside/personalia/Personalia.astro";
 import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
 import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
 import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import DittNavKontorOy from "@/views/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontorOy";
 import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
@@ -31,6 +33,7 @@ if (personInfo.status === "UNAUTHORIZED") {
 
 const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
 const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
+const enhetKontaktInformasjon = personInfo.status === "RESULT" ? personInfo.data.enhetKontaktInformasjon : undefined;
 
 const kontaktadressePdl = adresser?.kontaktadresser.find((adr) => adr.kilde === "pdl");
 const oppholdsadressePdl = adresser?.oppholdsadresser?.find((adr) => adr.kilde === "pdl");
@@ -64,6 +67,11 @@ const andreAdresser = {
                 </Adresser>
             )}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
+            {adresser && enhetKontaktInformasjon && (
+                <DittNavKontor language={language} enhetKontaktInformasjon={enhetKontaktInformasjon}>
+                    <DittNavKontorOy slot="mottak" locale={language} publikumsmottak={enhetKontaktInformasjon.brukerkontakt.publikumsmottak ?? []} client:visible />
+                </DittNavKontor>
+            )}
             <Lenker language={language} />
             <MerInformasjon language={language} />
         </div>
