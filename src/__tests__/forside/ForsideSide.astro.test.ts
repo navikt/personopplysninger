@@ -90,6 +90,16 @@ describe("Forsiden", () => {
         expect(html).toMatch(/id="flere-opplysninger"/);
     });
 
+    it("tegner lenkeikonene som bakgrunn på en sirkel, ikke som img", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+        const lenker = html.slice(html.indexOf('id="flere-opplysninger"'));
+
+        expect(lenker.match(/<div[^>]*class="[^"]*_circle_[^"]*"[^>]*style="[^"]*background-image:url\([^)]+\)/g)).toHaveLength(11);
+        expect(lenker).not.toContain("<img");
+    });
+
     it("sender til innlogging når API-et svarer 401", async () => {
         vi.mocked(hentFraApi).mockResolvedValue({ status: "UNAUTHORIZED" });
         const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
