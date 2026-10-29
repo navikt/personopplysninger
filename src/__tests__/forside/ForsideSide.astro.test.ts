@@ -2,6 +2,7 @@ import { loadRenderers } from "astro:container";
 import { getContainerRenderer } from "@astrojs/react/container-renderer";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { describe, expect, it, vi } from "vitest";
+import kontaktInfo from "@/mocks/fixtures/kontakt-info.json";
 import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import Forside from "@/pages/[locale]/index.astro";
 import { hentFraApi } from "@/server/apiClient";
@@ -19,6 +20,15 @@ vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
 const personInfo = personInfoFixture as unknown as PersonInfo;
 const feil = { status: "ERROR" as const, error: { code: 500, text: "Feil fra API-et" } };
 const request = new Request("http://localhost:4321/person/personopplysninger/nb/");
+
+type Svar = Awaited<ReturnType<typeof hentFraApi>>;
+
+const svar = (kontaktinformasjon: Svar) => (path: string) =>
+    Promise.resolve<Svar>(path === "/kontaktinformasjon" ? kontaktinformasjon : { status: "RESULT", data: personInfo });
+
+const utenTelefon = { ...personInfo, personalia: { ...personInfo.personalia, tlfnr: {} } };
+
+const kontaktBoks = (html: string) => html.slice(html.indexOf('id="kontaktinformasjon"'), html.indexOf('id="utbetaling"'));
 
 const render = async () => {
     const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
@@ -55,5 +65,45 @@ describe("Forsiden", () => {
 
         expect(response.status).toBe(302);
         expect(response.headers.get("location")).toContain("/oauth2/login");
+    });
+
+    it("viser kontaktinformasjon fra registeret", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("12131415");
+        expect(boks).toContain("test@test.com");
+        expect(boks).toContain("Du mottar post og informasjon fra det offentlige elektronisk.");
+        expect(boks).toContain("https://minprofil.kontaktregisteret.no");
+    });
+
+    it.skip("viser registeret etter telefonlisten når det finnes et nummer (til Task 4)", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks.indexOf("Telefonnummer registrert hos Nav")).toBeLessThan(boks.indexOf("Opplysninger fra Kontakt - og reservasjonsregisteret"));
+    });
+
+    it.skip("viser registeret først når det ikke finnes et nummer (til Task 4)", async () => {
+        vi.mocked(hentFraApi).mockImplementation((path: string) =>
+            Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : utenTelefon }),
+        );
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).not.toContain("Opplysninger fra Kontakt - og reservasjonsregisteret");
+        expect(boks.indexOf("12131415")).toBeLessThan(boks.indexOf("astro-island"));
+    });
+
+    it("viser feilen fra registeret bare i kontaktinformasjon-boksen", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar(feil));
+
+        const html = await render();
+
+        expect(kontaktBoks(html)).toContain("Oisann, noe gikk galt ved henting av data!");
+        expect(html).toContain("Hei Vinayagum-mask Amizic!");
+        expect(html.slice(0, html.indexOf('id="kontaktinformasjon"'))).not.toContain("Oisann");
     });
 });

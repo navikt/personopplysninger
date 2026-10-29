@@ -1,0 +1,52 @@
+---
+import { Alert } from "@navikt/ds-react";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import Kilde from "@/components/kilde/Kilde.astro";
+import ListElement from "@/components/listelement/ListElement.astro";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import type { Language } from "@/language/language";
+import { hentFraApi } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { KontaktInfo } from "@/types/kontaktInfo";
+import kontaktInfoStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.module.css";
+import dkifStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
+import { text } from "./kontaktinfoText";
+
+interface Props {
+    language: Language;
+}
+
+const { language } = Astro.props;
+
+const kontaktInfo = await hentFraApi<KontaktInfo>("/kontaktinformasjon", personopplysningerApi(Astro));
+const info = kontaktInfo.status === "RESULT" ? kontaktInfo.data : undefined;
+const hasData = !!(info && (info.mobiltelefonnummer || info.epostadresse));
+const disclaimer = info?.reservert ? text.disclaimerReservert[language] : text.disclaimer[language];
+---
+
+{kontaktInfo.status === "ERROR" && <ErrorMessage error={kontaktInfo.error} />}
+{kontaktInfo.status === "UNAUTHORIZED" && <ErrorMessage error={{ code: 401, text: "Oisann, noe gikk galt! Prøv igjen senere." }} />}
+{info && hasData && (
+    <>
+        <div class={kontaktInfoStyles.telefonnummer}>
+            <dl class={listeStyles.list}>
+                <ListElement language={language} tittel={text.telefon[language]} innhold={info.mobiltelefonnummer} />
+                <ListElement language={language} tittel={text.spraak[language]} innhold={info.spraak} />
+                <ListElement language={language} tittel={text.epost[language]} innhold={info.epostadresse} />
+            </dl>
+        </div>
+        <div class={kontaktInfoStyles.telefonnummer}>
+            <Alert variant="info" inline>{disclaimer}</Alert>
+        </div>
+        <div class={dkifStyles.marginKilde}>
+            <Kilde kilde={text.kildeDkif[language]} lenke={text.dkifUrl[language]} lenkeTekst={text.endreDkif[language]} />
+        </div>
+    </>
+)}
+{info && !hasData && (
+    <>
+        <div class="underseksjon__beskrivelse"><b>{text.ingenData[language]}</b></div>
+        <Alert variant="info" inline>{disclaimer}</Alert>
+        <Kilde kilde={text.kildeDkif[language]} lenke={text.dkifUrl[language]} lenkeTekst={text.leggTilDkif[language]} />
+    </>
+)}

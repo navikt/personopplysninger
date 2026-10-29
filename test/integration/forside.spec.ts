@@ -83,3 +83,20 @@ test("tekster på nynorsk", async ({ page }) => {
     await expect(page.getByRole("heading", { level: 2, name: "Fleire opplysningar om deg" })).toBeVisible();
     await expect(page.getByRole("heading", { level: 2, name: "Meir informasjon" })).toBeVisible();
 });
+
+test("kontaktinformasjon fra registeret hentes på serveren", async ({ page }) => {
+    const apiKall: string[] = [];
+    page.on("request", (request) => {
+        if (request.url().includes("/api/kontaktinformasjon")) apiKall.push(request.url());
+    });
+
+    await page.goto("nb/", { waitUntil: "networkidle" });
+    await hydrert(page);
+
+    const boks = page.locator("#kontaktinformasjon");
+    await expect(boks.getByRole("heading", { level: 2, name: "Kontaktinformasjon" })).toBeVisible();
+    await expect(boks).toContainText("12131415");
+    await expect(boks).toContainText("test@test.com");
+    await expect(boks.getByRole("link", { name: /Vil du endre informasjonen/ })).toHaveAttribute("href", "https://minprofil.kontaktregisteret.no");
+    expect(apiKall).toEqual([]);
+});

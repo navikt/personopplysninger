@@ -10,6 +10,7 @@ import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { PersonInfo } from "@/types/personInfo";
 import { text } from "@/views/forside/forsideText";
 import Header from "@/views/forside/header/Header.astro";
+import KontaktInfo from "@/views/forside/kontaktinfo/KontaktInfo.astro";
 import Lenker from "@/views/forside/lenker/Lenker.astro";
 import MerInformasjon from "@/views/forside/mer-informasjon/MerInformasjon.astro";
 import Personalia from "@/views/forside/personalia/Personalia.astro";
@@ -38,6 +39,7 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
                 </Box>
             )}
             {personalia && <Personalia language={language} personalia={personalia} />}
+            {personalia && <KontaktInfo language={language} tlfnr={personalia.tlfnr} />}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
             <Lenker language={language} />
             <MerInformasjon language={language} />
