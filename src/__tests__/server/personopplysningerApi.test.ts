@@ -25,4 +25,38 @@ describe("personopplysningerApi", () => {
         await expect(deps.getOboToken()).resolves.toBe("obo-token");
         expect(requestTokenxOboToken).toHaveBeenCalledWith("idporten-token", "prod-gcp:min-side:tms-personopplysninger-api");
     });
+
+    it("veksler tokenet én gang for flere kall på samme objekt", async () => {
+        vi.stubEnv("NODE_ENV", "production");
+        vi.mocked(requestTokenxOboToken).mockClear();
+        vi.mocked(requestTokenxOboToken).mockResolvedValue({ ok: true, token: "obo-token" });
+
+        const deps = personopplysningerApi(astro("idporten-token"));
+        const [forste, andre] = await Promise.all([deps.getOboToken(), deps.getOboToken()]);
+
+        expect(forste).toBe("obo-token");
+        expect(andre).toBe("obo-token");
+        expect(requestTokenxOboToken).toHaveBeenCalledTimes(1);
+    });
+
+    it("veksler tokenet hver for seg for separate objekter", async () => {
+        vi.stubEnv("NODE_ENV", "production");
+        vi.mocked(requestTokenxOboToken).mockClear();
+        vi.mocked(requestTokenxOboToken).mockResolvedValue({ ok: true, token: "obo-token" });
+
+        await personopplysningerApi(astro("idporten-token")).getOboToken();
+        await personopplysningerApi(astro("idporten-token")).getOboToken();
+
+        expect(requestTokenxOboToken).toHaveBeenCalledTimes(2);
+    });
+
+    it("gir begge kall samme feil når vekslingen feiler", async () => {
+        vi.stubEnv("NODE_ENV", "production");
+        vi.mocked(requestTokenxOboToken).mockResolvedValue({ ok: false, error: new Error("nede") } as never);
+
+        const deps = personopplysningerApi(astro("idporten-token"));
+
+        await expect(deps.getOboToken()).rejects.toThrow("OBO-veksling");
+        await expect(deps.getOboToken()).rejects.toThrow("OBO-veksling");
+    });
 });
