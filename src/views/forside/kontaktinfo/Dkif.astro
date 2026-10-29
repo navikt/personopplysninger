@@ -5,8 +5,7 @@ import Kilde from "@/components/kilde/Kilde.astro";
 import ListElement from "@/components/listelement/ListElement.astro";
 import listeStyles from "@/components/listelement/Liste.module.css";
 import type { Language } from "@/language/language";
-import { hentFraApi } from "@/server/apiClient";
-import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { hentFraApi } from "@/server/apiClient";
 import type { KontaktInfo } from "@/types/kontaktInfo";
 import kontaktInfoStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.module.css";
 import dkifStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
@@ -14,11 +13,12 @@ import { text } from "./kontaktinfoText";
 
 interface Props {
     language: Language;
+    kontaktInfo: ReturnType<typeof hentFraApi<KontaktInfo>>;
 }
 
-const { language } = Astro.props;
+const { language, kontaktInfo: kontaktInfoSvar } = Astro.props;
 
-const kontaktInfo = await hentFraApi<KontaktInfo>("/kontaktinformasjon", personopplysningerApi(Astro));
+const kontaktInfo = await kontaktInfoSvar;
 const info = kontaktInfo.status === "RESULT" ? kontaktInfo.data : undefined;
 const hasData = !!(info && (info.mobiltelefonnummer || info.epostadresse));
 const disclaimer = info?.reservert ? text.disclaimerReservert[language] : text.disclaimer[language];

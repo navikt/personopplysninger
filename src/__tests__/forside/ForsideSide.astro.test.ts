@@ -450,4 +450,23 @@ describe("Forsiden", () => {
 
         expect(html).not.toContain('id="ditt-nav-kontor"');
     });
+
+    it("starter kontaktinformasjon før /personalia er ferdig", async () => {
+        let ferdig: (svar: Svar) => void = () => {};
+        const personalia = new Promise<Svar>((resolve) => {
+            ferdig = resolve;
+        });
+        vi.mocked(hentFraApi).mockReset();
+        vi.mocked(hentFraApi).mockImplementation((path: string) =>
+            path === "/personalia" ? personalia : Promise.resolve<Svar>({ status: "RESULT", data: kontaktInfo }),
+        );
+
+        const rendret = render();
+        await vi.waitFor(() => expect(vi.mocked(hentFraApi).mock.calls.map(([path]) => path)).toContain("/personalia"));
+
+        expect(vi.mocked(hentFraApi).mock.calls.map(([path]) => path)).toContain("/kontaktinformasjon");
+
+        ferdig({ status: "RESULT", data: personInfo });
+        expect(await rendret).toContain("12131415");
+    });
 });

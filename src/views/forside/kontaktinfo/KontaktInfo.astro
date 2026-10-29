@@ -4,6 +4,8 @@ import kontaktIkon from "@/assets/img/Kontakt.svg";
 import Box from "@/components/box/Box.astro";
 import Infotekst from "@/components/infotekst/Infotekst.astro";
 import type { Language } from "@/language/language";
+import type { hentFraApi } from "@/server/apiClient";
+import type { KontaktInfo as KontaktInfoData } from "@/types/kontaktInfo";
 import type { Tlfnr } from "@/types/personalia";
 import kontaktInfoStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/KontaktInfo.module.css";
 import dkifStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
@@ -13,9 +15,10 @@ import { text } from "./kontaktinfoText";
 interface Props {
     language: Language;
     tlfnr?: Tlfnr;
+    kontaktInfo: ReturnType<typeof hentFraApi<KontaktInfoData>>;
 }
 
-const { language, tlfnr } = Astro.props;
+const { language, tlfnr, kontaktInfo } = Astro.props;
 
 const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
 ---
@@ -30,13 +33,13 @@ const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
                 <Infotekst language={language} tittel={text.dkifOverskrift[language]}>{text.dkifBeskrivelse[language]}</Infotekst>
             </div>
             <div class={kontaktInfoStyles.telefonnummer}>
-                <Dkif language={language} />
+                <Dkif language={language} kontaktInfo={kontaktInfo} />
             </div>
         </>
     ) : (
         <>
             <div class={kontaktInfoStyles.telefonnummer}>
-                <Dkif language={language} />
+                <Dkif language={language} kontaktInfo={kontaktInfo} />
             </div>
             <div class={kontaktInfoStyles.telefonnummer}>
                 <slot name="telefon" />
