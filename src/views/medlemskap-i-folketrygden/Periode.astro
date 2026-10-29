@@ -21,7 +21,7 @@ const { language, periode } = Astro.props;
     <div class={medlStyles.flexKolonne}>
         <div class={medlStyles.heading}>
             <CalendarIcon className={medlStyles.kalender} aria-hidden={true} />
-            <BodyLong>{text.periode[language]}{" "}{dayjs(periode.fraOgMed).format("DD.MM.YY")}{" - "}{dayjs(periode.tilOgMed).format("DD.MM.YY")}</BodyLong>
+            <BodyLong>{text.periode[language]}{" "}{dayjs(periode.fraOgMed).format("DD.MM.YY")}{" - "}{periode.tilOgMed && dayjs(periode.tilOgMed).format("DD.MM.YY")}</BodyLong>
         </div>
         <div class={`${medlStyles.flexGrid} box__content`}>
             <dl class={listeStyles.list}>
