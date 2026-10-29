@@ -1,0 +1,59 @@
+---
+import { InformationIcon, XMarkIcon } from "@navikt/aksel-icons";
+import { BodyLong, Heading } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import { text } from "@/language/text";
+import knappStyles from "./Infotekst.module.css";
+import styles from "./InfotekstDialog.module.css";
+
+interface Props {
+    language: Language;
+    tittel: string;
+}
+
+const { language, tittel } = Astro.props;
+
+const id = `infotekst-${crypto.randomUUID()}`;
+---
+
+<info-tekst>
+    <button type="button" class={knappStyles.titleIButton} aria-label={text.lesMerOmSeksjonen[language]} aria-pressed="false" data-apne>
+        <InformationIcon className={knappStyles.titleIIcon} aria-hidden={true} />
+    </button>
+    <dialog class={styles.dialog} aria-labelledby={id}>
+        <div class={styles.header}>
+            <button type="button" class={styles.lukk} aria-label={text.lukk[language]} data-lukk>
+                <XMarkIcon aria-hidden={true} />
+            </button>
+            <Heading id={id} level="2" size="small">{tittel}</Heading>
+        </div>
+        <div class={styles.body}>
+            <div class={knappStyles.ingress}>
+                <BodyLong as="div"><slot /></BodyLong>
+            </div>
+        </div>
+    </dialog>
+</info-tekst>
+
+<script>
+    class InfoTekst extends HTMLElement {
+        connectedCallback() {
+            const apne = this.querySelector("[data-apne]");
+            const lukk = this.querySelector("[data-lukk]");
+            const dialog = this.querySelector("dialog");
+
+            if (!apne || !lukk || !dialog) {
+                return;
+            }
+
+            apne.addEventListener("click", () => {
+                dialog.showModal();
+                apne.setAttribute("aria-pressed", "true");
+            });
+            lukk.addEventListener("click", () => dialog.close());
+            dialog.addEventListener("close", () => apne.setAttribute("aria-pressed", "false"));
+        }
+    }
+
+    customElements.define("info-tekst", InfoTekst);
+</script>

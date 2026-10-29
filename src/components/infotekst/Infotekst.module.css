@@ -26,13 +26,13 @@
     box-shadow: 0 0 0 3px var(--a-border-focus);
 }
 
-.titleIIcon path {
-    transform: scale(1.4) translate(-15%, -15%);
+.titleIButton:hover .titleIIcon {
+    background-color: var(--a-surface-action);
+    color: var(--a-text-on-action);
 }
 
-.titleIIconHover {
-    background-color: var(--a-surface-action);
-    color: white;
+.titleIIcon path {
+    transform: scale(1.4) translate(-15%, -15%);
 }
 
 @media (min-width: 959px) {

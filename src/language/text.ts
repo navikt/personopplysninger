@@ -24,4 +24,19 @@ export const text = {
         nn: (orgnr: string) => `Organisasjonsnummer ${orgnr}`,
         en: (orgnr: string) => `Organisation number ${orgnr}`,
     },
+    lenkeHit: {
+        nb: "Lenke hit",
+        nn: "Lenke hit",
+        en: "Link",
+    },
+    lesMerOmSeksjonen: {
+        nb: "Les mer om denne seksjonen.",
+        nn: "Les mer om denne seksjonen.",
+        en: "Les mer om denne seksjonen.",
+    },
+    lukk: {
+        nb: "Lukk",
+        nn: "Lukk",
+        en: "Lukk",
+    },
 };

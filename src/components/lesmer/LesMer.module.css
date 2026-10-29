@@ -1,0 +1,77 @@
+.knapp {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    gap: var(--a-spacing-05);
+    width: fit-content;
+    color: var(--a-text-action);
+    border-radius: var(--a-border-radius-small);
+    padding: var(--a-spacing-1) var(--a-spacing-2) var(--a-spacing-1) var(--a-spacing-05);
+    font-size: var(--a-font-size-large);
+    line-height: var(--a-font-line-height-large);
+}
+
+.knapp::-webkit-details-marker {
+    display: none;
+}
+
+.knapp:hover {
+    background-color: var(--a-surface-hover);
+    color: var(--a-text-action-hover);
+}
+
+.knapp:active {
+    background-color: var(--a-surface-active);
+}
+
+.knapp:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--a-border-focus);
+}
+
+.chevron {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.knapp:hover > .chevron {
+    position: relative;
+    top: 1px;
+}
+
+.lukk {
+    display: none;
+}
+
+.lesMer[open] > .knapp > .chevron {
+    transform: rotate(-180deg);
+}
+
+.lesMer[open] > .knapp:hover > .chevron {
+    top: -1px;
+}
+
+.lesMer[open] > .knapp > .apne {
+    display: none;
+}
+
+.lesMer[open] > .knapp > .lukk {
+    display: inline;
+}
+
+.innhold {
+    margin-top: var(--a-spacing-1);
+    border-left: 2px solid var(--a-border-divider);
+    margin-left: 0.8125rem;
+    padding-left: 0.8125rem;
+    color: var(--a-text-default);
+    font-size: var(--a-font-size-large);
+    line-height: var(--a-font-line-height-xlarge);
+}
+
+@media (forced-colors: active) {
+    .knapp {
+        border: 1px solid ButtonText;
+    }
+}
