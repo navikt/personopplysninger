@@ -23,6 +23,10 @@ const tomBank = {
 };
 const utenNummer: PersonInfo = { personalia: { kontoregisterStatus: "SUCCESS", utenlandskbank: tomBank } };
 
+const medBareHovednummer: PersonInfo = {
+    personalia: { kontoregisterStatus: "SUCCESS", utenlandskbank: tomBank, tlfnr: { telefonHoved: "22334455", landskodeHoved: "+47" } },
+};
+
 const renderListe = (initialPersonInfo: PersonInfo) =>
     render(
         <StoreProvider initialLocale="nb" initialPersonInfo={initialPersonInfo}>
@@ -47,5 +51,11 @@ describe("Telefonliste", () => {
 
         expect(screen.queryByRole("heading", { level: 3 })).not.toBeInTheDocument();
         expect(screen.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" })).toBeInTheDocument();
+    });
+
+    it("viser overskriften også når bare hovednummeret finnes", () => {
+        renderListe(medBareHovednummer);
+
+        expect(screen.getByRole("heading", { level: 3, name: "Telefonnummer registrert hos Nav" })).toBeInTheDocument();
     });
 });

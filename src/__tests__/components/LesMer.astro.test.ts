@@ -31,4 +31,13 @@ describe("LesMer", () => {
         expect(html).toMatch(/<details class="_lesMer_\w+">/);
         expect(html).not.toContain("toTitler");
     });
+
+    it("rendrer ikke noe lukk-element uten lukkTittel", async () => {
+        const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
+
+        const html = await container.renderToString(LesMer, { props: { tittel: "Vis detaljer" }, slots: { default: "<dl></dl>" } });
+
+        expect(html).not.toMatch(/_lukk_\w+/);
+        expect(html.match(/<span/g)).toHaveLength(1);
+    });
 });

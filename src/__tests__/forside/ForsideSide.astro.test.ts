@@ -6,6 +6,7 @@ import kontaktInfo from "@/mocks/fixtures/kontakt-info.json";
 import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import Forside from "@/pages/[locale]/index.astro";
 import { hentFraApi } from "@/server/apiClient";
+import type { Personalia, UtenlandskBankkonto } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
 
 vi.mock("@/server/apiClient", () => ({
@@ -27,6 +28,29 @@ const svar = (kontaktinformasjon: Svar) => (path: string) =>
     Promise.resolve<Svar>(path === "/kontaktinformasjon" ? kontaktinformasjon : { status: "RESULT", data: personInfo });
 
 const utenTelefon = { ...personInfo, personalia: { ...personInfo.personalia, tlfnr: {} } };
+
+const utenlandskBank: UtenlandskBankkonto = {
+    adresse1: "Storgatan 1",
+    adresse2: "",
+    adresse3: "",
+    bankkode: "ESSESESS",
+    banknavn: "Svenska Bank",
+    iban: "SE4550000000058398257466",
+    kontonummer: "",
+    land: "Sverige",
+    swiftkode: "SWEDSESS",
+    valuta: "SEK",
+};
+
+const medPersonalia = (endring: Partial<Personalia>): PersonInfo => ({
+    ...personInfo,
+    personalia: { kontoregisterStatus: "SUCCESS", ...personInfo.personalia, utenlandskbank: utenlandskBank, ...endring },
+});
+
+const svarMedPersonalia = (endring: Partial<Personalia>) => (path: string) =>
+    Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : medPersonalia(endring) });
+
+const utbetalingBoks = (html: string) => html.slice(html.indexOf('id="utbetaling"'), html.indexOf('id="arbeidsforhold"')).replaceAll("<!-- -->", "");
 
 const kontaktBoks = (html: string) => html.slice(html.indexOf('id="kontaktinformasjon"'), html.indexOf('id="utbetaling"'));
 
@@ -234,5 +258,171 @@ describe("Forsiden", () => {
         const html = await render();
 
         expect(html).toContain('id="arbeidsforhold"');
+    });
+
+    it("viser kontonummeret formatert når det finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svarMedPersonalia({ kontonr: "12345678911", utenlandskbank: undefined }));
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("1234 56 78911");
+        expect(boks).not.toContain("Vi har ikke registrert kontonummer på deg.");
+        expect(boks).not.toContain("Bankkode");
+    });
+
+    it("viser utenlandsk bank med kontonummer og bankopplysninger når kontonummer finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(
+            svarMedPersonalia({ kontonr: undefined, utenlandskbank: { ...utenlandskBank, kontonummer: "5839825" } }),
+        );
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("Svenska Bank");
+        expect(boks).toContain("Storgatan 1");
+        expect(boks).toContain("Sverige");
+        expect(boks).toContain("Kontonummer / IBAN");
+        expect(boks).toContain("5839825");
+        expect(boks).not.toContain("SE45 5000");
+        expect(boks).toContain("ESSESESS");
+        expect(boks).toContain("SEK");
+        expect(boks).toContain("SWEDSESS");
+        expect(boks).not.toContain("Vi har ikke registrert kontonummer på deg.");
+    });
+
+    it("viser IBAN formatert når den utenlandske banken ikke har kontonummer", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svarMedPersonalia({ kontonr: undefined }));
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("SE45 5000 0000 0583 9825 7466");
+        expect(boks).not.toContain("Kontonummer / IBAN");
+        expect(boks).toContain("ESSESESS");
+    });
+
+    it("viser verken kontonummer eller IBAN når den utenlandske banken mangler begge", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svarMedPersonalia({ kontonr: undefined, utenlandskbank: { ...utenlandskBank, iban: "" } }));
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("Svenska Bank");
+        expect(boks).not.toContain("Kontonummer / IBAN");
+        expect(boks).not.toContain("IBAN");
+        expect(boks).toContain("ESSESESS");
+    });
+
+    it("utelater banknavn og land når de mangler hos den utenlandske banken", async () => {
+        vi.mocked(hentFraApi).mockImplementation(
+            svarMedPersonalia({ kontonr: undefined, utenlandskbank: { ...utenlandskBank, banknavn: "", land: "" } }),
+        );
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("Storgatan 1");
+        expect(boks).not.toContain("Svenska Bank");
+        expect(boks).not.toContain("Sverige");
+    });
+
+    it("viser både norsk kontonummer og utenlandsk bank når begge finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svarMedPersonalia({ kontonr: "12345678911" }));
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("1234 56 78911");
+        expect(boks).toContain("Svenska Bank");
+    });
+
+    it("forteller at kontonummer mangler når verken norsk kontonummer eller utenlandsk bank finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svarMedPersonalia({ kontonr: undefined, utenlandskbank: undefined }));
+
+        const boks = utbetalingBoks(await render());
+
+        expect(boks).toContain("Vi har ikke registrert kontonummer på deg.");
+        expect(boks).toContain("Du kan registrere kontonummer ved å trykke på «Legg til»");
+        expect(boks).not.toContain("Bankkode");
+        expect(boks).not.toContain("1234 56 78911");
+    });
+
+    it("viser reservasjonsteksten når brukeren har reservert seg", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: { ...kontaktInfo, reservert: true } }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("Du mottar viktige brev fra det offentlige kun på papir.");
+        expect(boks).not.toContain("Du mottar post og informasjon fra det offentlige elektronisk.");
+        expect(boks).toContain("12131415");
+    });
+
+    it("viser at ingenting er registrert, med reservasjonsteksten og lenke for å legge til, uten mobil og epost", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: { spraak: "Norsk", reservert: true } }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("Ingen opplysninger registrert");
+        expect(boks).toContain("Du mottar viktige brev fra det offentlige kun på papir.");
+        expect(boks).toContain("Gå til Kontakt- og reservasjonsregisteret");
+        expect(boks).not.toContain("Språk/målform");
+        expect(boks).not.toContain("Vil du endre informasjonen");
+    });
+
+    it("viser dataene når bare mobilnummeret finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: { mobiltelefonnummer: "12131415" } }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("12131415");
+        expect(boks).not.toContain("Ingen opplysninger registrert");
+        expect(boks).not.toContain("E-post");
+        expect(boks).not.toContain("Språk/målform");
+        expect(boks).toContain("Vil du endre informasjonen");
+    });
+
+    it("viser dataene når bare e-postadressen finnes", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: { epostadresse: "test@test.com", spraak: "Norsk" } }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("test@test.com");
+        expect(boks).toContain("Norsk");
+        expect(boks).not.toContain("Ingen opplysninger registrert");
+        expect(boks).not.toContain("Telefon</");
+    });
+
+    it("utelater språk når det mangler i registeret", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: { mobiltelefonnummer: "12131415", epostadresse: "test@test.com" } }));
+
+        const boks = kontaktBoks(await render());
+
+        expect(boks).toContain("test@test.com");
+        expect(boks).not.toContain("Språk/målform");
+    });
+
+    it("viser en 401-melding bare i kontaktinformasjon-boksen når registeret svarer 401", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "UNAUTHORIZED" }));
+
+        const html = await render();
+
+        expect(kontaktBoks(html)).toContain("Oisann, noe gikk galt ved henting av data!");
+        expect(kontaktBoks(html)).toContain("401: ");
+        expect(kontaktBoks(html)).toContain("Oisann, noe gikk galt! Prøv igjen senere.");
+        expect(kontaktBoks(html)).not.toContain("Ingen opplysninger registrert");
+        expect(html).toContain("Hei Vinayagum-mask Amizic!");
+    });
+
+    it("viser ikke Ditt Nav-kontor uten kontornavn", async () => {
+        const utenNavn = {
+            ...personInfo,
+            enhetKontaktInformasjon: {
+                ...personInfo.enhetKontaktInformasjon,
+                brukerkontakt: personInfo.enhetKontaktInformasjon?.brukerkontakt,
+                navn: "",
+            },
+        };
+        vi.mocked(hentFraApi).mockImplementation((path: string) =>
+            Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : utenNavn }),
+        );
+
+        const html = await render();
+
+        expect(html).not.toContain('id="ditt-nav-kontor"');
     });
 });
