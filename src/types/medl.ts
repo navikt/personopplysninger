@@ -5,7 +5,7 @@ export interface MedlInnslag {
     lovvalgsland: string;
     medlem: boolean;
     studieinformasjon?: Studieinformasjon;
-    tilOgMed: string;
+    tilOgMed: string | null;
     trygdedekning: string;
 }
 
