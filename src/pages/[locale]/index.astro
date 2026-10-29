@@ -44,7 +44,7 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
             {personalia && <Personalia language={language} personalia={personalia} />}
             {personalia && (
                 <KontaktInfo language={language} tlfnr={personalia.tlfnr}>
-                    <TelefonnummerOy slot="telefon" locale={language} config={config} personalia={personalia} client:visible />
+                    <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} client:visible />
                 </KontaktInfo>
             )}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}

@@ -97,6 +97,18 @@ describe("Forsiden", () => {
         expect(boks.indexOf("12131415")).toBeLessThan(boks.indexOf("<astro-island"));
     });
 
+    it("sender bare telefonnumrene til telefonøya", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const oy = html.slice(html.indexOf("<astro-island"), html.indexOf("</astro-island>"));
+
+        expect(oy).toContain("40853158");
+        expect(oy).not.toContain("10108000398");
+        expect(oy).not.toContain("12345678911");
+        expect(oy).not.toContain("test@test.com");
+    });
+
     it("viser feilen fra registeret bare i kontaktinformasjon-boksen", async () => {
         vi.mocked(hentFraApi).mockImplementation(svar(feil));
 
