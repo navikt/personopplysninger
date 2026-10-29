@@ -17,3 +17,7 @@
     align-self: flex-start;
     margin-left: -1.5rem;
 }
+
+.forklaring {
+    text-transform: none;
+}

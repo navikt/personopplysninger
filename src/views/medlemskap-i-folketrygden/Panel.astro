@@ -1,0 +1,35 @@
+---
+import { ChevronDownIcon } from "@navikt/aksel-icons";
+import { BodyLong } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import type { MedlInnslag } from "@/types/medl";
+import medlStyles from "./MedlHistorikk.module.css";
+import styles from "./Panel.module.css";
+import Periode from "./Periode.astro";
+
+interface Props {
+    language: Language;
+    tittel: string;
+    ingress: string;
+    perioder: MedlInnslag[];
+}
+
+const { language, tittel, ingress, perioder } = Astro.props;
+---
+
+<div class={`navds-accordion navds-accordion--medium navds-accordion--indent ${medlStyles.space}`}>
+    <details class={`navds-accordion__item ${styles.panel}`}>
+        <summary class={`navds-accordion__header ${styles.header}`}>
+            <span class="navds-accordion__icon-wrapper">
+                <ChevronDownIcon className={`navds-accordion__header-chevron ${styles.chevron}`} aria-hidden={true} />
+            </span>
+            <span class="navds-accordion__header-content navds-heading navds-heading--small">{tittel}</span>
+        </summary>
+        <div class="navds-accordion__content navds-body-long navds-body-long--medium">
+            <BodyLong>{ingress}</BodyLong>
+            <div class={medlStyles.flexTable}>
+                {perioder.map((periode) => <Periode language={language} periode={periode} />)}
+            </div>
+        </div>
+    </details>
+</div>

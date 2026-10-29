@@ -16,17 +16,6 @@
     display: flex;
 }
 
-.animateEnter {
-    opacity: 0;
-}
-
-.animateEnterActive {
-    opacity: 1;
-    transition-property: opacity;
-    transition-duration: 100ms;
-    transition-timing-function: ease-in;
-}
-
 @media (max-width: 420px) {
     .head {
         display: none;

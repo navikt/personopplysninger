@@ -1,23 +1,15 @@
 import { type RuntimeConfig, RuntimeConfigContext, setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
-import type { InitialData, Locale } from "@/store/Store";
-import type { HentetData } from "@/types/hentetData";
-import type { InstInfo, InstInnslag } from "@/types/inst";
+import type { Locale } from "@/store/Store";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import { EndreKontonummer } from "@/views/endre-kontonummer/EndreKontonummer";
 import EndreOpplysninger from "@/views/endre-personopplysninger/EndreOpplysninger";
 import Forside from "@/views/forside/Forside";
-import InstDetaljer from "@/views/institusjonsopphold/detaljer/InstDetaljer";
-import InstHistorikk from "@/views/institusjonsopphold/historikk/InstHistorikk";
-import MedlHistorikk from "@/views/medlemskap-i-folketrygden/MedlHistorikk";
 
-type PageProps =
-    | {
-          page: "forside" | "arbeidsforhold" | "medlemskap" | "endreKontonummer" | "endreOpplysninger";
-      }
-    | { page: "institusjonsoppholdHistorikk"; instInfo: HentetData<InstInfo> }
-    | { page: "institusjonsoppholdDetaljer"; innslag: HentetData<InstInnslag | undefined> };
+type PageProps = {
+    page: "forside" | "arbeidsforhold" | "endreKontonummer" | "endreOpplysninger";
+};
 
 export type AstroPageProps = PageProps & {
     locale: Locale;
@@ -26,7 +18,6 @@ export type AstroPageProps = PageProps & {
     tjeneste?: string;
     redirectUrl?: string;
     backTo?: string;
-    initialData?: InitialData;
 };
 
 type Props = AstroPageProps & {
@@ -42,12 +33,6 @@ const renderPage = (props: Props) => {
             return <Forside pathname={pathname} />;
         case "arbeidsforhold":
             return <DetaljertArbeidsforhold id={id} pathname={pathname} />;
-        case "institusjonsoppholdHistorikk":
-            return <InstHistorikk instInfo={props.instInfo} pathname={pathname} />;
-        case "institusjonsoppholdDetaljer":
-            return <InstDetaljer innslag={props.innslag} pathname={pathname} />;
-        case "medlemskap":
-            return <MedlHistorikk pathname={pathname} />;
         case "endreKontonummer":
             return <EndreKontonummer backTo={props.backTo} pathname={pathname} />;
         case "endreOpplysninger":
@@ -56,7 +41,7 @@ const renderPage = (props: Props) => {
 };
 
 const AstroPageRoot = (props: Props) => {
-    const { locale, authName = "", config, initialData } = props;
+    const { locale, authName = "", config } = props;
 
     if (typeof window !== "undefined") {
         setRuntimeConfig(config);
@@ -67,7 +52,6 @@ const AstroPageRoot = (props: Props) => {
             <StoreProvider
                 initialLocale={locale}
                 initialAuthInfo={{ status: "RESULT", data: { authenticated: true, securityLevel: "4", name: authName } }}
-                initialData={initialData}
             >
                 <WithLanguages>
                     <div className="pagecontent">

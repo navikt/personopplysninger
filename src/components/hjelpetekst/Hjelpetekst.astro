@@ -1,0 +1,31 @@
+---
+import { QuestionmarkIcon } from "@navikt/aksel-icons";
+import helpStyles from "@/components/customHelpText/CustomHelpText.module.css";
+import type { Language } from "@/language/language";
+import { text } from "@/language/text";
+import styles from "./Hjelpetekst.module.css";
+
+interface Props {
+    language: Language;
+    tittel: string;
+}
+
+const { language, tittel } = Astro.props;
+
+const id = `hjelpetekst-${crypto.randomUUID()}`;
+---
+
+<div>
+    <button
+        type="button"
+        popovertarget={id}
+        aria-label={`${text.merOm[language]} ${tittel}`}
+        class={`navds-button navds-button--tertiary navds-button--medium ${helpStyles.helpButton}`}
+    >
+        <span class="navds-label"><QuestionmarkIcon className={helpStyles.icon} aria-hidden={true} /></span>
+    </button>
+    <div id={id} popover class={`navds-popover ${styles.popover}`}>
+        <div class="navds-popover__content"><slot /></div>
+        <div class={`navds-popover__arrow ${styles.pil}`}></div>
+    </div>
+</div>

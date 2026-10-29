@@ -11,7 +11,6 @@ export default {
     "side.leggtil": "Add",
     "side.leggtil.kontaktinformasjon": "Add a phone number in the Nav registry",
     "side.valgfritt": " (optional)",
-    "side.organisasjonsnummer": "Organisation number {orgnr}",
     "side.endre": "Change",
     "side.endre.alle.opplysninger": "Change information",
     "side.endre.kontaktinformasjon": "Change contact information",
@@ -151,20 +150,6 @@ A child who lives permanently with both mother and father can have two home addr
     "utbetalinger.hjelpetekster.bankkode":
         "<p>In this field, fill out the bank code, Fedwire number (FW), or routing number.</p><p>If you enter a bank code, you do not need to enter an IBAN number. You enter BIC for the banks that have it.</p><p>Countries that use bank code are, among others, the United States, Australia, Canada, Russia, New Zealand and South Africa.</p>",
     "kontaktinfo.tittel": "Contact information",
-    "inst.tittel": "Institutional stays",
-    "inst.institusjon": "Institution",
-    "inst.detaljer": "Details",
-    "inst.disclaimer":
-        "You can view institutional stays that started in 2020 or later here. Stays with an earlier start date are also shown if they continued after 1 January 2020. You may also have older registered stays. To view those, you can <lenkeTilInnsyn>request access</lenkeTilInnsyn>.<br></br><br></br>Healthcare institutions, residential care homes, nursing homes, and prisons <lenkeTilInstMelding>are required to notify Nav</lenkeTilInstMelding> when a person is admitted or discharged. If you find incorrect information, contact the institution directly.",
-    "inst.periode": "Period",
-    "inst.institusjonsnavn": "Name of institution",
-    "inst.institusjonstype": "Type of institution",
-    "inst.kategori": "Category",
-    "inst.registreringstidspunkt": "Date of registration",
-    "inst.ingendata": "There are no institutional stays to show.",
-    "inst.fiktivSluttdato.tittel": "Termination",
-    "inst.fiktivSluttdato": "The termination of the stay at the institution has not been reported. Nav has automatically terminated the stay.",
-    "inst.kilde": "SOURCE: INSTITUTIONAL STAY REGISTER<br></br><span>The data is reported by the institution.</span>",
     "kontaktinformasjon-kilde": `Where is this contact information from?
   Nav uses your contact information from The common contact register. This is a joint national registry used by the government to send
   messages and documents. You can also register the phone number you want to be reached by in the Nav registry.`,
@@ -172,46 +157,6 @@ A child who lives permanently with both mother and father can have two home addr
         "You receive mail and information electronically from the government. This is because you have not opted out of electronic communication.",
     "kontaktogreservasjonsregister-disclaimer-reservert":
         "You receive important letters from the government in the mail. This is because you have reserved yourself against electronic communication. The state and municipality can still send you other information by e-mail, SMS or as a digital letter.",
-    "medl.tittel": "Membership of the National Insurance Scheme",
-    "medl.ingendata": "You have no registered periods.",
-    "medl.oversikt.ingress":
-        "If you work and live in Norway, you are normally a member of the National Insurance Scheme. Periods with this type of membership will not be shown in this page. This page is only relevant if you have",
-    "medl.oversikt.1": "lived, worked or studied abroad, and you have applied for membership in the National Insurance Scheme.",
-    "medl.oversikt.2": "worked in Norway, but were a member of a different countries National Insurance Scheme.",
-    "medl.situasjoner.tittel": "Different scenarios",
-    "medl.situasjoner.1":
-        "If you move abroad to live or work, membership in the National Insurance Scheme depends on what you do and how long you stay.",
-    "medl.situasjoner.2":
-        "Norwegian students will normally be compulsory members of the National Insurance Scheme, if they receive funding from the State Educational Loan Fund (Lånekassen) to study at universities abroad.",
-    "medl.situasjoner.3":
-        "If you live in a different country, but work full time or part time in Norway, you may join the national insurance scheme in the country you live and be exempt from membership in the National Insurance Scheme in Norway.",
-    "medl.folketrygden.tittel": "What does membership in the National Insurance Scheme mean?",
-    "medl.folketrygden.ingress":
-        "Membership in the National Insurance Scheme is the key to eligibility for rights to services from Nav. <lenkeTilFolketrygden> Read about membership in the National Insurance Scheme</lenkeTilFolketrygden>. Contact Nav if you have questions about periods with membership or exemptions from membership in the National Insurance Scheme, telephone (+47) 21 07 37 00.",
-    "medl.folketrygden.lanekassen":
-        "Contact the State Educational Loan Fund (Lånekassen) if you have questions about periods with funding while studying abroad.",
-    "medl.perioder.tittel": "Overview of periods",
-    "medl.perioder.alert": "Only periods registered from 2015 are available in this overview.",
-    "medl.medlemskap.med.tittel": "With membership",
-    "medl.medlemskap.med.ingress":
-        "This overview shows periods where you have applied to Nav for membership in the National Insurance Scheme and received confirmation of it.",
-    "medl.medlemskap.uten.tittel": "Exemptions from membership",
-    "medl.medlemskap.uten.ingress":
-        "The overview shows periods where Nav has received information from the social security authority in another country that you were part of the social security scheme in your country of residence while you worked in Norway.",
-    "medl.medlemskap.lanekassen.tittel": "With support from the State Educational Loan Fund to study abroad",
-    "medl.medlemskap.lanekassen.ingress":
-        "The overview shows periods where the State Educational Loan Fund (Lånekassen) has registered you as a student at a foreign educational institution.",
-    "medl.periode": "Period",
-    "medl.trygdedekning": "Coverage",
-    "medl.trygdedekning.hjelpetekst": "Information about what kind of membership in the National Insurance Scheme you have.",
-    "medl.lovvalgsland": "Country",
-    "medl.lovvalgsland.hjelpetekst": `Information about which country's social security scheme you were part of, during the
-    period you were exempt from membership in the National Insurance Scheme.`,
-    "medl.hjemmel": "Legal basis",
-    "medl.hjemmel.hjelpetekst":
-        "Information about the basis for your membership in the National Insurance Scheme (law or agreement). If you are exempt from membership in the National Insurance Scheme, it shows the basis for the exemption.",
-    "medl.statsborgerland": "Citizenship",
-    "medl.studieland": "Country of studies",
     "dittnavkontor.tittel": "Your Nav office",
     "dittnavkontor.beskrivelse": `If you are already receiving follow-up at a Nav office, you should continue to use this office.
     If you don't get follow-up, you can use the office below.`,

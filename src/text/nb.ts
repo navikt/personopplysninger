@@ -11,7 +11,6 @@ export default {
     "side.leggtil": "Legg til",
     "side.leggtil.kontaktinformasjon": "Legg til telefonnummer i Nav sitt register",
     "side.valgfritt": " (valgfritt)",
-    "side.organisasjonsnummer": "Organisasjonsnummer {orgnr}",
     "side.endre": "Endre",
     "side.endre.alle.opplysninger": "Endre opplysninger",
     "side.endre.kontaktinformasjon": "Endre kontaktinformasjon",
@@ -150,20 +149,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     "utbetalinger.hjelpetekster.bankkode":
         "<p>I dette feltet fyller du ut bankkode, fedwire number (FW) eller routing number.</p><p>Oppgir du en bankkode, trenger du ikke oppgi IBAN-nummer. Du oppgir BIC for de bankene som har det.</p><p>Land som bruker bankkode, er blant annet USA, Australia, Canada, Russland, New Zealand og Sør-Afrika.</p>",
     "kontaktinfo.tittel": "Kontaktinformasjon",
-    "inst.tittel": "Institusjonsopphold",
-    "inst.institusjon": "Institusjon",
-    "inst.detaljer": "Detaljer",
-    "inst.disclaimer":
-        "Her kan du se institusjonsopphold som startet i 2020 eller senere. Opphold som er registrert med en tidligere startdato, og som har varighet etter 1. januar 2020, vil også vises. Du kan ha tidligere registrerte opphold. Ønsker du å se disse oppholdene, kan du <lenkeTilInnsyn>be om innsyn</lenkeTilInnsyn>.<br></br><br></br>Helseinstitusjoner, alders- og sykehjem og fengsler har <lenkeTilInstMelding>plikt til å sende melding til Nav</lenkeTilInstMelding> om alle personer som blir skrevet inn og ut. Oppdager du feil, må du kontakte institusjonen direkte.",
-    "inst.periode": "Periode",
-    "inst.institusjonsnavn": "Institusjonsnavn",
-    "inst.institusjonstype": "Institusjonstype",
-    "inst.kategori": "Kategori",
-    "inst.registreringstidspunkt": "Registreringstidspunkt",
-    "inst.ingendata": "Det er ingen institusjonsopphold å vise.",
-    "inst.fiktivSluttdato.tittel": "Sluttdato",
-    "inst.fiktivSluttdato": "Sluttdato for oppholdet er ikke mottatt. Nav har avsluttet oppholdet maskinelt.",
-    "inst.kilde": "KILDE: INSTITUSJONSOPPHOLDSREGISTERET<br></br><span>Dataene er rapportert av institusjonen.</span>",
     "kontaktogreservasjonsregister-disclaimer":
         "Du mottar post og informasjon fra det offentlige elektronisk. Grunnen til det er at du ikke har reservert deg mot elektronisk kommunikasjon.",
     "kontaktogreservasjonsregister-disclaimer-reservert":
@@ -171,43 +156,6 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     "kontaktinformasjon-kilde": `Hvor hentes kontaktinformasjonen fra?
   Nav henter kontaktopplysningene dine fra Kontakt- og reservasjonsregisteret. Dette er et felles, nasjonalt register som brukes av det offentlige for
   å kunne sende meldinger og dokumenter. Du kan også registrere telefonnumre du vil kontaktes på  i Nav sitt register.`,
-    "medl.tittel": "Medlemskap og unntak fra <br></br>medlemskap i folketrygden",
-    "medl.ingendata": "Du har ingen registrerte perioder.",
-    "medl.oversikt.ingress":
-        "Hvis du bor og jobber i Norge, er du vanligvis medlem i folketrygden. Perioder med denne type medlemskap vil ikke vises i oversikten. Oversikten er kun aktuell for deg som har",
-    "medl.oversikt.1": "bodd, jobbet eller studert i utlandet, og du har søkt om medlemskap i folketrygden og fått bekreftet det.",
-    "medl.oversikt.2": "jobbet i Norge, men var med i trygdeordningen i et annet land.",
-    "medl.situasjoner.tittel": "Ulike situasjoner",
-    "medl.situasjoner.1":
-        "Flytter du til utlandet for å bo eller jobbe, avhenger medlemskap i folketrygden blant annet av hva du gjør og varigheten på oppholdet.",
-    "medl.situasjoner.2":
-        "Norske studenter i utlandet vil vanligvis være pliktige medlemmer i folketrygden, hvis de får støtte fra Lånekassen for å studere på heltid ved et utenlandsk universitet eller en høyskole.",
-    "medl.situasjoner.3":
-        "Er du bosatt i et annet land, men jobber helt eller delvis i Norge, kan du være med i trygdeordningen i bostedslandet ditt og være unntatt fra medlemskap i folketrygden.",
-    "medl.folketrygden.tittel": "Hva betyr medlemskap i folketrygden?",
-    "medl.folketrygden.ingress":
-        "Medlemskap i folketrygden betyr at du har rettigheter og plikter i folketrygden. <lenkeTilFolketrygden> Les om medlemskap i folketrygden</lenkeTilFolketrygden>. Kontakt Nav hvis du har spørsmål om perioder med eller uten medlemskap i folketrygden, telefon (+47) 21 07 37 00.",
-    "medl.folketrygden.lanekassen": "Kontakt Statens lånekasse for utdanning hvis du har spørsmål om perioder med støtte fra Lånekassen.",
-    "medl.perioder.tittel": "Oversikt over perioder",
-    "medl.perioder.alert":
-        "Oversikten viser perioder fra og med 2015. Hvis perioden i 2015 henger sammen med en periode fra tidligere år, vil også den vises.",
-    "medl.medlemskap.med.tittel": "Med medlemskap",
-    "medl.medlemskap.med.ingress": "Oversikten viser perioder der du har søkt Nav om medlemskap i folketrygden og fått bekreftet det.",
-    "medl.medlemskap.uten.tittel": "Uten medlemskap",
-    "medl.medlemskap.uten.ingress":
-        "Oversikten viser perioder der Nav har fått informasjon fra trygdemyndigheten i et annet land om at du var med i trygdeordningen i bostedslandet ditt mens du jobbet i Norge.",
-    "medl.medlemskap.lanekassen.tittel": "Med støtte fra Lånekassen for å studere i utlandet",
-    "medl.medlemskap.lanekassen.ingress": "Oversikten viser perioder der Lånekassen har registrert deg som student ved et utenlandsk lærested.",
-    "medl.periode": "Periode",
-    "medl.trygdedekning": "Trygdedekning",
-    "medl.trygdedekning.hjelpetekst": "Trygdedekning viser hva slags medlemskap du har i folketrygden.",
-    "medl.lovvalgsland": "Land",
-    "medl.lovvalgsland.hjelpetekst": "Land viser hvilket lands trygdeordning du var med i, i perioden du var unntatt fra medlemskap i folketrygden",
-    "medl.hjemmel": "Hjemmel",
-    "medl.hjemmel.hjelpetekst":
-        "Hjemmel viser grunnlaget for ditt medlemskap i folketrygden (lov eller avtale). Er du unntatt fra medlemskap i folketrygden, viser den grunnlaget for unntak.",
-    "medl.statsborgerland": "Statsborgerland",
-    "medl.studieland": "Studieland",
     "dittnavkontor.tittel": "Ditt Nav-kontor",
     "dittnavkontor.beskrivelse":
         "Hvis du allerede får oppfølging ved et Nav-kontor, skal du fortsette å bruke dette kontoret. Hvis du ikke får oppfølging, kan du bruke kontoret under.",

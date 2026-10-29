@@ -1,0 +1,80 @@
+---
+import { CheckmarkCircleIcon } from "@navikt/aksel-icons";
+import { Alert, BodyLong, BodyShort, Heading, Link } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import type { MedlInfo } from "@/types/medl";
+import medlStyles from "./MedlHistorikk.module.css";
+import { text } from "./medlText";
+import { grupperPerioder } from "./medlUtils";
+import Panel from "./Panel.astro";
+
+interface Props {
+    language: Language;
+    medlInfo: MedlInfo;
+}
+
+const { language, medlInfo } = Astro.props;
+
+const { medMedlemskap, utenMedlemskap, fraLanekassen, ingenPerioder } = grupperPerioder(medlInfo);
+---
+
+<div class={medlStyles.tabsInnhold}>
+    <div class={medlStyles.space}>
+        <BodyLong>{text.oversiktIngress[language]}</BodyLong>
+    </div>
+    {
+        [text.oversikt1, text.oversikt2].map((innhold) => (
+            <div class={medlStyles.space}>
+                <div class={medlStyles.checkbox}>
+                    <CheckmarkCircleIcon className={medlStyles.kalender} aria-hidden={true} />
+                    <BodyLong>{innhold[language]}</BodyLong>
+                </div>
+            </div>
+        ))
+    }
+
+    <div class={medlStyles.section}>
+        <Heading level="3" size="small">{text.situasjonerTittel[language]}</Heading>
+    </div>
+    {
+        [text.situasjoner1, text.situasjoner2, text.situasjoner3].map((innhold) => (
+            <div class={medlStyles.space}>
+                <div class={medlStyles.checkbox}>
+                    <CheckmarkCircleIcon className={medlStyles.kalender} aria-hidden={true} />
+                    <BodyLong>{innhold[language]}</BodyLong>
+                </div>
+            </div>
+        ))
+    }
+
+    <div class={medlStyles.section}>
+        <Heading level="3" size="small">{text.folketrygdenTittel[language]}</Heading>
+    </div>
+    <div class={medlStyles.space}>
+        <BodyLong>{text.folketrygdenFoer[language]}<Link href={text.folketrygdenUrl[language]}>{text.folketrygdenLenke[language]}</Link>{text.folketrygdenEtter[language]}</BodyLong>
+    </div>
+    <div class={medlStyles.space}>
+        <BodyShort>{text.folketrygdenLanekassen[language]}</BodyShort>
+    </div>
+
+    <div class={medlStyles.section}>
+        <Heading level="3" size="small">{text.perioderTittel[language]}</Heading>
+    </div>
+    <div class={medlStyles.space}>
+        <Alert variant="info">{text.perioderAlert[language]}</Alert>
+    </div>
+    {medMedlemskap.length > 0 && <Panel language={language} tittel={text.medTittel[language]} ingress={text.medIngress[language]} perioder={medMedlemskap} />}
+    {utenMedlemskap.length > 0 && <Panel language={language} tittel={text.utenTittel[language]} ingress={text.utenIngress[language]} perioder={utenMedlemskap} />}
+    {
+        fraLanekassen.length > 0 && (
+            <Panel language={language} tittel={text.lanekassenTittel[language]} ingress={text.lanekassenIngress[language]} perioder={fraLanekassen} />
+        )
+    }
+    {
+        ingenPerioder && (
+            <div class={medlStyles.space}>
+                <Alert variant="info">{text.ingenData[language]}</Alert>
+            </div>
+        )
+    }
+</div>

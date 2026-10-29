@@ -7,10 +7,6 @@ const paths = [
     "nb/dsop",
     "nb/dsop/2019-06-18T10%3A45%3A51.634",
     "nb/dsop/2000-01-01T00%3A00%3A00",
-    "nb/institusjonsopphold",
-    "nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816",
-    "nb/institusjonsopphold/2000-01-01T00%3A00%3A00",
-    "nb/medlemskap-i-folketrygden",
     "nb/endre-kontonummer",
     "nb/arbeidsforhold/1",
 ];

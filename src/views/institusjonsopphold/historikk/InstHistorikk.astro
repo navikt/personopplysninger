@@ -1,0 +1,89 @@
+---
+import { ChevronDownIcon } from "@navikt/aksel-icons";
+import { Alert, BodyShort, Label, Link } from "@navikt/ds-react";
+import Hjelpetekst from "@/components/hjelpetekst/Hjelpetekst.astro";
+import Kilde from "@/components/kilde/Kilde.astro";
+import { basePath } from "@/constants";
+import type { Language } from "@/language/language";
+import historikkStyles from "@/styles/historikk.module.css";
+import type { InstInfo } from "@/types/inst";
+import instStyles from "../Inst.module.css";
+import { text } from "../instText";
+import { periode, sorterOpphold } from "../instUtils";
+import styles from "./InstHistorikk.module.css";
+
+interface Props {
+    language: Language;
+    instInfo: InstInfo;
+}
+
+const { language, instInfo } = Astro.props;
+
+const opphold = sorterOpphold(instInfo);
+---
+
+<Alert variant="info">
+    {text.disclaimerFoer[language]}<Link href={text.innsynUrl[language]}>{text.innsynLenke[language]}</Link>{text.disclaimerMidt[language]}<br /><br />{text.meldingFoer[language]}<Link href={text.meldingUrl[language]}>{text.meldingLenke[language]}</Link>{text.meldingEtter[language]}
+</Alert>
+<div class={instStyles.tabell}>
+    {opphold.length > 0 ? (
+        <>
+            <div class={`${historikkStyles.flexRad} ${instStyles.head}`}>
+                <div class={historikkStyles.flexKolonne}>
+                    <Label as="p">{text.periode[language]}</Label>
+                </div>
+                <div class={historikkStyles.flexKolonne}>
+                    <Label as="p">{text.institusjon[language]}</Label>
+                </div>
+            </div>
+            {opphold.map((innslag, i) => (
+                <div class={`${historikkStyles.flexRad} ${i >= 20 ? styles.rad : ""}`} data-opphold hidden={i >= 20}>
+                    <div class={historikkStyles.flexKolonne}>
+                        <BodyShort>{periode(innslag)}</BodyShort>
+                        {innslag.fiktivSluttdato && (
+                            <Hjelpetekst language={language} tittel={text.fiktivSluttdatoTittel[language]}>
+                                {text.fiktivSluttdato[language]}
+                            </Hjelpetekst>
+                        )}
+                    </div>
+                    <div class={historikkStyles.flexKolonne}>
+                        <a href={`${basePath}/${language}/institusjonsopphold/${encodeURIComponent(innslag.registreringstidspunkt)}`} class="lenke">
+                            <BodyShort>{innslag.institusjonsnavn}</BodyShort>
+                        </a>
+                    </div>
+                </div>
+            ))}
+        </>
+    ) : (
+        <div class={historikkStyles.ingenData}>
+            <Alert variant="info">{text.ingenData[language]}</Alert>
+        </div>
+    )}
+    {opphold.length > 20 && (
+        <div class={`${instStyles.seFler} ${styles.seFlerJs}`}>
+            <button type="button" id="seFlere" class="navds-button navds-button--tertiary navds-button--medium">
+                <span class="navds-label">{text.seFlere[language]}</span>
+                <span class="navds-button__icon"><ChevronDownIcon aria-hidden={true} /></span>
+            </button>
+        </div>
+    )}
+</div>
+<div class={instStyles.kilde}>
+    <Kilde kilde={text.kilde[language]} forklaring={text.kildeForklaring[language]} />
+</div>
+
+<script>
+    const seFlere = document.querySelector("#seFlere");
+
+    seFlere?.addEventListener("click", () => {
+        const skjulte = [...document.querySelectorAll<HTMLElement>("[data-opphold][hidden]")];
+        document.querySelectorAll<HTMLElement>("[data-nyeste]").forEach((rad) => delete rad.dataset.nyeste);
+        skjulte.slice(0, 20).forEach((rad) => {
+            rad.hidden = false;
+            rad.dataset.nyeste = "";
+        });
+        if (skjulte.length < 20) {
+            seFlere.parentElement?.remove();
+        }
+    });
+</script>

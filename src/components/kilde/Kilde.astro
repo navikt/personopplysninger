@@ -1,0 +1,19 @@
+---
+import { Detail } from "@navikt/ds-react";
+import styles from "./Kilde.module.css";
+
+interface Props {
+    kilde: string;
+    forklaring: string;
+}
+
+const { kilde, forklaring } = Astro.props;
+---
+
+<div class={styles.tekst}>
+    <Detail spacing>
+        {kilde}
+        <br />
+        <span class={styles.forklaring}>{forklaring}</span>
+    </Detail>
+</div>
