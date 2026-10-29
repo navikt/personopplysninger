@@ -52,11 +52,11 @@
     top: -1px;
 }
 
-.lesMer[open] > .knapp > .apne {
+.toTitler[open] > .knapp > .apne {
     display: none;
 }
 
-.lesMer[open] > .knapp > .lukk {
+.toTitler[open] > .knapp > .lukk {
     display: inline;
 }
 

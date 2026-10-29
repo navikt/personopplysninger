@@ -19,6 +19,16 @@ describe("LesMer", () => {
         expect(html).toContain("Vis detaljer");
         expect(html).toContain("Skjul detaljer");
         expect(html).toMatch(/<\/summary><div class="[^"]+"><dl><\/dl><\/div><\/details>/);
+        expect(html).toMatch(/<details class="[^"]*_toTitler_\w+[^"]*">/);
         expect(html).not.toContain("navds-");
+    });
+
+    it("skjuler ikke tittelen når den åpnes uten lukkTittel", async () => {
+        const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
+
+        const html = await container.renderToString(LesMer, { props: { tittel: "Vis detaljer" }, slots: { default: "<dl></dl>" } });
+
+        expect(html).toMatch(/<details class="_lesMer_\w+">/);
+        expect(html).not.toContain("toTitler");
     });
 });

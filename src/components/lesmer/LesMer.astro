@@ -11,7 +11,7 @@ interface Props {
 const { tittel, lukkTittel, className } = Astro.props;
 ---
 
-<details class={`${styles.lesMer} ${className ?? ""}`}>
+<details class:list={[styles.lesMer, lukkTittel && styles.toTitler, className]}>
     <summary class={styles.knapp}>
         <ChevronDownIcon className={styles.chevron} aria-hidden={true} />
         <span class={styles.apne}>{tittel}</span>
