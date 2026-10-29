@@ -68,6 +68,18 @@ body:has(.dialog[open]) {
     overflow: auto;
     overscroll-behavior: contain;
     position: relative;
+    background:
+        linear-gradient(var(--a-surface-default) 30%, transparent) top,
+        linear-gradient(transparent, var(--a-surface-default) 60%) bottom,
+        radial-gradient(farthest-side at 50% 0, rgba(0 0 0 / 0.3), transparent) top,
+        radial-gradient(farthest-side at 50% 100%, rgba(0 0 0 / 0.3), transparent) bottom;
+    background-size:
+        100% 40px,
+        100% 50px,
+        100% 16px,
+        100% 16px;
+    background-attachment: local, local, scroll, scroll;
+    background-repeat: no-repeat;
 }
 
 @keyframes fadeInn {
