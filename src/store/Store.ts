@@ -1,8 +1,6 @@
 import type { HTTPError } from "../components/errorMessage/ErrorMessage";
 import type { Auth, FetchAuth } from "../types/authInfo";
-import type { KontaktInfo } from "../types/kontaktInfo";
 import type { PersonInfo } from "../types/personInfo";
-import type { FetchKontaktInfo } from "../views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF-Fetch";
 import type { FetchPersonInfo } from "./providers/PersonInfo";
 
 export type Locale = "nb" | "en" | "nn";
@@ -11,7 +9,6 @@ export interface Store {
     locale: Locale;
     authInfo: FetchAuth;
     personInfo: FetchPersonInfo;
-    kontaktInfo: FetchKontaktInfo;
 }
 
 const getInitialLocale = (): Locale => {
@@ -34,7 +31,6 @@ export const createInitialState = (locale = getInitialLocale(), authInfo: FetchA
     locale,
     authInfo,
     personInfo: personInfo ? { status: "RESULT", data: personInfo } : { status: "LOADING" },
-    kontaktInfo: { status: "LOADING" },
 });
 
 export const initialState = createInitialState();
@@ -50,14 +46,6 @@ export type Action =
       }
     | {
           type: "SETT_PERSON_INFO_ERROR";
-          payload: HTTPError;
-      }
-    | {
-          type: "SETT_KONTAKT_INFO_RESULT";
-          payload: KontaktInfo;
-      }
-    | {
-          type: "SETT_KONTAKT_INFO_ERROR";
           payload: HTTPError;
       };
 
@@ -86,22 +74,6 @@ export const reducer = (state: Store, action: Action) => {
                     status: "ERROR",
                     error: action.payload,
                 } as FetchPersonInfo,
-            };
-        case "SETT_KONTAKT_INFO_RESULT":
-            return {
-                ...state,
-                kontaktInfo: {
-                    status: "RESULT",
-                    data: action.payload,
-                } as FetchKontaktInfo,
-            };
-        case "SETT_KONTAKT_INFO_ERROR":
-            return {
-                ...state,
-                kontaktInfo: {
-                    status: "ERROR",
-                    error: action.payload,
-                } as FetchKontaktInfo,
             };
         default:
             return state;

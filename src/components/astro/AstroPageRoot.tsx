@@ -5,10 +5,9 @@ import type { Locale } from "@/store/Store";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
 import { EndreKontonummer } from "@/views/endre-kontonummer/EndreKontonummer";
 import EndreOpplysninger from "@/views/endre-personopplysninger/EndreOpplysninger";
-import Forside from "@/views/forside/Forside";
 
 type PageProps = {
-    page: "forside" | "arbeidsforhold" | "endreKontonummer" | "endreOpplysninger";
+    page: "arbeidsforhold" | "endreKontonummer" | "endreOpplysninger";
 };
 
 export type AstroPageProps = PageProps & {
@@ -21,7 +20,6 @@ export type AstroPageProps = PageProps & {
 };
 
 type Props = AstroPageProps & {
-    authName?: string;
     config: RuntimeConfig;
 };
 
@@ -29,8 +27,6 @@ const renderPage = (props: Props) => {
     const { pathname, id } = props;
 
     switch (props.page) {
-        case "forside":
-            return <Forside pathname={pathname} />;
         case "arbeidsforhold":
             return <DetaljertArbeidsforhold id={id} pathname={pathname} />;
         case "endreKontonummer":
@@ -41,7 +37,7 @@ const renderPage = (props: Props) => {
 };
 
 const AstroPageRoot = (props: Props) => {
-    const { locale, authName = "", config } = props;
+    const { locale, config } = props;
 
     if (typeof window !== "undefined") {
         setRuntimeConfig(config);
@@ -49,10 +45,7 @@ const AstroPageRoot = (props: Props) => {
 
     return (
         <RuntimeConfigContext.Provider value={config}>
-            <StoreProvider
-                initialLocale={locale}
-                initialAuthInfo={{ status: "RESULT", data: { authenticated: true, securityLevel: "4", name: authName } }}
-            >
+            <StoreProvider initialLocale={locale}>
                 <WithLanguages>
                     <div className="pagecontent">
                         <div className="wrapper">{renderPage(props)}</div>
