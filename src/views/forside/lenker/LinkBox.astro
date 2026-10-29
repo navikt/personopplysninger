@@ -1,0 +1,37 @@
+---
+import { ChevronRightIcon } from "@navikt/aksel-icons";
+import { BodyLong, Label } from "@navikt/ds-react";
+import iconStyles from "@/components/icon/Icon.module.css";
+import { getAssetUrl } from "@/utils/assets";
+import styles from "@/views/forside/sections/6-flere-opplysninger/linkbox/LinkBox.module.css";
+
+interface Props {
+    ikon: string | { src: string };
+    tittel: string;
+    beskrivelse: string;
+    til: string;
+}
+
+const { ikon, tittel, beskrivelse, til } = Astro.props;
+---
+
+<a class={styles.rad} href={til}>
+    <div class={styles.iconContainer}>
+        <div class={iconStyles.circle} aria-hidden="true">
+            <img src={getAssetUrl(ikon)} alt="" />
+        </div>
+    </div>
+    <div class={styles.content}>
+        <div class={styles.seksjon}>
+            <div class={styles.tittel}>
+                <div class={styles.lenke}>
+                    <Label as="div">{tittel}</Label>
+                </div>
+            </div>
+            <div class={styles.beskrivelse}>
+                <BodyLong>{beskrivelse}</BodyLong>
+            </div>
+        </div>
+    </div>
+    <ChevronRightIcon className={styles.next} aria-hidden={true} />
+</a>

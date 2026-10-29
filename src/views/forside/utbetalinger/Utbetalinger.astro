@@ -1,0 +1,63 @@
+---
+import { Alert, BodyShort } from "@navikt/ds-react";
+import { friendlyFormatIBAN } from "ibantools";
+import kontonummerIkon from "@/assets/img/Kontonummer.svg";
+import Box from "@/components/box/Box.astro";
+import ListElement from "@/components/listelement/ListElement.astro";
+import listeStyles from "@/components/listelement/Liste.module.css";
+import { basePath } from "@/constants";
+import driftsmeldinger from "@/driftsmeldinger";
+import type { Language } from "@/language/language";
+import type { UtenlandskBankkonto } from "@/types/personalia";
+import GateAdresse from "@/views/forside/sections/4-personinfo/3-adresser/komponenter/GateAdresse";
+import styles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
+import { formatterKontonr } from "@/views/forside/sections/4-personinfo/4-utbetalinger/utils";
+import { text } from "./utbetalingerText";
+
+interface Props {
+    language: Language;
+    kontonr?: string;
+    utenlandskbank?: UtenlandskBankkonto;
+}
+
+const { language, kontonr, utenlandskbank } = Astro.props;
+
+const backTo = Astro.url.pathname.replace(`${basePath}/${language}`, "");
+const backToQuery = backTo ? `?backTo=${encodeURIComponent(backTo)}` : "";
+---
+
+<Box language={language} id="utbetaling" tittel={text.tittel[language]} ikon={kontonummerIkon} ankerlenke>
+    {driftsmeldinger.pdl && <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>}
+    <Alert role="status" variant="info">
+        {text.infoFoer[language]}<a href="tel:+4755553333" class={styles.nowrap}>{text.infoTelefon[language]}</a>{text.infoMidt[language]}<a href={text.kontaktOssUrl[language]} class={styles.nowrap}>{text.infoLenke[language]}</a>{text.infoEtter[language]}
+    </Alert>
+    {kontonr || utenlandskbank ? (
+        <>
+            {kontonr && (
+                <dl class={listeStyles.list}>
+                    <ListElement language={language} tittel={text.kontonr[language]} innhold={formatterKontonr(kontonr)} />
+                </dl>
+            )}
+            {utenlandskbank && (
+                <dl class={listeStyles.list}>
+                    <ListElement language={language} tittel={text.bank[language]}>
+                        {utenlandskbank.banknavn && <BodyShort>{utenlandskbank.banknavn}</BodyShort>}
+                        <GateAdresse adresse1={utenlandskbank.adresse1} adresse2={utenlandskbank.adresse2} adresse3={utenlandskbank.adresse3} />
+                        {utenlandskbank.land && <BodyShort>{utenlandskbank.land}</BodyShort>}
+                    </ListElement>
+                    {utenlandskbank.kontonummer ? (
+                        <ListElement language={language} tittel={text.kontonrEllerIban[language]} innhold={utenlandskbank.kontonummer} />
+                    ) : utenlandskbank.iban ? (
+                        <ListElement language={language} tittel={text.iban[language]} innhold={friendlyFormatIBAN(utenlandskbank.iban)} />
+                    ) : null}
+                    <ListElement language={language} tittel={text.bankkode[language]} innhold={utenlandskbank.bankkode} />
+                    <ListElement language={language} tittel={text.valuta[language]} innhold={utenlandskbank.valuta} />
+                    <ListElement language={language} tittel={text.bicKode[language]} innhold={utenlandskbank.swiftkode} />
+                </dl>
+            )}
+        </>
+    ) : (
+        <div class="underseksjon__beskrivelse">{text.ingenKontonr1[language]}<br />{text.ingenKontonr2[language]}</div>
+    )}
+    <a href={`${basePath}/${language}/endre-kontonummer${backToQuery}`}>{text.endreKontonummer[language]}</a>
+</Box>

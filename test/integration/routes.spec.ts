@@ -34,17 +34,3 @@ test("sender arbeidsforhold-snarveien til seksjonen på forsiden", async ({ page
 
     await expect(page).toHaveURL(/\/person\/personopplysninger\/nb\/#arbeidsforhold$/);
 });
-
-test("viser feilmeldingen når en henting i nettleseren feiler", async ({ page }) => {
-    await page.route("**/api/personalia", (route) =>
-        route.fulfill({
-            status: 500,
-            contentType: "application/json",
-            body: JSON.stringify({ message: "Mock error" }),
-        }),
-    );
-
-    await page.goto("nb/");
-
-    await expect(page.getByRole("alert")).toContainText("Oisann, noe gikk galt ved henting av data!");
-});

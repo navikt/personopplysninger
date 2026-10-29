@@ -1,0 +1,37 @@
+---
+import { BodyLong, GuidePanel, Heading, Link } from "@navikt/ds-react";
+import veilederIkon from "@/assets/img/Veileder.svg";
+import boxStyles from "@/components/box/Box.module.css";
+import type { Language } from "@/language/language";
+import { getAssetUrl } from "@/utils/assets";
+import { formatName } from "@/utils/text";
+import styles from "@/views/forside/sections/3-header/Header.module.css";
+import { text } from "../forsideText";
+
+interface Props {
+    language: Language;
+    fornavn?: string;
+    etternavn?: string;
+}
+
+const { language, fornavn, etternavn } = Astro.props;
+
+const navn = formatName([fornavn, etternavn].filter(Boolean).join(" "));
+---
+
+<div class={styles.header}>
+    <GuidePanel poster>
+        <img slot="illustration" src={getAssetUrl(veilederIkon)} class={styles.ikon} alt="" />
+        <div class:list={[boxStyles.container, styles.content]}>
+            <Heading size="medium" level="2">{navn ? text.hilsenMedNavn[language](navn) : text.hilsen[language]}</Heading>
+            <div class={styles.seksjon}>
+                <BodyLong>{text.obs[language]}</BodyLong>
+            </div>
+            <div class={styles.seksjon}>
+                <BodyLong>
+                    <Link href="/personvern" target="_blank" rel="noopener noreferrer" className={styles.link}>{text.personvernLenke[language]}</Link>{text.personvernEtter[language]}
+                </BodyLong>
+            </div>
+        </div>
+    </GuidePanel>
+</div>
