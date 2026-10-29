@@ -5,10 +5,10 @@ import styles from "./LesMer.module.css";
 interface Props {
     tittel: string;
     lukkTittel?: string;
-    className?: string;
+    class?: string;
 }
 
-const { tittel, lukkTittel, className } = Astro.props;
+const { tittel, lukkTittel, class: className } = Astro.props;
 ---
 
 <details class:list={[styles.lesMer, lukkTittel && styles.toTitler, className]}>

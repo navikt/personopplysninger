@@ -71,6 +71,15 @@ describe("Forsiden", () => {
         expect(html).toMatch(/id="personalia"/);
     });
 
+    it("gir veilederbildet tom alt-tekst og åpner personvernlenken i ny fane", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+
+        expect(html).toMatch(/<img[^>]*class="[^"]*"[^>]*alt=""|<img[^>]*alt=""[^>]*class="[^"]*"/);
+        expect(html).toMatch(/<a[^>]*href="\/personvern"[^>]*target="_blank"|<a[^>]*target="_blank"[^>]*href="\/personvern"/);
+    });
+
     it("viser feilmeldingen i personalia-boksen og resten av siden når /personalia feiler", async () => {
         vi.mocked(hentFraApi).mockResolvedValue(feil);
 
@@ -100,6 +109,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("test@test.com");
         expect(boks).toContain("Du mottar post og informasjon fra det offentlige elektronisk.");
         expect(boks).toContain("https://minprofil.kontaktregisteret.no");
+        expect(boks).toMatch(/<div class="_telefonnummer_\w+"><dl/);
     });
 
     it("viser registeret etter telefonlisten når det finnes et nummer", async () => {
@@ -247,6 +257,7 @@ describe("Forsiden", () => {
         const props = boks.slice(start, boks.indexOf(">", start));
 
         expect(props).toContain("VINAYAGUM-MASK");
+        expect(props).toContain("10108000398");
         expect(props).not.toContain("12345678911");
         expect(props).not.toContain("40853158");
         expect(props).not.toContain("JØRGENSENVEIEN");
@@ -322,6 +333,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("Storgatan 1");
         expect(boks).not.toContain("Svenska Bank");
         expect(boks).not.toContain("Sverige");
+        expect(boks).not.toMatch(/<p[^>]*><\/p>/);
     });
 
     it("viser både norsk kontonummer og utenlandsk bank når begge finnes", async () => {

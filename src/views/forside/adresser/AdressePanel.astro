@@ -25,7 +25,7 @@ const { language, tittel, bruksenhetsnummer, kommune, flyttedatoFormatert, gyldi
     <slot />
     {
         (bruksenhetsnummer ?? kommune ?? flyttedatoFormatert ?? gyldigTilOgMedFormatert) && (
-            <LesMer tittel={text.visDetaljer[language]} lukkTittel={text.skjulDetaljer[language]} className={adresseStyles.lesmer}>
+            <LesMer tittel={text.visDetaljer[language]} lukkTittel={text.skjulDetaljer[language]} class={adresseStyles.lesmer}>
                 <dl>
                     {bruksenhetsnummer && <ListElement language={language} tittel={text.bolignummer[language]} innhold={bruksenhetsnummer} />}
                     {kommune && <ListElement language={language} tittel={text.kommune[language]} innhold={kommune} />}

@@ -54,11 +54,6 @@ export const text = {
         nn: "Adresser som er registrert i Folkeregisteret",
         en: "Addresses registered in the National Population Register",
     },
-    overskriftOvrige: {
-        nb: "Øvrige registrerte adresser",
-        nn: "Øvrige registrerte adresser",
-        en: "Other registered addresses",
-    },
     bostedsadresse: {
         nb: "Bostedsadresse",
         nn: "Bustadsadresse",
@@ -88,11 +83,6 @@ export const text = {
         nb: "Postadresse (norsk kontaktadresse)",
         nn: "Postadresse (norsk kontaktadresse)",
         en: "Postal address (Norwegian contact address)",
-    },
-    kontaktadresseNav: {
-        nb: "Kontaktadresse registrert hos Nav",
-        nn: "Kontaktadresse registrert av Nav",
-        en: "Contact address registered with Nav",
     },
     militaer: {
         nb: "Militær",

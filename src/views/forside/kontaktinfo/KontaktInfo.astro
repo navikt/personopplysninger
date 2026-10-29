@@ -25,7 +25,7 @@ const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
     {hasTelefon ? (
         <>
             <slot name="telefon" />
-            <div class={`underseksjon__header underseksjon__divider ${dkifStyles.overskriftContainer}`}>
+            <div class:list={["underseksjon__header", "underseksjon__divider", dkifStyles.overskriftContainer]}>
                 <Heading size="small" level="3">{text.dkifOverskrift[language]}</Heading>
                 <Infotekst language={language} tittel={text.dkifOverskrift[language]}>{text.dkifBeskrivelse[language]}</Infotekst>
             </div>

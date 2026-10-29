@@ -1,4 +1,5 @@
 ---
+import "@navikt/nav-office-reception-info/dist/style.css";
 import { BodyShort, Label, Link } from "@navikt/ds-react";
 import dittNavKontorIkon from "@/assets/img/DittNavKontor.svg";
 import Box from "@/components/box/Box.astro";
@@ -8,8 +9,6 @@ import type { Language } from "@/language/language";
 import type { EnhetKontaktInfo } from "@/types/enhetKontaktInfo";
 import styles from "@/views/forside/sections/4-personinfo/5-ditt-nav-kontor/DittNavKontor.module.css";
 import { text } from "./dittNavKontorText";
-
-import "@navikt/nav-office-reception-info/dist/style.css";
 
 interface Props {
     language: Language;
@@ -31,7 +30,7 @@ const { navn, brukerkontakt } = enhetKontaktInformasjon;
                 </BodyShort>
             </div>
             <slot name="mottak" />
-            <dl class={`${styles.footer} list`}>
+            <dl class:list={[styles.footer, "list"]}>
                 <ListElement language={language} tittel={text.kontaktOverskrift[language]}>
                     <Link href={text.kontaktOssUrl[language]}>{text.kontaktLenke[language]}</Link>
                 </ListElement>
