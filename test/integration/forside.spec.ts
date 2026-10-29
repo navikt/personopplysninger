@@ -113,7 +113,7 @@ test("telefonlisten er en øy som viser nummeret fra serveren", async ({ page })
 
     await expect(oy).toHaveCount(1);
     await expect(oy.getByText("408 53 158")).toBeVisible();
-    await expect(page.locator("astro-island")).toHaveCount(1);
+    await expect(page.locator("astro-island")).toHaveCount(2);
 });
 
 test("endring som blir avvist viser feilmeldingen", async ({ page }) => {
@@ -155,4 +155,34 @@ test("sletting henter personalia på nytt og fjerner nummer og overskrift", asyn
     await expect(page.getByRole("heading", { level: 3, name: "Telefonnummer registrert hos Nav" })).toHaveCount(0);
     await expect(page.getByText("408 53 158")).toHaveCount(0);
     await expect(page.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" })).toBeVisible();
+});
+
+const utenPdlKontaktadresse = { ...personInfo, adresser: { ...personInfo.adresser, kontaktadresser: [] } };
+
+test("adressepanelet viser og skjuler detaljer", async ({ page }) => {
+    await page.goto("nb/");
+    const panel = page.locator("#adresser details").first();
+
+    await expect(panel.getByText("Vis detaljer")).toBeVisible();
+    await expect(panel.getByText("Skjul detaljer")).toBeHidden();
+    await panel.locator("summary").click();
+    await expect(panel).toHaveAttribute("open", "");
+    await expect(panel.getByText("Skjul detaljer")).toBeVisible();
+    await expect(panel.getByText("Vis detaljer")).toBeHidden();
+    await expect(panel.getByText("H0301")).toBeVisible();
+});
+
+test("sletting av kontaktadresse henter personalia på nytt og fjerner øvrige adresser", async ({ page }) => {
+    await page.route("**/api/personalia", (route) =>
+        route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(utenPdlKontaktadresse) }),
+    );
+    await page.goto("nb/");
+    await hydrert(page);
+    await expect(page.getByRole("heading", { level: 3, name: "Øvrige registrerte adresser" })).toBeVisible();
+
+    await page.getByRole("button", { name: "Slett kontaktadresse" }).click();
+    await page.getByRole("dialog").getByRole("button", { name: "Slett" }).click();
+
+    await expect(page.getByRole("heading", { level: 3, name: "Øvrige registrerte adresser" })).toHaveCount(0);
+    await expect(page.locator("#adresser").getByText("Postboks 10 Sørstrand")).toHaveCount(0);
 });

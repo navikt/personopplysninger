@@ -118,4 +118,47 @@ describe("Forsiden", () => {
         expect(html).toContain("Hei Vinayagum-mask Amizic!");
         expect(html.slice(0, html.indexOf('id="kontaktinformasjon"'))).not.toContain("Oisann");
     });
+    it("viser adressene fra Folkeregisteret og øvrige adresser i en øy", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const boks = html.slice(html.indexOf('id="adresser"'), html.indexOf('id="utbetaling"')).replaceAll("<!-- -->", "");
+        const oy = html.slice(
+            html.lastIndexOf("<astro-island", html.indexOf("Øvrige registrerte adresser")),
+            html.indexOf("</astro-island>", html.indexOf("Øvrige registrerte adresser")),
+        );
+
+        expect(boks).toContain("Adresser som er registert i Folkeregisteret");
+        expect(boks).toContain("JØRGENSENVEIEN 14 B");
+        expect(boks).toContain("<details");
+        expect(oy).toContain("Øvrige registrerte adresser");
+        expect(oy).toContain("Postboks 10 Sørstrand");
+    });
+
+    it("sender bare de øvrige adressene til adresseøya", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const start = html.lastIndexOf("<astro-island", html.indexOf("Øvrige registrerte adresser"));
+        const oy = html.slice(start, html.indexOf("</astro-island>", start));
+        const props = oy.slice(0, oy.indexOf(">"));
+
+        expect(props).toContain("Sørstrand");
+        expect(props).not.toContain("10108000398");
+        expect(props).not.toContain("12345678911");
+        expect(props).not.toContain("JØRGENSENVEIEN");
+        expect(props).not.toContain("test@test.com");
+    });
+
+    it("viser ingen adresseøy når det ikke finnes øvrige adresser", async () => {
+        const utenPdl = { ...personInfo, adresser: { ...personInfo.adresser, kontaktadresser: [] } };
+        vi.mocked(hentFraApi).mockImplementation((path: string) =>
+            Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : utenPdl }),
+        );
+
+        const html = await render();
+
+        expect(html).toContain('id="adresser"');
+        expect(html).not.toContain("Øvrige registrerte adresser");
+    });
 });

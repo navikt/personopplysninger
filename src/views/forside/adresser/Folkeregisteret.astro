@@ -1,0 +1,67 @@
+---
+import { Heading } from "@navikt/ds-react";
+import Kilde from "@/components/kilde/Kilde.astro";
+import type { Language } from "@/language/language";
+import type { Bostedsadresse } from "@/types/adresser/bostedsadresse";
+import type { DeltBosted } from "@/types/adresser/deltbosted";
+import type { Kontaktadresse } from "@/types/adresser/kontaktadresse";
+import type { Oppholdsadresse } from "@/types/adresser/oppholdsadresse";
+import Adresse from "./Adresse.astro";
+import { text } from "./adresserText";
+import { kontaktadresseTittel } from "./adresserUtils";
+
+interface Props {
+    language: Language;
+    bostedsadresse?: Bostedsadresse;
+    deltBosted?: DeltBosted;
+    oppholdsadresse?: Oppholdsadresse;
+    kontaktadresser: Kontaktadresse[];
+}
+
+const { language, bostedsadresse, deltBosted, oppholdsadresse, kontaktadresser } = Astro.props;
+---
+
+<div>
+    <div class="underseksjon__header">
+        <Heading size="small" level="3">{text.overskrift[language]}</Heading>
+    </div>
+    {
+        bostedsadresse && (
+            <Adresse
+                language={language}
+                tittel={text.bostedsadresse[language]}
+                adresse={bostedsadresse.adresse}
+                coAdressenavn={bostedsadresse.coAdressenavn}
+                angittFlyttedato={bostedsadresse.angittFlyttedato}
+            />
+        )
+    }
+    {
+        deltBosted && (
+            <Adresse language={language} tittel={text.deltbosted[language]} adresse={deltBosted.adresse} coAdressenavn={deltBosted.coAdressenavn} />
+        )
+    }
+    {
+        oppholdsadresse && (
+            <Adresse
+                language={language}
+                tittel={text.oppholdsadresse[language]}
+                adresse={oppholdsadresse.adresse}
+                coAdressenavn={oppholdsadresse.coAdressenavn}
+                oppholdAnnetSted={oppholdsadresse.oppholdAnnetSted}
+            />
+        )
+    }
+    {
+        kontaktadresser.map((adr) => (
+            <Adresse
+                language={language}
+                tittel={kontaktadresseTittel(adr, kontaktadresser, language)}
+                adresse={adr.adresse}
+                coAdressenavn={adr.coAdressenavn}
+                gyldigTilOgMed={adr.gyldigTilOgMed}
+            />
+        ))
+    }
+    <Kilde kilde={text.kildeFolkeregisteret[language]} lenke={text.flytteUrl[language]} lenkeTekst={text.endreAdresse[language]} />
+</div>

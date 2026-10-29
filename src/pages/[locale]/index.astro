@@ -9,6 +9,7 @@ import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { PersonInfo } from "@/types/personInfo";
+import Adresser from "@/views/forside/adresser/Adresser.astro";
 import { text } from "@/views/forside/forsideText";
 import Header from "@/views/forside/header/Header.astro";
 import KontaktInfo from "@/views/forside/kontaktinfo/KontaktInfo.astro";
@@ -17,6 +18,7 @@ import MerInformasjon from "@/views/forside/mer-informasjon/MerInformasjon.astro
 import Personalia from "@/views/forside/personalia/Personalia.astro";
 import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
 import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
+import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
 import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
@@ -28,6 +30,15 @@ if (personInfo.status === "UNAUTHORIZED") {
 }
 
 const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
+const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
+
+const kontaktadressePdl = adresser?.kontaktadresser.find((adr) => adr.kilde === "pdl");
+const oppholdsadressePdl = adresser?.oppholdsadresser?.find((adr) => adr.kilde === "pdl");
+const harAndre = !!(kontaktadressePdl ?? oppholdsadressePdl);
+const andreAdresser = {
+    kontaktadresser: kontaktadressePdl ? [kontaktadressePdl] : [],
+    ...(oppholdsadressePdl && { oppholdsadresser: [oppholdsadressePdl] }),
+};
 ---
 
 <Layout title="Personopplysninger - www.nav.no">
@@ -46,6 +57,11 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
                 <KontaktInfo language={language} tlfnr={personalia.tlfnr}>
                     <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} client:visible />
                 </KontaktInfo>
+            )}
+            {adresser && (
+                <Adresser language={language} adresser={adresser}>
+                    {harAndre && <AndreAdresserOy slot="andre" locale={language} config={config} adresser={andreAdresser} client:visible />}
+                </Adresser>
             )}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
             <Lenker language={language} />
