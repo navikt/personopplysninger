@@ -113,7 +113,7 @@ test("telefonlisten er en øy som viser nummeret fra serveren", async ({ page })
 
     await expect(oy).toHaveCount(1);
     await expect(oy.getByText("408 53 158")).toBeVisible();
-    await expect(page.locator("astro-island")).toHaveCount(3);
+    await expect(page.locator("astro-island")).toHaveCount(4);
 });
 
 test("endring som blir avvist viser feilmeldingen", async ({ page }) => {
@@ -194,4 +194,14 @@ test("Nav-kontoret bytter publikumsmottak i fanene", async ({ page }) => {
     await page.getByRole("tab", { name: "Aremark" }).click();
     await expect(page.getByRole("tab", { name: "Aremark" })).toHaveAttribute("aria-selected", "true");
     await expect(page.getByRole("tabpanel")).toContainText("Aremarkveien");
+});
+
+test("arbeidsforhold hentes i øya og lenker til detaljsiden", async ({ page }) => {
+    await page.goto("nb/#arbeidsforhold");
+    await hydrert(page);
+
+    const liste = page.locator("#arbeidsforhold astro-island");
+    await expect(liste.getByRole("link").first()).toHaveAttribute("href", /\/person\/personopplysninger\/nb\/arbeidsforhold\/\d+$/);
+    await expect(liste.getByRole("link", { name: "Vinstra Karosseri AS" })).toBeVisible();
+    await expect(page.locator("astro-island")).toHaveCount(4);
 });

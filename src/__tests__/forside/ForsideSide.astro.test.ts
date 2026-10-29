@@ -199,4 +199,40 @@ describe("Forsiden", () => {
 
         expect(html).not.toContain('id="ditt-nav-kontor"');
     });
+
+    it("viser arbeidsforhold-boksen med disclaimer, kilde og spinneren fra øya", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+        const boks = html.slice(html.indexOf('id="arbeidsforhold"')).replaceAll("<!-- -->", "");
+        const start = boks.indexOf("<astro-island");
+        const oy = boks.slice(start, boks.indexOf("</astro-island>", start));
+
+        expect(boks).toContain("Oversikten viser alle arbeidsforhold rapportert etter 01.01.2015.");
+        expect(boks).toContain("Kilde: Arbeidsgiver- og arbeidstakerregisteret");
+        expect(boks).toContain("Dataene er rapportert av arbeidsgiver");
+        expect(oy).toContain("Laster innhold...");
+    });
+
+    it("sender bare navn og fødselsnummer til arbeidsforhold-øya", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+        const boks = html.slice(html.indexOf('id="arbeidsforhold"'));
+        const start = boks.indexOf("<astro-island");
+        const props = boks.slice(start, boks.indexOf(">", start));
+
+        expect(props).toContain("VINAYAGUM-MASK");
+        expect(props).not.toContain("12345678911");
+        expect(props).not.toContain("40853158");
+        expect(props).not.toContain("JØRGENSENVEIEN");
+    });
+
+    it("viser arbeidsforhold-boksen også når /personalia feiler", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue(feil);
+
+        const html = await render();
+
+        expect(html).toContain('id="arbeidsforhold"');
+    });
 });
