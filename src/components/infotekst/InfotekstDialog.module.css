@@ -9,12 +9,8 @@ info-tekst {
     border-radius: var(--a-border-radius-large);
     box-shadow: var(--a-shadow-xlarge);
     padding: 0;
-    position: fixed;
-    inset: 0;
-    margin: auto;
     max-height: 100%;
     max-width: 100%;
-    z-index: 9999;
 }
 
 .dialog[open] {
