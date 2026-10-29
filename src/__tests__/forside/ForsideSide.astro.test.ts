@@ -50,7 +50,7 @@ const medPersonalia = (endring: Partial<Personalia>): PersonInfo => ({
 const svarMedPersonalia = (endring: Partial<Personalia>) => (path: string) =>
     Promise.resolve<Svar>({ status: "RESULT", data: path === "/kontaktinformasjon" ? kontaktInfo : medPersonalia(endring) });
 
-const utbetalingBoks = (html: string) => html.slice(html.indexOf('id="utbetaling"'), html.indexOf('id="arbeidsforhold"')).replaceAll("<!-- -->", "");
+const utbetalingBoks = (html: string) => html.slice(html.indexOf('id="utbetaling"'), html.indexOf('id="ditt-nav-kontor"')).replaceAll("<!-- -->", "");
 
 const kontaktBoks = (html: string) => html.slice(html.indexOf('id="kontaktinformasjon"'), html.indexOf('id="utbetaling"'));
 
@@ -268,6 +268,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("1234 56 78911");
         expect(boks).not.toContain("Vi har ikke registrert kontonummer på deg.");
         expect(boks).not.toContain("Bankkode");
+        expect(boks.match(/<dl/g)).toHaveLength(1);
     });
 
     it("viser utenlandsk bank med kontonummer og bankopplysninger når kontonummer finnes", async () => {
@@ -283,6 +284,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("Kontonummer / IBAN");
         expect(boks).toContain("5839825");
         expect(boks).not.toContain("SE45 5000");
+        expect(boks.match(/<dl/g)).toHaveLength(1);
         expect(boks).toContain("ESSESESS");
         expect(boks).toContain("SEK");
         expect(boks).toContain("SWEDSESS");
@@ -340,6 +342,7 @@ describe("Forsiden", () => {
         expect(boks).toContain("Du kan registrere kontonummer ved å trykke på «Legg til»");
         expect(boks).not.toContain("Bankkode");
         expect(boks).not.toContain("1234 56 78911");
+        expect(boks).not.toContain("<dl");
     });
 
     it("viser reservasjonsteksten når brukeren har reservert seg", async () => {
