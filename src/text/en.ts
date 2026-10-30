@@ -234,13 +234,7 @@ A child who lives permanently with both mother and father can have two home addr
     "select.loading": "Loading ...",
     "select.no.hits": "No hits for",
     "endreKontonummer.tittel": "Change account number for payment",
-    "endreKontonummer.info":
-        "You can not change the account number for payments from the municipality, such as financial assistance. <lenkeNavno>Change account number for payments from the municipality.</lenkeNavno>",
-    "endreKontonummer.lenkeURL": "https://www.nav.no/kontonummer/en#kommune",
     "endreKontonummer.authInfo": "You will be asked to log in again to confirm the change.",
-    "endreKontonummer.success":
-        "<p>Your bank account has been changed.</p><p>Nav will send you a notification of the change by SMS and/or e-mail.</p>",
-    "endreKontonummer.error": "An error occurred while changing the account number.",
     "utbetalinger.info":
         "If you do not recognize the bank account number, you must phone <tlfTilKontaktsenter>55 55 33 33</tlfTilKontaktsenter> in the opening hours, or <lenkeTilKontaktOss>contact us</lenkeTilKontaktOss> in our digital channels.",
 };

@@ -86,9 +86,6 @@ importers:
       intl:
         specifier: 1.2.5
         version: 1.2.5
-      js-cookie:
-        specifier: 3.0.8
-        version: 3.0.8
       jsdom:
         specifier: 26.0.0
         version: 26.0.0
@@ -159,9 +156,6 @@ importers:
       '@types/file-saver':
         specifier: 2.0.7
         version: 2.0.7
-      '@types/js-cookie':
-        specifier: 3.0.6
-        version: 3.0.6
       '@types/jsdom':
         specifier: 21.1.7
         version: 21.1.7
@@ -1785,9 +1779,6 @@ packages:
 
   '@types/hoist-non-react-statics@3.3.1':
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==}
-
-  '@types/js-cookie@3.0.6':
-    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
 
   '@types/jsdom@21.1.7':
     resolution: {integrity: sha512-yOriVnggzrnQ3a9OKOCxaVuSug3w3/SbOj5i7VwXWZEyUNl3bLF9V3MfxGbZKuwqJOQyRfqXyROBB1CoZLFWzA==}
@@ -5475,8 +5466,6 @@ snapshots:
     dependencies:
       '@types/react': 18.3.7
       hoist-non-react-statics: 3.3.2
-
-  '@types/js-cookie@3.0.6': {}
 
   '@types/jsdom@21.1.7':
     dependencies:
