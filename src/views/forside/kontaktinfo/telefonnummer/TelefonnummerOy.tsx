@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { fetchPersonInfo } from "@/clients/apiClient";
-import { setKlientConfig } from "@/config/klientConfig";
 import type { Language } from "@/language/language";
 import type { Tlfnr } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
+import { setKlientConfig } from "@/utils/klientConfig";
 import Telefonliste from "./Telefonliste";
 
 interface Props {

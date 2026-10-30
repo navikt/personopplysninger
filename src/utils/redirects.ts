@@ -1,4 +1,4 @@
-import { getKlientConfig } from "@/config/klientConfig";
+import { getKlientConfig } from "@/utils/klientConfig";
 
 const redirectPathParam = "path";
 

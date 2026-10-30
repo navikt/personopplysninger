@@ -1,23 +1,25 @@
 import { loadRenderers } from "astro:container";
 import { getContainerRenderer } from "@astrojs/react/container-renderer";
+import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import kontaktInfo from "@/mocks/fixtures/kontakt-info.json";
 import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import Forside from "@/pages/[locale]/index.astro";
 import { hentFraApi } from "@/server/apiClient";
 import type { Personalia, UtenlandskBankkonto } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
-import { testRuntimeConfig } from "../utils/testRuntimeConfig";
+import Lenker from "@/views/forside/lenker/Lenker.astro";
+import { testEnv, testKlientConfig } from "../utils/testConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
     loginUrlFor: vi.fn().mockReturnValue("/person/personopplysninger/oauth2/login?redirect=/person/personopplysninger/nb/"),
 }));
 
-vi.mock("@/config/serverRuntimeConfig", async () => {
-    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
-    return { getServerRuntimeConfig: () => testRuntimeConfig };
+vi.mock("astro:env/server", async (importOriginal) => {
+    const { testEnv } = await import("../utils/testConfig");
+    return { ...(await importOriginal<object>()), ...testEnv };
 });
 
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
@@ -76,6 +78,9 @@ const render = async () => {
 };
 
 describe("Forsiden", () => {
+    beforeEach(() => vi.stubEnv("BASE_URL", "/person/personopplysninger/"));
+    afterEach(() => vi.unstubAllEnvs());
+
     it("viser hilsen med navn og personalia fra serveren", async () => {
         vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
 
@@ -177,9 +182,9 @@ describe("Forsiden", () => {
         expect(Object.keys(props).sort()).toEqual(["apiUrl", "appUrl", "language", "loginUrl", "medOverskrift", "slot", "tlfnr"]);
         expect(props.medOverskrift).toEqual([0, true]);
         expect(props.language).toEqual([0, "nb"]);
-        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
-        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
+        expect(props.apiUrl).toEqual([0, testKlientConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, testKlientConfig.appUrl]);
+        expect(props.loginUrl).toEqual([0, testKlientConfig.loginUrl]);
     });
 
     it("sender bare språk og URL-ene adresseøya bruker", async () => {
@@ -189,9 +194,9 @@ describe("Forsiden", () => {
 
         expect(Object.keys(props).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
         expect(props.language).toEqual([0, "nb"]);
-        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
-        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
+        expect(props.apiUrl).toEqual([0, testKlientConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, testKlientConfig.appUrl]);
+        expect(props.loginUrl).toEqual([0, testKlientConfig.loginUrl]);
     });
 
     it("sender bare språk og publikumsmottak til Nav-kontoret-øya og språk til arbeidsforhold-øya", async () => {
@@ -503,6 +508,46 @@ describe("Forsiden", () => {
         const html = await render();
 
         expect(html).not.toContain('id="ditt-nav-kontor"');
+    });
+
+    it("lenker til tjenestene fra miljøvariablene", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+
+        expect(html).toContain(`href="${testEnv.DINE_SAKER_URL}"`);
+        expect(html).toContain(`href="${testEnv.UTBETALINGSOVERSIKT_URL}"`);
+        expect(html).toContain(`href="${testEnv.SYKEFRAVAER_URL}"`);
+        expect(html).toContain(`href="${testEnv.PDL_URL}"`);
+        expect(html).toContain(`href="${testEnv.SKJERMING_URL}"`);
+    });
+
+    it("legger ?lang=en på dokumentarkiv-lenken på engelsk", async () => {
+        const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
+
+        const html = await container.renderToString(Lenker, { props: { language: "en" }, request });
+
+        expect(html).toContain(`href="${testEnv.DINE_SAKER_URL}?lang=en"`);
+    });
+
+    it("sender telemetri-URL, miljø og byggversjon til faro-elementet", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        const html = await render();
+
+        expect(html).toContain(`data-telemetry-url="${testEnv.TELEMETRY_URL}"`);
+        expect(html).toContain('data-environment="local"');
+        expect(html).toContain(`data-build-version="${testEnv.BUILD_VERSION}"`);
+    });
+
+    it("bygger brødsmulene fra Ditt Nav-URL-en og app-URL-en", async () => {
+        vi.mocked(hentFraApi).mockResolvedValue({ status: "RESULT", data: personInfo });
+
+        await render();
+
+        const brodsmuler = vi.mocked(fetchDecoratorHtml).mock.lastCall?.[0].params?.breadcrumbs;
+        expect(brodsmuler?.[0].url).toBe(testEnv.DITT_NAV_URL);
+        expect(brodsmuler?.[1].url).toBe(`${testKlientConfig.appUrl}/nb/`);
     });
 
     it("starter kontaktinformasjon før /personalia er ferdig", async () => {

@@ -1,10 +1,10 @@
 // @vitest-environment node
 import { renderToString } from "react-dom/server";
-import { getKlientConfig, setKlientConfig } from "@/config/klientConfig";
+import { getKlientConfig, setKlientConfig } from "@/utils/klientConfig";
 import KontonummerOy from "@/views/endre-kontonummer/KontonummerOy";
 import AndreAdresserOy from "@/views/forside/adresser/andre-adresser/AndreAdresserOy";
 import TelefonnummerOy from "@/views/forside/kontaktinfo/telefonnummer/TelefonnummerOy";
-import { testKlientConfig } from "../utils/testRuntimeConfig";
+import { testKlientConfig } from "./testConfig";
 
 const urler = { apiUrl: "https://www.intern.nav.no/api", appUrl: "https://www.intern.nav.no/person/personopplysninger", loginUrl: "https://login" };
 const postboks = { type: "POSTBOKSADRESSE" as const, postboks: "Postboks 10 Sørstrand", postnummer: "0194", poststed: "OSLO" };

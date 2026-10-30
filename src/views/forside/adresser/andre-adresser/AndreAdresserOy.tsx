@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { fetchPersonInfo } from "@/clients/apiClient";
-import { setKlientConfig } from "@/config/klientConfig";
 import type { Language } from "@/language/language";
 import type { Adresser } from "@/types/adresser";
 import type { PersonInfo } from "@/types/personInfo";
+import { setKlientConfig } from "@/utils/klientConfig";
 import AndreAdresserVisning from "./AndreAdresserVisning";
 
 interface Props {

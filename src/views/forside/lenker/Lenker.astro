@@ -1,4 +1,5 @@
 ---
+import { DINE_SAKER_URL, PDL_URL, SKJERMING_URL, SYKEFRAVAER_URL, UTBETALINGSOVERSIKT_URL } from "astro:env/server";
 import { BodyLong, Box, Heading } from "@navikt/ds-react";
 import CVogJobbprofil from "@/assets/img/CVogJobbprofil.svg";
 import DineSaker from "@/assets/img/DineSaker.svg";
@@ -12,7 +13,6 @@ import SkjermingIkon from "@/assets/img/Skjerming.svg";
 import Sykefravaer from "@/assets/img/Sykepenger.svg";
 import Utbetalinger from "@/assets/img/Utbetalinger.svg";
 import AnchorLink from "@/components/anchorlink/AnchorLink.astro";
-import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import { basePath } from "@/constants";
 import type { Language } from "@/language/language";
 import sharedStyles from "@/styles/shared.module.css";
@@ -25,7 +25,6 @@ interface Props {
 }
 
 const { language } = Astro.props;
-const { dineSakerUrl, utbetalingsoversiktUrl, sykefravaerUrl, pdlUrl, skjermingUrl } = getServerRuntimeConfig(Astro.url);
 ---
 
 <Box background="surface-default" className={sharedStyles.panel} id="flere-opplysninger">
@@ -37,14 +36,14 @@ const { dineSakerUrl, utbetalingsoversiktUrl, sykefravaerUrl, pdlUrl, skjermingU
         <div class={styles.info}>
             <BodyLong>{text.beskrivelse[language]}</BodyLong>
         </div>
-        {dineSakerUrl && (
-            <LinkBox ikon={DineSaker} tittel={text.dokumentarkivTittel[language]} beskrivelse={text.dokumentarkivBeskrivelse[language]} til={`${dineSakerUrl}${language === "en" ? "?lang=en" : ""}`} />
+        {DINE_SAKER_URL && (
+            <LinkBox ikon={DineSaker} tittel={text.dokumentarkivTittel[language]} beskrivelse={text.dokumentarkivBeskrivelse[language]} til={`${DINE_SAKER_URL}${language === "en" ? "?lang=en" : ""}`} />
         )}
-        {utbetalingsoversiktUrl && (
-            <LinkBox ikon={Utbetalinger} tittel={text.utbetalingerTittel[language]} beskrivelse={text.utbetalingerBeskrivelse[language]} til={utbetalingsoversiktUrl} />
+        {UTBETALINGSOVERSIKT_URL && (
+            <LinkBox ikon={Utbetalinger} tittel={text.utbetalingerTittel[language]} beskrivelse={text.utbetalingerBeskrivelse[language]} til={UTBETALINGSOVERSIKT_URL} />
         )}
-        {sykefravaerUrl && (
-            <LinkBox ikon={Sykefravaer} tittel={text.sykefravaerTittel[language]} beskrivelse={text.sykefravaerBeskrivelse[language]} til={sykefravaerUrl} />
+        {SYKEFRAVAER_URL && (
+            <LinkBox ikon={Sykefravaer} tittel={text.sykefravaerTittel[language]} beskrivelse={text.sykefravaerBeskrivelse[language]} til={SYKEFRAVAER_URL} />
         )}
         <LinkBox ikon={CVogJobbprofil} tittel={text.cvTittel[language]} beskrivelse={text.cvBeskrivelse[language]} til="https://www.nav.no/min-cv" />
         <LinkBox ikon={Jobbsok} tittel={text.stillingssokTittel[language]} beskrivelse={text.stillingssokBeskrivelse[language]} til="https://arbeidsplassen.nav.no/stillinger/lagrede-sok" />
@@ -52,7 +51,7 @@ const { dineSakerUrl, utbetalingsoversiktUrl, sykefravaerUrl, pdlUrl, skjermingU
         <LinkBox ikon={INSTIkon} tittel={text.instTittel[language]} beskrivelse={text.instBeskrivelse[language]} til={`${basePath}/${language}/institusjonsopphold`} />
         <LinkBox ikon={DSOPIkon} tittel={text.dsopTittel[language]} beskrivelse={text.dsopBeskrivelse[language]} til={`${basePath}/${language}/dsop`} />
         <LinkBox ikon={MEDLIkon} tittel={text.medlTittel[language]} beskrivelse={text.medlBeskrivelse[language]} til={`${basePath}/${language}/medlemskap-i-folketrygden`} />
-        <LinkBox ikon={FullmaktIkon} tittel={text.fullmaktTittel[language]} beskrivelse={text.fullmaktBeskrivelse[language]} til={pdlUrl} />
-        <LinkBox ikon={SkjermingIkon} tittel={text.skjermingTittel[language]} beskrivelse={text.skjermingBeskrivelse[language]} til={skjermingUrl} />
+        <LinkBox ikon={FullmaktIkon} tittel={text.fullmaktTittel[language]} beskrivelse={text.fullmaktBeskrivelse[language]} til={PDL_URL} />
+        <LinkBox ikon={SkjermingIkon} tittel={text.skjermingTittel[language]} beskrivelse={text.skjermingBeskrivelse[language]} til={SKJERMING_URL} />
     </div>
 </Box>
