@@ -1,19 +1,25 @@
-import { getRuntimeConfig } from "@/config/runtimeConfig";
+import { getKlientConfig } from "@/config/klientConfig";
 
 const redirectPathParam = "path";
 
 export const redirects: {
     [key: string]: {
-        beskrivelse: string;
+        beskrivelseFoer: string;
+        beskrivelseUthevet: string;
+        beskrivelseEtter: string;
         knapp: string;
     };
 } = {
     "skjema/alderspensjonssoknad": {
-        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        beskrivelseFoer: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre ",
+        beskrivelseUthevet: "kontaktinformasjon og kontonummer",
+        beskrivelseEtter: ".",
         knapp: "Gå tilbake til alderspensjon",
     },
     "skjema/alderspensjon": {
-        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        beskrivelseFoer: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre ",
+        beskrivelseUthevet: "kontaktinformasjon og kontonummer",
+        beskrivelseEtter: ".",
         knapp: "Gå tilbake til alderspensjon",
     },
 };
@@ -41,7 +47,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginRedirectUrl = () => {
     const encodedPath = btoa(window.location.pathname + window.location.hash);
-    return `${getRuntimeConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
+    return `${getKlientConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
 };
 
 export const resolveLoginReturnPath = (encodedPath: string | null, basePath: string) => {

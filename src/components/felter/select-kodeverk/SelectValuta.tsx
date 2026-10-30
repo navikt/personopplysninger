@@ -1,7 +1,8 @@
-import { type ForwardedRef, forwardRef, useEffect, useState } from "react";
+import { type ForwardedRef, forwardRef, type ReactNode, useEffect, useState } from "react";
 import { fetchValutaer } from "@/clients/apiClient";
 import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
 import NAVSelect from "@/components/felter/select/NAVSelect";
+import type { Language } from "@/language/language";
 
 interface Props {
     option?: OptionType;
@@ -11,7 +12,8 @@ interface Props {
     id: string;
     error?: string;
     onChange: (value?: OptionType) => void;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
+    language: Language;
 }
 
 interface OptionType {
@@ -73,6 +75,7 @@ const SelectValuta = forwardRef((props: Props, ref: ForwardedRef<HTMLInputElemen
             hjelpetekst={props.hjelpetekst}
             borderUnderNth={2}
             ref={ref}
+            language={props.language}
         />
     );
 });

@@ -5,7 +5,6 @@ declare module "astro:env/server" {
     export const DINE_SAKER_URL: string;
     export const DITT_NAV_URL: string;
     export const ENDRE_KONTONUMMER_URL: string;
-    export const INNLOGGINGSSTATUS_URL: string;
     export const LOGIN_URL: string;
     export const PDL_URL: string;
     export const PERSONOPPLYSNINGER_API_URL: string;

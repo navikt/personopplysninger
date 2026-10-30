@@ -40,7 +40,7 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
 const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
 const enhetKontaktInformasjon = personInfo.status === "RESULT" ? personInfo.data.enhetKontaktInformasjon : undefined;
 
-const { environment, apiUrl } = config;
+const { environment, apiUrl, appUrl, loginUrl } = config;
 const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
 const customApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/forenklet/alle` : undefined;
 const printName = personalia ? `${personalia.fornavn} ${personalia.etternavn}` : "";
@@ -69,22 +69,41 @@ const andreAdresser = {
             {personalia && <Personalia language={language} personalia={personalia} />}
             {personalia && (
                 <KontaktInfo language={language} tlfnr={personalia.tlfnr} kontaktInfo={kontaktInfo}>
-                    <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} client:visible />
+                    <TelefonnummerOy
+                        slot="telefon"
+                        language={language}
+                        tlfnr={personalia.tlfnr}
+                        medOverskrift={true}
+                        apiUrl={apiUrl}
+                        appUrl={appUrl}
+                        loginUrl={loginUrl}
+                        client:visible
+                    />
                 </KontaktInfo>
             )}
             {adresser && (
                 <Adresser language={language} adresser={adresser}>
-                    {harAndre && <AndreAdresserOy slot="andre" locale={language} config={config} adresser={andreAdresser} client:visible />}
+                    {harAndre && (
+                        <AndreAdresserOy
+                            slot="andre"
+                            language={language}
+                            adresser={andreAdresser}
+                            apiUrl={apiUrl}
+                            appUrl={appUrl}
+                            loginUrl={loginUrl}
+                            client:visible
+                        />
+                    )}
                 </Adresser>
             )}
             {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
             {adresser && enhetKontaktInformasjon && (
                 <DittNavKontor language={language} enhetKontaktInformasjon={enhetKontaktInformasjon}>
-                    <DittNavKontorOy slot="mottak" locale={language} publikumsmottak={enhetKontaktInformasjon.brukerkontakt.publikumsmottak ?? []} client:visible />
+                    <DittNavKontorOy slot="mottak" language={language} publikumsmottak={enhetKontaktInformasjon.brukerkontakt.publikumsmottak ?? []} client:visible />
                 </DittNavKontor>
             )}
             <Arbeidsforhold language={language}>
-                <ArbeidsforholdOy slot="liste" locale={language} miljo={miljo} customApiUrl={customApiUrl} printName={printName} printSSN={printSSN} client:visible />
+                <ArbeidsforholdOy slot="liste" language={language} miljo={miljo} customApiUrl={customApiUrl} printName={printName} printSSN={printSSN} client:visible />
             </Arbeidsforhold>
             <Lenker language={language} />
             <MerInformasjon language={language} />

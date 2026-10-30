@@ -1,6 +1,7 @@
 import { Alert } from "@navikt/ds-react";
-import { FormattedMessage } from "react-intl";
+import type { Language } from "@/language/language";
 import type { OptionType } from "@/types/option";
+import { text } from "../kontonummerSkjemaText";
 import { kreverBicOgBankkode } from "../utils";
 import AdresseFields from "./felter/AdresseFields";
 import BankkodeField from "./felter/BankkodeField";
@@ -8,29 +9,26 @@ import BickodeField from "./felter/BickodeField";
 
 interface Props {
     valgtLand: OptionType;
+    language: Language;
 }
 
 const LandMedBankkode = (props: Props) => {
-    const { valgtLand } = props;
+    const { valgtLand, language } = props;
 
     return (
         <>
             <div>
                 {!kreverBicOgBankkode(valgtLand) && (
                     <Alert role="status" variant="warning">
-                        <FormattedMessage
-                            id="felter.landetbrukerbankkode.advarsel"
-                            values={{
-                                land: valgtLand.label.toLowerCase(),
-                                span: (text) => <span className="capitalize">{text}</span>,
-                            }}
-                        />
+                        {text.bankkodeAdvarselFoer[language]}
+                        <span className="capitalize">{valgtLand.label.toLowerCase()}</span>
+                        {text.bankkodeAdvarselEtter[language]}
                     </Alert>
                 )}
-                <BickodeField />
-                <BankkodeField />
+                <BickodeField language={language} />
+                <BankkodeField language={language} />
             </div>
-            <AdresseFields />
+            <AdresseFields language={language} />
         </>
     );
 };

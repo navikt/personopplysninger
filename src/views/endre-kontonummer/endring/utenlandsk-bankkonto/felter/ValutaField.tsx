@@ -1,11 +1,15 @@
 import { useFormContext } from "react-hook-form";
 import SelectValuta from "@/components/felter/select-kodeverk/SelectValuta";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
+import { text as utbetalingerText } from "@/views/forside/utbetalinger/utbetalingerText";
+import { text } from "../../kontonummerSkjemaText";
 import type { FormFields } from "../../types";
 
-const ValutaField = () => {
-    const { formatMessage } = useIntlFormatter();
+interface Props {
+    language: Language;
+}
 
+const ValutaField = ({ language }: Props) => {
     const {
         register,
         setValue,
@@ -17,12 +21,17 @@ const ValutaField = () => {
     return (
         <SelectValuta
             {...register("valuta", {
-                required: formatMessage("validation.valuta.pakrevd"),
+                required: text.valutaPaakrevd[language],
             })}
             id={"valuta"}
             submitted={isSubmitted}
-            label={formatMessage("felter.valuta.label")}
-            hjelpetekst={"utbetalinger.hjelpetekster.valuta"}
+            label={text.valutaLabel[language]}
+            hjelpetekst={
+                <>
+                    <p>{utbetalingerText.valutaHjelp1[language]}</p>
+                    <p>{utbetalingerText.valutaHjelp2[language]}</p>
+                </>
+            }
             option={watch().valuta}
             onChange={(value) => {
                 setValue("valuta", value);
@@ -31,6 +40,7 @@ const ValutaField = () => {
                 }
             }}
             error={errors?.valuta?.message}
+            language={language}
         />
     );
 };

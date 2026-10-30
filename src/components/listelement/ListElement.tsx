@@ -1,29 +1,27 @@
 import { Label } from "@navikt/ds-react";
-import { FormattedMessage } from "react-intl";
+import type { ReactNode } from "react";
 import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
-import { useIntlFormatter } from "../../hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
 import styles from "./ListElement.module.css";
 
 interface Props {
-    title?: string;
-    titleId?: string;
-    hjelpetekstId?: string;
+    tittel: string;
+    hjelpetekst?: ReactNode;
     content?: string | JSX.Element | null;
     children?: JSX.Element | JSX.Element[];
     className?: string;
+    language: Language;
 }
 
 const ListElement = (props: Props) => {
-    const { content, title, titleId, hjelpetekstId, children, className } = props;
-    const { formatMessage } = useIntlFormatter();
-    const helpTextTitle = title ?? (titleId && formatMessage(titleId)) ?? "";
+    const { content, tittel, hjelpetekst, children, className, language } = props;
     return content ? (
         <div>
             <dt className={styles.listElementHeading}>
-                <Label as="span">{titleId ? <FormattedMessage id={titleId} /> : title}</Label>
-                {hjelpetekstId && (
-                    <CustomHelpText title={helpTextTitle}>
-                        <FormattedMessage id={hjelpetekstId} />
+                <Label as="span">{tittel}</Label>
+                {hjelpetekst && (
+                    <CustomHelpText title={tittel} language={language}>
+                        {hjelpetekst}
                     </CustomHelpText>
                 )}
             </dt>

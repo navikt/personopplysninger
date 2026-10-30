@@ -1,9 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { IntlProvider } from "react-intl";
 import createFetchMock from "vitest-fetch-mock";
-import { StoreProvider } from "@/store/Context";
-import nbMessages from "@/text/nb";
 import KontonummerForm from "@/views/endre-kontonummer/endring/KontonummerForm";
 
 const fetchMocker = createFetchMock(vi);
@@ -103,6 +100,29 @@ describe("Utenlandsk bankkonto", () => {
     test("får valideringsfeil med manglende land", async () => {
         submit();
         await waitFor(() => expect(screen.getAllByText("Land er nødvendig")).toHaveLength(2));
+    });
+
+    test("viser oppsummering av feilene", async () => {
+        submit();
+
+        expect(await screen.findByTitle("For å gå videre må du rette opp følgende:")).toBeInTheDocument();
+    });
+
+    test("viser lenke til krav for utenlandsk kontonummer", () => {
+        const lenke = screen.getByRole("link", { name: "utenlandsk kontonummer" });
+
+        expect(lenke).toHaveAttribute("href", "https://www.nav.no/utbetaling-utland");
+        expect(lenke.parentElement?.textContent).toBe(
+            "Vær nøye med utfylling av bankinformasjon for utenlandsk konto slik at betalingen kommer frem til riktig sted. Nav er ikke ansvarlig for at opplysningene er riktige. Gebyrer kan påløpe. Les mer om krav til  utenlandsk kontonummer .",
+        );
+    });
+
+    test("viser hjelpetekst for BIC / Swift-kode", async () => {
+        await inputValidUtenlandskKontonummer();
+        await userEvent.click(screen.getByRole("button", { name: "Mer om BIC / Swift-kode" }));
+
+        expect(screen.getByText(/^BIC\/SWIFT er et internasjonalt system/).tagName).toBe("P");
+        expect(screen.getByText("Har du en europeisk bankkonto må du oppgi både BIC-kode og IBAN.").tagName).toBe("P");
     });
 
     test("får valideringsfeil med manglende valuta", async () => {
@@ -410,6 +430,16 @@ describe("Infoboks om BIC/Swift og bankkode", () => {
         });
     });
 
+    test("viser landet med stor forbokstav i advarselen", async () => {
+        await inputCombobox(LAND, "India");
+
+        const land = await screen.findByText("india");
+        expect(land).toHaveClass("capitalize");
+        expect(land.parentElement?.textContent).toBe(
+            "For india kan du oppgi både BIC/Swift-kode og bankkode. Du kan oppgi begge, men det er tilstrekkelig med en av kodene.",
+        );
+    });
+
     test.each(["Canada", "Australia", "New Zealand", "Sør-Afrika"])("vises ikke for %s", async (land) => {
         await inputCombobox(LAND, land);
 
@@ -452,6 +482,40 @@ describe("Amerikansk bankkonto", () => {
     });
 });
 
+describe("Amerikansk bankkonto med IBAN", () => {
+    beforeEach(async () => {
+        await setupUtenlandskBankkonto();
+    });
+
+    test("får valideringsfeil når kontonummeret er IBAN", async () => {
+        await inputValidUtenlandskKontonummer("Amerikansk");
+        inputTextbox(KONTONUMMER_IBAN, "SE7280000810340009783242");
+        submit();
+
+        await waitFor(() => expect(screen.getAllByText("Amerikanske kontonummer kan ikke være IBAN")).toHaveLength(2));
+    });
+});
+
+describe("Amerikansk bankkonto uten bankkodelengde", () => {
+    beforeEach(async () => {
+        commonSetup();
+
+        fetchMocker.enableMocks();
+        fetchMocker.resetMocks();
+        fetchMocker.mockResponseOnce(JSON.stringify(land.map((l) => (l.kode === "US" ? { ...l, bankkodeLengde: null } : l))));
+        fetchMocker.mockResponseOnce(JSON.stringify(valutaer));
+
+        await selectRadio("Utenlandsk kontonummer");
+    });
+
+    test("viser lengdefeil uten antall siffer", async () => {
+        await inputValidUtenlandskKontonummer("Amerikansk");
+        submit();
+
+        await waitFor(() => expect(screen.getAllByText("Bankkoder fra USA må ha tall")).toHaveLength(2));
+    });
+});
+
 describe("Bankkode med alternativ landkode i IBAN", () => {
     beforeEach(async () => {
         await setupUtenlandskBankkonto();
@@ -470,13 +534,7 @@ describe("Bankkode med alternativ landkode i IBAN", () => {
 const commonSetup = () => {
     mockSubmit.mockReset();
 
-    render(
-        <StoreProvider>
-            <IntlProvider locale={"nb"} messages={nbMessages}>
-                <KontonummerForm settOpprettEllerEndre={vi.fn()} personident={{ type: "", verdi: IDENT }} submit={mockSubmit} />
-            </IntlProvider>
-        </StoreProvider>,
-    );
+    render(<KontonummerForm settOpprettEllerEndre={vi.fn()} personident={{ type: "", verdi: IDENT }} submit={mockSubmit} language="nb" />);
 };
 
 const setupNorskBankkonto = () => {

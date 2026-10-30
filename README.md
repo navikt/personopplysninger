@@ -60,7 +60,7 @@ Brukeren ser da en knapp med beskrivelse som sender han/henne tilbake til den op
 1. Legg til tjenesten i `redirects` i `src/utils/redirects.ts`
 2. Send brukeren til `https://www.nav.no/person/personopplysninger/endre-opplysninger/sendt-fra/[KEY]/[REDIRECT_URL]`
 
-Beskrivelsen og teksten på knappen bestemmes av `[KEY]`. Lenken tilbake settes fra `[REDIRECT_URL]`, som må være URL-enkodet. Eksempel:
+Hver tjeneste har `beskrivelseFoer`, `beskrivelseUthevet`, `beskrivelseEtter` og `knapp`. Beskrivelsen settes sammen i den rekkefølgen, og den midterste delen vises i fet skrift. Beskrivelsen og teksten på knappen bestemmes av `[KEY]`. Lenken tilbake settes fra `[REDIRECT_URL]`, som må være URL-enkodet. Eksempel:
 
 ```text
 https://www.ansatt.dev.nav.no/person/personopplysninger/nb/endre-opplysninger/sendt-fra/skjema/alderspensjonssoknad/https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf

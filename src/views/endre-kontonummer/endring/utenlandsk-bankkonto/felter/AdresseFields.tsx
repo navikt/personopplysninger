@@ -1,6 +1,6 @@
 import { Label, TextField } from "@navikt/ds-react";
 import { useFormContext } from "react-hook-form";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
 import {
     hasMultipleCombinedSpaces,
     isBlacklistedCommon,
@@ -9,13 +9,16 @@ import {
     isOnlySignsSpace,
     isValidAdresselinje,
 } from "@/utils/validators";
+import { text } from "../../kontonummerSkjemaText";
 import type { FormFields } from "../../types";
 import { validerBankkode } from "../../utils";
 import styles from "./AdresseFields.module.css";
 
-const AdresseFields = () => {
-    const { formatMessage } = useIntlFormatter();
+interface Props {
+    language: Language;
+}
 
+const AdresseFields = ({ language }: Props) => {
     const {
         register,
         watch,
@@ -25,29 +28,28 @@ const AdresseFields = () => {
 
     const shouldValidateAdresse = () => validerBankkode(watch().land, watch().bickode, watch().bankkode) || !!watch().adresse2 || !!watch().adresse3;
 
-    const validateIfSet = (value: string, validationResult: boolean, messageId: string) =>
-        value ? validationResult || formatMessage(messageId) : true;
+    const validateIfSet = (value: string, validationResult: boolean, melding: string) => (value ? validationResult || melding : true);
 
-    const requiredOnCondition = (value: string, condition: boolean, messageId: string) => (condition ? !!value || formatMessage(messageId) : true);
+    const requiredOnCondition = (value: string, condition: boolean, melding: string) => (condition ? !!value || melding : true);
 
     const baseAdresseValidation = {
-        firstCharNotSpace: (v: string) => validateIfSet(v, isFirstCharNotSpace(v), "validation.firstchar.notspace"),
-        notBlacklisted: (v: string) => validateIfSet(v, !isBlacklistedCommon(v), "validation.svarteliste.felles"),
-        noCombinedSpaces: (v: string) => validateIfSet(v, !hasMultipleCombinedSpaces(v), "validation.multiple.spaces"),
-        validAdresselinje: (v: string) => validateIfSet(v, isValidAdresselinje(v), "validation.adresselinje.ugyldig"),
+        firstCharNotSpace: (v: string) => validateIfSet(v, isFirstCharNotSpace(v), text.foersteTegnMellomrom[language]),
+        notBlacklisted: (v: string) => validateIfSet(v, !isBlacklistedCommon(v), text.svarteliste[language]),
+        noCombinedSpaces: (v: string) => validateIfSet(v, !hasMultipleCombinedSpaces(v), text.flereMellomrom[language]),
+        validAdresselinje: (v: string) => validateIfSet(v, isValidAdresselinje(v), text.adresselinjeUgyldig[language]),
     };
 
     return (
         <>
             <div className={styles.header}>
-                <Label>{formatMessage("felter.bankens.adresse.label")}</Label>
+                <Label>{text.bankensAdresseLabel[language]}</Label>
             </div>
 
             <TextField
                 {...register("adresse1", {
                     validate: {
-                        required: (v) => requiredOnCondition(v, shouldValidateAdresse(), "validation.adresse.pakrevd"),
-                        notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), "validation.only.space.signs.or.digits"),
+                        required: (v) => requiredOnCondition(v, shouldValidateAdresse(), text.adressePaakrevd[language]),
+                        notOnlyNonLetters: (v) => validateIfSet(v, !isOnlyNonLetters(v), text.kunMellomromTegnSifre[language]),
                         ...baseAdresseValidation,
                     },
                 })}
@@ -64,8 +66,8 @@ const AdresseFields = () => {
                 {...register("adresse2", {
                     onChange: () => isSubmitted && trigger(["adresse1", "adresse3"]),
                     validate: {
-                        required: (v) => requiredOnCondition(v, !!watch().adresse3, "validation.adresselinje.pakrevd"),
-                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), "validation.only.space.or.signs"),
+                        required: (v) => requiredOnCondition(v, !!watch().adresse3, text.adresselinjePaakrevd[language]),
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), text.kunMellomromTegn[language]),
                         ...baseAdresseValidation,
                     },
                 })}
@@ -82,7 +84,7 @@ const AdresseFields = () => {
                 {...register("adresse3", {
                     onChange: () => isSubmitted && trigger(["adresse1", "adresse2"]),
                     validate: {
-                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), "validation.only.space.or.signs"),
+                        notOnlyNonAlphanumeric: (v) => validateIfSet(v, !isOnlySignsSpace(v), text.kunMellomromTegn[language]),
                         ...baseAdresseValidation,
                     },
                 })}

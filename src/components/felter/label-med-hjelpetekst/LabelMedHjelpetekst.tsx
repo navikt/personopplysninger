@@ -1,18 +1,19 @@
 import { Label } from "@navikt/ds-react";
-import { Fragment } from "react";
-import { FormattedMessage } from "react-intl";
+import type { ReactNode } from "react";
 import { CustomHelpText } from "@/components/customHelpText/CustomHelpText";
+import type { Language } from "@/language/language";
 import styles from "./LabelMedHjelpetekst.module.css";
 
 interface Props {
     label: string;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     labelId?: string;
     labelForId?: string;
+    language: Language;
 }
 
 export const LabelMedHjelpetekst = (props: Props) => {
-    const { label, hjelpetekst, labelId, labelForId } = props;
+    const { label, hjelpetekst, labelId, labelForId, language } = props;
     return (
         <div className={styles.labelMedHjelpetekst}>
             {labelId && (
@@ -22,20 +23,8 @@ export const LabelMedHjelpetekst = (props: Props) => {
             )}
             {!labelId && <span>{label}</span>}
             {hjelpetekst && (
-                <CustomHelpText title={label} placement={"right"}>
-                    <FormattedMessage
-                        id={hjelpetekst}
-                        values={{
-                            b: (text) => <b>{text}</b>,
-                            p: (...chunks) => (
-                                <p>
-                                    {chunks.map((chunk, index) => (
-                                        <Fragment key={index}>{chunk}</Fragment>
-                                    ))}
-                                </p>
-                            ),
-                        }}
-                    />
+                <CustomHelpText title={label} placement={"right"} language={language}>
+                    {hjelpetekst}
                 </CustomHelpText>
             )}
         </div>

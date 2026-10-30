@@ -1,17 +1,17 @@
 import { PencilIcon, TrashIcon } from "@navikt/aksel-icons";
 import { BodyShort, Label } from "@navikt/ds-react";
 import { useState } from "react";
-import { FormattedMessage } from "react-intl";
-import { fetchPersonInfo, slettTlfnummer } from "@/clients/apiClient";
+import { slettTlfnummer } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
-import { useStore } from "@/store/Context";
-import type { PersonInfo } from "@/types/personInfo";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
 import { formatTelefonnummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
 import Knapp from "./Knapp";
 import SlettModal from "./SlettModal";
 import tlfStyles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";
+import { text } from "./telefonnummerText";
 
 export interface OutboundTlfnummer {
     prioritet: 1 | 2;
@@ -21,21 +21,21 @@ export interface OutboundTlfnummer {
 
 interface Props {
     prioritet: 1 | 2;
-    titleId: string;
     hasTwoNumbers: boolean;
     onDeleteSuccess: () => void;
     onChangeSuccess: () => void;
+    hentPaaNytt: () => Promise<void>;
     landskode?: string;
     tlfnummer: string;
+    language: Language;
 }
 
 const Telefonnummer = (props: Props) => {
-    const { prioritet, titleId, landskode, tlfnummer, hasTwoNumbers } = props;
+    const { prioritet, landskode, tlfnummer, hasTwoNumbers, hentPaaNytt, language } = props;
     const [visSlettModal, settVisSlettModal] = useState(false);
     const [slettLoading, settSlettLoading] = useState(false);
     const [endre, settEndre] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | undefined>();
-    const [, dispatch] = useStore();
 
     const defaultValues = {
         tlfnummer: tlfnummer ?? "",
@@ -63,14 +63,6 @@ const Telefonnummer = (props: Props) => {
         settVisSlettModal(false);
     };
 
-    const getUpdatedData = () =>
-        fetchPersonInfo().then((personInfo) => {
-            dispatch({
-                type: "SETT_PERSON_INFO_RESULT",
-                payload: personInfo as PersonInfo,
-            });
-        });
-
     const submitSlett = () => {
         if (!tlfnummer) {
             return;
@@ -84,7 +76,7 @@ const Telefonnummer = (props: Props) => {
 
         settSlettLoading(true);
         slettTlfnummer(outbound)
-            .then(getUpdatedData)
+            .then(hentPaaNytt)
             .then(onDeleteSuccess)
             .catch((error: Feilmelding) => {
                 settSlettLoading(false);
@@ -96,9 +88,7 @@ const Telefonnummer = (props: Props) => {
         <div className={tlfStyles.rad}>
             <div className={tlfStyles.container}>
                 <div className={tlfStyles.verdi}>
-                    <Label as="p">
-                        <FormattedMessage id={titleId} values={{ x: hasTwoNumbers ? prioritet : "" }} />
-                    </Label>
+                    <Label as="p">{text.telefonPrioritet[language](hasTwoNumbers ? prioritet : "")}</Label>
                     {!endre && (
                         <BodyShort>
                             {landskode && <span>{landskode} </span>}
@@ -109,8 +99,8 @@ const Telefonnummer = (props: Props) => {
 
                 {!endre && (
                     <div className={tlfStyles.knapper}>
-                        <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={"side.endre"} />
-                        <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekstId={"side.slett"} />
+                        <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekst={felles.endre[language]} />
+                        <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekst={felles.slett[language]} />
                     </div>
                 )}
             </div>
@@ -121,6 +111,7 @@ const Telefonnummer = (props: Props) => {
                     submitSlett={submitSlett}
                     isLoading={slettLoading}
                     alert={alert}
+                    language={language}
                 />
             )}
             {endre && (
@@ -129,10 +120,12 @@ const Telefonnummer = (props: Props) => {
                     prioritet={prioritet}
                     onCancelClick={() => settEndre(!endre)}
                     onChangeSuccess={onChangeSuccess}
+                    hentPaaNytt={hentPaaNytt}
                     defaultValues={defaultValues}
+                    language={language}
                 />
             )}
-            {alert && <HttpFeilmelding {...alert} />}
+            {alert && <HttpFeilmelding {...alert} language={language} />}
         </div>
     );
 };

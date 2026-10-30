@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
-import { FormattedMessage } from "react-intl";
+import type { Language } from "@/language/language";
 import type { Adresse as IAdresse } from "@/types/adresser/adresse";
+import { text } from "@/views/forside/adresser/adresserText";
 import AdressePanel from "../komponenter/AdressePanel";
 import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
 import PostadresseIFrittFormat from "./adressetyper/norske-adresser/PostadresseIFrittFormat";
@@ -17,13 +18,14 @@ interface Props {
     angittFlyttedato?: string;
     oppholdAnnetSted?: string;
     tittel: string;
+    language: Language;
 }
 
 const Adresse = (props: Props) => {
     if (props.adresse == null && props.oppholdAnnetSted != null) {
         return (
-            <AdressePanel tittel={props.tittel}>
-                <FormattedMessage id={mapOppholdAnnetSted(props.oppholdAnnetSted)} />
+            <AdressePanel tittel={props.tittel} language={props.language}>
+                {mapOppholdAnnetSted(props.oppholdAnnetSted, props.language)}
             </AdressePanel>
         );
     }
@@ -75,22 +77,23 @@ const Adresse = (props: Props) => {
             kommune={kommune}
             gyldigTilOgMedFormatert={gyldigTilOgMedFormatert}
             flyttedatoFormatert={flyttedatoFormatert}
+            language={props.language}
         >
             {adresse}
         </AdressePanel>
     );
 };
 
-const mapOppholdAnnetSted = (oppholdAnnetSted: string) => {
+const mapOppholdAnnetSted = (oppholdAnnetSted: string, language: Language) => {
     switch (oppholdAnnetSted) {
         case "MILITAER":
-            return "adresse.oppholdsadresse.militaer";
+            return text.militaer[language];
         case "UTENRIKS":
-            return "adresse.oppholdsadresse.utenriks";
+            return text.utenriks[language];
         case "PAA_SVALBARD":
-            return "adresse.oppholdsadresse.paasvalbard";
+            return text.paaSvalbard[language];
         case "PENDLER":
-            return "adresse.oppholdsadresse.pendler";
+            return text.pendler[language];
     }
     return oppholdAnnetSted;
 };

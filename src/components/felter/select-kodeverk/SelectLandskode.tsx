@@ -3,6 +3,7 @@ import type { FormatOptionLabelMeta } from "react-select/base";
 import { fetchRetningsnumre } from "@/clients/apiClient";
 import type { HTTPError } from "@/components/errorMessage/ErrorMessage";
 import NAVSelect from "@/components/felter/select/NAVSelect";
+import type { Language } from "@/language/language";
 
 interface Props {
     option: OptionType;
@@ -12,6 +13,7 @@ interface Props {
     id: string;
     error?: string;
     onChange: (value?: OptionType) => void;
+    language: Language;
 }
 
 interface OptionType {
@@ -73,6 +75,7 @@ const SelectLandskode = forwardRef((props: Props, ref: ForwardedRef<HTMLInputEle
             onChange={props.onChange}
             borderUnderNth={0}
             ref={ref}
+            language={props.language}
         />
     );
 });

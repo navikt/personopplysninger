@@ -149,4 +149,29 @@ export const text = {
         nn: "https://www.skatteetaten.no/person/folkeregister/flytte/",
         en: "https://www.skatteetaten.no/en/person/national-registry/moving/",
     },
+    slettKontaktadresse: {
+        nb: "Slett kontaktadresse",
+        nn: "Slett kontaktadresse",
+        en: " Delete contact address",
+    },
+    kontaktadresseNav: {
+        nb: "Kontaktadresse registrert hos Nav",
+        nn: "Kontaktadresse registrert av Nav",
+        en: "Contact address registered with Nav",
+    },
+    overskriftOvrige: {
+        nb: "Øvrige registrerte adresser",
+        nn: "Øvrige registrerte adresser",
+        en: "Other registered addresses",
+    },
+    slettAlertFoer: {
+        nb: "Vil du fjerne kontaktadressen og bruke folkeregistrert ",
+        nn: "Vil du fjerne kontaktadressa og bruke folkeregistrert ",
+        en: "Do you want to remove the contact address and use the address registered with the National Population Register ",
+    },
+    slettAlertEtter: {
+        nb: "adresse til å motta post fra Nav?",
+        nn: " adresse til å få post frå Nav?",
+        en: " to receive mail from Nav?",
+    },
 };

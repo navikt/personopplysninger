@@ -8,11 +8,17 @@ import Forside from "@/pages/[locale]/index.astro";
 import { hentFraApi } from "@/server/apiClient";
 import type { Personalia, UtenlandskBankkonto } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
+import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
     loginUrlFor: vi.fn().mockReturnValue("/person/personopplysninger/oauth2/login?redirect=/person/personopplysninger/nb/"),
 }));
+
+vi.mock("@/config/serverRuntimeConfig", async () => {
+    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
+    return { getServerRuntimeConfig: () => testRuntimeConfig };
+});
 
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
     fetchDecoratorHtml: vi.fn().mockResolvedValue({ DECORATOR_HEAD_ASSETS: "", DECORATOR_HEADER: "", DECORATOR_FOOTER: "", DECORATOR_SCRIPTS: "" }),
@@ -53,6 +59,16 @@ const svarMedPersonalia = (endring: Partial<Personalia>) => (path: string) =>
 const utbetalingBoks = (html: string) => html.slice(html.indexOf('id="utbetaling"'), html.indexOf('id="ditt-nav-kontor"')).replaceAll("<!-- -->", "");
 
 const kontaktBoks = (html: string) => html.slice(html.indexOf('id="kontaktinformasjon"'), html.indexOf('id="utbetaling"'));
+
+const oyProps = (html: string, navn: string) =>
+    JSON.parse(
+        (html.match(new RegExp(`<astro-island[^>]*/${navn}[^>]*\\sprops="([^"]*)"`))?.[1] ?? "")
+            .replaceAll("&quot;", '"')
+            .replaceAll("&lt;", "<")
+            .replaceAll("&gt;", ">")
+            .replaceAll("&#39;", "'")
+            .replaceAll("&amp;", "&"),
+    );
 
 const render = async () => {
     const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
@@ -151,6 +167,44 @@ describe("Forsiden", () => {
         expect(oy).not.toContain("10108000398");
         expect(oy).not.toContain("12345678911");
         expect(oy).not.toContain("test@test.com");
+    });
+
+    it("sender telefonøya med overskrift på forsiden", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const props = oyProps(await render(), "TelefonnummerOy");
+
+        expect(Object.keys(props).sort()).toEqual(["apiUrl", "appUrl", "language", "loginUrl", "medOverskrift", "slot", "tlfnr"]);
+        expect(props.medOverskrift).toEqual([0, true]);
+        expect(props.language).toEqual([0, "nb"]);
+        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
+        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
+    });
+
+    it("sender bare språk og URL-ene adresseøya bruker", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const props = oyProps(await render(), "AndreAdresserOy");
+
+        expect(Object.keys(props).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
+        expect(props.language).toEqual([0, "nb"]);
+        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
+        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
+    });
+
+    it("sender bare språk og publikumsmottak til Nav-kontoret-øya og språk til arbeidsforhold-øya", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const mottak = oyProps(html, "DittNavKontorOy");
+        const arbeidsforhold = oyProps(html, "ArbeidsforholdOy");
+
+        expect(Object.keys(mottak).sort()).toEqual(["language", "publikumsmottak", "slot"]);
+        expect(mottak.language).toEqual([0, "nb"]);
+        expect(Object.keys(arbeidsforhold).sort()).toEqual(["customApiUrl", "language", "miljo", "printName", "printSSN", "slot"]);
+        expect(arbeidsforhold.language).toEqual([0, "nb"]);
     });
 
     it("viser feilen fra registeret bare i kontaktinformasjon-boksen", async () => {

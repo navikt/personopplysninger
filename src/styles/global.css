@@ -47,10 +47,6 @@ body {
     padding-top: 1.5rem;
 }
 
-.ReactModal__Overlay.ReactModal__Overlay--after-open.modal__overlay {
-    z-index: 10000;
-}
-
 .capitalize {
     text-transform: capitalize;
 }

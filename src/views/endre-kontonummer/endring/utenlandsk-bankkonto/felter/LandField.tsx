@@ -1,6 +1,7 @@
 import { useFormContext } from "react-hook-form";
 import SelectLand from "@/components/felter/select-kodeverk/SelectLand";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
+import { text } from "../../kontonummerSkjemaText";
 import type { FormFields } from "../../types";
 
 const BANKKODER: { [key: string]: string } = {
@@ -12,9 +13,11 @@ const BANKKODER: { [key: string]: string } = {
     RU: "RU",
 };
 
-const LandField = () => {
-    const { formatMessage } = useIntlFormatter();
+interface Props {
+    language: Language;
+}
 
+const LandField = ({ language }: Props) => {
     const {
         register,
         setValue,
@@ -26,11 +29,11 @@ const LandField = () => {
     return (
         <SelectLand
             {...register("land", {
-                required: formatMessage("validation.land.pakrevd"),
+                required: text.landPaakrevd[language],
             })}
             id="bankensland"
             submitted={isSubmitted}
-            label={formatMessage("felter.bankensland.label")}
+            label={text.bankensLandLabel[language]}
             error={errors?.land?.message}
             option={watch().land}
             onChange={(option) => {
@@ -41,6 +44,7 @@ const LandField = () => {
                     trigger();
                 }
             }}
+            language={language}
         />
     );
 };

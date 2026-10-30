@@ -1,17 +1,17 @@
 import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
 import { useState } from "react";
 import { type FieldValues, FormProvider, useForm } from "react-hook-form";
-import { FormattedMessage, useIntl } from "react-intl";
 import { postKontonummer } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import Kilde from "@/components/kilde/Kilde";
-import { useStore } from "@/store/Context";
-import type { Locale } from "@/store/Store";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
 import type { UtenlandskBankkonto } from "@/types/personalia";
 import { normalizeNummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
 import utbetalStyles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
 import formStyles from "./KontonummerForm.module.css";
+import { text } from "./kontonummerSkjemaText";
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from "./norsk-bankkonto/NorskKontonummer";
 import type { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "./types";
 import OpprettEllerEndreUtenlandsbank, { setOutboundUtenlandsbankonto } from "./utenlandsk-bankkonto/UtenlandsBankkonto";
@@ -22,13 +22,14 @@ interface Props {
     kontonr?: string;
     settOpprettEllerEndre: (arg: boolean) => void;
     submit?: () => void;
+    language: Language;
 }
 
 const NORSK = "NORSK";
 const UTENLANDSK = "UTENLANDSK";
 
 const KontonummerForm = (props: Props) => {
-    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre } = props;
+    const { kontonr, utenlandskbank, personident, settOpprettEllerEndre, language } = props;
 
     const { submit = submitKontonummer } = props;
 
@@ -60,21 +61,18 @@ const KontonummerForm = (props: Props) => {
         formState: { isValid, isSubmitted },
     } = methods;
 
-    const { formatMessage: msg } = useIntl();
     const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | null>(null);
     const [kontonummerType, setKontonummerType] = useState(utenlandskbank ? UTENLANDSK : NORSK);
 
-    const [{ locale }] = useStore();
-
     const onSubmit = (values: FieldValues) => {
-        submit(values, kontonummerType, settAlert, settLoading, locale);
+        submit(values, kontonummerType, settAlert, settLoading, language);
     };
 
     return (
         <FormProvider {...methods}>
             <form className={formStyles.kontonummerForm} onSubmit={handleSubmit(onSubmit)}>
-                <RadioGroup legend={msg({ id: "felter.kontonummer.grouplegend" })} defaultValue={kontonummerType}>
+                <RadioGroup legend={text.kontonummerValg[language]} defaultValue={kontonummerType}>
                     <Radio
                         value={NORSK}
                         onChange={(e) => {
@@ -82,9 +80,9 @@ const KontonummerForm = (props: Props) => {
                             reset();
                         }}
                     >
-                        {msg({ id: "felter.kontonummervalg.norsk" })}
+                        {text.norskKontonummer[language]}
                     </Radio>
-                    {kontonummerType === NORSK && <OpprettEllerEndreNorskKontonr personident={personident} />}
+                    {kontonummerType === NORSK && <OpprettEllerEndreNorskKontonr personident={personident} language={language} />}
                     <Radio
                         value={UTENLANDSK}
                         onChange={(e) => {
@@ -92,23 +90,21 @@ const KontonummerForm = (props: Props) => {
                             reset();
                         }}
                     >
-                        {msg({ id: "felter.kontonummervalg.utenlandsk" })}
+                        {text.utenlandskKontonummer[language]}
                     </Radio>
                 </RadioGroup>
-                {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} />}
-                <Alert variant={"info"}>
-                    <FormattedMessage id={"endreKontonummer.authInfo"} />
-                </Alert>
+                {kontonummerType === UTENLANDSK && <OpprettEllerEndreUtenlandsbank personident={personident} language={language} />}
+                <Alert variant={"info"}>{text.authInfo[language]}</Alert>
                 <div className={utbetalStyles.knapper}>
                     <Button variant={"primary"} type={"submit"} disabled={loading || (isSubmitted && !isValid)} loading={loading}>
-                        <FormattedMessage id={"side.lagre"} />
+                        {felles.lagre[language]}
                     </Button>
                     <Button variant={"tertiary"} type={"button"} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
-                        <FormattedMessage id={"side.avbryt"} />
+                        {felles.avbryt[language]}
                     </Button>
                 </div>
-                {alert && <HttpFeilmelding {...alert} />}
-                <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+                {alert && <HttpFeilmelding {...alert} language={language} />}
+                <Kilde kilde={felles.kildeNav[language]} lenkeType={"INGEN"} />
             </form>
         </FormProvider>
     );
@@ -119,7 +115,7 @@ const submitKontonummer = (
     kontonummerType: string,
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
-    locale: Locale,
+    language: Language,
 ) => {
     type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
     const outbound: { [key: string]: () => Outbound } = {
@@ -131,7 +127,7 @@ const submitKontonummer = (
     };
 
     settLoading(true);
-    postKontonummer(outbound[kontonummerType](), locale).catch((error: Feilmelding) => {
+    postKontonummer(outbound[kontonummerType](), language).catch((error: Feilmelding) => {
         settAlert(error);
         settLoading(false);
     });

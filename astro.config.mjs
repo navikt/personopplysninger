@@ -32,7 +32,6 @@ export default defineConfig({
             DINE_SAKER_URL: envField.string({ context: "server", access: "secret", default: "https://www.intern.dev.nav.no/dokumentarkiv" }),
             DITT_NAV_URL: envField.string({ context: "server", access: "secret", default: "https://www.intern.dev.nav.no/minside" }),
             ENDRE_KONTONUMMER_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api" }),
-            INNLOGGINGSSTATUS_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api/auth" }),
             LOGIN_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/oauth2/login" }),
             PDL_URL: envField.string({ context: "server", access: "secret", default: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui" }),
             PERSONOPPLYSNINGER_API_URL: envField.string({ context: "server", access: "secret", default: "http://localhost:4321/api" }),

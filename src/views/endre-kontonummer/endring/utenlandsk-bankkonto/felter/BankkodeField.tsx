@@ -1,14 +1,19 @@
 import { TextField } from "@navikt/ds-react";
 import { useFormContext } from "react-hook-form";
 import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
 import { isBankkodeValidLength, isNumeric } from "@/utils/validators";
 import utbetalStyles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
+import { text as utbetalingerText } from "@/views/forside/utbetalinger/utbetalingerText";
+import { text } from "../../kontonummerSkjemaText";
 import type { FormFields } from "../../types";
 import { validerBankkode } from "../../utils";
 
-const BankkodeField = () => {
-    const { formatMessage, formatMessageWithValues } = useIntlFormatter();
+interface Props {
+    language: Language;
+}
+
+const BankkodeField = ({ language }: Props) => {
     const {
         register,
         watch,
@@ -34,19 +39,28 @@ const BankkodeField = () => {
                         onChange: () => isSubmitted && trigger(),
                         validate: {
                             ...(validerBankkode(watch().land, watch().bickode, watch().bankkode) && {
-                                required: (v) => !!v || formatMessage("validation.bankkode.pakrevd"),
-                                numeric: (v) => isNumeric(v) || formatMessage("validation.only.digits"),
+                                required: (v) => !!v || text.bankkodePaakrevd[language],
+                                numeric: (v) => isNumeric(v) || text.kunTall[language],
                                 validLength: (v) =>
                                     isBankkodeValidLength(v, watch().land) ||
-                                    formatMessageWithValues("validation.bankkode.lengde", {
-                                        land: watch().land?.label,
-                                        siffer: watch().land?.bankkodeLengde,
-                                    }),
+                                    text.bankkodeLengde[language](watch().land?.label ?? "", watch().land?.bankkodeLengde ?? ""),
                             }),
                         },
                     })}
                     id={"bankkode"}
-                    label={<LabelMedHjelpetekst label={formatMessage("felter.bankkode.label")} hjelpetekst={"utbetalinger.hjelpetekster.bankkode"} />}
+                    label={
+                        <LabelMedHjelpetekst
+                            label={text.bankkodeLabel[language]}
+                            hjelpetekst={
+                                <>
+                                    <p>{utbetalingerText.bankkodeHjelp1[language]}</p>
+                                    <p>{utbetalingerText.bankkodeHjelp2[language]}</p>
+                                    <p>{utbetalingerText.bankkodeHjelp3[language]}</p>
+                                </>
+                            }
+                            language={language}
+                        />
+                    }
                     size="medium"
                     error={errors?.bankkode?.message}
                     maxLength={watch().land && watch().land?.bankkodeLengde}
