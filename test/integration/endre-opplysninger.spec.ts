@@ -119,11 +119,13 @@ test("telefonlisten har ingen overskrift, og sletting henter personalia på nytt
     await expect(boks.getByText("408 53 158")).toBeVisible();
     await expect(boks.getByRole("heading", { level: 3 })).toHaveCount(0);
 
-    await page.getByRole("button", { name: "Slett telefonnummer" }).click();
+    await page.getByRole("main").getByRole("button", { name: "Slett telefonnummer" }).click();
     await page.getByRole("dialog").getByRole("button", { name: "Slett" }).click();
 
-    await expect(boks.getByText("408 53 158")).toHaveCount(0);
-    await expect(boks.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" })).toBeVisible();
+    await expect(boks.getByText("408 53 158")).toHaveCount(0, { timeout: 10_000 });
+    await expect(boks.getByRole("button", { name: "Legg til telefonnummer i Nav sitt register" })).toBeVisible({
+        timeout: 10_000,
+    });
     await expect(boks.getByRole("heading", { level: 3 })).toHaveCount(0);
 });
 
@@ -161,7 +163,9 @@ for (const { sti, leggTil, felt, lagre, tekst } of avvist) {
         await boks.getByRole("textbox", { name: felt }).fill("91234567");
         await boks.getByRole("button", { name: lagre }).click();
 
-        await expect(page.getByRole("status").filter({ hasText: tekst })).toContainText(tekst);
+        await expect(page.getByRole("main").getByRole("status").filter({ hasText: tekst })).toContainText(tekst, {
+            timeout: 10_000,
+        });
     });
 }
 

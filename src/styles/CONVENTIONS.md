@@ -69,7 +69,7 @@ Ikke kopier regler mellom moduler.
 
 `:global()` er tillatt **kun** for:
 
-1. **Tredjeparts-/vendor-klassenavn** som du ikke kontrollerer (f.eks. Aksel-internals `navds-*`, react-modal `ReactModal__*`)
+1. **Tredjeparts-/vendor-klassenavn** som du ikke kontrollerer (f.eks. Aksel-internals `navds-*`)
 2. **Temabytte** basert på data-attributter satt utenfra (`[data-theme="dark"] .foo`)
 
 ```css
@@ -129,7 +129,7 @@ Prosjektspesifikke tokens (layout) er definert i `src/styles/tokens.css`.
 | Strukturelle hooks i `Layout.astro`   | `.pagewrapper`, `.app`                       | ✅      |
 | App-skjelettklasser i sidene (`src/pages/`) | `.pagecontent`, `.wrapper`               | ✅ (midlertidig) |
 | Delte layout-hooks på tvers av sider  | `.underseksjon__*`                           | ✅ (midlertidig) |
-| Tredjeparts-/vendor-selektorer        | `.ReactModal__Overlay`, `.navds-*`           | ✅      |
+| Tredjeparts-/vendor-selektorer        | `.navds-*`                                   | ✅      |
 | Felles hjelpeklasser uten tilhørighet | `.capitalize`                                | ✅      |
 | Komponent-spesifikke stiler           | `.header__seksjon`, `.spinner-wrapper`       | ❌ — bruk CSS Module |
 | Overskriving av `--a-*`-tokens        | `--a-spacing-4: 20px`                        | ❌ aldri |
