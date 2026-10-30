@@ -9,7 +9,10 @@ const prod = (url: string) => {
 };
 
 describe("environment", () => {
-    beforeEach(() => vi.stubEnv("BASE_URL", "/person/personopplysninger/"));
+    beforeEach(() => {
+        vi.stubEnv("BASE_URL", "/person/personopplysninger/");
+        vi.stubEnv("NAIS_CLUSTER_NAME", undefined);
+    });
     afterEach(() => vi.unstubAllEnvs());
 
     it.each([
@@ -23,29 +26,33 @@ describe("environment", () => {
         expect(getMiljo()).toBe(miljo);
     });
 
-    it("utleder app- og API-URL fra vertsnavnet i forespørselen", () => {
-        const url = prod("http://www.intern.nav.no/person/personopplysninger/nb/");
-
-        expect(getAppUrl(url)).toBe("https://www.intern.nav.no/person/personopplysninger");
-        expect(getApiUrl(url)).toBe("https://www.intern.nav.no/tms-personopplysninger-api");
-    });
-
     it("bruker https for nav.no-verter selv om forespørselen kom inn over http bak ingressen", () => {
         expect(getAppUrl(prod("http://www.nav.no/person/personopplysninger/nb/"))).toBe("https://www.nav.no/person/personopplysninger");
     });
 
-    it.each([
-        "http://evil.example/person/personopplysninger/",
-        "http://nav.no.evil.example/",
-        "http://evilnav.no/",
-        "http://localhost:3000/",
-        "http://10.0.0.1:3000/",
-        "http://www.intern.nav.no:8080/",
-    ])("faller tilbake til APP_ORIGIN for verter utenfor nav.no i dev og prod (%s)", (url) => {
-        const requestUrl = prod(url);
+    describe.each(["dev-gcp", "prod-gcp"])("i %s", (clusterName) => {
+        beforeEach(() => vi.stubEnv("NAIS_CLUSTER_NAME", clusterName));
 
-        expect(getAppUrl(requestUrl)).toBe("https://www.nav.no/person/personopplysninger");
-        expect(getApiUrl(requestUrl)).toBe("https://www.nav.no/tms-personopplysninger-api");
+        it("utleder app- og API-URL fra vertsnavnet i forespørselen", () => {
+            const url = new URL("http://www.intern.nav.no/person/personopplysninger/nb/");
+
+            expect(getAppUrl(url)).toBe("https://www.intern.nav.no/person/personopplysninger");
+            expect(getApiUrl(url)).toBe("https://www.intern.nav.no/tms-personopplysninger-api");
+        });
+
+        it.each([
+            "http://evil.example/person/personopplysninger/",
+            "http://nav.no.evil.example/",
+            "http://evilnav.no/",
+            "http://localhost:3000/",
+            "http://10.0.0.1:3000/",
+            "http://www.intern.nav.no:8080/",
+        ])("faller tilbake til APP_ORIGIN for verter utenfor nav.no (%s)", (url) => {
+            const requestUrl = new URL(url);
+
+            expect(getAppUrl(requestUrl)).toBe("https://www.nav.no/person/personopplysninger");
+            expect(getApiUrl(requestUrl)).toBe("https://www.nav.no/tms-personopplysninger-api");
+        });
     });
 
     it("godtar nav.no uten www", () => {

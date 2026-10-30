@@ -78,7 +78,10 @@ const render = async () => {
 };
 
 describe("Forsiden", () => {
-    beforeEach(() => vi.stubEnv("BASE_URL", "/person/personopplysninger/"));
+    beforeEach(() => {
+        vi.stubEnv("BASE_URL", "/person/personopplysninger/");
+        vi.stubEnv("NAIS_CLUSTER_NAME", undefined);
+    });
     afterEach(() => vi.unstubAllEnvs());
 
     it("viser hilsen med navn og personalia fra serveren", async () => {
