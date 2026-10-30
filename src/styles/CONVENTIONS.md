@@ -127,7 +127,7 @@ Prosjektspesifikke tokens (layout) er definert i `src/styles/tokens.css`.
 |---------------------------------------|----------------------------------------------|---------|
 | Dokumentnivå                          | `html`, `body`                               | ✅      |
 | Strukturelle hooks i `Layout.astro`   | `.pagewrapper`, `.app`                       | ✅      |
-| App-skjelettklasser i `AstroPageRoot.tsx` | `.pagecontent`, `.wrapper`                   | ✅ (midlertidig) |
+| App-skjelettklasser i sidene (`src/pages/`) | `.pagecontent`, `.wrapper`               | ✅ (midlertidig) |
 | Delte layout-hooks på tvers av sider  | `.underseksjon__*`                           | ✅ (midlertidig) |
 | Tredjeparts-/vendor-selektorer        | `.ReactModal__Overlay`, `.navds-*`           | ✅      |
 | Felles hjelpeklasser uten tilhørighet | `.capitalize`                                | ✅      |

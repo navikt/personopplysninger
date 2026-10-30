@@ -16,13 +16,14 @@ import { text } from "./telefonnummerText";
 
 interface Props {
     tlfnr?: Tlfnr;
+    hentPaaNytt: () => Promise<void>;
     language: Language;
 }
 
 const TelefonnummerHosNav = (props: Props) => {
     const [opprett, settOpprett] = useState<boolean>();
 
-    const { tlfnr, language } = props;
+    const { tlfnr, hentPaaNytt, language } = props;
 
     const onChangeSuccess = () => {
         settOpprett(false);
@@ -53,6 +54,7 @@ const TelefonnummerHosNav = (props: Props) => {
                             tlfnummer={fjernMellorom(tlfnr.telefonHoved)}
                             onDeleteSuccess={onDeleteSuccess}
                             onChangeSuccess={onChangeSuccess}
+                            hentPaaNytt={hentPaaNytt}
                             language={language}
                         />
                     )}
@@ -64,6 +66,7 @@ const TelefonnummerHosNav = (props: Props) => {
                             tlfnummer={fjernMellorom(tlfnr.telefonAlternativ)}
                             onDeleteSuccess={onDeleteSuccess}
                             onChangeSuccess={onChangeSuccess}
+                            hentPaaNytt={hentPaaNytt}
                             language={language}
                         />
                     )}
@@ -103,6 +106,7 @@ const TelefonnummerHosNav = (props: Props) => {
                         onCancelClick={() => settOpprett(false)}
                         onChangeSuccess={onChangeSuccess}
                         tlfnr={tlfnr}
+                        hentPaaNytt={hentPaaNytt}
                         defaultValues={{
                             landskode: {
                                 label: "Norge",

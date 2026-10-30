@@ -55,12 +55,30 @@ const andreAdresser = {
                     {personInfo.status === "ERROR" && <ErrorMessage error={personInfo.error} />}
                     {personalia && (
                         <Box language={language} id="kontaktinformasjon" tittel={text.tittel[language]} ikon={kontaktIkon}>
-                            <TelefonnummerOy locale={language} config={config} tlfnr={personalia.tlfnr} medOverskrift={false} client:visible />
+                            <TelefonnummerOy
+                                language={language}
+                                tlfnr={personalia.tlfnr}
+                                medOverskrift={false}
+                                apiUrl={config.apiUrl}
+                                appUrl={config.appUrl}
+                                loginUrl={config.loginUrl}
+                                client:visible
+                            />
                         </Box>
                     )}
                     {adresser && (
                         <Adresser language={language} adresser={adresser}>
-                            {harAndre && <AndreAdresserOy slot="andre" locale={language} config={config} adresser={andreAdresser} client:visible />}
+                            {harAndre && (
+                                <AndreAdresserOy
+                                    slot="andre"
+                                    language={language}
+                                    adresser={andreAdresser}
+                                    apiUrl={config.apiUrl}
+                                    appUrl={config.appUrl}
+                                    loginUrl={config.loginUrl}
+                                    client:visible
+                                />
+                            )}
                         </Adresser>
                     )}
                     {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}

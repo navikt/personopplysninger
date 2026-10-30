@@ -1,19 +1,14 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { StoreProvider } from "@/store/Context";
-import type { PersonInfo } from "@/types/personInfo";
+import type { Adresser } from "@/types/adresser";
 import AndreAdresserVisning from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserVisning";
 
 vi.mock("react-modal");
 
 const postboks = { type: "POSTBOKSADRESSE" as const, postboks: "Postboks 10 Sørstrand", postnummer: "0194", poststed: "OSLO" };
 
-const renderVisning = (initialPersonInfo: PersonInfo) =>
-    render(
-        <StoreProvider initialLocale="nb" initialPersonInfo={initialPersonInfo}>
-            <AndreAdresserVisning language="nb" />
-        </StoreProvider>,
-    );
+const renderVisning = ({ adresser }: { adresser: Adresser }) =>
+    render(<AndreAdresserVisning adresser={adresser} hentPaaNytt={() => Promise.resolve()} language="nb" />);
 
 describe("AndreAdresserVisning", () => {
     it("viser ingenting når ingen av adressene kommer fra PDL", () => {

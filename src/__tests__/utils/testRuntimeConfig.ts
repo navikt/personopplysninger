@@ -16,3 +16,10 @@ export const testRuntimeConfig: RuntimeConfig = {
     telemetryUrl: "https://telemetry.ekstern.dev.nav.no/collect",
     utbetalingsoversiktUrl: "https://www.intern.dev.nav.no/utbetalingsoversikt/",
 };
+
+export const testKlientConfig = {
+    apiUrl: testRuntimeConfig.apiUrl,
+    appUrl: testRuntimeConfig.appUrl,
+    loginUrl: testRuntimeConfig.loginUrl,
+    endreKontonummerUrl: testRuntimeConfig.endreKontonummerUrl,
+};

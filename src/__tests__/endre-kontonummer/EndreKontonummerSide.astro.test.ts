@@ -4,6 +4,7 @@ import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import EndreKontonummerSide from "@/pages/[locale]/endre-kontonummer.astro";
 import { hentFraApi } from "@/server/apiClient";
+import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
@@ -55,11 +56,22 @@ describe("Endre kontonummer", () => {
 
         expect(html).toMatch(/<astro-island[^>]*client="visible"/);
         const props = islandProps(html);
-        const keys = Object.keys(props);
         expect(props.kontonr).toEqual([0, "12345678901"]);
-        expect(props.locale).toEqual([0, "nb"]);
-        expect(keys).toEqual(expect.arrayContaining(["config", "kontonr", "locale", "personident"]));
-        expect(["config", "kontonr", "locale", "personident", "utenlandskbank"]).toEqual(expect.arrayContaining(keys));
+        expect(props.language).toEqual([0, "nb"]);
+        expect(Object.keys(props).sort()).toEqual([
+            "apiUrl",
+            "appUrl",
+            "endreKontonummerUrl",
+            "kontonr",
+            "language",
+            "loginUrl",
+            "personident",
+            "utenlandskbank",
+        ]);
+        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, "http://localhost:4321"]);
+        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
+        expect(props.endreKontonummerUrl).toEqual([0, testRuntimeConfig.endreKontonummerUrl]);
         expect(html).toContain("Endre kontonummer for utbetaling");
         expect(html).toContain('href="/person/personopplysninger/nb/#utbetaling"');
         expect(html).toMatch(

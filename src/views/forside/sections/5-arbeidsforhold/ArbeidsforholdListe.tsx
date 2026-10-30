@@ -1,10 +1,10 @@
 import { type AFListeOnClick, ListeMedArbeidsforhold } from "@navikt/arbeidsforhold";
-import type { Locale } from "@/store/Store";
+import type { Language } from "@/language/language";
 
 interface Props {
     miljo: "LOCAL" | "DEV" | "PROD";
     customApiUrl?: string;
-    locale: Locale;
+    locale: Language;
     onClick: AFListeOnClick;
     printName: string;
     printSSN: string;

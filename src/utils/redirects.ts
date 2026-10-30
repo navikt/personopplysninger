@@ -1,4 +1,4 @@
-import { getRuntimeConfig } from "@/config/runtimeConfig";
+import { getKlientConfig } from "@/config/klientConfig";
 
 const redirectPathParam = "path";
 
@@ -47,7 +47,7 @@ export const validateAndDecodeRedirectUrl = (encodedUrl?: string) => {
 
 export const getLoginRedirectUrl = () => {
     const encodedPath = btoa(window.location.pathname + window.location.hash);
-    return `${getRuntimeConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
+    return `${getKlientConfig().appUrl}?${redirectPathParam}=${encodeURIComponent(encodedPath)}`;
 };
 
 export const resolveLoginReturnPath = (encodedPath: string | null, basePath: string) => {

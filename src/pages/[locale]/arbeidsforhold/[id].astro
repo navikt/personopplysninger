@@ -38,7 +38,7 @@ const printSSN = personalia ? `${personalia.personident?.verdi}` : "";
         <div class="wrapper">
             <PageContainer language={language} tittel={text.tittel[language]} ikon={arbeidsforholdIkon} tilbakeTil="/#arbeidsforhold">
                 <DetaljertArbeidsforholdOy
-                    locale={language}
+                    language={language}
                     miljo={miljo}
                     customApiUrl={customApiUrl}
                     navArbeidsforholdId={navArbeidsforholdId}

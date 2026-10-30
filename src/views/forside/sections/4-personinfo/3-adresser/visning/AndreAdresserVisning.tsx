@@ -1,15 +1,14 @@
 import type { Language } from "@/language/language";
-import { useStore } from "@/store/Context";
+import type { Adresser } from "@/types/adresser";
 import AndreAdresser from "./AndreAdresser";
 
 interface Props {
+    adresser?: Adresser;
+    hentPaaNytt: () => Promise<void>;
     language: Language;
 }
 
-const AndreAdresserVisning = ({ language }: Props) => {
-    const [{ personInfo }] = useStore();
-
-    const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
+const AndreAdresserVisning = ({ adresser, hentPaaNytt, language }: Props) => {
     const kontaktadressePdl = adresser?.kontaktadresser.find((adr) => adr.kilde === "pdl");
     const oppholdsadressePdl = adresser?.oppholdsadresser?.find((adr) => adr.kilde === "pdl");
 
@@ -17,7 +16,7 @@ const AndreAdresserVisning = ({ language }: Props) => {
         return null;
     }
 
-    return <AndreAdresser kontaktadresse={kontaktadressePdl} oppholdsadresse={oppholdsadressePdl} language={language} />;
+    return <AndreAdresser kontaktadresse={kontaktadressePdl} oppholdsadresse={oppholdsadressePdl} hentPaaNytt={hentPaaNytt} language={language} />;
 };
 
 export default AndreAdresserVisning;

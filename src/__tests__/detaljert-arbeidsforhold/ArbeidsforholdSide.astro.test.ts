@@ -55,13 +55,11 @@ describe("Arbeidsforhold-detaljer", () => {
         expect(html.match(/<astro-island/g)).toHaveLength(1);
         expect(html).toMatch(/<astro-island[^>]*client="visible"/);
         const props = islandProps(html);
-        expect(["customApiUrl", "locale", "miljo", "navArbeidsforholdId", "printName", "printSSN"]).toEqual(
-            expect.arrayContaining(Object.keys(props)),
-        );
+        expect(Object.keys(props).sort()).toEqual(["customApiUrl", "language", "miljo", "navArbeidsforholdId", "printName", "printSSN"]);
         expect(props.navArbeidsforholdId).toEqual([0, 1]);
         expect(props.printName).toEqual([0, "Ola Nordmann"]);
         expect(props.printSSN).toEqual([0, "12345678901"]);
-        expect(props.locale).toEqual([0, "nb"]);
+        expect(props.language).toEqual([0, "nb"]);
         expect(props.miljo).toEqual([0, "LOCAL"]);
         expect(hentFraApi).toHaveBeenCalledTimes(1);
         expect(vi.mocked(hentFraApi).mock.calls[0][0]).toBe("/personalia");

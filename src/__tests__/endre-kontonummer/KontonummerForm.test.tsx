@@ -1,7 +1,6 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import createFetchMock from "vitest-fetch-mock";
-import { StoreProvider } from "@/store/Context";
 import KontonummerForm from "@/views/endre-kontonummer/endring/KontonummerForm";
 
 const fetchMocker = createFetchMock(vi);
@@ -535,11 +534,7 @@ describe("Bankkode med alternativ landkode i IBAN", () => {
 const commonSetup = () => {
     mockSubmit.mockReset();
 
-    render(
-        <StoreProvider>
-            <KontonummerForm settOpprettEllerEndre={vi.fn()} personident={{ type: "", verdi: IDENT }} submit={mockSubmit} language="nb" />
-        </StoreProvider>,
-    );
+    render(<KontonummerForm settOpprettEllerEndre={vi.fn()} personident={{ type: "", verdi: IDENT }} submit={mockSubmit} language="nb" />);
 };
 
 const setupNorskBankkonto = () => {

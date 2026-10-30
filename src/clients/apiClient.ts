@@ -1,6 +1,6 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import { PAAGAAENDE_ENDRING } from "@/components/httpFeilmelding/httpFeilmeldingText";
-import { getRuntimeConfig } from "@/config/runtimeConfig";
+import { getKlientConfig } from "@/config/klientConfig";
 import type { Language } from "@/language/language";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
@@ -10,7 +10,7 @@ import type { OutboundTlfnummer } from "@/views/forside/sections/4-personinfo/2-
 
 const parseJson = (data: Response) => data.json();
 
-const apiUrl = () => getRuntimeConfig().apiUrl;
+const apiUrl = () => getKlientConfig().apiUrl;
 
 const sjekkAuthHentJson = (url: string) =>
     fetch(url, {
@@ -94,7 +94,7 @@ export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/
 export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/slettTelefonnummer`, data);
 
 export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, language: Language) =>
-    reauthenticate(`${getRuntimeConfig().endreKontonummerUrl}/endreKontonummer`, data, language);
+    reauthenticate(`${getKlientConfig().endreKontonummerUrl}/endreKontonummer`, data, language);
 
 export const slettKontaktadresse = () => postJson(`${apiUrl()}/slettKontaktadresse`);
 
@@ -122,7 +122,7 @@ const sjekkAuth = (response: Response): Response => {
 
 const sendTilLogin = () => {
     const redirectUrl = getLoginRedirectUrl();
-    window.location.assign(`${getRuntimeConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
+    window.location.assign(`${getKlientConfig().loginUrl}?redirect=${redirectUrl}&level=Level4`);
 };
 
 const sjekkHttpFeil = async (response: Response) => {

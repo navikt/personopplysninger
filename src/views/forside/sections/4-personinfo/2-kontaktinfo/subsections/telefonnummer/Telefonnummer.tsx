@@ -1,12 +1,10 @@
 import { PencilIcon, TrashIcon } from "@navikt/aksel-icons";
 import { BodyShort, Label } from "@navikt/ds-react";
 import { useState } from "react";
-import { fetchPersonInfo, slettTlfnummer } from "@/clients/apiClient";
+import { slettTlfnummer } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import type { Language } from "@/language/language";
 import { text as felles } from "@/language/text";
-import { useStore } from "@/store/Context";
-import type { PersonInfo } from "@/types/personInfo";
 import { formatTelefonnummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
 import Knapp from "./Knapp";
@@ -26,18 +24,18 @@ interface Props {
     hasTwoNumbers: boolean;
     onDeleteSuccess: () => void;
     onChangeSuccess: () => void;
+    hentPaaNytt: () => Promise<void>;
     landskode?: string;
     tlfnummer: string;
     language: Language;
 }
 
 const Telefonnummer = (props: Props) => {
-    const { prioritet, landskode, tlfnummer, hasTwoNumbers, language } = props;
+    const { prioritet, landskode, tlfnummer, hasTwoNumbers, hentPaaNytt, language } = props;
     const [visSlettModal, settVisSlettModal] = useState(false);
     const [slettLoading, settSlettLoading] = useState(false);
     const [endre, settEndre] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | undefined>();
-    const [, dispatch] = useStore();
 
     const defaultValues = {
         tlfnummer: tlfnummer ?? "",
@@ -65,14 +63,6 @@ const Telefonnummer = (props: Props) => {
         settVisSlettModal(false);
     };
 
-    const getUpdatedData = () =>
-        fetchPersonInfo().then((personInfo) => {
-            dispatch({
-                type: "SETT_PERSON_INFO_RESULT",
-                payload: personInfo as PersonInfo,
-            });
-        });
-
     const submitSlett = () => {
         if (!tlfnummer) {
             return;
@@ -86,7 +76,7 @@ const Telefonnummer = (props: Props) => {
 
         settSlettLoading(true);
         slettTlfnummer(outbound)
-            .then(getUpdatedData)
+            .then(hentPaaNytt)
             .then(onDeleteSuccess)
             .catch((error: Feilmelding) => {
                 settSlettLoading(false);
@@ -130,6 +120,7 @@ const Telefonnummer = (props: Props) => {
                     prioritet={prioritet}
                     onCancelClick={() => settEndre(!endre)}
                     onChangeSuccess={onChangeSuccess}
+                    hentPaaNytt={hentPaaNytt}
                     defaultValues={defaultValues}
                     language={language}
                 />

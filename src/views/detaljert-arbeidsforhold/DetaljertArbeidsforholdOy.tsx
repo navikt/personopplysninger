@@ -1,11 +1,11 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import Spinner from "@/components/spinner/Spinner";
-import type { Locale } from "@/store/Store";
+import type { Language } from "@/language/language";
 
 const DetaljertArbeidsforholdClient = lazy(() => import("./DetaljertArbeidsforholdClient"));
 
 interface Props {
-    locale: Locale;
+    language: Language;
     miljo: "LOCAL" | "DEV" | "PROD";
     customApiUrl?: string;
     navArbeidsforholdId: number;
@@ -13,7 +13,7 @@ interface Props {
     printSSN: string;
 }
 
-const DetaljertArbeidsforholdOy = ({ locale, miljo, customApiUrl, navArbeidsforholdId, printName, printSSN }: Props) => {
+const DetaljertArbeidsforholdOy = ({ language, miljo, customApiUrl, navArbeidsforholdId, printName, printSSN }: Props) => {
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const DetaljertArbeidsforholdOy = ({ locale, miljo, customApiUrl, navArbeidsforh
             <DetaljertArbeidsforholdClient
                 miljo={miljo}
                 customApiUrl={customApiUrl}
-                locale={locale}
+                locale={language}
                 navArbeidsforholdId={navArbeidsforholdId}
                 printName={printName}
                 printSSN={printSSN}

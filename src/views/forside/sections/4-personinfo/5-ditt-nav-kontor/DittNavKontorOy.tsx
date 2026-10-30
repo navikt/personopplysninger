@@ -1,11 +1,11 @@
 import { type AudienceReception, Reception } from "@navikt/nav-office-reception-info";
-import type { Locale } from "@/store/Store";
+import type { Language } from "@/language/language";
 
 interface Props {
-    locale: Locale;
+    language: Language;
     publikumsmottak: AudienceReception[];
 }
 
-const DittNavKontorOy = ({ locale, publikumsmottak }: Props) => <Reception receptions={publikumsmottak} language={locale} />;
+const DittNavKontorOy = ({ language, publikumsmottak }: Props) => <Reception receptions={publikumsmottak} language={language} />;
 
 export default DittNavKontorOy;

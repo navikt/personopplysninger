@@ -1,20 +1,15 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { setRuntimeConfig } from "@/config/runtimeConfig";
-import { StoreProvider } from "@/store/Context";
-import enMessages from "@/text/en";
-import nbMessages from "@/text/nb";
+import { setKlientConfig } from "@/config/klientConfig";
+import { text as felles } from "@/language/text";
+import { text } from "@/views/endre-kontonummer/endring/kontonummerSkjemaText";
 import Kontonummer from "@/views/endre-kontonummer/Kontonummer";
-import { testRuntimeConfig } from "../utils/testRuntimeConfig";
+import { testKlientConfig } from "../utils/testRuntimeConfig";
 
 const REDIRECT = "http://x/nb/endre-kontonummer";
 
-const setup = (props: Omit<Parameters<typeof Kontonummer>[0], "language">, locale: "nb" | "en" = "nb") =>
-    render(
-        <StoreProvider initialLocale={locale}>
-            <Kontonummer {...props} language={locale} />
-        </StoreProvider>,
-    );
+const setup = (props: Omit<Parameters<typeof Kontonummer>[0], "language">, language: "nb" | "en" = "nb") =>
+    render(<Kontonummer {...props} language={language} />);
 
 const fyllOgLagre = async () => {
     await userEvent.click(screen.getByRole("button", { name: "Endre" }));
@@ -24,7 +19,7 @@ const fyllOgLagre = async () => {
 
 describe("Kontonummer", () => {
     beforeEach(() => {
-        setRuntimeConfig(testRuntimeConfig);
+        setKlientConfig(testKlientConfig);
     });
 
     afterEach(() => {
@@ -53,7 +48,7 @@ describe("Kontonummer", () => {
 
         await userEvent.click(screen.getByRole("button", { name: "Endre" }));
 
-        expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
+        expect(screen.getByRole("group", { name: text.kontonummerValg.nb })).toBeInTheDocument();
         expect(screen.queryByText("1234 56 78911")).not.toBeInTheDocument();
 
         await userEvent.click(screen.getByRole("button", { name: "Avbryt" }));
@@ -77,7 +72,7 @@ describe("Kontonummer", () => {
         expect(init?.headers).toMatchObject({ locale: "nb" });
         expect(screen.queryByRole("button", { name: "Lagre" })).not.toBeInTheDocument();
         expect(screen.getByRole("button", { name: /Lagre/ })).toBeInTheDocument();
-        expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
+        expect(screen.getByRole("group", { name: text.kontonummerValg.nb })).toBeInTheDocument();
     });
 
     test("sender valgt språk som locale-header ved lagring", async () => {
@@ -85,9 +80,9 @@ describe("Kontonummer", () => {
         const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ redirect: REDIRECT })));
         setup({ kontonr: "12345678911" }, "en");
 
-        await userEvent.click(screen.getByRole("button", { name: enMessages["side.endre"] }));
-        fireEvent.input(screen.getByRole("textbox", { name: enMessages["felter.kontonummer.label"] }), { target: { value: "12345678911" } });
-        await userEvent.click(screen.getByRole("button", { name: enMessages["side.lagre"] }));
+        await userEvent.click(screen.getByRole("button", { name: felles.endre.en }));
+        fireEvent.input(screen.getByRole("textbox", { name: text.kontonummerLabel.en }), { target: { value: "12345678911" } });
+        await userEvent.click(screen.getByRole("button", { name: felles.lagre.en }));
 
         await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1));
         expect(fetchSpy.mock.calls[0][1]?.headers).toMatchObject({ locale: "en" });
@@ -111,6 +106,6 @@ describe("Kontonummer", () => {
 
         expect(await screen.findByText("Oisann, noe gikk galt! Prøv igjen senere.")).toBeInTheDocument();
         expect(screen.getByRole("button", { name: "Lagre" })).toBeEnabled();
-        expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
+        expect(screen.getByRole("group", { name: text.kontonummerValg.nb })).toBeInTheDocument();
     });
 });

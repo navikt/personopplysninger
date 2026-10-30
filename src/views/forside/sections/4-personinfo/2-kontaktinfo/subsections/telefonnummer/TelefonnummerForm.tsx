@@ -2,15 +2,13 @@ import { Button, TextField } from "@navikt/ds-react";
 import classNames from "classnames";
 import { useState } from "react";
 import { type FieldValues, useForm } from "react-hook-form";
-import { fetchPersonInfo, postTlfnummer } from "@/clients/apiClient";
+import { postTlfnummer } from "@/clients/apiClient";
 import SelectLandskode from "@/components/felter/select-kodeverk/SelectLandskode";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import type { Language } from "@/language/language";
 import { text as felles } from "@/language/text";
-import { useStore } from "@/store/Context";
 import type { OptionType } from "@/types/option";
 import type { Tlfnr } from "@/types/personalia";
-import type { PersonInfo } from "@/types/personInfo";
 import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from "@/utils/validators";
 import tlfStyles from "./Telefonnummer.module.css";
 import { text } from "./telefonnummerText";
@@ -19,6 +17,7 @@ interface Props {
     prioritet: 1 | 2;
     onCancelClick: () => void;
     onChangeSuccess: () => void;
+    hentPaaNytt: () => Promise<void>;
     tlfnr?: Tlfnr;
     type: "endre" | "opprett";
     defaultValues?: {
@@ -42,16 +41,7 @@ const TelefonnummerForm = (props: Props) => {
     });
     const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | undefined>();
-    const { prioritet, tlfnr, onChangeSuccess, language } = props;
-    const [, dispatch] = useStore();
-
-    const getUpdatedData = () =>
-        fetchPersonInfo().then((personInfo) => {
-            dispatch({
-                type: "SETT_PERSON_INFO_RESULT",
-                payload: personInfo as PersonInfo,
-            });
-        });
+    const { prioritet, tlfnr, onChangeSuccess, hentPaaNytt, language } = props;
 
     const submit = (values: FieldValues) => {
         const { landskode, tlfnummer } = values;
@@ -64,7 +54,7 @@ const TelefonnummerForm = (props: Props) => {
 
         settLoading(true);
         postTlfnummer(outbound)
-            .then(getUpdatedData)
+            .then(hentPaaNytt)
             .then(onChangeSuccess)
             .catch((error: Feilmelding) => settAlert(error))
             .then(() => settLoading(false));

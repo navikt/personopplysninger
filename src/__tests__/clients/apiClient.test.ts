@@ -1,16 +1,17 @@
-import { postTlfnummer } from "@/clients/apiClient";
+import { postKontonummer, postTlfnummer } from "@/clients/apiClient";
 import { PAAGAAENDE_ENDRING } from "@/components/httpFeilmelding/httpFeilmeldingText";
-import { setRuntimeConfig } from "@/config/runtimeConfig";
-import { testRuntimeConfig } from "../utils/testRuntimeConfig";
+import { setKlientConfig } from "@/config/klientConfig";
+import { testKlientConfig } from "../utils/testRuntimeConfig";
 
 describe("postTlfnummer", () => {
     beforeEach(() => {
-        setRuntimeConfig(testRuntimeConfig);
+        setKlientConfig(testKlientConfig);
         vi.spyOn(console, "log").mockImplementation(() => {});
     });
 
     afterEach(() => {
         vi.restoreAllMocks();
+        vi.clearAllMocks();
     });
 
     it("feiler med pågående endring når endringen avvises", async () => {
@@ -20,5 +21,27 @@ describe("postTlfnummer", () => {
             type: "feil",
             text: PAAGAAENDE_ENDRING,
         });
+    });
+});
+
+describe("postKontonummer", () => {
+    beforeEach(() => {
+        setKlientConfig(testKlientConfig);
+    });
+
+    afterEach(() => {
+        vi.restoreAllMocks();
+        vi.clearAllMocks();
+    });
+
+    it("sender språket som locale-header til endreKontonummerUrl", async () => {
+        vi.spyOn(window, "location", "get").mockReturnValue({ ...window.location, assign: vi.fn() });
+        const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ redirect: "http://x" })));
+
+        await postKontonummer({ value: "12345678911" }, "en");
+
+        const [url, init] = fetchSpy.mock.calls[0];
+        expect(String(url)).toBe(`${testKlientConfig.endreKontonummerUrl}/endreKontonummer`);
+        expect(init?.headers).toMatchObject({ locale: "en" });
     });
 });

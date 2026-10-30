@@ -1,16 +1,14 @@
 import { TrashIcon } from "@navikt/aksel-icons";
 import { BodyShort, Button, Heading, Modal } from "@navikt/ds-react";
 import { useState } from "react";
-import { fetchPersonInfo, slettKontaktadresse } from "@/clients/apiClient";
+import { slettKontaktadresse } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import Kilde from "@/components/kilde/Kilde";
 import type { Language } from "@/language/language";
 import { text as felles } from "@/language/text";
-import { useStore } from "@/store/Context";
 import sharedStyles from "@/styles/shared.module.css";
 import type { Kontaktadresse as IKontaktadresse } from "@/types/adresser/kontaktadresse";
 import type { Oppholdsadresse as IOppholdsadresse } from "@/types/adresser/oppholdsadresse";
-import type { PersonInfo } from "@/types/personInfo";
 import { text } from "@/views/forside/adresser/adresserText";
 import adresseStyles from "../Adresser.module.css";
 import Adresse from "./Adresse";
@@ -18,12 +16,12 @@ import Adresse from "./Adresse";
 interface Props {
     kontaktadresse?: IKontaktadresse;
     oppholdsadresse?: IOppholdsadresse;
+    hentPaaNytt: () => Promise<void>;
     language: Language;
 }
 
 const AndreAdresser = (props: Props) => {
-    const { kontaktadresse, oppholdsadresse, language } = props;
-    const [, dispatch] = useStore();
+    const { kontaktadresse, oppholdsadresse, hentPaaNytt, language } = props;
     const [slettLoading, settSlettLoading] = useState<boolean>();
     const [slettAlert, settSlettAlert] = useState<Feilmelding | undefined>();
     const [visSlettModal, settVisSlettModal] = useState<boolean>(false);
@@ -36,14 +34,6 @@ const AndreAdresser = (props: Props) => {
         settVisSlettModal(false);
     };
 
-    const getUpdatedData = () =>
-        fetchPersonInfo().then((personInfo) => {
-            dispatch({
-                type: "SETT_PERSON_INFO_RESULT",
-                payload: personInfo as PersonInfo,
-            });
-        });
-
     const onSlettSuccess = () => {
         lukkSlettModal();
     };
@@ -52,7 +42,7 @@ const AndreAdresser = (props: Props) => {
         settSlettLoading(true);
 
         slettKontaktadresse()
-            .then(getUpdatedData)
+            .then(hentPaaNytt)
             .then(onSlettSuccess)
             .catch((error: Feilmelding) => settSlettAlert(error))
             .then(() => settSlettLoading(false));

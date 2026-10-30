@@ -1,21 +1,25 @@
-import Oy from "@/components/astro/Oy";
-import type { RuntimeConfig } from "@/config/runtimeConfig";
-import type { Locale } from "@/store/Store";
+import { setKlientConfig } from "@/config/klientConfig";
+import type { Language } from "@/language/language";
 import type { UtenlandskBankkonto } from "@/types/personalia";
 import Kontonummer from "./Kontonummer";
 
 interface Props {
-    locale: Locale;
-    config: RuntimeConfig;
+    language: Language;
     kontonr?: string;
     utenlandskbank?: UtenlandskBankkonto;
     personident?: { verdi: string; type: string };
+    apiUrl: string;
+    appUrl: string;
+    loginUrl: string;
+    endreKontonummerUrl: string;
 }
 
-const KontonummerOy = ({ locale, config, kontonr, utenlandskbank, personident }: Props) => (
-    <Oy locale={locale} config={config} personInfo={{}}>
-        <Kontonummer kontonr={kontonr} utenlandskbank={utenlandskbank} personident={personident} language={locale} />
-    </Oy>
-);
+const KontonummerOy = ({ language, kontonr, utenlandskbank, personident, apiUrl, appUrl, loginUrl, endreKontonummerUrl }: Props) => {
+    if (typeof window !== "undefined") {
+        setKlientConfig({ apiUrl, appUrl, loginUrl, endreKontonummerUrl });
+    }
+
+    return <Kontonummer kontonr={kontonr} utenlandskbank={utenlandskbank} personident={personident} language={language} />;
+};
 
 export default KontonummerOy;

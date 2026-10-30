@@ -1,33 +1,31 @@
-import Oy from "@/components/astro/Oy";
-import type { RuntimeConfig } from "@/config/runtimeConfig";
-import type { Locale } from "@/store/Store";
+import { useState } from "react";
+import { fetchPersonInfo } from "@/clients/apiClient";
+import { setKlientConfig } from "@/config/klientConfig";
+import type { Language } from "@/language/language";
 import type { Tlfnr } from "@/types/personalia";
+import type { PersonInfo } from "@/types/personInfo";
 import Telefonliste from "./Telefonliste";
 
 interface Props {
-    locale: Locale;
-    config: RuntimeConfig;
+    language: Language;
     tlfnr?: Tlfnr;
     medOverskrift: boolean;
+    apiUrl: string;
+    appUrl: string;
+    loginUrl: string;
 }
 
-const utenlandskbank = {
-    adresse1: "",
-    adresse2: "",
-    adresse3: "",
-    bankkode: "",
-    banknavn: "",
-    iban: "",
-    kontonummer: "",
-    land: "",
-    swiftkode: "",
-    valuta: "",
-};
+const TelefonnummerOy = (props: Props) => {
+    const { language, medOverskrift, apiUrl, appUrl, loginUrl } = props;
+    const [tlfnr, settTlfnr] = useState(props.tlfnr);
 
-const TelefonnummerOy = ({ locale, config, tlfnr, medOverskrift }: Props) => (
-    <Oy locale={locale} config={config} personInfo={{ personalia: { kontoregisterStatus: "", utenlandskbank, tlfnr } }}>
-        <Telefonliste medOverskrift={medOverskrift} language={locale} />
-    </Oy>
-);
+    if (typeof window !== "undefined") {
+        setKlientConfig({ apiUrl, appUrl, loginUrl });
+    }
+
+    const hentPaaNytt = () => fetchPersonInfo().then((info: PersonInfo) => settTlfnr(info.personalia?.tlfnr));
+
+    return <Telefonliste tlfnr={tlfnr} medOverskrift={medOverskrift} hentPaaNytt={hentPaaNytt} language={language} />;
+};
 
 export default TelefonnummerOy;

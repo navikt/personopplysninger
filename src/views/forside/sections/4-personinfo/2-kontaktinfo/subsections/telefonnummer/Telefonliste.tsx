@@ -1,21 +1,21 @@
 import { Heading } from "@navikt/ds-react";
 import type { Language } from "@/language/language";
-import { useStore } from "@/store/Context";
+import type { Tlfnr } from "@/types/personalia";
 import { text } from "@/views/forside/kontaktinfo/kontaktinfoText";
 import TelefonnummerHosNav from "./TelefonnummerHosNav";
 
 interface Props {
+    tlfnr?: Tlfnr;
     medOverskrift: boolean;
+    hentPaaNytt: () => Promise<void>;
     language: Language;
 }
 
-const Telefonliste = ({ medOverskrift, language }: Props) => {
-    const [{ personInfo }] = useStore();
-    const tlfnr = personInfo.status === "RESULT" ? personInfo.data.personalia?.tlfnr : undefined;
+const Telefonliste = ({ tlfnr, medOverskrift, hentPaaNytt, language }: Props) => {
     const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
 
     if (!medOverskrift) {
-        return <TelefonnummerHosNav tlfnr={tlfnr} language={language} />;
+        return <TelefonnummerHosNav tlfnr={tlfnr} hentPaaNytt={hentPaaNytt} language={language} />;
     }
 
     return (
@@ -28,7 +28,7 @@ const Telefonliste = ({ medOverskrift, language }: Props) => {
                 </div>
             )}
             <div>
-                <TelefonnummerHosNav tlfnr={tlfnr} language={language} />
+                <TelefonnummerHosNav tlfnr={tlfnr} hentPaaNytt={hentPaaNytt} language={language} />
             </div>
         </>
     );

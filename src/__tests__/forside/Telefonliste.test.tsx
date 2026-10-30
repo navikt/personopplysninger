@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import personInfo from "@/mocks/fixtures/person-info.json";
-import { StoreProvider } from "@/store/Context";
 import type { PersonInfo } from "@/types/personInfo";
 import Telefonliste from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonliste";
 
@@ -26,12 +25,8 @@ const medBareHovednummer: PersonInfo = {
     personalia: { kontoregisterStatus: "SUCCESS", utenlandskbank: tomBank, tlfnr: { telefonHoved: "22334455", landskodeHoved: "+47" } },
 };
 
-const renderListe = (initialPersonInfo: PersonInfo, medOverskrift = true) =>
-    render(
-        <StoreProvider initialLocale="nb" initialPersonInfo={initialPersonInfo}>
-            <Telefonliste medOverskrift={medOverskrift} language="nb" />
-        </StoreProvider>,
-    );
+const renderListe = (personInfo: PersonInfo, medOverskrift = true) =>
+    render(<Telefonliste tlfnr={personInfo.personalia?.tlfnr} medOverskrift={medOverskrift} hentPaaNytt={() => Promise.resolve()} language="nb" />);
 
 describe("Telefonliste", () => {
     it("viser overskriften og nummeret fra den seedede personinfoen uten å hente", () => {

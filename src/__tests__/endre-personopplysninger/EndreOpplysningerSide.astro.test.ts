@@ -6,6 +6,7 @@ import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import EndreOpplysninger from "@/pages/[locale]/endre-opplysninger/sendt-fra/[...route].astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import type { PersonInfo } from "@/types/personInfo";
+import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
@@ -95,7 +96,11 @@ describe("Endre opplysninger (sendt fra)", () => {
         expect(vi.mocked(hentFraApi).mock.calls.map(([sti]) => sti)).toEqual(["/personalia"]);
         expect(telefon?.props.medOverskrift).toBe(false);
         expect(telefon?.props.tlfnr).toEqual(personInfo.personalia?.tlfnr);
-        expect(telefon?.props.locale).toBe("nb");
+        expect(Object.keys(telefon?.props ?? {}).sort()).toEqual(["apiUrl", "appUrl", "language", "loginUrl", "medOverskrift", "tlfnr"]);
+        expect(telefon?.props.language).toBe("nb");
+        expect(telefon?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
+        expect(telefon?.props.appUrl).toBe("http://localhost:4321");
+        expect(telefon?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
     });
 
     it("viser ikke andre adresser uten adresser fra pdl", async () => {
@@ -117,6 +122,11 @@ describe("Endre opplysninger (sendt fra)", () => {
 
         expect(andre?.props.adresser).toEqual({ kontaktadresser: [kontaktPdl], oppholdsadresser: [oppholdPdl] });
         expect(andre?.props.adresser).not.toHaveProperty("bostedsadresse");
+        expect(Object.keys(andre?.props ?? {}).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
+        expect(andre?.props.language).toBe("nb");
+        expect(andre?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
+        expect(andre?.props.appUrl).toBe("http://localhost:4321");
+        expect(andre?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
     });
 
     it("sender bare kontaktadressen når oppholdsadressen ikke er fra pdl", async () => {
