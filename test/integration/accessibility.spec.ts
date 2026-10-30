@@ -12,6 +12,7 @@ const historikkOgDetaljer = [
     { sti: "nb/institusjonsopphold", innhold: "VIK FENGSEL" },
     { sti: "nb/institusjonsopphold/2017-10-02T07%3A38%3A56.816", innhold: "VIK FENGSEL" },
     { sti: "nb/medlemskap-i-folketrygden", innhold: "Uten medlemskap" },
+    { sti: "nb/endre-kontonummer", innhold: "Endre kontonummer for utbetaling" },
 ];
 
 for (const { sti, innhold } of historikkOgDetaljer) {
