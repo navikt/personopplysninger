@@ -1,5 +1,5 @@
 import { setRuntimeConfig } from "@/config/runtimeConfig";
-import { getLoginRedirectUrl, resolveLoginReturnPath } from "@/utils/redirects";
+import { getLoginRedirectUrl, redirects, resolveLoginReturnPath, validateAndDecodeRedirectUrl } from "@/utils/redirects";
 import { testRuntimeConfig } from "./testRuntimeConfig";
 
 const basePath = "/person/personopplysninger";
@@ -50,5 +50,38 @@ describe("getLoginRedirectUrl", () => {
         expect(getLoginRedirectUrl()).toMatch(/^https:\/\/www\.intern\.nav\.no\/person\/personopplysninger\?path=/);
 
         setRuntimeConfig(testRuntimeConfig);
+    });
+});
+
+describe("validateAndDecodeRedirectUrl", () => {
+    it("dekoder nav.no-URL med subdomene og fjerner hash", () => {
+        expect(validateAndDecodeRedirectUrl("https%3A%2F%2Fwww.nav.no%2Fpselv%2Ftransaksjon%2Fminprofil.jsf%23del")).toBe(
+            "https://www.nav.no/pselv/transaksjon/minprofil.jsf",
+        );
+    });
+
+    it("avviser http", () => {
+        expect(validateAndDecodeRedirectUrl("http%3A%2F%2Fwww.nav.no%2F")).toBeNull();
+    });
+
+    it("avviser domener som bare inneholder nav.no", () => {
+        expect(validateAndDecodeRedirectUrl("https%3A%2F%2Fnav.no.evil.com%2F")).toBeNull();
+    });
+
+    it("avviser søppel og manglende verdi", () => {
+        expect(validateAndDecodeRedirectUrl("%%%")).toBeNull();
+        expect(validateAndDecodeRedirectUrl("ikke-en-url")).toBeNull();
+        expect(validateAndDecodeRedirectUrl(undefined)).toBeNull();
+    });
+});
+
+describe("redirects", () => {
+    it.each(["skjema/alderspensjonssoknad", "skjema/alderspensjon"])("%s deler beskrivelsen i tekst før, uthevet og etter", (tjeneste) => {
+        const { beskrivelseFoer, beskrivelseUthevet, beskrivelseEtter, knapp } = redirects[tjeneste];
+
+        expect(beskrivelseFoer).toBe("Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre ");
+        expect(beskrivelseUthevet).toBe("kontaktinformasjon og kontonummer");
+        expect(beskrivelseEtter).toBe(".");
+        expect(knapp).toBe("Gå tilbake til alderspensjon");
     });
 });

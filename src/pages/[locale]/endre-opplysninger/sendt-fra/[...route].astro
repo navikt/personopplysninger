@@ -1,22 +1,71 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
-import type { Locale } from "@/store/Store";
-import { tillatteTjenester, validateAndDecodeRedirectUrl } from "@/utils/redirects";
+import kontaktIkon from "@/assets/img/Kontakt.svg";
+import Box from "@/components/box/Box.astro";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import Redirect from "@/components/knapper/Redirect.astro";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { PersonInfo } from "@/types/personInfo";
+import { redirects, tillatteTjenester, validateAndDecodeRedirectUrl } from "@/utils/redirects";
+import styles from "@/views/endre-personopplysninger/EndreOpplysninger.module.css";
+import Adresser from "@/views/forside/adresser/Adresser.astro";
+import { text } from "@/views/forside/kontaktinfo/kontaktinfoText";
+import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
+import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
-const locale = Astro.currentLocale as Locale;
+const language = (Astro.currentLocale ?? "nb") as Language;
+const config = getServerRuntimeConfig(Astro.url);
+
 const segments = Astro.params.route?.split("/") ?? [];
-const redirectUrl = segments.pop();
+const encodedUrl = segments.pop();
 const tjeneste = segments.join("/");
+const redirectUrl = validateAndDecodeRedirectUrl(encodedUrl);
 
-if (!tillatteTjenester.includes(tjeneste) || !validateAndDecodeRedirectUrl(redirectUrl)) {
-    return Astro.redirect(`/person/personopplysninger/${locale}/`);
+if (!tillatteTjenester.includes(tjeneste) || !redirectUrl) {
+    return Astro.redirect(`/person/personopplysninger/${language}/`);
 }
+
+const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
+if (personInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
+const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
+
+const kontaktadressePdl = adresser?.kontaktadresser.find((adr) => adr.kilde === "pdl");
+const oppholdsadressePdl = adresser?.oppholdsadresser?.find((adr) => adr.kilde === "pdl");
+const harAndre = !!(kontaktadressePdl ?? oppholdsadressePdl);
+const andreAdresser = {
+    kontaktadresser: kontaktadressePdl ? [kontaktadressePdl] : [],
+    ...(oppholdsadressePdl && { oppholdsadresser: [oppholdsadressePdl] }),
+};
 ---
 
-<AstroPage
-    page="endreOpplysninger"
-    locale={locale}
-    pathname={Astro.url.pathname}
-    tjeneste={tjeneste}
-    redirectUrl={redirectUrl}
-/>
+<Layout title="Personopplysninger - www.nav.no">
+    <div class="pagecontent">
+        <div class="wrapper">
+            <div class={styles.page}>
+                <div class:list={[styles.container, "pagecontent"]}>
+                    <Redirect redirect={redirects[tjeneste]} url={redirectUrl} />
+                    {personInfo.status === "ERROR" && <ErrorMessage error={personInfo.error} />}
+                    {personalia && (
+                        <Box language={language} id="kontaktinformasjon" tittel={text.tittel[language]} ikon={kontaktIkon}>
+                            <TelefonnummerOy locale={language} config={config} tlfnr={personalia.tlfnr} medOverskrift={false} client:visible />
+                        </Box>
+                    )}
+                    {adresser && (
+                        <Adresser language={language} adresser={adresser}>
+                            {harAndre && <AndreAdresserOy slot="andre" locale={language} config={config} adresser={andreAdresser} client:visible />}
+                        </Adresser>
+                    )}
+                    {personalia && <Utbetalinger language={language} kontonr={personalia.kontonr} utenlandskbank={personalia.utenlandskbank} />}
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>

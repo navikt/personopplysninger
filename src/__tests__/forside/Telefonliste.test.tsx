@@ -27,11 +27,11 @@ const medBareHovednummer: PersonInfo = {
     personalia: { kontoregisterStatus: "SUCCESS", utenlandskbank: tomBank, tlfnr: { telefonHoved: "22334455", landskodeHoved: "+47" } },
 };
 
-const renderListe = (initialPersonInfo: PersonInfo) =>
+const renderListe = (initialPersonInfo: PersonInfo, medOverskrift = true) =>
     render(
         <StoreProvider initialLocale="nb" initialPersonInfo={initialPersonInfo}>
             <IntlProvider locale="nb" messages={nbMessages}>
-                <Telefonliste />
+                <Telefonliste medOverskrift={medOverskrift} />
             </IntlProvider>
         </StoreProvider>,
     );
@@ -44,6 +44,15 @@ describe("Telefonliste", () => {
         expect(screen.getByRole("heading", { level: 3, name: "Telefonnummer registrert hos Nav" })).toBeInTheDocument();
         expect(screen.getByText("+47")).toBeInTheDocument();
         expect(fetchSpy).not.toHaveBeenCalled();
+    });
+
+    it("viser nummeret uten overskrift og uten omsluttende div når medOverskrift er false", () => {
+        const { container: medOverskrift } = renderListe(medNummer);
+        const { container } = renderListe(medNummer, false);
+
+        expect(screen.getAllByRole("heading", { level: 3 })).toHaveLength(1);
+        expect(screen.getAllByText("+47")).toHaveLength(2);
+        expect(container.innerHTML).toBe(medOverskrift.lastElementChild?.innerHTML);
     });
 
     it("viser verken overskrift eller nummer uten telefonnummer", () => {

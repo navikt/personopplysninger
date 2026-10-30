@@ -34,7 +34,11 @@ const RedirectKnapp = ({ encodedUrl, tjeneste }: Props) => {
                     <img src={getAssetUrl(veilederIkon)} className={styles.ikon} alt="Veileder" />
                 </span>
                 <div className={styles.content}>
-                    <div dangerouslySetInnerHTML={{ __html: redirect.beskrivelse }} />
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: `${redirect.beskrivelseFoer}<b>${redirect.beskrivelseUthevet}</b>${redirect.beskrivelseEtter}`,
+                        }}
+                    />
                     <div className={styles.lenke}>
                         <div className={styles.chevron}>
                             <ArrowLeftIcon aria-hidden="true" />

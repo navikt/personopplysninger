@@ -69,7 +69,7 @@ const andreAdresser = {
             {personalia && <Personalia language={language} personalia={personalia} />}
             {personalia && (
                 <KontaktInfo language={language} tlfnr={personalia.tlfnr} kontaktInfo={kontaktInfo}>
-                    <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} client:visible />
+                    <TelefonnummerOy slot="telefon" locale={language} config={config} tlfnr={personalia.tlfnr} medOverskrift={true} client:visible />
                 </KontaktInfo>
             )}
             {adresser && (

@@ -4,16 +4,22 @@ const redirectPathParam = "path";
 
 export const redirects: {
     [key: string]: {
-        beskrivelse: string;
+        beskrivelseFoer: string;
+        beskrivelseUthevet: string;
+        beskrivelseEtter: string;
         knapp: string;
     };
 } = {
     "skjema/alderspensjonssoknad": {
-        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        beskrivelseFoer: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre ",
+        beskrivelseUthevet: "kontaktinformasjon og kontonummer",
+        beskrivelseEtter: ".",
         knapp: "Gå tilbake til alderspensjon",
     },
     "skjema/alderspensjon": {
-        beskrivelse: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre <b>kontaktinformasjon og kontonummer</b>.",
+        beskrivelseFoer: "Du har blitt sendt fra alderspensjon. Her kan du legge til eller endre ",
+        beskrivelseUthevet: "kontaktinformasjon og kontonummer",
+        beskrivelseEtter: ".",
         knapp: "Gå tilbake til alderspensjon",
     },
 };

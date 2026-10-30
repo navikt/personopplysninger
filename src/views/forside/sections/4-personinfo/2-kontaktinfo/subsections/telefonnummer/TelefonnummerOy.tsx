@@ -8,6 +8,7 @@ interface Props {
     locale: Locale;
     config: RuntimeConfig;
     tlfnr?: Tlfnr;
+    medOverskrift: boolean;
 }
 
 const utenlandskbank = {
@@ -23,9 +24,9 @@ const utenlandskbank = {
     valuta: "",
 };
 
-const TelefonnummerOy = ({ locale, config, tlfnr }: Props) => (
+const TelefonnummerOy = ({ locale, config, tlfnr, medOverskrift }: Props) => (
     <Oy locale={locale} config={config} personInfo={{ personalia: { kontoregisterStatus: "", utenlandskbank, tlfnr } }}>
-        <Telefonliste />
+        <Telefonliste medOverskrift={medOverskrift} />
     </Oy>
 );
 

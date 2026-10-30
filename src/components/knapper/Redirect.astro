@@ -1,0 +1,36 @@
+---
+import { ArrowLeftIcon } from "@navikt/aksel-icons";
+import naturIkon from "@/assets/img/Natur.svg";
+import veilederIkon from "@/assets/img/VeilederGul.svg";
+import { getAssetUrl } from "@/utils/assets";
+import styles from "./Redirect.module.css";
+
+interface Props {
+    redirect: {
+        beskrivelseFoer: string;
+        beskrivelseUthevet: string;
+        beskrivelseEtter: string;
+        knapp: string;
+    };
+    url: string;
+}
+
+const { redirect, url } = Astro.props;
+---
+
+<div class={styles.container}>
+    <div class={styles.wrapperInner} style={`background-image:url(${getAssetUrl(naturIkon)})`}>
+        <span class={styles.ikonContainer}>
+            <img src={getAssetUrl(veilederIkon)} class={styles.ikon} alt="Veileder" />
+        </span>
+        <div class={styles.content}>
+            <div>{redirect.beskrivelseFoer}<b>{redirect.beskrivelseUthevet}</b>{redirect.beskrivelseEtter}</div>
+            <div class={styles.lenke}>
+                <div class={styles.chevron}>
+                    <ArrowLeftIcon aria-hidden="true" />
+                </div>
+                <a href={url}>{redirect.knapp}</a>
+            </div>
+        </div>
+    </div>
+</div>

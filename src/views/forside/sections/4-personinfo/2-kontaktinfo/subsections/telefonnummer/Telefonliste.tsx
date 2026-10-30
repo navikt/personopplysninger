@@ -3,10 +3,18 @@ import { FormattedMessage } from "react-intl";
 import { useStore } from "@/store/Context";
 import TelefonnummerHosNav from "./TelefonnummerHosNav";
 
-const Telefonliste = () => {
+interface Props {
+    medOverskrift: boolean;
+}
+
+const Telefonliste = ({ medOverskrift }: Props) => {
     const [{ personInfo }] = useStore();
     const tlfnr = personInfo.status === "RESULT" ? personInfo.data.personalia?.tlfnr : undefined;
     const hasTelefon = !!(tlfnr && (tlfnr.telefonHoved || tlfnr.telefonAlternativ));
+
+    if (!medOverskrift) {
+        return <TelefonnummerHosNav tlfnr={tlfnr} />;
+    }
 
     return (
         <>

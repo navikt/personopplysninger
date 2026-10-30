@@ -153,6 +153,19 @@ describe("Forsiden", () => {
         expect(oy).not.toContain("test@test.com");
     });
 
+    it("sender telefonøya med overskrift på forsiden", async () => {
+        vi.mocked(hentFraApi).mockImplementation(svar({ status: "RESULT", data: kontaktInfo }));
+
+        const html = await render();
+        const props = JSON.parse(
+            (html.match(/<astro-island[^>]*TelefonnummerOy[^>]*\sprops="([^"]*)"/)?.[1] ?? "").replaceAll("&quot;", '"').replaceAll("&amp;", "&"),
+        );
+
+        expect(Object.keys(props).sort()).toEqual(["config", "locale", "medOverskrift", "slot", "tlfnr"]);
+        expect(props.medOverskrift).toEqual([0, true]);
+        expect(props.locale).toEqual([0, "nb"]);
+    });
+
     it("viser feilen fra registeret bare i kontaktinformasjon-boksen", async () => {
         vi.mocked(hentFraApi).mockImplementation(svar(feil));
 
