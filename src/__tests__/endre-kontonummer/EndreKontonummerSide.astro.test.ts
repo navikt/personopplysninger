@@ -67,6 +67,16 @@ describe("Endre kontonummer", () => {
         );
     });
 
+    it("tegner sideikonet som bakgrunnsbilde på en sirkel", async () => {
+        vi.mocked(hentFraApi).mockResolvedValueOnce(personInfo() as never);
+
+        const html = await render();
+
+        expect(html).toMatch(/<div class="[^"]*circle[^"]*" style="[^"]*background-image:\s*url\([^)]+\)[^"]*"/);
+        expect(html).toMatch(/style="[^"]*background-color:\s*#99C1E9/i);
+        expect(html).not.toContain("ikonSirkel");
+    });
+
     it("bruker tom backTo uten gyldig ?backTo", async () => {
         vi.mocked(hentFraApi).mockResolvedValueOnce(personInfo() as never);
         expect(await render("")).toContain('href="/person/personopplysninger/nb#utbetaling"');

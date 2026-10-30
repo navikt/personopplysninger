@@ -1,6 +1,7 @@
 ---
 import { ChevronLeftIcon } from "@navikt/aksel-icons";
 import { Box, Heading } from "@navikt/ds-react";
+import Icon from "@/components/icon/Icon";
 import tilbakeStyles from "@/components/tilbake/Tilbake.module.css";
 import { basePath } from "@/constants";
 import type { Language } from "@/language/language";
@@ -20,9 +21,7 @@ const { language, tittel, ikon, tilbakeTil } = Astro.props;
 
 <div class={styles.container}>
     <div class={styles.icon}>
-        <div class={styles.ikonSirkel}>
-            <img src={getAssetUrl(ikon)} alt="" />
-        </div>
+        <Icon backgroundImage={getAssetUrl(ikon)} backgroundColor="#99C1E9" />
     </div>
     <div class={styles.row}>
         <div class={styles.back}>

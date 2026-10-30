@@ -30,14 +30,3 @@
 .heading {
     text-align: center;
 }
-
-.ikonSirkel {
-    border-radius: 50%;
-    width: 4rem;
-    height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #99c1e9;
-    overflow: hidden;
-}
