@@ -1,0 +1,24 @@
+---
+import { Alert, BodyLong } from "@navikt/ds-react";
+import type { Language } from "@/language/language";
+import { text } from "./endreKontonummerText";
+import styles from "./Resultat.module.css";
+
+interface Props {
+    language: Language;
+    resultat: "success" | "error";
+}
+
+const { language, resultat } = Astro.props;
+---
+
+<Alert variant={resultat} className={styles.endreKontonrResult}>
+    {resultat === "success" ? (
+        <>
+            <BodyLong>{text.suksess1[language]}</BodyLong>
+            <BodyLong>{text.suksess2[language]}</BodyLong>
+        </>
+    ) : (
+        text.feil[language]
+    )}
+</Alert>

@@ -1,7 +1,7 @@
 import { Alert, BodyLong } from "@navikt/ds-react";
 import Cookies from "js-cookie";
 import { FormattedMessage } from "react-intl";
-import styles from "./EndreKontonummerResult.module.css";
+import styles from "../Resultat.module.css";
 
 export const EndreKontonummerResult = () => {
     const result = Cookies.get("kontonr-result");
