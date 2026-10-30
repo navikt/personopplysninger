@@ -1,9 +1,52 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
-import type { Locale } from "@/store/Store";
+import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
+import PageContainer from "@/components/pagecontainer/PageContainer.astro";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { PersonInfo } from "@/types/personInfo";
 import { decodeRouteParam } from "@/utils/params";
+import DetaljertArbeidsforholdOy from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforholdOy";
+import { text } from "@/views/forside/arbeidsforhold/arbeidsforholdText";
 
-const locale = Astro.currentLocale as Locale;
+const language = (Astro.currentLocale ?? "nb") as Language;
+const id = decodeRouteParam(Astro.params.id);
+const config = getServerRuntimeConfig(Astro.url);
+
+const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
+if (personInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
+
+const { environment, apiUrl } = config;
+const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
+const customApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/{id}` : undefined;
+const navArbeidsforholdId = Number.parseInt(id ?? "", 10);
+const printName = personalia ? `${personalia.fornavn} ${personalia.etternavn}` : "";
+const printSSN = personalia ? `${personalia.personident?.verdi}` : "";
 ---
 
-<AstroPage page="arbeidsforhold" locale={locale} pathname={Astro.url.pathname} id={decodeRouteParam(Astro.params.id)} />
+<Layout
+    title="Personopplysninger - www.nav.no"
+    brodsmuler={[{ sti: `/arbeidsforhold/${encodeURIComponent(id ?? "")}`, tittel: text.tittel[language] }]}
+>
+    <div class="pagecontent">
+        <div class="wrapper">
+            <PageContainer language={language} tittel={text.tittel[language]} ikon={arbeidsforholdIkon} tilbakeTil="/#arbeidsforhold">
+                <DetaljertArbeidsforholdOy
+                    locale={language}
+                    miljo={miljo}
+                    customApiUrl={customApiUrl}
+                    navArbeidsforholdId={navArbeidsforholdId}
+                    printName={printName}
+                    printSSN={printSSN}
+                    client:visible
+                />
+            </PageContainer>
+        </div>
+    </div>
+</Layout>
