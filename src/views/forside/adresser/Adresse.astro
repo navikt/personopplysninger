@@ -2,15 +2,15 @@
 import dayjs from "dayjs";
 import type { Language } from "@/language/language";
 import type { Adresse as IAdresse } from "@/types/adresser/adresse";
-import Matrikkeladresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Matrikkeladresse";
-import PostadresseIFrittFormat from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/PostadresseIFrittFormat";
-import Postboksadresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Postboksadresse";
-import Ukjentbosted from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Ukjentbosted";
-import Vegadresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/norske-adresser/Vegadresse";
-import UtenlanskAdresse from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/utenlanske-adresser/UtenlanskAdresse";
-import UtenlanskAdresseIFrittFormat from "@/views/forside/sections/4-personinfo/3-adresser/visning/adressetyper/utenlanske-adresser/UtenlanskAdresseIFrittFormat";
 import AdressePanel from "./AdressePanel.astro";
 import { oppholdAnnetStedTekst } from "./adresserUtils";
+import Matrikkeladresse from "./adressetyper/Matrikkeladresse";
+import PostadresseIFrittFormat from "./adressetyper/PostadresseIFrittFormat";
+import Postboksadresse from "./adressetyper/Postboksadresse";
+import Ukjentbosted from "./adressetyper/Ukjentbosted";
+import UtenlanskAdresse from "./adressetyper/UtenlanskAdresse";
+import UtenlanskAdresseIFrittFormat from "./adressetyper/UtenlanskAdresseIFrittFormat";
+import Vegadresse from "./adressetyper/Vegadresse";
 
 interface Props {
     language: Language;

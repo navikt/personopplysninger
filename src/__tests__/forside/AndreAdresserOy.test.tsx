@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import AndreAdresserOy from "@/views/forside/adresser/andre-adresser/AndreAdresserOy";
 
 const apiUrl = "http://oy.test/api";
 const svar = (personalia: object) => (url: string | URL | Request) =>

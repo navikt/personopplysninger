@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
+import TelefonnummerOy from "@/views/forside/kontaktinfo/telefonnummer/TelefonnummerOy";
 
 const apiUrl = "http://oy.test/api";
 

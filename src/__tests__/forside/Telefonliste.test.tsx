@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import personInfo from "@/mocks/fixtures/person-info.json";
 import type { PersonInfo } from "@/types/personInfo";
-import Telefonliste from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonliste";
+import Telefonliste from "@/views/forside/kontaktinfo/telefonnummer/Telefonliste";
 
 const medNummer = personInfo as unknown as PersonInfo;
 const tomBank = {

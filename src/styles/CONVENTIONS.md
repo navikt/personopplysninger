@@ -16,8 +16,8 @@ src/
 │       ├── Spinner.tsx
 │       └── Spinner.module.css   ← Referanseimplementasjon (delt komponent)
 └── views/
-    └── forside/sections/3-header/
-        ├── Header.tsx
+    └── forside/header/
+        ├── Header.astro
         └── Header.module.css    ← Referanseimplementasjon (sideseksjon)
 ```
 

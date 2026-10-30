@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import type { Adresser } from "@/types/adresser";
-import AndreAdresserVisning from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserVisning";
+import AndreAdresserVisning from "@/views/forside/adresser/andre-adresser/AndreAdresserVisning";
 
 const postboks = { type: "POSTBOKSADRESSE" as const, postboks: "Postboks 10 Sørstrand", postnummer: "0194", poststed: "OSLO" };
 

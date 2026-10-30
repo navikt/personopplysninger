@@ -1,7 +1,7 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { Matrikkeladresse as MatrikkeladresseType } from "@/types/adresser/adresse";
-import adresseStyles from "../../../Adresser.module.css";
-import Postnummer from "../../../komponenter/Postnummer";
+import adresseStyles from "../Adresser.module.css";
+import Postnummer from "./Postnummer";
 
 const Matrikkeladresse = (props: MatrikkeladresseType) => {
     const { tilleggsnavn, postnummer } = props;

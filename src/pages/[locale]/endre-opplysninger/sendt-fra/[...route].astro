@@ -12,9 +12,9 @@ import type { PersonInfo } from "@/types/personInfo";
 import { redirects, tillatteTjenester, validateAndDecodeRedirectUrl } from "@/utils/redirects";
 import styles from "@/views/endre-personopplysninger/EndreOpplysninger.module.css";
 import Adresser from "@/views/forside/adresser/Adresser.astro";
+import AndreAdresserOy from "@/views/forside/adresser/andre-adresser/AndreAdresserOy";
 import { text } from "@/views/forside/kontaktinfo/kontaktinfoText";
-import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
-import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import TelefonnummerOy from "@/views/forside/kontaktinfo/telefonnummer/TelefonnummerOy";
 import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
 const language = (Astro.currentLocale ?? "nb") as Language;

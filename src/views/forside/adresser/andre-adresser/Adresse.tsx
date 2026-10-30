@@ -2,14 +2,14 @@ import dayjs from "dayjs";
 import type { Language } from "@/language/language";
 import type { Adresse as IAdresse } from "@/types/adresser/adresse";
 import { text } from "@/views/forside/adresser/adresserText";
-import AdressePanel from "../komponenter/AdressePanel";
-import Matrikkeladresse from "./adressetyper/norske-adresser/Matrikkeladresse";
-import PostadresseIFrittFormat from "./adressetyper/norske-adresser/PostadresseIFrittFormat";
-import Postboksadresse from "./adressetyper/norske-adresser/Postboksadresse";
-import Ukjentbosted from "./adressetyper/norske-adresser/Ukjentbosted";
-import Vegadresse from "./adressetyper/norske-adresser/Vegadresse";
-import UtenlanskAdresse from "./adressetyper/utenlanske-adresser/UtenlanskAdresse";
-import UtenlanskAdresseIFrittFormat from "./adressetyper/utenlanske-adresser/UtenlanskAdresseIFrittFormat";
+import Matrikkeladresse from "../adressetyper/Matrikkeladresse";
+import PostadresseIFrittFormat from "../adressetyper/PostadresseIFrittFormat";
+import Postboksadresse from "../adressetyper/Postboksadresse";
+import Ukjentbosted from "../adressetyper/Ukjentbosted";
+import UtenlanskAdresse from "../adressetyper/UtenlanskAdresse";
+import UtenlanskAdresseIFrittFormat from "../adressetyper/UtenlanskAdresseIFrittFormat";
+import Vegadresse from "../adressetyper/Vegadresse";
+import AdressePanel from "./AdressePanel";
 
 interface Props {
     adresse?: IAdresse;

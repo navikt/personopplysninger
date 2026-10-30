@@ -4,7 +4,7 @@ import ListeElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { Language } from "@/language/language";
 import type { UtenlandskBankkonto } from "@/types/personalia";
-import GateAdresse from "@/views/forside/sections/4-personinfo/3-adresser/komponenter/GateAdresse";
+import GateAdresse from "@/views/forside/adresser/adressetyper/GateAdresse";
 import { text } from "@/views/forside/utbetalinger/utbetalingerText";
 
 interface Props {

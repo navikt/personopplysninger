@@ -2,8 +2,8 @@
 import { renderToString } from "react-dom/server";
 import { getKlientConfig, setKlientConfig } from "@/config/klientConfig";
 import KontonummerOy from "@/views/endre-kontonummer/KontonummerOy";
-import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
-import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import AndreAdresserOy from "@/views/forside/adresser/andre-adresser/AndreAdresserOy";
+import TelefonnummerOy from "@/views/forside/kontaktinfo/telefonnummer/TelefonnummerOy";
 import { testKlientConfig } from "../utils/testRuntimeConfig";
 
 const urler = { apiUrl: "https://www.intern.nav.no/api", appUrl: "https://www.intern.nav.no/person/personopplysninger", loginUrl: "https://login" };

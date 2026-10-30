@@ -4,13 +4,13 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
 <DocumentFragment>
   <div>
     <div
-      class="_rad_db2507"
+      class="_rad_57d91d"
     >
       <div
-        class="_container_db2507"
+        class="_container_57d91d"
       >
         <div
-          class="_verdi_db2507"
+          class="_verdi_57d91d"
         >
           <p
             class="navds-label"
@@ -27,7 +27,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
           </p>
         </div>
         <div
-          class="_knapper_db2507"
+          class="_knapper_57d91d"
         >
           <button
             aria-label="Endre telefonnummer"
@@ -38,7 +38,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="_ikon_db2507"
+                class="_ikon_57d91d"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -70,7 +70,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="_ikon_db2507"
+                class="_ikon_57d91d"
                 fill="none"
                 focusable="false"
                 height="1em"
@@ -97,7 +97,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
       </div>
     </div>
     <div
-      class="_marginKilde_056839"
+      class="_marginKilde_8e7f37"
     >
       <div
         class="_tekst_8acd93"
@@ -111,7 +111,7 @@ exports[`TelefonnummerHosNav > renders correctly 1`] = `
     </div>
   </div>
   <button
-    class="_leggtil_db2507 navds-button navds-button--tertiary navds-button--medium"
+    class="_leggtil_57d91d navds-button navds-button--tertiary navds-button--medium"
   >
     <span
       class="navds-button__icon"
