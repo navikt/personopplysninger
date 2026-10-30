@@ -12,7 +12,7 @@ interface Props {
 
 const AndreAdresserOy = ({ locale, config, adresser }: Props) => (
     <Oy locale={locale} config={config} personInfo={{ adresser }}>
-        <AndreAdresserVisning />
+        <AndreAdresserVisning language={locale} />
     </Oy>
 );
 

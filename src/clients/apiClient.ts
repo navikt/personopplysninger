@@ -1,6 +1,7 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import { PAAGAAENDE_ENDRING } from "@/components/httpFeilmelding/httpFeilmeldingText";
 import { getRuntimeConfig } from "@/config/runtimeConfig";
-import type { Locale } from "@/store/Store";
+import type { Language } from "@/language/language";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
 import { getLoginRedirectUrl } from "@/utils/redirects";
@@ -63,7 +64,7 @@ const postJson = (url: string, data?: Outbound) => {
         });
 };
 
-const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
+const reauthenticate = (url: string, data: Outbound, language: Language) => {
     return fetch(url, {
         method: "POST",
         ...(data && {
@@ -71,7 +72,7 @@ const reauthenticate = (url: string, data: Outbound, locale: Locale) => {
         }),
         headers: {
             "Content-Type": "application/json;charset=UTF-8",
-            locale: locale,
+            locale: language,
         },
         credentials: "include",
     })
@@ -92,8 +93,8 @@ export const postTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/
 
 export const slettTlfnummer = (data: OutboundTlfnummer) => postJson(`${apiUrl()}/slettTelefonnummer`, data);
 
-export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, locale: Locale) =>
-    reauthenticate(`${getRuntimeConfig().endreKontonummerUrl}/endreKontonummer`, data, locale);
+export const postKontonummer = (data: OutboundNorskKontonummer | OutboundUtenlandsbankonto, language: Language) =>
+    reauthenticate(`${getRuntimeConfig().endreKontonummerUrl}/endreKontonummer`, data, language);
 
 export const slettKontaktadresse = () => postJson(`${apiUrl()}/slettKontaktadresse`);
 
@@ -146,7 +147,7 @@ const sjekkTPSFeil = (response: TPSResponse) => {
             },
             REJECTED: {
                 type: "feil",
-                text: "personalia.tlfnr.paagaaendeendring.feilmelding",
+                text: PAAGAAENDE_ENDRING,
             },
             ERROR: {
                 type: "feil",

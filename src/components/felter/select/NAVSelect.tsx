@@ -1,14 +1,15 @@
 import { ChevronDownIcon } from "@navikt/aksel-icons";
 import { Label, Loader, TextField } from "@navikt/ds-react";
 import cls from "classnames";
-import { type ForwardedRef, forwardRef, memo, useEffect } from "react";
-import { useIntl } from "react-intl";
+import { type ForwardedRef, forwardRef, memo, type ReactNode, useEffect } from "react";
 import Select, { type ActionMeta, components, type MultiValue, type OptionProps, type SingleValue } from "react-select";
 import type { FormatOptionLabelMeta } from "react-select/base";
+import type { Language } from "@/language/language";
 import { RADIX_DECIMAL } from "@/utils/formattering";
 import type { HTTPError } from "../../errorMessage/ErrorMessage";
 import { LabelMedHjelpetekst } from "../label-med-hjelpetekst/LabelMedHjelpetekst";
 import styles from "./NAVSelect.module.css";
+import { text } from "./selectText";
 
 interface Props {
     id: string;
@@ -20,12 +21,13 @@ interface Props {
     options: OptionType[];
     error?: string | null;
     fetchError?: HTTPError;
-    hjelpetekst?: string;
+    hjelpetekst?: ReactNode;
     openMenuOnClick?: boolean;
     onChange: (value?: OptionType) => void;
     borderUnderNth?: number;
     loading?: boolean;
     defineLabel?: (option: OptionType, context: FormatOptionLabelMeta<OptionType>) => string;
+    language: Language;
 }
 
 interface OptionType {
@@ -44,8 +46,6 @@ const DropdownIndicator = () => (
 );
 const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     const labelId = props.id + "_label";
-
-    const { formatMessage } = useIntl();
     const controlClasses = cls({
         "KodeverkSelect__control-feil": props.submitted && props.error,
     });
@@ -93,7 +93,13 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
     return !props.fetchError ? (
         <div className="skjemaelement KodeverkSelect">
             <div className={styles.header}>
-                <LabelMedHjelpetekst label={props.label} hjelpetekst={props.hjelpetekst} labelId={labelId} labelForId={props.id} />
+                <LabelMedHjelpetekst
+                    label={props.label}
+                    hjelpetekst={props.hjelpetekst}
+                    labelId={labelId}
+                    labelForId={props.id}
+                    language={props.language}
+                />
             </div>
             <div className="KodeverkSelect--select-wrapper">
                 <Select
@@ -101,10 +107,10 @@ const NAVSelect = forwardRef((props: Props, ref: ForwardedRef<any>) => {
                     id={props.id}
                     name={props.name}
                     value={value}
-                    placeholder={formatMessage({ id: "select.sok" })}
+                    placeholder={text.sok[props.language]}
                     classNamePrefix="KodeverkSelect"
-                    loadingMessage={() => formatMessage({ id: "select.loading" })}
-                    noOptionsMessage={(v) => `${formatMessage({ id: "select.no.hits" })} ${v.inputValue}...`}
+                    loadingMessage={() => text.laster[props.language]}
+                    noOptionsMessage={(v) => `${text.ingenTreff[props.language]} ${v.inputValue}...`}
                     className={controlClasses}
                     openMenuOnClick={props.openMenuOnClick}
                     isLoading={props.loading}

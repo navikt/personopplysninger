@@ -1,11 +1,16 @@
+import type { Language } from "@/language/language";
 import AdresseFields from "./felter/AdresseFields";
 import BankkodeField from "./felter/BankkodeField";
 
-const AmerikanskKonto = () => {
+interface Props {
+    language: Language;
+}
+
+const AmerikanskKonto = ({ language }: Props) => {
     return (
         <>
-            <BankkodeField />
-            <AdresseFields />
+            <BankkodeField language={language} />
+            <AdresseFields language={language} />
         </>
     );
 };

@@ -1,19 +1,20 @@
 import { QuestionmarkIcon } from "@navikt/aksel-icons";
 import { Button, type HelpTextProps, Popover } from "@navikt/ds-react";
 import { useRef, useState } from "react";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
+import type { Language } from "@/language/language";
+import { text } from "@/language/text";
 import styles from "./CustomHelpText.module.css";
 
 type CustomHelpTextProps = {
     title: string;
     children: React.ReactNode;
     placement?: HelpTextProps["placement"];
+    language: Language;
 };
 
-export const CustomHelpText = ({ title, children, placement = "top" }: CustomHelpTextProps) => {
+export const CustomHelpText = ({ title, children, placement = "top", language }: CustomHelpTextProps) => {
     const inputRef = useRef(null);
     const [openState, setOpenState] = useState<boolean>(false);
-    const { formatMessage } = useIntlFormatter();
 
     return (
         <div>
@@ -23,7 +24,7 @@ export const CustomHelpText = ({ title, children, placement = "top" }: CustomHel
                 className={styles.helpButton}
                 onClick={() => setOpenState(!openState)}
                 ref={inputRef}
-                aria-label={`${formatMessage("felter.merom")} ${title}`}
+                aria-label={`${text.merOm[language]} ${title}`}
                 aria-expanded={openState}
             >
                 <QuestionmarkIcon className={styles.icon} aria-hidden="true" />

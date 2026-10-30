@@ -1,9 +1,10 @@
 import { PencilIcon, TrashIcon } from "@navikt/aksel-icons";
 import { BodyShort, Label } from "@navikt/ds-react";
 import { useState } from "react";
-import { FormattedMessage } from "react-intl";
 import { fetchPersonInfo, slettTlfnummer } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
 import { useStore } from "@/store/Context";
 import type { PersonInfo } from "@/types/personInfo";
 import { formatTelefonnummer } from "@/utils/formattering";
@@ -12,6 +13,7 @@ import Knapp from "./Knapp";
 import SlettModal from "./SlettModal";
 import tlfStyles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";
+import { text } from "./telefonnummerText";
 
 export interface OutboundTlfnummer {
     prioritet: 1 | 2;
@@ -21,16 +23,16 @@ export interface OutboundTlfnummer {
 
 interface Props {
     prioritet: 1 | 2;
-    titleId: string;
     hasTwoNumbers: boolean;
     onDeleteSuccess: () => void;
     onChangeSuccess: () => void;
     landskode?: string;
     tlfnummer: string;
+    language: Language;
 }
 
 const Telefonnummer = (props: Props) => {
-    const { prioritet, titleId, landskode, tlfnummer, hasTwoNumbers } = props;
+    const { prioritet, landskode, tlfnummer, hasTwoNumbers, language } = props;
     const [visSlettModal, settVisSlettModal] = useState(false);
     const [slettLoading, settSlettLoading] = useState(false);
     const [endre, settEndre] = useState(false);
@@ -96,9 +98,7 @@ const Telefonnummer = (props: Props) => {
         <div className={tlfStyles.rad}>
             <div className={tlfStyles.container}>
                 <div className={tlfStyles.verdi}>
-                    <Label as="p">
-                        <FormattedMessage id={titleId} values={{ x: hasTwoNumbers ? prioritet : "" }} />
-                    </Label>
+                    <Label as="p">{text.telefonPrioritet[language](hasTwoNumbers ? prioritet : "")}</Label>
                     {!endre && (
                         <BodyShort>
                             {landskode && <span>{landskode} </span>}
@@ -109,8 +109,8 @@ const Telefonnummer = (props: Props) => {
 
                 {!endre && (
                     <div className={tlfStyles.knapper}>
-                        <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekstId={"side.endre"} />
-                        <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekstId={"side.slett"} />
+                        <Knapp ariaLabel={"Endre telefonnummer"} onClick={() => settEndre(!endre)} ikon={PencilIcon} tekst={felles.endre[language]} />
+                        <Knapp ariaLabel={"Slett telefonnummer"} onClick={apneSlettModal} ikon={TrashIcon} tekst={felles.slett[language]} />
                     </div>
                 )}
             </div>
@@ -121,6 +121,7 @@ const Telefonnummer = (props: Props) => {
                     submitSlett={submitSlett}
                     isLoading={slettLoading}
                     alert={alert}
+                    language={language}
                 />
             )}
             {endre && (
@@ -130,9 +131,10 @@ const Telefonnummer = (props: Props) => {
                     onCancelClick={() => settEndre(!endre)}
                     onChangeSuccess={onChangeSuccess}
                     defaultValues={defaultValues}
+                    language={language}
                 />
             )}
-            {alert && <HttpFeilmelding {...alert} />}
+            {alert && <HttpFeilmelding {...alert} language={language} />}
         </div>
     );
 };

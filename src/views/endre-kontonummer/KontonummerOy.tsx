@@ -14,7 +14,7 @@ interface Props {
 
 const KontonummerOy = ({ locale, config, kontonr, utenlandskbank, personident }: Props) => (
     <Oy locale={locale} config={config} personInfo={{}}>
-        <Kontonummer kontonr={kontonr} utenlandskbank={utenlandskbank} personident={personident} />
+        <Kontonummer kontonr={kontonr} utenlandskbank={utenlandskbank} personident={personident} language={locale} />
     </Oy>
 );
 

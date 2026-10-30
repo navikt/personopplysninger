@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { IntlProvider } from "react-intl";
+import userEvent from "@testing-library/user-event";
 import { StoreProvider } from "@/store/Context";
-import nbMessages from "@/text/nb";
 import type { PersonInfo } from "@/types/personInfo";
 import AndreAdresserVisning from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserVisning";
 
@@ -12,9 +11,7 @@ const postboks = { type: "POSTBOKSADRESSE" as const, postboks: "Postboks 10 Sør
 const renderVisning = (initialPersonInfo: PersonInfo) =>
     render(
         <StoreProvider initialLocale="nb" initialPersonInfo={initialPersonInfo}>
-            <IntlProvider locale="nb" messages={nbMessages}>
-                <AndreAdresserVisning />
-            </IntlProvider>
+            <AndreAdresserVisning language="nb" />
         </StoreProvider>,
     );
 
@@ -37,5 +34,25 @@ describe("AndreAdresserVisning", () => {
         renderVisning({ adresser: { kontaktadresser: [], oppholdsadresser: [{ kilde: "pdl", adresse: postboks }] } });
 
         expect(screen.getByRole("heading", { level: 3, name: "Øvrige registrerte adresser" })).toBeInTheDocument();
+    });
+
+    it("viser detaljene om kontaktadressen når de åpnes", async () => {
+        const vegadresse = { type: "VEGADRESSE" as const, adressenavn: "Storgata", husnummer: "1", kommune: "Oslo" };
+        renderVisning({ adresser: { kontaktadresser: [{ kilde: "pdl", adresse: vegadresse, gyldigTilOgMed: "2030-01-31" }] } });
+
+        await userEvent.click(screen.getByRole("button", { name: "Vis detaljer" }));
+
+        expect(screen.getByRole("button", { name: "Skjul detaljer" })).toBeInTheDocument();
+        expect(screen.getByText("Gyldig til og med")).toBeInTheDocument();
+        expect(screen.getByText("31.01.2030")).toBeInTheDocument();
+    });
+
+    it("viser spørsmålet om sletting med linjeskift", async () => {
+        renderVisning({ adresser: { kontaktadresser: [{ kilde: "pdl", adresse: postboks }] } });
+
+        await userEvent.click(screen.getByRole("button", { name: "Slett kontaktadresse" }));
+
+        const sporsmal = screen.getByText(/Vil du fjerne kontaktadressen/);
+        expect(sporsmal.innerHTML).toBe("Vil du fjerne kontaktadressen og bruke folkeregistrert <br>adresse til å motta post fra Nav?");
     });
 });

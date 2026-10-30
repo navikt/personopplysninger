@@ -1,7 +1,12 @@
+import type { Language } from "@/language/language";
 import { useStore } from "@/store/Context";
 import AndreAdresser from "./AndreAdresser";
 
-const AndreAdresserVisning = () => {
+interface Props {
+    language: Language;
+}
+
+const AndreAdresserVisning = ({ language }: Props) => {
     const [{ personInfo }] = useStore();
 
     const adresser = personInfo.status === "RESULT" ? personInfo.data.adresser : undefined;
@@ -12,7 +17,7 @@ const AndreAdresserVisning = () => {
         return null;
     }
 
-    return <AndreAdresser kontaktadresse={kontaktadressePdl} oppholdsadresse={oppholdsadressePdl} />;
+    return <AndreAdresser kontaktadresse={kontaktadressePdl} oppholdsadresse={oppholdsadressePdl} language={language} />;
 };
 
 export default AndreAdresserVisning;

@@ -155,9 +155,9 @@ export const text = {
         en: "Bank code required",
     },
     bankkodeLengde: {
-        nb: (land: string, siffer: number) => `Bankkoder fra ${land} må ha ${siffer} tall`,
-        nn: (land: string, siffer: number) => `Bankkoder frå ${land} må ha ${siffer} tal`,
-        en: (land: string, siffer: number) => `Bank codes from ${land} must have ${siffer} numbers`,
+        nb: (land: string, siffer: number | string) => `Bankkoder fra ${land} må ha ${siffer} tall`,
+        nn: (land: string, siffer: number | string) => `Bankkoder frå ${land} må ha ${siffer} tal`,
+        en: (land: string, siffer: number | string) => `Bank codes from ${land} must have ${siffer} numbers`,
     },
     bicPaakrevd: {
         nb: "BIC / Swift-kode er nødvendig",

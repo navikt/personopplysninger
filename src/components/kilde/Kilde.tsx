@@ -1,6 +1,5 @@
 import { BodyLong, Button, Detail, Link } from "@navikt/ds-react";
 import type React from "react";
-import { FormattedMessage } from "react-intl";
 import styles from "./Kilde.module.css";
 
 type IconType = React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement> & React.RefAttributes<SVGSVGElement>>;
@@ -38,14 +37,14 @@ const Knapp = (props: Props) => {
                                 <Icon icon={props.ikon} />
                             </span>
                         )}
-                        <FormattedMessage id={props.lenkeTekst} />
+                        {props.lenkeTekst}
                     </Link>
                 </BodyLong>
             );
         case "KNAPP":
             return (
                 <Button icon={props.ikon && <Icon icon={props.ikon} />} onClick={props.onClick} variant="tertiary" className={styles.knapp}>
-                    <FormattedMessage id={props.lenkeTekst} />
+                    {props.lenkeTekst}
                 </Button>
             );
         case "INGEN":
@@ -57,24 +56,7 @@ const Knapp = (props: Props) => {
 const Kilde = (props: Props) => {
     return (
         <>
-            <div className={styles.tekst}>
-                {props.kilde && (
-                    <Detail spacing>
-                        <FormattedMessage
-                            id={props.kilde}
-                            values={{
-                                span: (text) => <span style={{ textTransform: "none" }}>{text}</span>,
-                                br: (text) => (
-                                    <>
-                                        <br />
-                                        {text}
-                                    </>
-                                ),
-                            }}
-                        />
-                    </Detail>
-                )}
-            </div>
+            <div className={styles.tekst}>{props.kilde && <Detail spacing>{props.kilde}</Detail>}</div>
             <Knapp {...props} />
         </>
     );

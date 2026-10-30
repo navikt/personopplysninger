@@ -2,16 +2,18 @@ import { Button, TextField } from "@navikt/ds-react";
 import classNames from "classnames";
 import { useState } from "react";
 import { type FieldValues, useForm } from "react-hook-form";
-import { FormattedMessage, useIntl } from "react-intl";
 import { fetchPersonInfo, postTlfnummer } from "@/clients/apiClient";
 import SelectLandskode from "@/components/felter/select-kodeverk/SelectLandskode";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
 import { useStore } from "@/store/Context";
 import type { OptionType } from "@/types/option";
 import type { Tlfnr } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
 import { isNorwegianNumber, isNotAlreadyRegistered, isNumeric } from "@/utils/validators";
 import tlfStyles from "./Telefonnummer.module.css";
+import { text } from "./telefonnummerText";
 
 interface Props {
     prioritet: 1 | 2;
@@ -23,6 +25,7 @@ interface Props {
         landskode: { label: string; value: string };
         tlfnummer: string;
     };
+    language: Language;
 }
 
 const TelefonnummerForm = (props: Props) => {
@@ -37,10 +40,9 @@ const TelefonnummerForm = (props: Props) => {
         reValidateMode: "onChange",
         defaultValues: props.defaultValues,
     });
-    const { formatMessage: msg } = useIntl();
     const [loading, settLoading] = useState(false);
     const [alert, settAlert] = useState<Feilmelding | undefined>();
-    const { prioritet, tlfnr, onChangeSuccess } = props;
+    const { prioritet, tlfnr, onChangeSuccess, language } = props;
     const [, dispatch] = useStore();
 
     const getUpdatedData = () =>
@@ -85,37 +87,38 @@ const TelefonnummerForm = (props: Props) => {
                 <div className={classNames(tlfStyles.input, tlfStyles.inputLandkode)}>
                     <SelectLandskode
                         {...register("landskode", {
-                            required: msg({ id: "validation.retningsnr.pakrevd" }),
+                            required: text.landkodePaakrevd[language],
                         })}
                         id={"landskode"}
                         option={watch().landskode}
-                        label={msg({ id: "felter.landkode.label" })}
+                        label={text.landkodeLabel[language]}
                         onChange={onChangeHandler}
                         error={errors?.landskode?.message}
                         submitted={isSubmitted}
+                        language={language}
                     />
                 </div>
                 <div className={tlfStyles.input}>
                     <TextField
                         {...register("tlfnummer", {
-                            required: msg({ id: "validation.tlfnr.pakrevd" }),
+                            required: text.telefonnummerPaakrevd[language],
                             validate: {
-                                isNumeric: (v) => isNumeric(v) || msg({ id: "validation.tlfnr.siffer" }),
+                                isNumeric: (v) => isNumeric(v) || text.telefonnummerSiffer[language],
                                 isNotAlreadyRegistered: (v) => {
                                     if (props.type === "endre") {
                                         return true;
                                     }
-                                    return tlfnr && isNotAlreadyRegistered(v, tlfnr) ? true : msg({ id: "validation.tlfnr.eksisterer" });
+                                    return tlfnr && isNotAlreadyRegistered(v, tlfnr) ? true : text.telefonnummerEksisterer[language];
                                 },
                                 isValidNorwegianNumber: (v) =>
-                                    isNorwegianNumber(watch().landskode) ? v.length === 8 || msg({ id: "validation.tlfnr.norske" }) : true,
+                                    isNorwegianNumber(watch().landskode) ? v.length === 8 || text.telefonnummerNorske[language] : true,
                             },
                         })}
                         autoComplete="tel"
                         type={"tel"}
                         size={"medium"}
                         maxLength={tlfNummerMaxLength}
-                        label={msg({ id: "felter.tlfnr.label" })}
+                        label={text.telefonnummerLabel[language]}
                         error={errors?.tlfnummer?.message}
                     />
                 </div>
@@ -128,7 +131,7 @@ const TelefonnummerForm = (props: Props) => {
                         disabled={isSubmitted && !isValid}
                         loading={loading}
                     >
-                        <FormattedMessage id={"side.lagre"} />
+                        {felles.lagre[language]}
                     </Button>
                 </div>
                 <Button
@@ -141,10 +144,10 @@ const TelefonnummerForm = (props: Props) => {
                         props.onCancelClick();
                     }}
                 >
-                    <FormattedMessage id={"side.avbryt"} />
+                    {felles.avbryt[language]}
                 </Button>
             </div>
-            {alert && <HttpFeilmelding {...alert} type={"advarsel"} />}
+            {alert && <HttpFeilmelding {...alert} type={"advarsel"} language={language} />}
         </form>
     );
 };

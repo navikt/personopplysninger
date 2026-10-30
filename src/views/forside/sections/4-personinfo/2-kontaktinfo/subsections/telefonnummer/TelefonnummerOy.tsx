@@ -26,7 +26,7 @@ const utenlandskbank = {
 
 const TelefonnummerOy = ({ locale, config, tlfnr, medOverskrift }: Props) => (
     <Oy locale={locale} config={config} personInfo={{ personalia: { kontoregisterStatus: "", utenlandskbank, tlfnr } }}>
-        <Telefonliste medOverskrift={medOverskrift} />
+        <Telefonliste medOverskrift={medOverskrift} language={locale} />
     </Oy>
 );
 

@@ -1,10 +1,9 @@
 import { Alert, ErrorSummary, Link } from "@navikt/ds-react";
 import { electronicFormatIBAN } from "ibantools";
 import { type FieldValues, useFormContext } from "react-hook-form";
-import { FormattedMessage } from "react-intl";
-import { useIntlFormatter } from "@/hooks/useIntlFormatter";
-import { useStore } from "@/store/Context";
+import type { Language } from "@/language/language";
 import { mapErrorsToSummary } from "@/utils/kontonummer";
+import { text } from "../kontonummerSkjemaText";
 import type { FormFields } from "../types";
 import { brukerBankkode, harValgtUSA, validerBankkode, validerBic } from "../utils";
 import AmerikanskKonto from "./AmerikanskKonto";
@@ -17,20 +16,19 @@ import LandUtenBankkode from "./LandUtenBankkode";
 
 interface Props {
     personident?: { verdi: string; type: string };
+    language: Language;
 }
 
 const OpprettEllerEndreUtenlandsbank = (props: Props) => {
-    const [{ locale }] = useStore();
+    const { language } = props;
     const {
         watch,
         formState: { isSubmitted, errors },
     } = useFormContext<FormFields>();
 
-    const { formatMessage } = useIntlFormatter();
-
     const valgtLand = watch().land;
 
-    const utenlandskKontoInfoLenke = {
+    const utenlandskKontoInfoUrl = {
         nb: "https://www.nav.no/utbetaling-utland",
         nn: "https://www.nav.no/utbetaling-utland",
         en: "https://www.nav.no/en/home/about-nav/relatert-informasjon/payment-of-benefits-from-nav-to-recipients-living-abroad",
@@ -39,33 +37,30 @@ const OpprettEllerEndreUtenlandsbank = (props: Props) => {
     return (
         <>
             <Alert variant="info">
-                <FormattedMessage
-                    id="felter.utenlandskkonto.info"
-                    values={{
-                        a: (text) => <Link href={utenlandskKontoInfoLenke[locale]}>{text}</Link>,
-                    }}
-                />
+                {text.utenlandskKontoInfoFoer[language]}
+                <Link href={utenlandskKontoInfoUrl[language]}>{text.utenlandskKontoInfoLenke[language]}</Link>
+                {text.utenlandskKontoInfoEtter[language]}
             </Alert>
 
-            <LandField />
+            <LandField language={language} />
 
             {valgtLand && (
                 <>
-                    <ValutaField />
-                    <BanknavnField />
-                    <KontonummerIbanField personident={props.personident} />
+                    <ValutaField language={language} />
+                    <BanknavnField language={language} />
+                    <KontonummerIbanField personident={props.personident} language={language} />
 
                     {harValgtUSA(valgtLand) ? (
-                        <AmerikanskKonto />
+                        <AmerikanskKonto language={language} />
                     ) : brukerBankkode(valgtLand) ? (
-                        <LandMedBankkode valgtLand={valgtLand} />
+                        <LandMedBankkode valgtLand={valgtLand} language={language} />
                     ) : (
-                        <LandUtenBankkode />
+                        <LandUtenBankkode language={language} />
                     )}
                 </>
             )}
             {isSubmitted && Object.keys(errors).length > 0 && (
-                <ErrorSummary title={formatMessage("validation.fix.errors")}>
+                <ErrorSummary title={text.rettOpp[language]}>
                     {mapErrorsToSummary(errors).map((error) => (
                         <ErrorSummary.Item key={error.skjemaelementId} href={`#${error.skjemaelementId}`}>
                             {error.feilmelding}

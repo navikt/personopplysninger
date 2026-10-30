@@ -1,25 +1,28 @@
 import { PlusCircleIcon } from "@navikt/aksel-icons";
 import { Alert, Button, Label } from "@navikt/ds-react";
 import { useState } from "react";
-import { FormattedMessage } from "react-intl";
 import Kilde from "@/components/kilde/Kilde";
 import kildeStyles from "@/components/kilde/Kilde.module.css";
 import driftsmeldinger from "@/driftsmeldinger";
+import type { Language } from "@/language/language";
+import { text as felles } from "@/language/text";
 import type { Tlfnr } from "@/types/personalia";
 import { fjernMellorom } from "@/utils/formattering";
 import dkifStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
 import Telefonnummer from "./Telefonnummer";
 import tlfStyles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";
+import { text } from "./telefonnummerText";
 
 interface Props {
     tlfnr?: Tlfnr;
+    language: Language;
 }
 
 const TelefonnummerHosNav = (props: Props) => {
     const [opprett, settOpprett] = useState<boolean>();
 
-    const { tlfnr } = props;
+    const { tlfnr, language } = props;
 
     const onChangeSuccess = () => {
         settOpprett(false);
@@ -45,43 +48,34 @@ const TelefonnummerHosNav = (props: Props) => {
                     {tlfnr.telefonHoved && (
                         <Telefonnummer
                             prioritet={1}
-                            titleId="personalia.tlfnr.telefon"
                             hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
                             landskode={tlfnr.landskodeHoved}
                             tlfnummer={fjernMellorom(tlfnr.telefonHoved)}
                             onDeleteSuccess={onDeleteSuccess}
                             onChangeSuccess={onChangeSuccess}
+                            language={language}
                         />
                     )}
                     {tlfnr.telefonAlternativ && (
                         <Telefonnummer
                             prioritet={2}
-                            titleId="personalia.tlfnr.telefon"
                             hasTwoNumbers={!!(tlfnr.telefonHoved && tlfnr.telefonAlternativ)}
                             landskode={tlfnr.landskodeAlternativ}
                             tlfnummer={fjernMellorom(tlfnr.telefonAlternativ)}
                             onDeleteSuccess={onDeleteSuccess}
                             onChangeSuccess={onChangeSuccess}
+                            language={language}
                         />
                     )}
                     <div className={dkifStyles.marginKilde}>
-                        <Kilde kilde="personalia.source.nav" lenkeType={"INGEN"} />
+                        <Kilde kilde={felles.kildeNav[language]} lenkeType={"INGEN"} />
                     </div>
                 </div>
             ) : (
                 <div className="underseksjon__beskrivelse">
-                    <FormattedMessage
-                        id="personalia.tlfnr.ingenData"
-                        values={{
-                            b: (text) => <b>{text}</b>,
-                            br: (text) => (
-                                <>
-                                    <br />
-                                    {text}
-                                </>
-                            ),
-                        }}
-                    />
+                    {text.ingenDataFoer[language]}
+                    <b>{text.ingenDataUthevet[language]}</b>
+                    {text.ingenDataEtter[language]}
                 </div>
             )}
 
@@ -92,7 +86,7 @@ const TelefonnummerHosNav = (props: Props) => {
                     onClick={onLeggTil}
                     className={tlfStyles.leggtil}
                 >
-                    <FormattedMessage id={"side.leggtil.kontaktinformasjon"} />
+                    {text.leggTilTelefonnummer[language]}
                 </Button>
             )}
 
@@ -100,7 +94,7 @@ const TelefonnummerHosNav = (props: Props) => {
                 <div className={tlfStyles.radLeggtil}>
                     <div className={tlfStyles.container}>
                         <Label className={tlfStyles.verdi} as="p">
-                            <FormattedMessage id="side.leggtil.kontaktinformasjon" />
+                            {text.leggTilTelefonnummer[language]}
                         </Label>
                     </div>
                     <TelefonnummerForm
@@ -116,6 +110,7 @@ const TelefonnummerHosNav = (props: Props) => {
                             },
                             tlfnummer: "",
                         }}
+                        language={language}
                     />
                 </div>
             )}

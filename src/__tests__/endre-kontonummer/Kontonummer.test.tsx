@@ -1,6 +1,5 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { IntlProvider } from "react-intl";
 import { setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
 import enMessages from "@/text/en";
@@ -10,12 +9,10 @@ import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 const REDIRECT = "http://x/nb/endre-kontonummer";
 
-const setup = (props: Parameters<typeof Kontonummer>[0], locale: "nb" | "en" = "nb") =>
+const setup = (props: Omit<Parameters<typeof Kontonummer>[0], "language">, locale: "nb" | "en" = "nb") =>
     render(
         <StoreProvider initialLocale={locale}>
-            <IntlProvider locale={locale} messages={locale === "en" ? enMessages : nbMessages}>
-                <Kontonummer {...props} />
-            </IntlProvider>
+            <Kontonummer {...props} language={locale} />
         </StoreProvider>,
     );
 
