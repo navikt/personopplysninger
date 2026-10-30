@@ -11,7 +11,7 @@
     "include": [
         ".astro/types.d.ts",
         "src/**/*.astro",
-        "src/config/**/*.ts",
+        "src/utils/environment.ts",
         "src/middleware.ts",
         "src/server/**/*.ts",
         "src/pages/api/**/*.ts",

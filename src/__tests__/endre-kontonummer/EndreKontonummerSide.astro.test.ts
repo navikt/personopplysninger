@@ -1,19 +1,19 @@
 import { loadRenderers } from "astro:container";
 import { getContainerRenderer } from "@astrojs/react/container-renderer";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import EndreKontonummerSide from "@/pages/[locale]/endre-kontonummer.astro";
 import { hentFraApi } from "@/server/apiClient";
-import { testRuntimeConfig } from "../utils/testRuntimeConfig";
+import { testKlientConfig } from "../utils/testConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
     loginUrlFor: vi.fn().mockReturnValue("/login"),
 }));
 
-vi.mock("@/config/serverRuntimeConfig", async () => {
-    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
-    return { getServerRuntimeConfig: () => testRuntimeConfig };
+vi.mock("astro:env/server", async (importOriginal) => {
+    const { testEnv } = await import("../utils/testConfig");
+    return { ...(await importOriginal<object>()), ...testEnv };
 });
 
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
@@ -50,6 +50,9 @@ const islandProps = (html: string) => {
 };
 
 describe("Endre kontonummer", () => {
+    beforeEach(() => vi.stubEnv("BASE_URL", "/person/personopplysninger/"));
+    afterEach(() => vi.unstubAllEnvs());
+
     beforeEach(() => {
         vi.mocked(hentFraApi).mockReset();
     });
@@ -73,10 +76,10 @@ describe("Endre kontonummer", () => {
             "personident",
             "utenlandskbank",
         ]);
-        expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
-        expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
-        expect(props.endreKontonummerUrl).toEqual([0, testRuntimeConfig.endreKontonummerUrl]);
+        expect(props.apiUrl).toEqual([0, testKlientConfig.apiUrl]);
+        expect(props.appUrl).toEqual([0, testKlientConfig.appUrl]);
+        expect(props.loginUrl).toEqual([0, testKlientConfig.loginUrl]);
+        expect(props.endreKontonummerUrl).toEqual([0, testKlientConfig.endreKontonummerUrl]);
         expect(html).toContain("Endre kontonummer for utbetaling");
         expect(html).toContain('href="/person/personopplysninger/nb/#utbetaling"');
         expect(html).toMatch(

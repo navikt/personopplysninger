@@ -1,24 +1,26 @@
 ---
+import { LOGIN_URL } from "astro:env/server";
 import kontaktIkon from "@/assets/img/Kontakt.svg";
 import Box from "@/components/box/Box.astro";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import Redirect from "@/components/knapper/Redirect.astro";
-import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import type { Language } from "@/language/language";
 import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
+import styles from "@/styles/endreOpplysninger.module.css";
 import type { PersonInfo } from "@/types/personInfo";
+import { getApiUrl, getAppUrl } from "@/utils/environment";
 import { redirects, tillatteTjenester, validateAndDecodeRedirectUrl } from "@/utils/redirects";
-import styles from "@/views/endre-personopplysninger/EndreOpplysninger.module.css";
 import Adresser from "@/views/forside/adresser/Adresser.astro";
+import AndreAdresserOy from "@/views/forside/adresser/andre-adresser/AndreAdresserOy";
 import { text } from "@/views/forside/kontaktinfo/kontaktinfoText";
-import TelefonnummerOy from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/TelefonnummerOy";
-import AndreAdresserOy from "@/views/forside/sections/4-personinfo/3-adresser/visning/AndreAdresserOy";
+import TelefonnummerOy from "@/views/forside/kontaktinfo/telefonnummer/TelefonnummerOy";
 import Utbetalinger from "@/views/forside/utbetalinger/Utbetalinger.astro";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
-const config = getServerRuntimeConfig(Astro.url);
+const apiUrl = getApiUrl(Astro.url);
+const appUrl = getAppUrl(Astro.url);
 
 const segments = Astro.params.route?.split("/") ?? [];
 const encodedUrl = segments.pop();
@@ -59,9 +61,9 @@ const andreAdresser = {
                                 language={language}
                                 tlfnr={personalia.tlfnr}
                                 medOverskrift={false}
-                                apiUrl={config.apiUrl}
-                                appUrl={config.appUrl}
-                                loginUrl={config.loginUrl}
+                                apiUrl={apiUrl}
+                                appUrl={appUrl}
+                                loginUrl={LOGIN_URL}
                                 client:visible
                             />
                         </Box>
@@ -73,9 +75,9 @@ const andreAdresser = {
                                     slot="andre"
                                     language={language}
                                     adresser={andreAdresser}
-                                    apiUrl={config.apiUrl}
-                                    appUrl={config.appUrl}
-                                    loginUrl={config.loginUrl}
+                                    apiUrl={apiUrl}
+                                    appUrl={appUrl}
+                                    loginUrl={LOGIN_URL}
                                     client:visible
                                 />
                             )}

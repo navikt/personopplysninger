@@ -1,10 +1,11 @@
 ---
+import { BUILD_VERSION, DITT_NAV_URL, TELEMETRY_URL } from "astro:env/server";
 import "@navikt/ds-css";
 import "@navikt/arbeidsforhold/index.css";
 import { fetchDecoratorHtml } from "@navikt/nav-dekoratoren-moduler/ssr";
-import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import type { Language } from "@/language/language";
 import { text } from "@/language/text";
+import { getAppUrl, getMiljo } from "@/utils/environment";
 import { getSpraakvalg } from "@/utils/spraakvalg";
 import "../styles/global.css";
 import "../styles/tokens.css";
@@ -16,7 +17,8 @@ interface Props {
 
 const { title, brodsmuler } = Astro.props;
 const language = (Astro.currentLocale ?? "nb") as Language;
-const { environment, appUrl, dittNavUrl, telemetryUrl, buildVersion } = getServerRuntimeConfig(Astro.url);
+const environment = getMiljo();
+const appUrl = getAppUrl(Astro.url);
 const decoratorEnvironment = environment === "prod" ? "prod" : "dev";
 const sti = Astro.url.pathname.slice(import.meta.env.BASE_URL.replace(/\/$/, "").length);
 
@@ -26,7 +28,7 @@ const decorator = await fetchDecoratorHtml({
         context: "privatperson",
         language,
         breadcrumbs: [
-            { url: dittNavUrl, title: text.minSide[language] },
+            { url: DITT_NAV_URL, title: text.minSide[language] },
             { url: `${appUrl}/${language}/`, title: text.personopplysninger[language] },
             ...(brodsmuler ?? []).map((brodsmule) => ({ url: `${appUrl}/${language}${brodsmule.sti}`, title: brodsmule.tittel })),
         ],
@@ -55,7 +57,7 @@ const { DECORATOR_HEAD_ASSETS, DECORATOR_HEADER, DECORATOR_FOOTER, DECORATOR_SCR
         </div>
         <Fragment set:html={DECORATOR_FOOTER} />
         <Fragment set:html={DECORATOR_SCRIPTS} />
-        <div hidden data-telemetry-url={telemetryUrl} data-environment={environment} data-build-version={buildVersion}></div>
+        <div hidden data-telemetry-url={TELEMETRY_URL} data-environment={environment} data-build-version={BUILD_VERSION}></div>
         <script>
             import { startFaro } from "@/utils/faro";
 

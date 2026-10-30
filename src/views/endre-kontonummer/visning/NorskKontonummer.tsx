@@ -1,8 +1,8 @@
 import ListElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { Language } from "@/language/language";
-import { formatterKontonr } from "@/views/forside/sections/4-personinfo/4-utbetalinger/utils";
 import { text } from "@/views/forside/utbetalinger/utbetalingerText";
+import { formatterKontonr } from "@/views/forside/utbetalinger/utbetalingerUtils";
 
 interface Props {
     kontonummer?: string;

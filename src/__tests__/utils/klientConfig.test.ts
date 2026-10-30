@@ -1,5 +1,5 @@
-import { getKlientConfig, setKlientConfig } from "@/config/klientConfig";
-import { testKlientConfig } from "../utils/testRuntimeConfig";
+import { getKlientConfig, setKlientConfig } from "@/utils/klientConfig";
+import { testKlientConfig } from "./testConfig";
 
 describe("klientConfig", () => {
     afterEach(() => setKlientConfig(testKlientConfig));

@@ -1,24 +1,26 @@
 ---
+import { ENDRE_KONTONUMMER_URL, LOGIN_URL } from "astro:env/server";
 import { Alert, Link } from "@navikt/ds-react";
 import kontonummerIkon from "@/assets/img/Kontonummer.svg";
 import personaliaIkon from "@/assets/img/Personalia.svg";
 import Box from "@/components/box/Box.astro";
 import ErrorMessage from "@/components/errorMessage/ErrorMessage";
 import PageContainer from "@/components/pagecontainer/PageContainer.astro";
-import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import driftsmeldinger from "@/driftsmeldinger";
 import type { Language } from "@/language/language";
 import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { PersonInfo } from "@/types/personInfo";
+import { getApiUrl, getAppUrl, getMiljo } from "@/utils/environment";
 import { text } from "@/views/endre-kontonummer/endreKontonummerText";
 import KontonummerOy from "@/views/endre-kontonummer/KontonummerOy";
 import Resultat from "@/views/endre-kontonummer/Resultat.astro";
 import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
-const config = getServerRuntimeConfig(Astro.url);
+const apiUrl = getApiUrl(Astro.url);
+const appUrl = getAppUrl(Astro.url);
 
 const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
 if (personInfo.status === "UNAUTHORIZED") {
@@ -27,7 +29,7 @@ if (personInfo.status === "UNAUTHORIZED") {
 
 const resultat = personInfo.status === "RESULT" ? Astro.cookies.get("kontonr-result")?.value : undefined;
 if (resultat) {
-    Astro.cookies.delete("kontonr-result", { path: "/", domain: config.environment === "local" ? undefined : ".nav.no" });
+    Astro.cookies.delete("kontonr-result", { path: "/", domain: getMiljo() === "local" ? undefined : ".nav.no" });
 }
 
 const requestedBackTo = Astro.url.searchParams.get("backTo");
@@ -56,10 +58,10 @@ const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia :
                             kontonr={personalia?.kontonr}
                             utenlandskbank={personalia?.utenlandskbank}
                             personident={personalia?.personident}
-                            apiUrl={config.apiUrl}
-                            appUrl={config.appUrl}
-                            loginUrl={config.loginUrl}
-                            endreKontonummerUrl={config.endreKontonummerUrl}
+                            apiUrl={apiUrl}
+                            appUrl={appUrl}
+                            loginUrl={LOGIN_URL}
+                            endreKontonummerUrl={ENDRE_KONTONUMMER_URL}
                             client:visible
                         />
                     )

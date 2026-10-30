@@ -1,6 +1,6 @@
-import { setKlientConfig } from "@/config/klientConfig";
+import { setKlientConfig } from "@/utils/klientConfig";
 import { getLoginRedirectUrl, redirects, resolveLoginReturnPath, validateAndDecodeRedirectUrl } from "@/utils/redirects";
-import { testKlientConfig } from "./testRuntimeConfig";
+import { testKlientConfig } from "./testConfig";
 
 const basePath = "/person/personopplysninger";
 const encode = (path: string) => btoa(path);

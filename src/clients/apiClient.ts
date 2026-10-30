@@ -1,12 +1,12 @@
 import type { Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import { PAAGAAENDE_ENDRING } from "@/components/httpFeilmelding/httpFeilmeldingText";
-import { getKlientConfig } from "@/config/klientConfig";
 import type { Language } from "@/language/language";
 import type { TPSResponse } from "@/types/tps-response";
+import { getKlientConfig } from "@/utils/klientConfig";
 import { logApiError } from "@/utils/logger";
 import { getLoginRedirectUrl } from "@/utils/redirects";
 import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/views/endre-kontonummer/endring/types";
-import type { OutboundTlfnummer } from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
+import type { OutboundTlfnummer } from "@/views/forside/kontaktinfo/telefonnummer/Telefonnummer";
 
 const parseJson = (data: Response) => data.json();
 

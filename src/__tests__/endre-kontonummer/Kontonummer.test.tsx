@@ -1,10 +1,10 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { setKlientConfig } from "@/config/klientConfig";
 import { text as felles } from "@/language/text";
+import { setKlientConfig } from "@/utils/klientConfig";
 import { text } from "@/views/endre-kontonummer/endring/kontonummerSkjemaText";
 import Kontonummer from "@/views/endre-kontonummer/Kontonummer";
-import { testKlientConfig } from "../utils/testRuntimeConfig";
+import { testKlientConfig } from "../utils/testConfig";
 
 const REDIRECT = "http://x/nb/endre-kontonummer";
 

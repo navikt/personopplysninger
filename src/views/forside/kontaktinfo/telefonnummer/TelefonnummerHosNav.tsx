@@ -8,7 +8,7 @@ import type { Language } from "@/language/language";
 import { text as felles } from "@/language/text";
 import type { Tlfnr } from "@/types/personalia";
 import { fjernMellorom } from "@/utils/formattering";
-import dkifStyles from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/kontakt-og-reservasjonsregisteret/DKIF.module.css";
+import dkifStyles from "@/views/forside/kontaktinfo/Dkif.module.css";
 import Telefonnummer from "./Telefonnummer";
 import tlfStyles from "./Telefonnummer.module.css";
 import TelefonnummerForm from "./TelefonnummerForm";

@@ -1,6 +1,6 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { UtenlandskAdresse as UtenlandskAdresseType } from "@/types/adresser/adresse";
-import adresseStyles from "../../../Adresser.module.css";
+import adresseStyles from "../Adresser.module.css";
 
 const UtenlanskAdresse = (props: UtenlandskAdresseType) => {
     const { postboksNummerNavn, postkode } = props;

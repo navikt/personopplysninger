@@ -1,7 +1,7 @@
 import { BodyShort } from "@navikt/ds-react";
 import type { Postboksadresse as PostboksadresseType } from "@/types/adresser/adresse";
-import adresseStyles from "../../../Adresser.module.css";
-import Postnummer from "../../../komponenter/Postnummer";
+import adresseStyles from "../Adresser.module.css";
+import Postnummer from "./Postnummer";
 
 const formatPostboks = (postboks: string) => (/^postboks\b/i.test(postboks.trim()) ? postboks : `Postboks ${postboks}`);
 

@@ -1,6 +1,6 @@
-import { setKlientConfig } from "@/config/klientConfig";
 import type { Language } from "@/language/language";
 import type { UtenlandskBankkonto } from "@/types/personalia";
+import { setKlientConfig } from "@/utils/klientConfig";
 import Kontonummer from "./Kontonummer";
 
 interface Props {

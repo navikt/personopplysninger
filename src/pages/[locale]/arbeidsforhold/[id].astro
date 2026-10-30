@@ -1,19 +1,18 @@
 ---
 import arbeidsforholdIkon from "@/assets/img/Arbeidsforhold.svg";
 import PageContainer from "@/components/pagecontainer/PageContainer.astro";
-import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
 import type { Language } from "@/language/language";
 import Layout from "@/layouts/Layout.astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import { personopplysningerApi } from "@/server/personopplysningerApi";
 import type { PersonInfo } from "@/types/personInfo";
+import { getApiUrl, getMiljo } from "@/utils/environment";
 import { decodeRouteParam } from "@/utils/params";
 import DetaljertArbeidsforholdOy from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforholdOy";
 import { text } from "@/views/forside/arbeidsforhold/arbeidsforholdText";
 
 const language = (Astro.currentLocale ?? "nb") as Language;
 const id = decodeRouteParam(Astro.params.id);
-const config = getServerRuntimeConfig(Astro.url);
 
 const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
 if (personInfo.status === "UNAUTHORIZED") {
@@ -22,7 +21,8 @@ if (personInfo.status === "UNAUTHORIZED") {
 
 const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
 
-const { environment, apiUrl } = config;
+const environment = getMiljo();
+const apiUrl = getApiUrl(Astro.url);
 const miljo = environment.toUpperCase() as "LOCAL" | "DEV" | "PROD";
 const customApiUrl = environment === "local" ? `${apiUrl}/arbeidsforhold/{id}` : undefined;
 const navArbeidsforholdId = Number.parseInt(id ?? "", 10);

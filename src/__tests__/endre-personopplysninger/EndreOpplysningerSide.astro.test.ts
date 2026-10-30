@@ -1,21 +1,21 @@
 import { loadRenderers } from "astro:container";
 import { getContainerRenderer } from "@astrojs/react/container-renderer";
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import EndreOpplysninger from "@/pages/[locale]/endre-opplysninger/sendt-fra/[...route].astro";
 import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import type { PersonInfo } from "@/types/personInfo";
-import { testRuntimeConfig } from "../utils/testRuntimeConfig";
+import { testKlientConfig } from "../utils/testConfig";
 
 vi.mock("@/server/apiClient", () => ({
     hentFraApi: vi.fn(),
     loginUrlFor: vi.fn().mockReturnValue("/login"),
 }));
 
-vi.mock("@/config/serverRuntimeConfig", async () => {
-    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
-    return { getServerRuntimeConfig: () => testRuntimeConfig };
+vi.mock("astro:env/server", async (importOriginal) => {
+    const { testEnv } = await import("../utils/testConfig");
+    return { ...(await importOriginal<object>()), ...testEnv };
 });
 
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
@@ -70,6 +70,9 @@ const oppholdFreg = { ...personInfo.adresser!.oppholdsadresser![0], kilde: "freg
 const oppholdPdl = { ...personInfo.adresser!.oppholdsadresser![0], kilde: "pdl" };
 
 describe("Endre opplysninger (sendt fra)", () => {
+    beforeEach(() => vi.stubEnv("BASE_URL", "/person/personopplysninger/"));
+    afterEach(() => vi.unstubAllEnvs());
+
     beforeEach(() => {
         vi.mocked(hentFraApi).mockReset();
         vi.mocked(loginUrlFor).mockClear();
@@ -103,9 +106,9 @@ describe("Endre opplysninger (sendt fra)", () => {
         expect(telefon?.props.tlfnr).toEqual(personInfo.personalia?.tlfnr);
         expect(Object.keys(telefon?.props ?? {}).sort()).toEqual(["apiUrl", "appUrl", "language", "loginUrl", "medOverskrift", "tlfnr"]);
         expect(telefon?.props.language).toBe("nb");
-        expect(telefon?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
-        expect(telefon?.props.appUrl).toBe(testRuntimeConfig.appUrl);
-        expect(telefon?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
+        expect(telefon?.props.apiUrl).toBe(testKlientConfig.apiUrl);
+        expect(telefon?.props.appUrl).toBe(testKlientConfig.appUrl);
+        expect(telefon?.props.loginUrl).toBe(testKlientConfig.loginUrl);
     });
 
     it("viser ikke andre adresser uten adresser fra pdl", async () => {
@@ -129,9 +132,9 @@ describe("Endre opplysninger (sendt fra)", () => {
         expect(andre?.props.adresser).not.toHaveProperty("bostedsadresse");
         expect(Object.keys(andre?.props ?? {}).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
         expect(andre?.props.language).toBe("nb");
-        expect(andre?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
-        expect(andre?.props.appUrl).toBe(testRuntimeConfig.appUrl);
-        expect(andre?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
+        expect(andre?.props.apiUrl).toBe(testKlientConfig.apiUrl);
+        expect(andre?.props.appUrl).toBe(testKlientConfig.appUrl);
+        expect(andre?.props.loginUrl).toBe(testKlientConfig.loginUrl);
     });
 
     it("sender bare kontaktadressen når oppholdsadressen ikke er fra pdl", async () => {

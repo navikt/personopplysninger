@@ -1,7 +1,7 @@
 import { postKontonummer, postTlfnummer } from "@/clients/apiClient";
 import { PAAGAAENDE_ENDRING } from "@/components/httpFeilmelding/httpFeilmeldingText";
-import { setKlientConfig } from "@/config/klientConfig";
-import { testKlientConfig } from "../utils/testRuntimeConfig";
+import { setKlientConfig } from "@/utils/klientConfig";
+import { testKlientConfig } from "../utils/testConfig";
 
 describe("postTlfnummer", () => {
     beforeEach(() => {
