@@ -99,6 +99,7 @@ describe("Kontonummer", () => {
         await fyllOgLagre();
 
         expect(await screen.findByText("Oisann, noe gikk galt! Prøv igjen senere.")).toBeInTheDocument();
+        expect(screen.getByRole("button", { name: "Lagre" })).toBeEnabled();
         expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
     });
 });
