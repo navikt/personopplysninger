@@ -39,4 +39,34 @@ export const text = {
         nn: "Lukk",
         en: "Lukk",
     },
+    slett: {
+        nb: "Slett",
+        nn: "Slett",
+        en: "Delete",
+    },
+    lagre: {
+        nb: "Lagre",
+        nn: "Lagre",
+        en: "Save",
+    },
+    avbryt: {
+        nb: "Avbryt",
+        nn: "Avbryt",
+        en: "Cancel",
+    },
+    leggTil: {
+        nb: "Legg til",
+        nn: "Legg til",
+        en: "Add",
+    },
+    endre: {
+        nb: "Endre",
+        nn: "Endre",
+        en: "Change",
+    },
+    kildeNav: {
+        nb: "Kilde: Nav",
+        nn: "Kjelde: Nav",
+        en: "Source: Nav",
+    },
 };
