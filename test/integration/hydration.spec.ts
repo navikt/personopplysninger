@@ -9,6 +9,7 @@ const paths = [
     "nb/dsop/2000-01-01T00%3A00%3A00",
     "nb/endre-kontonummer",
     "nb/arbeidsforhold/1",
+    "nb/endre-opplysninger/sendt-fra/skjema/alderspensjonssoknad/https%3A%2F%2Fwww.nav.no%2F",
 ];
 
 const hydrationProblem = /hydrat|did not match|validateDOMNesting|Expected server HTML/i;

@@ -84,12 +84,26 @@ test("feilcookie viser feilmeldingen én gang", async ({ page, context }) => {
 });
 
 const språk = [
-    { sti: "nn/endre-kontonummer", tittel: "Endre kontonummer for utbetaling", endre: "Endre", lagre: "Lagre", avbryt: "Avbryt" },
-    { sti: "en/endre-kontonummer", tittel: "Change account number for payment", endre: "Change", lagre: "Save", avbryt: "Cancel" },
+    {
+        sti: "nn/endre-kontonummer",
+        tittel: "Endre kontonummer for utbetaling",
+        endre: "Endre",
+        lagre: "Lagre",
+        avbryt: "Avbryt",
+        påkrevd: "Kontonummer er nødvendig",
+    },
+    {
+        sti: "en/endre-kontonummer",
+        tittel: "Change account number for payment",
+        endre: "Change",
+        lagre: "Save",
+        avbryt: "Cancel",
+        påkrevd: "Account number is required",
+    },
 ];
 
-for (const { sti, tittel, endre, lagre, avbryt } of språk) {
-    test(`${sti} har oversatt tittel og skjemaknapper`, async ({ page }) => {
+for (const { sti, tittel, endre, lagre, avbryt, påkrevd } of språk) {
+    test(`${sti} har oversatt tittel, skjemaknapper og valideringsmelding`, async ({ page }) => {
         await page.goto(sti);
         await hydrert(page);
         const main = page.getByRole("main");
@@ -98,6 +112,10 @@ for (const { sti, tittel, endre, lagre, avbryt } of språk) {
         await main.getByRole("button", { name: endre }).click();
         await expect(main.getByRole("button", { name: lagre })).toBeVisible();
         await expect(main.getByRole("button", { name: avbryt })).toBeVisible();
+
+        await main.getByRole("textbox").fill("");
+        await main.getByRole("button", { name: lagre }).click();
+        await expect(main.getByText(påkrevd)).toBeVisible();
     });
 }
 
