@@ -6,8 +6,8 @@ import { basePath } from "@/constants";
 import driftsmeldinger from "@/driftsmeldinger";
 import { useStore } from "@/store/Context";
 import type { UtenlandskBankkonto } from "@/types/personalia";
-import NorskKontonummer from "./visning/NorskKontonummer";
-import Utenlandskonto from "./visning/UtenlandsBankkonto";
+import NorskKontonummer from "@/views/endre-kontonummer/visning/NorskKontonummer";
+import Utenlandskonto from "@/views/endre-kontonummer/visning/UtenlandsBankkonto";
 
 const WarningMsg = () => {
     const { locale } = useIntl();

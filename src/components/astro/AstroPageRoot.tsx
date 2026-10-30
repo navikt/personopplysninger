@@ -3,11 +3,10 @@ import { StoreProvider } from "@/store/Context";
 import WithLanguages from "@/store/providers/Language";
 import type { Locale } from "@/store/Store";
 import DetaljertArbeidsforhold from "@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold";
-import { EndreKontonummer } from "@/views/endre-kontonummer/EndreKontonummer";
 import EndreOpplysninger from "@/views/endre-personopplysninger/EndreOpplysninger";
 
 type PageProps = {
-    page: "arbeidsforhold" | "endreKontonummer" | "endreOpplysninger";
+    page: "arbeidsforhold" | "endreOpplysninger";
 };
 
 export type AstroPageProps = PageProps & {
@@ -16,7 +15,6 @@ export type AstroPageProps = PageProps & {
     id?: string;
     tjeneste?: string;
     redirectUrl?: string;
-    backTo?: string;
 };
 
 type Props = AstroPageProps & {
@@ -29,8 +27,6 @@ const renderPage = (props: Props) => {
     switch (props.page) {
         case "arbeidsforhold":
             return <DetaljertArbeidsforhold id={id} pathname={pathname} />;
-        case "endreKontonummer":
-            return <EndreKontonummer backTo={props.backTo} pathname={pathname} />;
         case "endreOpplysninger":
             return <EndreOpplysninger tjeneste={props.tjeneste} redirectUrl={props.redirectUrl} pathname={pathname} />;
     }

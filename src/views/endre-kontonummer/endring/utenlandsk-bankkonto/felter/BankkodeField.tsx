@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import { LabelMedHjelpetekst } from "@/components/felter/label-med-hjelpetekst/LabelMedHjelpetekst";
 import { useIntlFormatter } from "@/hooks/useIntlFormatter";
 import { isBankkodeValidLength, isNumeric } from "@/utils/validators";
-import utbetalStyles from "../../../Utbetalinger.module.css";
+import utbetalStyles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
 import type { FormFields } from "../../types";
 import { validerBankkode } from "../../utils";
 

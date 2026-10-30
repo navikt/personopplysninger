@@ -1,17 +1,16 @@
 import { Alert, Button, Radio, RadioGroup } from "@navikt/ds-react";
-import { type Dispatch, useState } from "react";
+import { useState } from "react";
 import { type FieldValues, FormProvider, useForm } from "react-hook-form";
 import { FormattedMessage, useIntl } from "react-intl";
-import { fetchPersonInfo, postKontonummer } from "@/clients/apiClient";
+import { postKontonummer } from "@/clients/apiClient";
 import HttpFeilmelding, { type Feilmelding } from "@/components/httpFeilmelding/HttpFeilmelding";
 import Kilde from "@/components/kilde/Kilde";
 import { useStore } from "@/store/Context";
-import type { Action, Locale } from "@/store/Store";
+import type { Locale } from "@/store/Store";
 import type { UtenlandskBankkonto } from "@/types/personalia";
-import type { PersonInfo } from "@/types/personInfo";
 import { normalizeNummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
-import utbetalStyles from "../Utbetalinger.module.css";
+import utbetalStyles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
 import formStyles from "./KontonummerForm.module.css";
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from "./norsk-bankkonto/NorskKontonummer";
 import type { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "./types";
@@ -66,10 +65,10 @@ const KontonummerForm = (props: Props) => {
     const [alert, settAlert] = useState<Feilmelding | null>(null);
     const [kontonummerType, setKontonummerType] = useState(utenlandskbank ? UTENLANDSK : NORSK);
 
-    const [{ locale }, dispatch] = useStore();
+    const [{ locale }] = useStore();
 
     const onSubmit = (values: FieldValues) => {
-        submit(values, kontonummerType, settAlert, settLoading, settOpprettEllerEndre, dispatch, locale);
+        submit(values, kontonummerType, settAlert, settLoading, locale);
     };
 
     return (
@@ -101,7 +100,7 @@ const KontonummerForm = (props: Props) => {
                     <FormattedMessage id={"endreKontonummer.authInfo"} />
                 </Alert>
                 <div className={utbetalStyles.knapper}>
-                    <Button variant={"primary"} type={"submit"} disabled={isSubmitted && !isValid} loading={loading}>
+                    <Button variant={"primary"} type={"submit"} disabled={loading || (isSubmitted && !isValid)} loading={loading}>
                         <FormattedMessage id={"side.lagre"} />
                     </Button>
                     <Button variant={"tertiary"} type={"button"} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
@@ -120,8 +119,6 @@ const submitKontonummer = (
     kontonummerType: string,
     settAlert: (value: Feilmelding) => void,
     settLoading: (value: boolean) => void,
-    settOpprettEllerEndre: (value: boolean) => void,
-    dispatch: Dispatch<Action>,
     locale: Locale,
 ) => {
     type Outbound = OutboundNorskKontonummer | OutboundUtenlandsbankonto;
@@ -134,19 +131,10 @@ const submitKontonummer = (
     };
 
     settLoading(true);
-    postKontonummer(outbound[kontonummerType](), locale)
-        .then(() => getUpdatedData(dispatch))
-        .then(() => settOpprettEllerEndre(false))
-        .catch((error: Feilmelding) => settAlert(error))
-        .then(() => settLoading(false));
-};
-
-const getUpdatedData = (dispatch: Dispatch<Action>) =>
-    fetchPersonInfo().then((personInfo) => {
-        dispatch({
-            type: "SETT_PERSON_INFO_RESULT",
-            payload: personInfo as PersonInfo,
-        });
+    postKontonummer(outbound[kontonummerType](), locale).catch((error: Feilmelding) => {
+        settAlert(error);
+        settLoading(false);
     });
+};
 
 export default KontonummerForm;

@@ -4,8 +4,8 @@ import AstroPageRoot from "@/components/astro/AstroPageRoot";
 import { getRuntimeConfig, setRuntimeConfig, useRuntimeConfig } from "@/config/runtimeConfig";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
-vi.mock("@/views/endre-kontonummer/EndreKontonummer", () => ({
-    EndreKontonummer: () => <div>forside {useRuntimeConfig().apiUrl}</div>,
+vi.mock("@/views/detaljert-arbeidsforhold/DetaljertArbeidsforhold", () => ({
+    default: () => <div>forside {useRuntimeConfig().apiUrl}</div>,
 }));
 
 describe("AstroPageRoot på serveren", () => {
@@ -15,7 +15,7 @@ describe("AstroPageRoot på serveren", () => {
         setRuntimeConfig(null);
         const config = { ...testRuntimeConfig, apiUrl: "https://www.intern.nav.no/tms-personopplysninger-api" };
 
-        const html = renderToString(<AstroPageRoot page="endreKontonummer" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
+        const html = renderToString(<AstroPageRoot page="arbeidsforhold" locale="nb" pathname="/person/personopplysninger/nb/" config={config} />);
 
         expect(html).toContain(config.apiUrl);
         expect(() => getRuntimeConfig()).toThrow();

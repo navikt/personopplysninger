@@ -1,10 +1,68 @@
 ---
-import AstroPage from "@/components/astro/AstroPage.astro";
-import type { Locale } from "@/store/Store";
+import { Alert, Link } from "@navikt/ds-react";
+import kontonummerIkon from "@/assets/img/Kontonummer.svg";
+import personaliaIkon from "@/assets/img/Personalia.svg";
+import Box from "@/components/box/Box.astro";
+import ErrorMessage from "@/components/errorMessage/ErrorMessage";
+import PageContainer from "@/components/pagecontainer/PageContainer.astro";
+import { getServerRuntimeConfig } from "@/config/serverRuntimeConfig";
+import driftsmeldinger from "@/driftsmeldinger";
+import type { Language } from "@/language/language";
+import Layout from "@/layouts/Layout.astro";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
+import { personopplysningerApi } from "@/server/personopplysningerApi";
+import type { PersonInfo } from "@/types/personInfo";
+import { text } from "@/views/endre-kontonummer/endreKontonummerText";
+import KontonummerOy from "@/views/endre-kontonummer/KontonummerOy";
+import Resultat from "@/views/endre-kontonummer/Resultat.astro";
+import { text as personaliaText } from "@/views/forside/personalia/personaliaText";
 
-const locale = Astro.currentLocale as Locale;
+const language = (Astro.currentLocale ?? "nb") as Language;
+const config = getServerRuntimeConfig(Astro.url);
+
+const personInfo = await hentFraApi<PersonInfo>("/personalia", personopplysningerApi(Astro));
+if (personInfo.status === "UNAUTHORIZED") {
+    return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
+}
+
+const resultat = personInfo.status === "RESULT" ? Astro.cookies.get("kontonr-result")?.value : undefined;
+if (resultat) {
+    Astro.cookies.delete("kontonr-result", { path: "/", domain: config.environment === "local" ? undefined : ".nav.no" });
+}
+
 const requestedBackTo = Astro.url.searchParams.get("backTo");
-const backTo = requestedBackTo?.startsWith("/") && !requestedBackTo.startsWith("//") ? requestedBackTo : undefined;
+const backTo = requestedBackTo?.startsWith("/") && !requestedBackTo.startsWith("//") ? requestedBackTo : "";
+const personalia = personInfo.status === "RESULT" ? personInfo.data.personalia : undefined;
 ---
 
-<AstroPage page="endreKontonummer" locale={locale} pathname={Astro.url.pathname} backTo={backTo} />
+<Layout title="Personopplysninger - www.nav.no" brodsmuler={[{ sti: "/endre-kontonummer", tittel: text.tittel[language] }]}>
+    <div class="pagecontent">
+        <div class="wrapper">
+            <PageContainer language={language} tittel={text.tittel[language]} ikon={kontonummerIkon} tilbakeTil={`${backTo}#utbetaling`}>
+                {driftsmeldinger.pdl && <Alert role="status" variant="warning">{driftsmeldinger.pdl}</Alert>}
+                {personInfo.status === "ERROR" && (
+                    <Box language={language} id="personalia" tittel={personaliaText.tittel[language]} ikon={personaliaIkon}>
+                        <Fragment slot="beskrivelse">{personaliaText.beskrivelse[language]}</Fragment>
+                        <ErrorMessage error={personInfo.error} />
+                    </Box>
+                )}
+                {personInfo.status === "RESULT" && (resultat === "success" || resultat === "error") && <Resultat language={language} resultat={resultat} />}
+                {personInfo.status === "RESULT" && (
+                    personalia?.kontoregisterStatus === "ERROR" ? (
+                        <Alert role="alert" variant="error">{text.kontonrFeilmelding[language]}</Alert>
+                    ) : (
+                        <KontonummerOy
+                            locale={language}
+                            config={config}
+                            kontonr={personalia?.kontonr}
+                            utenlandskbank={personalia?.utenlandskbank}
+                            personident={personalia?.personident}
+                            client:visible
+                        />
+                    )
+                )}
+                <Alert variant="info">{text.infoFoer[language]}<Link href={text.infoUrl[language]}>{text.infoLenke[language]}</Link></Alert>
+            </PageContainer>
+        </div>
+    </div>
+</Layout>

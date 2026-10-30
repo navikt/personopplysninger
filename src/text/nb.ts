@@ -233,13 +233,7 @@ Et barn som bor fast hos både mor og far, kan ha to bostedsadresser. Den ene ad
     "select.loading": "Laster inn ...",
     "select.no.hits": "Ingen treff funnet for",
     "endreKontonummer.tittel": "Endre kontonummer for utbetaling",
-    "endreKontonummer.info":
-        "Du kan ikke endre kontonummer for økonomisk sosialhjelp eller andre kommunale tjenester her. <lenkeNavno>Endre kontonummer for utbetalinger fra kommunen.</lenkeNavno>",
-    "endreKontonummer.lenketekst": "Endre kontonummer for utbetalinger fra kommunen.",
-    "endreKontonummer.lenkeURL": "https://www.nav.no/kontonummer#kommune",
     "endreKontonummer.authInfo": "Du blir bedt om å logge inn på nytt for å bekrefte endringen.",
-    "endreKontonummer.success": "<p>Du har endret kontonummeret ditt.</p><p>Nav vil sende deg et varsel om endringen på SMS og/eller e-post.</p>",
-    "endreKontonummer.error": "Det oppsto en feil ved endring av kontonummer.",
     "utbetalinger.info":
         "Hvis du ikke kjenner igjen kontonummeret, må du ringe oss <tlfTilKontaktsenter>55 55 33 33</tlfTilKontaktsenter> i åpningstiden eller <lenkeTilKontaktOss>kontakte oss</lenkeTilKontaktOss> i våre digitale kanaler.",
 };
