@@ -45,12 +45,13 @@
     height: 100%;
     padding: 1.5rem 0;
     align-items: center;
+    background-image: url("../../assets/img/Natur.svg");
     background-repeat: no-repeat;
     background-position: bottom right;
 }
 
 @media (max-width: 959px) {
     .wrapperInner {
-        background-image: none !important;
+        background-image: none;
     }
 }

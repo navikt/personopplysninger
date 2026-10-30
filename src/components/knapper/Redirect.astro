@@ -1,6 +1,5 @@
 ---
 import { ArrowLeftIcon } from "@navikt/aksel-icons";
-import naturIkon from "@/assets/img/Natur.svg";
 import veilederIkon from "@/assets/img/VeilederGul.svg";
 import { getAssetUrl } from "@/utils/assets";
 import styles from "./Redirect.module.css";
@@ -19,7 +18,7 @@ const { redirect, url } = Astro.props;
 ---
 
 <div class={styles.container}>
-    <div class={styles.wrapperInner} style={`background-image:url(${getAssetUrl(naturIkon)})`}>
+    <div class={styles.wrapperInner}>
         <span class={styles.ikonContainer}>
             <img src={getAssetUrl(veilederIkon)} class={styles.ikon} alt="Veileder" />
         </span>

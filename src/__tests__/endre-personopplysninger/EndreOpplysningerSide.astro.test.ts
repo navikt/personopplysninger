@@ -4,7 +4,7 @@ import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import personInfoFixture from "@/mocks/fixtures/person-info.json";
 import EndreOpplysninger from "@/pages/[locale]/endre-opplysninger/sendt-fra/[...route].astro";
-import { hentFraApi } from "@/server/apiClient";
+import { hentFraApi, loginUrlFor } from "@/server/apiClient";
 import type { PersonInfo } from "@/types/personInfo";
 
 vi.mock("@/server/apiClient", () => ({
@@ -66,6 +66,7 @@ const oppholdPdl = { ...personInfo.adresser!.oppholdsadresser![0], kilde: "pdl" 
 describe("Endre opplysninger (sendt fra)", () => {
     beforeEach(() => {
         vi.mocked(hentFraApi).mockReset();
+        vi.mocked(loginUrlFor).mockClear();
     });
 
     it("viser banner med lenke tilbake og boksene for kontaktinformasjon, adresser og utbetaling", async () => {
@@ -93,7 +94,7 @@ describe("Endre opplysninger (sendt fra)", () => {
 
         expect(vi.mocked(hentFraApi).mock.calls.map(([sti]) => sti)).toEqual(["/personalia"]);
         expect(telefon?.props.medOverskrift).toBe(false);
-        expect(telefon?.props.tlfnr).toEqual(personInfo.personalia.tlfnr);
+        expect(telefon?.props.tlfnr).toEqual(personInfo.personalia?.tlfnr);
         expect(telefon?.props.locale).toBe("nb");
     });
 
@@ -169,5 +170,9 @@ describe("Endre opplysninger (sendt fra)", () => {
 
         expect(response.status).toBe(302);
         expect(response.headers.get("location")).toBe("/login");
+        expect(loginUrlFor).toHaveBeenCalledTimes(1);
+        const [url, basePath] = vi.mocked(loginUrlFor).mock.calls[0];
+        expect(url.pathname).toBe(`/person/personopplysninger/nb/endre-opplysninger/sendt-fra/${route}`);
+        expect(basePath).toBe(import.meta.env.BASE_URL);
     });
 });
