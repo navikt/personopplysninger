@@ -39,7 +39,7 @@ const render = async (search = "?backTo=%2F", headers: Record<string, string> = 
 const islandProps = (html: string) => {
     const props = html.match(/<astro-island[^>]*\sprops="([^"]*)"/)?.[1] ?? "";
     return JSON.parse(
-        props.replaceAll("&quot;", '"').replaceAll("&amp;", "&").replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&#39;", "'"),
+        props.replaceAll("&quot;", '"').replaceAll("&lt;", "<").replaceAll("&gt;", ">").replaceAll("&#39;", "'").replaceAll("&amp;", "&"),
     );
 };
 
