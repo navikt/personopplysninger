@@ -25,7 +25,7 @@ if (personInfo.status === "UNAUTHORIZED") {
     return Astro.redirect(loginUrlFor(Astro.url, import.meta.env.BASE_URL));
 }
 
-const resultat = Astro.cookies.get("kontonr-result")?.value;
+const resultat = personInfo.status === "RESULT" ? Astro.cookies.get("kontonr-result")?.value : undefined;
 if (resultat) {
     Astro.cookies.delete("kontonr-result", { path: "/", domain: config.environment === "local" ? undefined : ".nav.no" });
 }

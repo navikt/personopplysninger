@@ -134,4 +134,18 @@ describe("Endre kontonummer", () => {
         expect(html).not.toContain("Du har endret kontonummeret ditt.");
         expect(html).not.toContain("Det oppsto en feil ved endring av kontonummer.");
     });
+
+    it("viser feil uten resultatmelding når personalia feiler selv med cookie", async () => {
+        vi.mocked(hentFraApi).mockResolvedValueOnce({ status: "ERROR", error: { code: 500, text: "Feil fra API-et" } } as never);
+        const container = await AstroContainer.create({ renderers: await loadRenderers([getContainerRenderer()]) });
+
+        const response = await container.renderToResponse(EndreKontonummerSide, {
+            params: { locale: "nb" },
+            request: new Request("http://localhost:4321/person/personopplysninger/nb/endre-kontonummer", { headers: { cookie: "kontonr-result=success" } }),
+        });
+        const html = await response.text();
+
+        expect(html).toContain("Oisann, noe gikk galt ved henting av data!");
+        expect(html).not.toContain("Du har endret kontonummeret ditt.");
+    });
 });
