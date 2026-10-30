@@ -3,16 +3,17 @@ import userEvent from "@testing-library/user-event";
 import { IntlProvider } from "react-intl";
 import { setRuntimeConfig } from "@/config/runtimeConfig";
 import { StoreProvider } from "@/store/Context";
+import enMessages from "@/text/en";
 import nbMessages from "@/text/nb";
 import Kontonummer from "@/views/endre-kontonummer/Kontonummer";
 import { testRuntimeConfig } from "../utils/testRuntimeConfig";
 
 const REDIRECT = "http://x/nb/endre-kontonummer";
 
-const setup = (props: Parameters<typeof Kontonummer>[0]) =>
+const setup = (props: Parameters<typeof Kontonummer>[0], locale: "nb" | "en" = "nb") =>
     render(
-        <StoreProvider>
-            <IntlProvider locale={"nb"} messages={nbMessages}>
+        <StoreProvider initialLocale={locale}>
+            <IntlProvider locale={locale} messages={locale === "en" ? enMessages : nbMessages}>
                 <Kontonummer {...props} />
             </IntlProvider>
         </StoreProvider>,
@@ -80,6 +81,19 @@ describe("Kontonummer", () => {
         expect(screen.queryByRole("button", { name: "Lagre" })).not.toBeInTheDocument();
         expect(screen.getByRole("button", { name: /Lagre/ })).toBeInTheDocument();
         expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
+    });
+
+    test("sender valgt språk som locale-header ved lagring", async () => {
+        vi.spyOn(window, "location", "get").mockReturnValue({ ...window.location, assign: vi.fn() });
+        const fetchSpy = vi.spyOn(globalThis, "fetch").mockResolvedValue(new Response(JSON.stringify({ redirect: REDIRECT })));
+        setup({ kontonr: "12345678911" }, "en");
+
+        await userEvent.click(screen.getByRole("button", { name: enMessages["side.endre"] }));
+        fireEvent.input(screen.getByRole("textbox", { name: enMessages["felter.kontonummer.label"] }), { target: { value: "12345678911" } });
+        await userEvent.click(screen.getByRole("button", { name: enMessages["side.lagre"] }));
+
+        await waitFor(() => expect(fetchSpy).toHaveBeenCalledTimes(1));
+        expect(fetchSpy.mock.calls[0][1]?.headers).toMatchObject({ locale: "en" });
     });
 
     test("sender ikke en ny forespørsel når lagre trykkes mens første lagring pågår", async () => {

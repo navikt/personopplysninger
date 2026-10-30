@@ -68,8 +68,10 @@ describe("Endre kontonummer", () => {
         vi.mocked(hentFraApi).mockResolvedValueOnce(personInfo() as never);
         expect(await render("")).toContain('href="/person/personopplysninger/nb#utbetaling"');
 
-        vi.mocked(hentFraApi).mockResolvedValueOnce(personInfo() as never);
-        expect(await render("?backTo=//evil")).toContain('href="/person/personopplysninger/nb#utbetaling"');
+        for (const backTo of ["//evil", "https%3A%2F%2Fevil.example", "foo"]) {
+            vi.mocked(hentFraApi).mockResolvedValueOnce(personInfo() as never);
+            expect(await render(`?backTo=${backTo}`)).toContain('href="/person/personopplysninger/nb#utbetaling"');
+        }
     });
 
     it("viser feil og ingen øy når kontoregisteret feiler", async () => {
