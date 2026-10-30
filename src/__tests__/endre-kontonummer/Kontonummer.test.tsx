@@ -31,6 +31,7 @@ describe("Kontonummer", () => {
 
     afterEach(() => {
         vi.restoreAllMocks();
+        vi.clearAllMocks();
     });
 
     test("viser registrert kontonummer med kilde og endre-knapp", () => {
@@ -76,8 +77,19 @@ describe("Kontonummer", () => {
         const [url, init] = fetchSpy.mock.calls[0];
         expect(String(url)).not.toContain("personalia");
         expect(init?.headers).toMatchObject({ locale: "nb" });
-        expect(screen.getByRole("button", { name: /Lagre/ })).toHaveClass("navds-button--loading");
+        expect(screen.queryByRole("button", { name: "Lagre" })).not.toBeInTheDocument();
+        expect(screen.getByRole("button", { name: /Lagre/ })).toBeInTheDocument();
         expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
+    });
+
+    test("sender ikke en ny forespørsel når lagre trykkes mens første lagring pågår", async () => {
+        const fetchSpy = vi.spyOn(globalThis, "fetch").mockReturnValue(new Promise(() => {}));
+        setup({ kontonr: "12345678911" });
+
+        await fyllOgLagre();
+        await userEvent.click(screen.getByRole("button", { name: /Lagre/ }));
+
+        expect(fetchSpy).toHaveBeenCalledTimes(1);
     });
 
     test("viser feilmelding og aktiverer lagre igjen når lagring feiler", async () => {
@@ -87,7 +99,6 @@ describe("Kontonummer", () => {
         await fyllOgLagre();
 
         expect(await screen.findByText("Oisann, noe gikk galt! Prøv igjen senere.")).toBeInTheDocument();
-        expect(screen.getByRole("button", { name: "Lagre" })).not.toHaveClass("navds-button--loading");
         expect(screen.getByRole("group", { name: nbMessages["felter.kontonummer.grouplegend"] })).toBeInTheDocument();
     });
 });

@@ -100,7 +100,7 @@ const KontonummerForm = (props: Props) => {
                     <FormattedMessage id={"endreKontonummer.authInfo"} />
                 </Alert>
                 <div className={utbetalStyles.knapper}>
-                    <Button variant={"primary"} type={"submit"} disabled={isSubmitted && !isValid} loading={loading}>
+                    <Button variant={"primary"} type={"submit"} disabled={loading || (isSubmitted && !isValid)} loading={loading}>
                         <FormattedMessage id={"side.lagre"} />
                     </Button>
                     <Button variant={"tertiary"} type={"button"} disabled={loading} onClick={() => settOpprettEllerEndre(false)}>
