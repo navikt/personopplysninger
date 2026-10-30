@@ -4,8 +4,8 @@ import type { Locale } from "@/store/Store";
 import type { TPSResponse } from "@/types/tps-response";
 import { logApiError } from "@/utils/logger";
 import { getLoginRedirectUrl } from "@/utils/redirects";
+import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/views/endre-kontonummer/endring/types";
 import type { OutboundTlfnummer } from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonnummer";
-import type { OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/types";
 
 const parseJson = (data: Response) => data.json();
 

@@ -4,7 +4,7 @@ import { IntlProvider } from "react-intl";
 import createFetchMock from "vitest-fetch-mock";
 import { StoreProvider } from "@/store/Context";
 import nbMessages from "@/text/nb";
-import KontonummerForm from "@/views/forside/sections/4-personinfo/4-utbetalinger/endring/KontonummerForm";
+import KontonummerForm from "@/views/endre-kontonummer/endring/KontonummerForm";
 
 const fetchMocker = createFetchMock(vi);
 

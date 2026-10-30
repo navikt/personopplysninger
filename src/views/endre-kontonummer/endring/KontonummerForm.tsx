@@ -11,7 +11,7 @@ import type { UtenlandskBankkonto } from "@/types/personalia";
 import type { PersonInfo } from "@/types/personInfo";
 import { normalizeNummer } from "@/utils/formattering";
 import { UNKNOWN } from "@/utils/text";
-import utbetalStyles from "../Utbetalinger.module.css";
+import utbetalStyles from "@/views/forside/sections/4-personinfo/4-utbetalinger/Utbetalinger.module.css";
 import formStyles from "./KontonummerForm.module.css";
 import OpprettEllerEndreNorskKontonr, { setOutboundNorskKontonummer } from "./norsk-bankkonto/NorskKontonummer";
 import type { FormFields, OutboundNorskKontonummer, OutboundUtenlandsbankonto } from "./types";

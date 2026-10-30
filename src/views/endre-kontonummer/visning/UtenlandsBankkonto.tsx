@@ -3,7 +3,7 @@ import { friendlyFormatIBAN } from "ibantools";
 import ListeElement from "@/components/listelement/ListElement";
 import { Liste } from "@/components/listelement/Liste";
 import type { UtenlandskBankkonto } from "@/types/personalia";
-import GateAdresse from "../../3-adresser/komponenter/GateAdresse";
+import GateAdresse from "@/views/forside/sections/4-personinfo/3-adresser/komponenter/GateAdresse";
 
 interface Props {
     utenlandskBankkonto?: UtenlandskBankkonto;
