@@ -54,7 +54,10 @@ describe("Endre kontonummer", () => {
         const html = await render();
 
         expect(html).toMatch(/<astro-island[^>]*client="visible"/);
-        const keys = Object.keys(islandProps(html));
+        const props = islandProps(html);
+        const keys = Object.keys(props);
+        expect(props.kontonr).toEqual([0, "12345678901"]);
+        expect(props.locale).toEqual([0, "nb"]);
         expect(keys).toEqual(expect.arrayContaining(["config", "kontonr", "locale", "personident"]));
         expect(["config", "kontonr", "locale", "personident", "utenlandskbank"]).toEqual(expect.arrayContaining(keys));
         expect(html).toContain("Endre kontonummer for utbetaling");
@@ -141,7 +144,9 @@ describe("Endre kontonummer", () => {
 
         const response = await container.renderToResponse(EndreKontonummerSide, {
             params: { locale: "nb" },
-            request: new Request("http://localhost:4321/person/personopplysninger/nb/endre-kontonummer", { headers: { cookie: "kontonr-result=success" } }),
+            request: new Request("http://localhost:4321/person/personopplysninger/nb/endre-kontonummer", {
+                headers: { cookie: "kontonr-result=success" },
+            }),
         });
         const html = await response.text();
 
