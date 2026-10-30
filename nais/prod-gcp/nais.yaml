@@ -60,8 +60,6 @@ spec:
       value: "https://www.nav.no/minside"
     - name: ENDRE_KONTONUMMER_URL
       value: "https://www.nav.no/tms-endre-kontonummer"
-    - name: INNLOGGINGSSTATUS_URL
-      value: "https://www.nav.no/person/nav-dekoratoren-api/auth"
     - name: LOGIN_URL
       value: "https://login.nav.no/oauth2/login"
     - name: PDL_URL

@@ -8,7 +8,6 @@ export interface RuntimeConfig {
     dineSakerUrl: string;
     dittNavUrl: string;
     endreKontonummerUrl: string;
-    innloggingsstatusUrl: string;
     loginUrl: string;
     pdlUrl: string;
     skjermingUrl: string;

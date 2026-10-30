@@ -7,7 +7,6 @@ export interface RuntimeEnv {
     DINE_SAKER_URL: string;
     DITT_NAV_URL: string;
     ENDRE_KONTONUMMER_URL: string;
-    INNLOGGINGSSTATUS_URL: string;
     LOGIN_URL: string;
     PDL_URL: string;
     SKJERMING_URL: string;
@@ -50,7 +49,6 @@ export const buildRuntimeConfig = ({ requestUrl, basePath, clusterName, env }: I
         dineSakerUrl: env.DINE_SAKER_URL,
         dittNavUrl: env.DITT_NAV_URL,
         endreKontonummerUrl: env.ENDRE_KONTONUMMER_URL,
-        innloggingsstatusUrl: env.INNLOGGINGSSTATUS_URL,
         loginUrl: env.LOGIN_URL,
         pdlUrl: env.PDL_URL,
         skjermingUrl: env.SKJERMING_URL,

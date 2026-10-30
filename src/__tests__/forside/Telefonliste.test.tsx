@@ -4,8 +4,6 @@ import personInfo from "@/mocks/fixtures/person-info.json";
 import type { PersonInfo } from "@/types/personInfo";
 import Telefonliste from "@/views/forside/sections/4-personinfo/2-kontaktinfo/subsections/telefonnummer/Telefonliste";
 
-vi.mock("react-modal");
-
 const medNummer = personInfo as unknown as PersonInfo;
 const tomBank = {
     adresse1: "",

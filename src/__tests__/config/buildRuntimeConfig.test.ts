@@ -7,7 +7,6 @@ const env: RuntimeEnv = {
     DINE_SAKER_URL: "https://www.nav.no/dokumentarkiv",
     DITT_NAV_URL: "https://www.nav.no/minside",
     ENDRE_KONTONUMMER_URL: "https://www.nav.no/tms-endre-kontonummer",
-    INNLOGGINGSSTATUS_URL: "https://www.nav.no/person/nav-dekoratoren-api/auth",
     LOGIN_URL: "https://login.nav.no/oauth2/login",
     PDL_URL: "https://www.nav.no/person/pdl-fullmakt-ui",
     SKJERMING_URL: "https://www.nav.no/person/personopplysninger/skjerming",
@@ -66,12 +65,14 @@ describe("buildRuntimeConfig", () => {
     });
 
     it("sender miljøverdiene videre uendret", () => {
-        expect(build("https://www.nav.no/", "prod-gcp")).toMatchObject({
+        const config = build("https://www.nav.no/", "prod-gcp");
+
+        expect(config).not.toHaveProperty("innloggingsstatusUrl");
+        expect(config).toMatchObject({
             buildVersion: "abc123",
             dineSakerUrl: env.DINE_SAKER_URL,
             dittNavUrl: env.DITT_NAV_URL,
             endreKontonummerUrl: env.ENDRE_KONTONUMMER_URL,
-            innloggingsstatusUrl: env.INNLOGGINGSSTATUS_URL,
             loginUrl: env.LOGIN_URL,
             pdlUrl: env.PDL_URL,
             skjermingUrl: env.SKJERMING_URL,
