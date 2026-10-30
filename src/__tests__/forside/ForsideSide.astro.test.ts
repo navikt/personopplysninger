@@ -15,6 +15,11 @@ vi.mock("@/server/apiClient", () => ({
     loginUrlFor: vi.fn().mockReturnValue("/person/personopplysninger/oauth2/login?redirect=/person/personopplysninger/nb/"),
 }));
 
+vi.mock("@/config/serverRuntimeConfig", async () => {
+    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
+    return { getServerRuntimeConfig: () => testRuntimeConfig };
+});
+
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
     fetchDecoratorHtml: vi.fn().mockResolvedValue({ DECORATOR_HEAD_ASSETS: "", DECORATOR_HEADER: "", DECORATOR_FOOTER: "", DECORATOR_SCRIPTS: "" }),
 }));
@@ -173,7 +178,7 @@ describe("Forsiden", () => {
         expect(props.medOverskrift).toEqual([0, true]);
         expect(props.language).toEqual([0, "nb"]);
         expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, "http://localhost:4321"]);
+        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
         expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
     });
 
@@ -185,7 +190,7 @@ describe("Forsiden", () => {
         expect(Object.keys(props).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
         expect(props.language).toEqual([0, "nb"]);
         expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, "http://localhost:4321"]);
+        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
         expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
     });
 

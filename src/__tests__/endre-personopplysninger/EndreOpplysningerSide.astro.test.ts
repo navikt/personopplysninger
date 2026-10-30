@@ -13,6 +13,11 @@ vi.mock("@/server/apiClient", () => ({
     loginUrlFor: vi.fn().mockReturnValue("/login"),
 }));
 
+vi.mock("@/config/serverRuntimeConfig", async () => {
+    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
+    return { getServerRuntimeConfig: () => testRuntimeConfig };
+});
+
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
     fetchDecoratorHtml: vi.fn().mockResolvedValue({ DECORATOR_HEAD_ASSETS: "", DECORATOR_HEADER: "", DECORATOR_FOOTER: "", DECORATOR_SCRIPTS: "" }),
 }));
@@ -99,7 +104,7 @@ describe("Endre opplysninger (sendt fra)", () => {
         expect(Object.keys(telefon?.props ?? {}).sort()).toEqual(["apiUrl", "appUrl", "language", "loginUrl", "medOverskrift", "tlfnr"]);
         expect(telefon?.props.language).toBe("nb");
         expect(telefon?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
-        expect(telefon?.props.appUrl).toBe("http://localhost:4321");
+        expect(telefon?.props.appUrl).toBe(testRuntimeConfig.appUrl);
         expect(telefon?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
     });
 
@@ -125,7 +130,7 @@ describe("Endre opplysninger (sendt fra)", () => {
         expect(Object.keys(andre?.props ?? {}).sort()).toEqual(["adresser", "apiUrl", "appUrl", "language", "loginUrl", "slot"]);
         expect(andre?.props.language).toBe("nb");
         expect(andre?.props.apiUrl).toBe(testRuntimeConfig.apiUrl);
-        expect(andre?.props.appUrl).toBe("http://localhost:4321");
+        expect(andre?.props.appUrl).toBe(testRuntimeConfig.appUrl);
         expect(andre?.props.loginUrl).toBe(testRuntimeConfig.loginUrl);
     });
 

@@ -7,7 +7,7 @@ export const testRuntimeConfig: RuntimeConfig = {
     apiUrl: "http://localhost:4321/api",
     dineSakerUrl: "https://www.intern.dev.nav.no/dokumentarkiv",
     dittNavUrl: "https://www.intern.dev.nav.no/minside",
-    endreKontonummerUrl: "http://localhost:4321/api",
+    endreKontonummerUrl: "http://localhost:4321/endre-kontonummer-api",
     loginUrl: "http://localhost:4321/oauth2/login",
     pdlUrl: "https://www.intern.dev.nav.no/person/pdl-fullmakt-ui",
     skjermingUrl: "https://skjerming-ui.intern.dev.nav.no/person/personopplysninger/skjerming",

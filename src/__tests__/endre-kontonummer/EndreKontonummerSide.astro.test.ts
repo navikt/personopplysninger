@@ -11,6 +11,11 @@ vi.mock("@/server/apiClient", () => ({
     loginUrlFor: vi.fn().mockReturnValue("/login"),
 }));
 
+vi.mock("@/config/serverRuntimeConfig", async () => {
+    const { testRuntimeConfig } = await import("../utils/testRuntimeConfig");
+    return { getServerRuntimeConfig: () => testRuntimeConfig };
+});
+
 vi.mock("@navikt/nav-dekoratoren-moduler/ssr", () => ({
     fetchDecoratorHtml: vi.fn().mockResolvedValue({ DECORATOR_HEAD_ASSETS: "", DECORATOR_HEADER: "", DECORATOR_FOOTER: "", DECORATOR_SCRIPTS: "" }),
 }));
@@ -69,7 +74,7 @@ describe("Endre kontonummer", () => {
             "utenlandskbank",
         ]);
         expect(props.apiUrl).toEqual([0, testRuntimeConfig.apiUrl]);
-        expect(props.appUrl).toEqual([0, "http://localhost:4321"]);
+        expect(props.appUrl).toEqual([0, testRuntimeConfig.appUrl]);
         expect(props.loginUrl).toEqual([0, testRuntimeConfig.loginUrl]);
         expect(props.endreKontonummerUrl).toEqual([0, testRuntimeConfig.endreKontonummerUrl]);
         expect(html).toContain("Endre kontonummer for utbetaling");
